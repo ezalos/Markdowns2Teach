@@ -1,0 +1,93 @@
+PROMPT POUR NOTEBOOKLM \- SÉANCE 1 : FONDAMENTAUX IA ET PAYSAGE 2025
+
+CONTEXTE DU COURS  
+Tu vas m'aider à préparer un cours de 3h intitulé "Deep Tech & Machine Learning" pour des étudiants de Master 2 Entrepreneuriat à la Sorbonne (15-20 étudiants).  
+Profil des étudiants :
+
+École de commerce (très peu d'ingénieurs)  
+Certains ont un peu codé mais ça devient lourd quand ça va dans le détail  
+Très curieux, suivent les dernières avancées IA (produits, pas recherche)  
+Utilisent beaucoup les LLM au quotidien  
+Ambition : beaucoup hésitent entre créer une startup ou rejoindre une entreprise  
+Intérêt marqué pour les LLM et l'écosystème startup
+
+Contraintes pédagogiques :
+
+70% pratique / 30% théorie  
+Business-first : partir des problèmes métier, pas des algorithmes  
+Non-technique friendly : vocabulaire accessible, focus décisionnel  
+Contexte français/européen prioritaire (Mistral AI, EU AI Act)  
+Éviter le contenu générable par ChatGPT (ils le font déjà)
+
+OBJECTIF DE LA SÉANCE 1  
+Titre : Fondamentaux IA et opportunités business  
+Durée : 3h (17h30-20h30)  
+Objectif principal : Démystifier l'IA en 2025, comprendre le paysage des acteurs, premiers pas hands-on
+
+PLAN DÉTAILLÉ À COUVRIR  
+PARTIE 1 : Catégories d'IA (\~45 min)  
+1.1 \- Démonstration pédagogique
+
+Montrer un modèle simple qui apprend (ex: régression linéaire appliquée à un cas business comme la prédiction de prix)  
+Objectif : rendre tangible le concept d'"apprentissage"
+
+1.2 \- Comment catégoriser les modèles ?  
+Par technologie utilisée (du plus simple au plus complexe) :
+
+If/else (règles métier)  
+Statistiques classiques  
+Machine Learning  
+Deep Learning  
+IA Générative
+
+→ Clarifier ce qui EST de l'IA vs ce qui N'EST PAS de l'IA (système de prix dynamique \= IA ? calculette \= IA ?)  
+Par tâche performée (input/output) :
+
+Tabulaire → prédiction  
+Texte → génération/classification  
+Image/Audio/Vidéo → reconnaissance/génération
+
+1.3 \- Métriques
+
+Métriques de recherche (accuracy, F1, etc.)  
+Métriques de production (coût, vitesse, fiabilité, sécurité)
+
+→ Inclure une frise chronologique des grandes avancées IA
+
+CE QUE J'ATTENDS DE TOI  
+En utilisant les sources que j'ai uploadées, aide-moi à :
+
+Extraire les données clés pour illustrer chaque partie :
+
+Chiffres récents (2024-2025) sur l'adoption IA, investissements, performances  
+Exemples concrets de cas business  
+Évolutions marquantes du paysage
+
+Identifier les meilleures visualisations/schémas à créer ou adapter :
+
+Frise chronologique IA  
+Schéma chaîne de valeur  
+Comparatif modèles
+
+Proposer des anecdotes/exemples parlants pour des étudiants entrepreneurs :
+
+Startups qui ont réussi avec l'IA  
+Erreurs classiques à éviter  
+Opportunités de marché
+
+Vérifier la cohérence et l'actualité des informations :
+
+Signaler si certaines infos sont datées  
+Proposer des mises à jour si nécessaire
+
+Suggérer des questions de réflexion pour engager la discussion en classe
+
+FORMAT DE SORTIE SOUHAITÉ  
+Structure ta réponse en suivant le plan du cours :
+
+Pour chaque partie, donne-moi les points clés à couvrir avec les sources spécifiques à citer  
+Mets en évidence les chiffres/stats les plus impactants  
+Propose des questions d'engagement pour les étudiants  
+Signale les pièges à éviter (simplifications excessives, infos datées)
+
+Note importante : Les étudiants utilisent déjà beaucoup ChatGPT. Le contenu doit apporter une valeur ajoutée qu'ils ne trouveraient pas en promptant eux-mêmes : vision structurée, sources vérifiées, contexte européen, perspective entrepreneuriale.

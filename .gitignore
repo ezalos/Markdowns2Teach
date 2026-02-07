@@ -1,0 +1,29 @@
+# ABOUTME: Git ignore rules for the Markdowns2Teach project.
+# ABOUTME: Excludes build artifacts, dependencies, and generated presentations.
+
+# Build output
+dist/
+
+# Node
+node_modules/
+
+# Binary assets (images extracted from PDFs — too large for git)
+slides/**/assets/*.png
+slides/**/assets/*.jpg
+slides/**/assets/*.gif
+
+# Reference materials (large binary source files — PDFs, notebooks, HTML archives)
+references/
+
+# Archive files
+*.zip
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo
+*~
+.vscode/

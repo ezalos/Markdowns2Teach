@@ -1,0 +1,9 @@
+# ABOUTME: Marp CLI configuration for the Markdowns2Teach project.
+# ABOUTME: Points to custom themes, enables HTML, and sets output directory.
+
+html: true
+allowLocalFiles: true
+themeSet: ./themes
+options:
+  markdown:
+    breaks: false
