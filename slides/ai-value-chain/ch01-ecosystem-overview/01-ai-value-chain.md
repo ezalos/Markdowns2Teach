@@ -69,7 +69,7 @@ L'IA n'est pas un produit unique — c'est un **stack de dépendances** :
 
 | Entreprise | Pays | Revenu [1] | Rôle |
 |------------|------|--------|------|
-| ASML | 🇳🇱 Pays-Bas | €32,7 Mds | Monopole sur les machines EUV de lithographie |
+| ASML | 🇳🇱 Pays-Bas | €28,3 Mds | Monopole sur les machines EUV de lithographie |
 | TSMC | 🇹🇼 Taïwan | $122,9 Mds | Fonderie : fabrique les puces NVIDIA, Apple, AMD |
 | NVIDIA | 🇺🇸 USA | $130,5 Mds | GPUs dominants (H100, Blackwell), écosystème CUDA |
 | Samsung / SK Hynix | 🇰🇷 Corée | $300 Mds (combiné) | Mémoire HBM — composant critique des GPUs IA |
