@@ -1,0 +1,41 @@
+{
+  "metric_identity": {
+    "metric_name": "AI Talent Market Data: Salaries, Hiring Trends, Geographic Distribution, and Skills Gap",
+    "source_report": "Composite metric from: LinkedIn Work Change Report / Global Talent Trends 2026, Levels.fyi End of Year Pay Report 2025, IDC IT Global Skills Survey 2024, OECD AI Workforce Data, WEF Future of Jobs Report 2025, Rise AI Talent Salary Report 2026",
+    "source_url": "https://economicgraph.linkedin.com/research/work-change-report",
+    "publication_date": "January 2025 - January 2026 (multiple reports)",
+    "methodology_notes": "Composite metric aggregating multiple authoritative sources. LinkedIn data based on 1B+ professional profiles and 69M companies globally, supplemented by a 19,000-respondent survey across US, UK, France, Germany, Australia. Levels.fyi compensation data drawn from verified employee-reported total compensation packages at major tech companies. IDC IT Global Skills Survey polled 811 enterprise IT leaders in US and Canada (December 2024). WEF Future of Jobs Report 2025 surveyed 1,000+ employers representing 14M workers across 55 economies. OECD AI Workforce data uses LinkedIn Economic Graph as primary source. Rise salary report aggregates proprietary recruitment data across AI-focused roles."
+  },
+  "metric_value": {
+    "value": "Median AI/ML engineer salary: $244,747 (US). AI talent demand-to-supply ratio: 3.2:1 globally. 1.3 million new AI-related jobs created in 2 years (2023-2025). AI skills gap: $5.5 trillion economic risk by 2026 (IDC).",
+    "unit": "USD (salaries); ratio (demand-supply); count (jobs created); USD (skills gap cost)",
+    "geographic_scope": "Global (with US, Europe, and Asia breakdowns)",
+    "time_period": "2023-2026",
+    "comparison_baseline": "AI engineer avg salary was ~$155,000 in 2023, rising to $206,000+ by 2025 in the US. AI job postings grew 78% YoY while talent pool grew only 24%. In 2016, 3.5 per 1,000 LinkedIn members were AI engineering talent; by 2024 this reached 7 per 1,000 (130% increase). AI-required roles grew from ~1M workers in 2023 to ~7M in 2025 (7x in 2 years). EU had 91% increase in AI job postings in France, 109% in Germany, 120% in UK, 204% in Ireland (year to March 2025).",
+    "market_layer": "cross-cutting (talent market spans infrastructure, platform, model, application, and vertical layers)"
+  },
+  "trend": {
+    "trend_direction": "Accelerating",
+    "year_over_year_change": "AI job postings +78% YoY (2024-2025). AI salary premium at staff-engineer level grew from 15.8% to 18.7% YoY. Generative AI skill demand quadrupled in 2 years. US roles requiring AI literacy saw 70% YoY increase.",
+    "compound_annual_growth_rate": "AI job postings have grown 257% since 2015 (~16% CAGR). AI talent pool on LinkedIn grew at ~11% CAGR since 2016 (130% total over 8 years).",
+    "forecast_value": "EU aims for 20M tech workers by 2030 but projects only 12M available (8M shortage). 39% of existing workforce skills expected to become outdated by 2030 (WEF). 77% of companies plan to reskill/upskill workers between 2025-2030.",
+    "forecast_year": "2030",
+    "velocity_indicator": "AI-required roles grew 7x in 2 years (2023-2025). France AI hiring difficulty surged from 19% to 80% in 5 years (2018-2023). Time to fill AI roles averages 2-3x longer than traditional software roles."
+  },
+  "entrepreneurial_relevance": {
+    "relevance_for_entrepreneurs": "The AI talent market is the single largest constraint on AI startup execution. With a global demand-to-supply ratio of 3.2:1, hiring AI engineers is slower, more expensive, and more competitive than virtually any other technical role. The median AI/ML engineer commands $245K in total comp (US), with top-tier researchers at frontier labs exceeding $1M+. For European founders, the challenge is compounded: French AI salaries (EUR 70-110K) are 2-3x lower than US equivalents, creating a severe brain drain as top talent migrates to higher-paying US labs. However, 76% of AI positions now offer remote work, creating an arbitrage opportunity for European startups to hire globally while maintaining a lower cost base. The skills gap is also shifting: only 23% of AI job postings now require advanced degrees (down from 67% in 2020), signaling that practical skills and portfolio work matter more than credentials. Startups that invest in internal upskilling can build competitive teams faster than those competing purely on salary. The $5.5 trillion cost of skills gaps (IDC) represents a massive market opportunity for EdTech and AI training startups. Additionally, the 7x growth in AI-required roles (from 1M to 7M workers in 2 years) means AI is no longer a niche specialization but a cross-functional skill, creating opportunities for tools that democratize AI capabilities for non-specialists.",
+    "actionable_insight": "Budget 30-50% above market for AI talent or adopt a hybrid model (senior AI leads + upskilled developers). Leverage remote-first hiring to access global talent at European price points. Consider acqui-hiring small AI teams. For workforce-related startups: the reskilling/upskilling market is massive, with 77% of companies planning investment and only 28% currently spending on it. Target the gap between corporate intent and actual training spend.",
+    "session_mapping": "1, 4",
+    "risk_profile": "concentration_risk"
+  },
+  "confidence": {
+    "data_quality": "High",
+    "cross_reference": "LinkedIn Economic Graph (1B+ profiles), Levels.fyi (verified comp data from 300K+ submissions), WEF Future of Jobs Report 2025 (1,000+ employers, 55 economies), IDC IT Global Skills Survey (811 enterprise IT leaders), OECD Employment Outlook, McKinsey Global Survey on AI 2025. Multiple sources consistently report: demand-supply gap of 3-3.5:1, salary premiums of 10-20% above non-AI tech roles, and accelerating hiring trends. LinkedIn and WEF figures are closely aligned on job creation numbers.",
+    "caveats": "Salary figures are US-centric and skew toward large tech companies; startup and mid-market salaries may be 20-40% lower. The 3.2:1 demand-supply ratio measures open positions vs. available candidates and may overcount due to duplicate postings. 'AI roles' definitions vary across sources: some include data analysts and BI developers, others restrict to ML engineers and researchers. The $5.5T skills gap figure from IDC is a projected economic loss estimate, not a direct market size. Geographic salary comparisons are complicated by purchasing power parity and benefits differences. Remote work statistics may overstate actual remote hiring due to hybrid arrangements. The 7x growth in AI-required roles includes jobs that merely list AI as a 'nice-to-have' skill, not necessarily core AI development positions.",
+    "measurement_reliability": "survey_self_reported"
+  },
+  "uncertain": [
+    "compound_annual_growth_rate",
+    "velocity_indicator"
+  ]
+}

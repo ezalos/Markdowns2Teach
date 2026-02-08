@@ -1,0 +1,53 @@
+{
+  "identity": {
+    "company_name": "Lambda (Lambda Labs)",
+    "headquarters": "San Francisco, California, US",
+    "headquarters_region": "US",
+    "founded_year": 2012
+  },
+  "value_chain": {
+    "role_in_value_chain": "cloud",
+    "value_chain_position": "Lambda sits at the cloud compute and hardware layer, providing GPU infrastructure for AI training and inference. It depends on NVIDIA for GPU supply (H100, GB200, GB300 NVL72) and colocation providers for data center space. Downstream, it serves AI labs, enterprises, universities, and government agencies who use Lambda Cloud for training and serving AI models. Its multibillion-dollar deal with Microsoft positions it as a key capacity provider to hyperscalers as well. Lambda also operates data centers in San Francisco, Austin, and other locations.",
+    "vertical_integration_level": "Multi-layer"
+  },
+  "products": {
+    "key_products": [
+      "Lambda Cloud — GPU cloud platform offering on-demand and reserved NVIDIA H100 SXM instances ($2.49-$2.99/GPU-hr), HGX B200 clusters, and 1-Click Clusters for distributed training at production scale",
+      "Lambda Stack — MIT-licensed open-source software suite that automates installation of CUDA, cuDNN, PyTorch, TensorFlow, and NVIDIA drivers with a single command, used across 97% of US universities",
+      "Lambda Workstations and Servers — pre-configured deep learning hardware (Vector, Scalar, Hyperplane lines) for on-premises use, though sunsetting in 2025 to focus on cloud"
+    ]
+  },
+  "business": {
+    "revenue_or_valuation": "Valuation: ~$6B (Series E, November 2025). Revenue run rate: ~$500M as of May 2025, up from $425M in December 2024 and $250M in 2023. Source: Sacra estimates and press reports.",
+    "annual_recurring_revenue_arr": "Not separately disclosed as ARR. Revenue run rate ~$500M (May 2025). Cloud revenue growing rapidly as hardware sales are being sunset. [uncertain]",
+    "funding_total_and_last_round": "Total raised: ~$2.3B. Last round: $1.5B+ Series E (November 2025) led by TWG Global, with participation from US Innovative Technology Fund (USIT). Prior rounds: $480M Series D at $2.5B valuation (February 2025, co-led by Andra Capital and SGW, with NVIDIA, ARK Invest, G Squared, Super Micro); $320M Series C at $1.5B valuation (2024, led by USIT, with B Capital, SK Telecom, T. Rowe Price).",
+    "business_model": "Usage-based cloud compute (GPU-hours) for Lambda Cloud, plus hardware sales for on-premises workstations and servers (being phased out). Cloud pricing undercuts competitors — H100 PCIe at ~$2.49/hr vs. $4.25 at CoreWeave. Also earns revenue from large-scale infrastructure deals with hyperscalers (multibillion-dollar Microsoft deal). Transitioning from a hardware-plus-cloud model to cloud-first.",
+    "burn_rate_and_runway": "Not publicly disclosed. Heavy capital expenditure on GPU procurement and data center buildout, but backed by $2.3B in total funding and multibillion-dollar Microsoft infrastructure deal providing revenue visibility. NVIDIA GPU leaseback deal (~18,000 GPUs, ~$1.5B contract value) provides additional revenue floor. [uncertain]"
+  },
+  "openness": {
+    "open_vs_closed_spectrum": "Hybrid — Lambda Cloud is a proprietary platform, but Lambda Stack is fully open-source (MIT license) and widely adopted in academia. The company actively supports open-source AI frameworks and provides pre-configured environments for PyTorch, TensorFlow, and other OSS tools."
+  },
+  "startup_relevance": {
+    "relevance_for_startups": "Lambda is a compelling alternative to hyperscalers for AI startups needing serious GPU compute for training. Its pricing is significantly cheaper than AWS/GCP/Azure and even undercuts CoreWeave on H100 instances. The company's deep NVIDIA relationship gives it early access to next-generation hardware (GB200, GB300 NVL72), meaning startups on Lambda Cloud can access cutting-edge GPUs faster. Lambda Stack (MIT-licensed) is already the default ML software stack at most US universities, so many ML engineers arrive at startups already familiar with Lambda's tools. For startups scaling from prototyping to production training, Lambda offers a clear path from single-GPU instances to 1-Click Clusters. The Microsoft partnership and NVIDIA backing signal enterprise credibility that can matter when startups pitch to investors or enterprise customers.",
+    "accessibility": "Accessible to startups via self-service Lambda Cloud sign-up. On-demand H100 SXM instances at $2.99/GPU-hr, H100 PCIe at ~$2.49/GPU-hr. Reserved instances available at deeper discounts for committed usage. 1-Click Clusters for scaling to multi-node training. Lambda Stack is free and open-source. No minimum commitment required for on-demand. Enterprise contracts available for large-scale workloads.",
+    "primary_model_dependency": "None — Lambda is infrastructure-layer and model-agnostic. Supports any AI framework and model. Customers include AI labs training their own models."
+  },
+  "ecosystem": {
+    "key_partnerships": [
+      "Microsoft — multibillion-dollar AI infrastructure deal to deploy tens of thousands of NVIDIA GPUs, 8+ year relationship",
+      "NVIDIA — strategic investor (participated in Series D), GPU supplier, and customer (leaseback deal for ~18,000 GPUs worth ~$1.5B)",
+      "ARK Invest — Series D investor, signaling conviction in Lambda's cloud growth trajectory",
+      "TWG Global (Thomas Tull / Mark Walter) — led $1.5B Series E, anchor investor with $15B AI fund backed by Mubadala",
+      "US Innovative Technology Fund (USIT) — led Series C, participated in Series E"
+    ],
+    "competitive_moat": "Three reinforcing advantages: (1) Deep NVIDIA relationship — strategic investor, early access to next-gen hardware, and a unique GPU leaseback arrangement where NVIDIA itself is a customer. (2) Academic adoption — Lambda Stack and workstations deployed in 97% of US universities creates a pipeline where ML engineers arrive at companies already trained on Lambda's ecosystem. (3) Pricing power through scale — multibillion-dollar Microsoft deal and $2.3B in funding enable GPU procurement at scale, supporting aggressive pricing that smaller competitors cannot match. Lambda's transition from hardware to cloud is creating a flywheel where existing on-premises customers migrate to Lambda Cloud.",
+    "data_moat_type": "Distribution"
+  },
+  "regulatory": {
+    "regulatory_exposure": "Exempt — Lambda is cloud infrastructure and open-source software tooling, not an AI model provider. Not directly subject to EU AI Act GPAI obligations. Standard cloud compliance applies. Lambda Stack's MIT license does not trigger AI Act open-source provider obligations as it is developer tooling, not an AI model."
+  },
+  "uncertain": [
+    "annual_recurring_revenue_arr",
+    "burn_rate_and_runway"
+  ]
+}

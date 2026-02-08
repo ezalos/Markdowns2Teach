@@ -1,0 +1,97 @@
+# ABOUTME: Field definitions for AI Market Intelligence research.
+# ABOUTME: Covers metric identity, values, trends, entrepreneurial relevance, and confidence.
+
+metric_identity:
+  metric_name:
+    description: "Name of the statistic or data point"
+    detail_level: brief
+  source_report:
+    description: "Which report/organization published this"
+    detail_level: brief
+  source_url:
+    description: "Direct link to the data"
+    detail_level: brief
+  publication_date:
+    description: "When published (month/year)"
+    detail_level: brief
+  methodology_notes:
+    description: "How the data was collected/calculated"
+    detail_level: moderate
+
+metric_value:
+  value:
+    description: "The actual number/percentage/figure"
+    detail_level: brief
+  unit:
+    description: "Currency, percentage, count, etc."
+    detail_level: brief
+  geographic_scope:
+    description: "Global / US / EU / France / China / Other"
+    detail_level: brief
+  time_period:
+    description: "Year or date range the metric covers"
+    detail_level: brief
+  comparison_baseline:
+    description: "Previous period value for trend calculation"
+    detail_level: moderate
+  market_layer:
+    description: >
+      Where in the AI value chain: infrastructure / platform / model /
+      application / vertical / cross-cutting
+    detail_level: brief
+
+trend:
+  trend_direction:
+    description: "Up / Down / Flat / Accelerating / Decelerating"
+    detail_level: brief
+  year_over_year_change:
+    description: "Percentage or absolute change YoY"
+    detail_level: brief
+  compound_annual_growth_rate:
+    description: "CAGR where applicable"
+    detail_level: brief
+  forecast_value:
+    description: "Projected future value if available"
+    detail_level: moderate
+  forecast_year:
+    description: "Year of projection"
+    detail_level: brief
+  velocity_indicator:
+    description: >
+      Speed of change: time_to_unicorn / time_to_100M_ARR /
+      adoption_doubling_time / cost_halving_time / regulatory_deadline
+    detail_level: brief
+
+entrepreneurial_relevance:
+  relevance_for_entrepreneurs:
+    description: "Why a startup founder should know this number"
+    detail_level: detailed
+  actionable_insight:
+    description: "What decision this data point informs"
+    detail_level: moderate
+  session_mapping:
+    description: "Which course session this metric supports (1-5)"
+    detail_level: brief
+  risk_profile:
+    description: >
+      Nature of risk signal: bubble_indicator / competitive_moat /
+      regulatory_risk / concentration_risk / dependency_risk / none
+    detail_level: brief
+
+confidence:
+  data_quality:
+    description: "High / Medium / Low — based on source reputation and methodology"
+    detail_level: brief
+  cross_reference:
+    description: "Other sources confirming the same metric"
+    detail_level: moderate
+  caveats:
+    description: "Known limitations or biases in the data"
+    detail_level: moderate
+  measurement_reliability:
+    description: >
+      How trustworthy: verified_financial_filing / analyst_estimate /
+      survey_self_reported / vendor_claim / projection_range
+    detail_level: brief
+
+uncertain: []

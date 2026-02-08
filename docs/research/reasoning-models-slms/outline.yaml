@@ -1,0 +1,146 @@
+# ABOUTME: Research outline for Reasoning Models & SLMs 2025-2026 comparison.
+# ABOUTME: Lists ~35 models across 4 categories with execution config for deep research.
+
+topic: "Reasoning Models & Small Language Models 2025-2026"
+
+items:
+  # ── Reasoning Models (Chain-of-Thought / Extended Thinking) ──
+  - name: "OpenAI o3"
+    category: reasoning
+    description: "OpenAI's frontier reasoning model (Apr 2025). Full chain-of-thought, PhD-level performance on AIME 2025 (96.7%) and GPQA Diamond (87.7%). $10/$40 per 1M tokens. 200K context. Landmark model that defined the reasoning era."
+
+  - name: "OpenAI o4-mini"
+    category: reasoning
+    description: "OpenAI's efficient reasoning model (Apr 2025). Cost-effective reasoning at $1.10/$4.40 per 1M tokens. 200K context. Tool use + image input. Strong math/code performance at fraction of o3 cost."
+
+  - name: "DeepSeek-R1"
+    category: reasoning
+    description: "DeepSeek's open-weight reasoning model (Jan 2025, updated R1-0528 May 2025). 685B MoE params. MIT license. Breakthrough: achieved o1-level reasoning via pure RL without supervised fine-tuning. Distilled into 6 smaller models (1.5B-70B). R1-0528 update reached 87.5% accuracy, on par with o3."
+
+  - name: "Claude Sonnet 4.5"
+    category: reasoning
+    description: "Anthropic's best model for complex agents and coding (Sep 2025). Extended thinking mode. 200K-1M context (beta). $3/$15 per 1M tokens. Up to 64K output. Hybrid thinking introduced with Claude 3.7 Sonnet (Feb 2025)."
+
+  - name: "Claude Opus 4.6"
+    category: reasoning
+    description: "Anthropic's most capable model (Feb 2026). 1M context (beta), 128K output. $5/$25 per 1M tokens. Agent teams feature, adaptive thinking, compaction. Outperforms GPT-5.2 on GDPval-AA by 144 Elo points."
+
+  - name: "Gemini 2.5 Pro"
+    category: reasoning
+    description: "Google's thinking model (Mar 2025). 1M context. Built-in reasoning mode with configurable thinking budget. Strong on AIME 2025 and coding benchmarks. Precursor to Gemini 3."
+
+  - name: "Gemini 3 Pro"
+    category: reasoning
+    description: "Google's most advanced reasoning model (Nov 2025). 1M context. Best multimodal model. Native thinking mode. Launched to 2B+ Search users on day one. Significant benchmark improvements over Gemini 2.5."
+
+  - name: "Qwen QwQ-32B"
+    category: reasoning
+    description: "Alibaba's dedicated reasoning model (Mar 2025). 32B dense params. Apache 2.0. Strong math/code reasoning. Precursor to hybrid thinking in Qwen 3 family."
+
+  - name: "Kimi K2.5"
+    category: reasoning
+    description: "Moonshot AI's frontier reasoning model (Jan 2026). 1T total params, 32B active. Native multimodal (text/image/video). Agent Swarm coordinates up to 100 sub-agents. Open-source. Claims to outperform GPT-5.2 on several benchmarks."
+
+  - name: "GLM 4.7"
+    category: reasoning
+    description: "Z.ai (formerly Zhipu AI) frontier model (Dec 2025). 400B params, 200K context, 128K output. 95.7% on AIME 2025. Open-source. Rebranded under Z.ai. Strong Chinese alternative for reasoning tasks."
+
+  - name: "Magistral Medium"
+    category: reasoning
+    description: "Mistral's reasoning model (Jun 2025). Multi-step logic with traceable chain-of-thought in user's language. Strong multilingual reasoning including French. Relevant as European reasoning model alternative."
+
+  - name: "Grok 4"
+    category: reasoning
+    description: "xAI's flagship reasoning model (Jul 2025). Trained with 100x more compute than Grok 2. 256K context. $3/$15 per 1M tokens. Grok 4 Fast variant with 2M context at $0.20/$0.50. PhD-level performance across disciplines."
+
+  # ── Frontier General-Purpose Models ──
+  - name: "ChatGPT 5.2"
+    category: frontier
+    description: "OpenAI's latest flagship (Dec 2025). Unified system with smart router choosing between standard and thinking modes. First model to beat or tie human experts on 70.9% of tasks on GDPval. Native multimodal."
+
+  - name: "DeepSeek-V3.2"
+    category: frontier
+    description: "DeepSeek's frontier general-purpose model (Dec 2025). 685B MoE with DeepSeek Sparse Attention (DSA). Gold-medal on IMO 2025 and IOI. 96% AIME. Open-weight under MIT license. Competitive with GPT-5 at fraction of cost."
+
+  - name: "Llama 4 Maverick"
+    category: frontier
+    description: "Meta's flagship open MoE model (Apr 2025). 400B total / 17B active params. 128 experts. 1M context. Open-source. Strong benchmark performance. First Llama to use MoE architecture."
+
+  - name: "Llama 4 Scout"
+    category: frontier
+    description: "Meta's efficient MoE model (Apr 2025). 109B total / 17B active. 16 experts. 10M context (industry-leading). Designed for long-context applications. Open-source."
+
+  - name: "Mistral Large 3"
+    category: frontier
+    description: "Mistral's flagship model (Dec 2025). Sparse MoE with 41B active / 675B total params. Major architectural shift from previous dense Mistral Large. European alternative to US/China frontier models."
+
+  - name: "Qwen 3 235B"
+    category: frontier
+    description: "Alibaba's flagship MoE model (Apr 2025). 235B total / 22B active. Apache 2.0. Hybrid thinking/non-thinking mode. 119 languages. Top of open-source leaderboards at launch."
+
+  - name: "Claude Haiku 4.5"
+    category: frontier
+    description: "Anthropic's fast near-frontier model (Oct 2025). $1/$5 per 1M tokens. 200K context. Near Sonnet-level performance at much lower cost. Key option for cost-sensitive production deployments."
+
+  - name: "Cohere Command A"
+    category: frontier
+    description: "Cohere's enterprise model (Mar 2025). 111B params, 256K context. 150% higher throughput than Command R+. Reasoning variant available. Enterprise-focused with strong multilingual support."
+
+  # ── Small Language Models (SLMs) — Compact & Edge ──
+  - name: "Phi-4"
+    category: slm
+    description: "Microsoft's 14B SLM (Dec 2024). Strong reasoning for its size. Phi-4-reasoning and Phi-4-reasoning-plus variants (May 2025) rival larger models. Phi-4-mini (3.8B) and Phi-4-multimodal (5.6B) expand the family."
+
+  - name: "Mistral Small 3"
+    category: slm
+    description: "Mistral's 24B efficient model (Jan 2025). Apache 2.0. 32K context. Strong multilingual including French. Good balance of capability and efficiency. Open-weight. Magistral Small variant adds reasoning."
+
+  - name: "Mistral Medium 3.1"
+    category: slm
+    description: "Mistral's mid-range model (May 2025). Bridges gap between Small 3 and Large 3. Positioned for production workloads requiring more capability than Small but at lower cost than Large."
+
+  - name: "Gemma 3"
+    category: slm
+    description: "Google's open model family (Mar 2025). 1B/4B/12B/27B sizes. Multimodal (text+image). 140 language support. Apache-like license. Gemma 3n variants (E2B/E4B) use MatFormer architecture for elastic edge inference in 2-3GB RAM."
+
+  - name: "Qwen 3 Small Variants"
+    category: slm
+    description: "Alibaba's small model range (Apr 2025). 0.6B/1.7B/4B/8B/14B/32B sizes. Apache 2.0. Hybrid thinking mode available across all sizes. 119 languages. Strong for multilingual edge deployment."
+
+  - name: "SmolLM2"
+    category: slm
+    description: "Hugging Face's ultra-compact model family (Nov 2024). 135M/360M/1.7B sizes. Apache 2.0. Full training recipe published. SmolVLM2 adds multimodal. Important as fully reproducible open-source SLM."
+
+  - name: "Gemini 3 Flash"
+    category: slm
+    description: "Google's efficient model (Nov 2025). Combines reasoning capabilities with Flash-line speed and cost. Designed for high-throughput production use. Thinking mode available."
+
+  - name: "Ministral 3"
+    category: slm
+    description: "Mistral's edge model family (Dec 2025). 3B/8B/14B dense models. Multimodal + multilingual. Base/instruct/reasoning variants. Apache 2.0. 14B reasoning: 85% AIME'25. Runs on 8-24GB VRAM. Best cost-to-performance ratio."
+
+  - name: "Falcon 3"
+    category: slm
+    description: "TII (UAE) open model family (Dec 2024). 1B/3B/7B/10B sizes. Apache 2.0. Trained on 14T tokens. 10B leads all models under 13B. Available in GGUF, GPTQ, AWQ, 1.58-bit. Demonstrates non-Western AI leadership."
+
+  - name: "DeepSeek-R1 Distilled"
+    category: slm
+    description: "Distilled versions of DeepSeek-R1 reasoning into smaller models (Jan 2025). 1.5B/7B/8B/14B/32B/70B sizes. Based on Qwen2.5 and Llama3 architectures. 32B variant outperforms OpenAI o1-mini. MIT/Apache/Llama licenses. Key example of knowledge distillation."
+
+  # ── Specialized / Coding Models ──
+  - name: "Devstral 2"
+    category: coding
+    description: "Mistral's coding model (Dec 2025). 123B dense, 256K context. 72.2% SWE-bench Verified. 7x more cost-efficient than Claude Sonnet on coding. Devstral Small 2 (24B): 68% SWE-bench, runs on RTX 4090."
+
+  - name: "GPT-5.2-Codex"
+    category: coding
+    description: "OpenAI's specialized coding model (Dec 2025). Released alongside GPT-5.2. Optimized for code generation, editing, and agentic coding workflows."
+
+  - name: "Codestral 2501"
+    category: coding
+    description: "Mistral's dedicated code completion model (Jan 2025). 86.6% HumanEval. Fill-in-the-middle support. 32K context. Optimized for IDE integration and code completion."
+
+execution:
+  batch_size: 3
+  items_per_agent: 1
+  output_dir: ./results

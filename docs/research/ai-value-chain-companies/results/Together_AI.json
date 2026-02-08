@@ -1,0 +1,53 @@
+{
+  "identity": {
+    "company_name": "Together AI",
+    "headquarters": "San Francisco, California, US",
+    "headquarters_region": "US",
+    "founded_year": 2022
+  },
+  "value_chain": {
+    "role_in_value_chain": "api_provider",
+    "value_chain_position": "Together AI sits at the API provider and cloud infrastructure layer, offering inference, fine-tuning, and GPU cluster services for open-source AI models. It depends on NVIDIA for GPU supply (H100, H200, B200, GB200, GB300 NVL72) and operates its own data centers (Maryland, Memphis forthcoming) while also sourcing capacity from providers like CoreWeave and Lambda. Downstream, it serves AI developers, startups, and enterprises who use Together's serverless API, dedicated endpoints, or GPU clusters to train, fine-tune, and deploy open-source models. The company also contributes upstream to the model ecosystem through open-source research (RedPajama, FlashAttention, Dragonfly).",
+    "vertical_integration_level": "Multi-layer"
+  },
+  "products": {
+    "key_products": [
+      "Together Inference API — serverless endpoint access to 200+ open-source models (DeepSeek, Llama, Qwen, Mistral, FLUX) with pay-per-token pricing, OpenAI-compatible, powered by the Together Inference Stack (claimed 4x faster than vLLM)",
+      "Together Fine-Tuning — full fine-tuning and LoRA fine-tuning on custom data, producing custom models or lightweight adapters for deployment on Together's infrastructure",
+      "Together GPU Clusters — scalable GPU infrastructure from 8-GPU Instant Clusters (self-service) to 64-1,000 GPU dedicated clusters to 1,000-100,000+ GPU custom clusters with NVIDIA Blackwell and Hopper architectures, available in 25+ cities"
+    ]
+  },
+  "business": {
+    "revenue_or_valuation": "Valuation: $3.3B (Series B, February 2025). Annualized revenue: ~$300M as of September 2025, up from $130M at end of 2024 and ~$100M ARR as of September 2024. Source: Sacra estimates and press reports.",
+    "annual_recurring_revenue_arr": "~$300M annualized revenue run rate as of September 2025. Reached $100M ARR within 10 months of launch (by September 2024). Revenue split: 30-40% from per-token API inference, remainder from GPU server rentals for training and fine-tuning. [uncertain]",
+    "funding_total_and_last_round": "Total raised: ~$534M across 4 rounds. Last round: $305M Series B (February 2025) led by General Catalyst and co-led by Prosperity7, at $3.3B valuation. Prior rounds: Seed ($20M, May 2023), Series A (~$102.5M, November 2023 led by Prosperity7), Series A extension. Investors include NVIDIA, Salesforce Ventures, Kleiner Perkins, Coatue, NEA, Lux Capital, John Chambers, Clement Delangue.",
+    "business_model": "Usage-based across three revenue lines: (1) Per-token API inference for serverless endpoints (30-40% of revenue), (2) GPU server rentals for training and fine-tuning (60-70% of revenue), and (3) GPU cluster leasing (hourly rates for dedicated infrastructure). Gross margins ~45%, expected to improve as the company shifts from leasing GPUs to owning data centers. Cloud-agnostic positioning to avoid vendor lock-in.",
+    "burn_rate_and_runway": "Not publicly disclosed. Heavy capital expenditure on GPU procurement and data center buildout (Maryland AI factory with 5C, Memphis facility forthcoming, 36,000 GPU cluster with Hypertec). Backed by $534M in total funding and growing revenue (~$300M annualized). [uncertain]"
+  },
+  "openness": {
+    "open_vs_closed_spectrum": "Hybrid — Together AI's platform and inference stack are proprietary, but the company is a major contributor to open-source AI. Key contributions include RedPajama (open dataset, 100T+ tokens), FlashAttention (now standard in all transformer models), Dragonfly (open vision-language model), and support for 200+ open-source models. The company positions itself as the 'AI Native Cloud' for open-source model deployment."
+  },
+  "startup_relevance": {
+    "relevance_for_startups": "Together AI is one of the most compelling platforms for startups building on open-source AI models. It offers access to 200+ models through a single API at prices claimed to be 1/5th of hyperscaler costs, which directly impacts unit economics for AI-first startups. The OpenAI-compatible API means startups can switch between providers without code changes, reducing lock-in risk. For startups needing custom models, the fine-tuning pipeline (full and LoRA) with seamless deployment to inference endpoints eliminates the operational complexity of managing training infrastructure. The GPU cluster offering scales from 8 GPUs (self-service Instant Clusters) to 100,000+ GPUs, meaning startups can grow their compute needs without switching providers. Together's research credibility (founded by Stanford AI professors behind FlashAttention and other foundational work) signals technical depth that matters when startups pitch to investors. The ~45% gross margins and cloud-agnostic approach also model what a healthy AI infrastructure business looks like for entrepreneur students studying AI business models.",
+    "accessibility": "Highly accessible to startups. Self-service sign-up with pay-per-token serverless inference (no minimum commitment). Pricing examples: Llama 3.3 70B at $0.88/M tokens, DeepSeek-R1 at competitive rates. Instant Clusters available self-service from 8 GPUs. Dedicated endpoints for production workloads. Free tier available for experimentation. Enterprise contracts for larger commitments with volume discounts.",
+    "primary_model_dependency": "None — Together AI is model-agnostic and hosts 200+ open-source models. It does not depend on any single foundation model provider. The company contributes its own research models (RedPajama, Dragonfly) but its business is built on serving the full open-source model ecosystem."
+  },
+  "ecosystem": {
+    "key_partnerships": [
+      "NVIDIA — Cloud Partner with early access to Blackwell GPUs (B200, GB200, GB300 NVL72), NVIDIA AI Enterprise available in GPU clusters, NVIDIA is also an investor",
+      "Hypertec — co-building a 36,000 GPU cluster with NVIDIA GB200 NVL72 (announced November 2024)",
+      "5C — operates an AI factory in Maryland featuring NVIDIA B200 GPUs, with Memphis facility forthcoming",
+      "Salesforce Ventures — strategic investor, integration with Salesforce AI ecosystem",
+      "General Catalyst and Prosperity7 — lead Series B investors providing strategic enterprise connections"
+    ],
+    "competitive_moat": "Three reinforcing advantages: (1) Research credibility — co-founded by Stanford AI professors (Chris Re, Percy Liang) behind FlashAttention and other foundational contributions, giving Together deep technical authority and ability to optimize inference at the stack level (claimed 4x faster than vLLM). (2) Vertical integration at scale — combining owned GPU infrastructure (data centers in 25+ cities, up to 100,000+ GPU clusters) with a proprietary inference stack and API layer yields ~45% gross margins and pricing 1/5th of hyperscalers. (3) Open-source ecosystem positioning — by being the default cloud for open-source model deployment (200+ models), Together benefits from every new open model release without bearing training costs, creating a flywheel where the growing open-source ecosystem drives demand for its platform.",
+    "data_moat_type": "Distribution"
+  },
+  "regulatory": {
+    "regulatory_exposure": "Exempt — Together AI is primarily a cloud infrastructure and API provider for third-party open-source models, not a GPAI model creator under the EU AI Act. Its own research models (RedPajama, Dragonfly) are released as open-source and would fall under the open-source exemptions. Standard cloud compliance applies (SOC 2, data processing agreements). No direct high-risk classification."
+  },
+  "uncertain": [
+    "annual_recurring_revenue_arr",
+    "burn_rate_and_runway"
+  ]
+}

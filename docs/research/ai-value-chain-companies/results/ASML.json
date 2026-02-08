@@ -1,0 +1,53 @@
+{
+  "identity": {
+    "company_name": "ASML Holding N.V.",
+    "headquarters": "Veldhoven, Netherlands",
+    "headquarters_region": "EU",
+    "founded_year": 1984
+  },
+  "value_chain": {
+    "role_in_value_chain": "hardware",
+    "value_chain_position": "ASML is the deepest upstream player in the AI chip supply chain. It supplies EUV and DUV lithography machines to semiconductor foundries (TSMC, Samsung, Intel), which in turn fabricate chips for AI hardware designers (NVIDIA, AMD, Google). Without ASML's machines, no advanced AI chip (sub-7nm) can be physically manufactured. ASML depends on Zeiss (optics), Trumpf (lasers), and Cymer (light sources).",
+    "vertical_integration_level": "Single-layer"
+  },
+  "products": {
+    "key_products": [
+      "TWINSCAN NXE (EUV lithography systems, 0.33 NA) — workhorse for 7nm to 2nm chip manufacturing, ~€200M per unit",
+      "TWINSCAN EXE (High-NA EUV lithography, 0.55 NA) — next-gen platform for sub-2nm nodes, ~€350M per unit, began high-volume shipments in early 2026",
+      "Installed Base Management (IBM) — multi-decade service, upgrade, and maintenance contracts for the 5,500+ systems deployed globally, generating €8.2B in 2025"
+    ]
+  },
+  "business": {
+    "revenue_or_valuation": "FY2025 revenue: €32.7 billion (net income €9.6 billion). Market cap ~$525 billion (Feb 2026). Source: ASML Q4 2025 press release.",
+    "annual_recurring_revenue_arr": "Installed Base Management (recurring services) generated €8.2 billion in 2025, growing 26% YoY. This represents ~25% of total revenue and ~30% of gross profit.",
+    "funding_total_and_last_round": "N/A — publicly traded since 1995 (Euronext Amsterdam: ASML, NASDAQ: ASML). Founded as Philips/ASM International joint venture in 1984, IPO in 1995.",
+    "business_model": "Capital equipment sales (EUV/DUV systems at €150-350M each) plus recurring Installed Base Management services (maintenance, upgrades, spare parts). System sales ~75% of revenue, IBM services ~25%. Machines designed for 30+ year lifespans creating multi-decade service relationships. Also earns from metrology and inspection systems.",
+    "burn_rate_and_runway": "N/A — profitable public company. 2025 net income €9.6B, gross margin 52.8%. R&D spend ~€4.5B (15% of revenue)."
+  },
+  "openness": {
+    "open_vs_closed_spectrum": "Closed — proprietary hardware and software. 2,000+ EUV patents. Technology is deeply protected trade secret and IP."
+  },
+  "startup_relevance": {
+    "relevance_for_startups": "ASML is critical for entrepreneurs to understand as the ultimate bottleneck in the AI hardware supply chain. Every advanced AI chip — from NVIDIA's H100/B200 to Google's TPU — is manufactured using ASML's EUV machines. This creates three strategic implications: (1) Chip supply constraints: ASML's production capacity directly limits how many AI chips exist in the world, affecting GPU availability and pricing for AI startups; (2) Geopolitical risk: ASML is subject to US and Dutch export controls that restrict sales to China, reshaping the global AI competitive landscape; (3) Concentration risk: a single point of failure for the entire AI industry — any disruption to ASML (natural disaster, geopolitical event) would halt AI chip production globally. For entrepreneurs, ASML illustrates that the AI boom depends on physical infrastructure with very long lead times (EUV machines take 2+ years to build). ASML also actively supports startups through the Eindhoven Startup Alliance and HighTechXL accelerator, and made a notable $1.5B investment in Mistral AI in 2025.",
+    "accessibility": "Not directly accessible to startups. ASML sells exclusively to large semiconductor foundries and IDMs (TSMC, Samsung, Intel, SK Hynix, Micron). Minimum machine cost is ~€150M. Startups interact with ASML's impact indirectly through chip availability and pricing. ASML does offer startup ecosystem support through the Eindhoven Startup Alliance for hardware/deep-tech startups in the Netherlands.",
+    "primary_model_dependency": "None — ASML is a hardware equipment manufacturer, not dependent on any AI foundation models."
+  },
+  "ecosystem": {
+    "key_partnerships": [
+      "Zeiss (Carl Zeiss SMT) — exclusive supplier of EUV optics, 15+ year co-development relationship. ASML owns ~25% of Zeiss SMT.",
+      "Trumpf — exclusive supplier of EUV laser/light source systems (CO2 laser drive technology)",
+      "TSMC — largest customer, co-development of lithography roadmap",
+      "Samsung Foundry — major EUV customer",
+      "Intel — major customer and first recipient of High-NA EUV (EXE:5200B)",
+      "imec (Belgium) — joint High-NA EUV research lab for ecosystem R&D"
+    ],
+    "competitive_moat": "ASML has arguably the strongest competitive moat in the entire technology sector. Key elements: (1) 30+ years and tens of billions of cumulative R&D creating irreproducible institutional knowledge; (2) 2,000+ EUV patents; (3) Exclusive supplier relationships (Zeiss optics, Trumpf lasers) — these suppliers only make components for ASML; (4) Each EUV machine has 100,000+ components from 800+ suppliers globally; (5) 100% market share in EUV systems — literally no competitor can produce a working EUV lithography machine; (6) Massive installed base creating 30-year service revenue streams; (7) Network effects: every chip designer optimizes for ASML's lithography capabilities. Even with unlimited funding, replicating ASML would take 15-20 years minimum.",
+    "data_moat_type": "None — ASML's moat is based on proprietary hardware IP, manufacturing know-how, and exclusive supply chain relationships rather than data."
+  },
+  "regulatory": {
+    "regulatory_exposure": "Exempt from EU AI Act (hardware equipment manufacturer, not an AI system provider). However, heavily exposed to semiconductor export controls: Dutch government enacted the Regulation on Advanced Production Equipment for Semiconductors (June 2023) requiring export licenses for advanced lithography equipment. US Foreign Direct Product Rule (FDPR) also applies since ~10% of ASML's technology is American-origin. China represented 29% of ASML's 2023 revenue — export restrictions have material business impact. ASML stated the impact of updated 2024 restrictions falls within its 2025 outlook."
+  },
+  "uncertain": [
+    "annual_recurring_revenue_arr"
+  ]
+}

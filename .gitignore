@@ -18,6 +18,9 @@ references/
 # Archive files
 *.zip
 
+# Secrets
+.envrc
+
 # OS files
 .DS_Store
 Thumbs.db

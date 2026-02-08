@@ -1,0 +1,55 @@
+{
+  "identity": {
+    "company_name": "Ollama",
+    "headquarters": "Palo Alto, California, US",
+    "headquarters_region": "US",
+    "founded_year": 2023
+  },
+  "value_chain": {
+    "role_in_value_chain": "model_hub",
+    "value_chain_position": "Ollama sits at the model hub / local inference layer. It depends upstream on open-weight model providers (Meta Llama, Mistral, Google Gemma, DeepSeek, Qwen, etc.) and on consumer/enterprise hardware (NVIDIA, AMD, Apple Silicon GPUs and CPUs). Downstream, it serves individual developers, enterprises, and application builders who want to run LLMs locally without cloud API dependencies. It also powers a large ecosystem of third-party tools (Open WebUI, LangChain, Continue, etc.) that integrate via its REST API.",
+    "vertical_integration_level": "Single-layer"
+  },
+  "products": {
+    "key_products": [
+      "Ollama CLI & Runtime — open-source Go-based tool for downloading, running, and managing LLMs locally on macOS, Linux, and Windows with automatic GPU detection and memory optimization",
+      "Ollama Model Library — curated registry of 100+ pre-packaged open-weight models (Llama, Mistral, Gemma, DeepSeek, Qwen, Phi, etc.) available via one-command pull at ollama.com/library",
+      "Ollama API — local REST API compatible with the OpenAI API format, enabling seamless integration with developer tools, IDEs (VS Code via Continue), and application frameworks (LangChain, LlamaIndex)"
+    ]
+  },
+  "business": {
+    "revenue_or_valuation": "Revenue estimated at $3.2M in 2024 (source: Getlatka, reliability uncertain — Getlatka shows identical figures for multiple companies). Valuation not publicly disclosed. [uncertain]",
+    "annual_recurring_revenue_arr": "Not publicly disclosed. Enterprise/team plans listed as 'coming soon' on ollama.com/pricing as of early 2026. [uncertain]",
+    "funding_total_and_last_round": "Total raised: $125K–$500K (sources conflict). Pre-seed round with investors including Y Combinator (W21 batch), Essence Venture Capital, Rogue Capital, and Sunflower Capital. No disclosed Series A or later rounds. Received an M&A offer in April 2025 (details undisclosed). [uncertain]",
+    "business_model": "Currently free and open-source with no direct monetization of the core product. Planned freemium model: free local use with enterprise/team plans in development. Potential monetization paths include enterprise support, managed cloud offerings, and GPU cloud provider integrations. The company appears to be in growth/adoption-building phase rather than revenue optimization.",
+    "burn_rate_and_runway": "Not disclosed. With only $125K–$500K raised and a 21-person team, the company likely relies on alternative funding sources or very lean operations. [uncertain]"
+  },
+  "openness": {
+    "open_vs_closed_spectrum": "Fully open-source — The Ollama CLI and runtime are MIT-licensed. The model library hosts open-weight models under their respective licenses (Llama Community License, Apache 2.0, etc.). A newer GUI app may have a different license status (community concern raised on GitHub)."
+  },
+  "startup_relevance": {
+    "relevance_for_startups": "Ollama is the easiest way for a startup to run open-weight LLMs locally with zero cloud costs. For entrepreneurs building AI-powered products, Ollama enables rapid prototyping without API keys, usage fees, or data leaving the machine — critical for privacy-sensitive applications, GDPR compliance, and controlling unit economics. With 135K+ GitHub stars and one of the fastest-growing open-source projects in the AI space (261% star growth in 2024, #1 on Runa Capital's ROSS Index), Ollama has become the de facto standard for local LLM inference. Its OpenAI-compatible API means startups can develop locally against Ollama and switch to cloud APIs in production (or vice versa) with minimal code changes. For European startups concerned about data sovereignty, Ollama eliminates the need to send data to US-based API providers. The large ecosystem of integrations (LangChain, LlamaIndex, Open WebUI, Continue) means startups can build full AI applications on top of Ollama without vendor lock-in.",
+    "accessibility": "Maximally accessible. Completely free, open-source (MIT license), single-command install on macOS/Linux/Windows. No account required, no API keys, no usage limits. Hardware requirements are the only barrier: a modern laptop with 8GB+ RAM can run smaller models (Phi, Gemma 2B), while larger models (Llama 70B) require 48GB+ RAM or a capable GPU. No enterprise contract needed.",
+    "primary_model_dependency": "None — model-agnostic. Packages and serves open-weight models from Meta (Llama), Mistral, Google (Gemma), Microsoft (Phi), DeepSeek, Alibaba (Qwen), and many others. Does not create its own models."
+  },
+  "ecosystem": {
+    "key_partnerships": [
+      "Y Combinator — W21 batch participant and investor",
+      "Meta, Mistral, Google, Microsoft, DeepSeek — upstream model providers whose open-weight models Ollama packages and distributes",
+      "Open WebUI — popular open-source web interface built specifically for Ollama",
+      "LangChain / LlamaIndex — major AI orchestration frameworks with native Ollama integration",
+      "Continue (VS Code extension) — AI coding assistant with Ollama as a primary local backend"
+    ],
+    "competitive_moat": "Developer adoption and ecosystem network effects. With 135K+ GitHub stars and massive community growth, Ollama has become the standard for local LLM deployment. Its one-command UX ('ollama run llama3') is unmatched in simplicity. The OpenAI-compatible API has made it the default local backend for hundreds of third-party tools, creating strong ecosystem lock-in. Docker-heritage founders (Jeffrey Morgan and Michael Chiang, former Docker Desktop architects) bring deep expertise in developer tooling and container-based distribution — Ollama's Modelfile format mirrors Dockerfile simplicity. However, the moat is primarily UX and community, not technology — llama.cpp (which Ollama wraps) is also open-source.",
+    "data_moat_type": "Network effects"
+  },
+  "regulatory": {
+    "regulatory_exposure": "Exempt — Ollama is a model distribution and inference tool, not a model creator. It does not train or fine-tune foundation models. Under the EU AI Act, it would not be classified as a GPAI provider. As an open-source tool (MIT license) facilitating local inference, it actually helps enterprises comply with data residency requirements by keeping data on-premises."
+  },
+  "uncertain": [
+    "revenue_or_valuation",
+    "annual_recurring_revenue_arr",
+    "funding_total_and_last_round",
+    "burn_rate_and_runway"
+  ]
+}

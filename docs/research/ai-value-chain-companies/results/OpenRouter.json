@@ -1,0 +1,48 @@
+{
+  "identity": {
+    "company_name": "OpenRouter",
+    "headquarters": "New York, USA",
+    "headquarters_region": "US",
+    "founded_year": 2023
+  },
+  "value_chain": {
+    "role_in_value_chain": "api_provider",
+    "value_chain_position": "API aggregation and routing layer sitting between model providers (OpenAI, Anthropic, Google, Meta, Mistral, etc.) and downstream developers/applications. OpenRouter depends entirely on upstream model providers granting API access. It serves developers, indie hackers, AI-native startups, and enterprises by providing a single unified API endpoint to 500+ models from 60+ providers, with intelligent routing, fallback handling, and cost optimization. Competes with cloud-native model marketplaces (AWS Bedrock, Google Vertex AI, Azure OpenAI) but differentiates as cloud-agnostic.",
+    "vertical_integration_level": "Single-layer"
+  },
+  "products": {
+    "key_products": [
+      "OpenRouter Unified API: Single standardized API endpoint providing access to 500+ models from 60+ providers (OpenAI, Anthropic, Google, Meta, Mistral, etc.) with automatic fallback routing, latency optimization, and pass-through pricing. Processes 8.4 trillion tokens monthly across 2.5 million users.",
+      "OpenRouter Playground & Model Comparison: Web-based interface for browsing, comparing, and testing models side-by-side. Includes detailed model cards with pricing, context window, and performance data. Used by developers to evaluate models before integration.",
+      "OpenRouter Enterprise: Enterprise-tier offering with EU in-region routing (eu.openrouter.ai), custom rate limits, dedicated support, and data governance controls. Targets regulated industries needing multi-model access with compliance guarantees."
+    ]
+  },
+  "business": {
+    "revenue_or_valuation": "Valued at $500M following $40M combined Seed + Series A (Jun 2025). Annualized platform revenue estimated at $5M (May 2025, Sacra estimate), up from $1M at end of 2024. Annualized inference spend flowing through the platform exceeded $100M run rate as of May 2025, up from $10-19M at end of 2024.",
+    "annual_recurring_revenue_arr": "$5M estimated annualized revenue (May 2025, Sacra). Note: this is OpenRouter's commission revenue (5% of inference spend), not the total inference volume. Total inference spend through platform: $100M+ annualized run rate (May 2025). [uncertain]",
+    "funding_total_and_last_round": "Total raised: $40M across Seed and Series A. Seed round: $12.5M led by Andreessen Horowitz (a16z), Feb 2025. Series A: $28M led by Menlo Ventures, Apr 2025. Other investors: Sequoia Capital, Soma Capital, Transpose Platform Management, and prominent industry angels. Announced together Jun 25, 2025.",
+    "business_model": "Marketplace commission model. OpenRouter charges a 5.5% fee ($0.80 minimum) when users purchase credits on the platform. Inference pricing is pass-through with no markup -- developers pay the same per-token rates as going direct to providers. Revenue scales linearly with total inference volume flowing through the platform. Additional revenue from enterprise contracts with custom SLAs.",
+    "burn_rate_and_runway": "Not publicly disclosed. With a 5-person team as of early 2025 and $40M raised, the company likely has substantial runway. The lightweight team structure and commission-based model suggest relatively low fixed costs. [uncertain]"
+  },
+  "openness": {
+    "open_vs_closed_spectrum": "Open API. OpenRouter itself is a proprietary hosted platform (closed source), but provides open API access to both open-source and closed models. The API follows OpenAI-compatible conventions, making it easy to switch between providers. Platform aggregates both fully open-source models (Llama, Mistral open-weight) and closed models (GPT-4, Claude, Gemini)."
+  },
+  "startup_relevance": {
+    "relevance_for_startups": "OpenRouter is highly relevant for AI startups for several strategic reasons: (1) Model flexibility without lock-in: A single API integration gives access to 500+ models across all major providers. Startups can switch models instantly without code changes, crucial when the model landscape evolves rapidly. (2) Cost optimization: Pass-through pricing with intelligent routing means startups can automatically use the cheapest model that meets quality requirements, directly improving unit economics. No minimum commitments or enterprise contracts required. (3) Risk mitigation: If any single provider changes pricing, rate-limits, or discontinues a model, OpenRouter's fallback routing automatically redirects to alternatives -- reducing the existential risk of depending on one model provider. (4) Speed to market: Developers can compare and integrate models in minutes rather than managing multiple API keys and SDKs. The OpenAI-compatible API format means near-zero switching cost. (5) Free tier for prototyping: Free models with rate limits allow startups to prototype without spending money, then scale to paid usage as they grow. (6) EU routing for compliance: eu.openrouter.ai endpoint handles GDPR data residency requirements, important for European startups. (7) Platform risk: OpenRouter depends on upstream providers continuing to allow third-party access. If OpenAI or Anthropic restrict intermediary access, OpenRouter's value proposition could be undermined -- startups should maintain the ability to go direct if needed.",
+    "accessibility": "Very high accessibility. Free tier available (50 requests/day, or 1000/day with $10+ credits purchased). Pay-as-you-go credits with no minimum commitment. Pass-through pricing means the same cost as going direct to providers, plus a 5.5% credit purchase fee. OpenAI-compatible API format makes integration trivial. Crypto payments supported for global accessibility. No enterprise contract required to start.",
+    "primary_model_dependency": "None directly (OpenRouter is model-agnostic). Indirectly depends on all major model providers: OpenAI, Anthropic, Google, Meta, Mistral AI, Cohere, and dozens more. Business viability depends on these providers continuing to allow third-party API access."
+  },
+  "ecosystem": {
+    "key_partnerships": "Model providers: OpenAI, Anthropic, Google, Meta, Mistral AI, Cohere, AI21 Labs, and 55+ other providers. Infrastructure integration: Cloudflare AI Gateway supports OpenRouter as a provider. Investor-partners: Andreessen Horowitz, Menlo Ventures, Sequoia Capital. Developer tooling: Integrated by CodeGPT (VS Code), various AI agent frameworks, and SillyTavern/character AI communities. No exclusive partnerships -- OpenRouter's value is provider neutrality.",
+    "competitive_moat": "Data network effects from routing intelligence: Processing 8.4 trillion tokens monthly generates unmatched data on model performance, latency, reliability, and cost across providers, which feeds back into routing algorithms. Developer ecosystem: 2.5M+ users and 1M+ developers create distribution and habit advantages. OpenAI-compatible API standard: Easy adoption and high switching cost once integrated into production workflows. Speed of model onboarding: New models appear on OpenRouter quickly, often within hours of release, keeping it the go-to discovery platform. However, moat is vulnerable: AWS Bedrock, Google Vertex AI, and Azure OpenAI offer similar multi-model access bundled with existing cloud relationships.",
+    "data_moat_type": "Network effects"
+  },
+  "regulatory": {
+    "regulatory_exposure": "Exempt (likely). OpenRouter is an API routing/aggregation service, not a model creator or deployer of AI systems. Under the EU AI Act, it would likely be classified as a distributor or intermediary rather than a GPAI provider. However, the company offers EU in-region routing (eu.openrouter.ai) for GDPR compliance, suggesting awareness of regulatory obligations around data processing. Registered in Anguilla (Caribbean) with US operations, which may complicate EU regulatory classification. [uncertain]"
+  },
+  "uncertain": [
+    "annual_recurring_revenue_arr",
+    "burn_rate_and_runway",
+    "regulatory_exposure"
+  ]
+}

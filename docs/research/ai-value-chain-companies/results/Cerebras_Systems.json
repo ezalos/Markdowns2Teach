@@ -1,0 +1,47 @@
+{
+  "identity": {
+    "company_name": "Cerebras Systems",
+    "headquarters": "Sunnyvale, USA",
+    "headquarters_region": "US",
+    "founded_year": 2016
+  },
+  "value_chain": {
+    "role_in_value_chain": "hardware",
+    "value_chain_position": "Alternative AI hardware layer challenging NVIDIA's GPU dominance. Cerebras depends on TSMC for wafer-scale chip fabrication (5nm process) and supplies AI training and inference systems to hyperscalers (OpenAI), sovereign AI projects (G42/Core42), government labs, and enterprises. Its wafer-scale architecture bypasses the traditional GPU paradigm entirely, offering a single-chip solution that eliminates multi-GPU networking complexity.",
+    "vertical_integration_level": "Multi-layer"
+  },
+  "products": {
+    "key_products": [
+      "WSE-3 (Wafer-Scale Engine 3): the world's largest AI chip at 46,255 mm2 with 4 trillion transistors, 900K cores, 44GB on-chip memory, and 125 petaFLOPS of AI compute. Powers training of models up to 24 trillion parameters on a single logical device.",
+      "CS-3 System: the complete AI compute system built around the WSE-3, doubling LLM training speed over its predecessor in the same 15kW power envelope. Sold as physical hardware or via cloud access.",
+      "Cerebras Inference Cloud: pay-per-token API service delivering up to 21x faster inference than GPU-based systems. Offers Free, Developer ($0.10/M tokens for Llama 8B), and Enterprise tiers. Available at cloud.cerebras.ai and via AWS Marketplace."
+    ]
+  },
+  "business": {
+    "revenue_or_valuation": "H1 2024 revenue: $136.4M (full year 2024 estimated ~$272M based on run rate, up from $78.7M in 2023 and $24.6M in 2022). Valuation: $23B post-money (Series H, Feb 2026). IPO planned for Q2 2026.",
+    "annual_recurring_revenue_arr": "Not a traditional SaaS/ARR model. Primarily hardware system sales with growing cloud inference revenue. Cloud inference service launched in 2024 with pay-per-token pricing, but ARR figure not disclosed. [uncertain]",
+    "funding_total_and_last_round": "Total raised: ~$2.8B. Last round: $1B Series H at $23B valuation (Feb 2026), led by Tiger Global with participation from Benchmark, Fidelity, Atreides, Alpha Wave, Altimeter, AMD, and Coatue. Previous: $1.1B Series G at $8.1B valuation (Sep 2025).",
+    "business_model": "Hardware system sales (CS-3 systems), cloud-based inference service (pay-per-token API), CSoft software platform licensing, and professional services (data preparation, model design, training support, optimization). The $10B+ OpenAI deal (750MW of compute through 2028) represents a shift toward large-scale infrastructure-as-a-service contracts.",
+    "burn_rate_and_runway": "Not publicly disclosed. With ~$2.8B raised and IPO planned Q2 2026, runway is substantial. However, building out 750MW of compute for OpenAI will require significant capital expenditure. [uncertain]"
+  },
+  "openness": {
+    "open_vs_closed_spectrum": "Hybrid. Cerebras Inference Cloud runs open-weight models (Llama, DeepSeek, Qwen, Mistral) and actively supports open-source ecosystem. Founding member of AI Alliance (with IBM and Meta). However, the WSE hardware architecture and CSoft software platform are proprietary."
+  },
+  "startup_relevance": {
+    "relevance_for_startups": "Cerebras matters for AI entrepreneurs in three ways: (1) Inference cost and speed -- Cerebras Inference delivers up to 21x faster inference than GPU clusters at competitive pricing ($0.10-$0.60 per million tokens), which can dramatically improve user experience for real-time AI applications and reduce latency-sensitive workload costs; (2) Alternative to NVIDIA lock-in -- as the most credible non-GPU AI hardware company, Cerebras offers a hedge against NVIDIA supply constraints and CUDA dependency, relevant for startups planning long-term infrastructure strategy; (3) The OpenAI partnership validates wafer-scale technology for production workloads at massive scale, signaling that the AI hardware market is diversifying beyond GPUs. Startups building inference-heavy applications (chatbots, coding assistants, real-time translation) should evaluate Cerebras Inference as a faster alternative. The key risk: Cerebras remains pre-IPO with heavy customer concentration (G42 was >50% of revenue historically, now shifting to OpenAI), and its long-term viability depends on executing the $10B OpenAI contract.",
+    "accessibility": "High accessibility for inference workloads. Free tier available at cloud.cerebras.ai. Developer tier starts at $0.10/M tokens (Llama 8B) and $0.60/M tokens (Llama 70B). OpenAI-compatible API makes migration trivial. Available on AWS Marketplace. Code Pro ($50/month) and Code Max ($200/month) plans for developers. Enterprise tier with custom SLAs available on request. Hardware purchase is enterprise-only and requires direct engagement.",
+    "primary_model_dependency": "None. Cerebras is a hardware/infrastructure provider. Runs open-weight models (Llama, DeepSeek, Qwen, Mistral) on its platform but does not depend on any single foundation model."
+  },
+  "ecosystem": {
+    "key_partnerships": "OpenAI: $10B+ multi-year deal to deploy 750MW of wafer-scale inference systems (2026-2028), the largest high-speed AI inference deployment in the world. G42/Core42 (Abu Dhabi): built Condor Galaxy supercomputers (8 exaFLOPS), though G42 recently exited as an investor. AI Alliance founding member alongside IBM and Meta. TSMC: sole fabrication partner for WSE chips. AMD: strategic investor in Series H round. Mayo Clinic, GlaxoSmithKline, and Meta among customers.",
+    "competitive_moat": "Wafer-scale integration technology: the WSE-3 is 57x larger than the largest GPU, eliminating multi-chip networking overhead and providing 7,000x more memory bandwidth than HBM3e GPU systems. This architectural advantage enables single-device simplicity for models up to 24T parameters with no distributed systems code required, versus tens of thousands of lines of code for equivalent GPU clusters. Over a decade of manufacturing know-how for defect-tolerant wafer-scale chips creates a significant engineering barrier to entry. The OpenAI contract provides a demand moat securing revenue through 2028.",
+    "data_moat_type": "None"
+  },
+  "regulatory": {
+    "regulatory_exposure": "Exempt (hardware provider). Not directly regulated under EU AI Act as GPAI provider or high-risk system. However, Cerebras faces significant US export control and CFIUS scrutiny: the G42 partnership triggered CFIUS national security review due to G42's UAE/China connections, and its TSMC fabrication dependency means it is subject to US-Taiwan semiconductor export regulations. Sam Altman's dual role as OpenAI CEO and Cerebras investor has also drawn governance scrutiny."
+  },
+  "uncertain": [
+    "annual_recurring_revenue_arr",
+    "burn_rate_and_runway"
+  ]
+}

@@ -1,0 +1,230 @@
+[
+  {
+    "metric_identity": {
+      "metric_name": "EU Private AI Investment (2024)",
+      "source_report": "Stanford HAI AI Index Report 2025 / Seedblink Europe AI Deep-Dive",
+      "source_url": "https://hai.stanford.edu/ai-index/2025-ai-index-report/economy",
+      "publication_date": "April 2025",
+      "methodology_notes": "Stanford HAI aggregates data from Quid, PitchBook, and OECD datasets tracking private AI investment globally. European figures cross-referenced with Dealroom and Seedblink VC tracking. The EU total includes venture capital, private equity, and corporate investments in AI-native companies across EU member states."
+    },
+    "metric_value": {
+      "value": "~13",
+      "unit": "billion USD",
+      "geographic_scope": "EU",
+      "time_period": "2024",
+      "comparison_baseline": "~10.7 billion USD in 2023 (estimated from 22% YoY increase)",
+      "market_layer": "cross-cutting"
+    },
+    "trend": {
+      "trend_direction": "Up",
+      "year_over_year_change": "+22% in total value, but deal volume down 31% (fewer, larger deals)",
+      "compound_annual_growth_rate": "[uncertain]",
+      "forecast_value": "EU aims to mobilize 200 billion EUR total via InvestAI initiative",
+      "forecast_year": "2025-2030",
+      "velocity_indicator": "AI accounted for 18% of all European VC funding in 2024, up from prior years; 31% in 2025"
+    },
+    "entrepreneurial_relevance": {
+      "relevance_for_entrepreneurs": "EU AI investment is growing fast but remains roughly 8-12x smaller than the US ($109B). This gap means European AI startups face thinner funding pools and must often look to US investors for growth rounds. However, the trend toward fewer but larger deals signals maturation: investors are concentrating capital on proven AI companies, which benefits startups that can demonstrate clear traction and product-market fit. The EU InvestAI initiative (EUR 200B mobilization target) could dramatically reshape this landscape if executed.",
+      "actionable_insight": "European AI founders should build for global markets from day one to attract US/Gulf capital, while timing fundraises to coincide with EU institutional money flows (InvestAI, EIC, EIF). The shift to larger rounds favors startups with clear revenue metrics over pure research plays.",
+      "session_mapping": "4",
+      "risk_profile": "concentration_risk"
+    },
+    "confidence": {
+      "data_quality": "Medium",
+      "cross_reference": "Stanford HAI AI Index 2025; Seedblink European AI Deep-Dive (March 2025); Dealroom European Startup Ecosystem data; European Parliament EPRS briefing on AI Investment (2024)",
+      "caveats": "The exact EU-27 figure is harder to isolate than US or China totals because many reports bundle EU+UK. The 13B figure is an approximation from multiple sources. Deal volume declining while total value rises suggests concentration in a few mega-rounds (e.g., Mistral), which can skew the picture of broader ecosystem health.",
+      "measurement_reliability": "analyst_estimate"
+    },
+    "uncertain": ["compound_annual_growth_rate"]
+  },
+  {
+    "metric_identity": {
+      "metric_name": "US vs EU vs China Private AI Investment Comparison (2024)",
+      "source_report": "Stanford HAI AI Index Report 2025",
+      "source_url": "https://hai.stanford.edu/news/ai-index-2025-state-of-ai-in-10-charts",
+      "publication_date": "April 2025",
+      "methodology_notes": "Stanford HAI tracks private AI investment via Quid data, covering venture capital, private equity, minority stakes, and M&A. Figures represent calendar year 2024 totals. China figure dropped significantly from prior years due to regulatory crackdowns and geopolitical tensions affecting deal reporting."
+    },
+    "metric_value": {
+      "value": "US: $109.1B / China: $9.3B / UK: $4.5B / EU: ~$13B",
+      "unit": "billion USD",
+      "geographic_scope": "Global (US, China, UK, EU)",
+      "time_period": "2024",
+      "comparison_baseline": "In 2023: US ~$67B, China ~$7.8B (the EU overtook China in private AI investment in 2024)",
+      "market_layer": "cross-cutting"
+    },
+    "trend": {
+      "trend_direction": "Accelerating (US); Decelerating (China); Up (EU)",
+      "year_over_year_change": "US: +63% / China: +19% / EU: +22% / Global corporate AI investment: +44.5% to $252.3B",
+      "compound_annual_growth_rate": "[uncertain]",
+      "forecast_value": "[uncertain]",
+      "forecast_year": "[uncertain]",
+      "velocity_indicator": "US investment is 8.4x EU and 11.7x China; the US-EU generative AI gap widened from $21.8B to $25.4B in one year"
+    },
+    "entrepreneurial_relevance": {
+      "relevance_for_entrepreneurs": "The US dominance in AI investment (8-12x the EU) has direct implications for European founders: US-based competitors have access to far more capital for talent acquisition, compute infrastructure, and go-to-market. However, the EU overtaking China in private AI investment for the first time is a signal of European ecosystem maturation. The widening generative AI gap specifically ($25.4B) shows where the real concentration of capital is flowing globally.",
+      "actionable_insight": "European startups competing in foundation models need to attract US/Gulf investors or rely on EU public funding mechanisms (InvestAI). Application-layer AI startups have a more level playing field since they need less capital-intensive infrastructure. The China slowdown may create opportunities for EU companies in markets where Chinese AI players were gaining traction.",
+      "session_mapping": "4",
+      "risk_profile": "competitive_moat"
+    },
+    "confidence": {
+      "data_quality": "High",
+      "cross_reference": "Stanford HAI AI Index 2025; Crunchbase Global Funding Trends 2025; OECD AI Policy Observatory; Federal Reserve FEDS Notes on AI Competition (October 2025)",
+      "caveats": "China's AI investment figures may be understated due to opaque reporting from state-backed entities. The EU figure excludes the UK (post-Brexit). Corporate AI spending (internal R&D) is not captured in private investment figures, which would further widen the US advantage given Big Tech's hundreds of billions in AI capex.",
+      "measurement_reliability": "analyst_estimate"
+    },
+    "uncertain": ["compound_annual_growth_rate", "forecast_value", "forecast_year"]
+  },
+  {
+    "metric_identity": {
+      "metric_name": "EU InvestAI Initiative (EUR 200 Billion Mobilization Target)",
+      "source_report": "European Commission Press Release",
+      "source_url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_25_467",
+      "publication_date": "February 2025",
+      "methodology_notes": "Announced by Commission President von der Leyen at the AI Action Summit in Paris. The EUR 200B includes EUR 150B from private investors/industry (previously announced) topped up by EUR 50B from EU institutions. The EUR 20B European AI fund targets AI gigafactories. Funding drawn from Digital Europe Programme, Horizon Europe, InvestEU, and member state cohesion funds."
+    },
+    "metric_value": {
+      "value": "200",
+      "unit": "billion EUR (mobilization target)",
+      "geographic_scope": "EU",
+      "time_period": "2025-2030",
+      "comparison_baseline": "Previous EU AI investment commitments were in single-digit billions (e.g., EUR 1B each from Horizon Europe and Digital Europe for AI)",
+      "market_layer": "infrastructure"
+    },
+    "trend": {
+      "trend_direction": "Accelerating",
+      "year_over_year_change": "Order-of-magnitude increase from prior EU AI funding commitments",
+      "compound_annual_growth_rate": "N/A (policy pledge, not historical trend)",
+      "forecast_value": "13 AI Factories + AI Gigafactories with ~100,000 last-generation AI chips each",
+      "forecast_year": "2027-2030",
+      "velocity_indicator": "regulatory_deadline"
+    },
+    "entrepreneurial_relevance": {
+      "relevance_for_entrepreneurs": "This is the largest public AI investment signal in European history. If even a fraction of the EUR 200B materializes, it will create massive opportunities for AI infrastructure companies, cloud providers, chip designers, energy providers, and application developers. The AI gigafactories (100K chip clusters) will enable European startups to train large models without relying on US hyperscalers. The Apply AI Strategy (EUR 1B, October 2025) specifically targets adoption in healthcare, manufacturing, and public services — sectors where European startups could gain first-mover advantage.",
+      "actionable_insight": "Monitor EU funding calls under Digital Europe and Horizon Europe for direct grants. Position startup offerings around sovereign AI infrastructure, GDPR-compliant data pipelines, or vertical AI applications in EU-priority sectors (healthcare, energy, defense). The gigafactory timeline (2027-2030) means near-term compute access will still depend on commercial cloud providers.",
+      "session_mapping": "3",
+      "risk_profile": "regulatory_risk"
+    },
+    "confidence": {
+      "data_quality": "Medium",
+      "cross_reference": "European Commission official press release; Euronews coverage (Feb 2025); Science|Business reporting; CNBC coverage of EU AI pledge",
+      "caveats": "EUR 200B is a mobilization target, not committed budget. EUR 150B from private sector is aspirational and depends on market conditions. Execution risk is high: EU has historically struggled to convert ambitious tech targets into deployed infrastructure. Member state co-funding requires political alignment across 27 countries. The gigafactory chip counts (100K) assume continued supply from NVIDIA/AMD, creating a dependency risk.",
+      "measurement_reliability": "projection_range"
+    },
+    "uncertain": []
+  },
+  {
+    "metric_identity": {
+      "metric_name": "Europe's Largest AI Funding Rounds (2024-2025 Key Deals)",
+      "source_report": "EU-Startups / Crunchbase / Tech.eu compilation",
+      "source_url": "https://www.eu-startups.com/2025/11/europe-top-10-ai-funding-rounds-of-2025/",
+      "publication_date": "November 2025",
+      "methodology_notes": "Compiled from disclosed venture capital and growth equity rounds in European AI companies. Only includes formally announced or confirmed rounds. Some rounds may include debt components or strategic investment alongside equity."
+    },
+    "metric_value": {
+      "value": "Top 2025 rounds: Mistral AI EUR 1.7B (Series C), Nscale EUR 958M (Series B), Helsing EUR 600M (Series D), Isomorphic Labs EUR 523M, Multiverse Computing EUR 189M. Top 2024: Wayve $1.05B, Mistral AI $1.08B combined. Total European AI VC: ~EUR 3B in 2024, ~EUR 8.9B in 2025.",
+      "unit": "EUR / USD (mixed)",
+      "geographic_scope": "EU + UK",
+      "time_period": "2024-2025",
+      "comparison_baseline": "European AI companies raised ~EUR 2.2B through VC in 2023",
+      "market_layer": "cross-cutting"
+    },
+    "trend": {
+      "trend_direction": "Accelerating",
+      "year_over_year_change": "EU AI VC funding nearly tripled from ~EUR 3B (2024) to ~EUR 8.9B (2025); +55% YoY in Q1 2025 alone",
+      "compound_annual_growth_rate": "[uncertain]",
+      "forecast_value": "[uncertain]",
+      "forecast_year": "[uncertain]",
+      "velocity_indicator": "12 new AI unicorns emerged in Europe in H1 2025 alone"
+    },
+    "entrepreneurial_relevance": {
+      "relevance_for_entrepreneurs": "The mega-round phenomenon (Mistral EUR 1.7B, Nscale EUR 958M) shows that European AI can attract large-scale capital when companies reach critical mass. However, removing Mistral's mega-round, total 2025 funding drops to ~EUR 5.1B, revealing ecosystem dependency on a handful of outlier deals. The diversity of funded sectors (foundation models, AI infrastructure/cloud, defense AI, drug discovery, quantum-AI) signals multiple viable paths for European AI founders beyond just LLMs.",
+      "actionable_insight": "The bar for European mega-rounds is rising — investors want clear revenue traction, not just technology demos. Defense AI (Helsing), AI infrastructure (Nscale), and AI-for-science (Isomorphic Labs) are validated categories for European investment. Startups should study these winners' positioning: sovereign AI narrative, European defense premium, and DeepMind-adjacent credibility respectively.",
+      "session_mapping": "4",
+      "risk_profile": "concentration_risk"
+    },
+    "confidence": {
+      "data_quality": "High",
+      "cross_reference": "Crunchbase News (Dec 2025); EU-Startups top 10 AI rounds (Nov 2025); Tech.eu 2024 roundup (Jan 2025); TechFundingNews Europe biggest funding year (2025)",
+      "caveats": "Round sizes may include secondary transactions and debt not always disclosed. UK deals are often included in 'European' totals despite post-Brexit status. The EUR 8.9B 2025 figure for AI-native companies may use different inclusion criteria than the EUR 3B 2024 figure, making direct comparison imperfect.",
+      "measurement_reliability": "verified_financial_filing"
+    },
+    "uncertain": ["compound_annual_growth_rate", "forecast_value", "forecast_year"]
+  },
+  {
+    "metric_identity": {
+      "metric_name": "EU AI Infrastructure Gap vs US (Data Center Capacity)",
+      "source_report": "McKinsey / Euronews / European Commission AI Continent briefing",
+      "source_url": "https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/the-cost-of-compute-a-7-trillion-dollar-race-to-scale-data-centers",
+      "publication_date": "2025",
+      "methodology_notes": "McKinsey estimates based on announced data center projects, power capacity commitments, and chip deployment plans. European Commission figures from AI Continent Action Plan briefings. US growth figures track hyperscaler capex announcements (Microsoft, Google, Amazon, Meta). European capacity measured in available MW and GPU clusters."
+    },
+    "metric_value": {
+      "value": "US data center capacity grew ~160% in 2024-2025; Europe grew ~75%. EU data center investment ~EUR 100B vs China ~$125B. Global AI infrastructure requires $7 trillion by 2030.",
+      "unit": "percentage growth / billion EUR-USD / trillion USD forecast",
+      "geographic_scope": "US, EU, China, Global",
+      "time_period": "2024-2025 (actuals), 2030 (forecast)",
+      "comparison_baseline": "EU had 13 AI Factories planned; US has hundreds of data center projects. Lead times for power supply to new EU data centers: 3-5 years in established markets (Dublin, Frankfurt).",
+      "market_layer": "infrastructure"
+    },
+    "trend": {
+      "trend_direction": "Up (but EU lagging US pace)",
+      "year_over_year_change": "EU capacity +75% vs US +160% — gap is widening in absolute terms",
+      "compound_annual_growth_rate": "[uncertain]",
+      "forecast_value": "EU data center energy use expected to triple by 2030; global AI infrastructure needs ~$7T by 2030 (McKinsey)",
+      "forecast_year": "2030",
+      "velocity_indicator": "Power supply lead time in EU: 3-5 years for new data centers; electrical equipment lead time: 3+ years"
+    },
+    "entrepreneurial_relevance": {
+      "relevance_for_entrepreneurs": "The EU infrastructure gap is the single biggest structural disadvantage for European AI startups. Training large models requires GPU clusters that barely exist in Europe today. The 3-5 year power supply lead time means even with unlimited capital, new EU data centers cannot be operational before 2028-2030. This creates a window where European AI startups must either use US cloud providers (latency, data sovereignty issues) or wait for EU gigafactories. It also creates opportunities for startups focused on AI efficiency, edge computing, and energy optimization.",
+      "actionable_insight": "Near-term: European AI startups should budget for US/Gulf cloud compute costs and factor data sovereignty compliance into architecture. Medium-term: position for EU AI Factory access (apply early to programs). Opportunity space: startups building efficient inference, model compression, or on-premise AI deployment have a structural European advantage since they reduce dependency on scarce GPU infrastructure.",
+      "session_mapping": "3",
+      "risk_profile": "dependency_risk"
+    },
+    "confidence": {
+      "data_quality": "Medium",
+      "cross_reference": "McKinsey Cost of Compute report (2025); Data Centre Magazine EU energy projections; European Commission AI Continent Action Plan; Euronews AI infrastructure coverage",
+      "caveats": "Data center capacity growth percentages vary by source and definition (MW capacity vs. rack space vs. GPU counts). The $7T global figure is a McKinsey projection with wide confidence intervals. EU figures may undercount private hyperscaler investments that are not publicly disclosed. Energy transition constraints (nuclear, renewables) add uncertainty to European deployment timelines.",
+      "measurement_reliability": "analyst_estimate"
+    },
+    "uncertain": ["compound_annual_growth_rate"]
+  },
+  {
+    "metric_identity": {
+      "metric_name": "EU Notable AI Models Produced (2024)",
+      "source_report": "Stanford HAI AI Index Report 2025",
+      "source_url": "https://hai.stanford.edu/ai-index/2025-ai-index-report",
+      "publication_date": "April 2025",
+      "methodology_notes": "Stanford HAI tracks 'notable' AI models defined by significant technical contribution, adoption, or benchmark performance. Counted by country of origin of the developing institution/company. France's 3 models likely include Mistral AI contributions."
+    },
+    "metric_value": {
+      "value": "US: 40 / China: 15 / France (representing EU): 3",
+      "unit": "count of notable AI models",
+      "geographic_scope": "US, China, EU (France)",
+      "time_period": "2024",
+      "comparison_baseline": "Prior years showed similar US dominance; China's model count has been rising steadily",
+      "market_layer": "model"
+    },
+    "trend": {
+      "trend_direction": "Flat (EU, relative to US/China growth)",
+      "year_over_year_change": "[uncertain]",
+      "compound_annual_growth_rate": "N/A",
+      "forecast_value": "[uncertain]",
+      "forecast_year": "[uncertain]",
+      "velocity_indicator": "US produces 13x more notable models than the EU; China produces 5x more"
+    },
+    "entrepreneurial_relevance": {
+      "relevance_for_entrepreneurs": "Europe's model production gap (3 vs 40 US, 15 China) is stark and reveals the consequences of the compute and investment gaps. For European founders, this means the realistic strategy is application-layer AI (building on top of US/Chinese models) rather than competing at the foundation model level — unless backed by Mistral-level capital. The EU's 3 models being primarily from France underscores France's outsized role in European AI.",
+      "actionable_insight": "European AI startups should focus on the application and vertical layers where model access is commoditized. Foundation model competition requires $100M+ training runs that few European entities can afford. The smarter play is building domain-specific fine-tuned models, RAG systems, or AI-powered vertical SaaS on top of open-weight models from Mistral, Meta, or others.",
+      "session_mapping": "1",
+      "risk_profile": "competitive_moat"
+    },
+    "confidence": {
+      "data_quality": "High",
+      "cross_reference": "Stanford HAI AI Index 2025; Epoch AI model tracking database",
+      "caveats": "The definition of 'notable' is subjective and may undercount EU contributions to open-source model ecosystems (e.g., Hugging Face community models). The count tracks institutional origin, not deployment geography — many US models are heavily used in Europe.",
+      "measurement_reliability": "analyst_estimate"
+    },
+    "uncertain": ["year_over_year_change", "forecast_value", "forecast_year"]
+  }
+]

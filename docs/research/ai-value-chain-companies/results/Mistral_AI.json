@@ -1,0 +1,47 @@
+{
+  "identity": {
+    "company_name": "Mistral AI",
+    "headquarters": "Paris, France",
+    "headquarters_region": "EU",
+    "founded_year": 2023
+  },
+  "value_chain": {
+    "role_in_value_chain": "model_creator",
+    "value_chain_position": "Core model creation layer. Mistral depends on NVIDIA GPUs for training and inference (announced Mistral Compute with 18,000 NVIDIA Grace Blackwell chips in June 2025). Distributes models through its own La Plateforme API, Microsoft Azure (Models as a Service), Amazon Bedrock, and Google Cloud Vertex AI. Serves downstream application builders, enterprises, and European public sector organizations. Increasingly moving into the application layer with Le Chat (consumer/enterprise assistant) and AI Studio (agent-building platform), positioning itself as a full-stack enterprise AI company.",
+    "vertical_integration_level": "Multi-layer"
+  },
+  "products": {
+    "key_products": [
+      "La Plateforme API (Mistral Large 3, Medium 3, Small 3.1, Magistral reasoning models): usage-based API serving developers and enterprises with models ranging from 3B to 675B parameters. Mistral Large 3 is a sparse MoE with 41B active / 675B total parameters under Apache 2.0. Pixtral Large provides multimodal (vision + text) capabilities. Magistral Small/Medium offer chain-of-thought reasoning.",
+      "Le Chat (consumer and enterprise AI assistant): free tier, Pro at $14.99/mo, Team at $24.99/user/mo ($19.99 annually), Enterprise with custom pricing. Features include web search, document analysis, canvas, image generation, and AI agent builders. Enterprise version offers on-premises deployment, EU data residency, and GDPR compliance. Revenue tripled within 100 days of Enterprise launch.",
+      "Ministral 3 (edge AI models: 3B, 7B, 14B dense models): Apache 2.0 licensed models designed for deployment on single GPUs, laptops, robots, drones, and edge devices with limited connectivity. Enables on-device AI without cloud dependency."
+    ]
+  },
+  "business": {
+    "revenue_or_valuation": "Valued at approximately $14B (11.7B EUR) following Series C round (Sep 2025). ARR reached 300M EUR as of Sep 2025. Revenue hit $100M in Nov 2025 (25x year-over-year growth). CEO Arthur Mensch targets revenue exceeding 1B EUR in 2026 and 750M EUR ARR by mid-2027. Plans to IPO rather than sell.",
+    "annual_recurring_revenue_arr": "300M EUR ARR as of September 2025, up from approximately 30M EUR in 2024 and 60M EUR in early 2025. Driven by Le Chat Enterprise subscriptions, API usage, and strategic partnerships. Targeting 750M EUR ARR by mid-2027.",
+    "funding_total_and_last_round": "Total raised: approximately $3.05B over 7 rounds from 41 investors. Last round: 1.7B EUR Series C (Sep 2025) at 11.7B EUR ($14B) valuation, led by ASML (1.3B EUR, 76.5% of the round, acquiring 11% stake). Other investors: DST Global, Andreessen Horowitz, Bpifrance, General Catalyst, Index Ventures, Lightspeed, NVIDIA.",
+    "business_model": "Hybrid subscription + usage-based. Revenue streams: (1) API usage-based pricing via La Plateforme (Mistral Large 3 at $2/$6 per M tokens, Medium 3 at $0.40/$2 per M tokens, Small at even lower rates); (2) Le Chat subscriptions (Pro $14.99/mo, Team $24.99/user/mo, Enterprise custom); (3) Cloud marketplace revenue from Azure, AWS Bedrock, GCP distributions; (4) Strategic licensing and partnership deals (Microsoft, SAP, French military). Enterprise on-premises deployment is a key differentiator.",
+    "burn_rate_and_runway": "[uncertain] Not publicly disclosed. Raised 1.7B EUR in Sep 2025 with 300M EUR ARR, suggesting multi-year runway. Significant infrastructure investment planned (Mistral Compute with NVIDIA). Approach emphasizes efficiency over massive burn rates typical of US AI labs."
+  },
+  "openness": {
+    "open_vs_closed_spectrum": "Hybrid (Open-weight Apache 2.0 + proprietary API). All Mistral 3 family models (Large 3, Small 3.1, Ministral 3B/7B/14B) released under Apache 2.0 for unrestricted commercial use. Pixtral Large also open-weight. Magistral Medium and some enterprise features remain API-only. Strongest open-weight commitment among frontier model creators, with Apache 2.0 as the default license rather than restrictive alternatives."
+  },
+  "startup_relevance": {
+    "relevance_for_startups": "Mistral AI is the most strategically important AI company for European entrepreneurs and any startup with EU data sovereignty requirements. Key considerations: (1) EU data residency and GDPR compliance built into the product from day one -- Mistral is the only frontier model provider offering native European hosting with on-premises deployment, making it the default choice for regulated industries (healthcare, finance, defense, public sector); (2) Apache 2.0 open-weight models (up to 675B parameters) allow startups to self-host, fine-tune, and customize without vendor lock-in or licensing fees -- the most permissive licensing among frontier-class models; (3) API pricing significantly undercuts OpenAI and Anthropic (Medium 3 at $0.40/$2 per M tokens vs GPT-4o at $2.50/$10), enabling better unit economics for AI-powered products; (4) The edge model strategy (Ministral 3B/7B running on laptops and devices) opens use cases impossible with cloud-only providers: offline AI, embedded systems, IoT, robotics; (5) Mistral's full-stack enterprise push (Le Chat Enterprise, AI Studio, agent builders) means it increasingly competes with its API customers in the application layer -- startups should assess platform risk; (6) French military contract and ASML investment signal strong government backing, creating procurement channels for startups building on Mistral in European public sector; (7) Multilingual strength beyond English makes Mistral particularly suited for startups targeting non-English European markets.",
+    "accessibility": "Very high accessibility. Free tier for Le Chat with basic usage. Pro at $14.99/mo. API access via La Plateforme with pay-as-you-go (Small from $0.10/M tokens, Medium at $0.40/$2, Large at $2/$6). Models available on Azure, AWS Bedrock, and GCP marketplaces. All major models downloadable under Apache 2.0 from Hugging Face for self-hosting. Team plans at $24.99/user/mo. Enterprise with custom pricing and on-premises options. Startup-friendly: no minimum commitment on API, open-weight models eliminate hosting costs for inference at scale.",
+    "primary_model_dependency": "None. Mistral AI is a foundation model creator."
+  },
+  "ecosystem": {
+    "key_partnerships": "ASML (1.3B EUR investment, 11% stake, AI for semiconductor manufacturing). Microsoft Azure (multi-year partnership, Models as a Service distribution, Azure AI Studio integration, potential EU public sector workloads). SAP (alliance for European sovereign AI in enterprise software, announced Nov 2025). NVIDIA (investor, Mistral Compute infrastructure with 18,000 Grace Blackwell chips). Amazon AWS (Pixtral Large and other models on Bedrock). Google Cloud (Vertex AI distribution). French Ministry of the Armed Forces (framework agreement for military AI deployment, Jan 2026). Bpifrance (French public investment bank, strategic investor).",
+    "competitive_moat": "European data sovereignty: only frontier model provider with native EU hosting, on-premises deployment, and GDPR-compliant infrastructure -- a regulatory moat that US and Chinese competitors cannot easily replicate. Open-weight Apache 2.0 strategy creates ecosystem lock-in through developer adoption and fine-tuning (models become embedded in workflows). Strong multilingual and multimodal capabilities beyond English. Government and institutional backing (French military, ASML, Bpifrance) provides political capital and procurement advantages in EU public sector. Cost efficiency: MoE architecture delivers frontier performance at significantly lower inference costs. Edge deployment capability (Ministral) opens markets inaccessible to cloud-only competitors.",
+    "data_moat_type": "Distribution"
+  },
+  "regulatory": {
+    "regulatory_exposure": "GPAI provider. Mistral AI signed the EU General-Purpose AI Code of Practice (Jul 2025) as an early signatory alongside OpenAI, Anthropic, Google, and Amazon, gaining presumption of conformity with EU AI Act obligations effective Aug 2, 2025. However, Mistral also joined ASML and Airbus in calling for a 2-year delay to EU AI Act enforcement, reflecting tensions between compliance and competitiveness. Models above 10^25 FLOPs threshold (e.g., Mistral Large 3) may qualify as GPAI with systemic risk, requiring additional safety evaluations. Mistral's EU-native positioning gives it a regulatory advantage: compliance is part of the value proposition rather than an external burden."
+  },
+  "uncertain": [
+    "burn_rate_and_runway",
+    "annual_recurring_revenue_arr"
+  ]
+}

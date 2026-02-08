@@ -1,0 +1,97 @@
+# ABOUTME: Field definitions for AI Tech Watch & Learning Resources research (Research 8).
+# ABOUTME: 22 fields across 6 categories defining what to research for each resource.
+
+topic: "AI Tech Watch & Learning Resources 2024-2026"
+
+field_categories:
+
+  identity:
+    description: "Basic identification and access information"
+    fields:
+      resource_name:
+        description: "Official name of the resource"
+        detail_level: brief
+      resource_type:
+        description: "Type: Newsletter / Blog / Podcast / YouTube / Community / Conference / Tool / Platform / Paper Source"
+        detail_level: brief
+      creator_or_organization:
+        description: "Person or organization behind the resource"
+        detail_level: brief
+      url:
+        description: "Primary URL to access the resource"
+        detail_level: brief
+      language:
+        description: "Primary language: English / French / Multilingual"
+        detail_level: brief
+
+  content_profile:
+    description: "What the resource covers and how"
+    fields:
+      content_focus:
+        description: "Topics covered: research, products, business strategy, policy, tutorials, tools, ecosystem"
+        detail_level: moderate
+      target_audience:
+        description: "Who it's best for: beginners, technical, business leaders, researchers, entrepreneurs"
+        detail_level: brief
+      publication_frequency:
+        description: "Cadence: Daily / Weekly / Biweekly / Monthly / Event-based / Continuous"
+        detail_level: brief
+      format_and_length:
+        description: "Format details: 5-min read, 1h podcast, 10-min video, interactive platform, etc."
+        detail_level: brief
+
+  quality_and_accessibility:
+    description: "How good and approachable the resource is"
+    fields:
+      accessibility_for_non_engineers:
+        description: "How approachable for business students with no technical background. Rate High/Medium/Low with explanation"
+        detail_level: moderate
+      signal_to_noise_ratio:
+        description: "Quality of curation — how much actionable insight vs filler. Rate High/Medium/Low"
+        detail_level: brief
+      unique_value_proposition:
+        description: "What makes this resource stand out from alternatives in its category"
+        detail_level: moderate
+      free_or_paid:
+        description: "Access model: Free / Freemium / Paid (with price if applicable)"
+        detail_level: brief
+      source_reliability:
+        description: "How trustworthy and well-sourced the content is. Consider: editorial standards, fact-checking, citation of sources, track record of accuracy, potential biases, credentials of authors. Rate High/Medium/Low with explanation"
+        detail_level: moderate
+
+  entrepreneurial_relevance:
+    description: "Value for AI entrepreneurs and business students"
+    fields:
+      relevance_for_entrepreneurs:
+        description: "Why an AI entrepreneur should follow this resource. Specific value for business decisions"
+        detail_level: moderate
+      actionable_insight_level:
+        description: "Does it give actionable takeaways or just information? Rate High/Medium/Low"
+        detail_level: brief
+      session_mapping:
+        description: "Which course session(s) this resource best supports: S1 (Fundamentals), S2 (Prompts/Tools), S3 (Projects), S4 (Business Models), S5 (Ethics/Governance), or Cross-session"
+        detail_level: brief
+
+  currency_and_ecosystem:
+    description: "How current the resource is and where it fits"
+    fields:
+      active_since:
+        description: "Year the resource was launched or started publishing"
+        detail_level: brief
+      last_verified_active:
+        description: "Date of last verification that the resource is still actively publishing"
+        detail_level: brief
+      ecosystem_position:
+        description: "Where this resource fits in the AI information landscape — is it a primary source, aggregator, community, educational, or analytical"
+        detail_level: moderate
+
+  recommendation:
+    description: "Priority and usage guidance for students"
+    fields:
+      recommendation_tier:
+        description: "Priority for students: Must-Follow (check weekly minimum), Nice-to-Have (check monthly), Deep-Dive (use when exploring a specific topic)"
+        detail_level: brief
+
+  uncertain:
+    description: "List of field names with low-confidence values (auto-filled during deep research phase)"
+    fields: []

@@ -1,0 +1,142 @@
+# ABOUTME: Research outline for AI Project Frameworks & Methodologies (Research 5).
+# ABOUTME: 24 frameworks across 10 categories for M2 Entrepreneurship students.
+
+topic: "AI Project Frameworks & Methodologies 2024-2026"
+description: >
+  Practical frameworks and methodologies for framing, planning, and managing AI projects.
+  Targeted at M2 Entrepreneurship students (business school, non-engineers).
+  Focus on actionable, business-oriented frameworks with European/French relevance.
+
+categories:
+  - name: "Classic & Modern Project Lifecycles"
+    description: "End-to-end AI project methodologies from scoping to deployment"
+  - name: "AI-Specific Canvases & Design Tools"
+    description: "One-page visual tools for scoping and designing AI projects"
+  - name: "Build vs Buy Decision Frameworks"
+    description: "Frameworks for choosing between building, buying, or fine-tuning AI"
+  - name: "AI Readiness & Maturity Assessment"
+    description: "Organizational maturity models and readiness assessments"
+  - name: "GenAI & LLMOps Lifecycle"
+    description: "Frameworks specific to generative AI and LLM-based projects"
+  - name: "AI Product Management"
+    description: "Methodologies for designing and managing AI products"
+  - name: "Risk, Governance & Compliance"
+    description: "Risk assessment, AI governance standards, and regulatory frameworks"
+  - name: "Data Strategy"
+    description: "Frameworks for data quality, data moats, and data-centric development"
+  - name: "AI Team & Roles"
+    description: "Frameworks for AI team composition and organizational models"
+  - name: "ROI & Business Case"
+    description: "Frameworks for calculating AI project returns and managing costs"
+
+items:
+  # --- Category 1: Classic & Modern Project Lifecycles (2) ---
+  - name: "CRISP-DM & CRISP-ML(Q)"
+    category: "Classic & Modern Project Lifecycles"
+    description: "The most widely used AI project methodology (60%+ adoption). CRISP-DM (1996) defines 6 phases; CRISP-ML(Q) (2021, Mercedes-Benz/TU Berlin) extends it with quality assurance at each phase"
+
+  - name: "Andrew Ng's AI Transformation Playbook"
+    category: "Classic & Modern Project Lifecycles"
+    description: "5-step framework for organizations adopting AI: pilot projects → build AI team → provide training → develop strategy → develop communications"
+
+  # --- Category 2: AI-Specific Canvases & Design Tools (3) ---
+  - name: "AI Project Canvas"
+    category: "AI-Specific Canvases & Design Tools"
+    description: "One-page framework for scoping AI projects: problem, data, model, value, deployment, maintenance. Multiple versions exist (Agrawal/Gans/Goldfarb, DAIN Studios)"
+
+  - name: "Machine Learning Canvas (Louis Dorard)"
+    category: "AI-Specific Canvases & Design Tools"
+    description: "Structured template for defining ML product requirements: prediction task, data sources, features, evaluation, decisions"
+
+  - name: "Value Proposition Canvas for AI"
+    category: "AI-Specific Canvases & Design Tools"
+    description: "Adaptation of Strategyzer's VPC for AI products: mapping AI capabilities to customer jobs, pains, and gains"
+
+  # --- Category 3: Build vs Buy Decision Frameworks (2) ---
+  - name: "Build vs Buy vs Fine-tune vs RAG Decision Matrix"
+    category: "Build vs Buy Decision Frameworks"
+    description: "Framework for choosing between building custom AI, buying API/SaaS, fine-tuning, or RAG. Updated for GenAI era with cost thresholds and decision criteria"
+
+  - name: "GenAI Use Case Prioritization Framework"
+    category: "Build vs Buy Decision Frameworks"
+    description: "Two-phase methodology: qualitative screening then weighted multi-criteria scoring (impact, feasibility, data readiness, ROI, scalability). Variants by Google, Gartner, PwC"
+
+  # --- Category 4: AI Readiness & Maturity Assessment (2) ---
+  - name: "AI Maturity Model (Gartner)"
+    category: "AI Readiness & Maturity Assessment"
+    description: "5 levels: Awareness → Active → Operational → Systemic → Transformational. Assesses strategy, data, technology, talent, governance"
+
+  - name: "Elements of AI / AI Readiness Index"
+    category: "AI Readiness & Maturity Assessment"
+    description: "Finnish-origin initiative (University of Helsinki + Reaktor). National and organizational AI readiness assessment. European perspective"
+
+  # --- Category 5: GenAI & LLMOps Lifecycle (2) ---
+  - name: "LLMOps / GenAI Project Lifecycle"
+    category: "GenAI & LLMOps Lifecycle"
+    description: "Distinct lifecycle for GenAI projects: prompt engineering, RAG pipeline, evaluation, guardrails, observability, feedback loops. Replaces traditional model training with pipeline orchestration"
+
+  - name: "MVP Patterns for AI Products"
+    category: "GenAI & LLMOps Lifecycle"
+    description: "Specific patterns for minimum viable AI products: Wizard of Oz AI, human-in-the-loop, rule-based-first, prompt-engineering MVP before fine-tuning"
+
+  # --- Category 6: AI Product Management (2) ---
+  - name: "AI-First Product Design (Google PAIR)"
+    category: "AI Product Management"
+    description: "Google's People + AI Research guidelines with 23 design patterns for human-AI interaction. Covers mental models, trust calibration, feedback loops, error handling"
+
+  - name: "Data-Centric AI Methodology (Andrew Ng)"
+    category: "AI Product Management"
+    description: "Paradigm shift from model-centric to data-centric development. Focuses on systematically engineering data quality rather than tweaking model architectures"
+
+  # --- Category 7: Risk, Governance & Compliance (4) ---
+  - name: "NIST AI Risk Management Framework (AI RMF)"
+    category: "Risk, Governance & Compliance"
+    description: "US standard for AI risk management: Map → Measure → Manage → Govern. The reference framework for structured AI risk assessment"
+
+  - name: "EU AI Act Risk Classification"
+    category: "Risk, Governance & Compliance"
+    description: "Europe's regulatory framework classifying AI systems by risk level: Unacceptable → High → Limited → Minimal. Directly impacts what entrepreneurs can build"
+
+  - name: "ISO/IEC 42001:2023 (AI Management System)"
+    category: "Risk, Governance & Compliance"
+    description: "First internationally certifiable AI management standard. 10 clauses covering establishment, implementation, maintenance of AI governance. 76% of organizations plan to pursue it"
+
+  - name: "ALTAI (Assessment List for Trustworthy AI)"
+    category: "Risk, Governance & Compliance"
+    description: "EU High-Level Expert Group's self-assessment checklist: 7 requirements (human agency, privacy, robustness, accountability, transparency, societal wellbeing, fairness)"
+
+  # --- Category 8: Data Strategy (2) ---
+  - name: "Data Flywheel / Data Network Effects"
+    category: "Data Strategy"
+    description: "Strategic framework for building AI moats: more users → more data → better models → more users. Key pattern for AI startup defensibility"
+
+  - name: "AI Feasibility Assessment Matrix"
+    category: "Data Strategy"
+    description: "Practical framework evaluating AI project feasibility across 5 dimensions: data availability, technical complexity, business value, ethical risk, organizational readiness"
+
+  # --- Category 9: AI Team & Roles (2) ---
+  - name: "Andrew Ng's AI Team Composition Guide"
+    category: "AI Team & Roles"
+    description: "Roles needed for AI projects: ML Engineer, Data Engineer, Data Scientist, AI Product Manager, Domain Expert. How to start small and scale"
+
+  - name: "AI Operating Model (CoE vs Hub-and-Spoke vs Federated)"
+    category: "AI Team & Roles"
+    description: "4-5 models for organizing AI teams. Hub-and-spoke is the 2025 consensus (3x more likely at scaled organizations). Key for selling to or working within enterprises"
+
+  # --- Category 10: ROI & Business Case (3) ---
+  - name: "AI ROI Framework"
+    category: "ROI & Business Case"
+    description: "Structured approach to calculating AI returns: direct cost savings, revenue uplift, productivity gains, risk reduction, minus implementation and maintenance costs"
+
+  - name: "Total Cost of Ownership for AI"
+    category: "ROI & Business Case"
+    description: "Full cost framework: compute, data, talent, maintenance, monitoring, retraining, technical debt, opportunity cost. Essential for realistic business planning"
+
+  - name: "FinOps for AI"
+    category: "ROI & Business Case"
+    description: "Extension of cloud FinOps to AI cost management: token pricing, GPU allocation, model serving costs. 63% of enterprises exceed AI budgets by 30%+"
+
+execution:
+  batch_size: 3
+  items_per_agent: 1
+  output_dir: "./results"

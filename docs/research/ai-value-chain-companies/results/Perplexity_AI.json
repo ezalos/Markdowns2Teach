@@ -1,0 +1,47 @@
+{
+  "identity": {
+    "company_name": "Perplexity AI",
+    "headquarters": "San Francisco, USA",
+    "headquarters_region": "US",
+    "founded_year": 2022
+  },
+  "value_chain": {
+    "role_in_value_chain": "application",
+    "value_chain_position": "Application layer, AI-native search vertical. Perplexity depends on multiple foundation models from OpenAI (GPT-4o, o3), Anthropic (Claude Sonnet 4.5, Claude Opus), Google (Gemini), xAI (Grok), and open-source models, alongside its own proprietary Sonar model family. It also depends on Microsoft Azure for compute infrastructure ($750M commitment over 3 years, signed Jan 2026). Perplexity serves end users (consumers, professionals, enterprises) as an AI-powered 'answer engine' that competes directly with Google Search by providing cited, synthesized answers instead of link lists.",
+    "vertical_integration_level": "Multi-layer"
+  },
+  "products": {
+    "key_products": [
+      "Perplexity Search (core product): AI-powered answer engine that searches the web in real-time, synthesizes information from multiple sources, and provides cited responses. Includes Pro Search for deep multi-step research (up to 100+ citations), Spaces for organizing research projects, and Research mode for comprehensive reports. Free tier with unlimited basic searches + 5-10 daily premium queries.",
+      "Perplexity Pro / Max subscriptions: Pro ($20/mo) unlocks unlimited Pro Search, advanced model selection (GPT-4o, Claude, Gemini, Grok), file uploads, and image generation. Max ($200/mo) adds unlimited access to all frontier models including o3-pro and Claude Opus, with no usage restrictions on volume or frequency.",
+      "Comet Browser: AI-native web browser built on Chromium (launched Sep 2025), featuring an AI sidebar for real-time summarization, workflow automation, and workspace organization. Free for all users on Windows and macOS. Represents Perplexity's strategic expansion from search engine to full browsing platform, competing with Chrome directly."
+    ]
+  },
+  "business": {
+    "revenue_or_valuation": "Valued at $20B as of September 2025 ($200M Series D led by IVP). Previous valuations: $14B (May 2025), $9B (Dec 2024), $3B (Jun 2024), $520M (Jan 2024). ARR approaching $200M as of late 2025, with projections of $656M for 2026. Some sources report the company is seeking a higher valuation in 2026.",
+    "annual_recurring_revenue_arr": "Approaching $200M ARR as of late 2025. Subscription revenue crossed $100M ARR in March 2025 (400% increase in 7 months). Annualized revenue hit $148M in June 2025. Revenue sources: subscriptions (primary), advertising (growing), and publisher revenue-sharing through Comet Plus. 45M active users making 780M+ queries/month.",
+    "funding_total_and_last_round": "Total raised: ~$1.5-1.7B across multiple rounds. Last round: $200M Series D at $20B valuation led by IVP (Sep 2025). Previous rounds: $500M at $14B (May 2025), $500M Series D at $9B (Dec 2024), $250M at $3B (Jun 2024). Key investors: NVIDIA, Jeff Bezos, SoftBank Vision Fund 2, New Enterprise Associates, IVP, Databricks, Nat Friedman, Tobias Lutke. Signed $750M Azure commitment with Microsoft (Jan 2026).",
+    "business_model": "Freemium SaaS + advertising hybrid. Consumer subscriptions: Free (basic), Pro ($20/mo), Max ($200/mo). Enterprise: Enterprise Pro ($40/seat/mo or $400/yr), Enterprise Max ($325/seat/mo or $3,250/yr). Advertising: sponsored 'related questions' and branded follow-ups that do not appear above organic answers. Publisher revenue-sharing: Comet Plus program pays publishers from subscription revenue (80% to publishers, 20% to Perplexity), with $42.5M publisher pool and 300+ publisher partners. Distribution deals (e.g., Bharti Airtel partnership offering free Pro to 360M customers).",
+    "burn_rate_and_runway": "Not publicly disclosed. Estimated high burn given $1.5B+ raised against ~$200M ARR, significant compute costs (multi-model inference, real-time web search), and $750M Azure commitment. Runway likely 2+ years given funding level. [uncertain]"
+  },
+  "openness": {
+    "open_vs_closed_spectrum": "Hybrid. Perplexity's core search product and Sonar model family are proprietary. However, the platform provides access to multiple open and closed models (GPT-4o, Claude, Gemini, Grok, open-source models). The Sonar API is commercially available for developers to build search-augmented applications. Comet browser is based on open-source Chromium. Perplexity publishes citations and sources for transparency, but the retrieval-augmented generation (RAG) pipeline and ranking algorithms are closed."
+  },
+  "startup_relevance": {
+    "relevance_for_startups": "Perplexity represents the most credible challenge to Google's search monopoly, making it a critical case study in AI-native product disruption. Key considerations for entrepreneurs: (1) New distribution channel: Perplexity's cited answers create a new SEO paradigm -- startups need to understand 'Answer Engine Optimization' (AEO) to be surfaced in AI search results, as traditional SEO loses relevance; (2) Sonar API for builders: startups can integrate Perplexity's search-augmented generation via the Sonar API to add real-time, cited web search to their own products without building RAG infrastructure from scratch; (3) Business model innovation: Perplexity's hybrid model (subscriptions + ads + publisher revenue-sharing + distribution deals) demonstrates how AI startups can layer multiple monetization channels beyond pure SaaS; (4) Speed-to-value lesson: Perplexity went from founding to $20B valuation in 3 years by focusing relentlessly on product quality and user experience rather than model training -- proof that application-layer startups can build massive value without training their own frontier models; (5) Legal risk cautionary tale: multiple copyright lawsuits from NYT, News Corp, Nikkei, and others highlight the regulatory minefield for AI products that synthesize third-party content; (6) Enterprise expansion path: the Enterprise Pro/Max tiers show how consumer AI products can move upmarket to capture enterprise budgets; (7) Platform expansion strategy: Comet browser shows how an AI search engine can evolve into a full platform play, competing not just with Google Search but with Chrome itself.",
+    "accessibility": "High accessibility. Free tier with unlimited basic searches available to anyone. Pro subscription at $20/mo for power users. Sonar API available for developers to integrate search-augmented generation into their products (usage-based pricing). Enterprise tiers starting at $40/seat/mo for teams. No startup-specific credit program publicly disclosed, but the free tier is generous enough for early experimentation. Available on web, iOS, Android, and via the Comet desktop browser.",
+    "primary_model_dependency": "Multi-model: OpenAI (GPT-4o, o3, o3-pro), Anthropic (Claude Sonnet 4.5, Claude Opus), Google (Gemini), xAI (Grok 4.1), Moonshot (Kimi K2.5), plus proprietary Sonar model family. Azure infrastructure via $750M Microsoft commitment."
+  },
+  "ecosystem": {
+    "key_partnerships": "Microsoft Azure ($750M compute commitment over 3 years, Jan 2026, access to multiple models via Foundry). NVIDIA (investor and GPU provider). Jeff Bezos (investor). SoftBank (investor). Bharti Airtel (distribution: free Pro for 360M subscribers in India). 300+ publisher partners (revenue-sharing program including major media outlets). Databricks (investor). Deutsche Telekom, SoftBank Mobile, and other telcos for distribution deals.",
+    "competitive_moat": "Product experience: best-in-class citation system and answer quality create strong user preference over Google for research-oriented queries. Multi-model arbitrage: by routing queries to the best available model (OpenAI, Claude, Gemini, Grok, Sonar) rather than depending on a single provider, Perplexity can always offer frontier-quality answers regardless of which lab leads at any given time. User habit formation: 45M active users generating 780M+ queries/month creates a growing feedback loop for improving search quality and relevance ranking. Publisher network: 300+ publisher partnerships and the Comet Plus revenue-sharing model create a content ecosystem that competitors would need to replicate. Distribution deals: telco partnerships (Airtel's 360M customers) provide massive user acquisition at near-zero marginal cost. Brand positioning: 'Perplexity' is becoming synonymous with AI search, similar to how 'Google' became a verb for web search.",
+    "data_moat_type": "User feedback loop"
+  },
+  "regulatory": {
+    "regulatory_exposure": "Exempt (application layer, not GPAI provider under EU AI Act). However, Perplexity faces significant legal exposure from copyright litigation: sued by The New York Times (Dec 2025), News Corp/Dow Jones, Nikkei, Asahi Shimbun, Encyclopedia Britannica, and others for allegedly scraping and reproducing copyrighted content without authorization, ignoring robots.txt directives, and circumventing hard blocks. GDPR concerns: Perplexity shares user data with advertisers (mobile identifiers, hashed emails, cookie IDs), trains on user data by default even on paid plans, and has had encryption/storage vulnerabilities (unencrypted files in publicly accessible Cloudinary storage). The company claims GDPR compliance but faces scrutiny from EU data protection advocates."
+  },
+  "uncertain": [
+    "burn_rate_and_runway",
+    "annual_recurring_revenue_arr"
+  ]
+}

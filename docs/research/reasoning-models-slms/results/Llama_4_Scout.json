@@ -1,0 +1,48 @@
+{
+  "identity": {
+    "model_name": "Llama 4 Scout",
+    "creator": "Meta",
+    "release_date": "April 2025",
+    "model_family": "Llama"
+  },
+  "architecture": {
+    "parameter_count": "109B total",
+    "active_parameters": "17B active per forward pass (16 experts, 1 active per token)",
+    "architecture_type": "MoE (Mixture of Experts)",
+    "context_window": "10M tokens (industry-leading at release)",
+    "max_output_tokens": "8K (8,192 tokens)"
+  },
+  "capabilities": {
+    "open_or_closed": "Open-weight (downloadable weights via Hugging Face, but not OSI-approved open source)",
+    "license_type": "Llama 4 Community License Agreement (custom license, effective April 5, 2025). Allows commercial and research use, including synthetic data generation and distillation. Requires Meta permission for organizations with >700M monthly active users. Critical restriction: multimodal rights are NOT granted to individuals domiciled in, or companies with principal place of business in, the European Union due to EU AI Act regulatory uncertainty. Non-EU organizations may build products with Llama 4 and distribute them in the EU.",
+    "reasoning_capability": "Standard reasoning without dedicated thinking mode. Supports chain-of-thought prompting but does not feature toggleable or budget-controllable reasoning like OpenAI o-series or DeepSeek R1. Achieves ~90.6% on GSM8K in zero-shot settings. Meta has signaled future reasoning-focused fine-tuning updates.",
+    "multimodal_support": "Native multimodal via early fusion architecture. Supports text input and image input (natively trained on text and vision tokens). Some sources mention video input support. Output is text-only. No audio input or image generation.",
+    "multilingual_support": "12 officially supported languages: Arabic, English, French, German, Hindi, Indonesian, Italian, Portuguese, Spanish, Tagalog, Thai, Vietnamese. Pre-trained on 200 languages total. French is explicitly supported.",
+    "agentic_capability": "Strong tool-use and function calling support. Supports parallel tool calls (improvement over Llama 3). Optimized for powering agentic systems. Uses llama4_pythonic tool parser. Can identify need for external tools, format proper API calls, and integrate results into responses. Well-suited for multi-step agent workflows thanks to 10M context window."
+  },
+  "benchmarks": {
+    "key_benchmarks": "MMLU-Pro: 74.3%, GPQA Diamond: 57.2%, LiveCodeBench: 32.8%, SWE-bench Verified: 54.6% [uncertain], MMMU: 69.4%, MathVista: 70.7%, ChartQA: 88.8%, DocVQA: 94.4%, MATH: 50.3%, GSM8K: ~90.6% (zero-shot). Outperforms Gemma 3, Gemini 2.0 Flash-Lite, and Mistral 3.1 across most benchmarks in its class.",
+    "reasoning_benchmarks_composite": "GPQA Diamond: 57.2%, MATH: 50.3%, GSM8K: ~90.6% (zero-shot). AIME 2025 score not publicly reported by Meta for Scout. Reasoning performance is solid for its weight class but not competitive with dedicated reasoning models (o3, DeepSeek R1). [uncertain]"
+  },
+  "pricing": {
+    "pricing_per_1M_tokens": "Varies by provider. Typical range: $0.08-$0.20 input / $0.30-$0.63 output per 1M tokens. DeepInfra: $0.10/$0.30. Groq: $0.11/$0.34. Median across providers: ~$0.18/$0.63. Open-weight model so self-hosting has no per-token cost.",
+    "cost_efficiency_notes": "Extremely cost-efficient due to MoE architecture: only 17B parameters active per token despite 109B total, giving strong performance at fraction of the compute cost of dense models. An order of magnitude cheaper than GPT-4o via API providers. Self-hosting on a single H100 with int4 quantization makes it one of the most cost-effective frontier-class models available. Blended rates as low as $0.08-0.13/MTok from competitive providers."
+  },
+  "deployment": {
+    "minimum_hardware_requirement": "Full BF16 precision: ~216GB VRAM. FP8 quantization: ~109GB VRAM (fits on 2x H100 80GB). Int4 quantization: ~55-60GB VRAM (fits on single H100 80GB). 1.78-bit quantization (GGUF): ~24GB VRAM (fits on RTX 4090/3090). MoE architecture means all 109B parameters must be loaded but only 17B are active per inference, providing faster inference than equivalent dense models.",
+    "quantization_availability": "GGUF (via Unsloth, multiple bit widths including 1.78-bit), BNB 4-bit (Unsloth), FP8 (NVIDIA official), NVFP4 (NVIDIA), int4 (Meta official on-the-fly quantization). Community GPTQ and AWQ versions also available on Hugging Face.",
+    "on_device_capable": "Not designed for phones or embedded devices. Minimum ~24GB VRAM with aggressive quantization. Can run on high-end desktop GPUs (RTX 4090) with 1.78-bit GGUF quantization at ~20 tokens/sec. Runs on Arm-based cloud infrastructure (AWS Graviton4 via llama.cpp). Not practical for laptops without dedicated GPU."
+  },
+  "business": {
+    "best_use_cases": "1) Long-context document analysis and RAG: 10M token context window enables processing entire codebases, legal documents, or book-length texts in a single pass. 2) Multilingual customer support: native support for 12 languages including French makes it ideal for European startups building chatbots. 3) Multimodal content understanding: image+text processing for product cataloging, document extraction (94.4% DocVQA), chart analysis (88.8% ChartQA). 4) Cost-effective AI agent systems: strong tool-calling and function-calling capabilities at very low API cost for building multi-step automated workflows. 5) Code assistance and development tools: solid coding benchmarks at fraction of the cost of proprietary alternatives.",
+    "relevance_for_entrepreneurs": "Llama 4 Scout is highly relevant for European entrepreneurs with important caveats. Its open-weight nature means startups can self-host and control their AI stack without vendor lock-in, and the 10M context window is unmatched for document-heavy workflows. However, the EU licensing restriction is a critical issue: EU-domiciled companies cannot directly download and use the multimodal weights under the Llama 4 Community License. Workaround exists (non-EU entity can build products and distribute in EU), but this creates legal complexity. For build-vs-buy decisions, Scout offers an exceptional price-performance ratio via API providers like Groq or DeepInfra at ~$0.10-0.20/MTok input. The MoE architecture demonstrates that massive model capabilities can be delivered at small-model inference costs, reshaping unit economics for AI-powered products.",
+    "competitive_position": "Competes in the efficient frontier-model tier. Key differentiator: 10M context window (far exceeding most competitors at launch). Outperforms Gemma 3, Gemini 2.0 Flash-Lite, and Mistral 3.1 in its class. Weaknesses: not a dedicated reasoning model (trails o3, DeepSeek R1, Gemini 2.5 Pro on math/reasoning tasks), EU license restriction limits adoption in Europe, and initial release faced criticism for benchmark reproducibility concerns. Strengths: open-weight, extremely cost-efficient MoE architecture, native multimodality, strong multilingual support, excellent tool-calling.",
+    "ecosystem_and_tooling": "Extensive ecosystem support. Inference: vLLM (day-0 support with NVIDIA Blackwell/Hopper recipes), Ollama, llama.cpp, TensorRT-LLM. Fine-tuning: Unsloth (only framework supporting 4-bit QLoRA at launch). Platforms: Hugging Face (official weights + community quantizations), Together AI, Groq, DeepInfra, Cloudflare Workers AI, AWS Bedrock, Azure, Google Cloud, IBM watsonx.ai, Oracle OCI, Snowflake Cortex AI, NVIDIA NIM. GitHub Models integration. Compatible with OpenAI-compatible API endpoints across most providers.",
+    "geographic_origin_and_regulation": "United States (Meta Platforms, Inc.). Critical EU concern: Llama 4 Community License explicitly excludes EU-domiciled individuals and companies from multimodal model rights due to EU AI Act regulatory uncertainty. This is unprecedented for a major open-weight release. Non-EU entities can build products and distribute in the EU, creating a workaround but adding legal complexity. GDPR compatibility depends on deployment: self-hosted deployments can be GDPR-compliant, API usage depends on provider's data processing agreements. For French/European entrepreneurs: consider the licensing restriction carefully before building core products on Llama 4 Scout multimodal capabilities."
+  },
+  "uncertain": [
+    "SWE-bench Verified score (54.6% from third-party source, not confirmed by Meta)",
+    "reasoning_benchmarks_composite (AIME 2025 score not publicly reported for Scout)",
+    "max_output_tokens (8,192 reported by providers, may vary by deployment)"
+  ]
+}

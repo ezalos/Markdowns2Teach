@@ -1,0 +1,42 @@
+{
+  "metric_identity": {
+    "metric_name": "AI Custom Silicon & Inference Market",
+    "source_report": "Bloomberg Intelligence 'AI Accelerator Chips 2026 Outlook Deep Dive' (primary), supplemented by Omdia 'AI Data Center Chip Market Forecast' (August 2025), Motley Fool / Yahoo Finance analysis of NVIDIA competitive position (January 2026), and TrendForce ASIC vs GPU market analysis",
+    "source_url": "https://www.bloomberg.com/company/press/ai-accelerator-market-looks-set-to-exceed-600-billion-by-2033-driven-by-hyperscale-spending-and-asic-adoption-according-to-bloomberg-intelligence/",
+    "publication_date": "January 2026 (Bloomberg Intelligence); August 2025 (Omdia)",
+    "methodology_notes": "Bloomberg Intelligence proprietary analyst model covering the full AI accelerator chip market (GPUs + ASICs), segmented by chip type, with separate CAGR projections for GPU (16% CAGR) and ASIC (27% CAGR) categories through 2033. Market sizing starts from $116B in 2024 and projects to $604B by 2033. Omdia separately forecasts the AI data center chip market at $286B by 2030, using a narrower scope (data center chips only, excluding edge). NVIDIA market share figures (85-92%) are analyst consensus derived from revenue-based GPU market share; custom ASIC share figures (8% in 2024, projected 19% by 2033) are Bloomberg Intelligence estimates of unit/revenue mix. Inference vs training workload splits are based on hyperscaler capex disclosures and third-party compute utilization surveys."
+  },
+  "metric_value": {
+    "value": "Total AI accelerator market: $116B (2024), projected $604B by 2033. NVIDIA GPU market share: 85-92% of data center AI GPUs (2025). Custom ASICs: 8% of total AI accelerator market in 2024, growing to ~19% by 2033. ASIC revenue projected to reach $118B by 2033. Broadcom commands 55-80% of AI ASIC market; Marvell holds 13-25%.",
+    "unit": "USD (billions); percentage (market share)",
+    "geographic_scope": "Global",
+    "time_period": "2024-2033 (with 2025-2026 as current baseline)",
+    "comparison_baseline": "2024 baseline: $116B total AI accelerator market. NVIDIA at ~90-95% peak data center GPU share (2023). Custom ASICs at 8% of total market in 2024, up from negligible share in 2022. GPU shipments in 2024: $123B. Inference workloads now account for ~70-80% of all AI compute spending, up from ~50% in 2023.",
+    "market_layer": "infrastructure"
+  },
+  "trend": {
+    "trend_direction": "Accelerating (for custom ASICs); Decelerating (for NVIDIA's share dominance)",
+    "year_over_year_change": "Custom ASIC shipments projected to grow 44.6% in 2026 vs GPU shipments growing 16.1%. NVIDIA's data center compute share slipped from ~90% to ~75-85% between 2023 and late 2025. Total AI accelerator market grew 250% YoY between 2022-2024, slowing to ~67% growth from 2024-2025 ($123B to $207B).",
+    "compound_annual_growth_rate": "Total AI accelerator market: 16% CAGR to $604B by 2033. Custom ASICs specifically: 27% CAGR to $118B by 2033. GPU segment: 16% CAGR (maintaining dominance but slower growth than ASICs).",
+    "forecast_value": "$604B total AI accelerator market by 2033 (Bloomberg Intelligence). $286B AI data center chip market by 2030 (Omdia, narrower scope). Custom ASICs projected at $118B by 2033 (19% of total). Inference market projected at 70% of all AI compute by 2026. NVIDIA could fall to 20-30% share in inference by 2028 while maintaining ~90% in training.",
+    "forecast_year": "2033 (Bloomberg Intelligence primary); 2030 (Omdia); 2028 (inference share projections)",
+    "velocity_indicator": "ASIC adoption doubling time: custom ASICs growing from 8% to 19% market share in 9 years (2024-2033), but unit growth is faster at 21% CAGR. Hyperscaler chip deployment accelerating: Google TPU v7 (Ironwood), Amazon Trainium 3, Meta MTIA v3 all shipping in 2025-2026. OpenAI custom ASIC via Broadcom starting 2026. AI infrastructure spending expected to peak as share of data center capex in 2026."
+  },
+  "entrepreneurial_relevance": {
+    "relevance_for_entrepreneurs": "This metric reveals a critical structural shift in AI infrastructure that directly impacts startup economics. NVIDIA's 85%+ GPU dominance means most startups today build on CUDA — but the rapid rise of custom ASICs (27% CAGR) signals that inference costs will drop dramatically as hyperscalers deploy in-house chips optimized for specific workloads. For AI startup founders, this means: (1) Inference costs, which represent 70-80% of AI compute spending, are about to get significantly cheaper — TPUs already offer 4.7x better price-performance for inference vs NVIDIA GPUs, and Midjourney cut monthly inference costs by 67% by switching. This will lower barriers for AI-native startups. (2) The GPU-to-ASIC shift creates a two-tier market: NVIDIA will dominate frontier model training (90% share), but inference will fragment across custom chips. Startups should not over-invest in CUDA lock-in for inference workloads. (3) The cloud providers (Google, Amazon, Microsoft) building their own chips are simultaneously becoming both infrastructure providers and potential competitors — the 'hyperscaler squeeze' is real. (4) Companies like Broadcom ($11B AI revenue) and Marvell ($7-8B projected by 2028) are the picks-and-shovels play in this transition, designing ASICs for hyperscalers. (5) The inference cost deflation creates opportunity for applications that were previously uneconomical at NVIDIA GPU pricing — real-time video, continuous agent workloads, edge AI at scale.",
+    "actionable_insight": "Build inference-heavy AI applications on cloud-agnostic frameworks (not CUDA-locked) to benefit from the ASIC cost curve. Plan for 40-60% inference cost reduction over 2025-2028 when modeling unit economics. Consider multi-cloud inference strategies to leverage Google TPU, AWS Trainium, and Azure Maia pricing competition. Avoid building infrastructure-layer startups competing directly with hyperscaler custom silicon — instead build at the application and platform layers where the infrastructure cost deflation accrues as margin.",
+    "session_mapping": "1, 4",
+    "risk_profile": "concentration_risk"
+  },
+  "confidence": {
+    "data_quality": "High",
+    "cross_reference": "Bloomberg Intelligence ($604B by 2033 at 16% CAGR) and Omdia ($286B by 2030 for data center chips specifically) provide complementary views. Motley Fool/Yahoo Finance independently report NVIDIA at 85% GPU share. TrendForce confirms ASIC growth outpacing GPUs (44.6% vs 16.1% in 2026). Precedence Research estimates total AI chipset market at $931B by 2034. IDTechEx projects AI data center/cloud chips exceeding $400B by 2030. Multiple sources confirm the directional trend of custom ASIC adoption gaining share from GPUs, with variance mainly in pace and specific percentages.",
+    "caveats": "Market share figures vary significantly by definition: discrete GPU share (92% per some sources) differs from data center compute share (75-85%) and total AI accelerator share. The 'custom ASIC reaching 19% by 2033' from Bloomberg is conservative vs some analyst estimates of 40%+ for inference specifically. Many ASIC figures are unit-based vs revenue-based — since GPUs have higher ASP, revenue share understates ASIC deployment. Hyperscaler custom chip claims (e.g., Amazon's '30-40% better price-performance') are vendor self-reported and not independently verified. The Goldman Sachs 35% TPU inference share estimate for Q4 2026 is labeled 'private estimate' and should be treated cautiously. Inference vs training workload splits are approximate and methodology varies across sources.",
+    "measurement_reliability": "analyst_estimate"
+  },
+  "uncertain": [
+    "compound_annual_growth_rate",
+    "velocity_indicator",
+    "comparison_baseline"
+  ]
+}

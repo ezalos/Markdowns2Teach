@@ -1,0 +1,53 @@
+{
+  "identity": {
+    "company_name": "Crusoe Energy Systems",
+    "headquarters": "Denver, Colorado, US",
+    "headquarters_region": "US",
+    "founded_year": 2018
+  },
+  "value_chain": {
+    "role_in_value_chain": "energy_infrastructure",
+    "value_chain_position": "Crusoe sits at the intersection of energy sourcing and cloud compute. It depends on stranded natural gas and renewable energy sources upstream, and serves AI/ML workload customers (enterprises, AI labs like OpenAI, hyperscalers like Oracle) downstream through its Crusoe Cloud platform. It is a key infrastructure partner in the Stargate project (OpenAI/Oracle).",
+    "vertical_integration_level": "Full-stack"
+  },
+  "products": {
+    "key_products": [
+      "Crusoe Cloud — GPU cloud platform (NVIDIA and AMD GPUs) purpose-built for AI/ML workloads with on-demand, spot, and reserved pricing",
+      "AI Data Center Campuses — large-scale facilities (1.2 GW Abilene TX, 1.8 GW Wyoming) co-located with energy sources, including the Stargate campus for OpenAI",
+      "Crusoe Intelligence Foundry — platform for deploying and serving AI models with API access"
+    ]
+  },
+  "business": {
+    "revenue_or_valuation": "Valuation above $10B (Series E, October 2025). Revenue: ~$276M in 2024, projected ~$1B in 2025 and ~$2B in 2026. Source: Crusoe press release and Sacra.",
+    "annual_recurring_revenue_arr": "Not publicly disclosed as ARR. Revenue run-rate projected at ~$1B for 2025 based on Crusoe Cloud bookings growing 5x YoY. [uncertain]",
+    "funding_total_and_last_round": "Total raised: ~$3.9B. Last round: $1.375B Series E at >$10B valuation (October 2025), co-led by Mubadala Capital and Valor Equity Partners. Investors include NVIDIA, Founders Fund, Fidelity, T. Rowe Price, Tiger Global, Salesforce Ventures, Franklin Templeton, Lowercarbon Capital.",
+    "business_model": "Usage-based cloud compute (GPU-hours), long-term reserved capacity contracts, and infrastructure-as-a-service for hyperscalers. Revenue split between direct Crusoe Cloud customers and large-scale data center leasing/build-to-suit (e.g., Stargate project with OpenAI/Oracle). Also secured a $750M credit facility from Brookfield for infrastructure buildout.",
+    "burn_rate_and_runway": "Not publicly disclosed. Heavy capital expenditure on multi-GW data center buildout, but backed by $11.6B in project financing for Abilene campus alone. [uncertain]"
+  },
+  "openness": {
+    "open_vs_closed_spectrum": "Hybrid — Closed proprietary cloud platform, but maintains open-source tooling on GitHub (Terraform providers, Kubernetes autoscalers, CSI drivers) and supports deployment of open-weight models via Intelligence Foundry."
+  },
+  "startup_relevance": {
+    "relevance_for_startups": "Crusoe matters for AI entrepreneurs because it offers a credible alternative to AWS/GCP/Azure for GPU compute at significantly lower cost (claims up to 81% cheaper GPU performance and spot pricing up to 90% off hyperscaler rates). Its vertically integrated energy-to-compute model means structurally lower operating costs, which it passes on to customers. For startups training or serving AI models, Crusoe Cloud provides access to NVIDIA H100/GB200 GPUs with competitive pricing, enterprise-grade uptime (99.98%), and a sustainability story (clean energy powered) that can matter for ESG-conscious investors or European market entry. The company's role in the Stargate project signals it is trusted by the largest AI players, adding credibility.",
+    "accessibility": "Accessible to startups via Crusoe Cloud with self-service sign-up, on-demand and spot GPU instances, and API access. Pricing is competitive vs. hyperscalers. No minimum commitment required for on-demand. Reserved instances available for 6-month to 3-year terms at deeper discounts. Early-access programs available with dedicated support.",
+    "primary_model_dependency": "None — Crusoe is infrastructure-layer and model-agnostic. Supports NVIDIA and AMD GPU workloads."
+  },
+  "ecosystem": {
+    "key_partnerships": [
+      "OpenAI / Oracle — Stargate project, flagship 1.2 GW Abilene TX campus running on Oracle Cloud Infrastructure",
+      "NVIDIA — strategic investor, full-stack GPU solutions (H100, GB200 NVL72), early access to new hardware",
+      "Brookfield — $750M credit facility for infrastructure expansion",
+      "AMD — GPU supply diversification",
+      "Redwood Materials — second-life battery microgrids for energy storage"
+    ],
+    "competitive_moat": "Vertical integration from energy sourcing to cloud delivery. Crusoe owns or controls its energy supply (stranded natural gas, renewables), co-locates data centers at energy sources, and operates its own cloud platform. Energy represents ~60% of AI data center OpEx, and Crusoe's structural cost advantage (up to 1/13th standard energy costs) creates pricing power that pure-play cloud competitors cannot replicate. Additionally, its in-house manufacturing arm accelerates deployment timelines. Power pipeline exceeds 45 GW.",
+    "data_moat_type": "None"
+  },
+  "regulatory": {
+    "regulatory_exposure": "Exempt — Crusoe is energy/cloud infrastructure, not an AI model provider. Not directly subject to EU AI Act GPAI obligations. Subject to US energy and environmental regulations for data center operations and natural gas usage. Increasing federal and state scrutiny of energy-intensive data centers may affect expansion plans."
+  },
+  "uncertain": [
+    "annual_recurring_revenue_arr",
+    "burn_rate_and_runway"
+  ]
+}

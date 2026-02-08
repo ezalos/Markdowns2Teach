@@ -1,0 +1,119 @@
+# ABOUTME: Field definitions for AI Regulation, Ethics & Governance research.
+# ABOUTME: Covers identity, scope, compliance, impact, connections, teaching relevance, and confidence.
+
+basic_information:
+  name:
+    description: "Official name of regulation/initiative/framework"
+    detail_level: brief
+  type:
+    description: "Category: legislation | executive_order | standard | framework | international_agreement | enforcement_body"
+    detail_level: brief
+  jurisdiction:
+    description: "Geographic scope: EU, US, China, UK, global, etc."
+    detail_level: brief
+  status:
+    description: "Current status: enacted | proposed | in_force | voluntary | rescinded | amended"
+    detail_level: brief
+  effective_date:
+    description: "Date entered/entering into force or key milestone date"
+    detail_level: brief
+  regulatory_philosophy:
+    description: >
+      Overarching approach: comprehensive_horizontal (EU) | sector_specific (UK) |
+      innovation_first_light_touch (Japan, India) | state_control (China) |
+      patchwork_federalism (US) | voluntary_principles (OECD)
+    detail_level: brief
+
+scope_and_content:
+  summary:
+    description: "2-3 sentence description of purpose and approach"
+    detail_level: moderate
+  key_provisions:
+    description: "Main requirements or principles (bullet list)"
+    detail_level: detailed
+  risk_classification:
+    description: "If applicable, how AI systems are categorized by risk level"
+    detail_level: moderate
+  covered_entities:
+    description: "Who must comply: developers, deployers, importers, etc."
+    detail_level: brief
+  sector_scope:
+    description: "Which sectors/domains are covered or exempted"
+    detail_level: brief
+  open_source_treatment:
+    description: "How the regulation treats open-source AI models: exemptions, reduced obligations, thresholds"
+    detail_level: moderate
+  extraterritorial_reach:
+    description: "Whether the regulation applies to entities outside its jurisdiction and under what conditions"
+    detail_level: moderate
+
+compliance_and_enforcement:
+  penalties:
+    description: "Fines, sanctions, or consequences for non-compliance"
+    detail_level: moderate
+  enforcement_body:
+    description: "Which authority oversees compliance"
+    detail_level: brief
+  compliance_timeline:
+    description: "Key implementation deadlines and phase-in periods"
+    detail_level: moderate
+  reporting_requirements:
+    description: "Mandatory reporting, auditing, or transparency obligations"
+    detail_level: moderate
+  sme_provisions:
+    description: "Specific provisions for SMEs and startups: reduced documentation, sandbox access, fee waivers, delayed timelines"
+    detail_level: moderate
+  liability_model:
+    description: >
+      Type of liability regime: strict_liability | fault_based |
+      reversed_burden_of_proof | safe_harbor | product_liability | none_specified
+    detail_level: brief
+
+impact_and_analysis:
+  business_impact:
+    description: "How this affects AI startups, SMEs, and large enterprises differently"
+    detail_level: detailed
+  innovation_effect:
+    description: "Whether the measure promotes or constrains innovation (with evidence)"
+    detail_level: moderate
+  global_influence:
+    description: "'Brussels effect' or international ripple effects"
+    detail_level: moderate
+  stakeholder_positions:
+    description: "Key supporters and critics, industry vs. civil society views"
+    detail_level: moderate
+  deregulatory_signals:
+    description: "Whether the jurisdiction is actively loosening or delaying AI regulation, and specific mechanisms used"
+    detail_level: moderate
+
+connections_and_context:
+  related_regulations:
+    description: "Links to other items in this research (cross-references)"
+    detail_level: brief
+  key_actors:
+    description: "Important people, organizations, or companies involved"
+    detail_level: moderate
+  recent_developments:
+    description: "Latest updates in 2024-2026 timeframe"
+    detail_level: detailed
+
+teaching_relevance:
+  entrepreneurial_implications:
+    description: "Specific relevance for AI entrepreneurs and startups: compliance costs, market access, competitive moats"
+    detail_level: detailed
+  session_mapping:
+    description: "Which course session this item supports (1-5)"
+    detail_level: brief
+
+confidence:
+  data_quality:
+    description: "High / Medium / Low — based on source reputation and recency"
+    detail_level: brief
+  cross_reference:
+    description: "Other sources confirming the same information"
+    detail_level: moderate
+  caveats:
+    description: "Known limitations, pending amendments, or rapidly evolving status"
+    detail_level: moderate
+
+uncertain: []

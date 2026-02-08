@@ -1,0 +1,230 @@
+[
+  {
+    "metric_identity": {
+      "metric_name": "France AI Startup Ecosystem Size (750 AI Startups)",
+      "source_report": "France Digitale AI Mapping 2024",
+      "source_url": "https://www.frenchtechjournal.com/france-digital-ai-mapping/",
+      "publication_date": "2024",
+      "methodology_notes": "France Digitale conducted a comprehensive mapping of French AI startups, identifying companies where AI is core to the value proposition (not just using AI as a feature). Covers startups across all stages from seed to scale-up. The 750 figure includes companies across multiple verticals: healthcare/biotech (13%), software development (9%), cloud/data services (8%), HR, marketing, logistics, and industrial applications (each ~5%). 43% utilize generative AI, 47% focus on ML/DL/computer vision/symbolic AI."
+    },
+    "metric_value": {
+      "value": "750+",
+      "unit": "count of AI startups",
+      "geographic_scope": "France",
+      "time_period": "2024",
+      "comparison_baseline": "[uncertain]",
+      "market_layer": "cross-cutting"
+    },
+    "trend": {
+      "trend_direction": "Up",
+      "year_over_year_change": "[uncertain]",
+      "compound_annual_growth_rate": "[uncertain]",
+      "forecast_value": "92% of surveyed AI startups plan to hire in next 12 months; ~3,500 new AI jobs expected",
+      "forecast_year": "2025",
+      "velocity_indicator": "French AI startups employ ~36,000 people total"
+    },
+    "entrepreneurial_relevance": {
+      "relevance_for_entrepreneurs": "France's 750 AI startups make it the densest AI ecosystem in continental Europe. The sector distribution reveals where competition is heaviest (healthcare, SaaS) and where white space may exist. The 43% generative AI adoption rate among startups signals rapid pivot to GenAI applications. With 92% planning to hire, the talent competition is fierce — founders need compelling equity stories and mission to attract AI engineers away from well-funded incumbents like Mistral, H, or Poolside.",
+      "actionable_insight": "Founders entering the French AI ecosystem should differentiate by vertical specialization rather than horizontal AI tooling (crowded). The 36,000-employee base represents a growing talent pool that can be recruited from as startups fail or pivot. Leverage France Digitale membership for visibility, investor introductions, and policy advocacy access.",
+      "session_mapping": "1",
+      "risk_profile": "competitive_moat"
+    },
+    "confidence": {
+      "data_quality": "Medium",
+      "cross_reference": "France Digitale AI Mapping; La French Tech official statistics; Wavestone 2025 Radar of French GenAI startups",
+      "caveats": "The 750 figure depends on the definition of 'AI startup' — some companies may use AI peripherally. The mapping may not capture very early-stage (pre-seed) or stealth-mode companies. Survival rates are not reported; some of the 750 may be inactive or pivoted away from AI.",
+      "measurement_reliability": "survey_self_reported"
+    },
+    "uncertain": ["comparison_baseline", "year_over_year_change", "compound_annual_growth_rate"]
+  },
+  {
+    "metric_identity": {
+      "metric_name": "French Startup AI Funding Dominance (2025)",
+      "source_report": "French Tech Journal / Dealroom",
+      "source_url": "https://www.frenchtechjournal.com/french-tech-funding-2025-ai-dominance-82b-raised/",
+      "publication_date": "January 2026",
+      "methodology_notes": "Aggregation of all disclosed French startup funding rounds in 2025, tracked via Dealroom and French Tech Journal databases. AI classification based on company core business, not incidental AI usage. The EUR 8.2B total covers 686 funding rounds across all French startups; the EUR 5.18B AI figure covers AI-native companies specifically."
+    },
+    "metric_value": {
+      "value": "EUR 5.18B in AI funding out of EUR 8.2B total French startup funding (62.5% AI share)",
+      "unit": "billion EUR / percentage",
+      "geographic_scope": "France",
+      "time_period": "2025",
+      "comparison_baseline": "In 2024, French AI startups raised EUR 1.3B (approximately 50% of all European AI funding). The jump to EUR 5.18B represents a ~4x increase, driven primarily by Mistral's EUR 1.7B Series C.",
+      "market_layer": "cross-cutting"
+    },
+    "trend": {
+      "trend_direction": "Accelerating",
+      "year_over_year_change": "+298% (from EUR 1.3B in 2024 to EUR 5.18B in 2025)",
+      "compound_annual_growth_rate": "[uncertain]",
+      "forecast_value": "[uncertain]",
+      "forecast_year": "[uncertain]",
+      "velocity_indicator": "AI's share of French VC grew from ~50% (2024) to 62.5% (2025); excluding Mistral mega-round, underlying AI funding still roughly tripled"
+    },
+    "entrepreneurial_relevance": {
+      "relevance_for_entrepreneurs": "AI now captures nearly two-thirds of all French startup funding, a concentration level that has strategic implications. For AI founders, this means more capital available but also more competition for investor attention. For non-AI founders, it signals potential funding drought as VCs reallocate to AI. The EUR 5.18B figure is misleading without noting Mistral's EUR 1.7B accounts for ~33% of all French AI funding — remove that single deal and the ecosystem drops to EUR 3.5B, still impressive but more distributed.",
+      "actionable_insight": "French AI startups benefit from a virtuous cycle: strong government support attracts international VCs, which funds more startups, which generates success stories. Founders should leverage the France Digitale and La French Tech networks for warm introductions to the increasingly active international investor base. Time Series A/B raises for post-summit periods (February) when France is in the global AI spotlight.",
+      "session_mapping": "4",
+      "risk_profile": "concentration_risk"
+    },
+    "confidence": {
+      "data_quality": "High",
+      "cross_reference": "French Tech Journal 2025 funding report; Dealroom France data; Crunchbase European AI trends",
+      "caveats": "The 62.5% AI share could be inflated by reclassification of companies as 'AI' that previously were categorized differently. Mega-rounds (Mistral EUR 1.7B) heavily skew aggregates. The 686 total rounds include some very small deals that may not be strictly 'startup' funding.",
+      "measurement_reliability": "analyst_estimate"
+    },
+    "uncertain": ["compound_annual_growth_rate", "forecast_value", "forecast_year"]
+  },
+  {
+    "metric_identity": {
+      "metric_name": "Bpifrance EUR 10 Billion AI Ecosystem Investment Plan",
+      "source_report": "Bpifrance Official Announcement / TechCrunch",
+      "source_url": "https://www.bpifrance.com/2025/03/27/bpifrance-deploys-e10-billion-to-develop-the-ai-ecosystem-and-facilitate-the-adoption-of-artificial-intelligence-by-french-companies/",
+      "publication_date": "February-March 2025",
+      "methodology_notes": "Announced by Bpifrance CEO Nicolas Dufourcq ahead of the AI Action Summit (February 2025), with detailed deployment plan published March 2025. The EUR 10B covers direct equity investments in AI startups, LP commitments to AI-focused VC funds (French and international), financing for AI-themed innovation projects, and investment in AI infrastructure/chip companies. By end-2024, Bpifrance had already invested EUR 1B directly in AI-first companies and EUR 3.4B in AI-themed innovation projects."
+    },
+    "metric_value": {
+      "value": "10",
+      "unit": "billion EUR (planned deployment through 2029)",
+      "geographic_scope": "France",
+      "time_period": "2025-2029",
+      "comparison_baseline": "Through end-2024: EUR 1B direct in AI-first companies + EUR 3.4B in AI innovation financing = EUR 4.4B cumulative. The EUR 10B target more than doubles this over 4 years.",
+      "market_layer": "cross-cutting"
+    },
+    "trend": {
+      "trend_direction": "Accelerating",
+      "year_over_year_change": "Step-change from ~EUR 1B/year pace to ~EUR 2.5B/year planned deployment",
+      "compound_annual_growth_rate": "N/A (policy commitment, not market trend)",
+      "forecast_value": "Digital and AI Transition Accelerator launch planned for late 2025",
+      "forecast_year": "2025-2029",
+      "velocity_indicator": "Bpifrance targets entire AI value chain from seed to growth capital, including fund-of-funds strategy with French and international VCs"
+    },
+    "entrepreneurial_relevance": {
+      "relevance_for_entrepreneurs": "Bpifrance is the single most important institutional investor in the French AI ecosystem. Their EUR 10B commitment means direct co-investment opportunities alongside their portfolio VCs (Elaia, Frst, and others). The fund-of-funds strategy means Bpifrance capital flows through multiple VC channels, increasing the number of AI-focused funds that can back French startups. Their willingness to invest in international AI funds also signals that foreign VCs entering France can count on Bpifrance as an anchor LP. The Digital and AI Transition Accelerator (late 2025) will create structured programs for AI adoption by established French companies — a potential customer pipeline for AI startups.",
+      "actionable_insight": "French AI founders should: (1) Track Bpifrance portfolio VCs and target them for fundraising; (2) Apply to Bpifrance direct investment programs for AI-first companies; (3) Position for the Digital and AI Transition Accelerator as either participants or solution providers; (4) Note that Bpifrance invests across the full chain from seed to growth — they can follow on in subsequent rounds.",
+      "session_mapping": "3",
+      "risk_profile": "none"
+    },
+    "confidence": {
+      "data_quality": "High",
+      "cross_reference": "Bpifrance official press release (March 2025); TechCrunch reporting (February 2025); Maginative coverage; Yahoo Finance",
+      "caveats": "EUR 10B is a 4-year deployment target, not a legally binding commitment. Actual deployment depends on deal flow quality and macroeconomic conditions. Bpifrance investments often include loans and guarantees alongside equity, so the EUR 10B is not all direct equity. Political changes could affect commitment levels.",
+      "measurement_reliability": "vendor_claim"
+    },
+    "uncertain": []
+  },
+  {
+    "metric_identity": {
+      "metric_name": "Mistral AI Valuation and Funding (European AI Champion)",
+      "source_report": "Crunchbase / EU-Startups / TechFundingNews",
+      "source_url": "https://news.crunchbase.com/venture/europe-largest-ai-round-mistral-seriesc/",
+      "publication_date": "September 2025",
+      "methodology_notes": "Mistral AI Series C round details disclosed through investor filings and company announcements. Valuation confirmed by multiple financial reporting outlets. ASML as lead investor verified. Revenue figures (25x growth) cited from CEO Arthur Mensch's public statements. Post-money valuation calculated from round size and equity dilution."
+    },
+    "metric_value": {
+      "value": "EUR 1.7B raised in Series C at EUR 11.7B post-money valuation (~$14B). Cumulative funding exceeds $2.5B across all rounds. Revenue grew 25x year-over-year.",
+      "unit": "billion EUR (funding and valuation) / multiplier (revenue growth)",
+      "geographic_scope": "France (headquartered in Paris)",
+      "time_period": "September 2025 (Series C); company founded 2023",
+      "comparison_baseline": "Previous valuation: EUR 5.8B (Series B, June 2024) — a 140% valuation increase in 15 months. Largest European AI round ever by a significant margin.",
+      "market_layer": "model"
+    },
+    "trend": {
+      "trend_direction": "Accelerating",
+      "year_over_year_change": "+140% valuation in 15 months; 25x revenue growth YoY",
+      "compound_annual_growth_rate": "N/A (company too young for meaningful CAGR)",
+      "forecast_value": "Mistral targeting EUR 1B revenue milestone; Mistral Compute platform launching 2026 with 18,000 NVIDIA Blackwell GPUs",
+      "forecast_year": "2026",
+      "velocity_indicator": "time_to_unicorn: ~6 months from founding (December 2023); among fastest unicorns globally"
+    },
+    "entrepreneurial_relevance": {
+      "relevance_for_entrepreneurs": "Mistral AI is the proof case that European AI companies can compete at the frontier. Founded by ex-DeepMind and ex-Meta researchers, it reached unicorn status in ~6 months and is now Europe's most valuable AI startup. For European founders, Mistral demonstrates several key lessons: (1) world-class founding team credentials attract global capital; (2) the open-weight model strategy created rapid developer adoption and differentiation from OpenAI; (3) French government support (Bpifrance co-investment, AI Action Summit spotlight) provides non-dilutive amplification; (4) sovereign AI narrative resonates with European institutional investors and governments.",
+      "actionable_insight": "Mistral's success creates ecosystem spillover effects: their employees become future founders, their investors gain European AI conviction, and their infrastructure investments (Mistral Compute) benefit the broader ecosystem. Startups should consider building on Mistral's models for European data sovereignty positioning. However, Mistral's dominance of French AI funding (EUR 1.7B = 33% of all French AI funding in 2025) also means less capital available for other AI startups.",
+      "session_mapping": "1",
+      "risk_profile": "concentration_risk"
+    },
+    "confidence": {
+      "data_quality": "High",
+      "cross_reference": "Crunchbase; AI Funding Tracker; FinTech Weekly; EU-Startups; TechFundingNews; Tracxn investor data",
+      "caveats": "The 25x revenue growth is from a very small base (company is <2 years old) and should not be extrapolated. Valuation reflects investor expectations, not current fundamentals. The EUR 11.7B valuation implies very high revenue multiples. Mistral Compute's 18,000 GPU cluster is planned, not operational. Competition from Llama (Meta), Claude (Anthropic), and GPT (OpenAI) is intensifying.",
+      "measurement_reliability": "verified_financial_filing"
+    },
+    "uncertain": []
+  },
+  {
+    "metric_identity": {
+      "metric_name": "France EUR 109 Billion AI Investment Package (AI Action Summit 2025)",
+      "source_report": "Bloomberg / CNBC / French Government",
+      "source_url": "https://www.cnbc.com/2025/02/10/frances-answer-to-stargate-macron-announces-ai-investment.html",
+      "publication_date": "February 2025",
+      "methodology_notes": "Announced by President Macron on February 10, 2025, ahead of the AI Action Summit in Paris. The EUR 109B is an aggregate of commitments from multiple sources: UAE (EUR 50B via MGX and sovereign funds), Brookfield Asset Management (EUR 20B), Amazon (undisclosed portion), Apollo Global Management, and other international and domestic investors. Includes both new and previously announced investments. Covers AI infrastructure (data centers, compute), AI startups, and AI applications."
+    },
+    "metric_value": {
+      "value": "109",
+      "unit": "billion EUR (aggregate investment commitments)",
+      "geographic_scope": "France",
+      "time_period": "2025-2030+ (multi-year deployment)",
+      "comparison_baseline": "Macron positioned this as France's equivalent to the US Stargate project ($500B). France's previous national AI strategy (2018) committed EUR 1.5B over 5 years — the EUR 109B represents a 70x increase in ambition.",
+      "market_layer": "infrastructure"
+    },
+    "trend": {
+      "trend_direction": "Accelerating",
+      "year_over_year_change": "Step-change from EUR 1.5B (2018 plan) to EUR 109B (2025 plan)",
+      "compound_annual_growth_rate": "N/A (policy announcement, not market data)",
+      "forecast_value": "Includes joint venture for Europe's largest AI campus (MGX + Bpifrance + Mistral + NVIDIA), construction starting H2 2026, operational by 2028",
+      "forecast_year": "2028",
+      "velocity_indicator": "Macron hosted AI Action Summit with 1,000+ participants; positioned France as European AI hub"
+    },
+    "entrepreneurial_relevance": {
+      "relevance_for_entrepreneurs": "The EUR 109B headline is politically powerful but needs disaggregation. The largest single component is UAE's EUR 50B, which focuses heavily on data center infrastructure — this benefits cloud/compute providers more than software startups directly. Brookfield's EUR 20B is also infrastructure-focused. For AI application startups, the indirect benefit is increased compute availability and reduced costs as supply expands. The joint venture AI campus (MGX + Bpifrance + Mistral + NVIDIA) could become a key hub for the French AI ecosystem, similar to Station F's role for tech startups.",
+      "actionable_insight": "Do not take the EUR 109B at face value for startup funding availability — most is infrastructure capex from foreign sovereign wealth and PE funds. French AI startups benefit primarily through: (1) increased visibility and credibility of the French AI brand; (2) eventual access to domestic compute infrastructure; (3) Bpifrance's EUR 10B subset specifically targeting startups; (4) the AI campus ecosystem effects. Foreign founders should consider establishing French entities to access this ecosystem.",
+      "session_mapping": "3",
+      "risk_profile": "bubble_indicator"
+    },
+    "confidence": {
+      "data_quality": "Medium",
+      "cross_reference": "Bloomberg reporting; CNBC coverage; CGTN; Yahoo Finance; AI Action Summit official communications; CSIS analysis",
+      "caveats": "EUR 109B is a politically aggregated figure mixing binding investment commitments with non-binding pledges. Much of it is foreign capital (primarily UAE) with geopolitical strings. Infrastructure investments (data centers) take 3-5 years to become operational. Some commitments were previously announced and repackaged for the Summit. Actual disbursement timeline and conditions are unclear.",
+      "measurement_reliability": "vendor_claim"
+    },
+    "uncertain": []
+  },
+  {
+    "metric_identity": {
+      "metric_name": "La French Tech AI Ecosystem Infrastructure (Jean Zay Supercomputer)",
+      "source_report": "NVIDIA Blog / French Government AI Summit Materials",
+      "source_url": "https://blogs.nvidia.com/blog/france-sovereign-ai-infrastructure/",
+      "publication_date": "February 2025",
+      "methodology_notes": "Jean Zay is a CNRS/GENCI supercomputer at IDRIS (Orsay). Usage statistics from GENCI public reporting. Startup access figures from French government AI Summit briefing materials. The 150+ startups and 1,400+ projects refer to the cumulative users of Jean Zay's AI partition, which has been progressively upgraded with NVIDIA GPU accelerators."
+    },
+    "metric_value": {
+      "value": "Jean Zay supercomputer supports 150+ startups and powered 1,400+ AI projects in 2024",
+      "unit": "count of startups and projects",
+      "geographic_scope": "France",
+      "time_period": "2024",
+      "comparison_baseline": "[uncertain]",
+      "market_layer": "infrastructure"
+    },
+    "trend": {
+      "trend_direction": "Up",
+      "year_over_year_change": "[uncertain]",
+      "compound_annual_growth_rate": "N/A",
+      "forecast_value": "Mistral Compute platform with 18,000 Blackwell/Blackwell Ultra GPUs planned for 2026; expansion across multiple sites. AI campus (MGX + Bpifrance + Mistral + NVIDIA) operational by 2028.",
+      "forecast_year": "2026-2028",
+      "velocity_indicator": "France is deploying sovereign compute as a strategic asset for AI sovereignty"
+    },
+    "entrepreneurial_relevance": {
+      "relevance_for_entrepreneurs": "Jean Zay access gives French AI startups a compute subsidy unavailable in most other countries. Having 150+ startups using public supercomputer resources means many French AI companies can train and experiment at lower cost than their US counterparts (who must pay hyperscaler rates). The upcoming Mistral Compute platform (18,000 GPUs) will further expand this capacity. This infrastructure advantage is a key reason France leads continental European AI. Founders should actively apply for GENCI compute allocations.",
+      "actionable_insight": "French AI startups should apply for Jean Zay compute time through GENCI's access programs. This can dramatically reduce early-stage compute costs. The transition to Mistral Compute (2026) will provide more commercially-oriented GPU access. International founders considering European bases should weigh France's unique sovereign compute infrastructure as a location factor.",
+      "session_mapping": "3",
+      "risk_profile": "none"
+    },
+    "confidence": {
+      "data_quality": "Medium",
+      "cross_reference": "NVIDIA France sovereign AI blog; French government AI Summit materials; GENCI annual reports",
+      "caveats": "Jean Zay's capacity, while significant for Europe, is small compared to US hyperscaler GPU clusters (100K+ GPUs at single sites). The 150+ startups may include very early-stage or academic spin-offs with minimal commercial activity. Access is competitive and not guaranteed. The Mistral Compute 18,000 GPU figure is a planned deployment, not yet operational.",
+      "measurement_reliability": "vendor_claim"
+    },
+    "uncertain": ["comparison_baseline", "year_over_year_change"]
+  }
+]

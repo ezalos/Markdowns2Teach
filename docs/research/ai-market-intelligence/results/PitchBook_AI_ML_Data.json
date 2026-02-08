@@ -1,0 +1,41 @@
+{
+  "metric_identity": {
+    "metric_name": "PitchBook AI & ML VC Data — Deal Activity, Valuations, and Exit Data",
+    "source_report": "PitchBook AI & ML VC Trends Reports (Q1-Q4 2025), PitchBook-NVCA Venture Monitor, Q4 2025 Analyst Note: AI Megadeals and the Making of a Concentrated Venture Market",
+    "source_url": "https://pitchbook.com/news/reports/q3-2025-ai-vc-trends",
+    "publication_date": "Q4 2025 / January 2026 (Q4 2025 Global VC First Look)",
+    "methodology_notes": "PitchBook tracks private-market deal activity using a proprietary database of 25 discrete datasets covering companies, investors, funds, deals, and more. Data is collected via web crawlers scanning news articles, regulatory filings, and company websites, then processed with AI/ML tools and validated by a team of specialized research analysts who create comprehensive profiles, check data reliability, and contact firms for additional information. VC deal data includes equity investments from institutional investors, angel investors, seed and venture funds, CVCs, and corporations. AI & ML classification uses PitchBook's proprietary vertical and sub-vertical taxonomy. The AI & ML VC Trends reports cover deal value, deal count, segment breakdowns (horizontal platforms, vertical applications, AI infrastructure/hardware), median valuations by stage, and exit activity."
+  },
+  "metric_value": {
+    "value": "$222.1 billion in AI/ML VC deal value in 2025 (65.6% of all US VC deal value of $339.4B); $512.6B in total global VC deal value in 2025; Q1 2025 alone: $73.6B across 1,603 deals (record quarter); Q3 2025: $54.8B in AI deal value; Q4 2025: $91.6B total VC deal value over 4,482 deals",
+    "unit": "USD (billions)",
+    "geographic_scope": "Global, with US as dominant geography (~two-thirds of global VC investment). Europe VC deal value broadly flat YoY at EUR 66.2B (~$77.4B). AI captures nearly two-thirds of US capital invested.",
+    "time_period": "Full year 2025 (with quarterly breakdowns Q1-Q4 2025)",
+    "comparison_baseline": "AI/ML captured 47.2% of VC deal value in 2024 vs. 65.6% in 2025. AI VC investment grew from $73.0B in 2022 (ChatGPT launch year) to $222.1B in 2025, with deal counts up 24% over that period. In 2024, AI startups grabbed 35.7% of global VC dollars. The share was just 10% in 2015. Global VC exit value rose from ~$349B in 2024 to $549.2B in 2025 (+$200B YoY). Median pre-money valuation for AI companies: $25M in 2025, up from $15M in 2024 (+67%). Venture-growth pre-money valuations jumped 95.7% YoY.",
+    "market_layer": "cross-cutting (tracks AI across infrastructure/hardware, platform/horizontal, and application/vertical layers)"
+  },
+  "trend": {
+    "trend_direction": "Accelerating",
+    "year_over_year_change": "+38.9% in AI share of VC deal value (47.2% in 2024 to 65.6% in 2025); AI VC deal value roughly tripled from $73B (2022) to $222.1B (2025); median AI pre-money valuations +67% YoY ($15M to $25M); venture-growth valuations +95.7% YoY; global VC exit value +57% YoY ($349B to $549.2B)",
+    "compound_annual_growth_rate": "~44.6% CAGR in AI VC deal value from 2022 to 2025 ($73.0B to $222.1B over 3 years) [uncertain]",
+    "forecast_value": "PitchBook's 2026 US Venture Capital Outlook forecasts continued AI dominance with a surge in early-stage deal activity. VCs averaged 100+ megadeals per quarter in 2025, accounting for 70% of yearly deal value, a pattern expected to persist. AI venture debt also growing — AI startups capturing over one-third of all venture debt dollars in 2025.",
+    "forecast_year": "2026",
+    "velocity_indicator": "AI VC deal value tripled in 3 years ($73B in 2022 to $222.1B in 2025); AI share of VC jumped from 10% (2015) to 65.6% (2025) in a decade; Q3 2025 horizontal platform capital tripled QoQ to $33.5B; mega-fund concentration intensifying with fewer funds representing larger share of commitments"
+  },
+  "entrepreneurial_relevance": {
+    "relevance_for_entrepreneurs": "PitchBook's AI & ML data is the definitive source for understanding where venture capital money is actually flowing — essential intelligence for any founder preparing to fundraise. Key takeaways for M2 Entrepreneuriat students: (1) AI has captured an unprecedented 65.6% of all US VC dollars in 2025 — this is not diversified investment, it is extreme concentration. Founders in non-AI sectors face a capital drought. (2) The market is bifurcated: horizontal platforms (OpenAI, Anthropic, xAI, Mistral) absorb 70% of AI deal value through mega-rounds ($10B+ raises), while vertical applications lead in deal count (663 transactions in Q3 alone). For startup founders, the vertical application layer is where most new companies can realistically compete and raise capital. (3) Median AI pre-money valuations jumped to $25M (up 67% from $15M in 2024), meaning investor expectations for traction and differentiation are rising fast. (4) The 95.7% YoY surge in venture-growth valuations signals that later-stage AI companies command premium multiples, but also raises the bar for profitable exits — VCs need massive outcomes to generate returns. (5) The concentration in mega-funds and megadeals means the overall VC ecosystem is hollowing out: 823 funds raised $80B in 2025 vs. 4,430 funds raising $412B in 2022. Fewer investors writing bigger checks to fewer companies — a winner-take-all dynamic. (6) European VC at EUR 66.2B flat YoY shows Europe is not keeping pace with US AI investment — a structural disadvantage but also an opportunity for European AI startups to argue they are undervalued.",
+    "actionable_insight": "For fundraising strategy: target vertical AI applications where deal count is highest and competition for capital is less extreme than in horizontal platforms. Benchmark your pre-money valuation against PitchBook's $25M median for AI companies. If raising in Europe, emphasize the valuation gap vs. US comparables. Be aware that VC mega-funds are moving into earlier stages, meaning seed and Series A rounds may see larger checks but also higher expectations. For business model: the exit data ($549.2B in 2025 VC exits, 40% from AI) validates that AI exits are happening, but the elevated valuations mean exit multiples must be correspondingly large for VC math to work.",
+    "session_mapping": "4, 5",
+    "risk_profile": "bubble_indicator"
+  },
+  "confidence": {
+    "data_quality": "High",
+    "cross_reference": "CB Insights State of AI Report corroborates the dominance of AI in venture funding. Crunchbase data shows similar trends with AI capturing majority of global funding. Stanford HAI AI Index 2025 tracks private AI investment growth. WIPO Global Innovation Index blog (2025) confirms AI megadeals fueling VC rebound while hiding geographic and sectoral divides. Fortune reporting on PitchBook data confirms the $222.1B and 65.6% figures. Bloomberg reported AI pulling in $192.7B through Q3 2025, consistent with the full-year $222.1B total. The SiliconANGLE January 2026 analysis and Inc. reporting both independently cite PitchBook as the source for these figures.",
+    "caveats": "PitchBook data is proprietary and behind a paywall — full granular data and methodology details require a subscription. The $222.1B AI deal value figure is specifically for US VC deals; global AI VC figures would be higher. AI/ML classification depends on PitchBook's proprietary taxonomy, and companies may be classified differently by other trackers (CB Insights, Crunchbase). Deal value figures include mega-rounds from OpenAI ($6.6B), Anthropic ($13B Series F), and xAI ($10B) that massively skew averages and medians. The 65.6% concentration figure would look very different excluding the top 10 deals. VC exit value of $549.2B includes all sectors, not just AI — the AI-specific exit figure (40% of total through Q3 2025) is approximately $220B. Valuation data may have survivorship bias as failed companies stop reporting. Data is subject to backfill adjustments as deals are retroactively added to PitchBook's database.",
+    "measurement_reliability": "analyst_estimate"
+  },
+  "uncertain": [
+    "compound_annual_growth_rate",
+    "forecast_value"
+  ]
+}

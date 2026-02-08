@@ -1,0 +1,30 @@
+{
+  "resource_name": "Chatbot Arena (now Arena)",
+  "resource_type": "Platform",
+  "creator_or_organization": "Arena Intelligence Inc. (formerly LMSYS Org / UC Berkeley). Co-founded by Anastasios N. Angelopoulos (CEO), Wei-Lin Chiang (CTO), and Ion Stoica (Advisor), all from UC Berkeley's EECS department and Sky Computing Lab.",
+  "url": "https://lmarena.ai/",
+  "language": "Multilingual",
+
+  "content_focus": "Crowdsourced, real-time benchmarking and ranking of large language models (LLMs) and generative AI models through anonymous pairwise comparisons. The platform covers multiple categories: general conversation, coding, math, creative writing, instruction following, hard prompts, multi-turn dialogue, vision, text-to-video, and multilingual tasks. It also features specialized leaderboards (Arena Expert, Occupational Categories mapping prompts to 23 professional fields). Methodology is based on a Bradley-Terry model fitted to pairwise human preferences, producing Elo-like scores with uncertainty intervals. As of 2025-2026, the platform tracks 400+ models from OpenAI, Google DeepMind, Anthropic, Meta, Mistral, DeepSeek, and others, with 6M+ cumulative user votes.",
+  "target_audience": "AI researchers, ML engineers, product managers evaluating which LLM to adopt, entrepreneurs comparing model capabilities, and curious tech-savvy users. Accessible to non-technical users who simply want to compare chatbot quality.",
+  "publication_frequency": "Continuous",
+  "format_and_length": "Interactive web platform — users submit prompts, receive side-by-side anonymous model responses, vote for the better one (~2 min per comparison). Leaderboard is updated daily. Blog posts and methodology papers published periodically.",
+
+  "accessibility_for_non_engineers": "High — the core experience requires zero technical knowledge: type a question, read two answers, pick the better one. The leaderboard is a simple ranked table with scores. Category breakdowns (coding, math, creative writing) help non-engineers understand model strengths. However, interpreting confidence intervals, Elo methodology details, and the nuances of benchmark gaming requires some statistical literacy.",
+  "signal_to_noise_ratio": "High",
+  "unique_value_proposition": "The most trusted independent, crowdsourced LLM benchmark in the industry. Unlike static benchmarks (MMLU, HumanEval) that can be gamed through training data contamination, Arena uses live human preferences on fresh prompts, making it harder to overfit. Its scale (6M+ votes, 400+ models, 1M monthly users) and transparent Elo methodology give it unique credibility. Major AI labs (OpenAI, Google, Anthropic, Meta) actively submit models and reference Arena rankings in product announcements. No other benchmark combines this scale of human evaluation with real-time updates.",
+  "free_or_paid": "Free — no account required to compare models and vote. The leaderboard is fully public. The company monetizes through a commercial 'AI Evaluations' product for enterprises (launched September 2025, ~$30M annualized consumption rate by December 2025).",
+  "source_reliability": "High — founded by UC Berkeley researchers with peer-reviewed methodology (ICML 2024 paper, arXiv:2403.04132). Uses transparent Bradley-Terry statistical framework. However, notable criticisms exist: (1) user base is skewed toward AI/tech enthusiasts, not representative of general population; (2) large labs like Meta tested 27 private model variants before publishing only the best scores; (3) a 2025 study ('The Leaderboard Illusion') accused Arena of helping top labs game the benchmark; (4) Goodhart's Law concerns as model developers optimize for Arena scores. LMArena has published responses to these criticisms and updated policies. Best used as one signal among multiple evaluation methods, not as sole decision criterion.",
+
+  "relevance_for_entrepreneurs": "Essential for any entrepreneur building with or evaluating LLMs. Arena provides a free, real-time answer to 'which model is best for my use case?' with category-specific rankings (coding, math, creative writing, multilingual). Entrepreneurs can use it to: (1) make informed Build vs Buy decisions by comparing frontier models head-to-head, (2) track how model quality evolves over time to time product decisions, (3) understand which models excel in specific domains relevant to their product, (4) cite Arena rankings in investor pitches or product marketing. The platform's $1.7B valuation itself is a case study in building a company around AI evaluation infrastructure.",
+  "actionable_insight_level": "High",
+  "session_mapping": "S1 (Fundamentals), S3 (Projects)",
+
+  "active_since": "2023",
+  "last_verified_active": "2026-02-08",
+  "ecosystem_position": "Primary source — the de facto standard for crowdsourced LLM evaluation. Arena sits at the intersection of academic research and industry benchmarking. It originated as a UC Berkeley research project (LMSYS Org, April 2023), evolved into an independent company (Arena Intelligence Inc., April 2025), and achieved unicorn status ($1.7B valuation, January 2026). It is referenced by virtually every major AI lab when launching new models. The platform has expanded from text-only to multimodal evaluation (vision, video, code). Competitors include Open LLM Leaderboard (Hugging Face), LiveBench, and SEAL Leaderboards, but Arena remains the most widely cited human-preference benchmark.",
+
+  "recommendation_tier": "Must-Follow",
+
+  "uncertain": []
+}

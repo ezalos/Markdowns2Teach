@@ -1,0 +1,41 @@
+{
+  "metric_identity": {
+    "metric_name": "Epoch AI Compute Tracking — Training Compute Trends, Cost Curves, and Hardware Efficiency",
+    "source_report": "Epoch AI Data Insights and 'Compute Trends Across Three Eras of Machine Learning' (Sevilla et al., 2022, IJCNN); updated with 'Training compute of frontier AI models grows by 4-5x per year' (2024)",
+    "source_url": "https://epoch.ai/trends",
+    "publication_date": "Originally February 2022; continuously updated (last data modification February 2026)",
+    "methodology_notes": "Epoch AI maintains a curated public dataset of training compute for notable AI models (120+ systems initially, now expanded). Training compute (in FLOP) is estimated via two methods: (1) counting arithmetic operations from model architecture and training process, or (2) GPU-time estimation using total training time and hardware specs. Model selection criteria: clear historical importance, state-of-the-art advancement, or 1000+ citations; relevance to ML; uniqueness. Trend lines are fitted using log-linear regression with 90% confidence intervals from bootstrap (1000 samples). Cost estimates amortize cluster costs (roughly 50% GPUs, 50% other hardware and energy) over the training period, measured in 2023 USD. Authors include Jaime Sevilla, Lennart Heim, Anson Ho, Tamay Besiroglu, Marius Hobbhahn, Pablo Villalobos (original paper); Ben Cottier, Robi Rahman, David Owen (updated data insights). Published at IJCNN 2022 (Padua, Italy). Dataset and interactive visualizations are publicly available at epoch.ai/data."
+  },
+  "metric_value": {
+    "value": "Training compute growth: 4.4x/year (doubling every ~6 months) since 2010. Training cost growth: 2.4x/year (doubling every ~8 months) for largest models since 2020. FLOP/s per dollar: doubles every ~2.5 years. Power for frontier training: doubling annually (2.2x/year). Frontier model costs: hundreds of millions of USD (e.g., GPT-3 ~$2M in 2020, frontier models in 2024 at $100M+ scale).",
+    "unit": "FLOP (training compute), USD (training cost in 2023 dollars), FLOP/s per dollar (hardware efficiency), MW/GW (power consumption)",
+    "geographic_scope": "Global",
+    "time_period": "1950-2026 (full dataset); 2010-2026 (Deep Learning and Large-Scale eras); 2020-2026 (cost trends focus)",
+    "comparison_baseline": "Pre-Deep Learning era (before 2010): compute doubled every ~20 months, in line with Moore's Law. Deep Learning era (2010-2015): compute doubled every ~6 months. Large-Scale era (2015-present): 10-100x jumps in compute at transitions; frontier models now at 4-5x/year growth. Since 2010, total training compute has grown by a factor of 10 billion. GPT-3 (2020): 3.1e+23 FLOP, ~$2M; frontier models in 2024: ~1e+26 FLOP, ~$100M+.",
+    "market_layer": "infrastructure"
+  },
+  "trend": {
+    "trend_direction": "Accelerating",
+    "year_over_year_change": "Training compute: +4.4x per year (90% CI: 1.5x to 11.8x). Training cost: +2.4x per year (frontier model cost growth: +3.5x per year since 2020). Hardware FLOP/s per dollar: +1.35x per year (FP32 GPU perf). Power for frontier training: +2.2x per year.",
+    "compound_annual_growth_rate": "Training compute CAGR: ~340% (4.4x/year). Training cost CAGR: ~140% (2.4x/year). Hardware efficiency CAGR: ~35% (1.35x/year FP32 GPU FLOP/s).",
+    "forecast_value": "If current trends continue to 2030: leading AI supercomputer will need ~2 million AI chips, cost ~$200 billion, require ~9 GW of power. Frontier training runs in 2030 likely to draw 4-16 GW. Frontier open models projected to surpass 1e26 FLOP before end of 2025.",
+    "forecast_year": "2030",
+    "velocity_indicator": "cost_halving_time: Hardware FLOP/s per dollar doubles every ~2.5 years. Training compute doubling time: ~6 months. Training cost doubling time: ~8 months for largest models. Power doubling time: ~12 months for frontier runs."
+  },
+  "entrepreneurial_relevance": {
+    "relevance_for_entrepreneurs": "Epoch AI's compute tracking data is the gold standard for understanding the physical and economic constraints of AI development. For entrepreneurs, the key takeaway is the divergence between training compute growth (4.4x/year) and hardware efficiency improvement (1.35x/year) — the gap is closed by spending more money and consuming more power. This means: (1) Training frontier models is increasingly capital-intensive, creating a natural moat for well-funded labs (OpenAI, Google, Anthropic, Meta) and a barrier for startups attempting to compete at the frontier. (2) The cost curve makes fine-tuning, distillation, and inference optimization — not training from scratch — the economically rational strategy for startups. (3) The power consumption trend (4-16 GW by 2030 for frontier runs) signals enormous energy infrastructure demand, creating opportunities in data center energy, cooling, and efficiency. (4) Hardware efficiency gains (12x in 10 years, 8x from lower precision) mean that today's frontier model is tomorrow's commodity — startups can leverage model commoditization by building application layers. (5) The 'three eras' framework shows exponential acceleration is the norm, not the exception, meaning startup planning horizons must account for capabilities that double every 6 months.",
+    "actionable_insight": "Do not attempt to train frontier models as a startup — the cost is $100M+ and rising at 3.5x/year. Instead, build on top of existing models via fine-tuning, RAG, and domain-specific data. If targeting the infrastructure layer, focus on energy efficiency, cooling technology, or hardware optimization where the power doubling trend creates urgent demand. Track the FLOP/dollar curve to time your compute purchases: waiting 2.5 years halves your cost per FLOP.",
+    "session_mapping": "1, 3",
+    "risk_profile": "concentration_risk"
+  },
+  "confidence": {
+    "data_quality": "High",
+    "cross_reference": "The original paper 'Compute Trends Across Three Eras of Machine Learning' was published at IJCNN 2022 and is widely cited (arXiv:2202.05924). Epoch AI's dataset is publicly available and has been independently verified and used by researchers worldwide. The findings align with separate analyses: OpenAI's 2018 estimate (Amodei & Hernandez) found a 3.4-month doubling time but was based on fewer data points; Epoch's larger dataset (120+ models) yielded a more conservative 5-6 month doubling time. The cost trend data aligns with publicly reported training costs: GPT-3 ~$2M (2020), GPT-4 estimated at $50-100M (2023), Gemini Ultra likely $100M+ (2024). Hardware efficiency trends are corroborated by GPU benchmark data (NVIDIA A100 to H100 to B200 progression).",
+    "caveats": "Training compute estimates carry inherent uncertainty, especially for proprietary models where exact hardware, training time, and architecture details are not published. The 90% confidence interval for the 4.4x/year growth rate is wide (1.5x to 11.8x), reflecting this uncertainty. Cost estimates rely on amortized cluster costs and may not capture full R&D overhead (failed runs, hyperparameter search, etc.). The dataset focuses on 'notable' models and may not capture the full distribution of all models trained. Power consumption projections assume current scaling trends continue without major algorithmic breakthroughs (e.g., more efficient architectures) or physical constraints (chip manufacturing limits, energy availability). Epoch AI is funded by philanthropic sources focused on AI safety, which may influence research framing toward emphasizing rapid capability growth.",
+    "measurement_reliability": "analyst_estimate"
+  },
+  "uncertain": [
+    "compound_annual_growth_rate",
+    "forecast_value"
+  ]
+}

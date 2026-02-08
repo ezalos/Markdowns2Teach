@@ -1,0 +1,50 @@
+{
+  "identity": {
+    "model_name": "OpenAI o3",
+    "creator": "OpenAI",
+    "release_date": "April 2025",
+    "model_family": "GPT (o-series reasoning models)"
+  },
+  "architecture": {
+    "parameter_count": "Not disclosed",
+    "active_parameters": "Not disclosed",
+    "architecture_type": "Dense transformer (presumed, not officially confirmed)",
+    "context_window": "200K",
+    "max_output_tokens": "100K"
+  },
+  "capabilities": {
+    "open_or_closed": "Closed/proprietary (API-only)",
+    "license_type": "Proprietary. No downloadable weights. Access via OpenAI API or ChatGPT subscription only. No commercial self-hosting possible.",
+    "reasoning_capability": "Fixed chain-of-thought reasoning. o3 uses an internal 'simulated reasoning' approach where the model thinks step-by-step before responding, trained via reinforcement learning. The chain-of-thought is hidden from the user (summary of reasoning provided). The model autonomously decides how much reasoning to apply. Cannot toggle reasoning off or set a thinking budget directly.",
+    "multimodal_support": "Image input (charts, screenshots, photos, whiteboard images integrated into chain-of-thought reasoning), text input, code execution via Python interpreter, web browsing, image generation (via DALL-E tool in ChatGPT). No native audio or video input.",
+    "multilingual_support": "Supports 50+ languages with strong performance in major languages including French, Spanish, German, Chinese, Japanese, Korean, Arabic, Portuguese, and Hindi. English is strongest due to training data dominance, but French performance is fluent and nuanced. No official language count specific to o3.",
+    "agentic_capability": "Advanced multi-step agent capabilities. First OpenAI reasoning model to agentically use and combine all tools within ChatGPT: web search, Python code execution, file analysis, visual reasoning, and image generation. In API: supports function calling with native tool use integrated into chain-of-thought. On SWE-bench, o3 averaged 37 containerised shell interactions per bug fix, with some requiring 100+ steps, demonstrating long tool-use chains. Compatible with OpenAI Agents SDK for building custom agentic workflows."
+  },
+  "benchmarks": {
+    "key_benchmarks": "AIME 2025: 88.9%, GPQA Diamond: 87.7%, SWE-bench Verified: 71.7%, Codeforces Elo: 2727, MMMU (visual): 82.9%, MathVista: 86.8%, CharXiv Reasoning: 78.6%, AIME 2024: 91.6%, ARC-AGI-Pub: 88% (high-compute setting). Note: some sources report AIME 2025 as 96.7% under different testing conditions. [uncertain]",
+    "reasoning_benchmarks_composite": "AIME 2025: 88.9% (some sources cite 96.7%), GPQA Diamond: 87.7%, AIME 2024: 91.6%, ARC-AGI-Pub: 88%. Significantly outperforms predecessor o1 across all reasoning benchmarks (o1 AIME 2024: 74.3%, o1 GPQA Diamond: 78%). Competition math and PhD-level science are core strengths."
+  },
+  "pricing": {
+    "pricing_per_1M_tokens": "Launch (April 2025): $10 input / $40 output. Post-June 2025 price cut (80% reduction): $2 input / $8 output. Cached input: $0.50/1M tokens. Batch API offers additional 50% discount (~$1/$4).",
+    "cost_efficiency_notes": "At launch, o3 was expensive at $10/$40 per 1M tokens, limiting accessibility. The June 2025 80% price cut to $2/$8 made it competitive with GPT-4-class models. However, reasoning tokens (internal chain-of-thought) are billed as output tokens, so effective cost per query can be significantly higher than non-reasoning models. Still much more expensive than open-source alternatives like DeepSeek R1. The o3-pro variant costs $20/$80 for higher-quality reasoning. Batch API and cached input pricing provide further cost optimization paths."
+  },
+  "deployment": {
+    "minimum_hardware_requirement": "API-only. No local deployment possible. Accessed via OpenAI API, ChatGPT Plus/Pro/Team/Enterprise subscriptions, or Azure OpenAI Service.",
+    "quantization_availability": "None. Proprietary closed model with no downloadable weights.",
+    "on_device_capable": "No. Cloud-only model requiring API access."
+  },
+  "business": {
+    "best_use_cases": "1) Complex software engineering: automated bug fixing, code review, and multi-file refactoring (71.7% SWE-bench). 2) Advanced data analysis: multi-step reasoning over datasets, financial modeling, and business analytics with Python code execution. 3) Scientific and technical research: PhD-level question answering, literature analysis, and technical writing. 4) Visual document analysis: interpreting charts, diagrams, screenshots, and whiteboard photos for business intelligence. 5) Agentic workflows: multi-step task automation combining web search, code execution, and file analysis for consulting and strategic planning.",
+    "relevance_for_entrepreneurs": "o3 represents the state-of-the-art in AI reasoning as of its April 2025 launch, making it the go-to model for startups tackling complex problems requiring multi-step analysis. The June 2025 price cut (80%) dramatically improved accessibility for bootstrapped teams. Key business implications: (1) Build vs Buy shifts further toward 'buy' for complex analytical tasks — o3 can replace junior analyst work in consulting, finance, and technical due diligence. (2) Agentic capabilities enable solo founders to automate multi-step workflows that previously required dedicated engineering. (3) The model's visual reasoning opens doors for product analytics, competitive analysis from screenshots, and rapid prototyping from whiteboard sketches. However, the proprietary nature means full vendor lock-in with OpenAI, and costs can escalate quickly due to reasoning token billing. European entrepreneurs should note GDPR compliance concerns and consider Azure OpenAI for data residency requirements.",
+    "competitive_position": "At launch, o3 was the clear leader in reasoning benchmarks, significantly outperforming o1 and competitors. However, by late 2025, the competitive landscape tightened considerably: Gemini models began leading overall reasoning benchmarks, Claude Opus 4.5 dominated real-world coding tasks (77.2% SWE-bench vs o3's 71.7%), and DeepSeek-V3.2 offered comparable performance at 10-30x lower cost under MIT license. o3's key differentiator remains its integrated agentic tool use within ChatGPT and the massive consumer mindshare of the OpenAI brand. Its weakness is cost relative to open-source alternatives and lack of downloadable weights for customization.",
+    "ecosystem_and_tooling": "OpenAI API (Chat Completions and Responses API), ChatGPT Plus/Pro/Team/Enterprise, Azure OpenAI Service (with enterprise compliance features), OpenAI Agents SDK (Python and TypeScript), function calling and tool use support, Model Context Protocol (MCP) compatibility via Azure AI Foundry, VS Code extension integration, broad third-party framework support (LangChain, LlamaIndex, Semantic Kernel, etc.). Available in all major cloud-hosted AI platforms. IDE integrations include Cursor, GitHub Copilot, and Windsurf.",
+    "geographic_origin_and_regulation": "United States (San Francisco, CA). OpenAI has committed to EU AI Act compliance and signed the Code of Practice for GPAI providers. However, OpenAI was fined 15M EUR by Italian DPA for GDPR violations, highlighting ongoing regulatory friction. European entrepreneurs should consider: (1) Azure OpenAI Service for EU data residency guarantees, (2) Data Processing Addendum availability for GDPR compliance, (3) OpenAI's extraterritorial obligations under EU AI Act as a general-purpose AI provider. No on-premise deployment option means data must traverse OpenAI or Microsoft infrastructure."
+  },
+  "uncertain": [
+    "parameter_count",
+    "active_parameters",
+    "architecture_type",
+    "key_benchmarks",
+    "multilingual_support"
+  ]
+}

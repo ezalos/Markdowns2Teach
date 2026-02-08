@@ -1,0 +1,118 @@
+# ABOUTME: Research outline for AI Regulation, Ethics & Governance 2024-2026.
+# ABOUTME: Regulations, standards, ethics frameworks, and emerging issues for entrepreneurial decision-making.
+
+topic: "AI Regulation, Ethics & Governance 2024-2026"
+description: >
+  Comprehensive mapping of the global AI regulatory landscape — legislation, standards,
+  ethics frameworks, enforcement mechanisms, and emerging issue areas. Emphasis on
+  compliance implications for AI entrepreneurs, with French/European context and
+  comparative international analysis.
+time_range: "since 2024"
+session: 5
+
+items:
+  # Major Regulations & Legislation
+  - name: "EU AI Act"
+    category: "legislation"
+    notes: "World's first comprehensive AI regulation, risk-based framework, entered into force Aug 2024"
+  - name: "EU AI Act Code of Practice for GPAI"
+    category: "legislation"
+    notes: "Voluntary codes for general-purpose AI providers under the AI Act"
+  - name: "EU Digital Omnibus on AI (Nov 2025)"
+    category: "legislation"
+    notes: "Commission proposal to amend AI Act, GDPR, and digital laws — delays high-risk obligations, reduces SME burden"
+  - name: "US Executive Order 14110 on AI (Biden)"
+    category: "executive_order"
+    notes: "Oct 2023 EO on safe AI development, partially rescinded by Trump Feb 2025"
+  - name: "Trump AI Executive Orders 2025"
+    category: "executive_order"
+    notes: "Jan 2025 rescission + 'AI Dominance' orders prioritizing deregulation"
+  - name: "Trump EO 14365 — State AI Preemption (Dec 2025)"
+    category: "executive_order"
+    notes: "Targets state AI laws, directs AG to challenge 'unconstitutional' state regulations, threatens BEAD funding"
+  - name: "US State AI Laws Patchwork (Colorado, California, etc.)"
+    category: "legislation"
+    notes: "Colorado SB 24-205 first comprehensive US AI law, California SB 53/AB 2013/SB 243, Illinois, NY RAISE Act"
+  - name: "China AI Regulations"
+    category: "legislation"
+    notes: "Suite of regulations: algorithmic recommendations, deepfakes, generative AI, 2025 AI Labeling Rules"
+  - name: "GDPR & AI Intersections"
+    category: "legislation"
+    notes: "How existing data protection law applies to AI training data, profiling, automated decisions"
+
+  # International Governance
+  - name: "AI Safety Institutes Network"
+    category: "international_agreement"
+    notes: "US, UK, Japan, France, Canada forming global network post-Bletchley Park"
+  - name: "OECD AI Principles (updated)"
+    category: "international_agreement"
+    notes: "Revised 2024 principles + AI Policy Observatory tracking national policies"
+  - name: "International AI Safety Report 2026 (Bengio)"
+    category: "international_agreement"
+    notes: "First comprehensive scientific review of GPAI risks, chaired by Yoshua Bengio, released Feb 2026"
+
+  # Standards & Certification
+  - name: "ISO/IEC 42001"
+    category: "standard"
+    notes: "AI Management System standard (published Dec 2023), basis for certification"
+  - name: "NIST AI Risk Management Framework"
+    category: "standard"
+    notes: "US voluntary framework (AI RMF 1.0) + Generative AI profile"
+
+  # Ethics Frameworks & Principles
+  - name: "Responsible AI Frameworks (Industry)"
+    category: "framework"
+    notes: "Microsoft, Google, Meta corporate RAI programs and governance structures"
+  - name: "AI Ethics Boards & Advisory Bodies"
+    category: "framework"
+    notes: "Corporate and governmental ethics advisory structures"
+  - name: "Algorithmic Impact Assessments"
+    category: "framework"
+    notes: "Mandated or voluntary pre-deployment assessments (Canada TBS, EU FRIA)"
+
+  # Key Issue Areas
+  - name: "AI & Copyright / IP"
+    category: "issue_area"
+    notes: "Training data disputes, NYT v. OpenAI, EU opt-out regime, US Copyright Office guidance"
+  - name: "Deepfakes, Synthetic Media & Content Provenance"
+    category: "issue_area"
+    notes: "EU AI Act transparency rules, C2PA standard, China AI Labeling Rules, US state laws, election integrity"
+  - name: "AI Bias & Discrimination"
+    category: "issue_area"
+    notes: "Hiring algorithms, credit scoring, predictive policing, disparate impact cases"
+  - name: "AI & Employment / Labor"
+    category: "issue_area"
+    notes: "Workforce displacement studies, EU works council requirements, right to human review"
+  - name: "Foundation Model Governance"
+    category: "issue_area"
+    notes: "Specific rules for frontier/GPAI models: safety testing, incident reporting"
+  - name: "AI & Children / Companion Chatbot Regulation"
+    category: "issue_area"
+    notes: "California SB 243, FTC inquiry, 42 state AGs letter, GUARD Act, Character.ai case"
+  - name: "AI Environmental Impact & Sustainability"
+    category: "issue_area"
+    notes: "Data center energy footprint, UNEP guidance, CSRD disclosure, 24-44M metric tons CO2 by 2030"
+  - name: "AI Semiconductor Export Controls"
+    category: "issue_area"
+    notes: "Biden AI Diffusion Rule, Trump rescission, bilateral chip deals, who can build frontier AI"
+
+  # Enforcement & Compliance
+  - name: "EU AI Office"
+    category: "enforcement_body"
+    notes: "Central enforcement body for AI Act, operational since 2024"
+  - name: "AI Regulatory Sandboxes"
+    category: "enforcement_body"
+    notes: "Controlled testing environments mandated by EU AI Act, adopted by multiple countries"
+
+  # Sector-Specific
+  - name: "AI in Healthcare Regulation"
+    category: "sector_specific"
+    notes: "FDA AI/ML framework, EU MDR for AI medical devices, clinical validation"
+  - name: "AI in Financial Services Regulation"
+    category: "sector_specific"
+    notes: "Algorithmic trading rules, credit decisioning transparency, MiCA intersections"
+
+execution:
+  batch_size: 3
+  items_per_agent: 1
+  output_dir: "./results"

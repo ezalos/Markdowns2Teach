@@ -1,0 +1,47 @@
+{
+  "identity": {
+    "model_name": "Mistral Small 3 (24B)",
+    "creator": "Mistral AI",
+    "release_date": "January 2025",
+    "model_family": "Mistral"
+  },
+  "architecture": {
+    "parameter_count": "24B",
+    "active_parameters": "24B (dense model)",
+    "architecture_type": "Dense Transformer with Grouped Query Attention (GQA). 40 layers, hidden size 5120, 32 attention heads, 8 KV heads. Uses SwiGLU activation, RoPE positional embeddings, RMSNorm. Tekken tokenizer with 131K vocabulary.",
+    "context_window": "32K (Mistral Small 3 original); 128K for Mistral Small 3.1+ variants",
+    "max_output_tokens": "8K (default generation limit in examples; context window shared between input and output)"
+  },
+  "capabilities": {
+    "open_or_closed": "Open-weight (downloadable weights on Hugging Face)",
+    "license_type": "Apache 2.0. Fully permissive for commercial use with no restrictions. Both base and instruct variants are Apache 2.0.",
+    "reasoning_capability": "Base Mistral Small 3: no dedicated reasoning mode. Magistral Small variant (June 2025, also 24B, Apache 2.0): fixed chain-of-thought reasoning with traceable thinking traces. Uses [THINK]/[/THINK] special tokens to encapsulate reasoning steps. Reasoning traces show confidence scores, alternative hypotheses, and error-correction steps. API supports prompt_mode='reasoning' to enable default reasoning system prompt, or null for custom prompts.",
+    "multimodal_support": "Text-only for Mistral Small 3 (January 2025). Mistral Small 3.1 (March 2025) adds image input (vision) via a 410M parameter ViT encoder. No audio input, no video input, no image generation.",
+    "multilingual_support": "Supports dozens of languages including English, French, German, Spanish, Italian, Portuguese, Dutch, Polish, Greek, Hindi, Indonesian, Japanese, Korean, Malay, Nepali, Romanian, Russian, Serbian, Swedish, Turkish, Ukrainian, Vietnamese, Arabic, Bengali, Chinese, and Farsi. Strong French support — outperforms Gemma 3, GPT-4o, and Claude 3.5 in non-English categories with ~71% average accuracy across languages. French is a priority language given Mistral AI's French origin.",
+    "agentic_capability": "Strong tool-use and function calling. Native function calling with JSON schema-based tool definitions. Supports Model Context Protocol (MCP) for standardized tool integration. Designed for agentic workflows with low-latency function execution. JSON mode output for structured responses. Suitable for multi-step agentic pipelines when combined with orchestration frameworks."
+  },
+  "benchmarks": {
+    "key_benchmarks": "MMLU (5-shot): 81.0%. MMLU-Pro: 66.76% (Small 3.1), 69.06% (Small 3.2). HumanEval Plus: 88.99% (Small 3.1), 92.90% (Small 3.2). MBPP Pass@5: 74.63% (Small 3.1), 78.33% (Small 3.2). IFEval: 82.75% (Small 3.1), 84.78% (Small 3.2). Arena Hard v2: 19.56% (Small 3.1), 43.10% (Small 3.2). Inference speed: 150 tokens/s. Rivals Llama 3.3 70B performance while being 3x faster on same hardware. For Magistral Small (reasoning variant): AIME 2024: 70.68% pass@1 (83.3% majority@64). GPQA Diamond: 68.18%. LiveCodeBench v5: 55.84%.",
+    "reasoning_benchmarks_composite": "Magistral Small 24B: AIME 2024 pass@1: 70.68%, majority@64: 83.3%. GPQA Diamond: 68.18%. LiveCodeBench v5: 55.84%. Base Mistral Small 3 is not a reasoning-specialized model; the Magistral Small variant provides dedicated reasoning capabilities via RL-trained chain-of-thought."
+  },
+  "pricing": {
+    "pricing_per_1M_tokens": "$0.10 input / $0.30 output per 1M tokens (Mistral API). Significant price reduction from earlier Mistral Small (Sep 2024): was $0.20/$0.60. Available free on some providers via OpenRouter.",
+    "cost_efficiency_notes": "Exceptional price-performance ratio. At $0.10/$0.30, it is cheaper than GPT-4o Mini while matching or exceeding its performance. 3x faster than Llama 3.3 70B on same hardware, meaning lower serving costs for self-hosted deployments. The 24B parameter size fits on consumer GPUs, eliminating cloud API costs entirely for self-hosted use cases. Magistral Small reasoning responses cost approximately $0.03 per session."
+  },
+  "deployment": {
+    "minimum_hardware_requirement": "API available via Mistral AI platform. For local deployment: single NVIDIA RTX 4090 (24GB VRAM) at full precision or with light quantization. MacBook with 32GB RAM when quantized. Q4 quantization fits in ~14-15GB VRAM, making it viable on RTX 3090/4070 Ti Super class GPUs. CPU inference possible but slow.",
+    "quantization_availability": "GGUF (multiple quantization levels from IQ3_XS to Q8_0 via bartowski, unsloth, and community contributors on Hugging Face). Available in Q4_K_M (best balance), Q5_K_M, Q6_K, Q8_0, and ultra-low-bit variants. Compatible with llama.cpp, Ollama, LM Studio. GPTQ and AWQ variants also available from community.",
+    "on_device_capable": "Yes. Explicitly designed for on-device deployment. Tested and promoted for: RTX 4090 (single GPU), MacBook with 32GB RAM (quantized). Runs well on modern laptops with sufficient RAM via Ollama or LM Studio. Not designed for phones due to 24B parameter count."
+  },
+  "business": {
+    "best_use_cases": "1. Conversational AI assistants and customer support bots — fast inference (150 tok/s), strong multilingual support, low cost. 2. Agentic workflows and function calling — native tool-use, MCP support, JSON output mode for enterprise automation. 3. Multilingual content generation — excellent French and European language support, ideal for EU-market startups. 4. On-premise/private AI deployment — Apache 2.0 license, fits on consumer hardware, full data sovereignty. 5. Document analysis and knowledge extraction — vision capabilities (3.1+), 128K context for long documents.",
+    "relevance_for_entrepreneurs": "Mistral Small 3 is arguably the most strategically important model for European entrepreneurs. As a French-made, Apache 2.0 model that fits on a single GPU, it eliminates three major barriers: (1) Licensing costs — fully free for commercial use, no per-token API fees if self-hosted. (2) Data sovereignty — self-host in EU, full GDPR compliance, no data leaves your infrastructure. (3) Hardware costs — runs on a single RTX 4090 or MacBook, no expensive cloud GPU clusters needed. For startups building AI products in the EU market, Mistral Small 3 offers a compelling build-vs-buy story: you can own your entire AI stack. The strong French language performance is a direct competitive advantage for French-market startups. The Magistral Small reasoning variant adds chain-of-thought for complex tasks without needing to upgrade to larger models.",
+    "competitive_position": "Directly competes with GPT-4o Mini, Gemma 3 27B, Qwen 2.5 32B, and Llama 3.3 70B. Key differentiators: (1) Best speed-to-quality ratio in its class — matches Llama 3.3 70B quality while being 3x faster. (2) European origin with GDPR-native compliance — unique among top-tier open models. (3) Apache 2.0 with no restrictions — more permissive than Llama's community license. (4) Smallest model to rival 70B-class performance — 24B vs 70B means dramatically lower deployment costs. Weaknesses: Not as strong as frontier models (GPT-4o, Claude 3.5 Sonnet) on complex reasoning without Magistral variant. Vision capabilities only added in 3.1 (March 2025), later than some competitors.",
+    "ecosystem_and_tooling": "Broad ecosystem support: Mistral AI API (La Plateforme), Le Chat consumer interface. Local deployment: Ollama, vLLM, llama.cpp, LM Studio. Cloud providers: available on NVIDIA NIM, OpenRouter, DeepInfra, Together AI, Cloudflare Workers AI. Amazon SageMaker, Azure AI, and Google Cloud Marketplace support (especially for Magistral variants). Framework support: Hugging Face Transformers, LangChain, LlamaIndex. IDE integrations via compatible coding assistants. GGUF format for maximum cross-platform compatibility.",
+    "geographic_origin_and_regulation": "France (EU). Mistral AI is headquartered in Paris (15 rue des Halles, 75001). Fully subject to EU regulations: GDPR, EU AI Act. Not subject to US CLOUD Act. Offers Data Processing Agreements (DPA) for enterprise GDPR compliance. Self-hosting option provides complete data sovereignty. French-controlled infrastructure for API usage. This is a major differentiator for European entrepreneurs: Mistral is the only top-tier AI lab fully within EU jurisdiction, making compliance significantly simpler than using US or Chinese alternatives."
+  },
+  "uncertain": [
+    "max_output_tokens",
+    "reasoning_benchmarks_composite"
+  ]
+}

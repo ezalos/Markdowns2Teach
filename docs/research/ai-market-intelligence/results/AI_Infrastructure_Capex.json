@@ -1,0 +1,40 @@
+{
+  "metric_identity": {
+    "metric_name": "AI Infrastructure Capex (Hyperscaler Capital Expenditure)",
+    "source_report": "Multiple sources: CNBC (Feb 2026), Goldman Sachs Research (Jan 2026), IEEE ComSoc Technology Blog (Dec 2025), company earnings reports (Q4 2025 / Q1 2026)",
+    "source_url": "https://www.cnbc.com/2026/02/06/google-microsoft-meta-amazon-ai-cash.html",
+    "publication_date": "February 2026 (CNBC aggregate); individual company announcements January-February 2026",
+    "methodology_notes": "Aggregate of company-reported capital expenditure figures from quarterly earnings calls and guidance. The four major hyperscalers (Amazon, Alphabet/Google, Meta, Microsoft) report capex in their SEC filings and earnings calls. Goldman Sachs Research and Wall Street analysts compile consensus estimates. Figures include total capex (AI and non-AI), with approximately 75% attributed to AI infrastructure (chips, servers, data centers, power systems). Microsoft reports on a July-June fiscal year, so FY2026 run rate is annualized from quarterly figures. Amazon, Alphabet, and Meta report on calendar years."
+  },
+  "metric_value": {
+    "value": "Combined Big Four hyperscaler capex approaching $650-700 billion in 2026. Individual 2026 guidance: Amazon ~$200B, Alphabet/Google $175-185B, Microsoft ~$145B (FY2026 annualized run rate), Meta $115-135B. Top 5 hyperscalers (including Oracle): ~$602B projected for 2026. For 2025: combined ~$443B (Amazon ~$125B, Google ~$85B, Microsoft ~$83B TTM Dec 2025, Meta $66-72B).",
+    "unit": "USD (billions)",
+    "geographic_scope": "Global",
+    "time_period": "2025-2026 (primary focus on 2026 guidance)",
+    "comparison_baseline": "2024: Top 5 hyperscalers combined ~$256B. 2023: ~$157B (estimated). Individual 2024 actuals: Amazon ~$75B, Microsoft ~$44.5B (FY2024), Meta ~$37B, Google ~$52B. The 2026 figures represent a roughly 2.5x increase over 2024 levels in just two years.",
+    "market_layer": "infrastructure"
+  },
+  "trend": {
+    "trend_direction": "Accelerating",
+    "year_over_year_change": "+73% YoY from 2024 to 2025 ($256B to $443B); +36% YoY from 2025 to 2026 ($443B to $602B). Individual company growth: Amazon +52% (2025 vs 2024), Alphabet nearly doubling to $175-185B in 2026. Goldman Sachs notes consensus capex estimates have been too low for two years running, with actual growth exceeding 50% in both 2024 and 2025 vs initial ~20% consensus estimates.",
+    "compound_annual_growth_rate": "~53% CAGR from 2023 to 2026 for top 5 hyperscalers (from ~$157B to ~$602B)",
+    "forecast_value": "Goldman Sachs projects cumulative hyperscaler capex of $1.15 trillion from 2025 through 2027, more than double the $477B spent from 2022-2024. Individual 2027+ forecasts not yet available at company level. Goldman Sachs expects growth rate to decelerate to ~25% by end of 2026.",
+    "forecast_year": "2027",
+    "velocity_indicator": "Capital intensity has reached 57% of revenue for some hyperscalers. Amazon projected to go free-cash-flow negative (~-$17B) in 2026. Spending doubling time: ~18 months (from $256B in 2024 to projected ~$602B in 2026)."
+  },
+  "entrepreneurial_relevance": {
+    "relevance_for_entrepreneurs": "This is the single most important upstream signal in the AI economy. The $650-700B being poured into AI infrastructure by just four companies in a single year dwarfs anything in technology history. For startup founders, this means: (1) The compute substrate is being aggressively built out, which will drive down inference costs over the next 2-3 years as supply catches up with demand, making AI applications cheaper to run. (2) The hyperscalers are betting the company on AI demand materializing -- Amazon going FCF-negative to spend $200B signals extreme conviction. (3) However, this creates massive concentration risk: the entire AI startup ecosystem depends on 4-5 companies controlling the infrastructure layer. (4) The scale of spending raises legitimate bubble concerns: Goldman Sachs notes these companies may only recoup half the profit needed to justify current investment levels. (5) For European entrepreneurs, this spending is almost entirely US-based, deepening the EU's dependency on American cloud infrastructure -- a strategic consideration for startups building on these platforms.",
+    "actionable_insight": "Build at the application layer, not the infrastructure layer. The hyperscaler capex war guarantees that compute costs will fall as capacity expands. Startups should avoid infrastructure bets and instead focus on the application and vertical layers where Menlo Ventures data shows startups capturing $2 for every $1 incumbents earn. Watch for the 'AI infrastructure bust' risk: if capex growth decelerates sharply (Goldman expects slowdown to 25% by late 2026), it could trigger a market correction that tightens startup funding. Negotiate long-term cloud compute contracts now while hyperscalers are desperate to fill capacity.",
+    "session_mapping": "1, 4",
+    "risk_profile": "bubble_indicator, concentration_risk"
+  },
+  "confidence": {
+    "data_quality": "High",
+    "cross_reference": "CNBC (Feb 6, 2026) reports ~$700B combined. Yahoo Finance/Bloomberg (Feb 6, 2026) reports ~$650B. Goldman Sachs Research (Jan 2026) projected $527B consensus pre-earnings, since revised upward. IEEE ComSoc Technology Blog (Dec 2025) projected ~$602B for top 5 hyperscalers. CreditSights (Jan 2026) provides independent estimates. Dell'Oro Group tracks data center capex. Individual company figures are from SEC filings and earnings calls, which are audited financial data. All sources converge on the $600-700B range for 2026.",
+    "caveats": "Key caveats: (1) Total capex includes non-AI spending (networking, real estate, satellites for Amazon, etc.) -- approximately 75% is AI-specific per analyst estimates. (2) Microsoft's fiscal year misalignment (July-June) makes direct calendar-year comparison tricky; the $145B figure is an annualized run rate, not confirmed full-year spend. (3) Guidance figures can be revised downward -- Meta previously revised plans, and the DeepSeek efficiency breakthrough in January 2025 temporarily shook confidence in capex plans. (4) The original notes cited Microsoft at $97B and Google at $75B, which appear to be earlier estimates; actual 2026 guidance is significantly higher ($145B and $175-185B respectively). (5) Free cash flow impact is severe: Amazon may go FCF-negative, raising questions about sustainability.",
+    "measurement_reliability": "verified_financial_filing"
+  },
+  "uncertain": [
+    "compound_annual_growth_rate"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "identity": {
+    "company_name": "Weaviate",
+    "headquarters": "Amsterdam, Netherlands",
+    "headquarters_region": "EU",
+    "founded_year": 2019
+  },
+  "value_chain": {
+    "role_in_value_chain": "vector_db",
+    "value_chain_position": "Sits in the data infrastructure layer as a specialized vector database for AI applications. Depends on cloud providers (primarily Google Cloud for its managed service, with AWS and Azure support planned) and on embedding model providers (OpenAI, Cohere, Hugging Face, Google) for vectorization. Serves application developers building RAG (Retrieval-Augmented Generation) pipelines, semantic search, recommendation systems, and other AI-powered applications. Integrates tightly with LLM orchestration frameworks (LangChain, Microsoft Semantic Kernel, LlamaIndex) and is used by enterprises needing production-grade vector storage and hybrid search. Competes directly with Pinecone (managed-only), Qdrant (open-source), Milvus/Zilliz (open-source), and Chroma (lightweight). Weaviate's key differentiator is its native hybrid search combining dense vector (HNSW) and sparse keyword (BM25) retrieval with configurable fusion algorithms.",
+    "vertical_integration_level": "Single-layer"
+  },
+  "products": {
+    "key_products": [
+      "Weaviate Open-Source Vector Database: BSD 3-Clause licensed, written in Go, providing vector search (HNSW), keyword search (BM25), and hybrid search with configurable fusion (Reciprocal Rank Fusion). Supports multi-tenancy, horizontal scaling, structured filtering alongside vector similarity, and built-in vectorization modules for OpenAI, Cohere, Hugging Face, Google, and others. 13,000+ GitHub stars. Can be self-hosted via Docker or Kubernetes.",
+      "Weaviate Cloud (WCD): Fully managed SaaS offering currently running on Google Cloud. Serverless tier starts at $25 per 1M vector dimensions stored per month. Enterprise Cloud tier offers dedicated resources, custom SLAs, and enterprise-grade support. Handles provisioning, scaling, backups, and upgrades automatically.",
+      "Hybrid Search Engine: Weaviate's signature capability combining dense vector search and BM25 keyword search in a single query. Supports Reciprocal Rank Fusion (RRF) and other fusion methods with configurable weights, enabling developers to tune the balance between semantic understanding and exact term matching for their specific use case."
+    ]
+  },
+  "business": {
+    "revenue_or_valuation": "Revenue reached $12.3M as of October 2024 (per GetLatka). Valued at $200M following a $50M Series C round in October 2025 led by Battery Ventures and Zetta Venture Partners. Earlier $200M valuation was also reported at the Series B stage in April 2023.",
+    "annual_recurring_revenue_arr": "$12.3M revenue as of October 2024 (per GetLatka). Growth trajectory not publicly detailed, but the company grew from its Series B in April 2023 to Series C in October 2025, suggesting steady commercial traction with enterprise customers.",
+    "funding_total_and_last_round": "Total raised: approximately $117M across three rounds. Series A (2022, amount undisclosed), Series B ($50M, April 2023, led by Index Ventures with Battery Ventures, NEA, Cortical Ventures, Zetta Venture Partners, ING Ventures), Series C ($50M, October 2025, led by Battery Ventures and Zetta Venture Partners, at $200M valuation). Some sources cite total funding at $67.7M, which may exclude the Series C or count differently. [uncertain]",
+    "business_model": "Open-core model: the core vector database is free and open-source (BSD 3-Clause), while revenue comes from the managed cloud service (Weaviate Cloud). Cloud pricing is usage-based on vector dimensions stored, starting at $25/month per 1M vector dimensions for serverless, plus storage costs for objects and backups. Enterprise Cloud tier offers dedicated infrastructure with custom pricing. Additional revenue from enterprise support contracts.",
+    "burn_rate_and_runway": "[uncertain] Not publicly disclosed. With 104 employees (October 2024), $12.3M revenue, and approximately $117M total funding raised, the company appears well-capitalized relative to its team size."
+  },
+  "openness": {
+    "open_vs_closed_spectrum": "Hybrid (Fully open-source core + proprietary managed cloud). The core Weaviate database is BSD 3-Clause licensed — one of the most permissive open-source licenses. Anyone can self-host, modify, and redistribute without restriction. Revenue comes from the proprietary managed cloud service and enterprise support, not from restricting the open-source core."
+  },
+  "startup_relevance": {
+    "relevance_for_startups": "Weaviate is directly relevant to any startup building AI-powered search, RAG applications, or recommendation systems. Key considerations: (1) The BSD 3-Clause license means startups can self-host Weaviate at zero software cost during early stages, with no licensing restrictions even for commercial use — this is critical for bootstrapped teams; (2) Native hybrid search (combining vector similarity with keyword matching) is Weaviate's strongest differentiator, and it matters for production applications where pure vector search often misses exact terms (product names, codes, proper nouns); (3) Built-in vectorization modules mean startups don't need to build a separate embedding pipeline — Weaviate can automatically vectorize data using OpenAI, Cohere, or Hugging Face models at import time; (4) The managed cloud service (starting at $25/month) provides a low-friction path from prototype to production without DevOps overhead; (5) Deep integrations with LangChain, LlamaIndex, and Microsoft Semantic Kernel mean Weaviate slots into the standard RAG tech stack with minimal glue code; (6) Multi-tenancy support is critical for SaaS startups building AI features for multiple customers — each tenant's data can be isolated within a single Weaviate instance; (7) European headquarters (Amsterdam) and EU data residency options make it attractive for GDPR-conscious European startups; (8) Compared to Pinecone (fully managed, no self-hosting option), Weaviate offers more deployment flexibility; compared to Qdrant (Rust-based), Weaviate offers stronger hybrid search out of the box.",
+    "accessibility": "Very high accessibility. Self-hosted: completely free under BSD 3-Clause license, deployable via Docker or Kubernetes. Weaviate Cloud Serverless: starts at $25/month per 1M vector dimensions. Enterprise Cloud: custom pricing for dedicated resources and SLAs. All client libraries (Python, JavaScript, Go, Java) are open-source. No minimum spend or commitment required. Extensive documentation, tutorials, and a Weaviate Academy (free learning platform). Community support via forum and Slack.",
+    "primary_model_dependency": "None for the core database. Weaviate is model-agnostic. However, the built-in vectorization modules depend on third-party embedding providers (OpenAI, Cohere, Google, Hugging Face) if used. Startups can also bring their own vectors."
+  },
+  "ecosystem": {
+    "key_partnerships": "Google Cloud (primary cloud partner, Weaviate Cloud runs on GCP, available in GCP Marketplace, native integrations with Vertex AI and Gemini). Microsoft (Semantic Kernel integration, featured in Microsoft DevBlogs). LangChain and LlamaIndex (official integrations as vector store backends). Embedding model providers (OpenAI, Cohere, Hugging Face, Google) via built-in vectorization modules. AWS and Azure deployment support planned for Weaviate Cloud. Investors include Index Ventures, Battery Ventures, NEA, Zetta Venture Partners, Cortical Ventures, and ING Ventures.",
+    "competitive_moat": "Strongest hybrid search implementation among vector databases, natively combining HNSW vector search with BM25 keyword search and configurable fusion algorithms — this is technically difficult to replicate well and represents a genuine engineering advantage. Open-source community (13,000+ GitHub stars) creates adoption momentum and ecosystem contributions. BSD 3-Clause licensing (more permissive than competitors like Milvus which uses Apache 2.0, or Qdrant which uses Apache 2.0) builds developer trust. Written in Go for performance and operational simplicity. Early mover in the vector database space with production-tested scalability. Growing integration ecosystem with all major LLM frameworks makes it a default choice in RAG architectures.",
+    "data_moat_type": "None"
+  },
+  "regulatory": {
+    "regulatory_exposure": "Exempt. Weaviate is infrastructure software (a database) and does not itself provide AI models or make AI-driven decisions. It stores and retrieves vectors but has no autonomous decision-making capability. Under the EU AI Act, databases are generally not classified as AI systems. However, as an EU-headquartered company (Amsterdam), Weaviate benefits from proximity to EU regulatory frameworks and can market GDPR compliance and data residency as features to European customers."
+  },
+  "uncertain": [
+    "funding_total_and_last_round",
+    "burn_rate_and_runway"
+  ]
+}

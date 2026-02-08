@@ -1,0 +1,49 @@
+{
+  "identity": {
+    "company_name": "Artificial Analysis",
+    "headquarters": "San Francisco, United States (originally founded in Sydney, Australia)",
+    "headquarters_region": "US",
+    "founded_year": 2023
+  },
+  "value_chain": {
+    "role_in_value_chain": "evaluation",
+    "value_chain_position": "Independent evaluation and benchmarking layer sitting above model creators and API providers. Does not depend on any single foundation model — instead, it evaluates all of them. Serves AI engineers, enterprises, and technology decision-makers who need objective data to select models and providers. Acts as a trusted third-party measurement layer, analogous to Gartner or Consumer Reports for the AI industry. Consumes outputs from model providers (OpenAI, Google, Anthropic, Meta, Mistral, DeepSeek, etc.) and inference API providers (Together AI, Fireworks AI, Groq, etc.) to produce comparative benchmarks. Partners with Hugging Face to distribute leaderboards. Revenue comes from enterprise subscriptions and advisory services rather than from building or hosting models.",
+    "vertical_integration_level": "Single-layer"
+  },
+  "products": {
+    "key_products": [
+      "AI Model & Provider Leaderboards: Free public leaderboards comparing 100+ AI models and 500+ API endpoints across intelligence (quality), performance (throughput, latency, TTFP), and price. Covers LLMs, image generation, video generation, speech-to-text, and text-to-speech. The Artificial Analysis Intelligence Index (v4.0) synthesizes 10 evaluations including agentic benchmarks, long-context reasoning, and Humanity's Last Exam. All API endpoints tested 8 times daily with 14-day rolling medians. Published as Hugging Face Spaces and on artificialanalysis.ai. Licensed under Creative Commons Attribution 4.0.",
+      "Enterprise Subscriptions & Data API: Paid enterprise tier providing API access to the full benchmarking dataset for automated ingestion into CI/CD pipelines, model evaluation workflows, and procurement decisions. Standardized reports on model deployment decisions covering cost analysis, performance comparisons, and provider reliability.",
+      "Advisory & Custom Benchmarking Services: Consulting engagements for enterprises and AI platform providers. Includes AI use-case discovery, technology selection consulting, cost analysis for dedicated deployments, and custom benchmarking of fine-tuned or proprietary models across LLMs, speech, image, and video modalities."
+    ]
+  },
+  "business": {
+    "revenue_or_valuation": "[uncertain] Not publicly disclosed. The company is venture-backed with pre-seed funding from prominent angel investors (Nat Friedman, Daniel Gross, Andrew Ng) but has not publicly announced a valuation or revenue figures.",
+    "annual_recurring_revenue_arr": "[uncertain] Not publicly disclosed. Revenue comes from enterprise subscriptions and advisory services, but no ARR figure has been reported.",
+    "funding_total_and_last_round": "[uncertain] Pre-seed funding from Nat Friedman (former GitHub CEO), Daniel Gross (co-founder of Safe Superintelligence), and Andrew Ng (DeepLearning.AI). Exact amounts not publicly disclosed. No publicly announced Series A or later rounds as of early 2026.",
+    "business_model": "Freemium with enterprise monetization. The core leaderboards and benchmarking data are free and publicly accessible under Creative Commons Attribution 4.0 license. Revenue comes from two commercial arms: (1) Enterprise subscriptions providing API access to granular benchmarking data, standardized reports, and integration into CI/CD workflows; (2) Advisory and custom benchmarking services for organizations needing bespoke model evaluations, technology selection consulting, and cost analysis for AI deployments. The free public data serves as a marketing and trust-building engine that drives enterprise sales.",
+    "burn_rate_and_runway": "[uncertain] Not publicly disclosed. Small team (~12-20 employees as of early 2026) suggests a lean operation. Backed by prominent angel investors but total funding amount is unknown."
+  },
+  "openness": {
+    "open_vs_closed_spectrum": "Hybrid (Open data + proprietary enterprise services). All public benchmarking data and leaderboards are published under Creative Commons Attribution 4.0 license — fully open and freely reusable with attribution. The benchmarking methodology is publicly documented. Enterprise data APIs, advisory services, and custom benchmarking constitute the proprietary commercial layer."
+  },
+  "startup_relevance": {
+    "relevance_for_startups": "Artificial Analysis is essential for any AI startup making model and provider selection decisions. Key considerations: (1) The free leaderboards provide the most comprehensive independent comparison of AI models and API providers, covering quality, speed, latency, and price in one place — this saves startups weeks of evaluation work and prevents costly vendor lock-in to underperforming providers; (2) The 'mystery shopper' methodology (accounts registered on non-company domains, no special treatment from providers) means the benchmarks reflect real-world performance that startups will actually experience, not optimized demo results; (3) Price-performance tracking is critical for startups optimizing unit economics — Artificial Analysis shows exactly which providers offer the best throughput per dollar, enabling informed build-vs-buy and provider selection decisions; (4) The 8x daily testing cadence means startups can track provider reliability over time, avoiding providers with inconsistent performance; (5) Coverage extends beyond LLMs to image generation, video, and speech models, useful for startups building multimodal applications; (6) For startups building AI evaluation or MLOps tools, Artificial Analysis demonstrates the market opportunity and sets the standard for independent benchmarking; (7) The advisory services can help startups with limited AI expertise make informed technology choices without building internal evaluation infrastructure; (8) Being cited by major AI labs and referenced across the industry gives Artificial Analysis data credibility that startups can rely on for investor presentations and technical architecture decisions.",
+    "accessibility": "Very high accessibility for the core product. The public leaderboards and benchmarking data are completely free and licensed under CC BY 4.0. No account required to access models comparison, provider performance data, or methodology documentation. Enterprise subscriptions with API access to granular data are available at undisclosed pricing. Advisory and custom benchmarking services are engagement-based with custom pricing. Hugging Face Spaces provide interactive access to LLM Performance, Image Arena, Video Generation, and Speech Arena leaderboards.",
+    "primary_model_dependency": "None. Artificial Analysis is model-agnostic by design — its entire value proposition depends on being independent from any specific model provider. It evaluates models from OpenAI, Google, Anthropic, Meta, Mistral, DeepSeek, Cohere, and dozens of others without commercial dependency on any of them."
+  },
+  "ecosystem": {
+    "key_partnerships": "Hugging Face (official leaderboard partner, Artificial Analysis leaderboards hosted as Hugging Face Spaces with dedicated blog posts announcing the collaboration). Angel investors who are also strategic advisors: Nat Friedman (former GitHub CEO), Daniel Gross (co-founder of Safe Superintelligence, AI Grant), and Andrew Ng (DeepLearning.AI, Coursera). Media partnerships including featured coverage on Latent Space podcast (one of the most influential AI engineering podcasts). The company benchmarks and tracks all major AI providers (OpenAI, Google, Anthropic, Meta, Mistral, DeepSeek, Together AI, Fireworks AI, Groq, etc.) creating indirect ecosystem relationships.",
+    "competitive_moat": "Trust and independence as the primary moat. Artificial Analysis has established itself as the go-to neutral benchmarking source for the AI industry, frequently cited by researchers, developers, and media. The 'mystery shopper' testing methodology (preventing providers from gaming benchmarks) builds credibility that is hard for competitors to replicate without the same rigorous independence. Comprehensive data coverage across 500+ API endpoints tested 8x daily creates a longitudinal dataset that grows more valuable over time. The CC BY 4.0 licensing of public data encourages widespread citation and embedding, reinforcing brand authority. Strategic angel investors (Friedman, Gross, Ng) provide credibility and industry access without creating conflicts of interest. First-mover advantage in independent AI benchmarking — while LMSYS Chatbot Arena focuses on crowdsourced preference rankings and Epoch AI focuses on research-oriented compute tracking, Artificial Analysis uniquely combines quality, performance, and price in a developer-focused format.",
+    "data_moat_type": "Proprietary training data"
+  },
+  "regulatory": {
+    "regulatory_exposure": "Exempt. Artificial Analysis is a benchmarking and analytics platform that does not provide AI models or make AI-driven decisions. It evaluates and reports on AI systems but does not deploy them. Under the EU AI Act, benchmarking services are not classified as AI systems or GPAI providers. The company's independence and transparency in methodology align well with the EU AI Act's emphasis on AI transparency and accountability."
+  },
+  "uncertain": [
+    "revenue_or_valuation",
+    "annual_recurring_revenue_arr",
+    "funding_total_and_last_round",
+    "burn_rate_and_runway"
+  ]
+}

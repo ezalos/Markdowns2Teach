@@ -1,0 +1,49 @@
+{
+  "identity": {
+    "model_name": "Claude Opus 4.6",
+    "creator": "Anthropic",
+    "release_date": "February 2026",
+    "model_family": "Claude"
+  },
+  "architecture": {
+    "parameter_count": "Undisclosed",
+    "active_parameters": "Undisclosed",
+    "architecture_type": "Dense (assumed; Anthropic has not disclosed architecture details)",
+    "context_window": "1M tokens (beta; 200K standard)",
+    "max_output_tokens": "128K"
+  },
+  "capabilities": {
+    "open_or_closed": "Closed/proprietary (API-only)",
+    "license_type": "Proprietary. No downloadable weights. Accessible via Anthropic API, Amazon Bedrock, Google Vertex AI, Microsoft Azure Foundry, and GitHub Copilot. Commercial use permitted through API agreements.",
+    "reasoning_capability": "Adaptive thinking with four effort levels (low, medium, high, max). Replaces the older binary extended-thinking mode. At high (default), the model dynamically decides when and how deeply to reason based on task complexity. At lower effort levels, it may skip thinking for simpler problems. At max, it applies deep chain-of-thought reasoning. Budget is no longer manually set; the model auto-allocates thinking tokens.",
+    "multimodal_support": "Text input, image input (JPG, PNG, WEBP, TIFF up to 10-15 MB), text output. No native audio input, no native video input, no image generation. PDF parsing supported. Code execution available in certain deployment contexts (e.g., Claude.ai artifacts).",
+    "multilingual_support": "Supports most world languages using standard Unicode. Strong performance in English, French, Spanish, German, Portuguese, Japanese, and other widely-spoken languages. French support is robust with near-native fluency in grammar and vocabulary. Benchmarked via Multilingual MMLU across 14+ languages.",
+    "agentic_capability": "Advanced multi-agent coordination via 'Agent Teams' (research preview): multiple Claude Code instances work in parallel from a single orchestrator, each in its own tmux pane, with shared task lists and direct inter-agent communication. Strong tool use and computer use capabilities. Enhanced agentic planning: decomposes complex tasks into independent subtasks, runs tools and sub-agents in parallel, identifies blockers. Compaction API enables effectively infinite agentic sessions by auto-summarizing context when approaching limits."
+  },
+  "benchmarks": {
+    "key_benchmarks": "GPQA Diamond: 91.3%. SWE-bench Verified: 80.8%. Terminal-Bench 2.0: 65.4%. Humanity's Last Exam (with tools): 53.1%. BrowseComp: 84.0%. GDPval-AA: 1606 Elo (outperforms GPT-5.2 by 144 Elo). Long-context retrieval: 93.0% at 256K, 76.0% at 1M. Leads frontier models on BigLaw (legal reasoning). HumanEval and MMLU-Pro scores not separately reported for Opus 4.6 but Opus 4.5 scored 90% HumanEval and 80% MMLU-Pro.",
+    "reasoning_benchmarks_composite": "GPQA Diamond: 91.3% (vs Opus 4.5's 87.0%, Gemini 3 Pro's 91.9%, GPT-5.2 Pro's 93.2%). Humanity's Last Exam: 53.1% (leading all released frontier models at time of launch). AIME 2025: not separately reported for Opus 4.6 (Opus 4.5 scored 37% standard, 100% with Python). MATH-500: not separately reported for Opus 4.6. [uncertain]"
+  },
+  "pricing": {
+    "pricing_per_1M_tokens": "$5 input / $25 output. Long context (>200K tokens): $10 input / $37.50 output. Prompt cache writes: 1.25x base ($6.25/M). Prompt cache reads: 0.1x base ($0.50/M). Batch API: 50% discount on all prices.",
+    "cost_efficiency_notes": "Priced identically to predecessor Opus 4.5. At $5/$25 per 1M tokens, it is among the most expensive frontier models but justifiable for high-value knowledge work where it leads benchmarks. Prompt caching can reduce costs by up to 90% for repetitive system prompts. Batch processing offers 50% savings. Long-context premium (2x input) applies above 200K tokens. Compared to GPT-5.2 (reportedly similar pricing tier), Opus 4.6 offers better value on economically-relevant tasks (144 Elo advantage on GDPval-AA)."
+  },
+  "deployment": {
+    "minimum_hardware_requirement": "API-only. No local deployment option. Accessible via Anthropic API (usage tier 4 required for 1M context), Amazon Bedrock, Google Vertex AI, Microsoft Azure Foundry, and GitHub Copilot.",
+    "quantization_availability": "None. Proprietary model with no downloadable weights.",
+    "on_device_capable": "No. Cloud/API-only model, not designed for on-device deployment."
+  },
+  "business": {
+    "best_use_cases": "1) Agentic coding and software engineering: plans carefully, sustains long tasks, catches its own mistakes, excels on SWE-bench and Terminal-Bench. 2) Complex knowledge work: financial analysis, legal reasoning (leads BigLaw benchmark), research synthesis across large document sets (1M context). 3) Multi-agent enterprise workflows via Agent Teams: orchestrate parallel coding, testing, and documentation agents. 4) Long-document processing and analysis: 1M token context enables processing entire codebases, legal contracts, or research corpora in a single pass. 5) AI-powered research and web browsing: 84% on BrowseComp shows strong autonomous information gathering.",
+    "relevance_for_entrepreneurs": "Opus 4.6 is the most capable model available for complex, high-stakes business tasks. For startups: (1) Agent Teams can replace entire junior dev teams for prototyping and code review, drastically reducing burn rate. (2) The 1M context window enables analyzing entire business plans, contracts, or market research in one shot. (3) Leading scores on GDPval-AA (finance, legal, knowledge work) make it the go-to for founders needing reliable analysis without hiring specialists. (4) Available on all major cloud platforms (AWS, GCP, Azure) so no vendor lock-in. (5) Expensive at $5/$25 per 1M tokens, so best reserved for high-value tasks; use cheaper models (Haiku, Sonnet) for routine operations. Build-vs-buy consideration: its agentic capabilities make it a strong 'buy' option for complex automation that would otherwise require custom engineering.",
+    "competitive_position": "Leads on economically-valuable knowledge work (GDPval-AA: +144 Elo over GPT-5.2). Essentially ties GPT-5.2 on agentic coding (Terminal-Bench 2.0: 65.4% vs 64.7%). Trails GPT-5.2 Pro on GPQA Diamond (91.3% vs 93.2%) and ties on SWE-bench. Massive lead on BrowseComp (84.0% vs competitors). Key differentiator: Agent Teams for multi-agent orchestration, 1M context window, and adaptive thinking. Weakness: more expensive than most alternatives, no open-weight option, and some users report slightly weaker creative writing compared to Opus 4.5.",
+    "ecosystem_and_tooling": "Anthropic API with SDKs for Python and TypeScript. Claude Code CLI for agentic coding. Available on Amazon Bedrock, Google Vertex AI, Microsoft Azure Foundry. GitHub Copilot integration (VS Code, Visual Studio, GitHub.com, GitHub Mobile, GitHub CLI). JetBrains IDE support. Microsoft 365 integration (Excel, PowerPoint) via Foundry. MCP (Model Context Protocol) for tool integrations. Prompt caching, batch API, and compaction API. OpenRouter support.",
+    "geographic_origin_and_regulation": "United States (Anthropic, San Francisco). Subject to US export controls and regulations. For EU entrepreneurs: data processed through Anthropic's US infrastructure unless using EU-region deployments on AWS/GCP/Azure. GDPR considerations apply when processing personal data. Anthropic publishes detailed safety evaluations (ASL framework) and system cards. No specific EU AI Act compliance certification announced but the model's safety profile is designed to meet high standards. European entrepreneurs should assess data residency requirements and consider using EU-hosted cloud endpoints where available."
+  },
+  "uncertain": [
+    "parameter_count",
+    "active_parameters",
+    "architecture_type",
+    "reasoning_benchmarks_composite"
+  ]
+}

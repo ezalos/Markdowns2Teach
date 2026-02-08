@@ -1,0 +1,30 @@
+{
+  "resource_name": "Defend Intelligence",
+  "resource_type": "YouTube",
+  "creator_or_organization": "Anis Ayari (AI Engineer, Founder & CEO of Whiteship.ai and DeepLayer AI)",
+  "url": "https://www.youtube.com/@DefendIntelligence",
+  "language": "French",
+
+  "content_focus": "French-language AI popularization covering a wide range of topics: machine learning fundamentals, neural networks, natural language processing, computer vision, generative AI, deepfakes, algorithmic bias, data privacy, and AI ethics. The channel decrypts current AI news, explains how algorithms work in accessible terms, and addresses societal and ethical implications. Notable content includes a 9-month project traveling across Europe to challenge humans at poker using generative AI, investigations into personal data hacking, and facial recognition system tutorials. Also covers AI industry trends, product launches, and real-world business applications of AI (e.g., explaining misleading retail data from his experience as Lead Data Scientist at Intermarche). Active on adjacent platforms: Twitch for live coding/discussion, Instagram for short-form reels, and a podcast on Spotify/Apple Podcasts covering introductory AI topics.",
+  "target_audience": "Beginners and general French-speaking audience curious about AI; also serves intermediate learners with more technical tutorials. Ideal for non-engineers wanting to understand AI without heavy jargon.",
+  "publication_frequency": "Weekly to biweekly on YouTube (variable); more frequent short-form content on Instagram and Twitch streams [uncertain]",
+  "format_and_length": "YouTube videos ranging from 10-30 minutes for main content; short Instagram reels; Twitch live streams; podcast episodes (~9 minutes for introductory episodes) [uncertain]",
+
+  "accessibility_for_non_engineers": "High. Anis Ayari's stated mission is to democratize AI for everyone. His pedagogical style uses clear language, visual aids, step-by-step guidance, and real-world analogies. Content is designed to be comprehensible without a technical background. The mix of serious analysis and humorous, engaging delivery makes complex AI concepts approachable for business students.",
+  "signal_to_noise_ratio": "Medium. The channel balances educational content with entertainment and reaction-style videos. Core explainer videos have high signal, but the mix of formats (reaction videos, vlogs, live streams) means not every piece of content delivers dense insight. The serious educational content is strong, but viewers need to select videos relevant to their needs.",
+  "unique_value_proposition": "The leading French-language AI YouTube channel combining professional data science expertise (10+ years in the field, roles at LVMH, Intermarche, Gojob) with accessible, humorous popularization. Ranked 3rd in Favikon's 2025 'Top 20 AI Researchers and Entrepreneurs in France' and 19th globally in 'Top 20 AI Researchers on Social Media'. Unique in the French ecosystem for bridging hardcore technical AI knowledge with entertainment-style delivery, making it the go-to resource for French-speaking non-technical audiences wanting to stay current on AI.",
+  "free_or_paid": "Free (YouTube, Twitch, Instagram, podcast all freely accessible)",
+  "source_reliability": "Medium. Anis Ayari has legitimate professional credentials (Lead Data Scientist at Intermarche, Head of Data Science at LVMH Perfumes & Cosmetics, Staff Data Scientist at Gojob, 10+ years in AI). His technical explanations are grounded in real experience. However, as a YouTube popularizer with a humorous style, content prioritizes engagement and accessibility over rigorous academic sourcing. Not a peer-reviewed or editorially checked source, but opinions are informed by genuine industry expertise. His entrepreneurial ventures (Whiteship, DeepLayer AI) may introduce occasional commercial bias.",
+
+  "relevance_for_entrepreneurs": "Highly relevant for French-speaking entrepreneurs looking to understand AI without deep technical training. Ayari frames AI concepts in practical, business-applicable terms and draws from his own experience in retail (Intermarche), luxury (LVMH), and startup (Whiteship, DeepLayer AI) contexts. His content on AI ethics, algorithmic dangers, and deepfakes is directly useful for entrepreneurs needing to understand risks and societal implications. His Whiteship venture (AI SEO monitoring) demonstrates practical AI entrepreneurship. Ideal for students who prefer video-based French-language learning over English text resources.",
+  "actionable_insight_level": "Medium. Videos provide strong conceptual understanding and awareness of AI trends, but most content is popularization rather than step-by-step business playbooks. Some tutorials offer hands-on actionable coding guidance. Best for building AI literacy and staying informed rather than extracting direct business strategies.",
+  "session_mapping": "S1 (Fundamentals), S5 (Ethics/Governance)",
+
+  "active_since": "2019",
+  "last_verified_active": "2026-02-08",
+  "ecosystem_position": "Primary French-language educational resource and AI popularizer. Occupies a unique niche as the most prominent French AI YouTuber, serving as a bridge between the technical AI research community and the general French-speaking public. Functions as both an educational channel and a community hub (with Discord, Twitch, and social media presence). Not an aggregator or news outlet, but rather a creator-driven educational platform with strong personal brand. Also a practitioner (via Whiteship and DeepLayer AI startups), which gives content a grounding in real-world AI applications.",
+
+  "recommendation_tier": "Nice-to-Have (check monthly)",
+
+  "uncertain": ["publication_frequency", "format_and_length"]
+}

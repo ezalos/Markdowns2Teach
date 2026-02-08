@@ -1,0 +1,46 @@
+{
+  "identity": {
+    "company_name": "Samsung Electronics / SK Hynix",
+    "headquarters": "Suwon, South Korea (Samsung) / Icheon, South Korea (SK Hynix)",
+    "headquarters_region": "Other",
+    "founded_year": "1969 (Samsung Electronics) / 1983 (SK Hynix, as Hyundai Electronics)"
+  },
+  "value_chain": {
+    "role_in_value_chain": "hardware",
+    "value_chain_position": "Critical component suppliers at the memory layer of the AI hardware stack. Samsung and SK Hynix manufacture High Bandwidth Memory (HBM) chips that are physically stacked onto AI accelerators from NVIDIA, AMD, and custom ASIC designers. They sit between foundries (Samsung also operates its own foundry) and GPU/accelerator makers. Without HBM, modern AI GPUs cannot function -- it is the single most supply-constrained component in the AI value chain. SK Hynix holds ~57% HBM market share, Samsung ~22%, and Micron ~21% (Q3 2025).",
+    "vertical_integration_level": "Multi-layer"
+  },
+  "products": {
+    "key_products": [
+      "HBM3E (12-Hi and 8-Hi stacks): the current generation High Bandwidth Memory used in NVIDIA H200, AMD MI300X, and other AI accelerators. Both companies are planning ~20% price hikes for 2026 due to overwhelming demand. SK Hynix leads in volume and yield; Samsung is catching up.",
+      "HBM4: next-generation memory entering mass production in 2026 for NVIDIA's Rubin platform. SK Hynix targets ~65-70% of NVIDIA's HBM4 supply; Samsung targets 30%+. Offers 11.7 Gbps performance (Samsung) and significant bandwidth improvements over HBM3E.",
+      "Server DRAM (DDR5) and Enterprise SSDs: high-value-added memory products beyond HBM that also benefit from AI data center buildout. Samsung is the world's largest DRAM and NAND manufacturer overall."
+    ]
+  },
+  "business": {
+    "revenue_or_valuation": "Samsung Electronics FY2025: KRW 333.6T (~$233B) total revenue, KRW 43.6T (~$30.5B) operating profit. DS (semiconductor) division Q4 2025 alone: KRW 44T revenue, KRW 16.4T operating profit (record). Market cap: ~$725B (Feb 2026). SK Hynix FY2025: KRW 97.1T revenue, KRW 47.2T operating profit (record, surpassing Samsung's for the first time). Market cap: ~$396B (Feb 2026). Combined: ~$1.14T market cap.",
+    "annual_recurring_revenue_arr": "Not applicable. Both are hardware/component manufacturers with cyclical revenue driven by memory chip pricing and volume. HBM revenue is contracted with major customers (NVIDIA, AMD) on annual/multi-year supply agreements, providing revenue visibility. SK Hynix has already sold out its entire 2026 HBM supply.",
+    "funding_total_and_last_round": "Both are publicly traded. Samsung Electronics: KRX 005930. SK Hynix: KRX 000660. SK Hynix is a subsidiary of SK Group (acquired in 2012). No venture funding applicable.",
+    "business_model": "Component manufacturing and sales. Both sell memory chips (DRAM, NAND, HBM) to device makers, cloud providers, and OEMs. HBM commands premium pricing (~3-5x conventional DRAM per bit) with ~20% price hikes planned for 2026. Samsung also operates a foundry business (Samsung Foundry) competing with TSMC. Revenue is driven by memory pricing cycles (currently in an AI-driven supercycle), volume shipments, and product mix shift toward high-value HBM and server memory.",
+    "burn_rate_and_runway": "Not applicable. Both are highly profitable public companies. SK Hynix operating profit: KRW 47.2T in 2025. Samsung semiconductor division operating profit: KRW 43.6T in 2025. Both are increasing capex massively for 2026 (SK Hynix 4x infrastructure investment increase, Samsung 50% capacity expansion)."
+  },
+  "openness": {
+    "open_vs_closed_spectrum": "Closed. HBM is manufactured to industry standards (JEDEC specifications for HBM3E/HBM4) but the manufacturing processes, 3D stacking technology (TSV -- Through-Silicon Via), and advanced packaging are proprietary trade secrets. Customers buy finished memory components with standard interfaces."
+  },
+  "startup_relevance": {
+    "relevance_for_startups": "Samsung and SK Hynix are invisible but critical to every AI startup's cost structure. Entrepreneurs should understand: (1) HBM supply is the bottleneck that determines GPU availability -- when HBM is scarce, GPU prices rise and cloud compute costs increase for everyone, directly impacting AI startup unit economics; (2) The HBM duopoly (SK Hynix + Samsung control ~80% of market) means memory pricing power is concentrated, and the planned 20% HBM3E price hikes for 2026 will flow through to higher GPU and cloud compute costs; (3) The memory supercycle creates a timing dynamic -- startups launching inference-heavy products in 2026-2027 should budget for potentially higher compute costs as HBM demand continues to outstrip supply; (4) For hardware startups designing custom AI chips (ASICs), HBM allocation is a critical supply chain risk -- securing HBM supply from Samsung or SK Hynix requires significant volume commitments and long lead times; (5) The transition from HBM3E to HBM4 in 2026 will improve AI chip performance, potentially improving inference cost/performance ratios for applications built on next-gen hardware.",
+    "accessibility": "Not directly accessible to startups. Samsung and SK Hynix sell HBM to large chip designers (NVIDIA, AMD, Google, custom ASIC companies) who integrate it into accelerators. Startups interact with HBM indirectly through cloud GPU pricing and availability. For hardware startups designing custom silicon, minimum order quantities for HBM are in the millions of units, requiring substantial capital and volume commitments. Standard DRAM and SSDs are available through normal distribution channels.",
+    "primary_model_dependency": "None. Samsung and SK Hynix are component manufacturers at the lowest layer of the hardware stack, with no dependency on any foundation model."
+  },
+  "ecosystem": {
+    "key_partnerships": "NVIDIA: the primary customer for HBM from both companies. SK Hynix supplies ~65-70% of NVIDIA's HBM needs; Samsung targets 30%+ for HBM4 in 2026. AMD: major HBM customer for MI300X/MI400 accelerators. Google, Microsoft, Amazon: custom ASIC programs requiring HBM. TSMC and Samsung Foundry: advanced packaging partnerships for integrating HBM onto logic chips (CoWoS from TSMC, I-Cube from Samsung). Intel: HBM integration for Gaudi accelerators.",
+    "competitive_moat": "Extreme manufacturing complexity: HBM requires stacking 8-12 layers of DRAM dies using Through-Silicon Via (TSV) technology with near-perfect yields, a process only three companies worldwide can execute at scale (Samsung, SK Hynix, Micron). SK Hynix's moat is its 2+ year head start in HBM3/HBM3E mass production and trusted supplier relationship with NVIDIA built on consistent yields. Samsung's moat is its vertical integration (owns both memory fab and logic foundry), enabling co-optimized packaging. Both benefit from massive capital requirements ($10B+ per new fab) creating insurmountable barriers to entry. The 2026 supply is already sold out, demonstrating pricing power.",
+    "data_moat_type": "None"
+  },
+  "regulatory": {
+    "regulatory_exposure": "Exempt (hardware component manufacturer). Not regulated under EU AI Act. However, both face significant geopolitical and trade regulation exposure: (1) US export controls restrict sales of advanced memory to China, affecting both companies' China revenue; (2) South Korean government semiconductor subsidy programs and technology protection laws apply; (3) China's rare earth export controls (targeting chipmaking materials) create supply chain risk for both; (4) Both companies have been subject to antitrust investigations in the past (DRAM price-fixing settlements). Samsung's foundry business faces separate regulatory considerations for advanced node chips."
+  },
+  "uncertain": [
+    "annual_recurring_revenue_arr"
+  ]
+}

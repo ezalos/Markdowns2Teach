@@ -1,0 +1,51 @@
+{
+  "identity": {
+    "model_name": "Claude Haiku 4.5",
+    "creator": "Anthropic",
+    "release_date": "October 2025",
+    "model_family": "Claude"
+  },
+  "architecture": {
+    "parameter_count": "Not publicly disclosed",
+    "active_parameters": "Not publicly disclosed",
+    "architecture_type": "Not publicly disclosed (Anthropic does not reveal dense vs MoE details for Claude models)",
+    "context_window": "200K tokens",
+    "max_output_tokens": "64K tokens (including thinking tokens when extended thinking is enabled)"
+  },
+  "capabilities": {
+    "open_or_closed": "Closed/proprietary (API-only)",
+    "license_type": "Proprietary. Access via Anthropic API, Amazon Bedrock, Google Vertex AI, and Microsoft Foundry. No downloadable weights.",
+    "reasoning_capability": "Toggleable extended thinking. Claude Haiku 4.5 is the first Haiku model to support extended thinking, which lets the model pause and reason through complex problems before generating a response. Supports configurable thinking token budgets to balance reasoning depth with speed. Interleaved thinking allows reasoning between tool calls for multi-step workflows. Thinking tokens are billed as output tokens at $5/M.",
+    "multimodal_support": "Text input, image input, text output. Accepts both text and images natively (screenshots, diagrams, documents). No audio input, no video input, no image generation.",
+    "multilingual_support": "Supports multiple languages with strong multilingual capabilities. French is supported. Anthropic does not publish an exact count of supported languages, but Claude models handle major world languages well including English, French, German, Spanish, Japanese, Chinese, and many others.",
+    "agentic_capability": "Strong agentic support. Computer use (interacting with GUIs like a human: clicking, typing, scrolling, filling forms). Multi-step tool use with extended thinking between tool calls. Supports coding tools, bash execution, web search, and computer-use tools. Designed as an efficient sub-agent in multi-agent architectures where a larger model (e.g., Sonnet 4.5) orchestrates multiple Haiku 4.5 instances in parallel. Scored 81.4% on TAU-bench for agentic tool orchestration and 50.7% on OSWorld for computer use automation."
+  },
+  "benchmarks": {
+    "key_benchmarks": "SWE-bench Verified: 73.3% (averaged over 50 trials, 128K thinking budget, full 500-problem dataset). GPQA Diamond: 80.9%. AIME 2025: 90% (with tool use). TAU-bench: 81.4% (agentic tool orchestration). OSWorld: 50.7% (computer use automation). MMLU: not publicly reported for Haiku 4.5 specifically [uncertain]. HumanEval: not publicly reported for Haiku 4.5 specifically [uncertain]. LiveCodeBench: middle-of-pack performance reported but exact score not disclosed [uncertain]. MMLU-Pro: middling results reported but exact score not disclosed [uncertain].",
+    "reasoning_benchmarks_composite": "AIME 2025: 90% (with tool use). GPQA Diamond: 80.9%. MATH-500: not publicly reported [uncertain]. Haiku 4.5 with extended thinking achieves strong reasoning performance, ranking 3rd overall on the Vals Index. Performance is comparable to Claude Sonnet 4 on reasoning tasks at one-third the cost."
+  },
+  "pricing": {
+    "pricing_per_1M_tokens": "$1 input / $5 output. Prompt caching: $1.25/M write (5-min TTL), $0.10/M read. Batch API: $0.50 input / $2.50 output (50% discount). Thinking tokens billed as output at $5/M.",
+    "cost_efficiency_notes": "Positioned as near-frontier intelligence at dramatically lower cost. Delivers comparable performance to Claude Sonnet 4 at roughly one-third the cost and more than twice the speed. Up to 90% savings with prompt caching, 50% savings with batch processing, and these discounts stack. However, more expensive than direct competitors GPT-4o-mini ($0.15/$0.60) and Gemini 2.0 Flash ($0.30/$1.25). The value proposition is near-Sonnet-level quality at Haiku pricing, not absolute cheapest in class."
+  },
+  "deployment": {
+    "minimum_hardware_requirement": "API-only. No local deployment option. Accessible through Anthropic API, Amazon Bedrock, Google Vertex AI, and Microsoft Foundry.",
+    "quantization_availability": "None. Closed-source model with no downloadable weights.",
+    "on_device_capable": "No. API-only cloud service."
+  },
+  "business": {
+    "best_use_cases": "1) Cost-effective coding assistant: 73.3% SWE-bench makes it viable for IDE copilots, PR review bots, CI assistants, and unit test generation at scale. 2) Customer-facing AI agents: low latency and strong instruction-following make it ideal for real-time customer support chatbots, routing, and knowledge-base Q&A. 3) Multi-agent sub-tasks: designed as an efficient worker in multi-agent architectures where a larger model orchestrates many Haiku instances in parallel for complex workflows. 4) High-volume data processing: batch API at $0.50/$2.50 per 1M tokens enables cost-effective document summarization, classification, and extraction at scale. 5) Computer use automation: surpasses Sonnet 4 on computer use tasks (50.7% OSWorld), enabling GUI automation, form filling, and screen-based workflows.",
+    "relevance_for_entrepreneurs": "Claude Haiku 4.5 is a strong option for startups that need near-frontier AI quality without the cost of flagship models. At $1/$5 per 1M tokens (dropping to $0.50/$2.50 with batching), it enables viable free-tier AI products and high-volume applications. The model covers 70-90% of daily workloads at a fraction of Sonnet/Opus costs, making it practical for MVP development, customer support automation, and internal tools. For build-vs-buy decisions, Haiku 4.5 via API is often cheaper than hosting open-source alternatives when factoring in GPU costs and engineering time. Extended thinking and computer use capabilities open doors to sophisticated agentic products without needing the most expensive models.",
+    "competitive_position": "Sits between cost-leader models (GPT-4o-mini, Gemini Flash) and frontier models (Sonnet 4.5, GPT-4o). Key differentiator is near-Sonnet-4 quality at Haiku pricing. Stronger than GPT-4o-mini on coding (73.3% vs lower SWE-bench) and agentic tasks, but 3-8x more expensive per token. Compared to Gemini 2.5 Flash, Haiku 4.5 has a smaller context window (200K vs 1M) but stronger computer use and agentic capabilities. Unique advantage: first fast/cheap model with computer use and extended thinking from Anthropic. Weakness: higher cost than the cheapest alternatives and limited context window versus Gemini.",
+    "ecosystem_and_tooling": "Available on Anthropic API (model ID: claude-haiku-4-5-20251001), Amazon Bedrock, Google Vertex AI, and Microsoft Foundry. Integrated into GitHub Copilot. Supported by Anthropic's Python and TypeScript SDKs, OpenRouter, and numerous third-party API aggregators. Works with LangChain, LlamaIndex, and other orchestration frameworks. Claude Developer Platform provides prompt caching, batch API, and tool-use infrastructure. IDE integrations via Cursor, Windsurf, and Claude Code.",
+    "geographic_origin_and_regulation": "United States (Anthropic, San Francisco). As a US-based proprietary API service, data processing occurs on Anthropic's infrastructure or via cloud partners (AWS, GCP). GDPR considerations apply for European users: Anthropic offers data processing agreements and zero-data-retention options. No specific EU AI Act compliance certification announced, but Anthropic publishes detailed system cards and safety evaluations. European entrepreneurs should evaluate data residency requirements when using the API directly vs. through EU-region cloud providers (e.g., AWS eu-west, GCP europe-west)."
+  },
+  "uncertain": [
+    "parameter_count",
+    "active_parameters",
+    "architecture_type",
+    "multilingual_support",
+    "key_benchmarks",
+    "reasoning_benchmarks_composite"
+  ]
+}

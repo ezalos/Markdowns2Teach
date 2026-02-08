@@ -1,0 +1,42 @@
+{
+  "metric_identity": {
+    "metric_name": "EU AI Act Compliance Cost per High-Risk AI System for Startups",
+    "source_report": "European Commission AI Act Impact Assessment; CEPS 'Clarifying the Costs for the EU AI Act'; ITIF 'How Much Will the Artificial Intelligence Act Cost Europe'; ACT | The App Association / TechnoMetrica Survey (Oct 2025); Burges Salmon EU AI Act Startup Survey (113 EU AI startups)",
+    "source_url": "https://www.ceps.eu/clarifying-the-costs-for-the-eus-ai-act/; https://itif.org/publications/2021/07/26/how-much-will-artificial-intelligence-act-cost-europe/; https://actonline.org/the-hidden-cost-of-ai-regulations-a-survey-of-eu-uk-and-u-s-companies/; https://www.burges-salmon.com/articles/102i4ct/eu-ai-act-how-will-startups-be-impacted/",
+    "publication_date": "CEPS: 2024; ITIF: July 2021 (updated); ACT/TechnoMetrica: October 2025; Burges Salmon: 2024",
+    "methodology_notes": "Multiple complementary methodologies: (1) European Commission Impact Assessment estimated 5-15% of AI systems qualify as high-risk, with conformity assessment costs of EUR 193K-330K per system. (2) CEPS calculated annual labor compliance cost of EUR 29,277 per AI model, plus QMS setup costs of EUR 193K-330K and EUR 71,400 annual maintenance. (3) ITIF estimated EUR 31 billion total cost over 5 years and ~20% reduction in AI investment. (4) ACT/TechnoMetrica surveyed 1,000+ tech MSMEs across EU, UK, and US. (5) Burges Salmon surveyed 113 EU AI startups specifically on high-risk classification expectations and cost estimates. The EC dismissed ITIF figures as 'flawed' but CEPS figures are closer to EC's own estimates."
+  },
+  "metric_value": {
+    "value": "EUR 160,000-330,000 per high-risk AI system (conformity assessment); EUR 193,000-330,050 (QMS setup for companies without one); EUR 29,277 annual labor compliance per AI model; EUR 94,000-322,000 average annual loss per EU/UK tech MSME from regulatory delays; up to EUR 400,000 for SMEs deploying high-risk systems (ITIF estimate)",
+    "unit": "EUR",
+    "geographic_scope": "EU",
+    "time_period": "2024-2027 (compliance phase)",
+    "comparison_baseline": "Pre-AI Act: No mandatory conformity assessment costs for AI systems. US companies face no equivalent federal compliance burden. US tech MSMEs show 62% active AI adoption vs. 50% for EU/UK firms. US firms realize 10.7% cost savings from AI vs. 8.9% for EU/UK counterparts (ACT survey). Europe hosts only 7 frontier AI models vs. 109 in US and 20 in China.",
+    "market_layer": "cross-cutting"
+  },
+  "trend": {
+    "trend_direction": "Up (costs increasing as enforcement approaches, but timeline extended)",
+    "year_over_year_change": "Compliance cost pressure increasing as August 2026 deadline approached, but European Commission proposed 16-month delay to December 2027 via Digital Omnibus (Nov 19, 2025). Meanwhile, 33% of EU AI startups self-classify as high-risk (vs. EC's 5-15% estimate), suggesting broader impact than officially projected. 60% of EU/UK developers report launch delays; 33%+ forced to strip or downgrade features.",
+    "compound_annual_growth_rate": "N/A (regulatory cost, not market metric)",
+    "forecast_value": "EU AI Act high-risk compliance market estimated at EUR 17 billion opportunity. Total industry compliance costs estimated at EUR 1.6-3.3 billion annually (assuming 10% high-risk). ITIF projects EUR 31 billion cumulative cost over 5 years with ~20% reduction in AI investment across Europe. Draghi Report calls for EUR 800 billion in annual investment (4-5% of EU GDP) to close competitiveness gap, with only 11.2% of 383 recommendations fully implemented one year later.",
+    "forecast_year": "2027-2030",
+    "velocity_indicator": "regulatory_deadline: Original Aug 2, 2026 for Annex III high-risk rules; now backstop Dec 2, 2027 (Digital Omnibus proposal); Annex I rules backstop Aug 2, 2028; penalties up to EUR 35M or 7% global turnover for prohibited practices"
+  },
+  "entrepreneurial_relevance": {
+    "relevance_for_entrepreneurs": "This is the most consequential regulatory cost for any EU-based AI startup. The EUR 160K-330K per high-risk system is not just a compliance line item -- it represents a structural competitive disadvantage against US rivals who face zero equivalent federal burden. Key data points for founders: (1) 33% of EU AI startups believe their systems will be classified high-risk, double the EC's projection of 5-15%; (2) 60% of EU/UK tech MSMEs face delayed access to frontier AI models; (3) Nearly 60% of EU/UK developers report regulation-driven launch delays; (4) Over a third are forced to strip or downgrade features; (5) EU/UK firms lose EUR 94K-322K annually from these delays, rising to EUR 160K-453K for directly affected firms; (6) QMS setup alone costs EUR 193K-330K if the company lacks one; (7) Annual ongoing compliance is ~EUR 29K per model plus EUR 71K QMS maintenance; (8) Penalties for non-compliance reach EUR 35M or 7% of global turnover. However, there are mitigating factors: regulatory sandboxes offer priority access for startups, conformity assessment fees are reduced for SMEs, and the Digital Omnibus delays and simplifications are in progress. The compliance market itself is projected at EUR 17B, representing an opportunity for RegTech startups.",
+    "actionable_insight": "Founders should: (1) Self-assess high-risk classification immediately using the EU AI Act Compliance Checker at artificialintelligenceact.eu; (2) Budget EUR 200K-400K for initial compliance if high-risk, plus EUR 100K/year ongoing; (3) Consider whether existing QMS from other regulated domains (medical devices, financial services) can be leveraged to reduce costs; (4) Explore regulatory sandbox access for priority compliance support; (5) Factor compliance timeline into fundraising -- the December 2027 backstop gives more runway but preparation should start now; (6) Evaluate whether RegTech/compliance-as-a-service solutions can reduce costs vs. building in-house; (7) Consider the EUR 17B compliance market as a potential pivot or additional revenue stream.",
+    "session_mapping": "5",
+    "risk_profile": "regulatory_risk"
+  },
+  "confidence": {
+    "data_quality": "Medium",
+    "cross_reference": "European Commission Impact Assessment (official); CEPS independent analysis (academic); ITIF analysis (US think tank, EC disputed as 'flawed'); ACT/TechnoMetrica survey of 1,000+ MSMEs (industry); Burges Salmon survey of 113 EU AI startups (legal/industry); Draghi Report on EU Competitiveness (official EU); McKinsey 'Accelerating Europe's AI Adoption' report; Carnegie Endowment for International Peace analysis; IMF blog on EU AI growth dividend (Nov 2025)",
+    "caveats": "Cost estimates vary significantly by source and methodology: EC's own figures (EUR 160K-330K) are lower than ITIF's (up to EUR 400K for SMEs). The EC dismissed ITIF's EUR 31B total cost estimate as 'flawed'. CEPS notes the 17% compliance cost figure only applies to companies with zero existing regulatory infrastructure, which overstates costs for firms already in regulated sectors. The 33% self-classification as high-risk from the 113-startup survey may overestimate due to small sample size and uncertainty about final classification criteria. Actual costs will vary dramatically based on company size, existing compliance infrastructure, sector, and whether harmonized standards are finalized before enforcement. The Digital Omnibus is still a proposal -- if not adopted, original August 2026 deadline applies. Cost figures do not account for potential efficiency gains from compliance automation tools.",
+    "measurement_reliability": "analyst_estimate"
+  },
+  "uncertain": [
+    "forecast_value",
+    "forecast_year",
+    "compound_annual_growth_rate"
+  ]
+}

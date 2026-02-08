@@ -1,0 +1,30 @@
+{
+  "resource_name": "OpenAI Academy",
+  "resource_type": "Platform",
+  "creator_or_organization": "OpenAI",
+  "url": "https://academy.openai.com/",
+  "language": "English",
+
+  "content_focus": "Free AI literacy and skills platform covering the full spectrum from foundational AI concepts to advanced technical integration. Content spans three main tracks: (1) Foundational AI Literacy — how AI models work, prompt engineering fundamentals, ethical AI use; (2) AI-Enabled Work Applications — industry-specific implementations for marketing, finance, healthcare, manufacturing; (3) Advanced AI Integration — custom AI solution development, API usage, advanced prompt engineering. The platform also offers specialized verticals including Academy for News Organizations (launched December 2025 with the American Journalism Project and Lenfest Institute) and AI for K-12 Educators. Content is delivered through on-demand videos, live workshops, webinars with industry experts, discussion forums, and community meetups. Partners contributing content include Common Sense Media, Georgia Tech, Miami Dade College, Goodwill, and CareerVillage.",
+  "target_audience": "Very broad: educators, students, job-seekers, nonprofit leaders, small business owners, developers, and enterprise workers. Explicitly designed to serve non-technical users alongside engineers. The certification tracks target three levels: complete beginners (AI Fluency), working professionals (AI-Enabled Work), and developers/technical specialists (Advanced Prompt Engineering).",
+  "publication_frequency": "Continuous (on-demand content library with regularly scheduled live workshops and events)",
+  "format_and_length": "Mixed format platform: on-demand video courses, live webinars with Q&A, interactive workshops (online and in-person), community discussion forums, and structured certification courses (15-20 hours over 4-6 weeks for certification tracks). Individual videos range from short introductions to hour-long deep dives.",
+
+  "accessibility_for_non_engineers": "High. The entire platform is designed with non-technical users as a primary audience. The foundational track explicitly targets people with no AI background, and the business-oriented framing makes concepts approachable. Content progresses from 'what is AI' basics through practical workplace application, so business school students can engage at their level without being overwhelmed by technical depth. The certification program uses hands-on projects rather than technical exams.",
+  "signal_to_noise_ratio": "Medium",
+  "unique_value_proposition": "The only free AI learning platform built and maintained by a frontier AI lab itself. OpenAI Academy offers direct, first-party education on ChatGPT and OpenAI tools, meaning content is always current with the latest product features and capabilities. The certification program — piloting with major employers like Walmart, John Deere, Lowe's, BCG, Accenture, and Upwork — carries unique employer recognition value. Validation partnerships with Coursera, ETS, and Credly (Pearson) add psychometric rigor and credential portability. OpenAI's goal to certify 10 million Americans by 2030 signals long-term institutional commitment.",
+  "free_or_paid": "Free (all Academy content, workshops, and community features are free; certification courses are free during the pilot phase with pricing for paid certifications TBD for general availability)",
+  "source_reliability": "High. As the creator of ChatGPT and GPT models, OpenAI is the definitive primary source for education on its own tools. Content reflects the most current capabilities and best practices directly from the model developers. Potential bias: OpenAI Academy naturally centers on OpenAI products (ChatGPT, GPT models, APIs) and does not cover competing tools (Claude, Gemini, Llama, Mistral). The platform serves partly as a product education and adoption channel, which should be understood alongside its educational mission.",
+
+  "relevance_for_entrepreneurs": "High relevance for AI entrepreneurs on multiple levels. First, the certification tracks provide structured knowledge progression from AI literacy to advanced implementation — directly useful for founders evaluating AI integration opportunities. Second, the enterprise partnership network (Walmart, BCG, Accenture, Lowe's, John Deere) reveals how major corporations are approaching AI workforce training, offering market intelligence for EdTech and B2B AI startups. Third, the upcoming OpenAI Jobs Platform (planned for 2026) connecting certified professionals with opportunities signals an emerging talent marketplace that entrepreneurs should monitor. Fourth, the AI Foundations course focuses specifically on applying AI to business workflows and automation — practical knowledge for any startup founder.",
+  "actionable_insight_level": "High",
+  "session_mapping": "S1 (AI fundamentals and landscape), S2 (Prompt engineering courses — both introductory and advanced), S3 (AI project framing via AI-Enabled Work track)",
+
+  "active_since": "2025",
+  "last_verified_active": "2026-02-08",
+  "ecosystem_position": "Primary educational platform from a frontier AI lab. OpenAI Academy occupies a unique position as first-party vendor education with institutional ambition — it is simultaneously a product education channel, a workforce development initiative, and a credentialing body. It competes with and complements third-party platforms (Coursera, DataCamp, Pluralsight) but holds the advantage of being the authoritative source on OpenAI's own tools. The partnership ecosystem spanning employers (Walmart, BCG), education validators (ETS, Coursera, Credly), and community organizations (Goodwill, AARP, Common Sense Media) positions it as a hub connecting AI literacy to economic opportunity at scale.",
+
+  "recommendation_tier": "Must-Follow",
+
+  "uncertain": ["signal_to_noise_ratio", "free_or_paid"]
+}

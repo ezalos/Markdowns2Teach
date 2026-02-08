@@ -1,0 +1,47 @@
+{
+  "identity": {
+    "model_name": "Llama 4 Maverick",
+    "creator": "Meta",
+    "release_date": "April 2025",
+    "model_family": "Llama"
+  },
+  "architecture": {
+    "parameter_count": "400B total",
+    "active_parameters": "17B (2 active experts out of 128 routed experts + 1 shared expert per token)",
+    "architecture_type": "MoE (Mixture of Experts) with alternating dense and MoE layers, early fusion for native multimodality",
+    "context_window": "1M tokens (1,048,576). Some providers cap at 512K in practice.",
+    "max_output_tokens": "Provider-dependent. Oracle OCI caps on-demand at 4K tokens; dedicated mode uncapped. No official fixed max output limit published by Meta. [uncertain]"
+  },
+  "capabilities": {
+    "open_or_closed": "Open-weight (downloadable weights via llama.com and Hugging Face after license acceptance)",
+    "license_type": "Llama 4 Community License Agreement (custom commercial license). Free for commercial use under 700M monthly active users. Requires 'Built with Llama' attribution. CRITICAL: Multimodal rights are NOT granted to EU-domiciled individuals or EU-headquartered companies due to EU AI Act regulatory uncertainty. Since all Llama 4 models are natively multimodal, this effectively excludes EU entities from the license grant.",
+    "reasoning_capability": "No dedicated reasoning/thinking mode. Standard autoregressive generation with chain-of-thought possible via prompting but no built-in toggleable or budget-controllable thinking mode. Comparable to DeepSeek V3 on reasoning benchmarks but not a reasoning-specialized model.",
+    "multimodal_support": "Text input, image input (up to 5 images tested), text and code output. Natively multimodal via early fusion architecture (vision encoder integrated during pre-training, not bolted on). No audio input, no video input, no image generation.",
+    "multilingual_support": "12 officially supported languages: Arabic, English, French, German, Hindi, Indonesian, Italian, Portuguese, Spanish, Tagalog, Thai, Vietnamese. Pre-trained on 200+ languages total. French is explicitly supported. Fine-tuning for additional languages permitted under license.",
+    "agentic_capability": "Basic to moderate tool-use and agentic support. Optimized for tool-calling and powering agentic systems per Meta's documentation. However, independent evaluations report inconsistent agentic performance: strong initial reasoning but degradation mid-execution with malformed tool calls, JSON structure loss, and context forgetting. Less reliable than DeepSeek V3.1 in sustained multi-step agent scenarios."
+  },
+  "benchmarks": {
+    "key_benchmarks": "MMLU-Pro: 80.5%, GPQA Diamond: 69.8%, MMMU (multimodal): 73.4%, MATH-500: 85.2%, LiveCodeBench: 43.4-47.3%, SWE-bench Verified: 18.4%, HumanEval: 82.4%, MBPP+: 71.5%, GSM8K: 91.5%, MathVista: 73.7%, ChartQA: 90.0%, DocVQA: 94.4%. Beats GPT-4o and Gemini 2.0 Flash across most reported benchmarks. Comparable to DeepSeek V3 on reasoning and coding at less than half the active parameters.",
+    "reasoning_benchmarks_composite": "AIME 2025: 25.2% (relatively weak, ranking 44/62), GPQA Diamond: 69.8%, MATH-500: 85.2%, GSM8K: 91.5%. Not a reasoning-specialized model; reasoning performance is solid but behind dedicated reasoning models like o1, DeepSeek-R1, or QwQ."
+  },
+  "pricing": {
+    "pricing_per_1M_tokens": "Varies by provider. Typical: $0.17-0.31 input / $0.85 output per 1M tokens. DeepInfra: $0.20/$0.60. Blended rate approximately $0.19-$0.49 per 1M tokens (assuming 3:1 input:output ratio). Some providers (OpenRouter) offer free tier access.",
+    "cost_efficiency_notes": "Exceptional cost efficiency due to MoE architecture activating only 17B of 400B parameters per token. Approximately 9-23x better price-performance ratio vs GPT-4o. Cheaper than DeepSeek V3 on many providers while delivering comparable performance. The open-weight nature enables self-hosting, which can dramatically reduce per-token costs at scale. One of the best value propositions in the frontier model tier."
+  },
+  "deployment": {
+    "minimum_hardware_requirement": "Full precision (BF16): ~800GB VRAM, recommended 7x H200 GPUs or 8x H100 DGX. FP8 quantized: fits on single H100 DGX host (8x 80GB). 4-bit quantization: ~200GB VRAM, recommended 3x H100 GPUs. 2-bit quantization: ~100GB VRAM, recommended 2x A100 GPUs. GGUF 1.78-bit: fits in 2x 48GB VRAM GPUs (~40 tok/s). Not feasible on consumer hardware without aggressive quantization.",
+    "quantization_availability": "GGUF (via Unsloth, with calibration-based quantization for better accuracy, down to 1.78-bit), FP8 (official Meta release), BF16 (official Meta release). Available on Ollama. Community GPTQ and AWQ formats not confirmed as widely available. [uncertain]",
+    "on_device_capable": "No. Even with aggressive quantization, Llama 4 Maverick requires multi-GPU server setups. Not designed for phones, laptops, or edge devices. Llama 4 Scout (the smaller sibling) is somewhat more accessible but still requires substantial GPU resources."
+  },
+  "business": {
+    "best_use_cases": "1) Multilingual customer support with image understanding — analyze screenshots, documents, and photos across 12 languages for global support teams. 2) Document and visual data analysis — extract structured information from PDFs, charts, tables, and mixed-media documents (94.4% DocVQA, 90% ChartQA). 3) Code generation and development assistance — competitive coding benchmarks at fraction of GPT-4o cost, suitable for developer tooling. 4) Content generation and creative writing — strong general assistant capabilities with multimodal context. 5) Building cost-effective AI-powered products — open weights allow customization, fine-tuning, and self-hosting for startups building AI-native products.",
+    "relevance_for_entrepreneurs": "Llama 4 Maverick represents a major milestone for startup founders: frontier-class multimodal performance at open-weight pricing. Key implications: (1) Build vs Buy shifts toward Build — self-hosting eliminates per-token API costs at scale, critical for high-volume applications. (2) Customization freedom — fine-tune on proprietary data without sharing it with a third-party API provider. (3) Cost advantage — 9-23x cheaper than GPT-4o via APIs, even more economical when self-hosted. (4) CRITICAL caveat for European entrepreneurs: the Llama 4 Community License excludes EU-domiciled entities from multimodal model rights due to EU AI Act concerns. EU-based startups cannot legally use Llama 4 Maverick weights directly, though they can use services built on it by non-EU companies. This is a significant regulatory barrier that may push EU founders toward Mistral or other EU-friendly alternatives.",
+    "competitive_position": "Directly competes with GPT-4o, Gemini 2.0 Flash, and DeepSeek V3. Key differentiator: open weights with frontier-class multimodal performance at the lowest active parameter count (17B active vs 671B for DeepSeek V3). Beats GPT-4o and Gemini 2.0 Flash on most benchmarks. Comparable to DeepSeek V3 on reasoning/coding. Weaknesses: EU license restriction, inconsistent agentic performance, no dedicated reasoning mode (unlike o1/DeepSeek-R1), and relatively weak on AIME math competition benchmarks. Strongest open-weight multimodal model at release.",
+    "ecosystem_and_tooling": "Extremely broad ecosystem support. Available on: AWS Bedrock, Azure AI Foundry, Google Cloud Vertex AI, NVIDIA NIM, IBM watsonx.ai. API providers: OpenRouter, Together AI, DeepInfra, Groq, Fireworks AI, Replicate, Cerebras, Cloudflare Workers AI, Snowflake Cortex AI. Local deployment: Ollama, vLLM, llama.cpp (GGUF), Hugging Face Transformers, Unsloth (fine-tuning). IDE integrations via standard LLM tooling. Hugging Face model hub for weights distribution.",
+    "geographic_origin_and_regulation": "US origin (Meta Platforms, Inc., Menlo Park, California). CRITICAL EU AI Act issue: Llama 4 Community License explicitly excludes EU-domiciled individuals and EU-headquartered companies from multimodal model rights. Since all Llama 4 models are natively multimodal, this is a blanket EU exclusion. Meta cites 'regulatory uncertainties' around the EU AI Act. EU end-users CAN use Llama 4 via services built by non-EU companies, but cannot download or host the weights directly. This represents a major GDPR and data sovereignty concern for EU entrepreneurs who need on-premise deployment. French/European startups should carefully evaluate Mistral models or other EU AI Act-compliant alternatives."
+  },
+  "uncertain": [
+    "max_output_tokens",
+    "quantization_availability"
+  ]
+}

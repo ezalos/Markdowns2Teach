@@ -1,0 +1,30 @@
+{
+  "resource_name": "AlphaSignal AI",
+  "resource_type": "Newsletter / X/Twitter Account",
+  "creator_or_organization": "Lior Sinclair (also known as Lior Alexander) and Eric Vyacheslav. Founded in 2020 from Yoshua Bengio's lab at Mila (Quebec AI Institute).",
+  "url": "https://alphasignal.ai/",
+  "language": "English",
+
+  "content_focus": "Algorithmically curated highlights of what top AI researchers are discussing and publishing. Covers three pillars across its weekly editions: research (trending papers from arXiv and top conferences), code (trending GitHub repositories, open-source model releases, and developer tools), and news (product launches, funding rounds, major industry announcements). The curation algorithm surfaces what is gaining traction among leading AI researchers and practitioners on X/Twitter and arXiv, providing a collective signal without requiring readers to manually track hundreds of accounts. Content spans new model releases, breakthrough papers, interesting X threads by figures like Oriol Vinyals or Francois Chollet, and notable open-source projects.",
+  "target_audience": "AI developers, ML engineers, researchers, and technical founders. The content is optimized for practitioners who want a curated feed of technical developments rather than business-oriented commentary.",
+  "publication_frequency": "3 times per week (each edition focused on a different angle: research, code, news)",
+  "format_and_length": "5-minute email newsletter with companion web archive. Also active on X/Twitter (@AlphaSignalAI) where curated highlights and trending papers are posted continuously. Available on Substack and Beehiiv. Content is summarized by AI with editorial oversight.",
+
+  "accessibility_for_non_engineers": "Low. AlphaSignal is explicitly designed for a technical audience of AI engineers and researchers. The content presumes familiarity with machine learning concepts, model architectures, and development workflows. Papers and repositories are referenced with minimal contextualization for non-specialists. Business school students without a technical background would find much of the content difficult to parse. However, the news-focused editions are somewhat more accessible as they cover product launches and industry events at a higher level.",
+  "signal_to_noise_ratio": "High",
+  "unique_value_proposition": "Algorithmic curation of trending AI research and code from across X/Twitter and arXiv, distilled into a compact format. Unlike editorially curated newsletters that reflect one person's perspective, AlphaSignal uses data-driven methods to surface what the AI research community is actually paying attention to. This makes it a collective pulse-check of the field rather than a single editor's selection. Born in Yoshua Bengio's lab, it carries credibility in the research community and reaches 500K+ professionals across all platforms with 200M+ impressions per year.",
+  "free_or_paid": "Free (core newsletter). No publicly documented paid tier as of early 2026.",
+  "source_reliability": "High. The algorithmic curation is grounded in tracking what established researchers and practitioners are actually discussing, which naturally filters toward credible content. The founding team has roots in Mila and Yoshua Bengio's lab, lending academic credibility. However, because curation is algorithmically driven rather than editorially fact-checked, trending but unverified claims can occasionally surface. The focus on primary sources (papers, GitHub repos) means readers can verify claims directly.",
+
+  "relevance_for_entrepreneurs": "Moderate relevance for AI entrepreneurs. AlphaSignal is most valuable for technically-minded founders who want to track which open-source models and tools are gaining traction, spot emerging capabilities before they become mainstream products, and stay current with the latest research that could inform product development. For non-technical entrepreneurs, the signal is harder to extract, though the news editions covering product launches and major announcements provide useful competitive intelligence. Entrepreneurs can use it to identify technology trends early and understand what the developer community is excited about.",
+  "actionable_insight_level": "Medium",
+  "session_mapping": "S1 (AI landscape and ecosystem actors), S2 (tools and models for practitioners)",
+
+  "active_since": "2020",
+  "last_verified_active": "2026-02-08",
+  "ecosystem_position": "Algorithmic aggregator positioned at the intersection of AI research and open-source development. AlphaSignal occupies a unique niche as a data-driven curation layer on top of the AI community's real-time discourse on X/Twitter and arXiv. It functions as a trend detection system for the AI developer community rather than a traditional editorial newsletter. With 200,000+ newsletter subscribers and a combined reach of 500K+ professionals, it is one of the largest technical AI newsletters. Its X/Twitter presence (@AlphaSignalAI) serves as both a distribution channel and a real-time complement to the newsletter's periodic digests.",
+
+  "recommendation_tier": "Nice-to-Have",
+
+  "uncertain": ["free_or_paid", "active_since"]
+}

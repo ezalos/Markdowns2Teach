@@ -1,0 +1,49 @@
+{
+  "identity": {
+    "model_name": "GPT-5.2",
+    "creator": "OpenAI",
+    "release_date": "December 2025",
+    "model_family": "GPT"
+  },
+  "architecture": {
+    "parameter_count": "Not disclosed. Industry estimates range from 1.7-1.8T (dense) to 2-5T+ (if MoE). OpenAI has not confirmed architecture type or parameter count. [uncertain]",
+    "active_parameters": "Not disclosed. [uncertain]",
+    "architecture_type": "Unified system with smart router. Ships as three modes: Instant (fast, non-reasoning), Thinking (chain-of-thought reasoning), and Pro (maximum compute). A real-time router decides which mode to use based on conversation type, complexity, tool needs, and explicit intent. Likely MoE or hybrid architecture based on industry analysis. [uncertain]",
+    "context_window": "400K tokens",
+    "max_output_tokens": "128K tokens"
+  },
+  "capabilities": {
+    "open_or_closed": "Closed/proprietary (API-only and ChatGPT product)",
+    "license_type": "Proprietary. OpenAI Terms of Service apply. Users retain ownership of inputs and outputs. Commercial use permitted under OpenAI's service terms. No open weights or training code available.",
+    "reasoning_capability": "Auto-routing with toggleable thinking. Three modes: (1) Instant — fast responses, no extended reasoning; (2) Thinking — chain-of-thought reasoning for harder problems; (3) Pro — maximum compute for consistently best answers. In ChatGPT, Auto mode switches between Instant and Thinking automatically via the smart router. API developers can control reasoning depth via reasoning_effort parameter with levels: minimal, low, medium (default), high. The router is continuously trained on real signals including user model switches, preference rates, and measured correctness.",
+    "multimodal_support": "Input: text, images, audio, video (native multimodal processing of all four modalities simultaneously). Output: text. The model can analyze charts, tables, diagrams, and screenshots with improved accuracy. Video content interpretation at 90.5% accuracy on Video-MMMU. Does not directly generate images or video — prompts are refined and passed to separate generation models (DALL-E, Sora). 80% hallucination reduction compared to predecessors.",
+    "multilingual_support": "Supports 50+ languages with high quality, basic functionality in 100+ languages. English is strongest. French is supported but GPT-5 family showed slightly worse performance in French compared to o3-high according to the system card. Multilingual improvements described as modest compared to previous models.",
+    "agentic_capability": "Advanced multi-step agents and tool-use. Dramatically improved tool calling with lower latency and higher reliability — executes cleanly from simple prompts without sprawling system prompts. Supports the Responses API, Agents SDK, and Model Context Protocol (MCP) integrations. Features hosted/remote tools (model directly interacts with external servers), response compaction for long-running agents to reduce token usage, and finer control over reasoning effort and tracing/debugging. GPT-5.2-Codex variant specifically optimized for long-running coding agents. No native computer-use capability (unlike some competitors)."
+  },
+  "benchmarks": {
+    "key_benchmarks": "GDPval: 70.9% (first model to beat or tie human experts on majority of professional tasks, up from 38% for GPT-5). AIME 2025: 100%. GPQA Diamond: 92.4% (Thinking), 93.2% (Pro). SWE-bench Verified: 80.0%. SWE-bench Pro: 55.6% (state of the art). ARC-AGI-2: 52.9% (Thinking), 54.2% (Pro) — new SOTA for chain-of-thought models. HumanEval: 95%. MMLU-Pro: 87.4%. LiveCodeBench: 88.9%. Video-MMMU: 90.5%.",
+    "reasoning_benchmarks_composite": "AIME 2025: 100% (perfect score, without tools). GPQA Diamond: 92.4% (Thinking) / 93.2% (Pro). ARC-AGI-2: 52.9% (Thinking) / 54.2% (Pro) — massive leap from GPT-5.1's 17.6%, nearly doubles Gemini 3 Pro (31.1%), far ahead of Claude Opus 4.5 (37.6%). MATH-500: not publicly reported. [uncertain]"
+  },
+  "pricing": {
+    "pricing_per_1M_tokens": "Standard GPT-5.2: $1.75 input / $14.00 output. Cached input: $0.18 (90% discount). GPT-5.2 Pro: $21.00 input / $168.00 output. Batch API: 50% discount ($0.875 input / $7.00 output). Reasoning tokens billed at output token rate.",
+    "cost_efficiency_notes": "40% more expensive than GPT-5 ($1.25/$10). However, 90% cached input discount makes it cost-effective for applications with repetitive context (large system prompts cached for 24 hours). Batch API offers 50% discount for non-time-sensitive workloads. GDPval benchmark showed GPT-5.2 Thinking produces outputs at >11x the speed and <1% the cost of human expert professionals. Compared to Gemini 3 Pro, GPT-5.2 is more expensive; Gemini leads on price-performance for many tasks. The Instant mode provides a cheaper fast-response option for simple queries."
+  },
+  "deployment": {
+    "minimum_hardware_requirement": "API-only. Available through OpenAI API, ChatGPT (Plus/Pro/Team/Enterprise), Microsoft Azure AI Foundry, and OpenRouter.",
+    "quantization_availability": "None. Proprietary closed model with no downloadable weights.",
+    "on_device_capable": "No. Cloud-only via API and ChatGPT product. Not designed for on-device deployment. OpenAI offers GPT-5-mini and GPT-5-nano for smaller footprint needs."
+  },
+  "business": {
+    "best_use_cases": "1. Professional knowledge work: Creating presentations, spreadsheets, reports, and business artifacts (70.9% expert-level on GDPval across 44 occupations). 2. Software engineering: Near-SOTA on SWE-bench Verified (80.0%) and SOTA on SWE-bench Pro (55.6%); GPT-5.2-Codex variant excels at long-running coding agents. 3. Complex multi-step agentic workflows: Improved tool calling reliability, response compaction, and long-context understanding (400K tokens) make it ideal for autonomous business process automation. 4. Data analysis and reasoning: Perfect AIME score, strong GPQA Diamond results; excels at quantitative analysis, financial modeling, and scientific reasoning. 5. Multimodal document processing: Analyzes charts, tables, diagrams, and screenshots with high accuracy; processes text, images, audio, and video simultaneously.",
+    "relevance_for_entrepreneurs": "GPT-5.2 represents a significant milestone: it is the first AI model to beat or tie human experts on the majority of professional tasks (70.9% on GDPval). For startup founders, this means: (1) Knowledge worker augmentation — a single GPT-5.2-powered tool can produce expert-quality presentations, spreadsheets, and reports at >11x speed and <1% cost of hiring professionals. (2) Build vs Buy — OpenAI's Agents SDK, Responses API, and MCP integrations lower the barrier to building production AI agents, making custom AI solutions viable even for small teams. (3) Cost considerations — at $1.75/$14 per million tokens (with 90% cached discount), it is accessible for startups but more expensive than Gemini 3 Pro; batch API at 50% off helps with cost-sensitive workloads. (4) Competitive moat — the smart routing architecture means one API call handles both simple and complex queries efficiently, reducing engineering complexity. (5) Enterprise readiness — available on Azure AI Foundry with European data residency, making it viable for EU-based startups needing GDPR compliance.",
+    "competitive_position": "GPT-5.2 reclaimed OpenAI's frontier position after Google's Gemini 3 Pro (Nov 18) and Anthropic's Claude Opus 4.5 (Nov 24) releases. Key differentiators: (1) Best abstract reasoning — leads ARC-AGI-2 at 54.2% Pro vs Gemini 3 Pro 31.1% and Claude 4.5 37.6%. (2) Perfect math — 100% AIME 2025. (3) Professional work — first >50% on GDPval. Weaknesses: (1) Coding — Claude Opus 4.5 still edges ahead on SWE-bench Verified (80.9% vs 80.0%). (2) Context window — smaller than Gemini 3 Pro (400K vs 1M tokens). (3) Price — more expensive than Gemini 3 Pro. (4) Multimodal generation — Gemini leads with native image/video generation via Veo 3. (5) Multilingual — modest improvements, slightly worse than o3-high in non-English languages. No single model dominates all tasks; professional developers increasingly use multi-model workflows.",
+    "ecosystem_and_tooling": "Extensive ecosystem: OpenAI API (Responses API, Chat Completions API), Agents SDK, Model Context Protocol (MCP) support. IDE integrations: Visual Studio, VS Code (AI Toolkit), JetBrains IDEs, Xcode, Eclipse. Cloud: Microsoft Azure AI Foundry (day-one availability, European data residency), OpenRouter. SDKs: Python, Node.js, Java (v3.0.0+). ChatGPT product tiers: Plus, Pro, Team, Enterprise, Edu. Specialized variants: GPT-5.2-Codex for coding agents. Databricks integration for enterprise data-aware agentic systems. Batch API for cost-efficient high-volume processing.",
+    "geographic_origin_and_regulation": "United States (San Francisco, CA). OpenAI offers European data residency for ChatGPT Enterprise, Edu, and API Platform — API requests through European Projects handled in-region with zero data retention. Stargate Norway represents $1B investment in sovereign European compute (100K NVIDIA GPUs by end 2026, renewable power). Classified as high-impact general-purpose AI under EU AI Act, requiring thorough evaluations and incident reporting. GDPR-compatible via Data Processing Addendum (DPA). European entrepreneurs can use Azure AI Foundry for in-region deployment. Important: data sovereignty concerns remain for Free/Plus tier users where processing occurs in US data centers."
+  },
+  "uncertain": [
+    "parameter_count",
+    "active_parameters",
+    "architecture_type",
+    "reasoning_benchmarks_composite"
+  ]
+}

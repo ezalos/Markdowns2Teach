@@ -1,0 +1,47 @@
+{
+  "identity": {
+    "company_name": "Broadcom Inc.",
+    "headquarters": "Palo Alto, USA",
+    "headquarters_region": "US",
+    "founded_year": 1961
+  },
+  "value_chain": {
+    "role_in_value_chain": "hardware",
+    "value_chain_position": "Critical AI hardware enabler sitting between chip fabrication (depends on TSMC for manufacturing) and hyperscale cloud providers (serves Google, Meta, OpenAI, Anthropic). Broadcom designs custom AI accelerators (XPUs/ASICs) to hyperscaler specifications and provides the networking silicon (Tomahawk, Jericho switches) that interconnects GPU/AI clusters. VMware software stack adds a cloud infrastructure layer. Broadcom does not manufacture chips itself — it is a fabless semiconductor company relying on TSMC and other foundries.",
+    "vertical_integration_level": "Multi-layer"
+  },
+  "products": {
+    "key_products": [
+      "Custom AI Accelerators (XPUs): bespoke ASIC chips co-designed with hyperscalers — Google TPU v7 (Ironwood), Meta MTIA v4 (Santa Barbara), OpenAI Titan, Anthropic custom chips. Broadcom holds ~70% of the custom AI ASIC market. AI semiconductor revenue: $20B in FY2025, guided to double in FY2026",
+      "AI Networking Silicon (Tomahawk 5/6, Jericho3-AI): Ethernet switch chips for AI cluster interconnect. Tomahawk 6 delivers 102.4 Tbps bandwidth, becoming the gold standard for high-density AI networking. AI switch backlog exceeds $10B",
+      "VMware Cloud Foundation (VCF): enterprise cloud infrastructure and virtualization platform acquired for $69B in 2023. Now generating ~$27B annual revenue in infrastructure software with high recurring subscription model"
+    ]
+  },
+  "business": {
+    "revenue_or_valuation": "FY2025 (ended Oct 2025) consolidated revenue: $64B (+24% YoY), a record. AI semiconductor revenue: $20B (+65% YoY). Q4 FY2025 revenue: $18B (+28% YoY). Adjusted EBITDA: $43B. Market cap: ~$1.58T (Feb 2026).",
+    "annual_recurring_revenue_arr": "VMware infrastructure software segment generates ~$27B annual revenue, largely converted to subscription model from perpetual licenses. Total software recurring revenue is a significant portion of the $64B total. Semiconductor revenue is transactional but backed by $73B AI order backlog over 18 months.",
+    "funding_total_and_last_round": "Public company (NASDAQ: AVGO). No venture funding applicable. Financed $69B VMware acquisition (closed Nov 2023) through combination of cash, stock, and $32B in debt. Market cap ~$1.58T (Feb 2026).",
+    "business_model": "Two-segment model: (1) Semiconductor Solutions (~$37B, 58% of revenue): custom AI ASICs designed to hyperscaler specs, networking switch silicon, broadband/wireless chips. Revenue is transactional hardware sales but with long-term design-win contracts and multi-year backlogs. (2) Infrastructure Software (~$27B, 42% of revenue): VMware virtualization/cloud platform converted from perpetual licenses to bundled subscriptions requiring multi-year commitments. Extremely high-margin business (adjusted EBITDA margin ~67%). Free cash flow: $26.9B in FY2025.",
+    "burn_rate_and_runway": "Not applicable. Highly profitable public company. FY2025 adjusted EBITDA: $43B. Free cash flow: $26.9B. Aggressively paying down VMware acquisition debt."
+  },
+  "openness": {
+    "open_vs_closed_spectrum": "Hybrid. Broadcom champions open Ethernet standards for AI networking (Ultra Ethernet Consortium) as an alternative to NVIDIA's proprietary InfiniBand — this openness is strategically motivated. VMware Cloud Foundation supports SONiC (open-source network OS). However, custom ASIC designs are deeply proprietary and locked to specific hyperscaler customers. VMware licensing has become more restrictive post-acquisition (bundled subscriptions, elimination of perpetual licenses). Overall: open on networking standards, closed on chip IP and increasingly closed on software licensing."
+  },
+  "startup_relevance": {
+    "relevance_for_startups": "Broadcom is mostly invisible to startups but deeply shapes their infrastructure costs and options: (1) The custom ASIC trend Broadcom leads means hyperscalers are building alternatives to NVIDIA GPUs — this could eventually reduce GPU pricing and improve cloud compute economics for startups; (2) Broadcom's Ethernet networking silicon powers the AI cluster interconnects that startups rent on cloud platforms — the shift from InfiniBand to Ethernet could reduce cloud provider costs, potentially flowing to lower pricing; (3) VMware licensing changes post-acquisition have dramatically increased infrastructure costs (800-1,500% increases reported) for enterprises using VMware — startups on VMware should evaluate migration to alternatives (Proxmox, OpenStack, Kubernetes); (4) The OpenAI-Broadcom partnership (10GW of custom Titan chips, deployments starting H2 2026) signals that the largest AI companies are moving toward custom silicon, which may commoditize general-purpose GPU demand over time; (5) Broadcom's dominance in networking silicon means any startup building AI infrastructure will indirectly depend on Broadcom hardware; (6) For hardware startups: Broadcom's 70% share of custom ASIC market makes it a potential design partner, but its focus is exclusively on hyperscaler-scale customers, not startups.",
+    "accessibility": "Very low direct accessibility for startups. Broadcom's custom ASIC business serves only hyperscale customers (Google, Meta, OpenAI, Anthropic) with billion-dollar-scale engagements. Networking silicon is sold through OEMs and cloud providers, not directly to startups. VMware products are accessible but expensive — pricing increases post-acquisition have pushed many smaller companies away. Startups interact with Broadcom indirectly through cloud infrastructure pricing rather than directly. No meaningful startup program.",
+    "primary_model_dependency": "None. Broadcom is a hardware/infrastructure provider, not dependent on any foundation model. Its custom ASIC clients (Google, OpenAI, Anthropic, Meta) build their own models."
+  },
+  "ecosystem": {
+    "key_partnerships": "Google (co-designed TPU v7 Ironwood, decade-long partnership), Meta (MTIA v4 custom AI accelerator), OpenAI (10GW custom Titan chip deployment, $100-200B multi-year deal starting H2 2026), Anthropic ($10B custom chip deal for 400K TPU v7 Ironwoods), TSMC (primary manufacturing partner for all Broadcom chips). Ultra Ethernet Consortium membership for open AI networking standards. Dell, HPE for enterprise networking equipment. Apple (long-standing wireless chip partnership).",
+    "competitive_moat": "Custom ASIC co-design lock-in: once a hyperscaler designs its AI architecture around Broadcom's custom silicon, switching costs are enormous (years of co-development, tight hardware-software integration). Google TPU partnership spans nearly a decade. Networking silicon dominance: Tomahawk series is the de facto standard for Ethernet AI cluster switching. VMware installed base: millions of enterprise customers locked into VMware virtualization, making migration extremely costly despite price increases. Hock Tan's acquisition playbook: acquire critical infrastructure companies, cut costs, raise prices on locked-in customers. 70% share of custom AI ASIC market with highest-value customers.",
+    "data_moat_type": "Distribution"
+  },
+  "regulatory": {
+    "regulatory_exposure": "Exempt from EU AI Act (hardware/infrastructure provider, not a GPAI provider or high-risk AI system operator). However, Broadcom faces significant EU antitrust/competition scrutiny over VMware licensing practices — CISPE (European cloud provider trade group) has filed legal action seeking annulment of the EU Commission's approval of the VMware acquisition, citing 800-1,500% price increases and anticompetitive bundling. Bloomberg reports (Feb 2026) mounting EU scrutiny over VMware licensing curbs. This regulatory risk is competition law, not AI Act."
+  },
+  "uncertain": [
+    "annual_recurring_revenue_arr",
+    "founded_year"
+  ]
+}

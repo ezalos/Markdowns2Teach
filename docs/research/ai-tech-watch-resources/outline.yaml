@@ -1,0 +1,186 @@
+# ABOUTME: Research outline for AI Tech Watch & Learning Resources (Research 8).
+# ABOUTME: 35 curated resources across 10 categories for M2 Entrepreneurship students.
+
+topic: "AI Tech Watch & Learning Resources 2024-2026"
+description: >
+  Curated resource guide for M2 Entrepreneurship students (business school, non-engineers,
+  heavy LLM users) to stay current on AI developments. Focuses on practical, business-oriented,
+  accessible resources with French/European priority.
+
+categories:
+  - name: "Newsletters & Blogs"
+    description: "Regular written publications for AI tech watch"
+  - name: "Podcasts"
+    description: "Audio content for AI business and strategy insights"
+  - name: "YouTube Channels & Video"
+    description: "Video content for visual AI learning and tool demos"
+  - name: "X/Twitter & Communities"
+    description: "Social accounts and online communities for real-time AI discussion"
+  - name: "French-Language Resources"
+    description: "Resources in French for the French/European AI ecosystem"
+  - name: "Conferences & Events"
+    description: "Major AI conferences and European/French events"
+  - name: "Research Paper Access"
+    description: "Platforms making academic AI research accessible to non-researchers"
+  - name: "Benchmarking & Model Comparison"
+    description: "Tools for comparing and evaluating AI models"
+  - name: "Free Learning Platforms & Certifications"
+    description: "Free courses, certifications, and structured learning paths"
+  - name: "Tool Directories & Trackers"
+    description: "Curated directories for discovering AI tools and products"
+
+items:
+  # --- Category 1: Newsletters & Blogs (4) ---
+  - name: "The Batch (DeepLearning.AI)"
+    category: "Newsletters & Blogs"
+    description: "Andrew Ng's weekly AI newsletter with accessible summaries of research, industry, and applications"
+
+  - name: "The Rundown AI"
+    category: "Newsletters & Blogs"
+    description: "2M+ subscriber daily AI digest by Rowan Cheung (Forbes 30u30 2025). Covers tools, research, business implications"
+
+  - name: "Ben's Bites"
+    category: "Newsletters & Blogs"
+    description: "Daily AI newsletter with product/startup focus, widely read in the AI builder community"
+
+  - name: "Stratechery (Ben Thompson)"
+    category: "Newsletters & Blogs"
+    description: "Tech strategy analysis with strong AI coverage since 2023. Deep strategic framing, not just news"
+
+  # --- Category 2: Podcasts (4) ---
+  - name: "No Priors"
+    category: "Podcasts"
+    description: "Sarah Guo & Elad Gil interview AI founders and researchers. VC perspective on AI startups"
+
+  - name: "Hard Fork (NYT)"
+    category: "Podcasts"
+    description: "Kevin Roose + Casey Newton cover tech/AI for a general audience. Accessible and well-produced"
+
+  - name: "Latent Space"
+    category: "Podcasts"
+    description: "AI engineering podcast. More technical but covers the builder/product angle well"
+
+  - name: "The AI in Business Podcast (Emerj)"
+    category: "Podcasts"
+    description: "Daniel Faggella interviews Fortune 2000 AI executives and startup founders on practical AI adoption"
+
+  # --- Category 3: YouTube Channels & Video (5) ---
+  - name: "3Blue1Brown"
+    category: "YouTube Channels & Video"
+    description: "Visual math/ML explainers. Neural networks series is the best intuitive introduction available"
+
+  - name: "Fireship"
+    category: "YouTube Channels & Video"
+    description: "Fast-paced tech/AI explainers in 100-second and 10-minute formats. Entertaining and current"
+
+  - name: "AI Explained"
+    category: "YouTube Channels & Video"
+    description: "Philip's deep analysis of model releases, benchmarks, and AI capabilities. Data-driven approach"
+
+  - name: "The AI Advantage"
+    category: "YouTube Channels & Video"
+    description: "Igor Pogany's practical AI tool tutorials. Step-by-step workflows for ChatGPT, APIs, automation. Business-oriented"
+
+  - name: "DeepLearning.AI (YouTube)"
+    category: "YouTube Channels & Video"
+    description: "Andrew Ng's channel with short courses, event recordings, and accessible AI explainers"
+
+  # --- Category 4: X/Twitter & Communities (3) ---
+  - name: "@AlphaSignalAI"
+    category: "X/Twitter & Communities"
+    description: "Curated AI research highlights on X. High signal-to-noise ratio for tracking important papers"
+
+  - name: "r/LocalLLaMA (Reddit)"
+    category: "X/Twitter & Communities"
+    description: "Community for open-weight model enthusiasts. Best place to track Mistral, Llama, DeepSeek developments"
+
+  - name: "r/ChatGPT (Reddit)"
+    category: "X/Twitter & Communities"
+    description: "9M+ members. Practical AI applications, use cases, and tips. Very accessible for non-technical users"
+
+  # --- Category 5: French-Language Resources (5) ---
+  - name: "Comptoir IA"
+    category: "French-Language Resources"
+    description: "208K+ YouTube subscribers (Ludovic Salenne), ~400 videos on AI. Also a podcast (Nicolas Guyon) interviewing AI-disrupted professionals. Essential French AI voice"
+
+  - name: "DefendIntelligence (Anis Ayari)"
+    category: "French-Language Resources"
+    description: "French YouTube channel by a Lead Data Scientist. Covers AI advancements and ethical questions. Mix of serious and humorous tone"
+
+  - name: "Underscore_ (Micode)"
+    category: "French-Language Resources"
+    description: "842K subscribers. Biweekly talk-show on tech, AI, cybersecurity. Accessible and entertaining. Live on Twitch, replays on YouTube"
+
+  - name: "ActuIA.com"
+    category: "French-Language Resources"
+    description: "French AI news portal covering research, startups, regulation, and applications in France and Europe"
+
+  - name: "Wavestone Radar GenAI Startups"
+    category: "French-Language Resources"
+    description: "Annual mapping of 190 French GenAI startups across 8 categories. Third edition June 2025. Key reference for French AI landscape"
+
+  # --- Category 6: Conferences & Events (3) ---
+  - name: "VivaTech (Paris)"
+    category: "Conferences & Events"
+    description: "Europe's largest tech/startup conference. Strong AI track, French ecosystem showcase. Annual in June"
+
+  - name: "WAICF (World AI Cannes Festival)"
+    category: "Conferences & Events"
+    description: "Business AI, governance, next-gen tech. European-focused, French-hosted. February 2026 in Cannes"
+
+  - name: "AI Action Summit (Paris)"
+    category: "Conferences & Events"
+    description: "French government-hosted AI policy and business event. Feb 2025 edition drew global attention (Macron + Le Chat)"
+
+  # --- Category 7: Research Paper Access (3) ---
+  - name: "Papers With Code"
+    category: "Research Paper Access"
+    description: "Papers + implementation links + benchmarks. Best bridge between research and practice"
+
+  - name: "Hugging Face Daily Papers"
+    category: "Research Paper Access"
+    description: "Community-voted papers with discussion threads. Go-to for discovering trending AI research"
+
+  - name: "Google Illuminate"
+    category: "Research Paper Access"
+    description: "Converts academic papers into conversational audio summaries using AI voices. Makes research accessible to non-readers"
+
+  # --- Category 8: Benchmarking & Model Comparison (3) ---
+  - name: "Chatbot Arena (LMSYS)"
+    category: "Benchmarking & Model Comparison"
+    description: "Crowdsourced LLM ranking via blind comparisons. Most trusted independent benchmark"
+
+  - name: "Artificial Analysis"
+    category: "Benchmarking & Model Comparison"
+    description: "LLM speed, price, and quality comparison. Essential for making model selection decisions"
+
+  - name: "Open LLM Leaderboard (Hugging Face)"
+    category: "Benchmarking & Model Comparison"
+    description: "Open-weight model benchmarks. Key reference for the open-source AI ecosystem"
+
+  # --- Category 9: Free Learning Platforms & Certifications (3) ---
+  - name: "DeepLearning.AI Short Courses"
+    category: "Free Learning Platforms & Certifications"
+    description: "50+ free 1-2 hour courses on agents, RAG, prompt engineering. Taught by industry leaders"
+
+  - name: "OpenAI Academy"
+    category: "Free Learning Platforms & Certifications"
+    description: "Free learning platform launched 2025. Three certification levels from basic AI fluency to advanced prompt engineering"
+
+  - name: "Google NotebookLM"
+    category: "Free Learning Platforms & Certifications"
+    description: "Free AI study tool that summarizes documents, creates study guides, flashcards, and podcast-style audio overviews"
+
+  # --- Category 10: Tool Directories & Trackers (2) ---
+  - name: "There's An AI For That (TAAFT)"
+    category: "Tool Directories & Trackers"
+    description: "Largest AI tool aggregator. Searchable by use case. Good starting point for tool discovery"
+
+  - name: "Futurepedia"
+    category: "Tool Directories & Trackers"
+    description: "5,700+ tools, 2M+ monthly visits. Business-oriented catalog with tutorials, pros/cons, and scored ratings"
+
+execution:
+  batch_size: 3
+  items_per_agent: 1
+  output_dir: "./results"

@@ -1,0 +1,47 @@
+{
+  "identity": {
+    "model_name": "Gemini 3 Pro",
+    "creator": "Google DeepMind",
+    "release_date": "November 2025",
+    "model_family": "Gemini"
+  },
+  "architecture": {
+    "parameter_count": "Undisclosed officially; estimated in the low single-digit trillions (2-4T total parameters) [uncertain]",
+    "active_parameters": "Undisclosed officially; estimated 150-200B active parameters per forward pass due to sparse MoE routing [uncertain]",
+    "architecture_type": "Sparse Mixture-of-Experts (MoE) Transformer with native multimodal support — processes text, images, video, audio, and code through a unified architecture rather than separate encoders",
+    "context_window": "1M tokens",
+    "max_output_tokens": "64K tokens"
+  },
+  "capabilities": {
+    "open_or_closed": "Closed/proprietary (API-only). Google offers the separate Gemma open-weight family based on similar research.",
+    "license_type": "Proprietary. Access via Google AI Studio, Vertex AI, and Gemini API. No open weights. Google also offers Gemma models under permissive open licenses as a complementary open-weight alternative.",
+    "reasoning_capability": "Native thinking mode with toggleable thinking_level parameter (low or high). High is the default and maximizes reasoning depth; low minimizes latency and cost. Thinking cannot be fully disabled on Gemini 3 Pro. Deep Think mode (available to AI Ultra subscribers in the Gemini app) extends reasoning further with parallel hypothesis exploration and iterative rounds of reasoning. Deep Think achieves 41.0% on Humanity's Last Exam and 45.1% on ARC-AGI-2.",
+    "multimodal_support": "Native multimodal input: text, images, video (temporal stream processing with object tracking), audio (low-latency encoder, Live API for real-time speech-to-speech), PDFs, and code. Image generation supported via Gemini 3 Pro Image variant (high-fidelity generation, text rendering, multi-turn editing, character consistency with up to 14 reference inputs). Media resolution control via media_resolution parameter (low/medium/high).",
+    "multilingual_support": "140+ languages supported. French is fully supported across Gemini API and Google Workspace integrations (content drafting, summarization, conversation). Strong performance on major European languages.",
+    "agentic_capability": "Advanced agentic capabilities: function calling (including multimodal function responses with images and PDFs), streaming function calling, computer use (browser and terminal control), multi-step tool use, and strong instruction following. Supports building multi-step agents. Available in coding IDEs (Cursor, GitHub Copilot, JetBrains) and agent frameworks (LangChain, LlamaIndex, Pydantic AI, n8n). Compatible with Google Antigravity and Gemini CLI for agentic coding workflows."
+  },
+  "benchmarks": {
+    "key_benchmarks": "AIME 2025: 95% (100% with code execution); GPQA Diamond: 91.9% (93.8% with Deep Think); SWE-bench Verified: 76.2%; HumanEval: 93%; MMLU: 91.8%; MMLU-Pro: 90.1%; MMMU-Pro: 81.0%; LiveCodeBench: 81.3% (Elo 2439); MATH: 94%; LMArena Text Arena: 1501 Elo (first model to cross 1500); WebDev Arena: 1487 Elo; Humanity's Last Exam: 37.5% without tools (41.0% with Deep Think); ARC-AGI-2: 45.1% with code execution (Deep Think)",
+    "reasoning_benchmarks_composite": "AIME 2025: 95-100% (depending on tool use); GPQA Diamond: 91.9-93.8% (depending on Deep Think); MATH: 94%; Humanity's Last Exam: 37.5-41.0%. Represents significant improvements over Gemini 2.5 Pro across all reasoning benchmarks. First model to score 1501 on LMArena, crossing the 1500 threshold."
+  },
+  "pricing": {
+    "pricing_per_1M_tokens": "Standard context (<=200K tokens): $2 input / $12 output. Long context (>200K tokens): $4 input / $18 output. Cached input pricing estimated at ~75-90% discount (exact Gemini 3 Pro cache read pricing not yet finalized in preview). Free access available in Google AI Studio for experimentation. No free API tier for gemini-3-pro-preview.",
+    "cost_efficiency_notes": "Competitively priced at $2/$12 vs Claude Opus 4.5 at $5/$25 and GPT-5.2 at higher rates. The sparse MoE architecture keeps inference costs manageable despite the massive total parameter count. Stable pricing expected to settle around $1.50/$10 with caching and batch discounts in Q2 2026. Google's strategy of aggressive pricing reflects their intent to drive adoption through the massive Google ecosystem (Search, Workspace, Android)."
+  },
+  "deployment": {
+    "minimum_hardware_requirement": "API-only. No local deployment available. Access through Google AI Studio (free experimentation), Vertex AI (enterprise), Gemini API, Gemini CLI, and Google Antigravity.",
+    "quantization_availability": "None — proprietary model with no downloadable weights. Google offers Gemma open-weight models separately for on-device and local deployment needs.",
+    "on_device_capable": "No. Gemini 3 Pro is a cloud-only model due to its massive parameter count. For on-device needs, Google offers Gemini Nano and Gemma models."
+  },
+  "business": {
+    "best_use_cases": "1) Complex multimodal analysis: process documents, images, video, and audio in a single 1M-token context window — ideal for due diligence, market research across diverse source formats. 2) Agentic coding and web development: top WebDev Arena scores (1487 Elo), strong SWE-bench (76.2%), computer use for browser/terminal automation. 3) Long-document processing and enterprise workflows: 1M context + 64K output enables processing entire codebases, legal contracts, or financial reports in one call. 4) Advanced reasoning tasks: near-perfect math scores (AIME 100%), PhD-level science reasoning (GPQA 91.9%), useful for technical analysis and research. 5) Multilingual customer-facing applications: 140+ language support integrated into Google Workspace and Search ecosystem, reaching 2B+ monthly users via AI Overviews.",
+    "relevance_for_entrepreneurs": "Gemini 3 Pro matters for startups because: (1) Cost-competitive API pricing ($2/$12) makes advanced AI accessible to bootstrapped companies; (2) Deep integration with Google ecosystem (Search, Workspace, Android) means your AI features can ride existing user behavior — 750M+ Gemini app users, 2B+ AI Overviews users; (3) The 1M token context window is the largest among frontier models, enabling document-heavy enterprise workflows without chunking complexity; (4) Native multimodal capabilities eliminate the need to stitch together separate models for text, image, and video processing, reducing engineering overhead; (5) Strong agentic and computer use capabilities support build-vs-buy decisions toward lighter custom development on top of powerful base capabilities. For European entrepreneurs specifically, Google has committed to signing the EU AI Act Code of Practice and provides GDPR-compliant data processing in Workspace.",
+    "competitive_position": "Strengths: Best-in-class multimodal reasoning, largest context window (1M vs GPT-5.2's 400K), most competitive pricing among frontier models, massive distribution through Google ecosystem, top LMArena score (1501). Weaknesses: Claude Opus 4.5 leads on SWE-bench Verified (80.9% vs 76.2%) and autonomous coding tasks; GPT-5.2 reportedly has lower hallucination rates for mission-critical enterprise use; still in 'preview' status as of early 2026. Key differentiator: no other model combines 1M context + native multimodality + competitive pricing + Google ecosystem distribution at this scale.",
+    "ecosystem_and_tooling": "Platforms: Google AI Studio (free experimentation), Vertex AI (enterprise with SLAs), Gemini API, Gemini CLI, Google Antigravity. IDE integrations: Cursor, GitHub Copilot, JetBrains, Android Studio, Replit, Manus, Cline. Frameworks: LangChain, LlamaIndex, AI SDK by Vercel, Pydantic AI, n8n. Also integrated into Google Workspace (Docs, Sheets, Gmail, Meet), Google Search (AI Overviews), and supports Batch API for high-volume processing. OpenAI-compatible API layer available via liteLLM and similar adapters.",
+    "geographic_origin_and_regulation": "US-origin (Google DeepMind, headquartered in Mountain View, CA and London, UK). Google has committed to signing the EU AI Act Code of Practice and provides GDPR-compliant data processing for Workspace customers (no customer data used for training without permission). Google publishes model cards and technical documentation as required by GPAI provisions. For European entrepreneurs: data can be processed in EU regions via Vertex AI; however, as a US company, Google is subject to US jurisdiction (CLOUD Act considerations). Google's DPIA support documentation is available for Workspace with Gemini."
+  },
+  "uncertain": [
+    "parameter_count",
+    "active_parameters"
+  ]
+}

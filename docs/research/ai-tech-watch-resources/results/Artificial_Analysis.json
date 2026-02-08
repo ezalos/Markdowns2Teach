@@ -1,0 +1,30 @@
+{
+  "resource_name": "Artificial Analysis",
+  "resource_type": "Platform / Tool",
+  "creator_or_organization": "Artificial Analysis (co-founded by Micah Hill-Smith, ex-McKinsey, and George Cameron). Seed-funded by AI Grant, Factorial Capital, and NFDG.",
+  "url": "https://artificialanalysis.ai/",
+  "language": "English",
+
+  "content_focus": "Independent benchmarking and comparison of AI models and API hosting providers across speed, price, quality, and latency. Covers multiple modalities: LLMs (100+ models, 500+ API endpoints), text-to-image models, video generation models, and speech models. Key offerings include the Artificial Analysis Intelligence Index (v4.0, incorporating 10 evaluations such as GDPval-AA, Humanity's Last Exam, and SciCode), an LLM Leaderboard, an API Providers Leaderboard, Image/Video/Speech Arenas using blind crowd-sourced A/B testing, pricing trend analysis, and hardware performance benchmarks. Also publishes analytical reports on AI industry trends including price evolution, model improvements, and regional competition.",
+  "target_audience": "AI engineers, product managers, business leaders, and entrepreneurs making model selection and API provider decisions. Accessible enough for non-technical decision-makers comparing cost and performance.",
+  "publication_frequency": "Continuous (live dashboards updated as new models and benchmarks become available, with periodic methodology updates and trend reports)",
+  "format_and_length": "Interactive web platform with filterable comparison tables, scatter plots (quality vs. price, speed vs. quality), leaderboards, and trend charts. Also features crowd-sourced arenas for image, video, and speech model evaluation. Individual model pages provide detailed breakdowns. No fixed reading time — users explore data on-demand.",
+
+  "accessibility_for_non_engineers": "High. The platform presents complex benchmarking data through clean, visual interfaces — scatter plots, ranked leaderboards, and simple comparison tables — that make it easy for non-technical users to grasp relative model performance. You do not need to understand the underlying benchmarks to use the tool effectively: sorting by price, speed, or quality score is intuitive. The Image and Video Arenas use simple blind A/B preference voting that anyone can participate in. However, some methodology details (token-level pricing, TTFT latency) may require basic technical literacy to fully appreciate.",
+  "signal_to_noise_ratio": "High",
+  "unique_value_proposition": "The only platform that combines independent intelligence benchmarking, real-world API performance measurement, and pricing data across 100+ models and 500+ endpoints in a single interactive interface. Unlike provider-published benchmarks, Artificial Analysis tests all models under identical conditions on dedicated hardware, providing truly apples-to-apples comparisons. The multi-modal coverage (text, image, video, speech) and crowd-sourced arenas add breadth that pure leaderboard sites lack. Datasets are published under Creative Commons BY 4.0, ensuring transparency.",
+  "free_or_paid": "Free (all comparison data, leaderboards, arenas, and datasets freely accessible; datasets published under CC BY 4.0 license)",
+  "source_reliability": "High. All evaluations are conducted independently on dedicated hardware with standardized conditions (zero-shot prompting, consistent temperature settings, pass@1 scoring). The Intelligence Index v4.0 methodology is transparent and publicly documented, with a reported 95% confidence interval of less than +/-1%. The platform has been cited by VentureBeat, referenced by major AI companies, and its leaderboards are widely used in the AI engineering community. Potential bias: as a small startup, resource constraints may limit the frequency of re-evaluation for all models; however, their methodology documentation and CC-licensed data mitigate opacity concerns.",
+
+  "relevance_for_entrepreneurs": "Essential for any AI entrepreneur making build-vs-buy or model selection decisions. The platform lets you compare models on cost-efficiency (some models achieve 80% of GPT-4o quality at 70% lower cost), real-world latency (critical for chatbots and real-time agents), and throughput. The provider leaderboard helps choose between hosting options (OpenAI direct, Azure, AWS Bedrock, Together AI, etc.) based on actual measured performance rather than marketing claims. Trend reports reveal pricing trajectories and competitive dynamics that inform business planning and unit economics.",
+  "actionable_insight_level": "High",
+  "session_mapping": "S1 (understanding the AI model ecosystem and key players), S3 (build vs buy decisions and API provider selection), S4 (unit economics — model pricing data directly feeds business model calculations)",
+
+  "active_since": "2023",
+  "last_verified_active": "2026-02-08",
+  "ecosystem_position": "Analytical platform and independent benchmarking authority. Artificial Analysis occupies a unique niche as the go-to neutral comparison tool for AI model selection, sitting between model providers (OpenAI, Anthropic, Google, etc.) and the engineers/businesses consuming their APIs. It is neither a model provider nor an aggregator of opinions — it produces original, independent measurements. Its role is comparable to what Wirecutter is for consumer products or what TechEmpower benchmarks are for web frameworks: a trusted third-party source of standardized, reproducible performance data. The CC BY 4.0 licensing of all datasets reinforces its position as a public good in the AI ecosystem.",
+
+  "recommendation_tier": "Must-Follow",
+
+  "uncertain": ["active_since"]
+}

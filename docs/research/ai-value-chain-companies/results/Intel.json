@@ -1,0 +1,47 @@
+{
+  "identity": {
+    "company_name": "Intel Corporation",
+    "headquarters": "Santa Clara, USA",
+    "headquarters_region": "US",
+    "founded_year": 1968
+  },
+  "value_chain": {
+    "role_in_value_chain": "hardware",
+    "value_chain_position": "Foundational hardware and chip manufacturing layer. Intel designs CPUs (Xeon for data centers, Core for clients) and AI accelerators (Gaudi 3, upcoming Jaguar Shores), and operates its own foundries (Intel Foundry Services) competing with TSMC. Intel depends on ASML for EUV lithography equipment and supplies chips to cloud providers (AWS, Microsoft Azure), OEMs (Dell, HP, Lenovo), and enterprises. Its foundry ambitions aim to manufacture chips for external customers including Microsoft, Amazon, and potentially other AI companies on Intel 18A and 14A process nodes.",
+    "vertical_integration_level": "Multi-layer"
+  },
+  "products": {
+    "key_products": [
+      "Xeon Processors (Xeon 6, upcoming Diamond Rapids): server CPUs powering the majority of enterprise data centers and cloud infrastructure, with integrated AI acceleration features",
+      "Gaudi 3 AI Accelerators: data center AI accelerators positioned as a cost-effective, open-ecosystem alternative to NVIDIA GPUs, offering ~70% better price-performance on LLM inference vs H100. Gaudi line being retired; succeeded by Jaguar Shores (rack-scale AI system, 2026) and Crescent Island (inference GPU, 2026)",
+      "Intel Foundry Services (IFS): external chip manufacturing on Intel 3, Intel 18A (1.8nm), and upcoming Intel 14A process nodes, with customers including Microsoft (Maia 2 AI chip) and AWS (custom Xeon 6 and AI fabric chip)"
+    ]
+  },
+  "business": {
+    "revenue_or_valuation": "FY2025 annual revenue: $52.9B (-0.5% YoY). Q4 2025 revenue: $13.7B. GAAP EPS: -$0.06 for the year. Market cap: ~$240-250B (Feb 2026). Significant restructuring year with Altera divestiture and U.S. government equity stake.",
+    "annual_recurring_revenue_arr": "Not a traditional ARR model. Hardware and chip manufacturing revenue. Intel Foundry Services generated limited external revenue; the majority of Intel's revenue comes from product sales (CPUs, accelerators) rather than recurring subscriptions.",
+    "funding_total_and_last_round": "Public company (NASDAQ: INTC) since 1971. U.S. government acquired 9.9% equity stake for $8.9B (Aug 2025) through CHIPS Act, purchasing 433.3M shares at $20.47/share. Total government investment: $11.1B including prior CHIPS grants of $2.2B. Additional EU Chips Act subsidies committed for European fab expansion.",
+    "business_model": "Semiconductor product sales (Xeon CPUs, client processors, AI accelerators) across Client Computing Group and Data Center & AI Group. Foundry services (manufacturing chips for external customers). Software licensing (oneAPI ecosystem). Revenue split roughly: client computing ~50%, data center & AI ~30%, foundry and other ~20%. Altera (FPGA) business deconsolidated in Sept 2025 after selling 51% stake.",
+    "burn_rate_and_runway": "Not applicable in traditional sense. Public company with significant cash reserves. However, Intel is in a financially challenged position: FY2025 GAAP net income was near breakeven (-$0.06 EPS), foundry operations are loss-making, and the company is undergoing major cost restructuring. Massive capex required for fab buildout (~$25B+ annually)."
+  },
+  "openness": {
+    "open_vs_closed_spectrum": "Hybrid. Gaudi software stack is open-source, supporting PyTorch natively and integrating with Hugging Face. oneAPI is an open, cross-architecture programming model (contrasting with NVIDIA's proprietary CUDA). Intel contributes to open-source AI frameworks and promotes open Ethernet networking standards. However, chip designs and foundry process technology remain proprietary. More open than NVIDIA on the software side, but less dominant."
+  },
+  "startup_relevance": {
+    "relevance_for_startups": "Intel matters to AI entrepreneurs for several reasons: (1) Gaudi 3 offers significantly better price-performance than NVIDIA H100 for LLM inference workloads, which can materially reduce compute costs for inference-heavy startups — though the Gaudi line is being retired, making long-term commitment risky; (2) Intel's open-source software stack and oneAPI reduce vendor lock-in compared to CUDA, giving startups more flexibility to switch hardware; (3) Intel Foundry Services could become a critical second source for custom chip manufacturing, relevant for startups building custom silicon or for geopolitical supply chain diversification; (4) Intel's Xeon processors remain the default enterprise server CPU, meaning most startup cloud workloads already run on Intel hardware; (5) The U.S. government's strategic investment signals Intel will be sustained as a 'national champion' — important for startups in regulated or defense-adjacent markets; (6) CEO Lip-Bu Tan has acknowledged Intel is 'too late' for AI training, focusing instead on inference and foundry — startups should factor in Intel's shifting AI strategy when making hardware bets; (7) The upcoming Jaguar Shores and Crescent Island products (2026) represent Intel's next attempt at AI hardware relevance, but remain unproven.",
+    "accessibility": "High accessibility for Xeon processors via all major cloud providers. Gaudi 3 available on IBM Cloud (50% off first 6 months), Dell PowerEdge, HPE, and Supermicro systems. Open-source Gaudi software stack with Hugging Face integration lowers migration barrier. Intel Liftoff program provides startup credits and technical support. However, Gaudi ecosystem is much smaller than CUDA, with fewer pre-optimized models and community resources. Direct Gaudi 3 hardware purchase pricing is competitive vs NVIDIA but availability is more limited.",
+    "primary_model_dependency": "None. Intel is a hardware/platform provider, not dependent on any foundation model."
+  },
+  "ecosystem": {
+    "key_partnerships": "Microsoft (custom Maia 2 AI accelerator on Intel 18A foundry process), Amazon AWS (custom Xeon 6 and AI fabric chip manufacturing), Dell Technologies and HPE (Gaudi 3 server systems), IBM Cloud (Gaudi 3 cloud hosting), U.S. Government (9.9% equity stake, CHIPS Act national champion). Foundry packaging customers include NVIDIA, Qualcomm, and Tesla. European fab partnerships with Germany (~$11B subsidies for Magdeburg facility) and Ireland (Fab34 EUV manufacturing). SK hynix for HBM4 memory (Jaguar Shores).",
+    "competitive_moat": "Vertical integration of chip design + manufacturing (only major company doing both at leading edge). x86 instruction set dominance in enterprise computing creates massive installed base and switching costs. Intel Foundry is the only credible Western alternative to TSMC for leading-edge chip manufacturing, making it strategically irreplaceable for U.S./EU semiconductor sovereignty. However, the moat has weakened significantly: TSMC leads in manufacturing, NVIDIA dominates AI accelerators, and AMD has eroded Xeon market share. Intel's moat is increasingly geopolitical/strategic rather than purely technological.",
+    "data_moat_type": "Distribution"
+  },
+  "regulatory": {
+    "regulatory_exposure": "Exempt (hardware provider). As a semiconductor manufacturer, Intel is not directly regulated under the EU AI Act as a GPAI provider or high-risk AI system operator. Intel is a primary beneficiary of both the U.S. CHIPS Act ($11.1B total investment) and EU Chips Act (subsidies for European fab expansion). Subject to U.S. export controls on advanced chips to China. Intel's European manufacturing presence (Ireland Fab34, planned Magdeburg facility) positions it favorably for EU semiconductor sovereignty requirements."
+  },
+  "uncertain": [
+    "annual_recurring_revenue_arr",
+    "burn_rate_and_runway"
+  ]
+}

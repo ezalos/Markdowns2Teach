@@ -1,0 +1,47 @@
+{
+  "identity": {
+    "company_name": "NVIDIA Corporation",
+    "headquarters": "Santa Clara, USA",
+    "headquarters_region": "US",
+    "founded_year": 1993
+  },
+  "value_chain": {
+    "role_in_value_chain": "hardware",
+    "value_chain_position": "Foundational hardware layer. NVIDIA depends on TSMC for chip fabrication and supplies GPUs to cloud providers (AWS, Azure, GCP, OCI), AI labs (OpenAI, Meta, Google DeepMind), enterprises, and sovereign AI projects. Its CUDA software platform and networking (InfiniBand/NVLink) create deep vertical integration from silicon to developer tooling.",
+    "vertical_integration_level": "Multi-layer"
+  },
+  "products": {
+    "key_products": [
+      "Data Center GPUs (H100, H200, B200, GB200 Blackwell, upcoming Rubin): dominant AI training and inference accelerators powering the majority of global AI workloads",
+      "CUDA Platform and Software Stack (cuDNN, TensorRT, NIM microservices, Triton Inference Server): the de facto programming model and library ecosystem for GPU computing with 98% developer adoption",
+      "DGX Systems and DGX Cloud: turnkey AI supercomputer systems and cloud-based GPU clusters starting at ~$37,000/month for enterprise AI development"
+    ]
+  },
+  "business": {
+    "revenue_or_valuation": "FY2025 (ended Jan 2025) revenue: $130.5B (+114% YoY). FY2026 Q3 quarterly revenue: $57.0B. Market cap: ~$4.5 trillion (Feb 2026), making it the world's most valuable company.",
+    "annual_recurring_revenue_arr": "Not a traditional SaaS/ARR model. Hardware-driven revenue with growing software/cloud services (~$1B+ annually in cloud and software services as of FY2024). Data Center segment annualized run rate ~$200B based on FY2026 Q1-Q3.",
+    "funding_total_and_last_round": "Public company (NASDAQ: NVDA) since 1999. No venture funding rounds applicable. Market cap ~$4.5T (Feb 2026).",
+    "business_model": "Primarily hardware sales (GPUs, networking equipment, DGX systems). Data Center segment generates ~88% of revenue. Supplemented by software licensing (CUDA ecosystem, NVIDIA AI Enterprise), cloud services (DGX Cloud), IP licensing (~$152M), and automotive/professional visualization segments. Growing recurring revenue from NVIDIA AI Enterprise subscriptions and NIM microservices.",
+    "burn_rate_and_runway": "Not applicable. Highly profitable public company. FY2025 GAAP net income: ~$73B. Massive positive cash flow."
+  },
+  "openness": {
+    "open_vs_closed_spectrum": "Closed / Hybrid. Core CUDA toolkit is proprietary (free to use but locked to NVIDIA GPUs). Some components recently open-sourced (CUDA Tile IR under Apache 2.0, GPU kernel drivers). Key libraries (cuDNN, TensorRT) remain proprietary. Strategic open-source contributions to PyTorch and other frameworks."
+  },
+  "startup_relevance": {
+    "relevance_for_startups": "NVIDIA is the unavoidable infrastructure layer for virtually all AI startups. Its GPUs are the default hardware for training and deploying AI models, and its CUDA ecosystem is the standard programming environment. Entrepreneurs should understand: (1) CUDA lock-in means switching to AMD or custom silicon carries significant migration cost, a factor in long-term infrastructure planning; (2) GPU supply constraints have been a major bottleneck for AI startups since 2023 -- access to H100/B200 allocation can be a competitive advantage; (3) NVIDIA's pricing power directly affects AI startup unit economics (compute is often the largest cost line); (4) The Blackwell generation and upcoming Rubin platform will shift cost/performance ratios, affecting build-vs-buy decisions; (5) NVIDIA's ecosystem (NIM, Triton, TensorRT) can accelerate time-to-market for inference optimization but deepen vendor dependency; (6) The $20B Groq asset acquisition signals NVIDIA is moving aggressively into specialized inference, potentially commoditizing standalone inference startups.",
+    "accessibility": "High accessibility through cloud providers: NVIDIA GPUs are available on all major clouds (AWS, Azure, GCP, OCI) at $2-4/hour for H100s via spot/on-demand instances. Free CUDA toolkit download. NVIDIA Inception program offers startups up to $500K in cloud credits, technical support, and co-marketing. DGX Cloud from $37K/month for dedicated clusters. Developer tools (CUDA, cuDNN, TensorRT) are free to download. However, direct GPU purchase remains expensive (H100 ~$25-40K each).",
+    "primary_model_dependency": "None. NVIDIA is a hardware/platform provider, not dependent on any foundation model."
+  },
+  "ecosystem": {
+    "key_partnerships": "All major hyperscalers (AWS, Microsoft Azure, Google Cloud, Oracle Cloud) deploy NVIDIA GPUs and Blackwell/Rubin platforms. Strategic investments in CoreWeave (GPU cloud provider), OpenAI ($100B infrastructure partnership for 10GW data centers), and AI startups via the Inception program. Groq asset acquisition ($20B, Dec 2025) for inference technology. Partnerships with Dell, Lenovo, HPE for server systems. TSMC for chip fabrication.",
+    "competitive_moat": "CUDA ecosystem lock-in: 18+ years of software libraries, developer tools, and millions of trained developers create massive switching costs. Hardware performance leadership: consistent generational leaps (Hopper -> Blackwell -> Rubin) maintain 1-2 year lead. Full-stack integration: silicon + networking (NVLink, InfiniBand) + software (CUDA, TensorRT, NIM) + cloud (DGX Cloud) creates a flywheel where hardware sales fund software R&D, which drives more hardware adoption. Over $500B in confirmed orders for Blackwell and Rubin GPUs.",
+    "data_moat_type": "CUDA lock-in"
+  },
+  "regulatory": {
+    "regulatory_exposure": "Exempt (hardware provider). As a semiconductor company, NVIDIA is not directly regulated as a GPAI provider or high-risk AI system operator under the EU AI Act. However, NVIDIA benefits from EU sovereign AI requirements by supplying hardware for EU-compliant AI infrastructure. US export controls on advanced chips to China affect NVIDIA's revenue (China-specific products like H800/A800 created to comply). NVIDIA is actively investing in European AI infrastructure to position as backbone for regulated EU AI market."
+  },
+  "uncertain": [
+    "annual_recurring_revenue_arr",
+    "burn_rate_and_runway"
+  ]
+}

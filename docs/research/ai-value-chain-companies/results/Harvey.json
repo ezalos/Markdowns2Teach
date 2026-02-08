@@ -1,0 +1,47 @@
+{
+  "identity": {
+    "company_name": "Harvey",
+    "headquarters": "San Francisco, USA",
+    "headquarters_region": "US",
+    "founded_year": 2022
+  },
+  "value_chain": {
+    "role_in_value_chain": "application",
+    "value_chain_position": "Vertical AI application layer for legal and professional services. Harvey depends on foundation models from OpenAI (primary partner with custom fine-tuned legal models), Anthropic, and Google for its core AI capabilities. It sits on top of cloud infrastructure (not disclosed but implied AWS/Azure/GCP) and integrates into existing legal workflow tools such as iManage (document management), LexisNexis (legal research), Microsoft Word, Outlook, and SharePoint. Harvey serves large law firms (50 of AmLaw 100), corporate legal departments (Fortune 500 in-house counsel), and professional services firms (PwC for tax). Increasingly expanding beyond legal into adjacent professional services through acquisitions (Hexus for product demos/guides) and partnerships (HSBC for financial services legal operations).",
+    "vertical_integration_level": "Single-layer"
+  },
+  "products": {
+    "key_products": [
+      "Harvey Legal AI Platform: domain-specific AI for contract analysis, due diligence, compliance, litigation support, and legal research. Features include document analysis and bulk processing, legal drafting, complex multi-jurisdictional research, pre-built and custom workflows, and integrations with Word, Outlook, and SharePoint. Uses multi-model orchestration (OpenAI, Anthropic, Google) to route different legal tasks to the best-suited model. Serves 1,000+ customers across 60+ countries.",
+      "Harvey Custom Models (with OpenAI and PwC): co-developed domain-specific fine-tuned models trained on all of U.S. case law (10 billion+ tokens). The PwC partnership produced a custom tax model. These custom models provide deeper legal reasoning than generic LLMs and represent Harvey's core technical differentiation.",
+      "Harvey for In-House Legal (enhanced by Hexus acquisition, Jan 2026): tools for corporate in-house legal teams, enabling AI-powered contract review, compliance workflows, and legal knowledge management. The Hexus acquisition added capabilities for creating product demos, guides, and training materials for non-lawyer stakeholders."
+    ]
+  },
+  "business": {
+    "revenue_or_valuation": "Valued at $8B as of December 2025 (Series F). Sacra estimates $195M ARR in 2025, up 3.9x from $50M at end of 2024. Surpassed $100M ARR in August 2025, roughly 36 months after founding. Valuation trajectory in 2025 alone: $3B (Feb) -> $5B (Jun) -> $8B (Dec).",
+    "annual_recurring_revenue_arr": "$195M ARR estimated as of end of 2025 (Sacra estimate). Surpassed $100M ARR in August 2025. Up from approximately $50M ARR at end of 2024, representing 3.9x year-over-year growth.",
+    "funding_total_and_last_round": "Total raised: approximately $1.02B across 9 rounds. Key rounds: $5M Series A (Nov 2022), $80M Series B at $715M valuation (Dec 2023, Sequoia/Kleiner Perkins/OpenAI/Elad Gil), $300M Series D at $3B (Feb 2025, Sequoia), $300M Series E at $5B (Jun 2025, Kleiner Perkins/Coatue), $160M Series F at $8B (Dec 2025, Andreessen Horowitz/WndrCo/T. Rowe Price). Three fundraises in 2025 alone.",
+    "business_model": "Enterprise SaaS with per-seat subscription pricing. Base offering starts at approximately $1,200 per lawyer per month with 12-month commitments and roughly 20-seat minimums ($288K+ annual minimum contract). Additional revenue from custom model development fees (e.g., PwC co-built tax model) and strategic partnerships (HSBC, Aderant). High-touch enterprise sales motion targeting AmLaw 100 firms and Fortune 500 legal departments.",
+    "burn_rate_and_runway": "[uncertain] Not publicly disclosed. With $1B+ raised and $195M ARR, Harvey has significant runway. However, high headcount growth (340 employees with plans to double) and expensive model API costs suggest substantial burn. The 3x funding in 2025 at rapidly increasing valuations suggests aggressive growth investment over near-term profitability."
+  },
+  "openness": {
+    "open_vs_closed_spectrum": "Closed. Harvey's platform is entirely proprietary with no open-source components, no public API for third-party developers, and no downloadable models. Custom models co-developed with OpenAI are exclusive to Harvey's platform. The product is only accessible through enterprise sales agreements."
+  },
+  "startup_relevance": {
+    "relevance_for_startups": "Harvey is the poster child for vertical AI strategy and directly relevant to M2 entrepreneurship students for several reasons: (1) Business model validation: Harvey proves that domain-specific AI applications built on top of foundation models can command premium pricing ($1,200/seat/month) and massive valuations ($8B on ~$195M ARR = 41x ARR multiple), demonstrating that the application layer can capture enormous value even without owning the underlying models; (2) Vertical AI playbook: Harvey's trajectory illustrates the key ingredients for vertical AI success -- deep domain expertise (co-founder was a practicing lawyer), custom fine-tuning on proprietary domain data (all U.S. case law), tight workflow integration (Word, Outlook, iManage), and enterprise sales motion targeting high-willingness-to-pay customers (BigLaw at $1,500+/hour billing rates); (3) Platform risk case study: Harvey's initial heavy dependency on OpenAI (custom models, early investment from OpenAI Startup Fund) and subsequent diversification to multi-model (adding Anthropic, Google) illustrates how vertical AI startups must manage foundation model provider lock-in; (4) Speed of scaling: going from founding to $100M ARR in 36 months and tripling valuation within a single year (2025) demonstrates the velocity possible in AI-native vertical SaaS when targeting a market with high pain points and high budgets; (5) Competitive dynamics: Harvey faces increasing competition from both AI-native startups (Clio, DeepJudge, Hebbia) and incumbents adding AI (LexisNexis, Westlaw), making it a rich case for analyzing defensibility in vertical AI.",
+    "accessibility": "Low accessibility for startups. Harvey is an enterprise-only product with no self-serve tier, no public API, no free trial publicly available, and minimum contracts starting at approximately $288K/year (20 seats x $1,200/month x 12 months). This makes it inaccessible as a building block for other startups. However, it serves as an important case study and potential competitor/partner for startups building in adjacent legal tech or professional services AI verticals.",
+    "primary_model_dependency": "Multi-model: OpenAI (primary, with custom fine-tuned legal models), Anthropic, Google. Originally OpenAI-exclusive, diversified to multi-model orchestration in May 2025."
+  },
+  "ecosystem": {
+    "key_partnerships": "OpenAI (founding technology partner, co-developed custom legal models, OpenAI Startup Fund investor). PwC (strategic alliance for custom AI models in tax and legal services). HSBC (strategic AI partnership for legal operations, announced Jan 2026). Aderant (partnership connecting AI-powered legal work with work-to-cash operations, Dec 2025). Sequoia Capital, Kleiner Perkins, Andreessen Horowitz, Coatue (major VC investors across multiple rounds). iManage and LexisNexis (workflow integration partners). A&O Shearman (Allen & Overy), Paul Weiss (early adopter law firms that validated the product). Hexus (acquired Jan 2026 for in-house legal expansion).",
+    "competitive_moat": "Compliance-native architecture: Harvey's platform is built around legal-specific security, confidentiality, and compliance requirements from the ground up, creating institutional trust that is hard for generic AI tools to replicate. Workflow integration depth: tight integrations with iManage, LexisNexis, Microsoft Office create institutional stickiness where switching requires rebuilding entire legal workflows. Custom fine-tuned models: domain-specific models trained on comprehensive U.S. case law provide superior legal reasoning compared to off-the-shelf LLMs. Enterprise relationships: serving 50 of AmLaw 100 and 500+ enterprise customers creates reference-ability and network effects within the conservative legal industry. First-mover advantage in BigLaw: A&O Shearman adoption in Nov 2022 established Harvey as the category leader before competitors gained traction.",
+    "data_moat_type": "User feedback loop"
+  },
+  "regulatory": {
+    "regulatory_exposure": "High-risk (potential). Under the EU AI Act, legal AI tools used in client-facing compliance or advisory contexts may fall into the high-risk category, particularly for access to justice and legal interpretation use cases. Harvey's closed, enterprise-only model provides some regulatory insulation (enterprise customers assume compliance responsibility), but 72% of legal teams cite data privacy as a top AI concern. Harvey operates primarily in US/UK markets but expanding to 60+ countries creates multi-jurisdictional regulatory exposure."
+  },
+  "uncertain": [
+    "burn_rate_and_runway",
+    "regulatory_exposure"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "metric_identity": {
+    "metric_name": "AI Application Layer Revenue Distribution",
+    "source_report": "Menlo Ventures '2025: The State of Generative AI in the Enterprise' (3rd annual edition), supplemented by Andreessen Horowitz (a16z) 'AI Application Spending Report' and 'Revenue Benchmarks for AI Apps'",
+    "source_url": "https://menlovc.com/perspective/2025-the-state-of-generative-ai-in-the-enterprise/",
+    "publication_date": "December 2025 (Menlo Ventures); October 2025 and June 2025 (a16z reports)",
+    "methodology_notes": "Menlo Ventures surveyed 495 U.S. enterprise AI decision-makers (C-suite, VPs of Engineering/Product, technical leaders responsible for AI purchasing) in partnership with an independent research firm, November 7-25, 2025. Market sizing model combines survey data with bottoms-up analysis of the generative AI ecosystem, categorizing companies by sector, type (startup vs. incumbent), and go-to-market motion (PLG vs. enterprise sales). Revenue distribution estimates draw from publicly available information, industry reporting, and market analysis. The a16z spending report analyzed spend across Mercury's database of 200,000+ customers (June-August 2025). US-centric data; does not cover European or Asian enterprise spending directly."
+  },
+  "metric_value": {
+    "value": "$19 billion in application layer revenue in 2025 (51% of total $37B enterprise GenAI spend). Startups captured 63% of application layer revenue (~$12B), earning nearly $2 for every $1 incumbents earn (~$7B). Application layer breakdown: Horizontal AI $8.4B (copilots dominate at 86%/$7.2B), Departmental AI $7.3B (coding leads at $4.0B/55%), Vertical AI $3.5B (healthcare captures ~$1.5B/~43%). Infrastructure layer captured the remaining $18B (49% of total).",
+    "unit": "USD (billions)",
+    "geographic_scope": "US (primarily); survey limited to U.S. enterprise decision-makers",
+    "time_period": "2025 (calendar year)",
+    "comparison_baseline": "2024: Total enterprise GenAI spending was $11.5B (application + infrastructure combined). Application layer was approximately $2.3B in 2024 (estimated from component growth rates). Horizontal AI grew 5.3x YoY, Departmental AI grew 4.1x YoY, Vertical AI grew ~3x YoY (from $1.2B). Infrastructure layer was $9.2B in 2024, growing 2.0x to $18B in 2025. Overall GenAI enterprise spending tripled from $11.5B to $37B (3.2x).",
+    "market_layer": "application"
+  },
+  "trend": {
+    "trend_direction": "Accelerating",
+    "year_over_year_change": "Total enterprise GenAI: +222% YoY ($11.5B to $37B). Application layer specifically grew approximately 8x from ~$2.3B in 2024 to $19B in 2025 (estimated from sub-segment growth rates). The application layer's share of total spend shifted from minority to majority (51% in 2025 vs. infrastructure-dominated in 2024). 50+ GenAI products exceeded $100M ARR in 2025. Conversion rates doubled traditional software benchmarks.",
+    "compound_annual_growth_rate": "[uncertain]",
+    "forecast_value": "Generative AI software market projected to reach ~$220B by 2030 (ABI Research, 29% CAGR from 2025). S&P Global projects GenAI market revenue at 40% CAGR from 2024-2029. Code generation segment projected at 53% CAGR through 2029. If application layer maintains ~51% share, this implies ~$110B+ in application layer revenue by 2030.",
+    "forecast_year": "2030",
+    "velocity_indicator": "Fastest category expansion in enterprise software history. Time-to-$100M-ARR benchmarks: Cursor hit $100M ARR in first year, Lovable hit $50M in 6 months. Pre-AI benchmark was $1M ARR in first 12 months for best-in-class enterprise startups. Enterprise GenAI spending tripled in a single year (unprecedented in software)."
+  },
+  "entrepreneurial_relevance": {
+    "relevance_for_entrepreneurs": "This is the most directly actionable data point for AI startup founders. Key takeaways: (1) The application layer is now the majority of GenAI spending at $19B/51%, meaning the value is shifting from infrastructure to products that solve end-user problems -- exactly where startups compete. (2) Startups earn $2 for every $1 incumbents earn (63% vs 37%), demonstrating that in AI applications, being a startup is an advantage, not a liability. This is the inverse of traditional enterprise software where incumbents dominate. (3) Coding ($4.0B) and horizontal copilots ($7.2B) are the two largest sub-segments, but they're also the most competitive. Vertical AI ($3.5B, 3x growth) offers more defensible niches, especially healthcare ($1.5B). (4) The speed of revenue scaling has fundamentally changed: hitting $100M ARR in year one is the new benchmark, not $1M. This means founders must plan for hypergrowth from day one. (5) For Sorbonne M2 students: this data proves that building AI applications (not models or infrastructure) is the highest-leverage path for entrepreneurs. The startup advantage is real and measurable.",
+    "actionable_insight": "Target the application layer, specifically vertical AI ($3.5B, 3x growth) for defensible positioning, or departmental AI for larger TAM. Avoid competing directly in horizontal copilots unless you have a distribution advantage (ChatGPT Enterprise, Claude for Work, and Microsoft Copilot dominate with 86% of $8.4B). Healthcare vertical AI ($1.5B, 3x growth) represents the single largest vertical opportunity. Coding tools are the standout category ($4.0B) but increasingly competitive. For European founders: the data is US-centric, suggesting the European enterprise GenAI application market is earlier-stage and potentially underserved -- a timing advantage. Plan fundraising for hypergrowth trajectories ($100M ARR in year 1 is the new benchmark).",
+    "session_mapping": "1, 4",
+    "risk_profile": "competitive_moat"
+  },
+  "confidence": {
+    "data_quality": "High",
+    "cross_reference": "Menlo Ventures (primary source, 3rd annual edition, 495 respondents). Andreessen Horowitz (a16z) AI Application Spending Report (October 2025, Mercury data across 200K+ customers) corroborates startup spending patterns and application dominance. a16z Revenue Benchmarks report (June 2025) confirms hypergrowth velocity metrics ($100M ARR in year 1). Gartner's separate analysis shows AI Software at $283B in 2025 (broader definition including non-GenAI). GlobeNewsWire press release (Dec 9, 2025) confirms the $37B and $19B figures. VCWire, Techmeme, and multiple financial outlets independently reported these findings.",
+    "caveats": "Key limitations: (1) Survey is US-only (495 respondents), so extrapolating to global markets adds uncertainty; European and Asian enterprise GenAI adoption patterns may differ significantly. (2) Menlo Ventures is a VC firm with portfolio companies in the GenAI application layer, creating potential bias toward optimistic application-layer estimates. (3) The 'startup vs incumbent' revenue split (63/37) depends on how companies are classified -- some large AI companies (e.g., OpenAI at $300M+ enterprise revenue) straddle the line. (4) The $37B total is for enterprise GenAI specifically and excludes consumer AI spending (Menlo published a separate consumer report). (5) The bottoms-up market sizing model combines survey data with public information and market analysis, introducing estimation error. (6) Application layer definition includes copilots like ChatGPT Enterprise and Claude for Work, which are products of model providers, blurring the line between 'application' and 'model' layers.",
+    "measurement_reliability": "analyst_estimate"
+  },
+  "uncertain": [
+    "compound_annual_growth_rate",
+    "comparison_baseline"
+  ]
+}

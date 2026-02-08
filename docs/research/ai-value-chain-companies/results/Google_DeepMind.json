@@ -1,0 +1,46 @@
+{
+  "identity": {
+    "company_name": "Google DeepMind",
+    "headquarters": "London, United Kingdom (primary); Mountain View, USA (Google parent)",
+    "headquarters_region": "US",
+    "founded_year": 2010
+  },
+  "value_chain": {
+    "role_in_value_chain": "model_creator",
+    "value_chain_position": "Core model creation and fundamental AI research layer within Alphabet. Google DeepMind sits at the center of Google's AI stack: it depends on Google's custom TPU hardware and massive data center infrastructure ($91.4B capex in 2025, $175-185B planned for 2026). Its models (Gemini, Gemma) power downstream Google products (Search, Workspace, YouTube, Android, Chrome) and are available to external developers via the Gemini API and Google Cloud Vertex AI. DeepMind also produces breakthrough scientific models (AlphaFold, AlphaProteo) that serve the research community. Unlike standalone model creators, DeepMind benefits from Alphabet's full-stack vertical integration -- from custom silicon (TPUs) to consumer distribution (2B+ Android devices, Google Search).",
+    "vertical_integration_level": "Full-stack"
+  },
+  "products": {
+    "key_products": [
+      "Gemini model family (Gemini 3 Pro, 3 Flash, 2.5 Pro, Deep Think): frontier multimodal AI models powering Google Search AI Overviews (1.5B monthly users), the Gemini consumer app (750M MAU), Google Workspace, and developer APIs. Gemini 3 Pro outperformed GPT-5 Pro on 19 of 20 benchmarks at launch (Nov 2025). Available via Gemini API and Vertex AI.",
+      "AlphaFold and scientific AI (AlphaFold, AlphaProteo, AlphaMissense, AlphaEvolve): revolutionary protein structure prediction (200M+ structures in AlphaFold DB), novel protein design, genetic mutation classification, and algorithmic discovery. AlphaFold won the 2024 Nobel Prize in Chemistry for Demis Hassabis and John Jumper.",
+      "Gemma open-weight models (Gemma 3 series: 1B, 4B, 12B, 27B): lightweight open-weight models built on Gemini technology, supporting 140+ languages and multimodal capabilities. Released under permissive terms for developer and research use."
+    ]
+  },
+  "business": {
+    "revenue_or_valuation": "Google DeepMind does not report standalone revenue. Parent Alphabet reported $402.8B total revenue in 2025 (up 15% YoY). Google Cloud (which distributes DeepMind models) generated $17.7B in Q4 2025 alone, growing 48% YoY. Alphabet market cap: ~$2.5T (Jan 2026). Gemini app reached 750M MAU. AI usage across Google products grew 50x in one year (9.7T tokens/month in Apr 2024 to 480T in Apr 2025).",
+    "annual_recurring_revenue_arr": "Not separately disclosed. Google Cloud ARR (which includes Vertex AI/Gemini API revenue) is the closest proxy. Google Cloud full-year 2025 revenue exceeded $60B. Gemini Enterprise subscription launched at $30/user/month (Oct 2025).",
+    "funding_total_and_last_round": "Not applicable -- Google DeepMind is a wholly owned subsidiary of Alphabet, not a separately funded entity. DeepMind was acquired by Google in January 2014 for a reported $400-650M. Merged with Google Brain in April 2023 to form Google DeepMind. Alphabet invested $91.4B in AI infrastructure capex in 2025 and plans $175-185B in 2026.",
+    "business_model": "Google DeepMind does not directly monetize. Its models generate value across Alphabet's revenue streams: (1) Advertising (core): AI-enhanced search and ad targeting drive the bulk of Alphabet's $402.8B revenue; (2) Cloud (fast-growing): Gemini models sold via Google Cloud Vertex AI on usage-based pricing (Gemini 3 Flash: $0.50/$3 per M tokens input/output); (3) Consumer subscriptions: Gemini Advanced at $19.99/mo, Google One AI Premium; (4) Enterprise: Gemini Enterprise at $30/user/month for businesses; (5) Free tier: Google AI Studio offers free API access for developers (rate-limited).",
+    "burn_rate_and_runway": "Not applicable -- funded by Alphabet's operating cash flow. Alphabet reported $91.4B in capex for 2025 and plans $175-185B for 2026, the vast majority directed at AI compute infrastructure for DeepMind and Google Cloud."
+  },
+  "openness": {
+    "open_vs_closed_spectrum": "Hybrid. Frontier models (Gemini 3 Pro, Deep Think) are proprietary and closed-weight, accessible only via API. However, Google DeepMind releases the Gemma family as open-weight models under permissive Google terms of use, supporting commercial deployment. Scientific models like AlphaFold have open databases and published methodologies. AlphaFold code is open-sourced on GitHub. Gemma 3 supports commercial use without revenue thresholds (unlike Meta's Llama 700M MAU restriction)."
+  },
+  "startup_relevance": {
+    "relevance_for_startups": "Google DeepMind is critical for entrepreneurs to understand as both a platform opportunity and a competitive threat. Key considerations: (1) Gemini API offers aggressive pricing (Flash at $0.50/$3 per M tokens) with a free tier via Google AI Studio, making it the most cost-effective frontier model for prototyping and development; (2) Vertex AI on Google Cloud provides enterprise-grade deployment with SLAs, fine-tuning, and grounding in Google Search -- startups with Google Cloud commitments can access Gemini at no additional platform cost; (3) Gemma open-weight models (1B to 27B params) offer a self-hostable alternative for startups needing data sovereignty, edge deployment, or cost optimization -- with no restrictive revenue thresholds unlike Meta's Llama; (4) Google's AI Futures Fund offers direct investment, Gemini API access, cloud credits, and mentorship specifically for AI startups; (5) WARNING: Google's massive distribution (Search, Android, YouTube, Workspace) means it can embed AI features into products used by billions, potentially commoditizing capabilities startups are building. Building differentiation beyond 'Gemini wrapper' is essential; (6) AlphaFold and scientific AI tools open unique opportunities for biotech/healthtech startups -- the AlphaFold database (200M+ structures) is freely accessible; (7) Context caching on Gemini 3 Flash enables 90% cost reduction for repeated context workloads, a significant unit economics advantage for RAG-based startups.",
+    "accessibility": "Very high accessibility. Free tier available via Google AI Studio (5-15 RPM, 250K tokens/min). Paid API pricing from $0.10/M tokens (Flash-Lite) to $2.00/M tokens (Pro). Gemini Enterprise at $30/user/month for businesses. Gemma open-weight models freely downloadable for self-hosting. Context caching and Batch API offer 50-90% cost reductions. Google for Startups Cloud Program provides up to $100K in cloud credits. AI Futures Fund provides additional investment and support for AI-native startups.",
+    "primary_model_dependency": "None. Google DeepMind is a foundation model creator."
+  },
+  "ecosystem": {
+    "key_partnerships": "Alphabet/Google (parent company: provides TPU infrastructure, $91.4B+ annual capex, global distribution via Search/Android/YouTube/Workspace). UK Government (strategic partnership for materials science, clean energy, nuclear fusion research; first automated research lab planned for 2026). Anthropic (Google invested $3B+ in Anthropic, Claude available on Google Cloud Vertex AI). Samsung (on-device AI integration). Apple (Google Search AI integration). Google AI Futures Fund for startup ecosystem development. Academic partnerships globally for AlphaFold and scientific AI.",
+    "competitive_moat": "Unmatched distribution: Gemini is embedded across products reaching billions of users (Google Search 1.5B AI users, Android 2B+ devices, YouTube, Gmail, Workspace). Custom silicon: Google TPUs provide proprietary training and inference hardware advantage, reducing dependency on NVIDIA. Full-stack ownership: only AI lab that controls chips, cloud, models, and consumer applications end-to-end. Proprietary data: access to Google Search index, YouTube video corpus, and Google Maps data for training. Scientific prestige: AlphaFold Nobel Prize establishes credibility that attracts top research talent. 750M MAU on Gemini app creates a massive user feedback loop.",
+    "data_moat_type": "Proprietary training data"
+  },
+  "regulatory": {
+    "regulatory_exposure": "GPAI provider with systemic risk. Google signed the EU General-Purpose AI Code of Practice (2025), while expressing concerns about innovation impact. Gemini models (particularly Gemini 1.0 Ultra and successors) exceed the 10^25 FLOPs threshold for systemic risk classification under the EU AI Act. Must comply with enhanced transparency, copyright disclosure, safety testing, and risk management obligations. Google has published DPIA support documentation for Gemini in Workspace. Subject to additional scrutiny as a Digital Markets Act gatekeeper in the EU."
+  },
+  "uncertain": [
+    "annual_recurring_revenue_arr"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "metric_identity": {
+    "metric_name": "McKinsey Global Survey on AI 2025 — Enterprise AI adoption rates, revenue impact, organizational readiness, and AI agent deployment",
+    "source_report": "The State of AI: Global Survey 2025, published in two editions: 'How Organizations Are Rewiring to Capture Value' (March 2025) and 'Agents, Innovation, and Transformation' (November 2025), by McKinsey & Company / QuantumBlack",
+    "source_url": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
+    "publication_date": "March 2025 (first edition); November 2025 (second edition with AI agents focus)",
+    "methodology_notes": "Online survey conducted from June 25 to July 29, 2025, with 1,993 participants across 105 countries. Respondents are business professionals across industries and functions. The survey covers organizational AI adoption, GenAI usage, business function deployment, EBIT impact attribution, workflow redesign practices, talent strategies, and AI agent experimentation/scaling. The March 2025 edition focuses on organizational rewiring and structural transformation; the November 2025 edition focuses on AI agents and innovation. High performers are defined as organizations attributing 5%+ of EBIT to AI and reporting significant value delivery."
+  },
+  "metric_value": {
+    "value": "Multiple key metrics: (1) 88% of organizations use AI in at least one function (up from 78% in 2024); (2) 72% use GenAI in at least one function (up from 65% in 2024); (3) Only 6% are AI high performers (5%+ EBIT from AI with significant value); (4) 39% attribute any EBIT impact to AI; (5) 62% experimenting with AI agents; (6) 23% scaling agentic AI in at least one function; (7) 68% use AI in more than one function; (8) 50% deploy AI across 3+ functions; (9) ~2/3 remain in experiment/pilot mode; (10) 10-20% cost reductions reported in software engineering, manufacturing, and IT; (11) High performers 3x more likely to be scaling AI agents than peers; (12) High performers redesign workflows at 3x the rate of other firms",
+    "unit": "Percentage of survey respondents, percentage of EBIT, multiplier ratios",
+    "geographic_scope": "Global (105 countries represented in survey)",
+    "time_period": "Survey conducted June-July 2025; data reflects organizational state as of mid-2025",
+    "comparison_baseline": "2024 survey: 78% AI adoption (vs 88% in 2025); 65% GenAI adoption (vs 72% in 2025); 2023 survey: 55% AI adoption, 33% GenAI adoption",
+    "market_layer": "application, vertical (focuses on enterprise deployment across business functions: IT, marketing, sales, customer operations, knowledge management, software engineering, manufacturing, product development)"
+  },
+  "trend": {
+    "trend_direction": "Accelerating (adoption broadening rapidly, but scaling remains limited)",
+    "year_over_year_change": "AI adoption: +10 percentage points (78% to 88%); GenAI adoption: +7 percentage points (65% to 72%); Multi-function AI deployment growing (68% now use AI in 2+ functions); AI agent experimentation: 62% of organizations; Cost reductions of 10-20% in key functions; Revenue benefits from GenAI use cases increasing relative to early 2024",
+    "compound_annual_growth_rate": "[uncertain]",
+    "forecast_value": "[uncertain]",
+    "forecast_year": "[uncertain]",
+    "velocity_indicator": "adoption_doubling_time: GenAI organizational adoption went from 33% (2023) to 72% (2025) — more than doubled in 2 years; AI agent experimentation reached 62% within roughly 1 year of agentic AI becoming mainstream"
+  },
+  "entrepreneurial_relevance": {
+    "relevance_for_entrepreneurs": "This is the most authoritative enterprise AI adoption survey globally. For founders, the critical insight is the massive gap between adoption (88%) and meaningful value capture (6% high performers). This gap represents the core opportunity: (1) Most enterprises are stuck in 'pilot purgatory' — they've adopted AI but cannot scale it. Startups that solve the scaling problem (workflow integration, change management tooling, AI ops infrastructure) address the largest pain point in enterprise AI; (2) The 6% high performers who redesign workflows at 3x the rate reveal that value comes not from the model but from organizational transformation — this validates the opportunity for AI consulting, implementation, and vertical SaaS that embeds workflow redesign; (3) AI agents are the next frontier: 62% experimenting but only 23% scaling, suggesting early-mover advantage for agent-based products; (4) The functions with highest AI penetration (IT, marketing, sales, customer ops) indicate where buyers are most educated and budgets most available; (5) Only 39% see any EBIT impact, meaning 61% of AI-adopting companies may be spending on AI without measurable return — a massive market for ROI-focused AI solutions.",
+    "actionable_insight": "The 88% adoption vs 6% high-performer gap is the defining statistic for AI entrepreneurship in 2025. Build products that close this gap: focus on workflow integration over model capability. Target the 62% experimenting with AI agents — they have budget and intent but need production-ready solutions. The 10-20% cost reduction benchmarks in software engineering and IT give founders concrete ROI narratives for enterprise sales. The 3x workflow redesign multiplier for high performers means that startups combining AI technology with process transformation consulting will outperform pure-tech plays.",
+    "session_mapping": "3, 4",
+    "risk_profile": "bubble_indicator, dependency_risk"
+  },
+  "confidence": {
+    "data_quality": "High",
+    "cross_reference": "McKinsey Global Survey on AI is the most widely cited enterprise AI adoption survey. Cross-referenced by: Stanford HAI AI Index 2025 (cites McKinsey adoption data), IBM Global AI Adoption Index, Gartner AI adoption surveys, multiple analysis pieces (Medium deep-dive by David Hung Yang, Winsome Marketing analysis, Lighthouse AI analysis, Synovia Digital 2026 outlook). Survey methodology is consistent across years enabling trend comparison.",
+    "caveats": "Survey is self-reported by business professionals, introducing potential response bias toward organizations that are more AI-aware or advanced. The 88% adoption figure reflects 'at least one function' usage, which could include minimal or experimental deployments. High performer definition (5%+ EBIT from AI) is self-assessed, not audited. The survey skews toward McKinsey's client base and readership, which may over-represent large enterprises and under-represent SMEs. The two report editions (March and November 2025) use the same survey data but emphasize different findings, with the November edition adding focus on AI agents. Cost reduction figures of 10-20% are respondent estimates, not verified financial data. Geographic distribution across 105 countries is not necessarily representative of each country's enterprise landscape.",
+    "measurement_reliability": "survey_self_reported"
+  },
+  "uncertain": [
+    "compound_annual_growth_rate",
+    "forecast_value",
+    "forecast_year"
+  ]
+}

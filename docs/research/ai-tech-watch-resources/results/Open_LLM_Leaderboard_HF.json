@@ -1,0 +1,30 @@
+{
+  "resource_name": "Open LLM Leaderboard (Hugging Face)",
+  "resource_type": "Platform",
+  "creator_or_organization": "Hugging Face (led by Clémentine Fourrier and Nathan Habib)",
+  "url": "https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard",
+  "language": "English",
+
+  "content_focus": "The Open LLM Leaderboard was the de facto standard for benchmarking open-weight large language models. It evaluated models on six standardized benchmarks (MMLU-Pro, IFEval, BBH, GPQA, MuSR, MATH) covering reasoning, instruction following, knowledge, and mathematics. It tracked pretrained, fine-tuned, chat, and multimodal models across various parameter sizes. The leaderboard ran on EleutherAI's LM Evaluation Harness and provided reproducible, standardized scores to separate genuine progress from marketing claims. Over its 2-year lifespan, it evaluated 13,000+ models. Note: The leaderboard was officially retired on March 13, 2025, as the maintainers felt the benchmarks were becoming obsolete given the shift toward reasoning models and LM assistants. Its legacy continues through 200+ community-led specialized leaderboards on HuggingFace (OpenEvals), covering math, code, language, domain-specific capabilities, and more.",
+  "target_audience": "Technical, researchers, entrepreneurs evaluating open-source model options",
+  "publication_frequency": "Continuous (models were evaluated and ranked on an ongoing basis; the leaderboard updated near-daily before retirement)",
+  "format_and_length": "Interactive web platform (Gradio-based HuggingFace Space) with filterable tables, model comparisons, and downloadable results datasets",
+
+  "accessibility_for_non_engineers": "Medium — The leaderboard itself is a sortable table which is easy to browse, and model rankings are intuitive. However, understanding the significance of individual benchmark scores (MMLU-Pro, GPQA, BBH, etc.) and score normalization requires some technical literacy. Business students can use it to identify top-performing open models by size category without deep technical knowledge, but interpreting fine-grained benchmark differences requires more expertise.",
+  "signal_to_noise_ratio": "High — The leaderboard was purely data-driven with standardized evaluation methodology. No editorial content or filler. Every entry was a reproducible benchmark result run on Hugging Face's own compute cluster, ensuring consistency. The main noise came from benchmark gaming and data contamination by some model submitters, which the v2 update attempted to address with harder benchmarks and normalized scoring.",
+  "unique_value_proposition": "Was the single most authoritative and widely-cited public benchmark for open-weight LLMs. Its unique value lay in three factors: (1) standardized evaluation on Hugging Face's own GPU cluster ensuring fair comparison, (2) open submission allowing any model creator to have their model evaluated, and (3) massive scale with 13,000+ models evaluated. No other leaderboard achieved this combination of openness, scale, and community trust. Its retirement in March 2025 leaves a gap now filled by a fragmented ecosystem of 200+ specialized community leaderboards under OpenEvals.",
+  "free_or_paid": "Free — Both browsing results and submitting models for evaluation were entirely free, with Hugging Face providing the compute infrastructure",
+  "source_reliability": "High — Evaluations were run by Hugging Face on their own compute cluster using the open-source EleutherAI LM Evaluation Harness, ensuring reproducibility. Benchmark datasets were well-established academic standards. The main reliability concern was data contamination: some model creators trained on benchmark data, inflating scores. The v2 update (June 2024) addressed this with harder-to-game benchmarks. The leaderboard was transparent about its methodology and limitations.",
+
+  "relevance_for_entrepreneurs": "Essential reference for any entrepreneur building with open-source LLMs. The leaderboard provided objective performance data to inform build-vs-buy decisions: which open model performs best for your use case and parameter budget? It helped entrepreneurs evaluate whether an open-weight model (free to deploy, no API costs) could match proprietary alternatives. Even after retirement, the archived data and successor leaderboards (via OpenEvals) remain valuable for model selection. Understanding how models are benchmarked also helps entrepreneurs evaluate vendor claims critically.",
+  "actionable_insight_level": "High — Directly answers the question 'which open model should I use?' with filterable rankings by size, type, and benchmark. Entrepreneurs can identify the best model for their compute budget and use case.",
+  "session_mapping": "S1 (Fundamentals), S3 (Projects — model selection for AI projects)",
+
+  "active_since": "2023",
+  "last_verified_active": "2025-03-13 (retired on this date; archived data still accessible)",
+  "ecosystem_position": "Was the central benchmarking authority for the open-source LLM ecosystem — a primary source that aggregated standardized evaluation data. It sat at the intersection of model development and deployment decisions, influencing which models gained community adoption. Post-retirement, this role has been distributed across 200+ specialized community leaderboards hosted on HuggingFace under the OpenEvals initiative. The successor discovery tool is at https://huggingface.co/spaces/OpenEvals/find-a-leaderboard",
+
+  "recommendation_tier": "Deep-Dive (use when selecting an open-source model for a specific project; the archived leaderboard and OpenEvals successors remain the go-to reference for open model comparison)",
+
+  "uncertain": ["last_verified_active"]
+}

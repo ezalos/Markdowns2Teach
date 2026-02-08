@@ -1,0 +1,49 @@
+{
+  "identity": {
+    "model_name": "Gemini 3 Flash",
+    "creator": "Google DeepMind",
+    "release_date": "December 2025",
+    "model_family": "Gemini"
+  },
+  "architecture": {
+    "parameter_count": "Undisclosed officially; speculated to be ~1.2T total parameters in an ultra-sparse MoE configuration [uncertain]",
+    "active_parameters": "Undisclosed officially; estimated 5-30B active parameters per forward pass due to ultra-sparse MoE routing, which explains Flash-line speed at frontier quality [uncertain]",
+    "architecture_type": "Sparse Mixture-of-Experts (MoE) Transformer with native multimodal support. Ultra-sparse routing activates only a small fraction of total parameters per token, enabling frontier-level intelligence at Flash-class latency and cost.",
+    "context_window": "1M tokens",
+    "max_output_tokens": "64K tokens"
+  },
+  "capabilities": {
+    "open_or_closed": "Closed/proprietary (API-only). Google offers the separate Gemma open-weight family based on similar research.",
+    "license_type": "Proprietary. Access via Google AI Studio, Vertex AI, Gemini API, Gemini CLI, and Google Antigravity. No open weights. Google offers Gemma models under permissive open licenses as a complementary open-weight alternative.",
+    "reasoning_capability": "Budget-controllable thinking via the thinking_level parameter with four levels: minimal (Gemini 3 Flash exclusive, near-zero reasoning budget), low (constrained reasoning for simple tasks), medium, and high (deep reasoning, the default). Thinking is always on by default — cannot be fully disabled, but minimal constrains it to near-zero. Replaces the older thinking_budget parameter. Dynamic thinking adjusts reasoning depth automatically based on prompt complexity.",
+    "multimodal_support": "Native multimodal input: text, images, video, audio, and PDFs. Text output. Agentic Vision capability combines visual reasoning with code execution to inspect and manipulate images programmatically. Media resolution control via media_resolution parameter (low to ultra-high for images). Supports processing of 3-hour multilingual meetings with speaker identification.",
+    "multilingual_support": "140+ languages supported. French is fully supported across Gemini API and Google Workspace. Strong performance on major European languages. Accurate transcription of multilingual meetings with superior speaker identification.",
+    "agentic_capability": "Advanced agentic capabilities: function calling with support for reasoning across 100+ tools simultaneously, streaming function calling for real-time tool use, Agentic Vision (visual reasoning + code execution for grounded image analysis), multi-step tool use, and structured output. Available in coding IDEs (Cursor, GitHub Copilot, JetBrains, Android Studio) and agent frameworks (LangChain, LlamaIndex, Pydantic AI, n8n). Compatible with Gemini CLI and Google Antigravity for agentic coding workflows."
+  },
+  "benchmarks": {
+    "key_benchmarks": "GPQA Diamond: 90.4%; MMLU-Pro: 88.6%; MMMU-Pro: 81.2% (state-of-the-art for Flash-class model); SWE-bench Verified: 78.0% (outperforms Gemini 3 Pro's 76.2%); HumanEval: 84.1%; LiveCodeBench: 77.2%; Humanity's Last Exam: 33.7% without tools (3x improvement over Gemini 2.5 Flash's 11%); AIME 2025: 99.7% [uncertain]; MATH: 58% [uncertain]",
+    "reasoning_benchmarks_composite": "GPQA Diamond: 90.4% (PhD-level reasoning, second only to Gemini 3 Pro's 91.9%); Humanity's Last Exam: 33.7% without tools; AIME 2025: 99.7% [uncertain]; MMLU-Pro: 88.6%. Represents a massive leap over Gemini 2.5 Flash across all reasoning benchmarks, approaching and sometimes exceeding Gemini 3 Pro performance levels."
+  },
+  "pricing": {
+    "pricing_per_1M_tokens": "$0.50 input / $3.00 output. Audio input: $1.00/1M tokens. Cached input: $0.05/1M tokens (90% discount). Batch API: 50% discount. Free tier available in Google AI Studio and Gemini API for experimentation.",
+    "cost_efficiency_notes": "Represents the most significant price-performance disruption in AI since GPT-3.5 Turbo. At $0.50/$3.00, Gemini 3 Flash delivers 6.8x better value than Claude Sonnet 4.5 when measuring intelligence per dollar. Achieves frontier-class benchmarks (90%+ on GPQA Diamond, 78% on SWE-bench) at a fraction of the cost of competing frontier models. The 90% cache read discount ($0.05/1M) makes repeated-context workloads extremely economical. Google's aggressive pricing strategy aims to drive adoption through the massive Google ecosystem."
+  },
+  "deployment": {
+    "minimum_hardware_requirement": "API-only. No local deployment available. Access through Google AI Studio (free experimentation), Vertex AI (enterprise with SLAs), Gemini API, Gemini CLI, Google Antigravity, and Gemini app.",
+    "quantization_availability": "None — proprietary model with no downloadable weights. Google offers Gemma open-weight models separately for on-device and local deployment needs.",
+    "on_device_capable": "No. Gemini 3 Flash is a cloud-only model. For on-device needs, Google offers Gemini Nano and Gemma models."
+  },
+  "business": {
+    "best_use_cases": "1) High-throughput production workloads: the combination of frontier intelligence, low latency, and aggressive pricing makes it ideal for customer-facing applications at scale (chatbots, search, content generation). 2) Agentic coding and software engineering: 78% SWE-bench Verified score (beating Gemini 3 Pro) plus Agentic Vision for visual debugging, integrated into Gemini CLI, Cursor, and GitHub Copilot. 3) Cost-sensitive reasoning tasks: near-perfect math (AIME 99.7%), strong PhD-level science reasoning (GPQA 90.4%) at 1/4 the cost of competing frontier models — ideal for startups that need quality without burning budget. 4) Long-document and multimodal processing: 1M context window handles entire codebases, legal documents, or financial reports; multimodal input processes documents, images, video, and audio in one call. 5) Rapid prototyping and experimentation: free tier + fast inference + configurable thinking levels let teams iterate quickly on AI features before committing to production budgets.",
+    "relevance_for_entrepreneurs": "Gemini 3 Flash is arguably the most important model for startups in the current landscape because: (1) It demolishes the cost-quality tradeoff — frontier-class intelligence at $0.50/$3.00 means AI features that previously required $3/$15 models are now 6x cheaper, dramatically improving unit economics; (2) The free tier and Google AI Studio lower the barrier to zero for MVPs and prototyping; (3) Default model in the Gemini app (750M+ users) and AI Mode in Search (2B+ users) means building on the same model that consumers already use daily; (4) Configurable thinking levels (minimal to high) let you tune cost vs quality per-request, optimizing spend for different use cases within the same product; (5) 78% SWE-bench means it can serve as a capable coding agent for small engineering teams, reducing development costs. For European entrepreneurs: Google has committed to the EU AI Act Code of Practice and provides GDPR-compliant data processing via Vertex AI with EU data residency options.",
+    "competitive_position": "Strengths: Best price-performance ratio among frontier models; outperforms Gemini 3 Pro on coding benchmarks (SWE-bench 78% vs 76.2%); near-Gemini-3-Pro-level reasoning at 1/4 the cost; 3x faster than Claude Sonnet 4.5 with higher intelligence index (71.3 vs 62.8); massive distribution through Google ecosystem; unique thinking_level controls including minimal mode. Weaknesses: Claude Opus 4.5 leads on SWE-bench Verified (80.9% vs 78%); parameter count and architecture details are undisclosed, limiting independent verification; still in 'preview' status as of early 2026; text-only output (no native image generation unlike Gemini 3 Pro Image variant). Key differentiator: no other model delivers this level of intelligence at Flash-class speed and sub-dollar input pricing.",
+    "ecosystem_and_tooling": "Platforms: Google AI Studio (free), Vertex AI (enterprise), Gemini API, Gemini CLI, Google Antigravity, OpenRouter. IDE integrations: Cursor, GitHub Copilot, JetBrains, Android Studio, Replit, Cline. Frameworks: LangChain, LlamaIndex, AI SDK by Vercel, Pydantic AI, n8n. Integrated into Google products: Gemini app (default model), AI Mode in Search, Google Workspace. Official GenAI SDKs for Python, Node.js, and Java with automatic Thought Signature handling. Batch API for high-volume processing. Firebase AI Logic integration for mobile developers.",
+    "geographic_origin_and_regulation": "US-origin (Google DeepMind, headquartered in Mountain View, CA and London, UK). Google has committed to signing the EU AI Act Code of Practice and provides GDPR-compliant data processing for Workspace and Vertex AI customers. Data can be processed in EU regions via Vertex AI for data sovereignty requirements. As a US company, Google is subject to US jurisdiction (CLOUD Act considerations). Google publishes model cards and safety documentation as required by GPAI provisions under the EU AI Act."
+  },
+  "uncertain": [
+    "parameter_count",
+    "active_parameters",
+    "key_benchmarks",
+    "reasoning_benchmarks_composite"
+  ]
+}

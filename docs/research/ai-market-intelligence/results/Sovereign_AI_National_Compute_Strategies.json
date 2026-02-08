@@ -1,0 +1,42 @@
+{
+  "metric_identity": {
+    "metric_name": "Sovereign AI & National Compute Strategies",
+    "source_report": "Multiple sources: EU AI Continent Action Plan (European Commission, April 2025), NVIDIA Sovereign AI overview, IEA Energy and AI report (October 2025), McKinsey 'The Sovereign AI Agenda' (2025), national government announcements (Saudi PIF/HUMAIN, IndiaAI Mission, UK AI Opportunities Action Plan, US Stargate Project)",
+    "source_url": "https://commission.europa.eu/topics/competitiveness/ai-continent_en",
+    "publication_date": "February 2025 (InvestAI announcement) through January 2026 (ongoing national announcements)",
+    "methodology_notes": "Aggregation of publicly announced government and public-private investment commitments across major sovereign AI programs. Figures combine direct government appropriations, sovereign wealth fund allocations, public-private partnership pledges, and announced corporate co-investments. Key data points: EU InvestAI EUR 200B mobilization target announced at Paris AI Action Summit (Feb 2025), of which EUR 20B earmarked for up to 5 AI Gigafactories; Saudi Arabia HUMAIN launched May 2025 under PIF with multi-hundred-billion-dollar ambition across data centers, chips, and venture capital; India IndiaAI Mission approved at Rs 10,372 crore (~USD 1.25B) over 5 years with 38,000+ GPUs deployed; UK pledged GBP 2B to expand compute capacity twentyfold by 2030; US Stargate Project announced Jan 2025 at up to USD 500B by 2029; Canada CAD 2B Sovereign AI Compute Strategy. Methodological caveat: many figures are announced commitments or mobilization targets, not disbursed spending. Private sector leverage ratios vary significantly."
+  },
+  "metric_value": {
+    "value": "EU: EUR 200B mobilization target (EUR 20B for AI Gigafactories); Saudi Arabia: multi-hundred-billion USD (HUMAIN + ecosystem); India: USD 1.25B (IndiaAI Mission government allocation); UK: GBP 2B; US: USD 500B (Stargate private-sector); Canada: CAD 2B; Combined sovereign wealth fund AI investments: USD 66B in 2025 alone",
+    "unit": "Various currencies (EUR, USD, GBP, CAD, INR)",
+    "geographic_scope": "Global (EU, Saudi Arabia, India, UK, US, Canada, South Korea, Japan, UAE, China, and 40+ other countries with sovereign AI initiatives)",
+    "time_period": "2024-2030 (commitment horizon varies by country)",
+    "comparison_baseline": "NVIDIA sovereign AI revenue was approximately USD 10B in 2024. Prior to 2023, sovereign AI as a distinct policy category barely existed; the term was popularized by NVIDIA CEO Jensen Huang in late 2023. EU digital sovereignty spending was fragmented across Horizon Europe, Digital Europe Programme, and national programs totaling low single-digit billions annually before InvestAI.",
+    "market_layer": "infrastructure"
+  },
+  "trend": {
+    "trend_direction": "Accelerating",
+    "year_over_year_change": "Sovereign AI emerged as a major policy trend in 2024-2025. EU went from EUR 307M in AI-specific investments (2024) to a EUR 200B mobilization framework (2025). Saudi Arabia launched HUMAIN in May 2025 with no prior equivalent. By late 2025, over 40 countries had announced sovereign AI compute programs, up from fewer than 10 in 2023.",
+    "compound_annual_growth_rate": "No single CAGR applies across the heterogeneous sovereign AI landscape. NVIDIA's sovereign AI revenue segment grew from near-zero to ~USD 10B in roughly 2 years (2023-2024). The broader AI infrastructure market is growing at approximately 36-49% CAGR (Gartner 2025-2027 estimate for AI infrastructure segment).",
+    "forecast_value": "EU targets EUR 20B annual AI investment by 2030. IEA projects global data center capacity to more than double by 2030. Gartner forecasts AI infrastructure spending at USD 1.75T by 2027. By 2027, sovereign AI models are expected to be launched in at least 25 countries (Gartner prediction).",
+    "forecast_year": "2027-2030",
+    "velocity_indicator": "Time from concept to national policy: sovereign AI went from niche concept (2023) to 40+ country programs in under 2 years. Saudi HUMAIN went from announcement (May 2025) to 6.6 GW planned data center capacity and 600,000 GPU procurement in under 6 months."
+  },
+  "entrepreneurial_relevance": {
+    "relevance_for_entrepreneurs": "Sovereign AI represents a fundamental restructuring of the AI compute market from purely commercial cloud providers to government-backed national infrastructure. For European entrepreneurs specifically, this is transformative: the EU's EUR 200B InvestAI framework and 5 planned AI Gigafactories will create subsidized compute access (similar to India's Rs 65/hour GPU access program), reducing one of the biggest barriers to AI startup formation. The shift means startups can potentially access sovereign compute at below-market rates, but it also means navigating data residency requirements, compliance with local AI regulations (EU AI Act), and aligning with national strategic priorities. In the Middle East, HUMAIN's USD 10B venture capital fund creates a massive new funding source for AI startups willing to operate in the Saudi ecosystem. For French startups, France's role hosting Europe's second exascale supercomputer (Alice Recoque, EUR 554M) and its AI Factory within EuroHPC creates a privileged position in the European sovereign AI stack. The geopolitical dimension is critical: sovereign AI policies may fragment the global AI market into regional blocs, creating opportunities for startups that can navigate multi-jurisdictional deployments but risks for those dependent on a single cloud provider or geography.",
+    "actionable_insight": "European AI startups should actively monitor and apply for compute access through EU AI Gigafactory programs and national sovereign AI initiatives (France's AI Factory, EuroHPC allocations). Consider building products that align with sovereign AI priorities: data sovereignty, multilingual models, GDPR-compliant AI, and sector-specific applications (healthcare, defense, energy). The Middle East sovereign AI investment wave (HUMAIN, UAE Stargate, Mubadala) represents an underexploited funding and partnership opportunity for startups with Arabic-language AI or energy/infrastructure applications. Build vs Buy decisions should factor in the emerging availability of subsidized sovereign compute as an alternative to hyperscaler pricing.",
+    "session_mapping": "1, 3, 4",
+    "risk_profile": "concentration_risk"
+  },
+  "confidence": {
+    "data_quality": "Medium",
+    "cross_reference": "EU InvestAI EUR 200B figure confirmed across European Commission official communications, Euronews, William Fry, Perkins Coie, and Digital Skills & Jobs Platform. Saudi HUMAIN details confirmed across PIF official release, CNBC, CNN, CIO.com, and PRNewswire. IndiaAI Mission Rs 10,372 crore confirmed by PIB (Press Information Bureau of India) and IndiaAI.gov.in. UK GBP 2B confirmed by GOV.UK, Computer Weekly, Osborne Clarke, and Sifted. US Stargate USD 500B confirmed by OpenAI, CNN, CBS News, Yahoo Finance, and IEEE Spectrum. Canada CAD 2B confirmed by NVIDIA and NexGenCloud. Sovereign wealth fund USD 66B in AI for 2025 reported by Gulf News citing LSEG data.",
+    "caveats": "The figures cited represent announced commitments and mobilization targets, not actual disbursed spending. The EU EUR 200B figure includes EUR 150B in anticipated private sector investments that may not fully materialize. Saudi Arabia's 'multi-hundred-billion' ambition spans multiple entities (HUMAIN, Alat, PIF) with overlapping mandates and potential double-counting. The US Stargate USD 500B is a private-sector commitment facilitated by government policy, not direct government spending. India's Rs 10,372 crore is modest compared to private sector commitments (Microsoft Rs 1.5 lakh crore, Amazon Rs 2.9 lakh crore). Many programs are in early stages; actual deployment timelines and final spending may differ significantly from announcements. The 'sovereign AI' framing is partly an NVIDIA marketing construct that aligns with genuine national security and economic sovereignty concerns.",
+    "measurement_reliability": "projection_range"
+  },
+  "uncertain": [
+    "compound_annual_growth_rate",
+    "comparison_baseline",
+    "velocity_indicator"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "identity": {
+    "company_name": "Amazon Web Services (AWS)",
+    "headquarters": "Seattle, USA",
+    "headquarters_region": "US",
+    "founded_year": 2006
+  },
+  "value_chain": {
+    "role_in_value_chain": "cloud",
+    "value_chain_position": "Core infrastructure layer of the AI value chain. AWS sits between hardware manufacturers (NVIDIA GPUs, plus its own Trainium/Inferentia custom silicon fabricated by TSMC) and the application/model layers above. It serves AI labs (Anthropic, OpenAI), enterprises, and startups with compute, storage, networking, and managed AI services. AWS also develops its own foundation models (Amazon Nova) and hosts third-party models via Bedrock, making it both a cloud provider and an emerging model hub/API provider.",
+    "vertical_integration_level": "Multi-layer"
+  },
+  "products": {
+    "key_products": [
+      "Amazon Bedrock: fully managed service providing access to foundation models from Anthropic (Claude), Meta (Llama), Mistral, Stability AI, Amazon (Nova), and others via API. Described by Amazon as aiming to be 'as big as EC2' long-term. Multi-billion-dollar annualized run rate business as of Q4 2025.",
+      "Custom AI Silicon (Trainium & Inferentia): Trainium2 chips for AI training (30-40% more price-performant than comparable GPUs), with 1.4M+ chips deployed and Project Rainier cluster (~500K Trainium2 chips for Anthropic). Trainium3 announced at re:Invent 2025 with 40% improvement over Trainium2. Inferentia chips optimized for inference workloads.",
+      "Amazon SageMaker: end-to-end ML platform for building, training, and deploying models. Now includes serverless model customization and unified data/AI governance. Combined with Bedrock, forms AWS's complete AI/ML stack."
+    ]
+  },
+  "business": {
+    "revenue_or_valuation": "AWS FY2025 revenue: $128.7B (+20% YoY). Q4 2025 quarterly revenue: $35.58B (+24% YoY). Annualized run rate: $142B. AWS operating income Q4 2025: $12.47B (35% operating margin). Amazon parent company market cap: ~$2.25T (Feb 2026).",
+    "annual_recurring_revenue_arr": "Not a traditional SaaS/ARR model. Usage-based cloud revenue. AWS annualized revenue run rate of $142B as of Q4 2025. Bedrock separately described as a multi-billion-dollar annualized run rate business. Trainium is a multi-billion-dollar business growing 150% quarter-over-quarter.",
+    "funding_total_and_last_round": "Division of Amazon.com, Inc. (NASDAQ: AMZN), a public company since 1997. No separate funding rounds. Amazon total market cap ~$2.25T (Feb 2026). Amazon plans ~$200B capex in 2026, predominantly for AWS.",
+    "business_model": "Usage-based cloud computing (pay-as-you-go for compute, storage, networking, AI services). Revenue streams include: EC2/compute instances, S3 storage, managed AI services (Bedrock per-token pricing, SageMaker), data transfer fees, support contracts, and marketplace commissions. AWS generates the majority of Amazon's operating profit (~$45.6B operating income in FY2025).",
+    "burn_rate_and_runway": "Not applicable. AWS is a highly profitable division of Amazon. FY2025 AWS operating income: $45.6B. Massive positive cash flow funding Amazon's overall operations."
+  },
+  "openness": {
+    "open_vs_closed_spectrum": "Hybrid. AWS hosts open-weight models (Llama, Mistral) on Bedrock alongside closed models (Claude, Nova). Leads 1,200+ open-source projects on GitHub. Core cloud services are proprietary. Amazon Nova models are closed. Trainium/Inferentia chips use proprietary Neuron SDK. Historically controversial relationship with open source (forking Elasticsearch into OpenSearch, etc.)."
+  },
+  "startup_relevance": {
+    "relevance_for_startups": "AWS is the largest cloud platform and the default infrastructure choice for a majority of AI startups. Entrepreneurs should understand: (1) AWS offers the broadest service catalog (200+ services), meaning startups can build almost anything without leaving the ecosystem, but this creates significant switching costs and vendor lock-in; (2) Bedrock provides easy API access to multiple foundation models (Claude, Llama, Mistral, Nova), letting startups compare and switch models without infrastructure changes -- critical for cost optimization; (3) Trainium/Inferentia custom chips offer 30-40% cost savings over NVIDIA GPUs for training and inference, which directly improves unit economics for AI-heavy startups; (4) AWS holds ~29-30% cloud market share with 4.19M+ customers, meaning most enterprise buyers already have AWS accounts -- this reduces friction for B2B AI startups selling to enterprises; (5) The $38B OpenAI deal and $8B Anthropic investment signal that the largest AI labs run on AWS, validating its AI infrastructure; (6) AWS Activate offers up to $100K in credits (up to $300K for foundation model builders), with an additional marketplace of $800K in third-party tool credits; (7) The $200B planned capex for 2026 means AWS is massively expanding capacity, reducing the GPU/compute scarcity that has constrained AI startups.",
+    "accessibility": "Very accessible for startups. AWS Activate Founders: $1K credits for self-funded startups. AWS Activate Portfolio: up to $100K credits for VC-backed startups. Generative AI tier: up to $300K for foundation model builders. Free tier includes 12 months of limited EC2, S3, Lambda, and other services. Bedrock pricing is per-token (pay only for what you use). SageMaker offers serverless options. 92% of AWS customers spend under $1K/month. Extensive documentation, tutorials, and community support.",
+    "primary_model_dependency": "None as a cloud provider. AWS develops its own Amazon Nova models and hosts third-party models (Claude, Llama, Mistral) via Bedrock. Strategic dependency on Anthropic (Claude) as a key differentiating model on the platform."
+  },
+  "ecosystem": {
+    "key_partnerships": "Anthropic: $8B investment, primary cloud/training partner, Project Rainier (~500K Trainium2 chips), dedicated $11B data center campus. OpenAI: $38B capacity deal signed Nov 2025 to run workloads on AWS GPUs. NVIDIA: major customer for GPUs deployed across AWS regions. TSMC: fabrication partner for Trainium and Graviton chips. Enterprise partners: SAP, Salesforce, Databricks, Snowflake integrated with AWS. Startup ecosystem: 4.19M+ customers, AWS Partner Network with thousands of ISVs and consulting partners.",
+    "competitive_moat": "Largest cloud infrastructure (29-30% global market share). Broadest service portfolio (200+ services). Massive installed base (4.19M customers) creates network effects and ecosystem lock-in. Custom silicon (Trainium, Inferentia, Graviton) provides unique price-performance advantages unavailable elsewhere. First-mover advantage in cloud (launched 2006, years ahead of competitors). Bedrock's multi-model approach makes it a one-stop shop for AI model access. $200B planned 2026 capex creates capacity barriers to entry. Deep enterprise relationships and compliance certifications across industries.",
+    "data_moat_type": "Distribution / Network effects"
+  },
+  "regulatory": {
+    "regulatory_exposure": "Exempt as cloud infrastructure provider under EU AI Act (not a GPAI provider for third-party models hosted on Bedrock). However, Amazon Nova models may qualify as GPAI, subjecting them to transparency and documentation obligations from August 2025. Amazon is a signatory of the EU General-Purpose AI Code of Practice. US CLOUD Act creates sovereignty tensions with EU customers (US providers can be compelled to hand over EU-hosted data). AWS offers EU-specific regions and data residency controls but jurisdictional conflict remains a concern for European regulators."
+  },
+  "uncertain": [
+    "annual_recurring_revenue_arr",
+    "burn_rate_and_runway"
+  ]
+}

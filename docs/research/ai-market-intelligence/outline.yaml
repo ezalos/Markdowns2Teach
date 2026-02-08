@@ -1,0 +1,161 @@
+# ABOUTME: Research outline for AI Market Intelligence 2024-2026.
+# ABOUTME: Verified statistics, market reports, and key metrics for entrepreneurial decision-making.
+
+topic: "AI Market Intelligence 2024-2026"
+description: >
+  Verified, citable statistics and market data for the AI industry — adoption rates,
+  investment volumes, cost curves, regional data, and risk indicators. Emphasis on
+  metrics actionable for entrepreneurs, with French/European context.
+time_range: "since 2024"
+session: 1
+
+items:
+  # Major Reports & Indices
+  - name: "Stanford HAI AI Index Report 2025"
+    category: "report"
+    notes: "Most comprehensive annual survey — technical, economic, policy dimensions"
+  - name: "McKinsey Global Survey on AI 2025"
+    category: "report"
+    notes: "Enterprise adoption rates, revenue impact, organizational readiness"
+  - name: "State of AI Report 2025 (Benaich & Hogarth)"
+    category: "report"
+    notes: "Independent annual report covering research, industry, politics, safety"
+  - name: "CB Insights State of AI Report"
+    category: "report"
+    notes: "Startup funding, deal flow, emerging categories"
+  - name: "Gartner Total AI Spending Forecast"
+    category: "report"
+    notes: "$1.5T in 2025, $2.52T in 2026 (+44% YoY) — most authoritative aggregate figure"
+  - name: "Epoch AI Compute Tracking"
+    category: "report"
+    notes: "Training compute trends, cost curves, hardware efficiency"
+
+  # Global Market Metrics
+  - name: "Global AI Investment Volumes"
+    category: "market_metric"
+    notes: "$252B+ private AI investment in 2024, corporate + government spending"
+  - name: "Generative AI Market Size"
+    category: "market_metric"
+    notes: "GenAI-specific sizing — Bloomberg, Grand View Research, S&P Global estimates"
+  - name: "AI Infrastructure Capex"
+    category: "market_metric"
+    notes: "Hyperscaler spending: Microsoft $97B, Google $75B, Amazon $200B planned"
+  - name: "AI Application Layer Revenue Distribution"
+    category: "market_metric"
+    notes: "$19B in 2025, >50% of GenAI spending, startups earn $2 for every $1 incumbents earn"
+  - name: "Agentic AI Market Size"
+    category: "market_metric"
+    notes: "$7.29B in 2025, projected $139B by 2034 (40.5% CAGR), 40% enterprise apps by 2026"
+  - name: "Frontier AI Lab Revenue Benchmarks"
+    category: "market_metric"
+    notes: "OpenAI ~$20B ARR, Anthropic ~$9B ARR, Microsoft AI $13B revenue"
+
+  # Cost & Efficiency Metrics
+  - name: "AI Training Cost Reduction Curve"
+    category: "cost_metric"
+    notes: "280x reduction since 2017 (Epoch AI), implications for startups"
+  - name: "LLM API Pricing Trends"
+    category: "cost_metric"
+    notes: "Price per million tokens over time, race to the bottom"
+  - name: "Small Language Models & Edge AI Economics"
+    category: "cost_metric"
+    notes: "On-device AI cuts cloud costs 70-80%, 7B models 10-30x cheaper to serve"
+
+  # Adoption & Growth Metrics
+  - name: "AI Adoption Rates by Industry"
+    category: "adoption_metric"
+    notes: "McKinsey: 78% of organizations using AI in 2024, sector-by-sector breakdown"
+  - name: "AI-First Company Growth Metrics"
+    category: "adoption_metric"
+    notes: "Time-to-$100M ARR, revenue growth rates, AI unicorn creation velocity"
+  - name: "AI Unicorn Creation Velocity"
+    category: "adoption_metric"
+    notes: "36 of 46 recent unicorns are AI, average 4.7 years to unicorn, Lovable in 8 months"
+  - name: "Enterprise AI ROI & Productivity"
+    category: "adoption_metric"
+    notes: "72% measuring ROI, 74% achieve within first year, but median only 10%"
+
+  # Infrastructure & Strategic
+  - name: "Stargate Project"
+    category: "infrastructure"
+    notes: "$500B US AI infrastructure initiative — OpenAI, Oracle, SoftBank, NVIDIA"
+  - name: "Sovereign AI & National Compute Strategies"
+    category: "infrastructure"
+    notes: "EU EUR 20B, Saudi HUMAIN, India IndiaAI, US $800B+ cumulative"
+  - name: "AI Energy & Data Center Power"
+    category: "infrastructure"
+    notes: "183 TWh in 2024 (4%+ US electricity), growing 5x to 432 TWh by 2030"
+  - name: "AI Custom Silicon & Inference Market"
+    category: "infrastructure"
+    notes: "Custom chips reaching 45% by 2028, NVIDIA 86% GPU share but faces disruption"
+  - name: "AI Training Data & Synthetic Data Market"
+    category: "infrastructure"
+    notes: "$3.2B training data market, $447M synthetic data market, growing 22-35% CAGR"
+
+  # Regional & European Focus
+  - name: "European AI Investment Data"
+    category: "regional"
+    notes: "Total EU AI investment, comparison vs. US/China, key deals"
+  - name: "French AI Ecosystem Stats"
+    category: "regional"
+    notes: "France Digitale, La French Tech AI, Bpifrance, Mistral as European champion"
+  - name: "China AI Investment & DeepSeek Effect"
+    category: "regional"
+    notes: "DeepSeek R1 $5.6M training cost claim, ~$1T stock market impact, export controls"
+  - name: "AI IPO Pipeline 2026"
+    category: "regional"
+    notes: "CoreWeave IPO, OpenAI restructure, Anthropic/Databricks signals"
+
+  # Labor & Talent
+  - name: "AI Talent Market Data"
+    category: "labor"
+    notes: "Salaries, hiring trends, geographic distribution, skills gap"
+  - name: "AI Labor Market Impact & Job Displacement"
+    category: "labor"
+    notes: "WEF: +170M created, -92M displaced = net +78M by 2030"
+
+  # Risk & Governance
+  - name: "AI Bubble Risk Indicators"
+    category: "risk"
+    notes: "S&P 500 concentration, 95% zero ROI (MIT), balance sheet health (Morgan Stanley)"
+  - name: "AI Safety Spending Gap"
+    category: "risk"
+    notes: "$133M total safety org spending in 2025, less than frontier labs burn in a day"
+  - name: "Global AI Regulation Divergence"
+    category: "risk"
+    notes: "EU AI Act Aug 2026, US deregulation, UK binding mandates, regulatory arbitrage"
+  - name: "EU AI Act Economic Impact"
+    category: "risk"
+    notes: "EUR 160K-330K compliance cost per EU startup for high-risk, market effects"
+
+  # Competition & Ecosystem
+  - name: "Open-Source vs. Closed Model Market Share"
+    category: "competition"
+    notes: "Hugging Face downloads, API distribution, enterprise preferences"
+  - name: "AI Patent Race"
+    category: "competition"
+    notes: "China 817K patents but US cited 7x more, Europe share declining (9.7%)"
+  - name: "Statista AI Market Data"
+    category: "report"
+    notes: "Market size forecasts, revenue by segment, regional breakdowns"
+  - name: "PitchBook AI & ML Data"
+    category: "report"
+    notes: "VC deal activity, valuations, exit data"
+
+  # Sector-Specific
+  - name: "AI in Enterprise Software"
+    category: "sector"
+    notes: "SaaS+AI adoption, copilot attach rates, productivity gains"
+  - name: "Embodied AI & Humanoid Robotics Market"
+    category: "sector"
+    notes: "$40.7B in 2025, Goldman: 50-100K units in 2026, Morgan Stanley: $5T by 2050"
+
+  # Mistral specific (European champion case)
+  - name: "Mistral AI as European AI Champion"
+    category: "regional"
+    notes: "EUR 1.7B Series C, EUR 11.7B valuation, largest European AI round ever"
+
+execution:
+  batch_size: 3
+  items_per_agent: 2
+  output_dir: "./results"

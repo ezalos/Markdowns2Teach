@@ -1,0 +1,30 @@
+{
+  "resource_name": "ActuIA",
+  "resource_type": "Blog / News Portal / Magazine",
+  "creator_or_organization": "Net Square Digital SAS, directed by Stephane Nachez (Publisher Director) and Johanna Diaz (Editor-in-Chief), based in Paris, France",
+  "url": "https://www.actuia.com",
+  "language": "French (also available in 15 languages including English at actuia.com/en/)",
+
+  "content_focus": "Comprehensive coverage of the AI ecosystem with a strong French and European angle. Topics include: AI research and technological advances, French and European AI startups, EU AI Act and regulation, industry applications (healthcare, industry 4.0, cybersecurity, music), AI market analysis and forecasts, ethics and societal impacts, strategic reports and exclusive interviews with industry leaders. The portal also maintains an 'actors' directory mapping the French AI ecosystem (companies, institutions, labs). Strong emphasis on the business/strategic dimension of AI rather than pure technical tutorials.",
+  "target_audience": "AI professionals, entrepreneurs, business leaders, researchers, and informed enthusiasts interested in the French and European AI ecosystem",
+  "publication_frequency": "Daily (news portal articles published multiple times per week on the website), Quarterly (68-page print/digital magazine), Irregular (podcast episodes)",
+  "format_and_length": "Multiple formats: (1) Web articles — typically 3-7 min reads covering news, analysis, and ecosystem updates; (2) Quarterly magazine — 68 pages of in-depth expert content with strategic reports and interviews; (3) Podcast 'Intelligence artificielle - ActuIA' — interview and news episodes of varying length, available on Apple Podcasts, Spotify, and YouTube; (4) Actor/ecosystem directory pages",
+
+  "accessibility_for_non_engineers": "High — ActuIA's explicit mission is to 'demystify AI and make it accessible to all, regardless of skill level or knowledge.' Content is written for a business and professional audience, not primarily for engineers. Articles are framed around business impact, regulation, and ecosystem mapping rather than technical implementation details. French language makes it particularly accessible for francophone business students.",
+  "signal_to_noise_ratio": "Medium-High — Strong editorial curation with a clear focus on the French/European AI ecosystem. The quarterly magazine provides high signal-to-noise with curated expert content. The daily news portal can be more news-aggregation oriented but maintains good quality standards with an ISSN-registered publication (ISSN 2968-6261).",
+  "unique_value_proposition": "The leading French-language AI media platform, offering the most comprehensive coverage of the French and European AI ecosystem. Unique combination of daily news portal, quarterly magazine, podcast, and ecosystem directory. First B2B AI information platform to offer content in 15 languages. Over 250,000 unique monthly visitors. Particularly strong on EU AI Act coverage, French AI startups (Mistral AI, etc.), and the intersection of AI with European business strategy.",
+  "free_or_paid": "Freemium — Website articles are free. Quarterly print magazine requires subscription (1-year / 4 issues, price available on boutique.actuia.com). Complete digital archive collection available for approximately 20 EUR. Podcast is free.",
+  "source_reliability": "High — ISSN-registered publication (ISSN 2968-6261), professional editorial team with named Publisher Director and Editor-in-Chief, published by a registered French company (Net Square Digital SAS, Paris). Operating since 2017 with consistent publication history. Content is well-sourced with references to official reports, company announcements, and regulatory documents. Has established relationships with major French AI ecosystem actors (Hub France IA, France Digitale, etc.).",
+
+  "relevance_for_entrepreneurs": "Highly relevant for AI entrepreneurs targeting the French/European market. Provides essential intelligence on: (1) EU AI Act compliance requirements and timelines, (2) French AI startup ecosystem mapping and funding landscape, (3) Market sizing and forecasts for AI in Europe, (4) Strategic interviews with French AI leaders, (5) Industry-specific AI adoption trends in France (healthcare, industry 4.0, etc.). The actors directory is a practical networking resource for the French AI ecosystem.",
+  "actionable_insight_level": "Medium — Strong on strategic awareness and ecosystem intelligence. The magazine's strategic reports and interviews provide actionable business insights. Daily news is more informational than directly actionable but helps entrepreneurs stay current on regulatory changes (AI Act deadlines) and market shifts that require business decisions.",
+  "session_mapping": "S1 (Fundamentals — French AI ecosystem overview), S4 (Business Models — AI market intelligence and startup ecosystem), S5 (Ethics/Governance — EU AI Act coverage)",
+
+  "active_since": "2017",
+  "last_verified_active": "2026-02-08",
+  "ecosystem_position": "Primary source and aggregator — ActuIA occupies the position of the leading French-language AI media platform. It functions as both a primary source (original interviews, magazine reports, ecosystem directory) and an aggregator (curating and reporting on AI news from French and international sources). It bridges the gap between international AI news and the French/European context, serving as a key information hub for the francophone AI community.",
+
+  "recommendation_tier": "Must-Follow (for French/European AI context — check weekly for EU regulation updates and French ecosystem news)",
+
+  "uncertain": ["publication_frequency"]
+}

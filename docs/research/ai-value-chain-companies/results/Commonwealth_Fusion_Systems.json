@@ -1,0 +1,53 @@
+{
+  "identity": {
+    "company_name": "Commonwealth Fusion Systems",
+    "headquarters": "Devens, Massachusetts, US",
+    "headquarters_region": "US",
+    "founded_year": 2018
+  },
+  "value_chain": {
+    "role_in_value_chain": "energy_infrastructure",
+    "value_chain_position": "CFS operates at the deepest upstream layer of the AI value chain — energy generation. It depends on advanced superconducting magnet technology (HTS magnets) and physics R&D from MIT. If successful, it will serve hyperscalers (Google, Microsoft) and data center operators who need massive, clean baseload power for AI workloads. Google has already signed a 200 MW Power Purchase Agreement for CFS's first ARC plant.",
+    "vertical_integration_level": "Single-layer"
+  },
+  "products": {
+    "key_products": [
+      "SPARC — compact tokamak fusion demonstration machine under construction in Devens, MA; targeting first plasma in 2026-2027 and net energy (Q>1) demonstration",
+      "ARC — planned first commercial fusion power plant (400 MW capacity) in Chesterfield County, Virginia; targeting early 2030s grid connection",
+      "High-Temperature Superconducting (HTS) Magnets — record-breaking 20-tesla large-bore magnets, the enabling technology for compact fusion"
+    ]
+  },
+  "business": {
+    "revenue_or_valuation": "Estimated valuation: $5-6B (based on ~$3B total funding and comparable analysis). Pre-commercial: negligible product revenue. Some estimates cite ~$5.9M peak revenue in 2023, likely from contracts, grants, or magnet technology licensing. Source: Growjo, CBInsights.",
+    "annual_recurring_revenue_arr": "Not applicable — CFS is a pre-commercial deep tech company. No recurring product revenue yet. Revenue will come from Power Purchase Agreements (PPAs) once ARC plant is operational in early 2030s.",
+    "funding_total_and_last_round": "Total raised: ~$3B (approximately one-third of all private fusion investment globally). Last round: $863M Series B2 (August 2025), following $1.8B Series B (2021). Investors include Google, Counterpoint Global (Morgan Stanley), NVentures (NVIDIA), Stanley Druckenmiller, Tiger Global, Breakthrough Energy Ventures, Temasek, Khosla Ventures.",
+    "business_model": "Long-term Power Purchase Agreements (PPAs) for clean baseload electricity. Google has signed for 200 MW from the first ARC plant. Future revenue model is selling fusion-generated electricity to utilities, hyperscalers, and industrial customers. Near-term, potential licensing of HTS magnet technology. [uncertain]",
+    "burn_rate_and_runway": "Not publicly disclosed. With ~800 employees and massive R&D/construction costs for SPARC and ARC, burn rate is likely very high (estimated hundreds of millions per year). The $863M Series B2 (2025) on top of prior funding provides runway through SPARC completion and into ARC development. [uncertain]"
+  },
+  "openness": {
+    "open_vs_closed_spectrum": "Closed — CFS is a proprietary hardware and energy company. Core magnet technology and fusion reactor designs are proprietary IP. Some academic publications with MIT, but commercial technology is fully closed."
+  },
+  "startup_relevance": {
+    "relevance_for_startups": "CFS represents the long-term answer to the AI industry's biggest bottleneck: energy. For AI entrepreneurs, CFS matters as a signal of where the energy supply for AI infrastructure is heading. If fusion succeeds, it could dramatically reduce compute costs by providing abundant, clean baseload power — potentially reshaping the economics of AI training and inference. In the near term (2025-2030), CFS is not directly usable by startups, but its trajectory affects strategic planning: startups building for the 2030+ horizon should factor in the possibility of dramatically cheaper energy. Google's 200 MW PPA validates the commercial model. CFS also demonstrates the deep tech startup playbook: MIT spinout, massive R&D investment, long timelines, strategic corporate partnerships.",
+    "accessibility": "Not accessible to startups as a product or service today. CFS is pre-commercial. First power delivery expected in early 2030s via ARC plant. No API, no cloud service, no platform to build on. Relevant only as a strategic signal for long-term planning and as a case study in deep tech entrepreneurship.",
+    "primary_model_dependency": "None — CFS is a physical energy infrastructure company. Uses AI tools (Google DeepMind TORAX for plasma simulation, NVIDIA Omniverse/Siemens for digital twin) but does not depend on any foundation model for its core product."
+  },
+  "ecosystem": {
+    "key_partnerships": [
+      "Google — 200 MW PPA for ARC plant, Google DeepMind collaboration on TORAX plasma simulation software, strategic investor",
+      "MIT — original spinout, ongoing research collaboration on plasma physics and magnet technology",
+      "NVIDIA (NVentures) — investor, Omniverse digital twin collaboration for SPARC",
+      "Siemens — industrial software partnership for SPARC digital twin (announced CES 2026)",
+      "Breakthrough Energy Ventures (Bill Gates) — early and continued investor"
+    ],
+    "competitive_moat": "CFS's moat rests on its proprietary high-temperature superconducting (HTS) magnet technology, which demonstrated a record 20-tesla field in 2021 — the key breakthrough enabling compact, commercially viable fusion. This gives CFS a multi-year lead over competitors. Deep MIT collaboration provides ongoing physics and engineering talent pipeline. Having raised ~$3B (one-third of all private fusion capital), CFS has a massive capital moat. The Google PPA and hyperscaler relationships provide demand-side validation. SPARC's construction progress (first magnet placed January 2026) is the most advanced demonstration of commercial fusion in the world.",
+    "data_moat_type": "Proprietary training data"
+  },
+  "regulatory": {
+    "regulatory_exposure": "Exempt — CFS is an energy company, not an AI provider. Not subject to EU AI Act. Subject to nuclear regulatory frameworks (NRC in the US) for fusion reactor licensing, though fusion benefits from lighter regulation than fission as it produces no long-lived radioactive waste. CFS actively lobbies for favorable fusion regulatory treatment. Virginia site selection for ARC plant reflects supportive state regulatory environment."
+  },
+  "uncertain": [
+    "business_model",
+    "burn_rate_and_runway"
+  ]
+}

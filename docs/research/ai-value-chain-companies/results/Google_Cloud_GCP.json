@@ -1,0 +1,47 @@
+{
+  "identity": {
+    "company_name": "Google Cloud (GCP)",
+    "headquarters": "Sunnyvale, USA",
+    "headquarters_region": "US",
+    "founded_year": 2008
+  },
+  "value_chain": {
+    "role_in_value_chain": "cloud",
+    "value_chain_position": "Core infrastructure and AI platform layer. Google Cloud sits between its own custom hardware (TPUs designed in-house, fabricated by Broadcom/TSMC) and the application layer above. Uniquely integrated with Google DeepMind, giving it first-party access to Gemini models. Serves AI labs (Anthropic uses TPUs), enterprises, and startups with compute, storage, AI/ML services, and managed model APIs via Vertex AI. Also competes at the model layer through Gemini, making it simultaneously a cloud provider, model creator, and API provider.",
+    "vertical_integration_level": "Full-stack"
+  },
+  "products": {
+    "key_products": [
+      "Vertex AI & Gemini: unified AI development platform with access to Gemini models (Google DeepMind), 200+ open models via Model Garden, and tools for fine-tuning, RAG, agents, and deployment. 4M+ developers building with Gemini, 20x YoY usage growth. Includes Vertex AI Search, Vertex AI Agents, and enterprise-grade AI solutions.",
+      "Cloud TPUs (Tensor Processing Units): custom AI accelerators now in 7th generation (Ironwood, announced 2025). Ironwood offers 5x peak compute and 6x HBM vs prior generation Trillium. TPUs power both Google's own AI (Search, YouTube, Gemini) and external customers (Anthropic's 1GW+ deal). Unique hardware competitive advantage unavailable on other clouds.",
+      "Google Kubernetes Engine (GKE) & Core Cloud Infrastructure: enterprise cloud platform with compute (Compute Engine), storage (Cloud Storage, BigQuery), data analytics (BigQuery, Looker), and Kubernetes orchestration. Google originated Kubernetes and maintains leadership in cloud-native container orchestration."
+    ]
+  },
+  "business": {
+    "revenue_or_valuation": "Google Cloud FY2025 revenue: ~$58.8B (Q1: $12.3B, Q2: $13.6B, Q3: $15.2B, Q4: $17.7B). Q4 2025 growth: +48% YoY. Annualized run rate exceeding $70B. Q4 operating income: $5.3B (30.1% operating margin, up from 17.5% a year prior). Cloud backlog: $240B (doubled YoY). Alphabet parent company market cap: ~$4T (Feb 2026).",
+    "annual_recurring_revenue_arr": "Not a traditional SaaS/ARR model. Usage-based cloud revenue plus Google Workspace subscriptions. Annualized run rate exceeding $70B as of end 2025. AI-related products (infrastructure + solutions) generating billions in quarterly revenue with growth accelerating throughout 2025.",
+    "funding_total_and_last_round": "Division of Alphabet Inc. (NASDAQ: GOOGL), public company. No separate funding rounds. Alphabet total market cap ~$4T (Feb 2026). Alphabet plans $75B capex in 2025 and up to $185B in 2026, with significant allocation to Google Cloud AI infrastructure.",
+    "business_model": "Usage-based cloud computing (pay-as-you-go for compute, storage, AI services). Revenue streams include: Compute Engine instances, Cloud Storage, BigQuery data analytics, Vertex AI (per-token/per-request for Gemini API, training compute hours), TPU compute time, Google Workspace subscriptions (per-user/month), support contracts, and marketplace commissions. Google Cloud turned consistently profitable in 2023 and operating margins have expanded rapidly to 30%+ by Q4 2025.",
+    "burn_rate_and_runway": "Not applicable. Google Cloud is a profitable division of Alphabet. Q4 2025 operating income: $5.3B. Alphabet FY2025 net income: $34.5B. Massive positive cash flow."
+  },
+  "openness": {
+    "open_vs_closed_spectrum": "Hybrid. Strong open-source heritage: created Kubernetes, TensorFlow, JAX, Kubeflow, and contributed to many foundational AI/ML tools. Gemma open-weight models released under permissive licenses. Gemini flagship models are closed/API-only. Cloud services are proprietary. TPU hardware is proprietary (only available on GCP). Model Garden hosts 200+ open models. Overall more open-source-friendly than AWS or Azure historically, but core competitive advantages (Gemini, TPUs) remain closed."
+  },
+  "startup_relevance": {
+    "relevance_for_startups": "Google Cloud is a compelling choice for AI-native startups due to its unique combination of first-party AI models, custom hardware, and aggressive startup incentives. Entrepreneurs should understand: (1) Vertex AI + Gemini provides a tightly integrated stack from model API to fine-tuning to deployment, reducing the 'glue code' burden that plagues multi-vendor setups; (2) TPUs offer a genuine alternative to NVIDIA GPUs -- Anthropic chose Google TPUs for next-gen Claude training, validating TPU competitiveness for frontier AI; (3) Google Cloud's 48% Q4 growth rate (fastest among hyperscalers) signals momentum and continued investment, meaning the platform will keep improving rapidly; (4) DeepMind integration means Gemini models benefit from Google's $30B+ annual R&D, giving startups building on Gemini access to capabilities funded at a scale no startup could match; (5) The $240B cloud backlog signals massive enterprise demand, validating GCP as enterprise-ready (historically a weakness vs AWS); (6) Google for Startups Cloud Program offers up to $350K in credits for AI startups over 2 years, one of the most generous programs available; (7) BigQuery and data analytics tools are best-in-class for data-intensive AI applications; (8) Kubernetes expertise (Google created K8s) matters for startups planning multi-cloud or hybrid deployments.",
+    "accessibility": "Very accessible with the most generous AI startup credits. Google for Startups Cloud Program: up to $200K credits over 2 years (standard), up to $350K for AI startups (Year 1: 100% up to $250K, Year 2: 20% up to $100K). Early-stage unfunded startups: $2K credits. Additional $10K for partner LLM models via Model Garden. $300 free trial credits for all new users. Vertex AI offers per-token Gemini API pricing competitive with OpenAI/Anthropic. TPU access available on-demand and via reserved capacity. Free tier includes limited Compute Engine, Cloud Storage, BigQuery usage. Extensive documentation, Colab integration, and Qwiklabs for learning.",
+    "primary_model_dependency": "Self-sufficient. Google Cloud develops Gemini models internally through Google DeepMind. Also hosts third-party models (Claude, Llama, Mistral) via Vertex AI Model Garden and has a strategic partnership with Anthropic ($3B+ invested, TPU supply deal)."
+  },
+  "ecosystem": {
+    "key_partnerships": "Anthropic: $3B+ investment (10% equity stake), tens-of-billions-dollar TPU deal (1M+ TPUs, 1GW+ compute capacity for next-gen Claude). NVIDIA: partnership to bring Gemini to NVIDIA Blackwell systems. Hugging Face: native TPU support for all open models on Hugging Face. Apple: partnership for AI integration (chosen over Anthropic and Perplexity). SAP, Salesforce, and major enterprise ISVs integrated with Google Cloud. Dell: partner for on-premises Gemini deployments. Open source community: creator/maintainer of Kubernetes, TensorFlow, JAX.",
+    "competitive_moat": "DeepMind integration provides exclusive first-party access to Gemini frontier models, a capability neither AWS nor Azure can replicate (they must partner with external labs). Custom TPU silicon now in 7th generation (Ironwood) -- the only cloud provider besides AWS with competitive custom AI chips, and the only one making them available to external customers at scale. Data analytics leadership (BigQuery) creates stickiness for data-heavy workloads. Kubernetes origin story gives credibility in cloud-native and multi-cloud. Fastest revenue growth among hyperscalers (48% Q4 2025) attracting developer and enterprise attention. $240B backlog provides revenue visibility.",
+    "data_moat_type": "Distribution / Network effects"
+  },
+  "regulatory": {
+    "regulatory_exposure": "GPAI provider for Gemini models under EU AI Act. Google committed publicly to compliance with EU AI Act GPAI provider obligations (effective August 2, 2025), including transparency, technical documentation, and copyright compliance. Early signatory of the EU General-Purpose AI Code of Practice. Google Cloud offers EU data residency and sovereignty controls but faces same US CLOUD Act jurisdictional tension as other US hyperscalers. GDPR compliant: customer data at rest stays in customer's cloud environment, not used for model training without permission. Alphabet's 70%+ share of EU cloud infrastructure (combined with other US providers) is driving EU sovereign cloud initiatives that could benefit European alternatives."
+  },
+  "uncertain": [
+    "annual_recurring_revenue_arr",
+    "burn_rate_and_runway"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "identity": {
+    "company_name": "Anthropic",
+    "headquarters": "San Francisco, USA",
+    "headquarters_region": "US",
+    "founded_year": 2021
+  },
+  "value_chain": {
+    "role_in_value_chain": "model_creator",
+    "value_chain_position": "Core model creation layer with a safety-first differentiation. Anthropic depends on a diversified compute strategy across three chip platforms: Amazon AWS (Trainium chips, Project Rainier), Google Cloud (TPUs, multi-billion dollar deal for 1M+ TPUs), and NVIDIA GPUs via Microsoft Azure ($30B compute commitment). It serves downstream developers, enterprises, and consumers through its API (direct, Amazon Bedrock, Google Cloud Vertex AI) and the Claude consumer product.",
+    "vertical_integration_level": "Multi-layer"
+  },
+  "products": {
+    "key_products": [
+      "Claude model family (Opus 4.6, Sonnet 4.5, Haiku 4.5): frontier AI models offered via API and consumer products, leading in enterprise adoption with 32% market share. Distinguished by safety (99.4% jailbreak prevention rate) and strong agentic/coding capabilities.",
+      "Claude Code (developer tool): AI-powered coding assistant that hit $1B annualized revenue in Nov 2025, less than a year after launch. Approximately 12% of Anthropic's total ARR.",
+      "Claude consumer products (web, iOS, Mac, Windows apps) and API platform: enterprise API with usage-based pricing, plus consumer subscriptions (Claude Pro $20/mo, Team, Enterprise). Available natively on Amazon Bedrock and Google Cloud Vertex AI."
+    ]
+  },
+  "business": {
+    "revenue_or_valuation": "Annualized revenue run rate $9B as of end 2025 (up from $1B at end 2024, a 9x increase). Projecting $20-26B revenue in 2026 and up to $70B by 2028. Latest valuation: $350B (Jan 2026 term sheet). Previous: $183B (Sep 2025 Series F).",
+    "annual_recurring_revenue_arr": "$9B annualized run rate as of late 2025. Claude Code alone at $1B ARR (Nov 2025). Revenue mix: API/enterprise is the dominant revenue driver, with strong growth in direct consumer subscriptions. Fastest-growing AI company by revenue growth rate (9x YoY).",
+    "funding_total_and_last_round": "Total raised: ~$37.3B over 16 rounds. Last round: $10B at $350B valuation led by Coatue and GIC (Jan 2026). Previous: $13B Series F at $183B valuation led by ICONIQ, Fidelity, Lightspeed (Sep 2025). Amazon total investment: $8B. Google total: $3B+. NVIDIA/Microsoft: up to $15B announced (Nov 2025).",
+    "business_model": "Usage-based API pricing (primary) plus consumer subscriptions. API pricing: Haiku 4.5 at $1/$5, Sonnet 4.5 at $3/$15, Opus 4.5 at $5/$25 per M tokens (input/output). Batch API offers up to 95% discount. Consumer: Claude Pro at $20/mo, Team and Enterprise tiers. Revenue also flows through Amazon Bedrock and Google Vertex AI reselling arrangements.",
+    "burn_rate_and_runway": "Expected ~$3B cash burn in 2025 (down from $5.6B in 2024). Burn rate approximately 70% of revenue. Projects dropping cash burn to one-third of revenue in 2026 and 9% by 2027. Expected to stop burning cash in 2027 and reach break-even in 2028 -- significantly ahead of OpenAI's profitability timeline."
+  },
+  "openness": {
+    "open_vs_closed_spectrum": "Closed / Hybrid. All frontier Claude models (Opus, Sonnet, Haiku) are proprietary and closed-weight. However, Anthropic has pioneered open standards for the AI ecosystem: Model Context Protocol (MCP) donated to Linux Foundation (Dec 2025), Agent Skills standard open-sourced (Dec 2025). Constitutional AI methodology is published and transparent. Positions itself as 'open standards, closed models' -- the infrastructure for connecting AI systems is open, but the models themselves remain proprietary."
+  },
+  "startup_relevance": {
+    "relevance_for_startups": "Anthropic is the leading alternative to OpenAI for startups building AI-powered products, with distinct advantages in enterprise trust and safety. Key considerations: (1) Enterprise preference: Anthropic now holds 32% enterprise LLM market share, overtaking OpenAI in enterprise adoption -- startups targeting B2B should evaluate Claude as a primary model; (2) Safety as selling point: 99.4% jailbreak prevention rate and Constitutional AI approach make Claude the safest choice for regulated industries (healthcare, finance, legal) where startups need compliance guarantees; (3) Competitive pricing: Claude Haiku at $1/$5 per M tokens significantly undercuts GPT-4o for high-volume workloads, improving startup unit economics; (4) MCP as ecosystem play: the Model Context Protocol is becoming an industry standard for connecting AI to data sources -- building MCP-compatible tools gives startups interoperability across providers; (5) Multi-cloud availability: Claude on both Amazon Bedrock and Google Vertex AI means no single-cloud lock-in, unlike OpenAI's Azure exclusivity; (6) Potential IPO in 2026 would make Anthropic a more stable long-term platform partner; (7) Claude Code's rapid growth ($1B ARR in under a year) signals Anthropic's willingness to compete in developer tooling, creating both platform risk and partnership opportunities for coding startups.",
+    "accessibility": "High accessibility. Free tier available for Claude web and mobile apps. API access with pay-as-you-go pricing starting from $1/$5 per M tokens (Haiku). Claude Pro subscription at $20/mo. Batch API with up to 95% cost reduction for non-time-sensitive workloads. Available on Amazon Bedrock (often included in existing AWS commitments) and Google Vertex AI. Prompt caching can reduce costs by up to 90%. No specific startup credit program publicly disclosed, but accessible through AWS Activate and Google for Startups programs.",
+    "primary_model_dependency": "None. Anthropic is a foundation model creator."
+  },
+  "ecosystem": {
+    "key_partnerships": "Amazon AWS (primary: $8B investment, Project Rainier with 1M+ Trainium2 chips, Bedrock distribution, co-development of future Trainium/Inferentia chips). Google Cloud ($3B+ investment, 1M+ TPU access deal worth tens of billions, Vertex AI distribution). Microsoft/NVIDIA ($15B investment, $30B Azure compute commitment, Nov 2025). Salesforce, Notion, and other SaaS partners integrating Claude. Model Context Protocol adopted broadly across the industry.",
+    "competitive_moat": "Safety-first brand identity: Constitutional AI methodology, transparent system cards (153 pages vs OpenAI's 60), and 99.4% jailbreak prevention create strong enterprise trust. Multi-cloud distribution: available on Bedrock, Vertex AI, and Azure simultaneously, reducing switching costs and increasing reach. Open standards strategy: MCP and Agent Skills becoming industry infrastructure, positioning Anthropic as the neutral protocol layer. Enterprise adoption flywheel: 32% enterprise market share generates usage data and feedback that improves models. Diversified compute partnerships avoid single-vendor dependency.",
+    "data_moat_type": "User feedback loop"
+  },
+  "regulatory": {
+    "regulatory_exposure": "GPAI provider. Anthropic signed the EU General-Purpose AI Code of Practice (Jul 2025) as an early signatory. Claude 3.7 Sonnet and larger models qualify as GPAI models with systemic risk under the EU AI Act (above 10^25 FLOPs threshold). Anthropic has published extensive safety documentation (Constitutional AI, system cards, Responsible Scaling Policy) that aligns with EU AI Act transparency and safety requirements. The company's safety-first positioning makes it among the best-prepared GPAI providers for EU regulatory compliance."
+  },
+  "uncertain": [
+    "burn_rate_and_runway",
+    "annual_recurring_revenue_arr"
+  ]
+}

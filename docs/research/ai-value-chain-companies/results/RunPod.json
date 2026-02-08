@@ -1,0 +1,51 @@
+{
+  "identity": {
+    "company_name": "RunPod",
+    "headquarters": "Moorestown, New Jersey, US",
+    "headquarters_region": "US",
+    "founded_year": 2022
+  },
+  "value_chain": {
+    "role_in_value_chain": "cloud",
+    "value_chain_position": "RunPod sits at the cloud compute layer, providing GPU infrastructure to AI developers and enterprises. It depends on NVIDIA (and some AMD) GPUs and upstream data center providers. Downstream, it serves AI developers, startups, and enterprises who use its GPU Pods, Serverless, and Instant Clusters for training, fine-tuning, and inference of AI models. Its Community Cloud tier also aggregates supply from vetted third-party GPU providers.",
+    "vertical_integration_level": "Single-layer"
+  },
+  "products": {
+    "key_products": [
+      "GPU Pods — containerized GPU environments with root access, 30+ GPU types (RTX 4090 to H200), pay-per-second billing, available via Secure Cloud and Community Cloud tiers",
+      "Serverless GPU — auto-scaling, pay-per-second inference endpoints with FlashBoot for fast cold starts, scale-to-zero capability, and support for custom containers",
+      "Instant Clusters — self-service multi-node GPU clusters (16-64 H100s) for distributed training and multi-host inference, provisioned in minutes"
+    ]
+  },
+  "business": {
+    "revenue_or_valuation": "$120M ARR as of January 2026, up 90% YoY. Valuation not publicly disclosed. Source: RunPod press release and TechCrunch (January 2026).",
+    "annual_recurring_revenue_arr": "$120M ARR (January 2026). Net dollar retention of 120%.",
+    "funding_total_and_last_round": "Total raised: ~$38.5M. Last round: $20M Seed (May 2024) co-led by Intel Capital and Dell Technologies Capital, with angel investors including Julien Chaumond (Hugging Face), Nat Friedman (ex-GitHub CEO), Adam Lewis, and Amjad Masad (Replit). Earlier: ~$2M pre-seed from AI Grant.",
+    "business_model": "Usage-based GPU compute: pay-per-second for GPU Pods and Serverless endpoints. Two tiers — Secure Cloud (RunPod-managed data centers) and Community Cloud (vetted peer-to-peer providers, 20-30% cheaper). Serverless offers flex workers (scale-to-zero) and always-on workers (20-30% discount). Enterprise custom pricing available for large-scale workloads.",
+    "burn_rate_and_runway": "Not disclosed, but RunPod reached $120M ARR on only $20M in seed funding, indicating exceptional capital efficiency and likely profitability or near-profitability. [uncertain]"
+  },
+  "openness": {
+    "open_vs_closed_spectrum": "Open API — RunPod provides a proprietary cloud platform with open APIs, open-source client libraries (Python SDK, CLI, GraphQL API), and supports deployment of any open-weight model. Not itself open-source."
+  },
+  "startup_relevance": {
+    "relevance_for_startups": "RunPod is one of the most accessible and cost-effective GPU cloud platforms for AI startups. It offers GPU compute at 25-60% below hyperscaler pricing, with no minimum commitments and pay-per-second billing. Its Serverless product lets startups deploy inference endpoints that scale to zero — meaning zero cost when idle — which is ideal for early-stage products with variable traffic. The Community Cloud tier further reduces costs by 20-30%. RunPod's developer-first approach (launched via a Reddit post, 500K+ developer community) means excellent documentation, fast iteration, and a platform built around the workflows AI developers actually use. For entrepreneurs building AI applications, RunPod removes the infrastructure burden while keeping costs manageable. The platform supports the full lifecycle from prototyping (GPU Pods) to production inference (Serverless) to large-scale training (Instant Clusters).",
+    "accessibility": "Highly accessible. Self-service sign-up, no minimum spend, pay-per-second billing. GPU Pods start at ~$0.17/hr for entry-level GPUs, $0.35/hr for RTX 4090, up to $3.99/hr for H200 SXM. Community Cloud is 20-30% cheaper. Serverless scales to zero. No enterprise contract required to start. SOC 2-ready for enterprise customers.",
+    "primary_model_dependency": "None — RunPod is model-agnostic infrastructure. Supports any containerized workload. Commonly used with open-weight models (Llama, Stable Diffusion, Mistral, etc.)."
+  },
+  "ecosystem": {
+    "key_partnerships": [
+      "Intel Capital — co-led $20M seed round, strategic investor",
+      "Dell Technologies Capital — co-led $20M seed round",
+      "NVIDIA — primary GPU supplier across Secure Cloud and Community Cloud",
+      "Hugging Face — platform integration, Julien Chaumond (Hugging Face CTO) is an angel investor"
+    ],
+    "competitive_moat": "Developer community and capital efficiency. RunPod has built a 500K+ developer community organically (starting from a Reddit post) and reached $120M ARR on just $20M raised — a 6x ARR-to-funding ratio that is exceptional in GPU cloud. Its dual-tier model (Secure Cloud + Community Cloud) gives pricing flexibility no single-infrastructure competitor can match. The Serverless product with FlashBoot and scale-to-zero is a strong differentiator for inference workloads. High net dollar retention (120%) indicates strong product-market fit and natural expansion.",
+    "data_moat_type": "Network effects"
+  },
+  "regulatory": {
+    "regulatory_exposure": "Exempt — RunPod is cloud infrastructure, not an AI model provider. Not directly subject to EU AI Act GPAI obligations. Standard cloud compliance applies (SOC 2, data residency)."
+  },
+  "uncertain": [
+    "burn_rate_and_runway"
+  ]
+}

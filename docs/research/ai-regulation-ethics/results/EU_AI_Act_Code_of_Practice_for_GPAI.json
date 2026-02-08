@@ -1,0 +1,107 @@
+{
+  "basic_information": {
+    "name": "EU AI Act Code of Practice for General-Purpose AI (GPAI)",
+    "type": "framework",
+    "jurisdiction": "EU",
+    "status": "voluntary",
+    "effective_date": "Published 10 July 2025; endorsed by AI Board and Commission on 1 August 2025; GPAI model obligations applicable from 2 August 2025",
+    "regulatory_philosophy": "comprehensive_horizontal"
+  },
+  "scope_and_content": {
+    "summary": "The Code of Practice is a voluntary tool developed through a multi-stakeholder process involving nearly 1,000 participants, designed to help providers of general-purpose AI models demonstrate compliance with Articles 53 and 55 of the EU AI Act. It is structured in three chapters — Transparency, Copyright, and Safety & Security — and provides detailed measures and commitments that, if adhered to, grant a 'presumption of conformity' with the AI Act's GPAI obligations. Providers who sign the Code benefit from reduced administrative burden, increased legal certainty, and a collaborative approach with the AI Office during the first year.",
+    "key_provisions": [
+      "Transparency Chapter: Providers must complete a Model Documentation Form covering architecture, training methodologies, data provenance, computational resources, and energy consumption; documentation retained for at least 10 years; available to the AI Office and downstream providers on request within 14 days",
+      "Copyright Chapter: Providers must establish a board-level copyright policy; only crawl lawfully accessible content; honor machine-readable rights reservations (robots.txt per RFC 9309); exclude sites flagged as persistent copyright infringers; deploy technical safeguards against copyright-infringing outputs; designate a contact point for rights holder complaints",
+      "Safety & Security Chapter (systemic risk models only): Establish a Safety and Security Framework with pre-defined risk tiers and acceptance criteria; structured risk identification across 4 specified systemic risks (CBRN, loss of control, cyber offence, harmful manipulation); rigorous model evaluations including benchmarks, red teaming, and human uplift studies",
+      "Serious incident reporting with tiered deadlines: 2 days for critical infrastructure disruption, 5 days for cybersecurity breaches, 10 days for death, 15 days for serious harm to health/rights/property/environment",
+      "Safety and Security Model Reports required before market introduction, updated every 6 months for the most capable models, with mandatory external independent evaluator reports",
+      "Organizational governance: clear assignment of systemic risk oversight, ownership, monitoring, and assurance roles; whistleblower protections; healthy risk culture promotion",
+      "Cybersecurity controls: 256-bit encryption, zero-trust architecture, MFA, insider threat protections, red-teaming, bug bounty programs; security measures maintained until model parameters are publicly released or deleted",
+      "Post-market monitoring: end-user feedback, bug bounties, community evaluations, code repository monitoring, watermarking and provenance tracking"
+    ],
+    "risk_classification": "The Code applies the AI Act's GPAI risk tiers: (1) All GPAI models (training compute above 10^23 FLOPs) must comply with Transparency and Copyright chapters; (2) GPAI models with systemic risk (training compute above 10^25 FLOPs, or designated by Commission) must additionally comply with the Safety & Security chapter. Providers must define their own measurable risk tiers with pre-set acceptance thresholds and built-in safety margins.",
+    "covered_entities": "Providers of general-purpose AI models placed on the EU market; the Safety & Security chapter applies only to providers of GPAI models with systemic risk (e.g., GPT-4, Gemini 1.5 Pro, Grok 3, Claude 3.7 Sonnet)",
+    "sector_scope": "Cross-sector, horizontal — applies to all GPAI models regardless of downstream application domain",
+    "open_source_treatment": "Free and open-source GPAI models are exempt from the Transparency chapter's documentation obligations, provided they: (1) use a genuinely free and open-source license; (2) are not monetized through accessory support or professional services; and (3) publicly disclose model weights, architecture, and usage information. However, this exemption does NOT apply to GPAI models classified as having systemic risk — those must comply with all chapters regardless of open-source status. The Copyright chapter applies to all models including open-source.",
+    "extraterritorial_reach": "Yes, the Code applies to any provider placing a GPAI model on the EU market, regardless of where the provider is headquartered. Given the cost of training frontier AI models (>10^25 FLOPs), it is unlikely providers will develop different models for different jurisdictions, making the Code's requirements effectively global for the most advanced models."
+  },
+  "compliance_and_enforcement": {
+    "penalties": "Non-compliance with GPAI-related AI Act provisions carries administrative fines of up to EUR 15 million or 3% of global annual turnover, whichever is higher. Fines apply from 2 August 2026 for models placed on the EU market after 2 August 2025, and from 2 August 2027 for models already on the market before 2 August 2025. The Code itself is voluntary, but compliance with the underlying AI Act is mandatory.",
+    "enforcement_body": "EU AI Office (primary enforcement for GPAI provisions), supported by the AI Board (composed of EU Member States) and national competent authorities",
+    "compliance_timeline": "AI Act entry into force: 1 August 2024. Prohibited AI systems + AI literacy: 2 February 2025. Code published: 10 July 2025. Code endorsed via adequacy decisions: 1 August 2025. GPAI rules applicable (new models): 2 August 2025. Enforcement actions begin: 2 August 2026. Legacy models compliance deadline: 2 August 2027. Full AI Act application (high-risk AI systems): 2 August 2026.",
+    "reporting_requirements": "Transparency: Model Documentation Form retained 10+ years, provided to AI Office on request. Safety: Safety and Security Model Report submitted before market introduction, updated every 6 months for most capable models. Framework notifications to AI Office within 5 business days. Serious incident reports within 2-15 days depending on severity. Additional documentation retained 10+ years. Final incident reports within 60 days of resolution. All documentation must be unredacted except where restricted by national security legislation.",
+    "sme_provisions": "SMEs and Small Mid-Cap Enterprises (SMCs) benefit from proportionate obligations: reduced detail levels in Safety and Security Model Reports; may seek AI Office assistance for post-market monitoring activities; an individual in the supervisory function may suffice for risk oversight instead of a dedicated committee; periodic supervisory assessment may replace full internal audit; SMEs may be exempt from regular reporting commitments to the AI Office per Article 56(5) while retaining the option to voluntarily comply.",
+    "liability_model": "none_specified"
+  },
+  "impact_and_analysis": {
+    "business_impact": "For large enterprises (frontier AI developers like OpenAI, Google, Anthropic, Microsoft): significant compliance investment required — Model Documentation Forms, Safety & Security Frameworks, Model Reports, external independent evaluations, cybersecurity infrastructure, 10-year documentation retention. However, signatories benefit from presumption of conformity and collaborative relationship with AI Office during the first year. For SMEs and startups: reduced obligations (proportionate documentation, AI Office assistance for monitoring), but the underlying technical requirements for safety evaluations, red-teaming, and cybersecurity may be prohibitively expensive for smaller firms developing systemic-risk models. Open-source developers receive meaningful exemptions from transparency documentation. Non-signatories face higher regulatory scrutiny and must demonstrate compliance through alternative means.",
+    "innovation_effect": "Mixed signals. Supporters argue the Code creates legal certainty and a level playing field that benefits responsible AI development. Critics — including CEOs of leading European companies who called for a two-year 'clock-stop' — argue it adds complexity and may slow European AI development. Google's Kent Walker stated it risks 'slowing down Europe's development and deployment of AI.' Meta refused to sign, calling it 'overreach that will stunt growth.' xAI signed only the Safety chapter, calling the copyright rules an overreach. The open-source exemptions were designed to avoid hampering open innovation, but the systemic-risk threshold means the most capable open models must still comply fully.",
+    "global_influence": "High potential Brussels effect. CSET Georgetown analysis suggests the Code represents 'the clearest articulation to date of how the EU expects frontier AI developers to test and secure their models' and 'may be an indication of the norms and practices that shape global expectations for frontier AI governance.' Because the Code applies at the model level and frontier models are too expensive to train separately for each jurisdiction, compliance is likely to become de facto global for signatories. The safety requirements go 'significantly beyond current best practices' according to CSET analysis. Chatham House notes the Code 'will be valuable for global governance' even if it has critics.",
+    "stakeholder_positions": "Signatories (26+ organizations): Amazon, Anthropic, Google, IBM, Microsoft, OpenAI, Aleph Alpha, Cohere, Mistral AI among others. Partial signatory: xAI (Safety & Security chapter only, refusing Transparency and Copyright). Notable refusal: Meta (Joel Kaplan called it 'overreach that will throttle frontier AI development in Europe'). No Chinese companies signed. Civil society concerns: CDT and others accused the drafting process of giving privileged access to US tech companies; some academics noted enforcement would require roughly triple the AI Office's mid-2025 staffing levels. European industry (e.g., SAP, Siemens CEOs) called for a two-year implementation pause. Legal scholars raised concerns about the drafting process lacking procedural safeguards and parliamentary oversight.",
+    "deregulatory_signals": "No active loosening. However, some political pressure exists: European CEOs called for a two-year 'clock-stop' on implementation, and there is political tension around the AI Act's impact on European competitiveness. The collaborative first-year approach (2 August 2025 to 2 August 2026) where the AI Office will not penalize signatories working in good faith could be seen as a soft delay. The Commission also published separate GPAI Guidelines in July 2025 to clarify scope, which narrowed some definitions (e.g., clarifying what counts as 'placing on the market')."
+  },
+  "connections_and_context": {
+    "related_regulations": [
+      "EU AI Act (Regulation 2024/1689) — parent legislation",
+      "EU Copyright Directive (2019/790) — Article 4 text and data mining provisions referenced in Copyright chapter",
+      "EU Whistleblowing Directive (2019) — referenced for whistleblower protections",
+      "GPAI Guidelines (published 18 July 2025) — interpretive guidance on GPAI model definitions and scope",
+      "Template for Summarizing Training Data in GPAI Models (published 24 July 2025)",
+      "Code of Practice on Transparency of AI-Generated Content (first draft 17 December 2025) — separate code addressing marking/labelling obligations under AI Act",
+      "GDPR — data protection obligations referenced throughout"
+    ],
+    "key_actors": [
+      "European AI Office — facilitated drafting, chairs Signatory Taskforce, primary enforcement body",
+      "AI Board — advisory body of EU Member States, endorsed Code via adequacy decision",
+      "EU Scientific Panel of Independent Experts — advises AI Office on systemic risks",
+      "13 independent Chairs and Vice-Chairs — led the multi-stakeholder drafting process",
+      "Mia Hoffmann (CSET Georgetown) — published influential analysis of Code's global impact potential",
+      "Joel Kaplan (Meta) — public opposition to signing the Code",
+      "Kent Walker (Google) — signed but warned of innovation slowdown",
+      "OpenAI, Anthropic, Mistral AI — early signatories with public statements of support",
+      "Center for Democracy and Technology (CDT) — civil society watchdog on the process",
+      "Nearly 1,000 multi-stakeholder participants in the drafting process (GPAI providers, downstream providers, trade associations, academics, civil society)"
+    ],
+    "recent_developments": [
+      "10 July 2025: Final Code of Practice published after Closing Plenary on 3 July 2025",
+      "18 July 2025: European Commission published GPAI Guidelines clarifying key concepts (model definitions, lifecycle obligations, scope)",
+      "24 July 2025: Template for summarizing training data in GPAI models published (final version)",
+      "1 August 2025: AI Board and Commission endorsed Code via adequacy decisions",
+      "2 August 2025: GPAI model obligations became applicable for new models; 26+ organizations signed as initial signatories",
+      "August 2025: Signatory Taskforce established, chaired by AI Office, to facilitate coherent application",
+      "July 2025: xAI signed only Safety & Security chapter; Meta publicly refused to sign; European CEO coalition called for two-year implementation pause",
+      "17 December 2025: First draft of separate Code of Practice on transparency of AI-generated content published (marking and labelling)",
+      "2 August 2026 (upcoming): Full enforcement begins — Commission can impose fines for non-compliance; also marks applicability of high-risk AI system rules and transparency code for AI-generated content",
+      "2 August 2027: Deadline for legacy GPAI models (placed on market before 2 August 2025) to achieve compliance"
+    ]
+  },
+  "teaching_relevance": {
+    "entrepreneurial_implications": "Critical knowledge for any AI startup operating in or selling to the EU market. Key considerations: (1) COMPLIANCE COST — startups developing GPAI models above the 10^23 FLOPs threshold face mandatory transparency and copyright obligations; those above 10^25 FLOPs face the full Safety & Security regime including external evaluations and cybersecurity infrastructure, which can be extremely expensive; (2) MARKET ACCESS — signing the Code provides 'presumption of conformity' which reduces regulatory friction and signals trustworthiness to enterprise customers; not signing means higher scrutiny and need to demonstrate compliance through other means; (3) COMPETITIVE MOATS — compliance capability becomes a barrier to entry that benefits well-resourced incumbents; however, SME provisions and open-source exemptions partially level the playing field; (4) STRATEGIC DECISIONS — startups must decide whether to sign the Code (gaining legal certainty but accepting obligations) or develop alternative compliance frameworks; Meta's refusal shows large companies can take this path but at reputational cost; (5) OPEN SOURCE STRATEGY — releasing models under open-source licenses can reduce documentation burden, but systemic-risk models get no exemption; (6) BUILD vs BUY — using a GPAI model from a Code signatory (e.g., OpenAI, Google) as a downstream deployer may be simpler than developing your own model and bearing full provider obligations; (7) TIMELINE AWARENESS — enforcement begins August 2026, so startups have a defined window to prepare.",
+    "session_mapping": "Session 5 (Ethics, governance & final presentations) — primary. Also relevant to Session 3 (Framing & managing AI projects — compliance as part of project planning) and Session 4 (AI business models & strategy — impact of regulation on unit economics and go-to-market)."
+  },
+  "confidence": {
+    "data_quality": "High",
+    "cross_reference": [
+      "European Commission official pages (digital-strategy.ec.europa.eu)",
+      "EU AI Act community site (artificialintelligenceact.eu) — detailed overview published 30 July 2025",
+      "CSET Georgetown analysis (Mia Hoffmann, 30 July 2025)",
+      "Jones Day legal commentary (August 2025)",
+      "Latham & Watkins analysis of GPAI obligations",
+      "Skadden legal alert (August 2025)",
+      "Chatham House analysis (August 2025)",
+      "Code of Practice interactive website (code-of-practice.ai)",
+      "Hugging Face open-source guide for GPAI providers"
+    ],
+    "caveats": [
+      "The Code is voluntary — providers may choose alternative compliance paths, so its practical impact depends on adoption rates",
+      "Enforcement starting August 2026 will reveal how the AI Office interprets the Code and what 'good faith efforts' mean in practice",
+      "Uncertainty remains around modified GPAI models derived from pre-August 2025 originals: unclear whether the 2026 or 2027 enforcement deadline applies",
+      "The AI Office's enforcement capacity is questioned — civil society estimates it needs roughly 3x its mid-2025 staffing to effectively monitor compliance",
+      "Risk acceptance thresholds are defined by providers themselves, which CSET notes could allow commercial interests to override caution",
+      "The separate Code of Practice on transparency of AI-generated content (first draft December 2025) may introduce additional obligations by mid-2026",
+      "Political pressure for an implementation pause from European industry leaders could lead to adjustments",
+      "Rapidly evolving field — new model releases, capability improvements, and geopolitical dynamics may require Code updates"
+    ]
+  },
+  "uncertain": []
+}

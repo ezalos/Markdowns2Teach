@@ -1,0 +1,49 @@
+{
+  "identity": {
+    "model_name": "Claude Sonnet 4.5",
+    "creator": "Anthropic",
+    "release_date": "September 2025",
+    "model_family": "Claude"
+  },
+  "architecture": {
+    "parameter_count": "Not disclosed (estimated >100B)",
+    "active_parameters": "Not disclosed",
+    "architecture_type": "Dense transformer (not publicly confirmed; Anthropic does not disclose architecture details)",
+    "context_window": "200K tokens (1M tokens in beta)",
+    "max_output_tokens": "64K tokens"
+  },
+  "capabilities": {
+    "open_or_closed": "Closed/proprietary (API-only)",
+    "license_type": "Proprietary. Available via Anthropic API, AWS Bedrock, Google Vertex AI, and Microsoft Foundry. No downloadable weights. Commercial use via API agreements.",
+    "reasoning_capability": "Toggleable extended thinking (hybrid reasoning). Claude Sonnet 4.5 operates as both a standard LLM and a reasoning model in one. In standard mode it provides fast responses; in extended thinking mode it uses chain-of-thought (CoT) reasoning with a visible thinking process. Developers can control the thinking budget via API (up to 64K thinking tokens). Thinking tokens are billed as output tokens. Hybrid thinking was first introduced with Claude 3.7 Sonnet in February 2025.",
+    "multimodal_support": "Text input, image input (charts, diagrams, documents, photos), and text output. No native audio input, video input, or image generation. PDF parsing supported. Computer use (screen interaction) supported as a specialized capability.",
+    "multilingual_support": "Strong multilingual capabilities across dozens of languages. French is well supported. MMMLU (multilingual benchmark) score: 89.1%. Technical terms and documentation available in multiple languages.",
+    "agentic_capability": "Industry-leading agentic support. Multi-step agents with sustained autonomous operation for 30+ hours on complex tasks. Parallel tool calls for simultaneous searches and file reads. Computer use (GUI interaction via screenshots and mouse/keyboard actions). Model Context Protocol (MCP) integration for standardized tool connections. Claude Agent SDK (Python, TypeScript, CLI) provides the same infrastructure powering Claude Code. Automatic tool history cleanup to manage long conversations efficiently. Token usage tracking throughout conversations to prevent premature task abandonment."
+  },
+  "benchmarks": {
+    "key_benchmarks": "SWE-bench Verified: 77.2% (82.0% with parallel compute). AIME 2025: 100% with Python tools, 87% without tools. GPQA Diamond: 83.4%. OSWorld: 61.4%. Terminal-Bench: 50.0%. HumanEval: 94%. MMLU: 78%. LiveCodeBench: 68%. MMMLU (multilingual): 89.1%. MMMU (visual reasoning): 77.8%. Tau-bench Retail: 86.2%. Tau-bench Airline: 70.0%. Tau-bench Telecom: 98.0%. Finance Agent: 55.3%. Ranked #4 on Artificial Analysis Intelligence Index (composite of MMLU-Pro, GPQA Diamond, Humanity's Last Exam, LiveCodeBench, SciCode, AIME 2025, IFBench, AA-LCR, TerminalBench-Hard, Tau2-Bench Telecom).",
+    "reasoning_benchmarks_composite": "AIME 2025: 100% (with Python), 87% (without tools). GPQA Diamond: 83.4%. MATH-500: not explicitly reported by Anthropic. Competition math performance is state-of-the-art among commercial models. Extended thinking mode significantly improves reasoning scores across all benchmarks. [uncertain]"
+  },
+  "pricing": {
+    "pricing_per_1M_tokens": "$3 input / $15 output (standard, up to 200K context). $6 input / $22.50 output (long context, >200K tokens). Cached input reads: $0.30/M. 5-min cache writes: $3.75/M. 1-hour cache writes: $6.00/M. Batch API: $1.50 input / $7.50 output (50% discount). Thinking tokens billed as output at $15/M.",
+    "cost_efficiency_notes": "Same pricing as Claude Sonnet 4 ($3/$15), offering significantly improved capabilities at no price increase. More expensive than GPT-5 ($1.25/$10) but competitive for coding-heavy and agentic workloads where Sonnet 4.5 excels. Prompt caching can reduce effective input costs by up to 90% (to $0.30/M). Batch API provides 50% savings for async workloads. Cost-effective for long-running agent tasks due to automatic tool history cleanup reducing token consumption."
+  },
+  "deployment": {
+    "minimum_hardware_requirement": "API-only. No local deployment available. Accessible via Anthropic API, AWS Bedrock, Google Vertex AI, and Microsoft Foundry.",
+    "quantization_availability": "None. Closed-weight model with no public weights or quantization options.",
+    "on_device_capable": "No. API-only model, not designed for on-device deployment."
+  },
+  "business": {
+    "best_use_cases": "1. Autonomous coding and software engineering: State-of-the-art on SWE-bench (77.2%), can work independently for 30+ hours on complex codebases, ideal for startups building software products. 2. AI agent development: Best-in-class agentic capabilities with Claude Agent SDK, MCP integrations, and parallel tool use — enables building production-grade customer service bots, workflow automation, and data pipelines. 3. Computer use automation: Leading performance on OSWorld (61.4%) for GUI-based task automation — automate repetitive business processes across web applications. 4. Complex research and analysis: Extended thinking mode excels at multi-step reasoning tasks, financial analysis, legal document review, and strategic planning. 5. Technical content generation: Strong coding (HumanEval 94%) combined with excellent writing makes it ideal for generating technical documentation, API docs, and developer-facing content.",
+    "relevance_for_entrepreneurs": "Claude Sonnet 4.5 is particularly relevant for startup founders because it excels at the two things early-stage companies need most: building software and automating workflows. Its 30+ hour autonomous operation means a small team can delegate substantial coding tasks to AI agents built on Sonnet 4.5, effectively multiplying engineering capacity. The Claude Agent SDK provides production-ready infrastructure for building AI-powered products. For build-vs-buy decisions, Sonnet 4.5's agentic capabilities make it feasible to build custom AI solutions rather than buying expensive SaaS tools. At $3/$15 per million tokens with caching discounts, it is accessible for bootstrapped startups. The model's strong performance on real-world benchmarks (SWE-bench, OSWorld, Tau-bench) rather than just academic tests means results translate to actual business value.",
+    "competitive_position": "Strongest coding model as of September 2025, leading SWE-bench Verified (77.2%). Best agentic model with unmatched sustained autonomy (30+ hours). Best computer use model (OSWorld 61.4%). More expensive than GPT-5 ($1.25/$10) but substantially better at coding and agentic tasks. Competitive with Gemini 2.5 Pro on reasoning but lacks Gemini's 1M standard context and native audio/video. Weaker than Gemini on multimodal breadth. Key differentiator: the Claude Agent SDK and MCP ecosystem provide a complete agent-building platform that competitors lack. Main weakness: closed-source with no self-hosting option, creating vendor lock-in risk.",
+    "ecosystem_and_tooling": "Anthropic API (direct access), AWS Bedrock, Google Vertex AI, Microsoft Foundry. Official SDKs: Python (anthropic-sdk-python), TypeScript (anthropic-sdk-typescript). Claude Agent SDK for building production agents (Python, TypeScript, CLI). Claude Code: terminal-based coding assistant and IDE integration. Model Context Protocol (MCP): open standard for tool integration, adopted by OpenAI, Google, and donated to Linux Foundation's AAIF in December 2025. Available via OpenRouter and numerous third-party providers. IDE support through Claude Code and various MCP-compatible extensions.",
+    "geographic_origin_and_regulation": "United States (San Francisco, California). Anthropic signed the EU General-Purpose AI Code of Practice in July 2025, committing to transparency, copyright protections, and safety frameworks. GDPR: Anthropic follows GDPR principles globally but data is processed in the US by default. EU data residency available through custom enterprise deployments and AWS Bedrock/Vertex AI regional endpoints. For European entrepreneurs: API data is not used for training by default on paid tiers. Enterprise plans include Data Processing Agreements for GDPR compliance. Concerns have been raised about consent dark patterns on consumer products conflicting with GDPR guidelines."
+  },
+  "uncertain": [
+    "parameter_count",
+    "active_parameters",
+    "architecture_type",
+    "reasoning_benchmarks_composite"
+  ]
+}

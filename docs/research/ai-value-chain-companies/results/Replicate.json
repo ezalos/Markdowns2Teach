@@ -1,0 +1,54 @@
+{
+  "identity": {
+    "company_name": "Replicate (acquired by Cloudflare, November 2025)",
+    "headquarters": "San Francisco, California, US",
+    "headquarters_region": "US",
+    "founded_year": 2019
+  },
+  "value_chain": {
+    "role_in_value_chain": "model_hub",
+    "value_chain_position": "Replicate sits at the model hub / cloud inference layer, bridging open-source model creators and application developers. It depends upstream on GPU cloud providers (NVIDIA GPUs) and on open-source/open-weight model creators (Stability AI, Meta, Mistral, etc.) who publish models to its registry. Downstream, it serves application developers and startups who need one-line API access to run ML models without managing infrastructure. Since November 2025, Replicate operates within Cloudflare's developer platform, gaining access to Cloudflare's 310+ global PoPs for edge inference.",
+    "vertical_integration_level": "Single-layer (Multi-layer post-Cloudflare acquisition — now integrated with Cloudflare's edge network, Workers AI, and developer platform)"
+  },
+  "products": {
+    "key_products": [
+      "Replicate API — cloud API for running 50,000+ production-ready AI models with one line of code, pay-per-second billing, supporting image generation, LLMs, audio, video, and more",
+      "Cog — open-source (Apache 2.0) container tool for packaging ML models into production-ready Docker containers with auto-generated REST APIs and OpenAPI schemas",
+      "Model Marketplace & Registry — community-driven catalog where developers can discover, share, fork, and remix AI models, with both public and private deployment options"
+    ]
+  },
+  "business": {
+    "revenue_or_valuation": "Revenue: ~$5.3M in 2024 (source: Getlatka — reliability uncertain). Pre-acquisition valuation: $350M (December 2023, Series B). Acquisition by Cloudflare announced November 17, 2025 — financial terms not officially disclosed, industry estimates range $350M–$550M. Source: Cloudflare press release, CTOL Digital Solutions.",
+    "annual_recurring_revenue_arr": "Not publicly disclosed separately from revenue. Estimated ~$5.3M based on 2024 usage-based revenue. [uncertain]",
+    "funding_total_and_last_round": "Total raised: $57.8M over 3 rounds. Seed: $5.3M (led by Sequoia Capital, angels include Dylan Field of Figma, Guillermo Rauch of Vercel, Solomon Hykes of Docker). Series A: $12.5M (February 2023, led by Andreessen Horowitz). Series B: $40M (December 2023, led by Andreessen Horowitz, with NVentures/NVIDIA, Heavybit, Sequoia Capital, Y Combinator). Acquired by Cloudflare in November 2025.",
+    "business_model": "Usage-based cloud inference: pay-per-second compute billing ranging from $0.000100/sec (CPU) to $0.012200/sec (8x NVIDIA H100). Official models use predictable pricing (per image, per second of video, per token). Free starter credits for testing. Enterprise customers get custom billing and private deployments. Post-acquisition, Replicate's pricing integrates with Cloudflare's developer platform billing.",
+    "burn_rate_and_runway": "Not disclosed. With $57.8M raised and modest revenue (~$5.3M), the company was likely burning through venture capital before the Cloudflare acquisition rendered this moot. [uncertain]"
+  },
+  "openness": {
+    "open_vs_closed_spectrum": "Hybrid — Cog (model packaging tool) is fully open-source under Apache 2.0 and can be used independently of Replicate. The Replicate platform itself is a proprietary managed cloud service with open APIs. The model registry hosts both open-source community models and proprietary models. Post-Cloudflare acquisition, the API remains unchanged and the brand continues independently."
+  },
+  "startup_relevance": {
+    "relevance_for_startups": "Replicate removes the infrastructure burden of deploying AI models entirely. For a startup building an AI-powered product, Replicate offers one-line API access to 50,000+ models — from image generation (Stable Diffusion, FLUX) to LLMs (Llama, Mistral) to audio transcription (Whisper) — without provisioning GPUs, managing containers, or handling scaling. This dramatically reduces time-to-market: a solo developer can go from idea to production AI feature in hours rather than weeks. The pay-per-second billing model means startups only pay for actual compute used, with no minimum commitments — critical for early-stage products with unpredictable usage. The Cloudflare acquisition (November 2025) adds global edge distribution, meaning models run closer to end users with lower latency, and the entire stack (CDN, Workers, R2 storage, AI inference) is available in one platform. For entrepreneurs evaluating build-vs-buy for AI features, Replicate is often the fastest and cheapest path to a working prototype.",
+    "accessibility": "Highly accessible. Self-service sign-up, free starter credits, pay-per-second billing with no minimum spend. API is straightforward (one HTTP call to run a prediction). Python and JavaScript client libraries available. Custom models can be deployed using the open-source Cog tool. Enterprise tier offers private deployments and custom billing. Post-acquisition, available through Cloudflare's developer platform with unified billing.",
+    "primary_model_dependency": "None — model-agnostic platform. Hosts models from Meta (Llama), Stability AI, Mistral, Black Forest Labs (FLUX), OpenAI (Whisper), and thousands of community-contributed models. Does not create its own foundation models."
+  },
+  "ecosystem": {
+    "key_partnerships": [
+      "Cloudflare — acquirer (November 2025), Replicate now part of Cloudflare's developer platform with access to 310+ global PoPs",
+      "Andreessen Horowitz (a16z) — led Series A and Series B rounds",
+      "NVIDIA (NVentures) — strategic investor in Series B, GPU infrastructure provider",
+      "Sequoia Capital — led seed round, continued participation",
+      "Y Combinator — early investor and accelerator",
+      "Heavybit — investor and developer-tools community member"
+    ],
+    "competitive_moat": "Model catalog scale and developer experience. With 50,000+ production-ready models and a simple one-line API, Replicate built the largest open-model marketplace outside Hugging Face. The open-source Cog packaging standard created a flywheel: community members package models in Cog format, making them instantly deployable on Replicate, which attracts more developers, who publish more models. The Cloudflare acquisition adds massive distribution moat — models can now run at 310+ global edge locations, something no standalone model hub can match. Key differentiator vs. Hugging Face: Replicate focuses on instant production deployment (run, not just host), while Hugging Face is primarily a model registry with inference as a secondary feature.",
+    "data_moat_type": "Network effects"
+  },
+  "regulatory": {
+    "regulatory_exposure": "Exempt — Replicate is a cloud infrastructure and model hosting platform, not a model creator. Under the EU AI Act, it would not be classified as a GPAI provider. Individual models hosted on Replicate may have their own regulatory obligations depending on their risk classification. Post-Cloudflare acquisition, Replicate benefits from Cloudflare's existing compliance infrastructure (SOC 2, ISO 27001, GDPR)."
+  },
+  "uncertain": [
+    "annual_recurring_revenue_arr",
+    "burn_rate_and_runway"
+  ]
+}

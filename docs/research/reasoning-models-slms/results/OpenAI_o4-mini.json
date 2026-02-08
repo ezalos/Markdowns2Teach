@@ -1,0 +1,55 @@
+{
+  "identity": {
+    "model_name": "o4-mini",
+    "creator": "OpenAI",
+    "release_date": "April 2025",
+    "model_family": "o-series (OpenAI reasoning models)"
+  },
+  "architecture": {
+    "parameter_count": "Not publicly disclosed. OpenAI does not release parameter counts for proprietary o-series models.",
+    "active_parameters": "Not publicly disclosed. [uncertain]",
+    "architecture_type": "Not publicly disclosed. Believed to be a dense transformer with internal chain-of-thought reasoning trained via reinforcement learning. [uncertain]",
+    "context_window": "200K tokens",
+    "max_output_tokens": "100K tokens"
+  },
+  "capabilities": {
+    "open_or_closed": "Closed/proprietary (API-only). Weights are not downloadable. Available only through OpenAI API, Azure OpenAI Service, and ChatGPT.",
+    "license_type": "Proprietary. Access governed by OpenAI Terms of Use and API usage policies. No open-source license. Commercial use permitted via API under OpenAI's terms of service.",
+    "reasoning_capability": "Fixed chain-of-thought reasoning. o4-mini uses an internal chain-of-thought process (reasoning tokens) before producing a response. The model is trained via reinforcement learning to think longer before answering. Unlike some competitors, the reasoning budget is not directly user-controllable, though the API exposes reasoning tokens in the response. A 'high' reasoning effort variant (o4-mini-high) is available in ChatGPT that allocates more compute per query. Reasoning can incorporate tool use mid-chain, making it more capable for multi-step problem solving.",
+    "multimodal_support": "Image input (native): o4-mini natively incorporates images into its reasoning process. It can interpret blurry, rotated, upside-down, or hand-drawn visuals (whiteboards, signs, charts, diagrams). Operations like cropping, zooming, and rotation are applied mid-reasoning. Text input and output. Code execution via Python tool in ChatGPT. Image generation (via DALL-E tool in ChatGPT). No native audio or video input.",
+    "multilingual_support": "Supports multiple languages with strong English performance. French is supported for both input and output, inheriting GPT-family multilingual capabilities. However, OpenAI does not publish an exact count of supported languages for o4-mini. Performance is strongest in English; non-English languages may show slightly reduced reasoning quality. [uncertain]",
+    "agentic_capability": "Advanced tool use and multi-step agents. o4-mini was trained via reinforcement learning to use tools -- not just how to use them, but to reason about when to deploy them based on desired outcomes. Supports: function calling (parallel tool calling), web browsing, Python code execution, image analysis and generation, file interpretation, Canvas, automation, and memory within ChatGPT. Via the API Responses endpoint, supports multi-tool chaining in agentic workflows. First 'mini' model from OpenAI with full tool support. Compatible with OpenAI Agents SDK for building multi-agent systems. Designed as a core component for Codex CLI (agentic coding tool)."
+  },
+  "benchmarks": {
+    "key_benchmarks": "AIME 2024: 93.4% (no tools), AIME 2025: 92.7% (no tools) / 99.5% pass@1 with Python tools (100% consensus@8), GPQA Diamond: 81.4%, SWE-bench Verified: 68.1%, MMLU: 85.2%, LiveCodeBench: 80.2% pass@1. o4-mini is the best-performing benchmarked model on AIME 2024 and AIME 2025. HumanEval: not separately reported (likely saturated, as many models achieve near-perfect scores). Outperforms predecessor o3-mini on all benchmarks and matches or approaches o3 on most, at a fraction of the cost.",
+    "reasoning_benchmarks_composite": "AIME 2025: 92.7% (no tools) -- top-tier among all models. GPQA Diamond: 81.4% (behind o3 at 83.3%, ahead of o1 at 78.0% and o3-mini at 77.0%). AIME 2024: 93.4% (no tools). Competition math performance is outstanding for a 'mini' class model, surpassing many full-size models. With tool access (Python interpreter), AIME 2025 rises to 99.5%, demonstrating the model's strength in combining reasoning with computation."
+  },
+  "pricing": {
+    "pricing_per_1M_tokens": "$1.10 input / $4.40 output per 1M tokens. Cached input: $0.275 per 1M tokens. Batch API: $0.55 input / $2.20 output (50% discount). Note: reasoning tokens (internal chain-of-thought) are billed at the output token rate.",
+    "cost_efficiency_notes": "o4-mini is positioned as OpenAI's cost-efficient reasoning model, roughly 10x cheaper than o3 while achieving 85-95% of o3's performance across most benchmarks. Compared to competitors: significantly cheaper than Claude 3.5 Sonnet ($3/$15) for reasoning tasks; more expensive than DeepSeek-R1 API ($0.55/$2.19) but with better tool integration and multimodal support; comparable to Gemini 2.0 Flash Thinking. The Batch API at $0.55/$2.20 makes it competitive for high-volume processing. Price-performance ratio is its core selling point -- near-frontier reasoning at mid-tier pricing."
+  },
+  "deployment": {
+    "minimum_hardware_requirement": "API-only. Cannot be run locally. Available through OpenAI API, Azure OpenAI Service (Azure AI Foundry), and GitHub Models marketplace.",
+    "quantization_availability": "None. Closed model with no downloadable weights. No quantized versions available.",
+    "on_device_capable": "No. o4-mini is a cloud-only model. Not designed for on-device deployment. OpenAI's gpt-oss-20b (a separate open-weight model released later) targets edge/device use cases instead."
+  },
+  "business": {
+    "best_use_cases": [
+      "Agentic coding and software engineering: o4-mini scores 68.1% on SWE-bench Verified and powers Codex CLI for autonomous code generation, debugging, and refactoring. Ideal for startups building coding assistants or automating development workflows at scale.",
+      "Data analysis and business intelligence: With native Python execution and strong reasoning, o4-mini can analyze datasets, generate insights, and produce visualizations. Its low cost per token makes it viable for processing large volumes of business data.",
+      "Complex document and image analysis: Native multimodal reasoning lets o4-mini interpret charts, diagrams, handwritten notes, and complex documents. Useful for startups in legal tech, finance, or healthcare that process visual documents at scale.",
+      "Math-intensive applications and STEM tutoring: Best-in-class performance on AIME and competition math makes it ideal for educational platforms, scientific computing assistants, and technical problem-solving tools.",
+      "High-volume reasoning-intensive API workflows: At $1.10/$4.40 per 1M tokens (or $0.55/$2.20 on Batch), o4-mini enables reasoning capabilities in production systems where o3's cost would be prohibitive -- customer support escalation, automated QA, content moderation requiring nuanced judgment."
+    ],
+    "relevance_for_entrepreneurs": "o4-mini democratizes access to frontier-level reasoning at a price point viable for startups. Key implications: (1) Build-vs-buy shift: o4-mini's strong coding and reasoning performance means startups can build sophisticated AI-powered products using API calls rather than training custom models, dramatically reducing time-to-market and capital requirements. (2) Cost structure: at $1.10/$4.40 per 1M tokens, a startup processing 10M tokens/day would spend ~$50/day -- manageable for most seed-stage companies and enabling unit economics that were impossible with o3 or GPT-4 class models. (3) Competitive moat through agent orchestration: o4-mini's native tool use and agentic capabilities allow startups to build complex multi-step workflows (research agents, coding assistants, data pipelines) that are hard to replicate with simpler models. (4) The performance gap between o4-mini and o3 is small enough (1-5% on most benchmarks) that for most business applications, o4-mini is the rational default choice. (5) Azure availability means enterprise sales cycles are simplified -- IT departments comfortable with Azure can adopt o4-mini without new vendor approvals.",
+    "competitive_position": "o4-mini occupies a unique niche as the best cost-efficient reasoning model in OpenAI's lineup. Key differentiators: (1) vs o3: 85-95% of o3's performance at ~10% of the cost; the rational choice for most production workloads. (2) vs Claude 3.5 Sonnet: stronger on math/reasoning benchmarks, native tool use training, but Claude may be preferred for nuanced writing and longer-context tasks. (3) vs Gemini 2.0 Flash: comparable cost tier, but o4-mini has stronger agentic capabilities and tool integration. (4) vs DeepSeek-R1: DeepSeek is cheaper but o4-mini offers superior tool use, multimodal support, and enterprise-grade reliability/compliance. (5) Weakness: parameter count and architecture are undisclosed, making it harder for technical teams to evaluate. Not open-weight, so no fine-tuning or on-premise deployment. Non-English reasoning quality may lag competitors with explicit multilingual training.",
+    "ecosystem_and_tooling": "Comprehensive ecosystem. API access via OpenAI Responses API and Chat Completions API. Official SDKs: Python, Node.js, C#, Java, Go. Azure OpenAI Service integration (Azure AI Foundry, GitHub Models marketplace). OpenAI Agents SDK for multi-agent systems. Codex CLI for agentic coding. Compatible with LangChain, LlamaIndex, and all major orchestration frameworks. Available on OpenRouter for unified API access. IDE integrations via Cursor, GitHub Copilot (when using OpenAI models), and other tools. Supports structured outputs (JSON mode), function calling, and parallel tool use. ChatGPT integration with web browsing, Python, DALL-E, and file analysis.",
+    "geographic_origin_and_regulation": "United States (San Francisco, CA). OpenAI is actively working on EU AI Act compliance -- signed the Code of Practice for GPAI providers. Data residency option available for European API customers. GDPR-compatible data processing agreements available for API and Enterprise customers. For European entrepreneurs: o4-mini can be used with European data residency on Azure, but data may still be processed on US infrastructure for standard OpenAI API calls. OpenAI offers zero data retention (ZDR) for API usage. Key consideration: as a US-headquartered provider, subject to US jurisdiction and potential data access requests, which matters for sensitive European applications."
+  },
+  "uncertain": [
+    "parameter_count",
+    "active_parameters",
+    "architecture_type",
+    "multilingual_support"
+  ]
+}

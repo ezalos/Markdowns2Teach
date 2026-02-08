@@ -1,0 +1,41 @@
+{
+  "metric_identity": {
+    "metric_name": "Global AI Regulation Divergence Index",
+    "source_report": "OECD AI Policy Observatory; Morgan Lewis Global AI Legal Overview (Dec 2025); White & Case AI Watch Global Regulatory Tracker",
+    "source_url": "https://oecd.ai/en/; https://www.morganlewis.com/pubs/2025/12/the-new-rules-of-ai-a-global-legal-overview; https://www.whitecase.com/insight-our-thinking/ai-watch-global-regulatory-tracker-united-kingdom",
+    "publication_date": "December 2025 / January 2026 (multiple sources)",
+    "methodology_notes": "Composite assessment drawing on OECD AI Policy Observatory tracking 1,000+ policy initiatives across 70+ jurisdictions, supplemented by legal analyses from Morgan Lewis, White & Case, DLA Piper, and Dentons comparing binding legislation vs. voluntary frameworks across EU, US, UK, and China. The OECD maintains a live database of AI strategies, policies, and initiatives. Country counts and policy initiative counts are from the OECD repository as of early 2026."
+  },
+  "metric_value": {
+    "value": "72+ countries with AI policy initiatives; 1,000+ distinct policy instruments globally; 4 major divergent regulatory regimes (EU risk-based binding law, US deregulatory federal framework with 500+ state-level bills, UK voluntary principles-based approach, China sector-specific binding rules with 100+ approved GenAI services)",
+    "unit": "count (countries, policy instruments, regulatory regimes)",
+    "geographic_scope": "Global",
+    "time_period": "2024-2026",
+    "comparison_baseline": "Pre-2024: No comprehensive binding AI legislation existed anywhere. EU AI Act entered into force August 1, 2024, as world's first comprehensive AI law. By early 2026, regulatory fragmentation has sharply accelerated.",
+    "market_layer": "cross-cutting"
+  },
+  "trend": {
+    "trend_direction": "Accelerating (divergence widening rapidly)",
+    "year_over_year_change": "Regulatory divergence has dramatically increased: EU moved to enforcement phase (Feb 2025 prohibited AI bans, Aug 2025 GPAI rules); US reversed course entirely (Biden EO 14110 revoked Jan 2025, replaced by deregulatory EO 14179); UK still has no dedicated AI law as of early 2026; China enacted amended Cybersecurity Law referencing AI (Jan 2026). Over 500 AI bills introduced across 42 US states in 2025 alone.",
+    "compound_annual_growth_rate": "N/A (qualitative regulatory metric)",
+    "forecast_value": "EU high-risk AI system rules (Annex III) now expected to apply by December 2027 (delayed from August 2026 via Digital Omnibus proposal of Nov 2025). UK AI bill unlikely before second half of 2026. US federal AI framework remains executive-order-based with no comprehensive legislation. China continues sector-specific approach with increasing enforcement.",
+    "forecast_year": "2027",
+    "velocity_indicator": "regulatory_deadline: EU Annex III high-risk rules backstop December 2, 2027; EU Annex I rules backstop August 2, 2028; UK AI legislation earliest H2 2026 King's Speech"
+  },
+  "entrepreneurial_relevance": {
+    "relevance_for_entrepreneurs": "This regulatory divergence directly impacts any startup deploying AI across borders. The EU requires extensive compliance documentation, risk assessments, and human oversight for high-risk AI systems (conformity assessment costs EUR 193K-330K). The US has created a deliberately innovation-friendly environment with minimal federal requirements, while the UK sits between the two with voluntary principles. China mandates security reviews and data localization. For European founders, this creates a competitive disadvantage: 60% of EU/UK tech MSMEs report delayed access to frontier AI models, and over a third must strip or downgrade features to comply. US startups can move faster, integrate deeper, and monetize better. The EU acknowledged this problem by proposing to delay high-risk rules to December 2027 and launching the Digital Omnibus simplification package. The Draghi Report identified a 6x investment gap with the US and persistent AI brain drain from Europe. For startups building global products, regulatory strategy is now a core business decision, not a legal afterthought.",
+    "actionable_insight": "Founders must build regulatory strategy into their product architecture from day one. Consider: (1) Design modular compliance layers that can be toggled by jurisdiction; (2) If targeting EU market, begin high-risk classification self-assessment now even though deadline pushed to 2027; (3) Explore EU regulatory sandboxes for priority access (available to SMEs and startups); (4) Monitor Digital Omnibus legislative process for further simplifications; (5) Factor in regulatory arbitrage risk when choosing company domicile -- enforcement fragmentation across EU Member States may allow gravitating toward permissive jurisdictions.",
+    "session_mapping": "5",
+    "risk_profile": "regulatory_risk"
+  },
+  "confidence": {
+    "data_quality": "High",
+    "cross_reference": "OECD AI Policy Observatory (70+ jurisdictions tracked); Euronews reporting on Digital Omnibus (Nov 2025); White House Executive Orders 14148, 14179, and Dec 2025 National AI Framework; UK Government AI Opportunities Action Plan (2025); China Amended Cybersecurity Law (Jan 2026); DLA Piper, Morgan Lewis, Dentons, Mayer Brown legal analyses; Carnegie Endowment for International Peace policy analysis; Draghi Report on EU Competitiveness (2024)",
+    "caveats": "Country counts vary by source (70-80+ range) depending on whether voluntary guidelines are included alongside binding legislation. US regulatory landscape is especially fragmented with 500+ state-level bills, most not yet enacted. EU Digital Omnibus is a legislative proposal not yet adopted -- timeline may shift. UK AI legislation timeline is speculative based on government statements. The actual impact of regulatory divergence on company behavior (relocation, market exit) is anecdotal rather than systematically measured.",
+    "measurement_reliability": "analyst_estimate"
+  },
+  "uncertain": [
+    "forecast_value",
+    "velocity_indicator"
+  ]
+}

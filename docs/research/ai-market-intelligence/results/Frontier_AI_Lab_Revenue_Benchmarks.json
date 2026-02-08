@@ -1,0 +1,42 @@
+{
+  "metric_identity": {
+    "metric_name": "Frontier AI Lab Revenue Benchmarks",
+    "source_report": "Composite from multiple sources: OpenAI CFO Sarah Friar disclosure (January 2026), Bloomberg reporting on Anthropic (January 2026), Microsoft FY25 Q2 and FY26 Q2 earnings calls (January 2025 and January 2026)",
+    "source_url": "https://sherwood.news/business/openais-arr-reached-over-usd20-billion-in-2025-cfo-says/",
+    "publication_date": "January 2026 (latest data points from Q4 2025 / Q1 2026 disclosures)",
+    "methodology_notes": "Revenue figures for frontier AI labs are compiled from a mix of official earnings disclosures (Microsoft), CFO statements (OpenAI), and journalist reporting citing internal documents or investor presentations (Anthropic via Bloomberg). OpenAI's $20B ARR figure was disclosed by CFO Sarah Friar on January 17, 2026 and represents annualized recurring revenue (a month's revenue x 12), not actual booked annual revenue. Anthropic's $9B run rate was reported by Bloomberg on January 21, 2026, citing sources familiar with the matter. Microsoft's $13B AI run rate is from the Q2 FY25 earnings call (January 29, 2025); the company did not disclose a specific updated AI run rate figure for Q2 FY26 (January 28, 2026), though Azure AI services grew 39% YoY. Important: ARR is a forward-looking metric that annualizes current monthly revenue; actual collected revenue over a full year is typically lower for rapidly growing companies. Ed Zitron (Where's Your Ed At) has analyzed the gap between ARR claims and actual revenue for both OpenAI and Anthropic, noting that ARR figures are intentionally chosen for PR purposes."
+  },
+  "metric_value": {
+    "value": "OpenAI: ~$20B ARR (end of 2025); Anthropic: ~$9B ARR (end of 2025); Microsoft AI business: $13B annual run rate (Q2 FY25, January 2025)",
+    "unit": "USD (billions, annualized recurring revenue / annual run rate)",
+    "geographic_scope": "Global",
+    "time_period": "End of 2025 (OpenAI, Anthropic); Q2 FY25 ending December 2024 (Microsoft)",
+    "comparison_baseline": "OpenAI: $6B ARR (end of 2024), $2B ARR (end of 2023). Anthropic: $1B ARR (end of 2024), $87M annualized (early 2024). Microsoft AI: ~$4.7B annual run rate (Q2 FY24, implied by 175% YoY growth to $13B). Google DeepMind does not separately report revenue. Combined leading AI company revenues grew over 9x from 2023-2024 per Epoch AI.",
+    "market_layer": "model (foundation model providers and their API/product revenue) and platform (Microsoft Azure AI services)"
+  },
+  "trend": {
+    "trend_direction": "Accelerating",
+    "year_over_year_change": "OpenAI: +233% YoY ($6B to $20B ARR, 2024 to 2025). Anthropic: +800% YoY ($1B to $9B ARR, 2024 to 2025). Microsoft AI: +175% YoY (to $13B run rate in Q2 FY25). All three labs showed revenue growth rates far exceeding typical enterprise software benchmarks.",
+    "compound_annual_growth_rate": "OpenAI: ~216% CAGR over 2023-2025 ($2B to $20B). Anthropic: ~1,000% CAGR over 2023-2025 (sub-$100M to $9B). These extreme growth rates are not sustainable long-term.",
+    "forecast_value": "OpenAI targets ~$30B revenue in 2026, $100B by 2029. Anthropic targets $20-26B ARR in 2026, projects $70B revenue by 2028. Microsoft AI business estimated at ~$26B annual run rate by Q2 FY26 based on analyst extrapolations of Azure AI growth rates.",
+    "forecast_year": "2026-2029",
+    "velocity_indicator": "OpenAI: time_to_100M_ARR in <1 year (2023); time from $2B to $20B ARR in 2 years (2023-2025). Anthropic: from $0 to $9B ARR in ~3 years. Anthropic's Claude Code product reached $1B annualized run rate within 6 months of full launch (May-November 2025)."
+  },
+  "entrepreneurial_relevance": {
+    "relevance_for_entrepreneurs": "These revenue benchmarks establish the commercial viability of the frontier AI model business and set the competitive context for any AI startup. For founders, several key insights emerge: (1) The market is real and enormous: $20B+ ARR at OpenAI and $9B+ at Anthropic prove that enterprises and consumers will pay for AI capabilities at scale. (2) The revenue composition matters: OpenAI derives the majority of revenue from consumers (ChatGPT subscriptions), while Anthropic derives 70-80% from enterprise API customers. This creates different competitive dynamics: consumer AI is winner-take-most, while enterprise AI allows for more niche players. (3) The cost structure is brutal: OpenAI projects $14B in losses in 2026 despite $20B+ revenue, meaning gross margins on inference are thin and R&D costs are astronomical. Startups cannot compete on foundation model training. (4) Microsoft's $13B AI run rate (growing 175% YoY) shows that distribution through existing enterprise relationships is a massive advantage. (5) The application layer is where startup opportunity lies: build on top of these foundation models rather than competing with them. The model providers are becoming commoditized infrastructure, and the value capture is shifting to the application and vertical solution layer.",
+    "actionable_insight": "Do not build a foundation model company unless you have billions in funding. Instead, build application-layer businesses that leverage OpenAI, Anthropic, or open-source models as interchangeable infrastructure. The revenue split (OpenAI consumer-heavy, Anthropic enterprise-heavy) suggests enterprise AI is more accessible for startups since it allows specialization by vertical or use case. Watch for model price wars: as OpenAI, Anthropic, and Google compete, inference costs will drop, improving unit economics for application-layer startups.",
+    "session_mapping": "1, 4",
+    "risk_profile": "concentration_risk"
+  },
+  "confidence": {
+    "data_quality": "Medium",
+    "cross_reference": "OpenAI's $20B ARR confirmed by CFO Sarah Friar (Sherwood News, Yahoo Finance, PYMNTS, January 2026). Anthropic's $9B run rate reported by Bloomberg (January 21, 2026) and corroborated by Sherwood News, Sacra estimates. Microsoft's $13B AI run rate disclosed in official Q2 FY25 earnings (January 29, 2025) and reported by Fortune, CNBC, Constellation Research. Visual Capitalist and Epoch AI provide independent revenue tracking that broadly aligns with these figures. Ed Zitron's analysis (Where's Your Ed At) provides important critical perspective on the gap between ARR claims and actual revenue.",
+    "caveats": "ARR (Annualized Recurring Revenue) is not the same as actual annual revenue. For rapidly growing companies, ARR based on the most recent month overstates what was actually collected over the full year. OpenAI's actual 2025 collected revenue is likely closer to $10-12B, not $20B, since the $20B figure reflects the December 2025 run rate annualized. Similarly, Anthropic's $9B is the end-of-year run rate, not total 2025 revenue. Microsoft's $13B figure is from Q2 FY25 (January 2025) and is now ~1 year old; the company did not disclose a specific updated AI run rate in Q2 FY26, though Azure AI grew 39% YoY. OpenAI projects $14B in losses for 2026, meaning revenue growth does not equal profitability. Neither OpenAI nor Anthropic are public companies, so their financial figures are not independently audited. The Microsoft AI revenue figure bundles multiple products (Azure AI, Copilot, GitHub Copilot) and the exact composition is not fully disclosed.",
+    "measurement_reliability": "analyst_estimate"
+  },
+  "uncertain": [
+    "forecast_value",
+    "compound_annual_growth_rate",
+    "velocity_indicator"
+  ]
+}

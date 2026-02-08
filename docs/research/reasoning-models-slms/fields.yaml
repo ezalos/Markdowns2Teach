@@ -1,0 +1,100 @@
+# ABOUTME: Field definitions for Reasoning Models & SLMs 2025-2026 research.
+# ABOUTME: 30 fields across 7 categories covering identity, architecture, capabilities, benchmarks, pricing, deployment, and business.
+
+identity:
+  model_name:
+    description: "Official model name as used by creator"
+    detail_level: brief
+  creator:
+    description: "Company or organization that created the model"
+    detail_level: brief
+  release_date:
+    description: "Public release date (month and year)"
+    detail_level: brief
+  model_family:
+    description: "Broader model family this belongs to (e.g., GPT, Claude, Llama, Qwen)"
+    detail_level: brief
+
+architecture:
+  parameter_count:
+    description: "Total parameter count (e.g., 685B, 14B). For MoE models, specify total params."
+    detail_level: brief
+  active_parameters:
+    description: "For MoE models: number of active parameters per forward pass. For dense models: same as parameter_count."
+    detail_level: brief
+  architecture_type:
+    description: "Model architecture: dense, MoE (Mixture of Experts), hybrid-MoE, Mamba-Transformer, or other"
+    detail_level: brief
+  context_window:
+    description: "Maximum input context length in tokens (e.g., 128K, 1M, 10M)"
+    detail_level: brief
+  max_output_tokens:
+    description: "Maximum output tokens per generation (e.g., 8K, 16K, 64K, 128K)"
+    detail_level: brief
+
+capabilities:
+  open_or_closed:
+    description: "Open-weight (downloadable weights), open-source (weights + training code/data), or closed/proprietary (API-only)"
+    detail_level: brief
+  license_type:
+    description: "Specific license: Apache 2.0, MIT, Llama Community License, proprietary, modified-MIT, custom. Note commercial restrictions if any."
+    detail_level: moderate
+  reasoning_capability:
+    description: "Reasoning mode support: none, fixed chain-of-thought, toggleable thinking, budget-controllable thinking, auto-routing. Describe how reasoning works."
+    detail_level: moderate
+  multimodal_support:
+    description: "Input/output modalities beyond text: image input, audio input, video input, image generation, code execution. List all supported modalities."
+    detail_level: moderate
+  multilingual_support:
+    description: "Number of languages supported and notable language strengths. Mention French support explicitly."
+    detail_level: moderate
+  agentic_capability:
+    description: "Agent and tool-use capabilities: none, basic tool-use, multi-step agents, multi-agent coordination, computer use. Describe level of agentic support."
+    detail_level: moderate
+
+benchmarks:
+  key_benchmarks:
+    description: "Performance on major benchmarks. Include scores for: AIME 2025, GPQA Diamond, SWE-bench Verified, HumanEval, MMLU/MMLU-Pro, LiveCodeBench, and any other notable benchmarks. Use format 'Benchmark: score%'."
+    detail_level: detailed
+  reasoning_benchmarks_composite:
+    description: "Focused comparison on reasoning-specific benchmarks: AIME 2025, GPQA Diamond, MATH-500, competition math. Used for cross-model reasoning comparison."
+    detail_level: moderate
+
+pricing:
+  pricing_per_1M_tokens:
+    description: "API pricing as input/output per 1M tokens (e.g., $3/$15). Include cached input price if available. Note free tier if any."
+    detail_level: brief
+  cost_efficiency_notes:
+    description: "Cost-efficiency positioning: how this model compares to alternatives on price-performance. Note any significant price drops or competitive pricing strategies."
+    detail_level: moderate
+
+deployment:
+  minimum_hardware_requirement:
+    description: "Minimum hardware to run the model locally: GPU VRAM, RAM, or device type. For proprietary models: 'API-only'. For open models: specify VRAM for full precision and quantized versions."
+    detail_level: moderate
+  quantization_availability:
+    description: "Available quantization formats: GGUF, GPTQ, AWQ, 1.58-bit, bitsandbytes, none. List all available formats."
+    detail_level: moderate
+  on_device_capable:
+    description: "Whether model is designed or tested for phones, laptops, or embedded devices. Specify target devices if applicable."
+    detail_level: brief
+
+business:
+  best_use_cases:
+    description: "Top 3-5 use cases this model excels at for entrepreneurs: coding, customer support, content generation, data analysis, agents, etc. Business-framed."
+    detail_level: detailed
+  relevance_for_entrepreneurs:
+    description: "Why this model matters for startup founders and business school students. Focus on practical business implications: cost, accessibility, competitive advantage, build-vs-buy decisions."
+    detail_level: detailed
+  competitive_position:
+    description: "How this model positions against direct competitors. Key differentiators and weaknesses. What makes it worth choosing over alternatives."
+    detail_level: moderate
+  ecosystem_and_tooling:
+    description: "Developer tools, SDKs, integrations, and platforms supporting this model. Mention IDE integrations, cloud availability, and framework support."
+    detail_level: moderate
+  geographic_origin_and_regulation:
+    description: "Country/region of origin (US/EU/China/UAE/other) and regulatory implications: EU AI Act compliance, GDPR compatibility, data sovereignty considerations. Critical for European entrepreneurs."
+    detail_level: moderate
+
+uncertain:
+  description: "Reserved field — auto-filled during deep research. Lists field names where data confidence is low."

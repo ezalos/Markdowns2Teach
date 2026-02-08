@@ -1,0 +1,40 @@
+{
+  "metric_identity": {
+    "metric_name": "Gartner Total AI Spending Forecast",
+    "source_report": "Gartner Forecast: AI Spending, Worldwide, 2024-2029, 4Q25",
+    "source_url": "https://www.gartner.com/en/newsroom/press-releases/2026-1-15-gartner-says-worldwide-ai-spending-will-total-2-point-5-trillion-dollars-in-2026",
+    "publication_date": "January 2026",
+    "methodology_notes": "Gartner proprietary analyst estimates covering 8 AI market segments (AI Services, AI Cybersecurity, AI Software, AI Models, AI Platforms for Data Science and ML, AI Application Development Platforms, AI Data, AI Infrastructure). Spending figures represent worldwide end-user and technology provider spending. AI infrastructure includes AI-optimized servers and data center buildouts. Full methodology detailed in Gartner's proprietary report 'Forecast: AI Spending, Worldwide, 2024-2029, 4Q25'. Analyst: John-David Lovelock, Distinguished VP Analyst at Gartner."
+  },
+  "metric_value": {
+    "value": "$2.527 trillion (2026); $1.757 trillion (2025)",
+    "unit": "USD (millions aggregated to trillions)",
+    "geographic_scope": "Global",
+    "time_period": "2025-2027 (with 2026 as primary forecast year)",
+    "comparison_baseline": "$1,757,152M in 2025 (total AI spending); segment breakdown: AI Infrastructure $964,960M, AI Services $439,438M, AI Software $283,136M, AI Cybersecurity $25,920M, AI Models $14,416M, AI Platforms for DSML $21,868M, AI App Dev Platforms $6,587M, AI Data $827M",
+    "market_layer": "cross-cutting (covers infrastructure, platform, model, and application layers)"
+  },
+  "trend": {
+    "trend_direction": "Accelerating",
+    "year_over_year_change": "+44% YoY from 2025 to 2026 ($1.757T to $2.528T); AI-optimized servers +49% in 2026",
+    "compound_annual_growth_rate": "~38% CAGR from 2025 to 2027 (from $1.757T to $3.337T)",
+    "forecast_value": "$3,336,690M ($3.34 trillion) in 2027. Segment forecasts for 2027: AI Infrastructure $1,748,212M, AI Services $761,042M, AI Software $636,146M, AI Cybersecurity $85,997M, AI Models $43,449M, AI Platforms for DSML $44,482M, AI App Dev Platforms $10,922M, AI Data $6,440M",
+    "forecast_year": "2027",
+    "velocity_indicator": "AI spending nearly doubles in 2 years (from $1.76T in 2025 to $3.34T in 2027)"
+  },
+  "entrepreneurial_relevance": {
+    "relevance_for_entrepreneurs": "This is the most authoritative aggregate figure for the total AI market size. For startup founders, it validates that the AI market is not just hype but represents real multi-trillion-dollar spending. The segment breakdown reveals where money actually flows: AI Infrastructure dominates at 54% of total spend ($1.37T in 2026), meaning most dollars go to cloud providers and chip makers, not application-layer startups. AI Services ($589B) and AI Software ($452B) are the next largest, representing the integration/consulting and enterprise software layers where startups more typically compete. The fastest-growing segments by percentage (AI Cybersecurity 98% YoY, AI Data 277% YoY, AI Models 83% YoY) signal emerging whitespace for startups. Gartner's note that AI is in the 'Trough of Disillusionment' suggests that enterprise buyers are becoming more selective, favoring proven ROI over moonshot projects — startups must demonstrate clear business value.",
+    "actionable_insight": "Target AI Services and AI Software segments for startup opportunities (combined $1.04T in 2026). Focus on demonstrable ROI and integration with existing enterprise software rather than standalone AI products. The explosion in AI Cybersecurity spending (nearly doubling YoY) signals a high-growth niche. Avoid competing directly in infrastructure unless you have deep hardware/cloud differentiation.",
+    "session_mapping": "1, 4",
+    "risk_profile": "bubble_indicator"
+  },
+  "confidence": {
+    "data_quality": "High",
+    "cross_reference": "IDC forecasts worldwide AI spending at $632B by 2028 (narrower scope covering AI solutions only, not infrastructure). IDC separately tracks AI infrastructure at $758B by 2029. The difference in totals reflects Gartner's broader definition encompassing all AI-related spending across 8 segments vs. IDC's more segmented approach. Gartner's September 2025 press release initially forecast ~$1.5T for 2025; the January 2026 update refined this to $1.757T, suggesting conservative initial estimates. Multiple third-party outlets (Computerworld, iTWire, Mi3, TechAfrica News) consistently report the $2.52T/44% figure.",
+    "caveats": "Gartner's definition of 'AI spending' is very broad, encompassing infrastructure buildouts, services, software, and platforms. The $2.52T figure is not purely 'AI product revenue' — it includes data center construction, server purchases, and consulting services that support AI. The 'Trough of Disillusionment' framing suggests Gartner acknowledges enterprise ROI has not yet been proven at scale. Forecasts are projections and subject to revision (the 2025 figure was revised upward from ~$1.5T to $1.757T between September 2025 and January 2026). Full methodology is behind Gartner's paywall.",
+    "measurement_reliability": "analyst_estimate"
+  },
+  "uncertain": [
+    "compound_annual_growth_rate"
+  ]
+}

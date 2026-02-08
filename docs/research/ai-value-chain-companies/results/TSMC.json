@@ -1,0 +1,55 @@
+{
+  "identity": {
+    "company_name": "Taiwan Semiconductor Manufacturing Company (TSMC)",
+    "headquarters": "Hsinchu, Taiwan",
+    "headquarters_region": "Other",
+    "founded_year": 1987
+  },
+  "value_chain": {
+    "role_in_value_chain": "hardware",
+    "value_chain_position": "TSMC is the critical manufacturing link between chip designers and end users. It depends upstream on equipment suppliers (ASML for lithography, Applied Materials, Lam Research for etching/deposition, ASML for metrology) and serves downstream chip designers who lack their own fabs: NVIDIA, AMD, Apple, Broadcom, Qualcomm, Google, Amazon, and Microsoft. TSMC fabricates ~90% of the world's most advanced AI chips (sub-7nm), making it the single most important manufacturing node in the entire AI value chain.",
+    "vertical_integration_level": "Single-layer"
+  },
+  "products": {
+    "key_products": [
+      "Advanced node foundry services (3nm N3/N3P/N3E, 5nm N5/N4P) — fabricates cutting-edge AI accelerators (NVIDIA Blackwell, AMD MI300, Apple M-series). 3nm and 5nm together account for ~60% of total revenue.",
+      "2nm (N2) process — began mass production Q4 2025 with backside power delivery, targeting next-gen AI and mobile chips",
+      "Advanced packaging (CoWoS, InFO, SoIC) — critical for AI chip integration, packaging NVIDIA's multi-die GPU architectures. Demand-constrained; TSMC rapidly expanding CoWoS capacity."
+    ]
+  },
+  "business": {
+    "revenue_or_valuation": "FY2025 revenue: NT$3.81 trillion (~US$122.9 billion), up 31.6% YoY. Market cap ~$1.81 trillion (Feb 2026). Source: TSMC investor relations, companiesmarketcap.com.",
+    "annual_recurring_revenue_arr": "N/A — TSMC operates on a per-wafer/per-order fabrication model, not a subscription/ARR model. Revenue is project-based but highly recurring due to long-term customer relationships and multi-year technology roadmap commitments.",
+    "funding_total_and_last_round": "N/A — publicly traded since 1994 (TWSE: 2330, NYSE: TSM). Originally funded as joint venture between Taiwan government (ITRI), Philips, and private investors. No venture funding history.",
+    "business_model": "Pure-play semiconductor foundry: charges per-wafer fabrication fees that vary by process node (advanced nodes command significant premiums — TSMC implementing 16-24% price increases for 3nm N3P process). Revenue breakdown by platform: High Performance Computing/AI 57%, Smartphone 30%, IoT 6%, Automotive 4%, DCE 3%. Also earns from mask-making, testing, and advanced packaging services. Strong pricing power due to monopoly position at advanced nodes.",
+    "burn_rate_and_runway": "N/A — highly profitable public company. 2025 net income margin ~40%. Capital expenditure guidance for 2026: US$38-42 billion (some sources cite up to $56B including advanced packaging). Capex funded from operating cash flow."
+  },
+  "openness": {
+    "open_vs_closed_spectrum": "Closed — proprietary process technology and manufacturing know-how. TSMC's process design kits (PDKs) are provided to customers under strict NDA. Manufacturing recipes and yield optimization techniques are core trade secrets."
+  },
+  "startup_relevance": {
+    "relevance_for_startups": "TSMC is essential for entrepreneurs to understand for several reasons: (1) Every AI chip your startup uses was likely made by TSMC — NVIDIA GPUs, AMD GPUs, Apple Neural Engine, Google TPUs, and AWS Graviton chips are all fabricated at TSMC. Understanding TSMC's capacity constraints explains why GPU shortages happen; (2) The fabless model that TSMC pioneered is why AI chip startups can exist — companies like Cerebras, Groq, and SambaNova design custom AI chips and outsource manufacturing to TSMC, avoiding the $20B+ cost of building a fab; (3) TSMC's pricing and capacity allocation decisions directly impact the cost and availability of AI compute for startups; (4) Geopolitical risk — TSMC's concentration in Taiwan (within missile range of China) represents a systemic risk for the entire AI industry, driving the US CHIPS Act and geographic diversification (Arizona fabs, ESMC in Dresden). For AI hardware startups specifically, getting TSMC fab allocation is a critical milestone and competitive differentiator.",
+    "accessibility": "Challenging but possible for funded startups. TSMC serves fabless chip design companies of various sizes through tiered programs. Startups can access TSMC manufacturing through: (1) Multi-project wafer (MPW) / shuttle runs that share wafer costs across multiple designs — significantly reducing entry cost for prototyping; (2) TSMC's Open Innovation Platform (OIP) ecosystem with design tools and IP libraries; (3) Older nodes (28nm, 16nm) are more accessible and affordable than cutting-edge 3nm/2nm. However, advanced node allocation is severely capacity-constrained and prioritized for large customers. Typical NRE (non-recurring engineering) costs for a new chip design at 3nm can exceed $500M. Startups typically need significant venture funding ($50M+) to engage TSMC for custom chip production.",
+    "primary_model_dependency": "None — TSMC is a semiconductor manufacturer, not dependent on any AI foundation models."
+  },
+  "ecosystem": {
+    "key_partnerships": [
+      "Apple — largest customer (~25% of revenue in 2023), exclusive manufacturer of all Apple silicon (A-series, M-series chips)",
+      "NVIDIA — fabricates all NVIDIA AI GPUs (H100, B200, GB200), partnership since 1995. NVIDIA orders ~11% of TSMC revenue.",
+      "AMD — fabricates all AMD CPUs and GPUs (Zen 5, MI300X AI accelerators)",
+      "ASML — critical equipment supplier; TSMC is ASML's largest EUV customer and co-develops lithography roadmap",
+      "Broadcom, Qualcomm, MediaTek — major mobile and networking chip customers",
+      "ESMC joint venture (Dresden, Germany) with Bosch, Infineon, NXP — TSMC holds 70% stake, EU's first FinFET-capable foundry, production targeted for 2027",
+      "US CHIPS Act — building three fabs in Arizona plus R&D center and advanced packaging facilities ($100B+ total investment)"
+    ],
+    "competitive_moat": "TSMC's moat is multi-layered: (1) Process technology leadership — consistently first to mass-produce at new nodes (3nm, now 2nm), with 1-2 year lead over Samsung and Intel; (2) Manufacturing yield excellence — consistently achieves higher yields than competitors, meaning more working chips per wafer; (3) Customer trust and ecosystem — decades of never competing with its own customers (unlike Samsung which makes its own chips), earning the 'pure-play' trust premium; (4) Scale — 72% foundry market share creates volume-driven cost advantages and R&D reinvestment capacity; (5) Talent concentration — deep pool of semiconductor engineers in Taiwan's Hsinchu Science Park; (6) Advanced packaging leadership (CoWoS) — critical for multi-die AI chips, currently supply-constrained; (7) $38-56B annual capex creates massive barriers to entry. Intel and Samsung have spent billions trying to compete and remain far behind.",
+    "data_moat_type": "None — TSMC's moat derives from proprietary process technology, manufacturing know-how, scale economies, and customer trust rather than data."
+  },
+  "regulatory": {
+    "regulatory_exposure": "Exempt from EU AI Act (semiconductor manufacturer, not an AI system provider). However, heavily exposed to geopolitical and export control regulations: (1) US semiconductor export controls restrict TSMC from manufacturing advanced chips for certain Chinese entities (Huawei, etc.); (2) US CHIPS Act provides ~$6.6B in subsidies for Arizona fabs but comes with restrictions on expanding advanced manufacturing in China for 10 years; (3) EU Chips Act provides €5B+ in subsidies for the Dresden ESMC fab; (4) Taiwan Strait geopolitical risk is the single largest regulatory/political risk factor — potential Chinese military action could disrupt global AI chip supply. TSMC has been called 'the silicon shield' protecting Taiwan's strategic importance."
+  },
+  "uncertain": [
+    "annual_recurring_revenue_arr",
+    "burn_rate_and_runway"
+  ]
+}

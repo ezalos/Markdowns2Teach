@@ -1,0 +1,49 @@
+{
+  "identity": {
+    "model_name": "Qwen3-235B-A22B",
+    "creator": "Alibaba Cloud (Qwen Team)",
+    "release_date": "April 2025",
+    "model_family": "Qwen"
+  },
+  "architecture": {
+    "parameter_count": "235B",
+    "active_parameters": "22B",
+    "architecture_type": "MoE (Mixture of Experts) — 128 total experts, 8 active per token, no shared experts. Uses Grouped-Query Attention (GQA) and global-batch load balancing loss for expert specialization.",
+    "context_window": "32K native, extendable to 131K with YaRN",
+    "max_output_tokens": "32,768 tokens recommended (up to 38,912 for complex benchmarking tasks)"
+  },
+  "capabilities": {
+    "open_or_closed": "Open-weight",
+    "license_type": "Apache 2.0 — fully permissive, no commercial restrictions. All Qwen3 model sizes share this license.",
+    "reasoning_capability": "Toggleable thinking — hybrid thinking/non-thinking mode within a single model. In thinking mode, the model produces extended chain-of-thought reasoning before answering (useful for math, coding, complex logic). In non-thinking mode, it responds directly for efficient general-purpose dialogue. Users can seamlessly switch between modes. Increasing the thinking budget consistently improves performance on complex tasks.",
+    "multimodal_support": "Text-only for the base Qwen3-235B-A22B. A separate Qwen3-VL-235B-A22B variant (released September 2025) adds image input, video input, and spatial grounding capabilities with up to 1M token context. The multimodal variant is a distinct model.",
+    "multilingual_support": "119 languages and dialects (up from 29 in Qwen2.5). Pretrained on ~36 trillion tokens. French is explicitly supported, including speech input and speech output in the Qwen3-Omni variant. Strong cross-lingual understanding and generation capabilities.",
+    "agentic_capability": "Strong agentic and tool-use capabilities. Leads open-source models on BFCL v3 (function-calling benchmark) with score of 70.8. Native MCP (Model Context Protocol) support. Qwen-Agent framework provides built-in tool-calling templates and parsers. Supports multi-step tool use, code execution, and complex agent-based tasks. Optimized for coding and agentic workflows."
+  },
+  "benchmarks": {
+    "key_benchmarks": "AIME 2024: 85.7, AIME 2025: 81.5, GPQA Diamond: 81.1 [uncertain], MATH-500: 94.6 [uncertain], MMLU-Pro: 81.1 [uncertain], LiveCodeBench v5: 70.7, CodeForces ELO: 2056, BFCL v3: 70.8, SWE-bench Verified: 61.7% (fine-tuned variant). All thinking-mode scores. Competitive with DeepSeek-R1, o1, o3-mini, Grok-3, and Gemini 2.5 Pro. Outperforms DeepSeek-R1 on 17/23 benchmarks in the Qwen team's evaluation.",
+    "reasoning_benchmarks_composite": "AIME 2025: 81.5, GPQA Diamond: 81.1 [uncertain], MATH-500: 94.6 [uncertain]. Strong reasoning performance — outperforms DeepSeek-R1 on reasoning-demanding tasks (math, coding, agent tasks). CodeForces ELO of 2056 is highest among open-source models at launch. Competitive with closed-source o1 and Gemini 2.5 Pro on reasoning benchmarks."
+  },
+  "pricing": {
+    "pricing_per_1M_tokens": "Alibaba Cloud (DashScope) official: $0.70 input / $2.80 output (Instruct), $0.70 input / $8.40 output (Thinking). OpenRouter: $0.18 input / $0.54 output (non-thinking). Third-party providers offer significantly lower prices due to open-weight availability and MoE efficiency.",
+    "cost_efficiency_notes": "Extremely cost-efficient for its performance tier. The MoE architecture (only 22B active of 235B total) means inference costs are comparable to a ~22B dense model, not a 235B one. OpenRouter pricing of $0.18/$0.54 per 1M tokens is a fraction of GPT-4o or Claude pricing. Open-weight Apache 2.0 license means self-hosting eliminates per-token costs entirely. Among the cheapest frontier-class models available via API, and free to self-host."
+  },
+  "deployment": {
+    "minimum_hardware_requirement": "Full precision (BF16): ~470GB VRAM, requiring 6-8x A100 80GB or H100 80GB GPUs. FP8 quantization: ~250GB VRAM. GGUF Q4_K_M: ~143GB. Consumer hybrid setup possible with ~24GB VRAM + 96GB system RAM using GGUF quantization and CPU offloading (slower inference). For production use: minimum 4x A100 80GB with FP8.",
+    "quantization_availability": "GGUF (multiple quants from Q2_K to Q8_0 via unsloth and community repos), GPTQ (Int4, Int8, Int4-Int8 mix), AWQ, FP8 (official Qwen release). Wide community quantization support on Hugging Face.",
+    "on_device_capable": "No — the 235B model is far too large for phones or laptops. However, smaller Qwen3 family members (0.6B, 1.7B, 4B) are designed for on-device use. The 235B model targets server/cloud deployment."
+  },
+  "business": {
+    "best_use_cases": "1. Coding assistance and software development — top CodeForces ELO among open-source models, strong LiveCodeBench scores. 2. Complex reasoning and math — competitive with closed-source models on AIME and MATH benchmarks. 3. Multilingual customer support and content — 119 languages with a single model, strong French support. 4. Agentic workflows and tool integration — leading BFCL scores, native MCP support, Qwen-Agent framework. 5. Cost-sensitive AI products — Apache 2.0 license enables self-hosting at zero per-token cost, MoE efficiency reduces hardware requirements vs. dense models of similar capability.",
+    "relevance_for_entrepreneurs": "Qwen3-235B is a game-changer for startups because it combines frontier-level performance with complete commercial freedom (Apache 2.0). Entrepreneurs can self-host to eliminate recurring API costs, fine-tune for their domain, and build proprietary products without license restrictions. The MoE architecture makes it cheaper to run than its benchmark scores would suggest. For European startups, it offers an alternative to US closed-source APIs, enabling data sovereignty by running on European cloud infrastructure. The 119-language support is valuable for companies targeting international markets. The hybrid thinking mode lets developers optimize cost vs. quality per request — using fast non-thinking mode for simple tasks and thinking mode for complex reasoning.",
+    "competitive_position": "Top of open-source leaderboards at launch (April 2025). Outperforms DeepSeek-R1 on 17/23 benchmarks. Competitive with closed-source o1, Grok-3, and Gemini 2.5 Pro. Key differentiator: Apache 2.0 license (vs. DeepSeek's MIT, which is also permissive, but Qwen3 offers broader model size range). Weaknesses: trails Gemini 2.5 Pro on ArenaHard and some reasoning benchmarks; the 235B model requires significant hardware for self-hosting; not natively multimodal (requires separate VL variant). Strongest in coding, math, and agentic tasks among open-weight models.",
+    "ecosystem_and_tooling": "Extensive ecosystem support. Inference: vLLM (>=0.8.5), SGLang (>=0.4.6), TGI, TensorRT-LLM, llama.cpp, Ollama, LM Studio, MLX-LM, KTransformers. Agent framework: Qwen-Agent with built-in MCP support and tool-calling. Available on: Hugging Face, ModelScope, Kaggle, NVIDIA NIM. Cloud API providers: Alibaba Cloud (DashScope), OpenRouter, Fireworks, DeepInfra, Together AI, Novita, and many others. Compatible with OpenAI-format API endpoints. Strong community quantization ecosystem.",
+    "geographic_origin_and_regulation": "China (Alibaba Cloud, Hangzhou). Key regulatory considerations for European entrepreneurs: (1) EU AI Act — as an open-weight model, downstream deployers bear compliance responsibility, not Alibaba; (2) GDPR — self-hosting on EU infrastructure ensures data never leaves the EU, a significant advantage over US/China API-only models; (3) Data sovereignty — Apache 2.0 license means no dependency on a foreign API provider; (4) Geopolitical risk — potential for future export controls or sanctions affecting updates, though existing weights remain usable; (5) Some EU organizations may have procurement policies restricting Chinese-origin software, requiring case-by-case evaluation."
+  },
+  "uncertain": [
+    "benchmarks.key_benchmarks",
+    "benchmarks.reasoning_benchmarks_composite",
+    "pricing.pricing_per_1M_tokens",
+    "deployment.minimum_hardware_requirement"
+  ]
+}

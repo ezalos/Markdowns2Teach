@@ -1,0 +1,42 @@
+{
+  "metric_identity": {
+    "metric_name": "Stanford HAI AI Index Report 2025 — Comprehensive annual survey of the global state of AI across technical, economic, policy, and societal dimensions",
+    "source_report": "Artificial Intelligence Index Report 2025, 8th edition, Stanford Institute for Human-Centered Artificial Intelligence (HAI)",
+    "source_url": "https://hai.stanford.edu/ai-index/2025-ai-index-report",
+    "publication_date": "April 2025",
+    "methodology_notes": "Annual report produced by the AI Index Steering Committee, an interdisciplinary group of experts from academia and industry at Stanford HAI. Data compiled from multiple authoritative sources including government databases (FDA, USPTO, legislative records), industry trackers (Quid, LMSYS), benchmark leaderboards (MMLU, GPQA, SWE-bench, HumanEval), the AI Incidents Database, international surveys (Ipsos, Lloyd's Register Foundation), and academic publication databases. The 2025 edition spans 456 pages across 8 chapters: Research & Development, Technical Performance, Responsible AI, Economy, Science & Medicine, Education, Policy & Governance, and Public Opinion. Also published on arXiv as paper 2504.07139."
+  },
+  "metric_value": {
+    "value": "Multiple key metrics: (1) US private AI investment: $109.1B in 2024; (2) Global corporate AI investment: $252.3B in 2024; (3) GenAI private investment: $33.9B globally; (4) AI inference cost for GPT-3.5-level performance: $0.07 per million tokens (down from $20.00); (5) 78% of organizations using AI in 2024 (up from 55%); (6) 71% using GenAI in at least one function (up from 33%); (7) US produced 40 notable AI models vs China's 15 and Europe's 3; (8) 233 AI-related incidents in 2024 (56.4% increase YoY); (9) 950 FDA-approved AI-enabled medical devices as of Aug 2024; (10) 131 US state-level AI laws passed in 2024; (11) 59 US federal AI regulations in 2024 (2x from 2023)",
+    "unit": "Multiple units: USD billions, USD per million tokens, percentage, count",
+    "geographic_scope": "Global, with regional breakdowns (US, China, UK, EU, and 75+ countries for legislative data)",
+    "time_period": "Primarily 2024, with historical trend data going back to 2015-2022 for context",
+    "comparison_baseline": "US private AI investment 2023 baseline (approx. $67B, implied by 44.5% growth to $109.1B); GenAI investment 2023: $28.6B; AI adoption 2023: 55%; GenAI adoption 2023: 33%; AI incidents 2023: ~149 (implied by 56.4% increase to 233); US state AI laws 2023: 49; Federal AI regulations 2023: ~30",
+    "market_layer": "cross-cutting (covers infrastructure, platform, model, application, and vertical layers comprehensively)"
+  },
+  "trend": {
+    "trend_direction": "Accelerating",
+    "year_over_year_change": "US private AI investment: +44.5% YoY; GenAI investment: +18.7% YoY; AI adoption by organizations: +23 percentage points (55% to 78%); GenAI adoption: +38 percentage points (33% to 71%); AI incidents: +56.4% YoY; AI inference cost reduction: ~280x decrease over 18 months; US state AI laws: +167% (49 to 131); Federal AI regulations: +100% (doubled); Legislative mentions of AI across 75 countries: +21.3% since 2023; Chinese model benchmark parity gap: narrowed from double-digit to near-zero",
+    "compound_annual_growth_rate": "[uncertain]",
+    "forecast_value": "[uncertain]",
+    "forecast_year": "[uncertain]",
+    "velocity_indicator": "cost_halving_time: AI inference costs dropped 280x in 18 months (Nov 2022 to Oct 2024) for GPT-3.5-level performance; adoption_doubling_time: GenAI organizational adoption more than doubled in one year (33% to 71%)"
+  },
+  "entrepreneurial_relevance": {
+    "relevance_for_entrepreneurs": "This is the single most comprehensive annual data source on the AI ecosystem. For startup founders, the key signals are: (1) The 280x cost collapse in AI inference means the economics of AI-powered products are transforming rapidly — business models that were uneconomical 18 months ago are now viable; (2) The US dominance in private AI investment ($109B vs China's $9.3B) signals where capital, talent, and infrastructure concentrate; (3) The surge from 33% to 71% in GenAI adoption by organizations in a single year indicates the market is transitioning from early adopter to early majority — the window for differentiated AI startups is narrowing; (4) Chinese models reaching benchmark parity with US models means global competition is intensifying, particularly relevant for pricing and commoditization risks; (5) The 56.4% spike in AI incidents and doubling of state/federal regulations signals growing regulatory overhead that startups must plan for from day one; (6) 950 FDA-approved AI medical devices shows healthcare AI as a validated vertical with strong regulatory pathways.",
+    "actionable_insight": "Founders should build AI products that assume continued rapid cost deflation (design for margins that improve as inference costs drop). The adoption acceleration from 33% to 71% in GenAI suggests enterprise sales cycles are shortening — move fast on GTM. The regulatory acceleration (131 state laws, 59 federal regulations) means compliance-by-design is no longer optional. The narrowing US-China benchmark gap implies model-layer differentiation is eroding; value shifts to application and vertical layers.",
+    "session_mapping": "1, 3, 4, 5",
+    "risk_profile": "concentration_risk, regulatory_risk"
+  },
+  "confidence": {
+    "data_quality": "High",
+    "cross_reference": "Stanford HAI AI Index is widely regarded as the gold-standard annual AI report. Key metrics cross-referenced by: IBM Think analysis (https://www.ibm.com/think/news/stanford-hai-2025-ai-index-report), McKinsey State of AI 2025, Businesswire press release (https://www.businesswire.com/news/home/20250407539812/en/), American Enterprise Institute analysis (https://www.aei.org/uncategorized/the-ai-race-accelerates-key-insights-from-the-2025-ai-index-report/), arXiv publication 2504.07139",
+    "caveats": "The report aggregates data from many sources with varying methodologies and time periods — not all metrics are from the same survey or measurement approach. Private investment figures depend on deal disclosure and may undercount certain regions (particularly China, where deals may not be fully reported). Benchmark scores reflect specific evaluation tasks and do not necessarily translate to real-world capability. The 78% organizational AI adoption figure comes from a McKinsey survey cited within the HAI report, not an independent HAI measurement. FDA device count includes devices with any AI/ML component, not necessarily frontier AI. AI incident counts depend on reporting and database inclusion criteria.",
+    "measurement_reliability": "verified_financial_filing, analyst_estimate, survey_self_reported (varies by metric — investment data from financial filings and deal databases, adoption data from surveys, benchmark scores from standardized evaluations, regulatory counts from legislative databases)"
+  },
+  "uncertain": [
+    "compound_annual_growth_rate",
+    "forecast_value",
+    "forecast_year"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "metric_identity": {
+    "metric_name": "Statista AI Market Data — Global AI Market Size, Revenue by Segment, and Regional Breakdown",
+    "source_report": "Statista Market Insights: Artificial Intelligence — Worldwide Market Forecast",
+    "source_url": "https://www.statista.com/outlook/tmo/artificial-intelligence/worldwide",
+    "publication_date": "Continuously updated (latest data accessed February 2026)",
+    "methodology_notes": "Statista uses a top-down approach with bottom-up validation. Market sizes are generated based on funding amounts of AI companies, annual financial reports, and third-party data. Forecasting techniques include S-curve functions and exponential trend smoothing, chosen for their suitability in modeling non-linear technology adoption. Key market indicators include GDP, internet penetration, number of internet users, and number of secure internet servers. The AI market comprises three KPIs: market sizes, market sizes by industry, and users of AI tools. Data is supplemented by country-specific association data. Statista distinguishes sub-segments including Machine Learning, Generative AI, Natural Language Processing, Computer Vision, Autonomous & Sensor Technology, and AI Robotics."
+  },
+  "metric_value": {
+    "value": "$254.5 billion (2025 global AI market); segments: Machine Learning $113.1B, Generative AI $59.01B, NLP $48.31B, Autonomous & Sensor Tech $30.51B, Computer Vision $29.27B, AI Robotics $22.52B",
+    "unit": "USD (billions)",
+    "geographic_scope": "Global, with regional breakdown: United States $74B (largest single country, ~29% of global), China $46.53B, Europe EUR 42.6B (~$46.7B), Germany EUR 9.04B (~$9.96B), UK GBP 5.97B (~$7.68B)",
+    "time_period": "2025 (with forecasts through 2030-2031)",
+    "comparison_baseline": "Global AI market approximately $241.8B in 2023. US market growing at ~30% annually. The market grew from $241.8B (2023) to $254.5B (2025), with accelerating growth projected. Machine Learning segment projected from $90.97B (2025 Statista Market Insights figure) to $475B by 2031. Generative AI from $59.01B (2025) to $400B by 2031.",
+    "market_layer": "cross-cutting (covers all layers: infrastructure via AI hardware/cloud, platform via ML platforms, model via foundation models, application via enterprise AI software, vertical via industry-specific AI)"
+  },
+  "trend": {
+    "trend_direction": "Accelerating",
+    "year_over_year_change": "~27.7% growth rate from 2025 to 2026 (projected from $254.5B to ~$312B); Machine Learning segment CAGR 31.72%; Generative AI segment CAGR 37.57%",
+    "compound_annual_growth_rate": "27.67% CAGR (2025-2030) for overall AI market; 36.89% CAGR (2025-2031) yielding $1.68T by 2031; Machine Learning 31.72% CAGR (2025-2031); Generative AI 37.57% CAGR (2025-2031)",
+    "forecast_value": "$826.73B by 2030 (overall AI market); $1.68T by 2031; Machine Learning $475B by 2031; Generative AI $400B by 2031; US market grows by $173.5B (+345.89%) from 2024 to 2030; Europe AI market EUR 190B (~$209B) by 2030",
+    "forecast_year": "2030-2031",
+    "velocity_indicator": "Market roughly triples in 5 years (2025-2030: $254.5B to $826.73B); Generative AI nearly 7x in 6 years ($59B to $400B by 2031)"
+  },
+  "entrepreneurial_relevance": {
+    "relevance_for_entrepreneurs": "Statista's AI market data provides the most widely cited, accessible market sizing for AI — the kind of number that goes into pitch decks and investor presentations. For M2 Entrepreneuriat students, key takeaways: (1) The total addressable market (TAM) of $254.5B in 2025 growing to $826.73B by 2030 validates AI as a massive opportunity, but founders must identify their specific segment and serviceable addressable market (SAM). (2) Machine Learning dominates at $113.1B (44% of the total), meaning most AI revenue comes from prediction/classification workloads, not just generative AI hype. (3) Generative AI at $59B is the fastest-growing segment (37.57% CAGR) but still only 23% of the total — there is enormous opportunity beyond chatbots. (4) Regional data shows the US captures 29% ($74B) of the global market, while Europe at $46.7B presents both a large market and an underweight position relative to population/GDP, suggesting opportunity for European founders. (5) The segment breakdown (NLP $48.3B, Computer Vision $29.3B, Robotics $22.5B) helps founders identify where enterprise budgets are actually being spent vs. where media attention focuses.",
+    "actionable_insight": "Use the segment breakdown to identify your startup's target market layer. If pitching to investors, cite Statista's $826.73B (2030) TAM but immediately narrow to your SAM. Machine Learning and NLP together represent $161.4B — the largest combined opportunity. Generative AI's 37.57% CAGR makes it the strongest growth narrative for fundraising. European founders should emphasize the gap between Europe's $46.7B market and the US's $74B as both a catch-up opportunity and a sign of underserved demand.",
+    "session_mapping": "1, 4",
+    "risk_profile": "bubble_indicator"
+  },
+  "confidence": {
+    "data_quality": "Medium",
+    "cross_reference": "Gartner forecasts total AI spending at $2.527T in 2026 (much broader scope including infrastructure, services). IDC forecasts $632B for AI solutions by 2028. Grand View Research estimates the AI market at $196.63B in 2023 with 36.6% CAGR to 2030. Differences arise from varying definitions of 'AI market' — Statista's $254.5B figure is narrower than Gartner's all-inclusive spending but broader than pure AI software revenue. Stanford HAI AI Index and McKinsey Global Survey corroborate the growth trajectory.",
+    "caveats": "Statista's market size figures are generated from AI company funding data, not from verified revenue filings, which introduces estimation uncertainty. The $254.5B figure for 2025 is a projection, not a reported actual. Different Statista pages show slightly different numbers depending on whether they measure 'AI market size' ($254.5B), 'AI software market,' or 'AI revenues' — definitions matter. The segment breakdown (ML $113.1B, GenAI $59B, etc.) sums to approximately $302.7B, which exceeds the $254.5B headline — this discrepancy likely reflects overlapping segment definitions or different data vintages across Statista pages. Free Statista data provides headlines; full methodology and granular data require a paid subscription. Forecasts use S-curve and exponential smoothing models that may overestimate if adoption plateaus.",
+    "measurement_reliability": "analyst_estimate"
+  },
+  "uncertain": [
+    "comparison_baseline",
+    "velocity_indicator"
+  ]
+}

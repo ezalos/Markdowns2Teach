@@ -1,0 +1,47 @@
+{
+  "identity": {
+    "company_name": "Advanced Micro Devices, Inc. (AMD)",
+    "headquarters": "Santa Clara, USA",
+    "headquarters_region": "US",
+    "founded_year": 1969
+  },
+  "value_chain": {
+    "role_in_value_chain": "hardware",
+    "value_chain_position": "Hardware challenger in AI accelerators and CPUs. AMD depends on TSMC for chip fabrication (same as NVIDIA). Supplies GPUs (Instinct MI series) and CPUs (EPYC) to cloud providers (Oracle, Microsoft Azure, AWS), AI labs (Meta, OpenAI), and enterprises. Also provides FPGAs and adaptive SoCs (from Xilinx acquisition) for edge and embedded AI. Positioned as the primary alternative to NVIDIA in the data center GPU market.",
+    "vertical_integration_level": "Multi-layer"
+  },
+  "products": {
+    "key_products": [
+      "Instinct MI300X/MI350/MI450 AI Accelerators: data center GPUs for AI training and inference, with MI350 delivering 35x inference performance over MI300X and 288GB HBM3E memory. MI450 with rack-scale Helios architecture expected 2026.",
+      "EPYC Server CPUs (Turin/5th Gen): dominant in server market share vs Intel, powering data center compute alongside GPUs. Record $16.6B data center segment revenue in 2025.",
+      "ROCm Open Software Platform: open-source GPU computing stack (v7 released Sept 2025) supporting PyTorch, TensorFlow, JAX, and vLLM. AMD's answer to CUDA, with growing but still smaller ecosystem."
+    ]
+  },
+  "business": {
+    "revenue_or_valuation": "Full year 2025 revenue: $34.6B (+34% YoY). Data Center segment: $16.6B (record, +32% YoY). Market cap: ~$340B (Feb 2026).",
+    "annual_recurring_revenue_arr": "Not a traditional SaaS/ARR model. Hardware-driven revenue. Software (ROCm) is free and open-source, not monetized directly.",
+    "funding_total_and_last_round": "Public company (NASDAQ: AMD) since 1972. Acquired Xilinx for ~$50B (all-stock, completed Feb 2022). No venture funding rounds applicable. Market cap ~$340B (Feb 2026).",
+    "business_model": "Hardware sales across three segments: Data Center ($16.6B in 2025, including Instinct GPUs, EPYC CPUs, FPGAs, DPUs), Client and Gaming ($14.6B, including Ryzen CPUs, Radeon GPUs, semi-custom console SoCs), and Embedded ($3.5B, including FPGAs and adaptive SoCs from Xilinx). Revenue is primarily from chip sales to OEMs, cloud providers, and enterprises. Growing AI accelerator revenue expected to reach tens of billions by 2027.",
+    "burn_rate_and_runway": "Not applicable. Profitable public company. FY2025 GAAP net income: $4.3B. Non-GAAP net income significantly higher."
+  },
+  "openness": {
+    "open_vs_closed_spectrum": "Hybrid / Open-source leaning. ROCm is fully open-source (drivers, compilers, libraries, runtimes) and community-driven. AMD actively promotes an open AI ecosystem strategy as a competitive differentiator vs NVIDIA's proprietary CUDA. Hardware specifications and ISA documentation are more openly available than NVIDIA's. However, chip designs themselves are proprietary."
+  },
+  "startup_relevance": {
+    "relevance_for_startups": "AMD is increasingly relevant as the credible alternative to NVIDIA for AI compute, offering entrepreneurs options to reduce vendor lock-in and potentially lower costs. Key considerations: (1) MI300X/MI350 GPUs are 15-40% cheaper than equivalent NVIDIA GPUs while narrowing the performance gap to 10-30%, improving AI startup unit economics; (2) ROCm's open-source nature means no licensing costs and growing framework support (PyTorch, vLLM day-zero support), reducing dependency on a single vendor; (3) Major cloud availability is expanding -- Oracle will deploy 50,000 MI450 GPUs, Microsoft Azure offers MI300X instances, and AMD Developer Cloud provides free access for prototyping; (4) OpenAI's $90B committed GPU purchase from AMD signals enterprise validation and will drive ROCm ecosystem maturity; (5) For startups concerned about NVIDIA supply constraints or pricing power, AMD provides negotiating leverage and a realistic Plan B; (6) The Xilinx FPGA portfolio enables edge AI deployment for IoT and embedded startups; (7) However, the ROCm ecosystem is still less mature -- startups should budget for additional engineering time when choosing AMD over NVIDIA.",
+    "accessibility": "Growing accessibility. AMD Developer Cloud offers free access to MI300X GPUs with GitHub login, no credit card required. ROCm is free and open-source. Cloud availability through Microsoft Azure, Oracle Cloud, and AWS. AMD provided 100,000 hours of free cloud compute to Indian startups/researchers in 2025. MI300X available on specialized GPU cloud providers. However, fewer cloud instance options and smaller community than NVIDIA CUDA ecosystem. PyTorch and vLLM work out-of-the-box on ROCm 7.",
+    "primary_model_dependency": "None. AMD is a hardware/platform provider, not dependent on any foundation model."
+  },
+  "ecosystem": {
+    "key_partnerships": "OpenAI: strategic partnership for $90B in AMD Instinct GPU purchases (6 GW deployment starting H2 2026). Oracle Cloud: first hyperscaler to offer MI450 superclusters (50,000 GPUs, Q3 2026). Microsoft Azure: MI300X and MI350 deployment commitments. Meta: close collaboration on AI hardware roadmap (MI350, MI400 series). Supercomputing: AMD powers Frontier and El Capitan, two of the world's most powerful supercomputers. AI companies: Fireworks AI, Cohere use AMD GPUs in production.",
+    "competitive_moat": "Open ecosystem strategy: ROCm's open-source nature attracts developers and organizations seeking to avoid CUDA lock-in. Price-performance advantage: 15-40% cost savings on comparable GPU performance. Broad compute portfolio: CPUs (EPYC) + GPUs (Instinct) + FPGAs (Xilinx) under one vendor simplifies procurement for data centers. Validated by hyperscalers: Oracle, Microsoft, Meta commitments de-risk adoption. However, moat is weaker than NVIDIA's -- AMD must continuously close the software ecosystem gap and maintain competitive hardware cadence.",
+    "data_moat_type": "None"
+  },
+  "regulatory": {
+    "regulatory_exposure": "Exempt (hardware provider). As a semiconductor company, AMD is not directly regulated as a GPAI provider or high-risk AI system under the EU AI Act. Similar to NVIDIA, AMD benefits from sovereign AI infrastructure demand in Europe. Subject to US export controls on advanced chips to China. AMD has created region-specific product variants to comply with export restrictions."
+  },
+  "uncertain": [
+    "annual_recurring_revenue_arr",
+    "burn_rate_and_runway"
+  ]
+}

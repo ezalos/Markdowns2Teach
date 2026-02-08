@@ -1,0 +1,38 @@
+{
+  "metric_identity": {
+    "metric_name": "Global AI Investment Volumes — Total corporate AI investment including private funding, M&A, and government spending",
+    "source_report": "Stanford HAI AI Index Report 2025 (Chapter 4: Economy), supplemented by Crunchbase Global Venture Funding Year-End 2024 and 2025 recaps, PitchBook AI Startup Funding Analysis, and KPMG Venture Pulse Q3 2025",
+    "source_url": "https://hai.stanford.edu/ai-index/2025-ai-index-report/economy",
+    "publication_date": "April 2025 (Stanford HAI); January 2026 (Crunchbase 2025 year-end)",
+    "methodology_notes": "Stanford HAI aggregates investment data from Quid/NetBase, tracking private equity rounds, venture capital deals, mergers and acquisitions, and public offerings in AI-related companies globally. The $252.3B corporate AI investment figure for 2024 encompasses private investment ($109.1B US alone) plus M&A activity. Crunchbase separately tracks venture funding using disclosed deal data and estimated undisclosed rounds. PitchBook uses deal-level data from its proprietary database of VC, PE, and M&A transactions. Government spending figures are compiled from national budget announcements and pledges. Key limitation: different trackers use different definitions of 'AI company' — Stanford HAI uses a broad AI-related classification while Crunchbase uses sector tagging. Chinese deal data may be underreported due to disclosure norms."
+  },
+  "metric_value": {
+    "value": "Corporate AI investment: $252.3B globally in 2024. Breakdown: US private AI investment $109.1B; China $9.3B; UK $4.5B. GenAI private investment: $33.9B globally. Total AI-related VC funding: ~$114B in 2024 (Crunchbase), representing 35.7% of all global VC deal value. In 2025: AI venture funding surged to $211B (Crunchbase), roughly 50% of all global VC. Government pledges (cumulative announced): US CHIPS Act + federal AI R&D $3.3B FY25; China semiconductor fund $47.5B + national AI fund $8.2B; EU 'AI Continent' plan EUR 200B over 5 years; France EUR 109B; Saudi Arabia Project Transcendence $100B.",
+    "unit": "USD billions",
+    "geographic_scope": "Global, with country-level breakdowns (US, China, UK, EU, France, Saudi Arabia, India, Canada)",
+    "time_period": "2024 (primary), with 2025 preliminary data and historical context back to 2014",
+    "comparison_baseline": "2023: US private AI investment ~$67.2B (implied by 44.5% growth to $109.1B); Global GenAI private investment $28.6B (2023); Total AI VC funding ~$55.6B in 2023 (Crunchbase); 2022 GenAI investment ~$4B (before the ChatGPT-driven surge); 2014 total corporate AI investment ~$19B (1/13th of 2024 level)",
+    "market_layer": "cross-cutting (investment flows into infrastructure, platform, model, application, and vertical layers)"
+  },
+  "trend": {
+    "trend_direction": "Accelerating",
+    "year_over_year_change": "Corporate AI investment 2023-2024: private investment +44.5% YoY, M&A +12.1% YoY. GenAI private investment +18.7% YoY ($28.6B to $33.9B). AI VC funding (Crunchbase): +105% from 2023 ($55.6B) to 2024 ($114B); then +85% from 2024 to 2025 ($114B to $211B). GenAI share of total AI private investment now exceeds 20%. AI's share of global VC grew from ~25% in 2023 to 35.7% in 2024 to ~50% in 2025.",
+    "compound_annual_growth_rate": "~30% CAGR for global corporate AI investment from 2019 to 2024; ~13x growth from 2014 to 2024 implies ~29% CAGR over the decade",
+    "forecast_value": "IDC forecasts worldwide AI spending (broader scope including software, services, infrastructure) at $632B by 2028. Gartner forecasts total AI spending at $2.53T in 2026 and $3.34T in 2027 (broadest definition including infrastructure buildout). AI venture funding pace in 2025 ($211B) suggests 2025 corporate AI investment will substantially exceed 2024's $252.3B.",
+    "forecast_year": "2028 (IDC); 2026-2027 (Gartner)",
+    "velocity_indicator": "AI share of global VC doubled in 2 years (25% in 2023 to 50% in 2025); Foundation model companies alone raised $80B in 2025 (40% of all AI VC); Mega-rounds accelerating — OpenAI $40B (2025), xAI $6B (2024), Anthropic $13B (2025)"
+  },
+  "entrepreneurial_relevance": {
+    "relevance_for_entrepreneurs": "This is the most critical macro signal for any founder building in AI. The $252.3B in corporate AI investment (2024) and $211B in AI venture funding (2025) confirm that capital is abundantly available but concentrating fast. Three patterns matter for entrepreneurs: (1) Capital concentration at the top — foundation model companies (OpenAI, Anthropic, xAI) absorbed $80B in 2025 alone, meaning application-layer startups compete for the remaining capital and must show differentiated traction quickly; (2) Geographic concentration — the US captured $109.1B in private AI investment vs China's $9.3B and UK's $4.5B, so non-US founders face structural funding disadvantages and should consider US fundraising or focus on regional regulatory advantages (EU AI Act compliance as a moat); (3) Government spending is accelerating but fragmented — the EU's EUR 200B AI Continent plan and France's EUR 109B pledge create procurement opportunities for startups that can navigate public-sector sales cycles. The 13x growth in AI investment since 2014 validates a secular shift, not a bubble, but the pace of acceleration (50% of all VC going to AI in 2025) signals potential overallocation that could correct.",
+    "actionable_insight": "For fundraising: position your startup in the application or vertical layer where capital is growing fastest relative to competition. Avoid competing directly with foundation model companies for infrastructure capital. For market timing: the surge from 35.7% to 50% AI share of global VC suggests a 12-18 month window of peak capital availability before potential correction. For European founders: leverage EU AI Act compliance and government AI procurement programs (EUR 200B over 5 years) as competitive advantages unavailable to US-based competitors.",
+    "session_mapping": "1, 4",
+    "risk_profile": "bubble_indicator, concentration_risk"
+  },
+  "confidence": {
+    "data_quality": "High",
+    "cross_reference": "Stanford HAI AI Index 2025 (primary: $252.3B corporate, $109.1B US private); Crunchbase Year-End 2024 ($114B total AI VC) and 2025 ($211B AI VC, ~50% of all VC); PitchBook (35.7% of all VC in 2024 to AI); KPMG Venture Pulse Q3 2025 ($120B+ per quarter); IBM Think analysis of Stanford HAI data (https://www.ibm.com/think/news/stanford-hai-2025-ai-index-report); Businesswire press release (https://www.businesswire.com/news/home/20250407539812/en/); IDC AI Spending Guide ($632B by 2028); Gartner AI Spending Forecast ($2.53T in 2026). Multiple sources converge on the same order of magnitude despite different methodologies.",
+    "caveats": "The $252.3B Stanford HAI figure and Crunchbase's $114B are not directly comparable — Stanford uses a broader 'corporate AI investment' definition including M&A and minority stakes, while Crunchbase focuses on venture/growth equity rounds. Government spending figures are announced pledges, not confirmed disbursements — actual spending typically trails announcements by 2-5 years. Chinese AI investment is likely underreported due to state-backed fund opacity and deal non-disclosure norms. The 2025 Crunchbase $211B figure may be inflated by mega-rounds (OpenAI's $40B alone = 19% of total). VC funding does not equal revenue or market size — it measures capital deployment, not commercial demand.",
+    "measurement_reliability": "analyst_estimate, verified_financial_filing (for public company disclosures embedded in totals)"
+  },
+  "uncertain": []
+}

@@ -1,0 +1,30 @@
+{
+  "resource_name": "Underscore_",
+  "resource_type": "YouTube / Podcast / Twitch Live Show",
+  "creator_or_organization": "Michael de Marliave (Micode), co-hosted with Matthieu Lambda and Tiffany Souterre. Produced by Micorp.",
+  "url": "https://www.youtube.com/@Underscore_",
+  "language": "French",
+
+  "content_focus": "Broad tech coverage centered on AI, cybersecurity/hacking, robotics, entrepreneurship, and software development. The show features long-form interviews with major figures from the French and international digital world — founders, hackers, engineers, researchers. Specific AI-related episodes have covered ChatGPT features and implications, AI-designed processor architectures, and general AI industry developments. Also covers tech investigations (e.g., scam networks, espionage affairs), hardware deep-dives (e.g., AR glasses, North Korean tablets), and open-source projects (e.g., VLC/VideoLAN security). The show includes a press review segment and guest recommendations on current tech news.",
+  "target_audience": "Beginners to intermediate tech enthusiasts. Designed to be accessible ('vulgarisation') for a general audience curious about technology, not exclusively for engineers. Strong appeal to young French-speaking adults interested in tech culture, startups, and digital trends.",
+  "publication_frequency": "Biweekly (live on Twitch every other Wednesday at 7 PM CET), with podcast episodes released roughly every 5 days (some episodes are split VODs from the live show). Over 210 episodes produced since launch.",
+  "format_and_length": "Live Twitch talk-show (90+ minutes per session), then split into shorter VODs on YouTube (typically 25-40 minutes each) and released as podcast episodes on Spotify, Apple Podcasts, and Acast. The format combines interviews, press review segments, and tech discussions.",
+
+  "accessibility_for_non_engineers": "High. The show explicitly aims at 'vulgarisation' (making tech accessible). Micode's signature style is explaining complex topics (cybersecurity, AI, hacking) in plain language with storytelling and investigation-style narratives. French-language delivery removes the English barrier for francophone business students. Some critics note the coverage stays at an introductory level, which is actually a feature for non-technical audiences.",
+  "signal_to_noise_ratio": "Medium. The show is entertaining and covers genuinely interesting topics, but as a broad tech talk-show it is not exclusively focused on AI. AI-specific content appears in some episodes but is mixed with cybersecurity, hardware, and general tech culture. For pure AI signal, dedicated AI resources are more efficient, but the entrepreneurial and French tech ecosystem angle adds unique value.",
+  "unique_value_proposition": "The leading French-language tech talk-show, and the first francophone tech podcast by audience size (achieved in December 2021). Provides a rare combination of accessible tech coverage in French with high production value, entertaining hosts, and access to notable guests from the French tech ecosystem. For French-speaking business students, it is the most natural entry point into tech culture — covering AI, cybersecurity, and entrepreneurship in their native language with a non-intimidating format.",
+  "free_or_paid": "Free. All content is freely available across Twitch (live), YouTube (VODs), and podcast platforms (Spotify, Apple Podcasts, Acast). No paywall or premium tier.",
+  "source_reliability": "Medium. The hosts are experienced content creators with a large following (Micode's main channel has ~1.77M subscribers), and they invite credible guests (founders, engineers, researchers). However, the show is entertainment-first rather than journalistic — it does not claim editorial standards, fact-checking processes, or academic rigor. Some community feedback notes that certain topics are covered superficially. Best used as a discovery and awareness tool rather than a primary source for technical or business decisions.",
+
+  "relevance_for_entrepreneurs": "Valuable as a French-language window into the tech ecosystem. The show regularly features founders and entrepreneurs discussing their ventures, which provides business students with real-world case studies and exposure to the French startup scene. AI episodes help entrepreneurs understand how AI technologies are being adopted and discussed in the broader tech community. The cybersecurity coverage is also relevant for entrepreneurs building AI products (understanding security risks, data protection). However, it is more of a cultural awareness tool than a source of actionable business intelligence.",
+  "actionable_insight_level": "Low. The show is primarily informational and entertainment-oriented. It raises awareness of trends and introduces topics rather than providing step-by-step frameworks or decision-making tools. Entrepreneurs will gain cultural literacy and conversation topics rather than direct business strategies.",
+  "session_mapping": "S1 (Fundamentals) — for building AI and tech ecosystem awareness; S5 (Ethics/Governance) — cybersecurity and data privacy episodes provide context for governance discussions",
+
+  "active_since": "2021",
+  "last_verified_active": "2026-02-04",
+  "ecosystem_position": "Popularizer and community hub. Underscore_ sits at the intersection of entertainment and education in the French tech media landscape. It is a secondary source that aggregates and discusses news from primary sources, making it an accessible entry point for non-specialists. In the French AI information ecosystem, it serves as a gateway — listeners discover topics here and can then seek deeper resources. Its position as the top French tech podcast gives it significant influence in shaping how the French-speaking public understands AI and tech trends.",
+
+  "recommendation_tier": "Nice-to-Have",
+
+  "uncertain": ["publication_frequency", "signal_to_noise_ratio"]
+}

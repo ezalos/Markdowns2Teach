@@ -1,0 +1,92 @@
+# ABOUTME: Field definitions for AI Value Chain Companies research.
+# ABOUTME: Covers identity, value chain position, business metrics, and startup relevance.
+
+identity:
+  company_name:
+    description: "Official company name"
+    detail_level: brief
+  headquarters:
+    description: "City, Country"
+    detail_level: brief
+  headquarters_region:
+    description: "US / EU / China / Other — for sovereignty and regulatory analysis"
+    detail_level: brief
+  founded_year:
+    description: "Year established"
+    detail_level: brief
+
+value_chain:
+  role_in_value_chain:
+    description: >
+      Primary role: hardware, energy_infrastructure, cloud, data_infrastructure,
+      model_creator, model_hub, api_provider, orchestration, vector_db,
+      evaluation, safety, mlops, application
+    detail_level: brief
+  value_chain_position:
+    description: "Where they sit — who they depend on and who they serve"
+    detail_level: moderate
+  vertical_integration_level:
+    description: "Single-layer / Multi-layer / Full-stack"
+    detail_level: brief
+
+products:
+  key_products:
+    description: "Top 2-3 products or services"
+    detail_level: moderate
+
+business:
+  revenue_or_valuation:
+    description: "Latest known revenue or valuation with date and source"
+    detail_level: moderate
+  annual_recurring_revenue_arr:
+    description: "Actual ARR figure where available"
+    detail_level: moderate
+  funding_total_and_last_round:
+    description: "Total raised / Last round size @ valuation (date)"
+    detail_level: moderate
+  business_model:
+    description: "How they make money (SaaS, usage-based, licensing, etc.)"
+    detail_level: moderate
+  burn_rate_and_runway:
+    description: "Monthly burn rate where known"
+    detail_level: brief
+
+openness:
+  open_vs_closed_spectrum:
+    description: >
+      Fully open-source / Open-weight (Apache) / Open-weight (restrictive) /
+      Open API / Closed / Hybrid — nuanced spectrum matters for startup strategy
+    detail_level: brief
+
+startup_relevance:
+  relevance_for_startups:
+    description: "Why an entrepreneur should care about this company"
+    detail_level: detailed
+  accessibility:
+    description: "Can a startup use or build on this? How? Pricing tier?"
+    detail_level: moderate
+  primary_model_dependency:
+    description: "Which foundation model(s) this company depends on, if any"
+    detail_level: brief
+
+ecosystem:
+  key_partnerships:
+    description: "Major partnerships or dependencies"
+    detail_level: moderate
+  competitive_moat:
+    description: "What makes them hard to displace"
+    detail_level: moderate
+  data_moat_type:
+    description: >
+      Proprietary training data / User feedback loop / Network effects /
+      Distribution / CUDA lock-in / None
+    detail_level: brief
+
+regulatory:
+  regulatory_exposure:
+    description: >
+      EU AI Act: GPAI provider / High-risk / Exempt / Unknown.
+      Relevant for Session 5 ethics discussion.
+    detail_level: brief
+
+uncertain: []

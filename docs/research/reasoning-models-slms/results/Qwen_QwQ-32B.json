@@ -1,0 +1,48 @@
+{
+  "identity": {
+    "model_name": "QwQ-32B",
+    "creator": "Alibaba Cloud (Qwen Team)",
+    "release_date": "March 2025",
+    "model_family": "Qwen"
+  },
+  "architecture": {
+    "parameter_count": "32.5B",
+    "active_parameters": "32.5B",
+    "architecture_type": "dense",
+    "context_window": "131,072 tokens (128K)",
+    "max_output_tokens": "32,768 tokens (32K)"
+  },
+  "capabilities": {
+    "open_or_closed": "open-weight",
+    "license_type": "Apache 2.0. Fully permissive for commercial use with no restrictions. One of the most permissive licenses available for a model of this capability level.",
+    "reasoning_capability": "Fixed chain-of-thought. QwQ-32B always generates reasoning in <think> tags before producing the final answer. There is no toggle to disable thinking or control thinking budget. The model was trained with reinforcement learning using outcome-based rewards (accuracy verifiers for math, code execution for coding) to develop strong step-by-step reasoning. Two-stage RL: first stage scales RL for math and coding, second stage adds general capabilities (instruction following, alignment, agent performance).",
+    "multimodal_support": "Text only. No image, audio, or video input/output. QwQ-32B is a pure text reasoning model. For multimodal capabilities within the Qwen family, see Qwen2.5-VL or Qwen3-VL models.",
+    "multilingual_support": "Inherits Qwen2.5 multilingual capabilities supporting 29+ languages including Chinese, English, French, Spanish, Portuguese, German, Italian, Russian, Japanese, Korean, Vietnamese, Thai, and Arabic. However, the HuggingFace model card lists only English as primary language. Reasoning quality is strongest in English and Chinese; French is supported but not a primary optimization target.",
+    "agentic_capability": "Built-in agentic capabilities. QwQ-32B integrates agent-related capabilities directly into the reasoning model, enabling it to think critically while utilizing tools and adapting its reasoning based on environmental feedback. Scored 66.4% on BFCL (Berkeley Function Calling Leaderboard), outperforming DeepSeek-R1 (60.3%) and o1-mini (62.8%). Supports tool calling and function calling for multi-step agent workflows."
+  },
+  "benchmarks": {
+    "key_benchmarks": "AIME 2024: 79.5% (mathematical competition reasoning), LiveCodeBench: 63.4% (code generation and repair), LiveBench: 73.1% (general problem-solving), IFEval: 83.9% (instruction following), BFCL: 66.4% (function/tool calling), MATH-500: 90.6% (mathematical reasoning), GPQA Diamond: ~65.2% (graduate-level science QA). Comparison context: nearly matches DeepSeek-R1 (671B total params, 37B active) across most benchmarks despite being 10x smaller. Outperforms o1-mini on most benchmarks. No official SWE-bench Verified or HumanEval scores published.",
+    "reasoning_benchmarks_composite": "AIME 2024: 79.5% (vs DeepSeek-R1 79.8%, o1-mini 63.6%). MATH-500: 90.6%. GPQA Diamond: ~65.2%. Strong mathematical and logical reasoning through RL-trained chain-of-thought. Performance is remarkably close to DeepSeek-R1 on competition math despite having only 32.5B parameters vs 671B total."
+  },
+  "pricing": {
+    "pricing_per_1M_tokens": "Varies by provider. Alibaba Cloud (DashScope): ~$0.43 input / $0.60 output. DeepInfra: $0.075 input / $0.15 output. Also available via Together.ai, Hyperbolic, Nebius, Cloudflare, Groq, and others at competitive rates. Being open-weight, self-hosting eliminates per-token costs entirely.",
+    "cost_efficiency_notes": "Exceptional price-performance ratio. QwQ-32B matches DeepSeek-R1 (671B params) while requiring only ~5% of the compute for inference. At DeepInfra's pricing ($0.075/$0.15 per 1M tokens), it is among the cheapest reasoning-capable models available. Self-hostable on a single consumer GPU (RTX 4090 with 4-bit quantization), making it accessible for startups. However, the model tends to be verbose in its reasoning (generates ~2.5x more tokens than average), which can increase effective output costs."
+  },
+  "deployment": {
+    "minimum_hardware_requirement": "Full precision (BF16): ~65GB VRAM (e.g., A100-80GB or 2x A100-40GB). 8-bit quantization: ~35-40GB VRAM (e.g., A100-40GB). 4-bit quantization (Q4_K_M): ~20GB VRAM (e.g., single RTX 3090/4090 with 24GB). For production deployment, A100-80GB recommended for full precision, or A100-40GB with 8-bit quantization.",
+    "quantization_availability": "GGUF (official Qwen/QwQ-32B-GGUF and community unsloth/QwQ-32B-GGUF with dynamic quantization), GPTQ (Int4 and Int8 variants), AWQ (Qwen/QwQ-32B-AWQ). Multiple GGUF quant levels available: Q2_K, Q3_K_M, Q4_K_M, Q5_K_M, Q6_K, Q8_0. Widely supported across inference frameworks.",
+    "on_device_capable": "Partially. At 32.5B parameters, too large for phones or tablets. Can run on high-end laptops with 4-bit quantization (requires ~20GB RAM/VRAM). Practical for desktop workstations with RTX 3090/4090. Not designed for embedded or edge devices."
+  },
+  "business": {
+    "best_use_cases": "1) Complex coding tasks: code generation, debugging, and code review with strong reasoning (63.4% LiveCodeBench). 2) Mathematical and quantitative analysis: financial modeling, risk assessments, data analysis with step-by-step reasoning (79.5% AIME, 90.6% MATH-500). 3) Agentic workflows: tool-calling applications, multi-step automated pipelines that require reasoning and environmental interaction (66.4% BFCL). 4) Legal and compliance document analysis: leverages 128K context window for processing long documents with careful reasoning. 5) Cost-effective self-hosted reasoning: startups wanting DeepSeek-R1-level reasoning without the infrastructure cost of a 671B parameter model.",
+    "relevance_for_entrepreneurs": "QwQ-32B is highly relevant for startup founders because it democratizes access to frontier-level reasoning capabilities. Key business implications: (1) Cost: at 32.5B params, it can run on a single consumer GPU (~$2,000 hardware) or via cheap API providers ($0.075-0.60/M tokens), dramatically lowering the barrier to adding reasoning AI to products. (2) Apache 2.0 license means zero licensing costs and full freedom to commercialize, modify, and deploy without restrictions. (3) Competitive moat: enables startups to build reasoning-powered products (financial analysis, legal tech, code assistants) without dependency on proprietary API providers. (4) Build-vs-buy: the model is strong enough to compete with proprietary reasoning models while being fully self-hostable, giving startups data sovereignty and cost predictability. (5) The model's agentic capabilities make it suitable for building autonomous AI workflows, a key trend in AI-powered business tools.",
+    "competitive_position": "Directly competes with DeepSeek-R1 (matches on most benchmarks with 20x fewer total parameters), o1-mini (significantly outperforms on math and coding), and DeepSeek-R1-Distill-Qwen-32B (same parameter count but QwQ-32B is stronger due to native RL training vs distillation). Key differentiator: best reasoning performance per parameter count as of March 2025. Weaknesses: text-only (no multimodal), fixed thinking mode (cannot disable chain-of-thought for simpler queries which wastes tokens), verbose output increases effective cost. Has been partially superseded by Qwen3 family (released May 2025) which offers hybrid thinking modes and better multilingual support.",
+    "ecosystem_and_tooling": "Broad ecosystem support. Inference frameworks: vLLM (recommended for production), SGLang, llama.cpp, Transformers (HuggingFace). Local tools: Ollama (ollama run qwq:32b), LM Studio, MLX (Apple Silicon). Cloud API providers: Alibaba Cloud Model Studio (DashScope), DeepInfra, Together.ai, Hyperbolic, Nebius, Cloudflare Workers AI, Groq, Replicate. Agent frameworks: compatible with Qwen-Agent, LangChain, LlamaIndex. Model distribution: HuggingFace, ModelScope, Kaggle. IDE integrations possible via OpenAI-compatible API endpoints offered by most providers.",
+    "geographic_origin_and_regulation": "China (Alibaba Cloud, headquartered in Hangzhou). Regulatory considerations: (1) EU AI Act: as an open-weight model under Apache 2.0, deployers bear compliance responsibility, not Alibaba. The model itself is not classified as high-risk but applications built on it may be. (2) GDPR: self-hosting ensures full data sovereignty since no data leaves European infrastructure. API usage via Alibaba Cloud routes through their servers (potentially outside EU). (3) Data sovereignty: open weights enable full on-premises deployment, making it attractive for European companies with strict data residency requirements. (4) Geopolitical risk: as a Chinese-origin model, some sectors (defense, critical infrastructure) may have policy restrictions. For general business use, the Apache 2.0 license and downloadable weights mitigate vendor lock-in concerns."
+  },
+  "uncertain": [
+    "max_output_tokens",
+    "multilingual_support",
+    "reasoning_benchmarks_composite"
+  ]
+}

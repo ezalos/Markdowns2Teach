@@ -1,0 +1,47 @@
+{
+  "identity": {
+    "company_name": "GitHub Copilot (Microsoft / GitHub)",
+    "headquarters": "San Francisco, USA (GitHub Inc., subsidiary of Microsoft)",
+    "headquarters_region": "US",
+    "founded_year": 2021
+  },
+  "value_chain": {
+    "role_in_value_chain": "application",
+    "value_chain_position": "Application layer, developer tools vertical. GitHub Copilot depends on foundation models from OpenAI (GPT-4o, o3), Anthropic (Claude Sonnet 4, Claude Opus 4.6), and Google (Gemini) for code generation and reasoning. It sits on top of GitHub's platform (150M+ developer accounts) and Microsoft's Azure infrastructure. Copilot serves developers directly in IDEs (VS Code, JetBrains, Visual Studio), CLI, and GitHub.com, with Agent HQ evolving it into a multi-agent orchestration platform hosting third-party agents (Claude Code, OpenAI Codex) alongside its own.",
+    "vertical_integration_level": "Full-stack"
+  },
+  "products": {
+    "key_products": [
+      "GitHub Copilot (code completion & chat): AI pair programmer embedded in VS Code, JetBrains, Visual Studio, CLI, and GitHub Mobile. Provides inline code completions (generates ~46% of code written by users), multi-file editing, chat-based code assistance, and agent mode for autonomous task execution. Five tiers: Free (2,000 completions/mo), Pro ($10/mo), Pro+ ($39/mo), Business ($19/user/mo), Enterprise ($39/user/mo).",
+      "GitHub Copilot Workspace: Agentic environment for going from issue to pull request. Developers describe a task in natural language; Workspace generates a plan, implements code across multiple files, and iterates with sub-agents. Targets enterprise teams for collaborative agentic development.",
+      "Agent HQ: Multi-agent orchestration platform (launched Feb 2026 in public preview) that hosts first-party Copilot agents alongside third-party agents from Anthropic (Claude Code), OpenAI (Codex), Google, Cognition, and xAI. Positions GitHub as the neutral hub for developer AI agents rather than a single-model product."
+    ]
+  },
+  "business": {
+    "revenue_or_valuation": "GitHub Copilot reached $2B ARR as of mid-2025. Microsoft CEO Satya Nadella confirmed Copilot is now a larger business than all of GitHub was at its $7.5B acquisition in 2018. GitHub overall revenue grew 40% YoY. GitHub is a wholly-owned subsidiary of Microsoft (market cap ~$3T); Copilot's valuation is not separately disclosed.",
+    "annual_recurring_revenue_arr": "$2B ARR as of mid-2025, with 1.3M paid subscribers and 20M+ total users. Enterprise adoption at 90% of Fortune 100 and 50,000+ organizations. Revenue driven primarily by per-seat subscriptions ($10-$39/user/month individual, $19-$39/user/month organization).",
+    "funding_total_and_last_round": "N/A. GitHub Copilot is a product of GitHub, Inc., a wholly-owned subsidiary of Microsoft Corporation since its $7.5B acquisition in 2018. No separate funding rounds.",
+    "business_model": "Per-seat SaaS subscription across five tiers: Free ($0, limited), Pro ($10/mo individual), Pro+ ($39/mo individual with premium models), Business ($19/user/mo for organizations), Enterprise ($39/user/mo requiring GitHub Enterprise Cloud subscription). Premium requests for advanced models (Claude Opus 4, o3) are metered with monthly allowances and potential overage charges. Revenue also flows through Microsoft's broader enterprise agreements and GitHub's platform subscription fees.",
+    "burn_rate_and_runway": "N/A. Funded by Microsoft's balance sheet. GitHub Copilot was reportedly unprofitable in its early years (losing ~$20/user/month on heavy users in 2023), but pricing adjustments and model cost reductions have improved unit economics. Microsoft does not break out Copilot-specific profitability."
+  },
+  "openness": {
+    "open_vs_closed_spectrum": "Hybrid. Copilot itself is a proprietary commercial product, but GitHub open-sourced parts of Copilot Chat under MIT license (May 2025), integrating core chat functionality directly into VS Code. The underlying models (OpenAI, Anthropic, Google) are closed-weight and accessed via API. GitHub's platform (repos, Actions, etc.) is a mix of open-source tools and proprietary services. VS Code itself is open-source (MIT). Agent HQ supports open and third-party agents."
+  },
+  "startup_relevance": {
+    "relevance_for_startups": "GitHub Copilot is the dominant AI coding assistant with 42% market share, making it the default tool most startup developers already use or encounter. Key considerations: (1) Productivity multiplier: developers complete tasks 55% faster with Copilot, which directly improves startup velocity and reduces engineering costs -- critical for resource-constrained teams; (2) Free tier entry: the Free plan with 2,000 completions/month lets solo founders and early-stage teams adopt AI-assisted coding at zero cost before scaling to paid tiers; (3) Platform risk signal: Copilot's evolution into Agent HQ (hosting Claude Code, Codex, etc.) shows GitHub becoming the orchestration layer for developer AI -- startups building AI dev tools should consider building ON GitHub's platform rather than competing with it; (4) Multi-model flexibility: Pro+ and Enterprise users can select between OpenAI, Anthropic, and Google models, reducing lock-in to any single model provider; (5) Enterprise adoption gateway: 90% of Fortune 100 use Copilot, so startups selling to enterprises can build Copilot extensions or integrations for built-in distribution; (6) Copyright concerns: the ongoing class-action lawsuit about open-source code licensing in training data is worth monitoring for startups using Copilot-generated code in production, particularly for GPL-licensed projects.",
+    "accessibility": "Very accessible. Free tier available (2,000 completions + 50 premium requests/month). Pro at $10/mo suitable for individual developers and small startups. GitHub for Startups program offers credits and benefits. Available in VS Code (free), JetBrains, Visual Studio, Neovim, and CLI. No separate API -- Copilot is consumed through IDE integrations and GitHub's platform. Startups on GitHub Enterprise Cloud can access the full Enterprise tier ($39/user/mo).",
+    "primary_model_dependency": "Multi-model: OpenAI (GPT-4o, o3), Anthropic (Claude Sonnet 4, Claude Opus 4.6), Google (Gemini). Microsoft internal benchmarks recommend Claude Sonnet 4 as the default model for Copilot coding tasks."
+  },
+  "ecosystem": {
+    "key_partnerships": "Microsoft (parent company, Azure infrastructure, VS Code, enterprise distribution). OpenAI (original and ongoing model partner, deep integration including o3 and Codex agent). Anthropic (Claude models integrated into Copilot, Claude Code hosted in Agent HQ, Microsoft's VS Code 'auto' mode defaults to Claude Sonnet 4). Google (Gemini models available in Copilot). Cognition (Devin agent in Agent HQ). xAI (Grok models available). JetBrains, Neovim (IDE ecosystem partners). 50,000+ organizations as enterprise customers.",
+    "competitive_moat": "Distribution dominance: GitHub has 150M+ developer accounts and VS Code is the most popular code editor globally, giving Copilot unmatched built-in distribution. Platform lock-in: developers' repositories, CI/CD (Actions), package management, and now AI agents all live on GitHub, creating high switching costs. Multi-model strategy: by hosting rival agents (Claude Code, Codex) in Agent HQ, GitHub positions itself as the neutral orchestration layer rather than competing on model quality alone -- similar to how VS Code won by embracing extensions. Enterprise entrenchment: 90% Fortune 100 adoption and integration with Microsoft 365 Copilot create cross-selling opportunities across the Microsoft ecosystem. Data advantage: trained on the world's largest corpus of open-source code from GitHub repositories.",
+    "data_moat_type": "Distribution"
+  },
+  "regulatory": {
+    "regulatory_exposure": "Exempt (as application layer). GitHub Copilot is an AI-powered application, not a GPAI model provider under the EU AI Act -- the regulatory obligations fall on the upstream model providers (OpenAI, Anthropic, Google). However, GitHub faces ongoing copyright litigation: a class-action lawsuit (Doe v. GitHub, filed 2022) alleges Copilot reproduced open-source code without respecting license terms (GPL, MIT attribution requirements). GitHub has actively lobbied EU policymakers to exempt open-source developers from AI Act obligations. The Software Freedom Conservancy ended all GitHub use in 2022 over Copilot licensing concerns."
+  },
+  "uncertain": [
+    "annual_recurring_revenue_arr",
+    "burn_rate_and_runway"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "identity": {
+    "model_name": "Grok 4",
+    "creator": "xAI",
+    "release_date": "July 2025",
+    "model_family": "Grok"
+  },
+  "architecture": {
+    "parameter_count": "~1.7T total (reported estimates; xAI has not officially confirmed exact count)",
+    "active_parameters": "Not officially disclosed. As an MoE model, active parameters per forward pass are a fraction of the 1.7T total. [uncertain]",
+    "architecture_type": "MoE (Mixture of Experts) Transformer",
+    "context_window": "256K tokens (API); 128K tokens (in-app via SuperGrok). Grok 4 Fast variant supports 2M tokens.",
+    "max_output_tokens": "Not officially specified. Playground caps at 16K tokens per response; API may allow larger outputs within the 256K context budget. [uncertain]"
+  },
+  "capabilities": {
+    "open_or_closed": "Closed/proprietary (API-only). Earlier Grok models (Grok-1, Grok 2.5) have open weights, but Grok 4 weights are not publicly available.",
+    "license_type": "Proprietary. Access via xAI API or X Premium+/SuperGrok subscriptions. No downloadable weights. Earlier models used Apache 2.0 (Grok-1) or Grok 2 Community License (Grok 2.5), but Grok 4 remains closed.",
+    "reasoning_capability": "Fixed chain-of-thought reasoning built in. Grok 4 was trained with extensive reinforcement learning (10x more RL compute than Grok 3) for deep reasoning. The Grok 4 Fast variant offers both reasoning and non-reasoning SKUs (grok-4-fast-reasoning and grok-4-fast-non-reasoning), allowing developers to toggle reasoning on/off. Grok 4 Heavy uses multi-agent orchestration with up to 32 parallel models debating answers.",
+    "multimodal_support": "Text input/output at launch (July 2025). Image input (vision) added post-launch. Audio input via voice companion 'Eve' for real-time voice interaction. Image generation via Grok Imagine (on roadmap). Video analysis planned. Full multimodal stack (text, image, audio, video) targeted for late 2025.",
+    "multilingual_support": "Supports 100+ languages with native-quality accents via Voice Agent API. Real-time voice interaction in 145+ languages. Explicit French support confirmed for voice and text. Spanish, Chinese, Arabic, German, Hindi, Japanese, Turkish also highlighted. French quality described as 'solid' across use cases.",
+    "agentic_capability": "Advanced agentic support. Native tool use via Responses API: web_search, x_search (X/Twitter search), and code_execution (Python interpreter). Function calling for connecting to external APIs, databases, and services. Persistent session memory and multi-step planning. Grok 4 Heavy features multi-agent orchestration with up to 32 parallel reasoning agents. Live Search integration at $25 per 1,000 sources for RAG workflows."
+  },
+  "benchmarks": {
+    "key_benchmarks": "AIME 2025: 93-95% (Grok 4 standard), 100% (Grok 4 Heavy). AIME 2024: 94%. GPQA Diamond: 88% (all-time high at release). SWE-bench Verified: 72-75%. LiveCodeBench: 79.4% (#1 at release). MMLU-Pro: 87%. Humanity's Last Exam: 24% (all-time high at release). Artificial Analysis Intelligence Index: 73 (ahead of o3 at 70, Gemini 2.5 Pro at 70). SciCode: leading scores (exact % not publicly disclosed).",
+    "reasoning_benchmarks_composite": "AIME 2025: 93-95% (standard) / 100% (Heavy). AIME 2024: 94%. GPQA Diamond: 88%. MATH-500: leading scores (specific % not individually reported, included in Math Index). Strong first-place performance across competition math benchmarks at release."
+  },
+  "pricing": {
+    "pricing_per_1M_tokens": "Grok 4: $3.00 input / $15.00 output / $0.75 cached input. Grok 4 Fast (under 128K context): $0.20 input / $0.50 output / $0.05 cached input. Grok 4 Fast (over 128K context): $0.40 input / $1.00 output / $0.10 cached input. Subscription: SuperGrok at $300/year (Grok 4 with 128K context), SuperGrok Heavy at $3,000/year (Grok 4 Heavy preview).",
+    "cost_efficiency_notes": "Grok 4 is priced identically to Claude Sonnet 4.5 ($3/$15) and more expensive than GPT-5 ($1.25/$10). Grok 4 Fast offers a dramatic 98% cost reduction vs Grok 4 at $0.20/$0.50, achieving comparable performance with 40% fewer thinking tokens. Grok 4 Fast competes directly with budget-tier models while maintaining near-flagship quality. The tiered pricing (under/over 128K context) for Grok 4 Fast is unique in the market. Live Search adds $25/1,000 sources for RAG use cases."
+  },
+  "deployment": {
+    "minimum_hardware_requirement": "API-only. No local deployment available. Access via xAI API, X app (Premium+/SuperGrok), or third-party providers (OpenRouter, Oracle Cloud, LiteLLM).",
+    "quantization_availability": "None. Weights are not publicly released, so no quantized versions exist.",
+    "on_device_capable": "No. Grok 4 is a massive MoE model (~1.7T parameters) trained on 200,000 GPUs. It is not designed for on-device deployment."
+  },
+  "business": {
+    "best_use_cases": "1. STEM research and mathematical reasoning: Perfect or near-perfect scores on competition math (AIME), PhD-level science (GPQA Diamond), making it ideal for technical analysis, financial modeling, and scientific research. 2. Real-time intelligence and market monitoring: Native integration with X/Twitter data and live web search provides unique real-time information access for trend analysis, competitive intelligence, and news monitoring. 3. Complex software engineering: Leading LiveCodeBench and SWE-bench scores make it strong for automated code review, bug fixing, and code generation at scale. 4. Long-document analysis: Grok 4 Fast's 2M token context window enables processing entire codebases, legal documents, or research paper collections in a single pass. 5. Multi-step agentic workflows: Native tool use, code execution, and web search enable autonomous agent pipelines for research, data gathering, and task automation.",
+    "relevance_for_entrepreneurs": "Grok 4 matters for startup founders in several ways. First, the Grok 4 Fast variant at $0.20/$0.50 per 1M tokens offers near-flagship reasoning at budget prices, enabling startups to build sophisticated AI features without enterprise budgets. Second, the unique X/Twitter integration provides real-time social intelligence that no other model offers natively, valuable for market research, brand monitoring, and trend detection. Third, the 2M token context window (Grok 4 Fast) enables document-heavy use cases like legal tech, financial analysis, and knowledge management without chunking workarounds. However, entrepreneurs should note regulatory risks: xAI faces active EU investigations under the DSA and AI Act, which could affect service availability in Europe. The SuperGrok subscription at $300/year provides individual access without API complexity.",
+    "competitive_position": "At launch (July 2025), Grok 4 claimed the #1 position on Artificial Analysis Intelligence Index (73) ahead of OpenAI o3 (70) and Gemini 2.5 Pro (70). Key differentiators: (1) strongest math reasoning among standard models, (2) native real-time X/Twitter data access, (3) 2M context via Grok 4 Fast at very low cost. Weaknesses: (1) regulatory friction in EU markets, (2) less mature developer ecosystem compared to OpenAI/Anthropic, (3) safety and content moderation controversies (deepfake incidents in early 2026), (4) coding performance strong but essentially tied with Claude and GPT-5 on SWE-bench. By early 2026, newer models (GPT-5, Claude Opus 4, Gemini 2.5) have narrowed or closed the gap on many benchmarks.",
+    "ecosystem_and_tooling": "xAI API with OpenAI-compatible endpoints (easy migration). Responses API with server-side tools (web_search, x_search, code_execution). Vercel AI SDK provider for xAI. LiteLLM integration for multi-provider setups. Continue IDE integration for coding assistants. Available on OpenRouter and Oracle Cloud as third-party providers. Python SDK available (community-maintained). Function calling support for custom tool integration. Voice Agent API for voice-enabled applications. Less mature ecosystem than OpenAI or Anthropic but growing rapidly.",
+    "geographic_origin_and_regulation": "US-based (xAI, founded by Elon Musk, headquartered in San Francisco). Significant EU regulatory exposure: xAI signed the voluntary EU AI Code of Practice in July 2025 but only committed to the 'Safety and Security' chapter, opting out of transparency and copyright clauses. European Commission opened formal proceedings against X Corp and xAI in January 2026 under the DSA following deepfake controversies. Irish DPC launched GDPR investigation into X's use of EU user data for Grok training. European entrepreneurs should carefully evaluate data sovereignty risks and potential service disruptions. Under the EU AI Act (effective 2026), Grok 4 as a general-purpose AI model faces documentation and systematic risk requirements."
+  },
+  "uncertain": [
+    "active_parameters",
+    "max_output_tokens"
+  ]
+}

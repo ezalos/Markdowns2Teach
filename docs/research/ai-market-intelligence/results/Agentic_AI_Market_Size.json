@@ -1,0 +1,41 @@
+{
+  "metric_identity": {
+    "metric_name": "Agentic AI Market Size",
+    "source_report": "Fortune Business Insights — Agentic AI Market Size, Share & Industry Analysis, Forecast [2026-2034]",
+    "source_url": "https://www.fortunebusinessinsights.com/agentic-ai-market-114233",
+    "publication_date": "2025 (continuously updated; base year 2025)",
+    "methodology_notes": "Fortune Business Insights proprietary market sizing covering the global agentic AI market. Segmented by technology (deep learning, NLP, computer vision, reinforcement learning), deployment (cloud, on-premises), enterprise size, application, and industry vertical. Base year is 2025 ($7.29B). Methodology includes primary interviews with industry executives, secondary research from annual reports, press releases, and industry databases. North America dominated with 33.60% market share in 2025. The report defines agentic AI as intelligent systems capable of autonomous decision-making and adaptive execution across complex distributed digital ecosystems. Multiple competing research firms produce different estimates: Precedence Research ($7.55B to $199B by 2034, CAGR 43.84%), MarketsandMarkets ($7.06B to $93.2B by 2032, CAGR 44.6%), Grand View Research ($7.63B to $183B by 2033, CAGR 49.6%). The variation reflects different scope definitions and forecast horizons."
+  },
+  "metric_value": {
+    "value": "$7.29 billion (2025); $9.14 billion (2026); $139.19 billion (2034)",
+    "unit": "USD (billions)",
+    "geographic_scope": "Global",
+    "time_period": "2025-2034 (base year 2025, forecast 2026-2034)",
+    "comparison_baseline": "Less than 5% of enterprise applications featured task-specific AI agents in 2025, per Gartner. The broader AI agents market (which overlaps with but is not identical to agentic AI) is estimated at $7.63B in 2025 by Grand View Research.",
+    "market_layer": "application (agentic AI systems that sit atop foundation models and orchestrate autonomous workflows across enterprise applications)"
+  },
+  "trend": {
+    "trend_direction": "Accelerating",
+    "year_over_year_change": "+25.4% YoY from 2025 to 2026 ($7.29B to $9.14B); the growth rate accelerates in later years as enterprise adoption scales",
+    "compound_annual_growth_rate": "40.50% CAGR (2026-2034) per Fortune Business Insights; competing estimates range from 40.5% to 49.6% CAGR depending on the research firm and forecast period",
+    "forecast_value": "$139.19 billion by 2034 (Fortune Business Insights); $199.05 billion by 2034 (Precedence Research); $93.20 billion by 2032 (MarketsandMarkets); $182.97 billion by 2033 (Grand View Research)",
+    "forecast_year": "2034",
+    "velocity_indicator": "Gartner predicts 40% of enterprise applications will feature task-specific AI agents by 2026 (up from <5% in 2025), representing an 8x increase in enterprise adoption within one year. However, Gartner also predicts over 40% of agentic AI projects will be canceled by end of 2027 due to escalating costs and unclear ROI."
+  },
+  "entrepreneurial_relevance": {
+    "relevance_for_entrepreneurs": "The agentic AI market represents one of the fastest-growing segments in the entire AI ecosystem, with CAGR estimates of 40-50% dwarfing the broader AI market growth rate. For startup founders, this signals a massive greenfield opportunity: enterprise buyers are actively seeking autonomous AI agents that can handle complex, multi-step workflows without constant human oversight. The 8x jump from <5% to 40% enterprise app penetration predicted by Gartner for 2025-2026 means there is an immediate window for startups to establish themselves before incumbents (Microsoft, IBM, Salesforce) fully lock in enterprise contracts. However, the Gartner warning that 40%+ of agentic AI projects will be canceled by 2027 is a critical caveat: founders must demonstrate clear, measurable ROI rather than selling hype. The market splits into horizontal platforms (agent orchestration, multi-agent frameworks) and vertical solutions (industry-specific agents for finance, healthcare, legal). Vertical plays may offer better defensibility. The wide divergence in market size estimates ($93B to $199B by 2032-2034) reflects genuine uncertainty about how fast enterprises will move from pilot to production-scale agentic AI deployments.",
+    "actionable_insight": "Target vertical agentic AI applications with clear ROI metrics (cost savings, time reduction, error rates) rather than horizontal agent platforms, where incumbents have the advantage. Build for the enterprise buyer who needs to justify spend: the 40% cancellation rate Gartner predicts means the winners will be startups that can demonstrate production-grade reliability and measurable business outcomes, not just impressive demos.",
+    "session_mapping": "1, 3, 4",
+    "risk_profile": "bubble_indicator"
+  },
+  "confidence": {
+    "data_quality": "Medium",
+    "cross_reference": "Multiple research firms converge on a similar 2025 base market size (~$7-8B) but diverge significantly on forecast endpoints: Fortune Business Insights ($139B by 2034), Precedence Research ($199B by 2034), MarketsandMarkets ($93B by 2032), Grand View Research ($183B by 2033). Gartner's enterprise adoption predictions (40% of enterprise apps by 2026, 33% of enterprise software by 2028) provide qualitative support for rapid growth. Gartner's countervailing prediction (40%+ project cancellations by 2027) adds important nuance.",
+    "caveats": "Market research firms have strong commercial incentives to produce large forecast numbers (reports sell for $4,000-$6,000+). The definition of 'agentic AI' is not standardized across research firms, making direct comparisons imperfect. Some firms include AI copilots and AI assistants in their scope, while others restrict to fully autonomous agents. The 40.5% CAGR assumes sustained enterprise adoption without a significant market correction or 'AI winter.' Gartner's own prediction that 40%+ of agentic AI projects will be canceled by 2027 directly contradicts the smoothly accelerating growth curves in these forecasts. Real adoption may follow an S-curve with a slower-than-projected middle period. These are projections, not audited financials.",
+    "measurement_reliability": "projection_range"
+  },
+  "uncertain": [
+    "publication_date",
+    "comparison_baseline"
+  ]
+}

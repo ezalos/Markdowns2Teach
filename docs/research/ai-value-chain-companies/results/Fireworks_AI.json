@@ -1,0 +1,53 @@
+{
+  "identity": {
+    "company_name": "Fireworks AI",
+    "headquarters": "Redwood City, California, US",
+    "headquarters_region": "US",
+    "founded_year": 2022
+  },
+  "value_chain": {
+    "role_in_value_chain": "api_provider",
+    "value_chain_position": "Fireworks AI sits at the inference and API provider layer, offering fast, low-cost model serving for open-source and custom models. It depends on NVIDIA and AMD for GPU supply and partners with Google Cloud for infrastructure. Downstream, it serves enterprises (Samsung, Uber, DoorDash, Notion, Shopify, Upwork) and 10,000+ companies deploying AI at production scale. The company is expanding from pure inference into a full-stack AI platform with fine-tuning (SFT, RLHF, LoRA), compound AI systems, voice agents, and multimodal capabilities. Processes 10+ trillion tokens per day.",
+    "vertical_integration_level": "Multi-layer"
+  },
+  "products": {
+    "key_products": [
+      "Fireworks Inference API — serverless and on-demand inference for open-source and custom models, running up to 40x faster and 8x cheaper than comparable providers, with OpenAI-compatible endpoints and batch processing API (40% discount vs real-time)",
+      "Fireworks Fine-Tuning — comprehensive fine-tuning stack supporting SFT (supervised fine-tuning), RFT (reinforcement fine-tuning / RLHF), LoRA, and qLoRA, with up to 100 LoRA adapters running simultaneously on a single dedicated deployment at no extra cost",
+      "Fireworks Compound AI Platform — production-grade infrastructure for compound AI systems that orchestrate multiple interacting models, supporting heterogeneous GPU deployments, custom model uploads (up to 405B parameters), and enterprise-grade deployment with dedicated GPU clusters"
+    ]
+  },
+  "business": {
+    "revenue_or_valuation": "Valuation: $4B (Series C, October 2025). ARR: $130M as of May 2025, representing 20x growth from ~$6.5M in May 2024. Annualized revenue surpassed $280M by late 2025. Source: press reports and Sacra estimates.",
+    "annual_recurring_revenue_arr": "$130M ARR as of May 2025 (20x year-over-year growth from ~$6.5M in May 2024). Annualized revenue surpassed $280M by late 2025. Revenue driven by token-based pricing for inference and GPU-hour billing for dedicated deployments.",
+    "funding_total_and_last_round": "Total raised: ~$327M across 3 rounds. Last round: $250M Series C ($230M primary + $24M secondary, October 2025) co-led by Lightspeed Venture Partners, Index Ventures, and Evantic at $4B valuation, with continued support from Sequoia Capital. Prior rounds: Series A ($25M, March 2024, led by Benchmark with Sequoia, Databricks Ventures); Series B ($52M, July 2024, led by Sequoia Capital at $552M valuation, with NVIDIA, AMD, MongoDB Ventures).",
+    "business_model": "Usage-based infrastructure platform with three revenue streams: (1) Token-based pricing for serverless inference (per million tokens), (2) GPU-hour billing for on-demand dedicated deployments, (3) Per-task charges for fine-tuning services. Batch processing offered at 40% discount vs real-time. Revenue scales with customer AI usage volume rather than seat-based licensing. Enterprise focus with customers like Samsung, Uber, DoorDash, Notion, Shopify deploying AI at production scale.",
+    "burn_rate_and_runway": "Not publicly disclosed. With $327M total funding, $4B valuation, and revenue surpassing $280M annualized by late 2025, the company appears well-capitalized. Heavy investment in infrastructure and team scaling (grew from Series B to Series C in ~15 months). [uncertain]"
+  },
+  "openness": {
+    "open_vs_closed_spectrum": "Hybrid — Fireworks AI's inference stack and platform are proprietary, but the company is built around serving open-source models and enabling customer model customization. Supports deployment of open-source models (Llama, Mixtral, etc.) and custom fine-tuned models up to 405B parameters. The founding team created PyTorch (the dominant open-source ML framework). The company contributes to the open-source ecosystem through fine-tuning tutorials and developer tools, but the core competitive advantage (inference optimization, kernel work, scheduler) is proprietary."
+  },
+  "startup_relevance": {
+    "relevance_for_startups": "Fireworks AI is a top-tier option for startups needing fast, affordable AI inference at production scale. The platform's claimed 40x speed advantage and 8x cost reduction over comparable providers directly impacts startup unit economics — processing tokens cheaper means AI features can be viable at lower price points. The compound AI systems approach is particularly relevant for startups building sophisticated AI applications that orchestrate multiple models (e.g., a reasoning model + a code model + a vision model), which is the direction enterprise AI is heading. The LoRA fine-tuning capability (100 adapters on a single deployment at no extra cost) enables startups to offer personalized AI to multiple customers without proportional infrastructure cost increases — a key enabler of multi-tenant AI SaaS. The customer roster (Samsung, Uber, DoorDash, Notion, Shopify) validates enterprise readiness, which matters when startups need to demonstrate their infrastructure partner's credibility. For entrepreneur students, Fireworks exemplifies the 'picks and shovels' AI business model with 20x year-over-year ARR growth ($6.5M to $130M), showing how infrastructure plays can scale explosively during platform shifts.",
+    "accessibility": "Highly accessible to startups. Self-service sign-up with serverless pay-per-token pricing (no minimum commitment). On-demand dedicated GPU deployments for production workloads. Batch API at 40% discount for non-real-time workloads. Custom model uploads supported up to 405B parameters. Fine-tuning available including LoRA at low cost ($2/M training examples for some models). Developer-friendly with OpenAI-compatible API, extensive documentation, and 230,000+ registered developers.",
+    "primary_model_dependency": "None — Fireworks AI is model-agnostic, serving open-source models (Llama, Mixtral, Qwen, etc.) and customer-uploaded custom models. The platform's value is in inference optimization and deployment, not in any specific foundation model."
+  },
+  "ecosystem": {
+    "key_partnerships": [
+      "Sequoia Capital — led Series B, continued participation in Series C, provides strategic validation and network effects in enterprise AI",
+      "NVIDIA — strategic investor (Series B), GPU supplier, Inception program member",
+      "AMD — strategic investor (Series B), providing GPU diversity beyond NVIDIA",
+      "Google Cloud — infrastructure partnership, featured on Google Cloud blog as a key AI startup",
+      "MongoDB and Databricks — strategic investors (Series C), integration with enterprise data infrastructure ecosystem",
+      "Lightspeed Venture Partners, Index Ventures, Evantic — co-led $250M Series C"
+    ],
+    "competitive_moat": "Three reinforcing advantages: (1) PyTorch team DNA — founded by the leaders who built PyTorch at Meta (Lin Qiao, Dmytro Dzhulgakov, Dmytro Ivchenko, James Reed, and others), giving Fireworks unmatched expertise in inference optimization from kernel-level attention work through scheduler, memory management, batching, and routing. This team built the framework that all modern LLMs train on, and now optimizes how they run. (2) Scale and enterprise trust — processing 10+ trillion tokens/day for 10,000+ companies including Samsung, Uber, DoorDash, Notion, and Shopify creates a feedback loop where production workloads drive optimization insights that further improve performance. (3) Compound AI platform lock-in — as enterprises move from single-model to multi-model compound AI systems, Fireworks' orchestration layer (multiple models, LoRA adapters, heterogeneous GPUs) becomes deeply embedded in production workflows, increasing switching costs.",
+    "data_moat_type": "User feedback loop"
+  },
+  "regulatory": {
+    "regulatory_exposure": "Exempt — Fireworks AI is an inference infrastructure provider, not a GPAI model creator under the EU AI Act. It serves third-party open-source and customer-uploaded models. Standard cloud compliance applies. Enterprise customers (Samsung, Uber, etc.) handle their own AI Act obligations for their specific use cases. No direct high-risk classification for the platform itself."
+  },
+  "uncertain": [
+    "burn_rate_and_runway"
+  ]
+}

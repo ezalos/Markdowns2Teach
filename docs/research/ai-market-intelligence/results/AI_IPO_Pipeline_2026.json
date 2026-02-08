@@ -1,0 +1,42 @@
+{
+  "metric_identity": {
+    "metric_name": "AI IPO Pipeline 2026: CoreWeave, OpenAI, Anthropic, Databricks",
+    "source_report": "Multiple sources: SEC filings (CoreWeave S-1), CNBC, TechCrunch, Yahoo Finance, Bloomberg, Financial Times, Built In, Crunchbase, Forge Global",
+    "source_url": "https://builtin.com/articles/top-tech-ipos-2026",
+    "publication_date": "March 2025 (CoreWeave IPO); December 2025-February 2026 (OpenAI, Anthropic, Databricks signals)",
+    "methodology_notes": "CoreWeave data is from verified SEC S-1 filing and public market trading. OpenAI valuation from secondary share sale ($500B in October 2025) and reported $1T IPO target. Anthropic valuation from term sheet for $10-20B raise at $350B valuation (reported by CNBC, TechCrunch). Databricks valuation from Series L funding round ($134B in December 2025). IPO timelines are based on analyst estimates, company statements, and financial press reporting. OpenAI CFO Sarah Friar has publicly stated an IPO is 'not our focus.' Databricks CEO Ali Ghodsi confirmed company is 'IPO-ready.'"
+  },
+  "metric_value": {
+    "value": "CoreWeave: $40 IPO price, ~$23B IPO valuation, ~$45B current market cap (Feb 2026), $4.9-5.1B 2025 revenue guidance; OpenAI: $500B last valuation, $1T target IPO valuation, projected $26B annualized revenue; Anthropic: $350B target valuation, $20B raise in progress, $5B+ annualized revenue (Aug 2025); Databricks: $134B valuation, $4.8B annualized revenue, 55% YoY growth",
+    "unit": "USD",
+    "geographic_scope": "US (all four companies are US-headquartered; global revenue base)",
+    "time_period": "2025-2026 (CoreWeave IPO completed March 2025; others expected 2026-2027)",
+    "comparison_baseline": "CoreWeave IPO at $23B vs. $35B pre-IPO target (34% below target); CoreWeave now trading at ~$90 (up 200%+ from $40 IPO); Previous major AI IPO comparisons limited -- this is the first wave of pure-play AI infrastructure/model company IPOs; 2021 IPO boom saw tech IPOs raise $155B total",
+    "market_layer": "cross-cutting (infrastructure: CoreWeave; model: OpenAI, Anthropic; platform: Databricks)"
+  },
+  "trend": {
+    "trend_direction": "Accelerating (strongest IPO pipeline since 2021, driven by AI sector momentum)",
+    "year_over_year_change": "CoreWeave revenue grew 700%+ YoY in 2024 ($1.92B vs prior year); Q3 2025 revenue grew 134% YoY to $1.37B. Anthropic revenue grew from $1B (early 2025) to $5B+ (Aug 2025), 5x growth within a single year. Databricks revenue at $4.8B annualized, growing 55% YoY. OpenAI projected to nearly triple annualized revenue to ~$26B.",
+    "compound_annual_growth_rate": "[uncertain]",
+    "forecast_value": "OpenAI targeting $1 trillion IPO valuation; total 2026 AI IPO pipeline could exceed $200B in combined market cap at listing",
+    "forecast_year": "2026-2027",
+    "velocity_indicator": "time_to_unicorn: Anthropic reached $350B valuation in ~3 years from founding; CoreWeave went from $23B IPO to ~$45B market cap in under 1 year; OpenAI reached $500B valuation in ~9 years"
+  },
+  "entrepreneurial_relevance": {
+    "relevance_for_entrepreneurs": "The 2026 AI IPO wave signals a maturation of the AI industry from a speculative phase to one generating verifiable public-market revenues. For entrepreneurs, this matters in several ways: (1) Successful AI IPOs validate the market and make follow-on VC funding easier for AI startups across the stack, (2) CoreWeave's IPO revealed extreme customer concentration risk (62% Microsoft revenue) -- a cautionary tale for B2B AI startups, (3) OpenAI's restructuring from nonprofit to for-profit PBC sets a precedent for AI governance structures that investors and regulators will scrutinize, (4) The massive cash burn rates (OpenAI projected $17-47B/year 2026-2028) raise questions about AI business model sustainability that entrepreneurs must address in their own plans, (5) Databricks' path (positive free cash flow, 55% growth, 80%+ gross margins) represents the 'gold standard' IPO profile that investors will benchmark AI startups against.",
+    "actionable_insight": "When pitching to investors, reference these IPO benchmarks: Databricks' 80%+ subscription gross margin and positive FCF are the standard for 'IPO-ready' AI companies. Avoid CoreWeave's concentration risk pattern -- diversify customer base early. OpenAI's cash burn trajectory ($17-47B/year) highlights the importance of capital efficiency, especially for startups that cannot raise at $500B+ valuations. Consider PBC (Public Benefit Corporation) structure if building AI with societal-impact claims, as OpenAI's conversion has normalized this path.",
+    "session_mapping": "4, 5",
+    "risk_profile": "bubble_indicator, concentration_risk"
+  },
+  "confidence": {
+    "data_quality": "High (CoreWeave: SEC filings); Medium-High (Databricks: verified funding rounds); Medium (OpenAI, Anthropic: mix of confirmed funding and speculative IPO timelines)",
+    "cross_reference": "CoreWeave financials verified via SEC S-1 filing and quarterly earnings reports. OpenAI valuation confirmed by secondary share sale coverage from multiple outlets (Reuters, Bloomberg, CNBC). Anthropic $350B valuation and $20B raise reported independently by CNBC and TechCrunch. Databricks $134B valuation and $4.8B revenue confirmed by CNBC and TechTarget. IPO pipeline outlook corroborated by Forge Global, Crunchbase, Built In, and MicroVentures.",
+    "caveats": "IPO timelines are inherently uncertain and depend on market conditions, regulatory approvals, and company decisions. OpenAI's CFO has explicitly stated 'an IPO is not our focus' despite widespread speculation. Anthropic and Databricks have not filed S-1s as of February 2026. Valuations of pre-IPO companies are based on private funding rounds which may not reflect public market pricing. CoreWeave's stock has been extremely volatile (52% below post-IPO high at one point). OpenAI's projected cash burn ($17-47B/year) raises fundamental questions about long-term viability without continued massive capital raises. Market conditions (tariffs, geopolitical tensions, interest rates) could significantly delay or alter IPO plans.",
+    "measurement_reliability": "verified_financial_filing (CoreWeave), analyst_estimate (OpenAI IPO timing/valuation), projection_range (Anthropic, Databricks IPO timelines)"
+  },
+  "uncertain": [
+    "compound_annual_growth_rate",
+    "forecast_value",
+    "comparison_baseline"
+  ]
+}

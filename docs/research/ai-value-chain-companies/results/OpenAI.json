@@ -1,0 +1,47 @@
+{
+  "identity": {
+    "company_name": "OpenAI",
+    "headquarters": "San Francisco, USA",
+    "headquarters_region": "US",
+    "founded_year": 2015
+  },
+  "value_chain": {
+    "role_in_value_chain": "model_creator",
+    "value_chain_position": "Core model creation layer. OpenAI depends on Microsoft Azure for compute infrastructure (committed $250B in Azure cloud purchases) and NVIDIA GPUs for training. It serves downstream application builders, enterprises, and consumers through its API platform and ChatGPT. Microsoft resells OpenAI models via Azure OpenAI Service. OpenAI's models power thousands of third-party applications through its API, making it a foundational dependency for a large portion of the AI application ecosystem.",
+    "vertical_integration_level": "Multi-layer"
+  },
+  "products": {
+    "key_products": [
+      "ChatGPT (consumer and enterprise AI assistant): 400M+ weekly active users, includes ChatGPT Plus ($20/mo), Team ($25-30/user/mo), Enterprise, and Edu tiers. Powers conversational AI, image generation (GPT-4o), web search, code interpretation, and multimodal reasoning.",
+      "OpenAI API Platform (GPT-4o, o3, GPT-4.5, GPT-5 series): usage-based API serving developers and enterprises, the market reference point for LLM pricing. Includes Assistants API, function calling, vision, fine-tuning, and embeddings.",
+      "Reasoning models (o1, o3, o3-pro): specialized models for complex multi-step reasoning in science, math, coding, and business analysis. o3-pro replaces o1-pro as the flagship reasoning model."
+    ]
+  },
+  "business": {
+    "revenue_or_valuation": "Annualized revenue run rate ~$20B as of mid-2025 (tripled from ~$6B in 2024). Hit first $1B revenue month in July 2025. Secondary share sale at $500B valuation (Oct 2025). Seeking $100B raise at up to $830B valuation by Q1 2026.",
+    "annual_recurring_revenue_arr": "$12B ARR as of July 2025, on track for $15-20B by end of 2025. 5M+ paid ChatGPT business users. ChatGPT Plus/Team/Enterprise subscriptions are the primary recurring revenue driver, supplemented by API usage-based revenue.",
+    "funding_total_and_last_round": "Total raised: ~$57.9B over 9 rounds from 63 investors. Last closed: $40B Series F led by SoftBank at $300B valuation (Mar 2025), the largest private funding round ever. Additional $8.3B raise (Aug 2025). Seeking $100B round at $830B valuation (Dec 2025-Q1 2026).",
+    "business_model": "Hybrid subscription + usage-based. Consumer subscriptions (ChatGPT Plus $20/mo, Pro $200/mo), enterprise seat licenses (Team, Enterprise, Edu), and usage-based API pricing (per-token). API pricing sets market reference: GPT-4o at $2.50/$10 per M tokens (input/output), o3 reduced 80% to competitive levels. Revenue split roughly 60% consumer subscriptions / 40% API and enterprise.",
+    "burn_rate_and_runway": "Projected $14B losses in 2026. Annual cash burn: $17B (2026), rising to $35B (2027), peaking at $47B (2028). Cumulative projected losses of $115B through 2029 before profitability in the 2030s. Compute spend with Microsoft Azure alone: $13B in 2025."
+  },
+  "openness": {
+    "open_vs_closed_spectrum": "Hybrid. Historically fully closed, but shifted strategy in 2025 under competitive pressure from DeepSeek. Released gpt-oss-120b and gpt-oss-20b under Apache 2.0 license (Aug 2025) -- first open-weight release since GPT-2 in 2019. However, flagship models (GPT-5, o3) remain proprietary. Architecture, training data, and routing mechanisms are not disclosed. Open API access remains the primary interface for developers."
+  },
+  "startup_relevance": {
+    "relevance_for_startups": "OpenAI is the single most important company for AI entrepreneurs to understand. Its models and API set the baseline for what is achievable and at what cost. Key considerations: (1) OpenAI's API is the de facto starting point for most AI-powered products -- its pricing directly determines unit economics for thousands of startups; (2) Aggressive price cuts (o3 API slashed 80%) benefit startups short-term but signal willingness to squeeze margins across the ecosystem; (3) ChatGPT's massive consumer distribution (400M+ WAU) means building a pure ChatGPT wrapper is increasingly untenable -- startups need defensible vertical or workflow advantages; (4) The for-profit conversion (Oct 2025) signals OpenAI's intent to become a permanent, aggressive commercial competitor rather than a research lab; (5) OpenAI's move into applications (ChatGPT Enterprise, Operator agent, image generation) means it competes with its own API customers -- startups must assess platform risk carefully; (6) The open-weight models (gpt-oss-120b) offer a self-hostable alternative for startups needing data sovereignty or cost optimization at scale; (7) Microsoft's distribution of OpenAI models via Azure OpenAI Service creates enterprise sales channels but also vendor lock-in risks.",
+    "accessibility": "Very high accessibility. Free tier available for ChatGPT. API access starts immediately with pay-as-you-go pricing (GPT-4o-mini from $0.15/$0.60 per M tokens). ChatGPT Plus at $20/mo. Enterprise plans with volume discounts (50%+ at scale). $1,000 in free API credits through OpenAI Startup Fund and Y Combinator partnerships. Open-weight models (gpt-oss-120b, gpt-oss-20b) available for self-hosting under Apache 2.0.",
+    "primary_model_dependency": "None. OpenAI is a foundation model creator."
+  },
+  "ecosystem": {
+    "key_partnerships": "Microsoft (primary: $13B+ investment, exclusive Azure hosting rights, Azure OpenAI API reselling, $250B compute commitment). Apple (ChatGPT integration into iOS/Siri). SoftBank ($40B Series F lead, Stargate joint venture for 10GW of US data centers). Samsung, Oracle for additional infrastructure. Thousands of API integration partners.",
+    "competitive_moat": "Largest consumer AI user base (ChatGPT 400M+ WAU) creating a powerful user feedback loop for model improvement. First-mover brand recognition: 'ChatGPT' is near-synonymous with AI in public consciousness. Developer ecosystem lock-in: largest API developer community, extensive tooling (function calling, Assistants API, fine-tuning). Microsoft distribution via Azure reaches enterprise customers at scale. Massive compute access via Stargate and Azure partnership gives training advantage.",
+    "data_moat_type": "User feedback loop"
+  },
+  "regulatory": {
+    "regulatory_exposure": "GPAI provider. OpenAI signed the EU General-Purpose AI Code of Practice (Jul 2025) as an early signatory. Its models (GPT-4o, GPT-5, o3) qualify as GPAI models with systemic risk under the EU AI Act (trained above 10^25 FLOPs threshold). Must comply with transparency, copyright, and safety obligations effective Aug 2, 2025. Signing the Code of Practice provides a presumption of conformity safe harbor. Faces additional regulatory scrutiny in Italy (temporary ChatGPT ban in 2023, resolved), and ongoing copyright litigation from NYT, authors, and media companies."
+  },
+  "uncertain": [
+    "burn_rate_and_runway",
+    "annual_recurring_revenue_arr"
+  ]
+}
