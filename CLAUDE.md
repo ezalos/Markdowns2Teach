@@ -104,6 +104,25 @@ Every `.md` slide file must start (after front matter) with two ABOUTME comments
 - **Tables**: use for comparisons (input/output examples, tool comparisons)
 - **Blockquotes**: use `>` for callouts, practical tips, and key takeaways
 
+### Citations & sourcing
+
+Every data claim must be sourced. Use the following format on all research-backed slides:
+
+- **In-text markers**: superscript-style `[1]`, `[2]` next to each data claim
+- **Slide footer**: `<small>Sources : [1] [Authority](url) · [2] [Authority](url)</small>` at the bottom of the slide
+- Authority shorthand as display text (e.g., "Stanford HAI", "Gartner"), full URL as href
+- Separator between citations: ` · ` (middle dot)
+- The sources line costs ~1 content line — budget **~13 effective content lines** per slide (threshold remains 15)
+- Cols slides: budget **~8-9 lines** of actual content per column + 1 source line
+- Discussion slides and section dividers may omit citations if no data claims are made
+- Example:
+  ```markdown
+  - Le marché atteint **$2 527 Mds** en 2026 [1]
+  - L'adoption passe de 55% à **88%** en deux ans [2]
+
+  <small>Sources : [1] [Gartner](https://www.gartner.com/...) · [2] [McKinsey](https://www.mckinsey.com/...)</small>
+  ```
+
 ## Build Commands
 
 ```bash
