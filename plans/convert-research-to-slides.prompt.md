@@ -51,16 +51,20 @@ Convert a completed research topic into a Marp slide deck for the M2 Entrepreneu
    - French body, English technical terms used directly (no translations)
    - `_class: title`, `_class: section`, `_class: cols` as appropriate
    - Footer: `"Recherche [Topic] 2024–2026 · Données publiques"`
+   - **Citations**: every data claim needs `[1]` in-text + `<small>Sources : [1] [Authority](url)</small>` at slide bottom
+   - Source URLs from research JSONs or official company/report pages
+   - Discussion slides and section dividers may omit citations if no data claims
 
 ### Phase 5: Verify and fix
 
 10. Fix CRLF line endings: `sed -i 's/\r$//' <file>` (the Write tool may produce CRLF)
-11. Run `make check` — fix any overflow violations (15-line threshold)
+11. Run `make check` — fix any overflow violations (15-line threshold, budget ~13 with sources)
+12. Run `make check-citations` — fix any missing citation warnings for the new deck
     - **cols slides**: div tags count as content lines — budget only ~10 lines of actual content
     - **Tables**: cap at 7 rows, split across 2 slides if needed
     - Avoid `###` subheaders inside cols — they waste a line
-12. Run `make html` — verify clean build, no errors
-13. Report what was created: slide count, spotlight list, discussion questions
+13. Run `make html` — verify clean build, no errors
+14. Report what was created: slide count, spotlight list, discussion questions, citation count
 
 ## Naming Convention
 
@@ -79,6 +83,7 @@ Derive the slug from the research directory name. Examples:
 Before reporting done:
 
 - [ ] `make check` passes (0 overflow warnings)
+- [ ] `make check-citations` passes for the new deck (all data slides have sources)
 - [ ] `make html` builds without errors
 - [ ] ABOUTME comments present
 - [ ] Numbering correct (01-XX continuous, title/section unnumbered)

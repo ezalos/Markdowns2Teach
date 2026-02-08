@@ -137,6 +137,24 @@ footer: "Recherche [Topic] 2024–2026 · Données publiques"
 - French body text, English technical terms used directly
 - "Le Supervised Learning est..." NOT "L'apprentissage supervisé (Supervised Learning)"
 
+### Citations (mandatory for all data slides)
+
+Every data claim must be sourced. Format:
+
+```markdown
+- Le marché atteint **$2 527 Mds** en 2026 [1]
+- L'adoption passe de 55% à **88%** en deux ans [2]
+
+<small>Sources : [1] [Gartner](https://www.gartner.com/...) · [2] [McKinsey](https://www.mckinsey.com/...)</small>
+```
+
+- In-text `[1]` markers next to each data claim
+- `<small>Sources : [1] [Authority](url) · [2] [Authority](url)</small>` at slide bottom
+- Authority shorthand as display text, full URL as href, ` · ` separator
+- The sources line costs ~1 content line — budget **~13 effective content lines** per slide
+- Discussion slides and section dividers may omit citations if no data claims are made
+- Source priority: company IR > Bloomberg/CNBC > TechCrunch > Crunchbase
+
 ## 6. Directory Naming
 
 ```
@@ -155,6 +173,7 @@ Examples:
 Run these checks before considering a deck complete:
 
 - [ ] `make check` passes (no slide exceeds 15 content lines)
+- [ ] `make check-citations` passes for the new deck (all data slides have sources)
 - [ ] `make html` builds without errors
 - [ ] Title slide renders with dark blue background
 - [ ] Section dividers render with light blue background
