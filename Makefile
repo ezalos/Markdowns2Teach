@@ -8,7 +8,7 @@ MARP := marp
 # Find all .md files under slides/
 SLIDE_FILES := $(shell find $(SLIDES_DIR) -name '*.md' -type f)
 
-.PHONY: all preview build pptx html check dedup clean help
+.PHONY: all preview build pptx html check check-citations dedup clean help
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
@@ -41,6 +41,9 @@ pptx: $(DIST_DIR) ## Build PPTX presentations
 
 check: ## Warn about slides likely to overflow
 	@bash scripts/check-overflow.sh 15 $(SLIDES_DIR)
+
+check-citations: ## Warn about data slides missing source citations
+	@bash scripts/check-citations.sh $(SLIDES_DIR)
 
 dedup: ## Remove duplicate images from all asset directories
 	@for d in $$(find $(SLIDES_DIR) -type d -name assets); do \

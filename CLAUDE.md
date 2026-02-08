@@ -115,6 +115,8 @@ Every data claim must be sourced. Use the following format on all research-backe
 - The sources line costs ~1 content line — budget **~13 effective content lines** per slide (threshold remains 15)
 - Cols slides: budget **~8-9 lines** of actual content per column + 1 source line
 - Discussion slides and section dividers may omit citations if no data claims are made
+- **Source priority**: when sources conflict, prefer the most recent data from the most reputable source (company IR > Bloomberg/CNBC > TechCrunch > Crunchbase)
+- If a source contradicts the number in the slide, update the slide number to match the best source
 - Example:
   ```markdown
   - Le marché atteint **$2 527 Mds** en 2026 [1]

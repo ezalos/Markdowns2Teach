@@ -67,16 +67,18 @@ L'IA n'est pas un produit unique — c'est un **stack de dépendances** :
 
 # 03 — Energy & Hardware — les bottlenecks physiques
 
-| Entreprise | Pays | Revenu | Rôle |
+| Entreprise | Pays | Revenu [1] | Rôle |
 |------------|------|--------|------|
 | ASML | 🇳🇱 Pays-Bas | €32,7 Mds | Monopole sur les machines EUV de lithographie |
 | TSMC | 🇹🇼 Taïwan | $122,9 Mds | Fonderie : fabrique les puces NVIDIA, Apple, AMD |
 | NVIDIA | 🇺🇸 USA | $130,5 Mds | GPUs dominants (H100, Blackwell), écosystème CUDA |
 | Samsung / SK Hynix | 🇰🇷 Corée | $300 Mds (combiné) | Mémoire HBM — composant critique des GPUs IA |
-| Cerebras | 🇺🇸 USA | $136 M (H1 2024) | Puces wafer-scale, alternative à NVIDIA |
-| Crusoe Energy | 🇺🇸 USA | ~$276 M | Data centers alimentés par énergie stranded |
+| Cerebras | 🇺🇸 USA | $136 M (H1 2024) | Puces wafer-scale, alternative à NVIDIA [2] |
+| Crusoe Energy | 🇺🇸 USA | ~$276 M | Data centers alimentés par énergie stranded [2] |
 
 > **Bottleneck clé** : ASML est le *seul* fabricant de machines EUV. Si ASML s'arrête, toute la production de puces avancées s'arrête.
+
+<small>Sources : [1] Rapports annuels 2024 ([NVIDIA](https://investor.nvidia.com/news/press-release-details/2025/NVIDIA-Announces-Financial-Results-for-Fourth-Quarter-and-Fiscal-2025/), [ASML](https://www.asml.com/en/news/press-releases/2025/q4-2024-financial-results), [TSMC](https://investor.tsmc.com/english/quarterly-results/2024/q4)) · [2] [Crunchbase](https://www.crunchbase.com/)</small>
 
 ---
 
@@ -86,11 +88,10 @@ L'IA n'est pas un produit unique — c'est un **stack de dépendances** :
 
 <div class="left">
 
-- **$130,5 Mds** de CA (FY2025, +114% YoY)
-- **~$4 500 Mds** de market cap — #1 mondial
-- **88%** du CA = Data Center (GPUs IA)
-- GPUs : H100, Blackwell B200, GB200
-- DGX Cloud : clusters GPU (~$37K/mois)
+- **$130,5 Mds** de CA (FY2025, +114% YoY) [1]
+- **~$4 500 Mds** de market cap — #1 mondial [1]
+- **88%** du CA = Data Center (GPUs IA) [1]
+- GPUs : H100, Blackwell B200, GB200 · DGX Cloud ~$37K/mois
 
 </div>
 <div class="right">
@@ -98,26 +99,28 @@ L'IA n'est pas un produit unique — c'est un **stack de dépendances** :
 - **CUDA** : 18 ans d'écosystème, **98%** des devs IA l'utilisent
 - Migration vers AMD = réécrire tout le stack logiciel
 - Le compute est le **1er poste de coût** d'une startup IA
-- L'accès aux GPUs est lui-même un avantage compétitif
 - >$500 Mds de commandes confirmées → pas de pénurie en vue
 
 </div>
+
+<small>Sources : [1] [NVIDIA IR FY2025](https://investor.nvidia.com/news/press-release-details/2025/NVIDIA-Announces-Financial-Results-for-Fourth-Quarter-and-Fiscal-2025/)</small>
 
 ---
 
 # 05 — Cloud Infrastructure
 
-| Entreprise | Pays | Revenu | Rôle |
+| Entreprise | Pays | Revenu [1] | Rôle |
 |------------|------|--------|------|
 | AWS (Amazon) | 🇺🇸 USA | $128,7 Mds | #1 cloud, Bedrock (accès multi-modèles) |
 | Microsoft Azure | 🇺🇸 USA | ~$75 Mds | #2 cloud, partenaire exclusif OpenAI |
 | Google Cloud | 🇺🇸 USA | ~$58,8 Mds | #3 cloud, TPUs, intégration Gemini |
-| CoreWeave | 🇺🇸 USA | $1,92 Mds | Cloud GPU spécialisé (+740% YoY) |
+| CoreWeave | 🇺🇸 USA | $1,92 Mds | Cloud GPU spécialisé (+740% YoY) [2] |
 | OVHcloud | 🇫🇷 France | €1,085 Mds | Cloud souverain européen, GPU instances |
 | Scaleway (Iliad) | 🇫🇷 France | Filiale d'Iliad | Cloud européen, partenariat Mistral AI |
-| RunPod | 🇺🇸 USA | $120 M ARR | GPU serverless, inference abordable |
 
 > **Les 3 hyperscalers US** (AWS, Azure, GCP) captent ~65% du marché cloud mondial. OVHcloud et Scaleway sont les alternatives souveraines européennes.
+
+<small>Sources : [1] Résultats annuels 2024-2025 · [2] [CoreWeave IPO](https://investors.coreweave.com/)</small>
 
 ---
 
@@ -146,7 +149,7 @@ L'IA n'est pas un produit unique — c'est un **stack de dépendances** :
 
 Les modèles sont aussi bons que leurs données. Cette couche fournit le labeling, le stockage et les pipelines.
 
-| Entreprise | Pays | Revenu / Valorisation | Rôle |
+| Entreprise | Pays | Revenu / Valorisation [1] | Rôle |
 |------------|------|----------------------|------|
 | Scale AI | 🇺🇸 USA | $870 M CA / $29 Mds | Data labeling, RLHF pour modèles frontier |
 | Databricks | 🇺🇸 USA | $4,8 Mds ARR / $134 Mds | Plateforme unifiée data + AI, Lakehouse |
@@ -154,28 +157,31 @@ Les modèles sont aussi bons que leurs données. Cette couche fournit le labelin
 
 > **Aucun acteur européen majeur** dans cette couche. Opportunité ou gap structurel ?
 
-- Scale AI = le "picks & shovels" de l'IA : ils ne créent pas de modèles, ils vendent les pelles
-- Meta a investi $14,3 Mds pour 49% de Scale AI — preuve que la data est stratégique
+- Meta a investi $14,3 Mds pour 49% de Scale AI — preuve que la data est stratégique [2]
+
+<small>Sources : [1] [Databricks](https://www.databricks.com/company/newsroom/press-releases/databricks-surpasses-4-8b-revenue-run-rate-growing-55-year-over-year) · [TechCrunch](https://techcrunch.com/) · [2] [Bloomberg](https://www.bloomberg.com/)</small>
 
 ---
 
 # 08 — Foundation Models — la course (1/2)
 
-| Entreprise | Pays | ARR / Valorisation | Modèles phares |
+| Entreprise | Pays | ARR / Valorisation [1] | Modèles phares |
 |------------|------|--------------------|----------------|
 | OpenAI | 🇺🇸 USA | ~$20 Mds / $500-830 Mds | GPT-4o, o3, ChatGPT (400M WAU) |
 | Anthropic | 🇺🇸 USA | $9 Mds / $350 Mds | Claude (Opus, Sonnet, Haiku) |
 | Google DeepMind | 🇬🇧🇺🇸 | Parent: $402,8 Mds CA | Gemini (750M MAU), AlphaFold |
 | Meta AI | 🇺🇸 USA | Parent: $201 Mds CA | Llama (open-weight, le plus déployé) |
-| Mistral AI | 🇫🇷 France | 300M€ ARR / ~$14 Mds | Mistral Large 3, Le Chat, Ministral |
+| Mistral AI | 🇫🇷 France | 300M€ ARR / ~$14 Mds | Mistral Large 3, Le Chat, Ministral [2] |
 
 > Les 5 plus gros model creators ont levé collectivement **>$100 Mds**. La barrière à l'entrée est monumentale.
+
+<small>Sources : [1] [Sherwood News](https://sherwood.news/business/openais-arr-reached-over-usd20-billion-in-2025-cfo-says/) · [Bloomberg](https://www.bloomberg.com/) · [2] [Mistral AI](https://mistral.ai/news/mistral-ai-raises-1-7-b-to-accelerate-technological-progress-with-ai)</small>
 
 ---
 
 # 09 — Foundation Models — challengers (2/2)
 
-| Entreprise | Pays | ARR / Valorisation | Modèles phares |
+| Entreprise | Pays | ARR / Valorisation [1] | Modèles phares |
 |------------|------|--------------------|----------------|
 | DeepSeek | 🇨🇳 Chine | ~$220 M / autofinancé | V3, R1 (MIT, open-source complet) |
 | xAI (Grok) | 🇺🇸 USA | ~$300 M / $250 Mds | Grok, Colossus (100K+ H100s) |
@@ -185,6 +191,8 @@ Les modèles sont aussi bons que leurs données. Cette couche fournit le labelin
 
 > **DeepSeek** a démontré qu'on peut atteindre le niveau frontier avec une fraction du budget — mais la question de la dépendance à la Chine reste posée.
 
+<small>Sources : [1] [DeepSeek](https://api-docs.deepseek.com/news/news250120) · [Bloomberg](https://www.bloomberg.com/) · [Crunchbase](https://www.crunchbase.com/)</small>
+
 ---
 
 <!-- _class: cols -->
@@ -193,22 +201,23 @@ Les modèles sont aussi bons que leurs données. Cette couche fournit le labelin
 
 <div class="left">
 
-- **400M+** utilisateurs actifs par semaine
-- **~$20 Mds** ARR (triplé en 1 an)
-- **$40 Mds** levés en Series F (SoftBank)
+- **400M+** utilisateurs actifs par semaine [1]
+- **~$20 Mds** ARR (triplé en 1 an) [1]
+- **$40 Mds** levés en Series F (SoftBank) [2]
 - ChatGPT Plus ($20/mois), Pro ($200/mois), API
-- **$14 Mds** de pertes projetées en 2026
+- **$14 Mds** de pertes projetées en 2026 [2]
 
 </div>
 <div class="right">
 
 - Lance des apps → **concurrence ses propres clients API**
 - Baisses de prix agressives (o3 : -80%) → compression des marges
-- Wrapper pur = de moins en moins défendable
 - Diversifiez vos providers (OpenAI + Mistral + open-source)
 - Le risque : OpenAI lance votre produit en feature gratuite
 
 </div>
+
+<small>Sources : [1] [Sherwood News](https://sherwood.news/business/openais-arr-reached-over-usd20-billion-in-2025-cfo-says/) · [2] [CNBC](https://www.cnbc.com/)</small>
 
 ---
 
@@ -219,8 +228,8 @@ Les modèles sont aussi bons que leurs données. Cette couche fournit le labelin
 <div class="left">
 
 - **Paris**, fondée en **2023** — 2 ans seulement
-- **300M€ ARR** (Sep 2025, 25x YoY), objectif >1 Md€ en 2026
-- **~$14 Mds** val., **~$3 Mds** levés (dont 1,3 Md€ d'ASML)
+- **300M€ ARR** (Sep 2025, 25x YoY), objectif >1 Md€ en 2026 [1]
+- **~$14 Mds** val., **~$3 Mds** levés (dont 1,3 Md€ d'ASML) [1]
 - API (Large 3, Medium 3), Le Chat, Ministral (edge, Apache 2.0)
 
 </div>
@@ -229,10 +238,11 @@ Les modèles sont aussi bons que leurs données. Cette couche fournit le labelin
 - **Seul** fournisseur frontier avec hébergement natif UE
 - Contrat armée française, ASML investisseur, consortium ArGiMi
 - Medium 3 : **$0,40/$2** vs. GPT-4o **$2,50/$10** → **6x moins cher**
-- Apache 2.0 = self-hosting possible, zéro vendor lock-in
-- On-premises pour RGPD strict → moat souveraineté
+- On-premises pour RGPD strict → moat souveraineté [2]
 
 </div>
+
+<small>Sources : [1] [Mistral AI](https://mistral.ai/news/mistral-ai-raises-1-7-b-to-accelerate-technological-progress-with-ai) · [2] [CNBC](https://www.cnbc.com/)</small>
 
 ---
 
@@ -262,7 +272,7 @@ Les modèles sont aussi bons que leurs données. Cette couche fournit le labelin
 
 # 13 — Model Hubs — où trouver des modèles
 
-| Entreprise | Pays | Métrique clé | Rôle |
+| Entreprise | Pays | Métrique clé [1] | Rôle |
 |------------|------|-------------|------|
 | Hugging Face | 🇺🇸🇫🇷 | 2M+ modèles, $4,5 Mds val. | Hub open-source, Transformers library |
 | CivitAI | 🇺🇸 USA | 3M+ utilisateurs | Hub communautaire pour image gen |
@@ -270,6 +280,8 @@ Les modèles sont aussi bons que leurs données. Cette couche fournit le labelin
 | Replicate | 🇺🇸 USA | Acquis par Cloudflare | Déploiement cloud de modèles |
 
 > Les Model Hubs sont les **App Stores de l'IA** : celui qui contrôle la distribution contrôle l'écosystème.
+
+<small>Sources : [1] [Crunchbase](https://www.crunchbase.com/) · Sites officiels</small>
 
 ---
 
@@ -279,8 +291,8 @@ Les modèles sont aussi bons que leurs données. Cette couche fournit le labelin
 
 <div class="left">
 
-- **Fondé à Paris** (2016), HQ New York, **$4,5 Mds** val.
-- **~$130 M** CA (2024), **50 000+** clients payants
+- **Fondé à Paris** (2016), HQ New York, **$4,5 Mds** val. [1]
+- **~$130 M** CA (2024), **50 000+** clients payants [1]
 - Hub : **2M+** modèles, **500K+** datasets, **1M+** Spaces
 - Investisseurs : Google, Amazon, NVIDIA, Salesforce
 
@@ -294,11 +306,13 @@ Les modèles sont aussi bons que leurs données. Cette couche fournit le labelin
 
 </div>
 
+<small>Sources : [1] [Sacra](https://sacra.com/c/hugging-face/) · [Hugging Face](https://huggingface.co/)</small>
+
 ---
 
 # 15 — API Providers, Orchestration, Vector DBs
 
-| Entreprise | Pays | Métrique clé | Rôle |
+| Entreprise | Pays | Métrique clé [1] | Rôle |
 |------------|------|-------------|------|
 | OpenRouter | 🇺🇸 USA | $500 M val. | API unifiée pour 200+ modèles |
 | Together AI | 🇺🇸 USA | ~$300 M CA, $3,3 Mds val. | Inference open-source rapide |
@@ -310,11 +324,13 @@ Les modèles sont aussi bons que leurs données. Cette couche fournit le labelin
 
 > **Weaviate** (Amsterdam) est le seul acteur européen de cette couche. Les Vector DBs sont les "mémoires" du RAG.
 
+<small>Sources : [1] [Crunchbase](https://www.crunchbase.com/) · [TechCrunch](https://techcrunch.com/)</small>
+
 ---
 
 # 16 — Évaluation, Safety & MLOps
 
-| Entreprise | Pays | Métrique clé | Rôle |
+| Entreprise | Pays | Métrique clé [1] | Rôle |
 |------------|------|-------------|------|
 | LMSYS Arena | 🇺🇸 USA | $1,7 Mds val. | Chatbot Arena — benchmark crowdsourcé |
 | Artificial Analysis | 🇺🇸🇦🇺 | Leaderboards gratuits | Benchmarks qualité / vitesse / prix |
@@ -322,6 +338,8 @@ Les modèles sont aussi bons que leurs données. Cette couche fournit le labelin
 | Weights & Biases | 🇺🇸 USA | Acquis ~$1,7 Mds | ML experiment tracking, registre modèles |
 
 > La **couche safety** est la plus jeune et la plus sous-financée — mais l'EU AI Act va créer une demande massive dès août 2025.
+
+<small>Sources : [1] [Crunchbase](https://www.crunchbase.com/) · Sites officiels</small>
 
 ---
 
@@ -331,10 +349,10 @@ Les modèles sont aussi bons que leurs données. Cette couche fournit le labelin
 
 <div class="left">
 
-- **Paris**, fondée en **2021**, **~15 personnes**
+- **Paris**, fondée en **2021**, **~15 personnes** [1]
 - Clients : **AXA, BNP Paribas, Michelin, Google DeepMind**
-- ~€7,5 M levés (Elaia, Bessemer, EIC, Bpifrance)
-- Giskard Hub (red teaming), open-source (Apache 2.0), GOAT (jailbreaking, 88% sur GPT-4)
+- ~€7,5 M levés (Elaia, Bessemer, EIC, Bpifrance) [1]
+- Giskard Hub (red teaming), open-source (Apache 2.0), GOAT (88% sur GPT-4)
 
 </div>
 <div class="right">
@@ -345,6 +363,8 @@ Les modèles sont aussi bons que leurs données. Cette couche fournit le labelin
 - 15 personnes servent des Fortune 500 → niche + expertise = levier
 
 </div>
+
+<small>Sources : [1] [TechCrunch](https://techcrunch.com/2023/11/14/giskards-open-source-framework-evaluates-ai-models-before-theyre-pushed-into-production/) · [Giskard](https://www.giskard.ai/)</small>
 
 ---
 
@@ -376,7 +396,7 @@ Les modèles sont aussi bons que leurs données. Cette couche fournit le labelin
 
 # 19 — Applications AI-natives
 
-| Entreprise | Pays | ARR / Valorisation | Produit |
+| Entreprise | Pays | ARR / Valorisation [1] | Produit |
 |------------|------|--------------------|---------|
 | Cursor | 🇺🇸 USA | $1 Mds+ / $29,3 Mds | Éditeur de code IA (+9 900% YoY) |
 | GitHub Copilot | 🇺🇸 USA | $2 Mds / Microsoft | Pair-programming IA (77M+ devs) |
@@ -384,7 +404,9 @@ Les modèles sont aussi bons que leurs données. Cette couche fournit le labelin
 | Harvey | 🇺🇸 USA | $195 M / $8 Mds | IA pour juristes (contrats, recherche) |
 | ElevenLabs | 🇬🇧 UK | $330 M+ / $11 Mds | Synthèse vocale (41% du Fortune 500) |
 
-> La couche application est celle où **la valeur rencontre l'utilisateur** — et où le pricing power est le plus fort. Un développeur paie $20/mois pour Cursor sans réfléchir.
+> La couche application est celle où **la valeur rencontre l'utilisateur** — et où le pricing power est le plus fort.
+
+<small>Sources : [1] [CNBC](https://www.cnbc.com/2025/11/13/cursor-ai-startup-funding-round-valuation.html) · [ElevenLabs](https://elevenlabs.io/blog/series-d) · [Bloomberg](https://www.bloomberg.com/)</small>
 
 ---
 
@@ -394,8 +416,8 @@ Les modèles sont aussi bons que leurs données. Cette couche fournit le labelin
 
 <div class="left">
 
-- **$0 → $1 Mds ARR** en 24 mois (+9 900% YoY)
-- **$29,3 Mds** val., **1M+** DAU, **50%+** Fortune 500
+- **$0 → $1 Mds ARR** en 24 mois (+9 900% YoY) [1]
+- **$29,3 Mds** val., **1M+** DAU, **50%+** Fortune 500 [1]
 - 4 fondateurs MIT, 150-300 pers., $0 marketing — 100% PLG
 - Fork VS Code → **0 coût de migration** pour 14M+ devs
 
@@ -408,6 +430,8 @@ Les modèles sont aussi bons que leurs données. Cette couche fournit le labelin
 - Si OpenAI ou Anthropic lancent un IDE... que reste-t-il ?
 
 </div>
+
+<small>Sources : [1] [CNBC](https://www.cnbc.com/2025/11/13/cursor-ai-startup-funding-round-valuation.html) · [Cursor](https://cursor.com/blog/series-d)</small>
 
 ---
 
@@ -436,18 +460,19 @@ Les modèles sont aussi bons que leurs données. Cette couche fournit le labelin
 
 **En bas du stack** (Hardware, Cloud) :
 - Marges élevées, capital massif, forte concentration
-- NVIDIA : 56% de marge nette, quasi-monopole
+- NVIDIA : **56% de marge nette**, quasi-monopole [1]
 - Inaccessible aux startups (sauf niche : Cerebras, Crusoe)
 
 **Au milieu** (APIs, Orchestration, Safety) :
 - Le modèle "picks & shovels" — vendre les outils pendant la ruée vers l'or
 - Marges plus faibles, mais capital requis raisonnable
-- Ex : Giskard avec €7,5M sert AXA et BNP
+- Ex : Giskard avec **€7,5M** sert AXA et BNP [2]
 
 **En haut** (Applications) :
-- Pricing power fort ($20-200/mois/user)
-- Capital modeste, mais concurrence intense et risque de plateforme
+- Pricing power fort ($20-200/mois/user), mais risque de plateforme
 - **Le sweet spot pour les entrepreneurs** si le moat est clair
+
+<small>Sources : [1] [NVIDIA IR](https://investor.nvidia.com/news/press-release-details/2025/NVIDIA-Announces-Financial-Results-for-Fourth-Quarter-and-Fiscal-2025/) · [2] [Giskard](https://www.giskard.ai/)</small>
 
 ---
 
@@ -457,14 +482,16 @@ Les modèles sont aussi bons que leurs données. Cette couche fournit le labelin
 
 <div class="left">
 
-**Forces** — ASML (monopole EUV), Mistral AI (frontier, Apache 2.0), Hugging Face (hub dominant), OVHcloud/Scaleway (cloud souverain), Giskard (EU AI Act), ElevenLabs ($11 Mds)
+**Forces** — ASML (monopole EUV), Mistral AI (frontier, Apache 2.0), Hugging Face (hub dominant), OVHcloud/Scaleway (cloud souverain), Giskard (EU AI Act), ElevenLabs ($11 Mds) [1]
 
 </div>
 <div class="right">
 
-**Faiblesses** — Aucun NVIDIA européen, financement **10-50x inférieur** (Mistral ~$3 Mds vs. OpenAI ~$58 Mds), pas de hyperscaler top 3, fuite des talents (salaires 2-3x), marché fragmenté (27 régulateurs)
+**Faiblesses** — Aucun NVIDIA européen, financement **10-50x inférieur** (Mistral ~$3 Mds vs. OpenAI ~$58 Mds), pas de hyperscaler top 3, fuite des talents (salaires 2-3x), marché fragmenté (27 régulateurs) [2]
 
 </div>
+
+<small>Sources : [1] [Mistral AI](https://mistral.ai/news/mistral-ai-raises-1-7-b-to-accelerate-technological-progress-with-ai) · [2] [Stanford HAI](https://hai.stanford.edu/ai-index/2025-ai-index-report)</small>
 
 ---
 
