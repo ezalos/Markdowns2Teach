@@ -8,9 +8,9 @@ dist/
 node_modules/
 
 # Binary assets (images extracted from PDFs — too large for git)
-slides/**/assets/*.png
-slides/**/assets/*.jpg
-slides/**/assets/*.gif
+slides/**/assets/**/*.png
+slides/**/assets/**/*.jpg
+slides/**/assets/**/*.gif
 
 # Reference materials (large binary source files — PDFs, notebooks, HTML archives)
 references/

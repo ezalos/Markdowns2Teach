@@ -14,7 +14,7 @@ Convert a completed research topic into a Marp slide deck for the M2 Entrepreneu
 ### Phase 1: Read the references
 
 1. Read the conversion template: `plans/research-to-slides-template.md` — this is your playbook
-2. Read the reference deck: `slides/ai-value-chain/ch01-ecosystem-overview/01-ai-value-chain.md` — match this style exactly
+2. Read the reference deck: `slides/ai-value-chain/01-ai-value-chain.md` — match this style exactly
 3. Read the project conventions: `CLAUDE.md` — especially slide standards and language rules
 
 ### Phase 2: Analyze the source material
@@ -43,7 +43,7 @@ Convert a completed research topic into a Marp slide deck for the M2 Entrepreneu
 
 ### Phase 4: Write the deck
 
-8. Create directory: `slides/<research-slug>/ch01-<descriptive>/assets/`
+8. Create directory: `slides/<research-slug>/assets/`
 9. Write the slide deck following all conventions from the template:
    - Front matter with sorbonne theme
    - ABOUTME comments after front matter
@@ -69,14 +69,14 @@ Convert a completed research topic into a Marp slide deck for the M2 Entrepreneu
 ## Naming Convention
 
 ```
-slides/<research-slug>/ch01-<descriptive-slug>/
+slides/<research-slug>/
 ├── 01-<topic-name>.md
 └── assets/
 ```
 
 Derive the slug from the research directory name. Examples:
-- `docs/research/ai-market-intelligence/` → `slides/ai-market-intelligence/ch01-market-overview/01-ai-market.md`
-- `docs/research/prompt-engineering/` → `slides/prompt-engineering/ch01-techniques/01-prompt-techniques.md`
+- `docs/research/ai-market-intelligence/` → `slides/ai-market-intelligence/01-ai-market.md`
+- `docs/research/prompt-engineering/` → `slides/prompt-engineering/01-prompt-techniques.md`
 
 ## Quality Checklist
 

@@ -36,9 +36,8 @@ Markdowns2Teach/
 │   └── sorbonne.css                 # Custom Marp theme
 ├── slides/
 │   └── <source-slug>/
-│       └── chXX-descriptive-slug/
-│           ├── XX-topic-name.md     # Slide deck
-│           └── assets/              # Images for this chapter
+│       ├── XX-topic-name.md         # Slide deck(s)
+│       └── assets/                  # Images (subdirs per deck if multiple)
 ├── scripts/
 │   ├── extract-images.sh            # PDF image extraction
 │   └── check-overflow.sh            # Slide overflow linter
@@ -51,8 +50,10 @@ Markdowns2Teach/
 ```
 
 **Naming conventions:**
-- Directories: `chXX-descriptive-slug/` (2-digit prefix for ordering)
-- Files: `XX-topic-name.md`
+- Source directories: `<source-slug>/` (no intermediate `chXX` dirs)
+- Files: `XX-topic-name.md` (2-digit prefix for ordering within a source)
+- Multi-deck sources: file prefix provides ordering (`01-`, `02-`, etc.)
+- Assets: `assets/` per source; use `assets/XX/` subdirs when multiple decks share one source
 - English names for files/dirs
 
 ## Marp Slide Standards

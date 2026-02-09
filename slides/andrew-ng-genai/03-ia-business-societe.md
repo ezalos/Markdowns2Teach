@@ -161,7 +161,7 @@ Le site *O*NET* (onetonline.org) répertorie les tâches de *900+ métiers* avec
 
 > Cette démarche est la base d'une *analyse de marché IA*. Avant de construire un produit, décomposez le métier en tâches.
 
-![bg right:45%](assets/img-002.png)
+![bg right:45%](assets/03/img-002.png)
 
 ---
 
@@ -378,7 +378,7 @@ Résultat contre-intuitif de la recherche (Eloundou et al., 2023) :
 
 *Implication pour entrepreneurs* : les clients prêts à payer le plus pour des outils IA sont ceux dont les tâches sont les plus automatisables.
 
-![bg right:45%](assets/img-003.png)
+![bg right:45%](assets/03/img-003.png)
 
 ---
 
@@ -512,7 +512,7 @@ Les dommages causés par l'IA sont *concrets et documentés* :
 
 *Pour les entrepreneurs* : chaque produit IA que vous lancez porte une responsabilité. Les erreurs de votre IA sont *vos* erreurs.
 
-![w:250](assets/img-007.png) ![w:250](assets/img-008.png) ![w:250](assets/img-006.png)
+![w:250](assets/03/img-007.png) ![w:250](assets/03/img-008.png) ![w:250](assets/03/img-006.png)
 
 ---
 

@@ -57,7 +57,7 @@ Pour construire un classifieur de sentiment (ex : avis restaurant positif/négat
 
 > Ce processus nécessitait une équipe d'ingénieurs ML et un budget significatif. Seules les grandes entreprises pouvaient se le permettre.
 
-![bg right:45%](assets/img-007.png)
+![bg right:45%](assets/02/img-007.png)
 
 ---
 
@@ -77,7 +77,7 @@ response = llm_response(prompt)
 
 > Pas besoin de données labellisées, pas besoin d'entraîner un modèle. Vous décrivez la tâche en langage naturel.
 
-![bg right:45%](assets/img-010.png)
+![bg right:45%](assets/02/img-010.png)
 
 ---
 
@@ -175,7 +175,7 @@ Construire avec la Generative AI est un processus *hautement expérimental* :
 
 > Pensez au Lean Startup : Build → Measure → Learn. C'est exactement la même logique appliquée à l'IA.
 
-![bg right:45%](assets/img-011.png)
+![bg right:45%](assets/02/img-011.png)
 
 ---
 
@@ -245,7 +245,7 @@ Quand le Prompting seul ne suffit pas, il existe une progression d'outils :
 
 > Ces erreurs sont typiques : le LLM "hallucine" quand il manque d'informations contextuelles sur le restaurant.
 
-![bg right:45%](assets/img-012.png)
+![bg right:45%](assets/02/img-012.png)
 
 ---
 
@@ -420,7 +420,7 @@ Le RAG est partout en 2025-2026 :
 
 > Pour un entrepreneur, le RAG est souvent *la première technologie à implémenter* après le simple Prompting.
 
-![bg right:45%](assets/img-019.png)
+![bg right:45%](assets/02/img-019.png)
 
 ---
 
@@ -528,7 +528,7 @@ Le *Pretraining* = entraîner un LLM de zéro. C'est le *dernier recours*.
 
 > Pour 99% des projets entrepreneuriaux, le Prompting, le RAG ou le Fine-tuning suffiront. Le Pretraining est réservé aux très grands acteurs.
 
-![bg right:45%](assets/img-026.png)
+![bg right:45%](assets/02/img-026.png)
 
 ---
 

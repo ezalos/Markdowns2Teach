@@ -1,0 +1,108 @@
+{
+  "basic_information": {
+    "name": "OECD Recommendation of the Council on Artificial Intelligence (OECD AI Principles)",
+    "type": "international_agreement",
+    "jurisdiction": "Global (47 adherents including all 38 OECD members plus 9 non-member countries and the EU)",
+    "status": "amended",
+    "effective_date": "Originally adopted 22 May 2019; first revision 8 November 2023 (updated AI system definition); second revision 3 May 2024 (substantive principles update at OECD Ministerial Council Meeting)",
+    "regulatory_philosophy": "voluntary_principles"
+  },
+  "scope_and_content": {
+    "summary": "The OECD AI Principles are the first intergovernmental standard on AI, providing a voluntary but highly influential framework for trustworthy AI governance. Composed of five values-based principles for AI actors and five policy recommendations for governments, they were adopted in 2019, became the basis for the G20 AI Principles, and were substantially updated in May 2024 to address generative AI, information integrity, environmental sustainability, and intellectual property challenges.",
+    "key_provisions": [
+      "SECTION 1 — Five Values-Based Principles for Responsible Stewardship of Trustworthy AI:",
+      "Principle 1.1 — Inclusive Growth, Sustainable Development and Well-being: AI should benefit people and the planet by driving inclusive growth, advancing sustainable development, and enhancing well-being. The 2024 update added explicit reference to environmental sustainability.",
+      "Principle 1.2 — Human-Centred Values and Fairness: AI actors should respect human rights, democratic values, diversity, fairness, and social justice. The 2024 update expanded this to include addressing misinformation and disinformation amplified by AI while respecting freedom of expression, and added provisions on bias.",
+      "Principle 1.3 — Transparency and Explainability: AI actors should commit to transparency and responsible disclosure about AI systems, enabling people to understand AI-based outcomes and challenge them. The 2024 update clarified what information AI actors should provide regarding AI systems.",
+      "Principle 1.4 — Robustness, Security and Safety: AI systems should function appropriately and not pose unreasonable safety risks. The 2024 update added provisions for mechanisms to override, repair, and/or decommission AI systems that risk causing undue harm or exhibit undesired behaviour, and added a provision on information integrity. Traceability and risk management provisions were relocated from this principle to Principle 1.5.",
+      "Principle 1.5 — Accountability: AI actors should be accountable for the proper functioning of AI systems. The 2024 update incorporated traceability provisions (relocated from 1.4) and expanded risk management to emphasise cooperation between AI stakeholders and address specific risks including labour rights and intellectual property rights. Provisions now also address uses outside of intended purpose, intentional misuse, or unintentional misuse.",
+      "SECTION 2 — Five Policy Recommendations for Governments:",
+      "Recommendation 2.1 — Investing in AI Research and Development: Governments should consider long-term public investment and encourage private investment in R&D, open science, and open-source tools/datasets to spur innovation in trustworthy AI.",
+      "Recommendation 2.2 — Fostering an Inclusive AI-Enabling Ecosystem: Governments should foster a digital ecosystem including data, computing infrastructure, and mechanisms for sharing AI knowledge and expertise.",
+      "Recommendation 2.3 — Shaping an Enabling Interoperable Governance and Policy Environment: Governments should promote interoperable governance frameworks, building on the OECD's AI definitions adopted across jurisdictions (EU AI Act, US legislation, Council of Europe).",
+      "Recommendation 2.4 — Building Human Capacity and Preparing for Labour Market Transformation: Governments should empower people with skills to adapt to AI-driven changes, support worker transitions, and ensure fair labour practices.",
+      "Recommendation 2.5 — International Cooperation for Trustworthy AI: Governments should cooperate internationally to share information, develop interoperable governance approaches, and advance responsible AI. The 2024 merger of GPAI into OECD strengthens this dimension."
+    ],
+    "risk_classification": "The OECD AI Principles do not establish a formal risk classification system (unlike the EU AI Act's tiered risk approach). Instead, they apply horizontally across all AI systems and recommend proportionate risk management throughout the AI system lifecycle. The framework defines the AI system lifecycle phases: (i) design, data and models; (ii) verification and validation; (iii) deployment; (iv) operation and monitoring.",
+    "covered_entities": "All 'AI actors' broadly defined: those who play an active role in the AI system lifecycle, including organizations and individuals that develop, deploy, or operate AI systems. Applies to both public and private sector entities.",
+    "sector_scope": "Cross-sectoral and horizontal — applies to AI across all sectors and domains without exemptions. No sector-specific carve-outs.",
+    "open_source_treatment": "The OECD AI Principles do not contain specific provisions differentiating open-source AI from proprietary AI. The principles apply equally regardless of the AI system's licensing model. However, Recommendation 2.1 explicitly encourages government investment in 'open-source tools and open datasets that are representative and respect privacy and data protection to support an environment for AI research and development that is free of harmful bias and to improve interoperability and use of standards.' Open-source is thus framed positively as a tool for advancing trustworthy AI, but no reduced obligations or specific exemptions are provided.",
+    "extraterritorial_reach": "As a non-binding OECD Recommendation, the principles do not have formal extraterritorial reach in a legal sense. However, their practical influence is extraterritorial: with 47 adherents representing over 80% of global GDP, and adoption by the G20, the principles function as the de facto global baseline for AI governance. The OECD's AI definitions (AI system, AI system lifecycle) have been formally adopted in the EU AI Act, the US National AI Initiative Act, the Council of Europe AI Convention, and Japanese AI guidelines, creating indirect extraterritorial standardization."
+  },
+  "compliance_and_enforcement": {
+    "penalties": "None. As a non-binding OECD Recommendation, the framework does not confer enforcement powers or give rise to any penalties for non-compliance. Adherents are expected to implement the principles through their own national legislation and policy frameworks, where penalties (if any) are determined at the national level.",
+    "enforcement_body": "No dedicated enforcement body. The OECD Secretariat (specifically the AI and Emerging Digital Technologies Division, which oversees the OECD.AI Policy Observatory) monitors implementation and publishes reviews, but does not enforce compliance. National implementation is left to each adherent's domestic authorities.",
+    "compliance_timeline": "No formal compliance deadlines (voluntary framework). Key milestones: original adoption May 2019; AI definition update November 2023; substantive principles revision May 2024; AI Policy Toolkit Self-Assessment Tool under development January 2025 to March 2026; ongoing implementation reviews through the OECD.AI Policy Observatory.",
+    "reporting_requirements": "No mandatory reporting. The OECD encourages voluntary self-reporting by adherents on their national AI policies through the OECD.AI Policy Observatory database, which currently tracks over 1,000 policy initiatives from 70+ countries. The OECD publishes national AI reviews (e.g., Germany and Egypt in 2024) and an AI Incidents Monitor. A 'common reporting framework for AI incidents' was proposed in an OECD policy paper published February 2025.",
+    "sme_provisions": "The Recommendation specifically calls for fostering an 'inclusive AI-enabling ecosystem' with attention to SMEs. Recommendation 2.2 encourages governments to support SMEs' access to data, computing resources, and AI expertise. The OECD has published research on AI adoption by SMEs (December 2025) and participates in the G7 SME AI Adoption Blueprint. However, no specific reduced documentation, fee waivers, or delayed timelines are mandated — these are left to national implementation. The OECD has also published work on regulatory sandboxes for AI that could benefit SMEs.",
+    "liability_model": "none_specified"
+  },
+  "impact_and_analysis": {
+    "business_impact": "For large enterprises: The OECD AI Principles serve as the foundational reference for corporate AI governance programs. Case studies with AXA, AWS, IBM, Meta, Microsoft, NEC, and PwC (through Business at OECD/BIAC) show major companies voluntarily aligning their AI ethics frameworks with the OECD principles. For SMEs and startups: The impact is primarily indirect — the principles shape national regulations that SMEs must comply with (e.g., EU AI Act using OECD AI definitions). The non-binding nature means no direct compliance costs, but the principles create normative expectations that investors, partners, and customers increasingly reference. VC investment in AI startups has increased nine-fold since 2019 (when the principles were adopted), suggesting the framework has not hindered investment. The OECD's emphasis on interoperable governance frameworks is specifically designed to reduce compliance fragmentation for international businesses. For European startups in particular, the OECD definitions embedded in the EU AI Act create a coherent conceptual framework that simplifies compliance mapping across jurisdictions.",
+    "innovation_effect": "Generally innovation-promoting. The principles explicitly balance trustworthiness with innovation: Recommendation 2.1 calls for public and private R&D investment, including in open-source AI. The framework's voluntary nature avoids imposing compliance burdens that could stifle experimentation. The emphasis on interoperable governance (Recommendation 2.3) is designed to reduce regulatory fragmentation that can hamper cross-border innovation. The OECD's work on regulatory sandboxes for AI provides concrete pro-innovation mechanisms. However, critics note that purely voluntary principles may be insufficient to prevent AI harms, creating a tension between the innovation-friendly approach and the need for enforceable protections.",
+    "global_influence": "The OECD AI Principles are arguably the most influential international AI governance framework. They serve as the foundation for: (1) G20 AI Principles (adopted June 2019); (2) EU AI Act's AI system definition and lifecycle framework; (3) US National AI Initiative Act definitions; (4) Council of Europe Framework Convention on AI; (5) Japan's AI governance guidelines. The OECD's AI definitions have become the global standard, adopted in legislation across multiple continents. The merger of GPAI into OECD in July 2024 further consolidated the OECD's central role in international AI governance, creating an integrated partnership of 44 countries across six continents. This represents a significant 'soft law to hard law' pipeline: OECD voluntary principles are progressively codified into binding national and regional legislation.",
+    "stakeholder_positions": "Supporters: Most OECD member governments, major tech companies (through Business at OECD/BIAC), and international organizations view the principles as a pragmatic foundation for interoperable AI governance. Industry generally appreciates the voluntary, flexible nature and the principles' role in harmonizing definitions globally. Critics: Civil society organizations and some academics argue the non-binding nature is insufficient to address AI risks, that industry self-regulation leads to 'ethics washing,' and that the principles lack teeth without enforcement mechanisms. The 'soft law' approach is seen by critics as allowing companies to claim alignment without meaningful accountability. Labour unions have pushed for stronger provisions on worker protections and have been partially addressed in the 2024 update (risk management now includes labour rights). Some developing countries note the OECD framework reflects priorities of wealthy nations, though the GPAI integration aims to increase developing country participation.",
+    "deregulatory_signals": "The OECD AI Principles themselves are not deregulatory — they are a voluntary framework that sits above national regulation. However, they can be characterized as embodying a 'regulate through principles, not prescriptions' philosophy that some jurisdictions use to justify lighter-touch approaches. The 2024 update did not weaken any provisions; it strengthened them (adding information integrity, environmental sustainability, IP protections). The OECD's emphasis on 'enabling governance' and 'fostering innovation' in Recommendations 2.1-2.3 can be read as signaling against overly prescriptive regulation. The framework's influence on Japan's and India's 'innovation-first' regulatory approaches shows how voluntary principles can anchor lighter regulatory regimes."
+  },
+  "connections_and_context": {
+    "related_regulations": [
+      "EU AI Act (uses OECD AI system definition; principles align with EU trustworthy AI framework)",
+      "G20 AI Principles (directly derived from OECD AI Principles, adopted June 2019)",
+      "Council of Europe Framework Convention on Artificial Intelligence (uses OECD definitions)",
+      "US Executive Order 14110 on AI (Biden, 2023 — references OECD framework; rescinded by Trump EO 14148)",
+      "US National AI Initiative Act (adopted OECD AI definitions)",
+      "GDPR (OECD principles reinforce data protection concepts relevant to AI)",
+      "Japan AI governance guidelines (aligned with OECD principles)",
+      "UNESCO Recommendation on Ethics of AI (complementary global framework)"
+    ],
+    "key_actors": [
+      "Mathias Cormann — OECD Secretary-General, key advocate for the 2024 update",
+      "Karine Perset — Acting Head of OECD AI and Emerging Digital Technologies Division, oversees OECD.AI Policy Observatory and GPAI integration",
+      "AIGO (AI Group of Experts at the OECD) — 50+ experts from government, industry, civil society, trade unions, academia who drafted original principles",
+      "Business at OECD (BIAC) — Industry advisory body that launched implementation project in 2021 with AXA, AWS, IBM, Meta, Microsoft, NEC, PwC",
+      "GPAI (Global Partnership on Artificial Intelligence) — Merged with OECD AI work in July 2024; 29 member countries expanding to welcome low/middle-income nations",
+      "India — GPAI Chair in 2024, hosted the New Delhi Summit (July 3-4, 2024) where GPAI-OECD merger was announced",
+      "OECD Committee on Digital Economy Policy (CDEP) — Lead committee overseeing the AI Principles"
+    ],
+    "recent_developments": [
+      "May 3, 2024: OECD Council adopted substantive revision of AI Principles at Ministerial Council Meeting, addressing generative AI, information integrity, environmental sustainability, IP rights, and misuse prevention",
+      "July 3-4, 2024: GPAI and OECD announced merger at New Delhi Summit, creating integrated partnership of 44 countries with expert support centres in Paris, Montreal, and Tokyo",
+      "November 2023: Prior revision updated the OECD definition of AI system to address systems that evolve after deployment and generative AI content production",
+      "February 28, 2025: OECD published 'Towards a common reporting framework for AI incidents' policy paper",
+      "May 2, 2025: OECD published 'The Adoption of Artificial Intelligence in Firms' report analyzing AI uptake across G7 and Brazil",
+      "January 2025 - March 2026: AI Policy Toolkit project underway — developing Self-Assessment Tool for countries to evaluate alignment with AI Principles, plus Implementation Guidance with practical examples",
+      "June 3-4, 2025: OECD Council Ministerial Meeting in Paris discussed AI Policy Toolkit scoping note",
+      "August 2025: OECD published further global AI governance framework analysis",
+      "December 2025: OECD published research on 'AI adoption by small and medium-sized enterprises'",
+      "Ongoing: OECD.AI Policy Observatory database now tracks over 1,000 AI policy initiatives from 70+ countries, with updated AI Incidents Monitor and country dashboards"
+    ]
+  },
+  "teaching_relevance": {
+    "entrepreneurial_implications": "The OECD AI Principles are essential context for AI entrepreneurs operating internationally. Key implications: (1) Definitional foundation — the OECD's AI system definition is embedded in the EU AI Act, US law, and other frameworks. Understanding this definition helps entrepreneurs determine whether their product falls under AI regulations across jurisdictions. (2) Compliance mapping — since multiple national regulations reference OECD principles, understanding the source framework helps map compliance requirements across markets more efficiently. (3) Investor signaling — demonstrating alignment with OECD AI Principles is increasingly expected by investors, particularly in Europe. The BIAC case studies (AXA, AWS, IBM) show how large companies implement the principles, setting expectations for startups in their supply chains. (4) Market access — adherence to OECD-aligned governance practices facilitates access to the 47 adherent countries' markets (80%+ of global GDP). (5) No direct compliance cost — unlike the EU AI Act, the principles themselves impose no compliance burden, but they create the normative expectations that hard law then codifies. (6) GPAI resources — the integrated GPAI partnership offers expert support centres and multistakeholder resources that startups can leverage. (7) Regulatory intelligence — the OECD.AI Policy Observatory is the best free resource for tracking AI regulation globally, essential for startups planning international expansion.",
+    "session_mapping": "Session 5 (Ethics, governance & final presentations) — primary mapping; also relevant to Session 3 (AI project management frameworks) for the governance and compliance aspects, and Session 4 (AI business models) for market access and regulatory landscape understanding"
+  },
+  "confidence": {
+    "data_quality": "High",
+    "cross_reference": [
+      "OECD official press release (May 2024): https://www.oecd.org/en/about/news/press-releases/2024/05/oecd-updates-ai-principles-to-stay-abreast-of-rapid-technological-developments.html",
+      "OECD.AI Policy Observatory principles overview: https://oecd.ai/en/ai-principles",
+      "OECD Legal Instruments full text: https://legalinstruments.oecd.org/en/instruments/oecd-legal-0449",
+      "OECD wonk blog on 2024 update: https://oecd.ai/en/wonk/evolving-with-innovation-the-2024-oecd-ai-principles-update",
+      "Digital Policy Alert analysis of 2024 changes: https://digitalpolicyalert.org/ai-rules/2024-update-OECD-principles",
+      "AI Law and Policy analysis: https://www.ailawandpolicy.com/2024/05/oecd-updates-guidance-on-responsible-ai/",
+      "OECD GPAI merger announcement: https://www.oecd.org/en/about/news/speech-statements/2024/07/GPAI-and-OECD-unite-to-advance-coordinated-international-efforts-for-trustworthy-AI.html",
+      "White & Case AI Watch global regulatory tracker: https://www.whitecase.com/insight-our-thinking/ai-watch-global-regulatory-tracker-oecd",
+      "Bradley global AI governance frameworks: https://www.bradley.com/insights/publications/2025/08/global-ai-governance-five-key-frameworks-explained",
+      "OECD AI Policy Toolkit scoping note (June 2025 MCM): https://www.oecd.org/content/dam/oecd/en/events/2025/06/mcm/MCM-2025-Scoping-Note-for-an-AI-Policy-Toolkit-to-Support-Economies-in-Realising-AI-Benefits.pdf"
+    ],
+    "caveats": [
+      "As a non-binding Recommendation, the practical impact depends entirely on national implementation, which varies significantly across the 47 adherents",
+      "The 2024 update text was not fully available in plain-text form during research — some details are synthesized from multiple secondary analyses rather than direct text quotes",
+      "The GPAI-OECD merger is still in its early stages (announced July 2024); the full operational integration and its effects on the expert community are still unfolding",
+      "The AI Policy Toolkit Self-Assessment Tool (January 2025 – March 2026) is still under development and its final form is not yet known",
+      "The count of '47 adherents' was the figure at the time of the May 2024 update; this may have changed since",
+      "Some developing countries and civil society organizations consider the OECD framework to be insufficiently representative of non-Western perspectives, despite the GPAI expansion"
+    ]
+  },
+  "uncertain": []
+}

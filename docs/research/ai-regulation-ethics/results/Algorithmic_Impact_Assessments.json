@@ -1,0 +1,131 @@
+{
+  "basic_information": {
+    "name": "Algorithmic Impact Assessments (AIAs)",
+    "type": "framework",
+    "jurisdiction": "Global (originating from Canada, adopted/adapted in EU, US, New Zealand, Brazil, and others)",
+    "status": "Mixed — mandatory in Canada (since 2019), mandatory under EU AI Act Article 27 (FRIA, effective August 2026), voluntary/emerging in US (federal bill proposed), mandatory at US state level (Colorado SB 24-205, NYC LL 144)",
+    "effective_date": "Canada: April 2019 (Directive on Automated Decision-Making). EU AI Act Article 27 (FRIA): August 2, 2026. Colorado AI Act: June 30, 2026. NYC Local Law 144: July 5, 2023. US Algorithmic Accountability Act of 2025: introduced June 2025, not yet enacted. Brazil AI Bill: approved by Senate December 2024, pending House review.",
+    "regulatory_philosophy": "comprehensive_horizontal (EU FRIA under AI Act) | patchwork_federalism (US state-level mandates) | voluntary_principles (OECD guidance, New Zealand Algorithm Charter) | sector_specific (NYC employment focus)"
+  },
+  "scope_and_content": {
+    "summary": "Algorithmic Impact Assessments (AIAs) are structured pre-deployment evaluation processes requiring organizations to identify, measure, and mitigate potential harms of automated decision-making systems before they are deployed. Canada pioneered the mandatory government AIA in 2019 under its Directive on Automated Decision-Making, using a 65-question risk assessment plus 41 mitigation questions to classify systems into four impact levels. The EU AI Act mandates Fundamental Rights Impact Assessments (FRIAs) under Article 27 for deployers of high-risk AI systems, effective August 2026, while US approaches remain fragmented across state laws (Colorado, NYC) and proposed federal legislation.",
+    "key_provisions": [
+      "Pre-deployment risk assessment: Organizations must evaluate AI systems before use, assessing potential harms across fairness, bias, privacy, and fundamental rights dimensions",
+      "Impact level classification: Canada's AIA assigns systems to four levels (I-IV) based on risk severity, duration, reversibility, and data sensitivity, with escalating mitigation requirements",
+      "Proportionate mitigation requirements: Higher impact levels trigger stricter obligations — Level II+ requires peer review, Level III-IV requires explanation capabilities, Level IV requires two or more expert reviewers",
+      "Public transparency: Completed assessments must be published (Canada: Open Government Portal; NYC: employer websites; EU: notification to market surveillance authorities)",
+      "Human oversight mandates: All frameworks require documentation of human oversight mechanisms and escalation procedures",
+      "Ongoing monitoring and updates: Assessments must be repeated periodically (Colorado: annually and within 90 days of substantial modifications; EU FRIA: updated when underlying facts change)",
+      "Stakeholder and affected community consultation: AI Now Institute framework and Ada Lovelace Institute templates require participatory engagement with affected populations",
+      "Gender-Based Analysis Plus (GBA+): Canada's 2023 AIA update added intersectional analysis considering age, disability, ethnicity, economic status, geography, and sexual orientation",
+      "Bias audit requirements: NYC Local Law 144 mandates annual independent bias audits of automated employment decision tools, testing for disparate impact by sex, ethnicity, and race",
+      "Notification obligations: NYC requires candidate notification before AEDT use; EU requires deployer notification to market surveillance authorities with filled-out FRIA template"
+    ],
+    "risk_classification": "Canada uses four impact levels (I-IV): Level I (little impact, minimal requirements), Level II (moderate impact, peer review required), Level III (high impact, expert consultation and explanation capability), Level IV (very high impact, robust peer review by multiple experts, full transparency). The EU AI Act uses a risk-based pyramid (unacceptable, high, limited, minimal risk) where FRIAs apply specifically to high-risk AI systems under Annex III. Colorado categorizes 'high-risk' AI systems based on consequential decision domains (employment, housing, credit, healthcare, education, insurance).",
+    "covered_entities": "Canada: federal government departments and agencies using automated decision systems. EU FRIA: public bodies and private entities providing public services, plus deployers of creditworthiness, insurance risk, and employment AI systems. Colorado: developers and deployers of high-risk AI systems. NYC LL 144: employers and employment agencies using AEDTs in New York City. Proposed US Algorithmic Accountability Act: large companies using automated decision systems for consequential decisions.",
+    "sector_scope": "Cross-sector in principle, but with particular focus on: public administration and government services (Canada), employment and hiring (NYC LL 144), credit scoring and insurance (EU FRIA), healthcare, housing, education, and criminal justice (Colorado AI Act, proposed US federal legislation). Canada's Directive exempts internal-only government systems and national security systems.",
+    "open_source_treatment": "Canada's AIA tool itself is open source, published under an open license on GitHub (canada-ca/aia-eia-js) for public sharing and reuse. The Inter-American Development Bank has adapted it for Latin American contexts. The assessment frameworks do not generally create special exemptions for open-source AI models — the focus is on the deployment context and decision impact rather than the model's licensing. However, the EU AI Act's broader open-source exemptions (reduced obligations for open-source providers) may interact with FRIA requirements, since FRIAs are deployer obligations, not provider obligations.",
+    "extraterritorial_reach": "EU FRIA: applies to any entity deploying high-risk AI systems within the EU, regardless of where the entity is headquartered (Brussels Effect). NYC LL 144: applies to any employer using AEDTs for employment decisions affecting NYC candidates/employees. Colorado: applies to deployers operating within Colorado. Canada's Directive is limited to federal government institutions. The proposed US Algorithmic Accountability Act would apply to large US companies meeting revenue and data thresholds, with potential implications for foreign companies operating in the US market."
+  },
+  "compliance_and_enforcement": {
+    "penalties": "NYC LL 144: $500 civil penalty for first violation and each additional same-day violation; $500-$1,500 for each subsequent violation. Colorado AI Act: enforced by the Attorney General, with penalties under the Colorado Consumer Protection Act. EU AI Act: fines up to 35 million EUR or 7% of global annual turnover for prohibited practices, lower tiers for other violations. Canada: no direct fines under the Directive, but non-compliance may result in administrative consequences within the federal government. Proposed US Algorithmic Accountability Act: violations treated as unfair or deceptive acts under FTC Act.",
+    "enforcement_body": "Canada: Treasury Board of Canada Secretariat (policy owner). EU: National market surveillance authorities in each Member State, coordinated by the European AI Office. NYC: Department of Consumer and Worker Protection (DCWP). Colorado: State Attorney General. Proposed US federal: Federal Trade Commission (FTC).",
+    "compliance_timeline": "Canada: in force since April 2019, systems procured after April 2020 must comply, 4th review consultations closed January 2025. EU FRIA (Article 27): effective August 2, 2026, with standardized templates to be provided by the AI Office before that date. Colorado: effective June 30, 2026 (delayed from February 1, 2026), initial impact assessment due within 90 days, then annually. NYC LL 144: in force since July 5, 2023, annual bias audits required. Proposed US Algorithmic Accountability Act: if enacted, 12-24 month FTC rulemaking window expected.",
+    "reporting_requirements": "Canada: completed AIAs must be published on the Open Government Portal (22 published as of August 2024). EU FRIA: deployers must notify market surveillance authorities with completed assessment template. NYC LL 144: bias audit summary and date must be posted on employer website; candidate notification required before AEDT use. Colorado: impact assessment documentation must be maintained and provided to the Attorney General upon request within 90 days. Proposed US Algorithmic Accountability Act: impact assessments submitted to the FTC.",
+    "sme_provisions": "Limited explicit SME provisions in most AIA frameworks. EU AI Act includes general SME measures (regulatory sandboxes, reduced fees, simplified documentation for non-high-risk systems) but FRIAs apply equally to all deployers of covered high-risk systems regardless of size. The proposed US Algorithmic Accountability Act targets 'large companies' by setting revenue and data thresholds, effectively exempting small businesses. Canada's Directive only applies to federal government, so SME relevance is indirect (through procurement). NYC LL 144 applies to all employers regardless of size if they use AEDTs.",
+    "liability_model": "fault_based | none_specified — Most AIA frameworks emphasize compliance obligations rather than creating direct liability regimes. Colorado uses a 'reasonable care' standard (fault-based). NYC LL 144 imposes strict compliance penalties. The EU AI Act's liability framework is separate from FRIA obligations (see EU AI Liability Directive proposal). Canada's Directive operates within public administrative law rather than private liability."
+  },
+  "impact_and_analysis": {
+    "business_impact": [
+      "For startups and SMEs: Compliance costs can be significant — research shows AI compliance can consume 25% of revenue for small companies, and a 200% increase in fixed compliance costs can turn a profitable startup into a money-losing one (operating margin from 13% to -7%). Solo advisors report spending 40% of hours on compliance, and individual DevOps engineers spend approximately 3 months per year on audit preparation.",
+      "For large enterprises: AIAs are increasingly absorbed into existing compliance and governance frameworks (GRC, privacy impact assessments, ESG reporting). Companies like PwC, Deloitte, and Holistic AI offer AIA consulting services, creating a growing compliance industry.",
+      "For AI vendors/developers: Must provide sufficient documentation and technical information for deployers to conduct their assessments. Colorado requires developers to publicly disclose risk summaries and report known discrimination risks to the Attorney General within 90 days.",
+      "For public sector: Government agencies face the most mature requirements (Canada since 2019). The 22 published Canadian AIAs demonstrate the operational overhead of conducting thorough assessments across departments.",
+      "Market access consideration: As FRIA requirements take effect in the EU (August 2026), companies selling AI systems to European public bodies or in covered sectors must ensure their systems are assessment-ready, potentially creating a 'documentation moat' favoring larger vendors."
+    ],
+    "innovation_effect": "Mixed evidence. Critics argue AIAs create compliance overhead that disproportionately burdens startups and may stifle innovation — over 60 European startup founders and investors signed open letters urging Brussels to delay implementation, with Mistral and Synthesia among prominent critics. However, proponents (OECD, Ada Lovelace Institute) argue that systematic risk assessment can improve product quality, reduce downstream liability, and build user trust. Canada's experience since 2019 suggests AIAs can coexist with continued government technology adoption. NYC LL 144's weak enforcement (only 18 out of 391 employers posted audit reports) suggests that poorly enforced AIAs may have limited innovation impact but also limited protective value.",
+    "global_influence": "Canada's AIA has been the most influential model internationally — its open-source tool has been adapted by the Inter-American Development Bank for Latin American governments and referenced by the OECD Observatory of Public Sector Innovation. The EU FRIA under Article 27 is expected to create a 'Brussels Effect' as companies globally prepare for compliance. The concept has influenced Brazil's AI Bill (algorithmic impact assessments for high-risk systems), New Zealand's Algorithm Charter, and the European Law Institute's Model Rules. The AI Now Institute's 2018 framework paper was foundational in establishing the intellectual case for mandatory AIAs.",
+    "stakeholder_positions": "Supporters: AI Now Institute (pioneered the concept in 2018), Ada Lovelace Institute (developed healthcare-specific templates), OECD (promotes as governance best practice), civil society organizations (Access Now, Algorithm Watch), academic researchers (Andrew Selbst at Harvard). Critics: European startup ecosystem (compliance burden concerns), some US business groups (oppose federal mandates), libertarian-leaning think tanks (view as innovation-stifling regulation). Mixed: NIST (provides voluntary risk management framework that can support AIAs but does not mandate them), Big Tech companies (publicly support responsible AI but lobby for flexibility in implementation).",
+    "deregulatory_signals": "US federal level: Trump's December 2025 Executive Order 'Ensuring a National Policy Framework for Artificial Intelligence' proposes preempting state AI laws inconsistent with federal deregulatory policy, which could undermine state-level AIA mandates like Colorado's. Colorado: implementation delayed from February 2026 to June 2026 after legislative impasse on amendments. NYC LL 144: weak enforcement by DCWP suggests de facto deregulation through non-enforcement — only 2 complaints received, minimal educational outreach conducted. However, new legislative proposals continue (Algorithmic Accountability Act of 2025, Eliminating Bias in Algorithmic Systems Act of 2026), indicating that the concept retains legislative support despite deregulatory headwinds."
+  },
+  "connections_and_context": {
+    "related_regulations": [
+      "EU AI Act (FRIA is Article 27 of the AI Act)",
+      "NIST AI Risk Management Framework (EqualAI AIA tool aligns with NIST AI RMF Playbook)",
+      "GDPR (Article 35 Data Protection Impact Assessment as conceptual precursor)",
+      "Colorado AI Act SB 24-205",
+      "US Algorithmic Accountability Act of 2025 (proposed)",
+      "Canada Directive on Automated Decision-Making",
+      "NYC Local Law 144",
+      "Brazil AI Bill (PL 2338/2023)",
+      "OECD AI Principles",
+      "ISO/IEC 42001 (AI Management System standard)",
+      "Trump EO on AI National Policy Framework (December 2025, state preemption implications)",
+      "US State AI Laws Patchwork"
+    ],
+    "key_actors": [
+      "Treasury Board of Canada Secretariat — developed and maintains the original mandatory AIA tool",
+      "AI Now Institute (Dillon Reisman, Jason Schultz, Kate Crawford, Meredith Whittaker) — published foundational 2018 framework paper",
+      "Andrew Selbst (Harvard JOLT) — influential academic work on institutional design of AIAs",
+      "Ada Lovelace Institute — developed AIA user guide and healthcare-specific template",
+      "EqualAI (Miriam Vogel, CEO) — created NIST-aligned AIA assessment tool",
+      "European AI Office — responsible for providing standardized FRIA templates before August 2026",
+      "Danish Institute for Human Rights — published FRIA guide for EU AI Act compliance",
+      "OECD Observatory of Public Sector Innovation — catalogs and promotes AIA best practices",
+      "World Privacy Forum (Pam Dixon) — published 'AI Governance on the Ground' research on Canada's AIA evolution",
+      "Senator Ron Wyden (D-OR) — lead sponsor of US Algorithmic Accountability Act",
+      "NYC Department of Consumer and Worker Protection (DCWP) — enforces Local Law 144",
+      "Inter-American Development Bank — adapted Canada's AIA for Latin American use",
+      "PwC, Deloitte, Holistic AI — major consulting firms offering AIA services"
+    ],
+    "recent_developments": [
+      "June 2025: Algorithmic Accountability Act of 2025 introduced in US Senate (S. 2164) and House (H.R. 5511), directing FTC to require impact assessments of automated decision systems",
+      "2026: Eliminating Bias in Algorithmic Systems Act of 2026 introduced in US House (H.R. 7110), targeting bias in federal agency algorithmic systems",
+      "January 2025: Canada closed consultations on 4th review of the Directive on Automated Decision-Making, proposing modifications based on 5+ years of operational experience",
+      "August 2024: World Privacy Forum published 'AI Governance on the Ground' report documenting that 22 Canadian agencies had published AIAs, analyzing the evolution of the AIA process",
+      "2023-2024: Canada added Gender-Based Analysis Plus (GBA+) intersectional analysis to the AIA, requiring evaluation across age, disability, ethnicity, economic status, geography, language, race, religion, and sexual orientation",
+      "December 2024: Brazilian Senate approved AI Bill requiring algorithmic impact assessments for high-risk systems, pending House review",
+      "2025: Colorado AI Act implementation delayed to June 30, 2026 after special legislative session failed to reach compromise on amendments",
+      "December 2025: NYC State Comptroller audit found DCWP enforcement of LL 144 largely ineffective — only 1 out of 32 companies flagged for non-compliance by DCWP vs. 17 instances found by independent auditors",
+      "2024: Academic FAccT paper 'Null Compliance' documented that only 18 of 391 NYC employers posted required bias audit reports, revealing systemic enforcement failure",
+      "August 2026 (upcoming): EU AI Act Article 27 FRIA obligations take effect for deployers of high-risk AI systems — European AI Office expected to provide standardized templates before deadline",
+      "February 2024: NIST released AI RMF 2.0 update; July 2024: NIST published AI 600-1 Generative AI Profile, both informing AIA methodology",
+      "December 2025: Trump Executive Order on AI National Policy Framework raises possibility of federal preemption of state-level AIA requirements"
+    ]
+  },
+  "teaching_relevance": {
+    "entrepreneurial_implications": [
+      "Compliance cost planning: AI startups must budget for AIA compliance from the earliest stages — research shows compliance costs can consume 25% of revenue for small companies. Entrepreneurs should factor impact assessment costs into their unit economics and runway calculations.",
+      "Market access strategy: As EU FRIA requirements take effect in August 2026, startups selling AI systems to European public bodies or in credit/insurance/employment sectors need 'assessment-ready' products with proper documentation. This creates both a barrier and a competitive moat for well-documented systems.",
+      "Build vs. buy for compliance: Startups can choose between conducting AIAs in-house (using free tools like Canada's open-source AIA or EqualAI's template) or engaging consulting firms (PwC, Deloitte). The choice depends on risk level and available resources.",
+      "Product differentiation through trustworthiness: Proactive impact assessment and transparency can become a selling point, especially for B2B and B2G (business-to-government) AI products where buyers increasingly require evidence of responsible AI practices.",
+      "Geographic regulatory arbitrage: Different jurisdictions have different AIA requirements — a startup could initially target markets with lighter requirements, then expand to regulated markets as they mature. However, Trump's December 2025 EO potentially preempting state laws adds uncertainty to US state-level strategies.",
+      "Employment AI is the regulatory frontier: NYC LL 144, Colorado's Act, and the proposed federal Algorithmic Accountability Act all heavily target employment/hiring AI — startups in HR tech and recruitment AI face the most immediate and concrete AIA obligations.",
+      "Documentation as a product feature: Investors and enterprise customers increasingly ask about AI governance. Having completed AIAs demonstrates maturity and de-risks the product for buyers.",
+      "Enforcement reality check: NYC's experience shows that enforcement can be weak (only 18/391 employers compliant), but entrepreneurs should not plan around non-enforcement — regulatory attention tends to increase over time, and reputational risk from non-compliance can be more damaging than fines."
+    ],
+    "session_mapping": "Session 5 (Ethics, governance & final presentations) — primary. Also relevant to Session 3 (Framing & managing AI projects) for the 'how to conduct an AIA' practical exercise, and Session 4 (AI business models & strategy) for compliance cost implications on unit economics."
+  },
+  "confidence": {
+    "data_quality": "High — based on official government sources (Canada.ca, Congress.gov, EU AI Act text), peer-reviewed academic research (FAccT 2024, Harvard JOLT), reputable policy organizations (AI Now Institute, Ada Lovelace Institute, OECD), and major law firms (Allen & Overy Shearman, Freshfields, Akin Gump).",
+    "cross_reference": [
+      "Canada AIA: Official Canada.ca documentation confirmed by OECD OPSI catalog, World Privacy Forum 2024 research, and Montreal AI Ethics Institute analysis",
+      "EU FRIA Article 27: Confirmed across artificialintelligenceact.eu official text, multiple law firm analyses (A&O Shearman, Freshfields), Danish Institute for Human Rights guide, and Nemko Digital compliance guide",
+      "NYC LL 144: Confirmed by official NYC.gov DCWP page, NYS Comptroller December 2025 audit, Deloitte analysis, and FAccT 2024 academic paper",
+      "Colorado AI Act: Confirmed by official Colorado General Assembly page, multiple law firm analyses (Akin Gump, Clark Hill), and compliance guides (TrustArc, LogicGate)",
+      "US Algorithmic Accountability Act: Confirmed by Congress.gov official text for both S. 2164 and H.R. 5511, GovTrack tracking",
+      "Compliance cost data: Confirmed by PwC analysis, arxiv research paper (2301.13454), and multiple industry compliance guides"
+    ],
+    "caveats": [
+      "The AIA landscape is evolving rapidly — the US Algorithmic Accountability Act of 2025 has not been enacted and may not pass in the current political environment given the Trump administration's deregulatory stance",
+      "Trump's December 2025 Executive Order on AI National Policy Framework could preempt state-level AIA mandates (Colorado, potentially others), but the legal mechanism and scope of preemption remain unclear",
+      "Colorado AI Act was already delayed once (February to June 2026) and may be further amended or delayed",
+      "EU AI Act Article 27 FRIA templates have not yet been published by the European AI Office — practical implementation details remain uncertain",
+      "NYC LL 144 enforcement has been widely criticized as ineffective — the December 2025 NYS Comptroller audit found systemic failures, and the law may be strengthened or replaced",
+      "Brazil's AI Bill is still pending House approval and may be significantly amended",
+      "Compliance cost figures cited are general AI compliance costs, not specific to AIA-only costs, which would be a subset",
+      "The interaction between GDPR Article 35 DPIAs and EU AI Act Article 27 FRIAs creates potential for overlapping or conflicting assessment requirements — guidance on harmonization is still pending"
+    ]
+  },
+  "uncertain": []
+}

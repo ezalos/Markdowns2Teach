@@ -158,15 +158,15 @@ Every data claim must be sourced. Format:
 ## 6. Directory Naming
 
 ```
-slides/<research-slug>/ch01-<descriptive-slug>/
+slides/<research-slug>/
 ├── 01-<topic-name>.md
 └── assets/
 ```
 
 Examples:
-- `slides/ai-value-chain/ch01-ecosystem-overview/01-ai-value-chain.md`
-- `slides/prompt-engineering/ch01-techniques/01-prompt-techniques.md`
-- `slides/ai-business-models/ch01-patterns/01-business-patterns.md`
+- `slides/ai-value-chain/01-ai-value-chain.md`
+- `slides/prompt-engineering/01-prompt-techniques.md`
+- `slides/ai-business-models/01-business-patterns.md`
 
 ## 7. Verification
 

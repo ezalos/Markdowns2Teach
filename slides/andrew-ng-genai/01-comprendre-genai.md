@@ -38,7 +38,7 @@ M2 Entrepreneuriat · Sorbonne · 2026
 
 > Après le lancement de ChatGPT (nov. 2022), les mentions d'"IA" dans les *earnings calls* du S&P 500 ont explosé.
 
-![bg right:45%](assets/img-002.png)
+![bg right:45%](assets/01/img-002.png)
 
 *Question pour la classe* : Si le coût de l'intelligence machine tend vers zéro, quel service aujourd'hui trop coûteux pour être automatisé devient une opportunité de startup demain ?
 
@@ -58,7 +58,7 @@ Des systèmes d'intelligence artificielle capables de *produire du contenu de ha
 - *Gemini* (Google) — recherche augmentée
 - *Le Chat* (Mistral AI) — alternative européenne
 
-![bg right:45%](assets/img-006.png)
+![bg right:45%](assets/01/img-006.png)
 
 ---
 
@@ -74,7 +74,7 @@ Au-delà des chatbots grand public, la Generative AI est un *developer tool* pui
 
 > En 2025, des startups comme Bolt.new et Lovable permettent de coder des apps entières via prompt.
 
-![bg right:45%](assets/img-008.png)
+![bg right:45%](assets/01/img-008.png)
 
 ---
 
@@ -105,8 +105,8 @@ La Generative AI ne se limite pas au texte :
 - Produire des voix-off pour des formations
 - Générer des vidéos de démonstration produit
 
-![bg right:45%](assets/img-009.png)
-![bg](assets/img-010.png)
+![bg right:45%](assets/01/img-009.png)
+![bg](assets/01/img-010.png)
 
 ---
 
@@ -257,7 +257,7 @@ Comme *l'électricité* au début du XXe siècle, l'IA est une *General Purpose 
 
 > L'erreur courante : penser que l'IA = chatbots. En réalité, la plus grande valeur vient des *applications spécialisées* intégrées dans les processus métier.
 
-![bg right:45%](assets/img-014.png)
+![bg right:45%](assets/01/img-014.png)
 
 ---
 
@@ -273,7 +273,7 @@ Comme *l'électricité* au début du XXe siècle, l'IA est une *General Purpose 
 - *Web-based* : ChatGPT, Claude, Le Chat — interaction directe
 - *Software application* : le LLM est intégré dans un produit (email routing, analyse automatisée)
 
-![bg right:45%](assets/img-026.png)
+![bg right:45%](assets/01/img-026.png)
 
 ---
 
@@ -373,7 +373,7 @@ Un des cas d'usage les plus puissants pour les entreprises :
 
 > *Pour les entrepreneurs* : imaginez traiter 100 feedbacks clients en 5 minutes au lieu de 2 heures. C'est le gain de productivité offert par les LLMs en tâches de Reading.
 
-![bg right:45%](assets/img-024.png)
+![bg right:45%](assets/01/img-024.png)
 
 ---
 
@@ -525,7 +525,7 @@ Les connaissances d'un LLM sont *figées à la date de son entraînement* :
 - Les modèles les plus récents sont entraînés jusqu'à mi-2025
 - Mais les données de la semaine dernière restent inaccessibles (sauf si le modèle a accès au web)
 
-![bg right:45%](assets/img-021.png)
+![bg right:45%](assets/01/img-021.png)
 
 ---
 
@@ -542,7 +542,7 @@ Les LLMs peuvent *générer des informations fausses avec un ton très confiant*
 
 > *Règle d'or pour entrepreneurs* : ne jamais publier un contenu généré par IA sans *vérification humaine*, surtout pour les informations factuelles.
 
-![bg right:45%](assets/img-022.png)
+![bg right:45%](assets/01/img-022.png)
 
 ---
 
@@ -698,7 +698,7 @@ Le Prompt Engineering suit un cycle identique au *cycle produit* des startups :
 - Attention aux *informations confidentielles* dans les prompts
 - Vérifiez toujours si vous pouvez *faire confiance* à la sortie
 
-![bg right:45%](assets/img-027.png)
+![bg right:45%](assets/01/img-027.png)
 
 *Question pour la classe* : Quelles informations de votre entreprise ne devriez-vous JAMAIS mettre dans un prompt ChatGPT ?
 
@@ -726,9 +726,9 @@ Les modèles de génération d'images créent des visuels à partir de *descript
 - *Flux* (Black Forest Labs) — open source, haute qualité
 - *Stable Diffusion* — open source, très personnalisable
 
-![bg right:33%](assets/img-028.png)
-![bg](assets/img-030.png)
-![bg](assets/img-029.png)
+![bg right:33%](assets/01/img-028.png)
+![bg](assets/01/img-030.png)
+![bg](assets/01/img-029.png)
 
 ---
 
