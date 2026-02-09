@@ -14,23 +14,23 @@ Each research topic goes through three phases:
 
 ---
 
-## Completion Status (as of 2026-02-08)
+## Completion Status (as of 2026-02-09)
 
-| # | Topic | Session | Type | Status | Report |
-|---|-------|---------|------|--------|--------|
-| 2 | **AI Value Chain Companies** | 1 | Gap-filling | **DONE** | `ai-value-chain-companies/report.md` |
-| 1 | **AI Market Intelligence 2024-2026** | 1 | Gap-filling | **DONE** | `ai-market-intelligence/report.md` |
-| 3 | **Reasoning Models & SLMs 2025-2026** | 1 | Gap-filling | **DONE** | `reasoning-models-slms/report.md` |
-| 8 | AI Tech Watch & Learning Resources | 1 | Gap-filling | Pending | — |
-| 4 | No-Code & Low-Code AI Tools | 2 | Gap-filling | Pending | — |
-| 12 | Advanced Prompt Engineering | 2 | Complement | Pending | — |
-| 5 | AI Project Frameworks & Methodologies | 3 | Gap-filling | Pending | — |
-| 9 | RAG Ecosystem & Implementation Tools | 3 | Complement | Pending | — |
-| 10 | Fine-tuning & Model Customization | 3 | Complement | Pending | — |
-| 6 | AI Business Model Patterns 2024-2026 | 4 | Gap-filling | Pending | — |
-| 11 | Agentic AI & MCP Ecosystem 2025-2026 | 4 | Complement | Pending | — |
-| 13 | AI Regulation, Ethics & Governance | 5 | Complement | Pending | — |
-| 7 | AI Case Studies for Entrepreneurs | Cross | Gap-filling | Pending | — |
+| # | Topic | Session | Type | Items | Status | Report |
+|---|-------|---------|------|-------|--------|--------|
+| 1 | **AI Market Intelligence 2024-2026** | 1 | Gap-filling | 41 | **DONE** | `ai-market-intelligence/report.md` |
+| 2 | **AI Value Chain Companies** | 1 | Gap-filling | 52 | **DONE** | `ai-value-chain-companies/report.md` |
+| 3 | **Reasoning Models & SLMs 2025-2026** | 1 | Gap-filling | 33 | **DONE** | `reasoning-models-slms/report.md` |
+| 5 | **AI Project Frameworks & Methodologies** | 3 | Gap-filling | 24 | **DONE** | `ai-project-frameworks/report.md` |
+| 6 | **AI Business Model Patterns 2024-2026** | 4 | Gap-filling | 42 | **DONE** | `business-models-ai/report.md` |
+| 8 | **AI Tech Watch & Learning Resources** | 1 | Gap-filling | 35 | **DONE** | `ai-tech-watch-resources/report.md` |
+| 11 | **Agentic AI & MCP Ecosystem 2025-2026** | 4 | Complement | 40 | **DONE** | `agentic-ai/report.md` |
+| 13 | **AI Regulation, Ethics & Governance** | 5 | Complement | 29 | **DONE** | `ai-regulation-ethics/report.md` |
+| 4 | No-Code & Low-Code AI Tools | 2 | Gap-filling | — | Pending | — |
+| 7 | AI Case Studies for Entrepreneurs | Cross | Gap-filling | — | Pending | — |
+| 9 | RAG Ecosystem & Implementation Tools | 3 | Complement | — | Pending | — |
+| 10 | Fine-tuning & Model Customization | 3 | Complement | — | Pending | — |
+| 12 | Advanced Prompt Engineering | 2 | Complement | — | Pending | — |
 
 **"Gap-filling"** = content Andrew Ng doesn't cover at all.
 **"Complement"** = deepens/updates what Andrew Ng covers in the existing 3 slide decks.
@@ -189,32 +189,51 @@ Each JSON follows this nested structure:
 
 ---
 
-## Pipeline for Remaining Topics
+## Pipeline for Remaining Topics (5 of 13)
 
-Execution order follows session priority:
+Execution order:
 
-**Session 1 block** (next):
-- Research 3: Reasoning Models & SLMs — model comparison tables
-- Research 8: Tech Watch & Learning Resources — curated reading list for students
+1. **Research 9**: RAG Ecosystem & Implementation — practical RAG stack guide (Session 3)
+2. **Research 10**: Fine-tuning & Model Customization — how to actually fine-tune (Session 3)
+3. **Research 4**: No-Code & Low-Code AI Tools — tool comparison for hands-on exercises (Session 2)
+4. **Research 7**: AI Case Studies for Entrepreneurs — 1-slide company stories, French/EU priority (Cross-session)
+5. **Research 12**: Advanced Prompt Engineering — techniques beyond basics (Session 2)
 
-**Session 2 block**:
-- Research 4: No-Code & Low-Code AI Tools — tool comparison for hands-on exercises
-- Research 12: Advanced Prompt Engineering — techniques beyond basics
+---
 
-**Session 3 block**:
-- Research 5: AI Project Frameworks — CRISP-DM, AI Canvas, Build vs Buy
-- Research 9: RAG Ecosystem — practical RAG stack guide
-- Research 10: Fine-tuning Platforms — how to actually fine-tune
+## Completed: AI Tech Watch & Learning Resources
 
-**Session 4 block**:
-- Research 6: AI Business Models — pattern library with examples
-- Research 11: Agentic AI & MCP — what's working in production
+- **35 JSON files** covering curated resources for students
+- **Key files**: `ai-tech-watch-resources/` — `outline.yaml`, `fields.yaml`, `generate_report.py`, `report.md`, `results/`
 
-**Session 5 block**:
-- Research 13: AI Regulation & Ethics — practical compliance + debate material
+---
 
-**Cross-session**:
-- Research 7: AI Case Studies — 1-slide company stories, French/EU priority
+## Completed: AI Project Frameworks & Methodologies
+
+- **24 JSON files** covering CRISP-DM, AI Canvas, Build vs Buy, and related frameworks
+- **Key files**: `ai-project-frameworks/` — `outline.yaml`, `fields.yaml`, `generate_report.py`, `report.md`, `results/`
+
+---
+
+## Completed: AI Regulation, Ethics & Governance
+
+- **29 JSON files** covering EU AI Act, GDPR-AI intersections, AI safety institutes, copyright/IP, bias, employment impact, and more
+- **Key files**: `ai-regulation-ethics/` — `outline.yaml`, `fields.yaml`, `generate_report.py`, `report.md`, `results/`
+
+---
+
+## Completed: Agentic AI & MCP Ecosystem 2025-2026
+
+- **40 JSON files** covering agent frameworks (LangChain, CrewAI, AutoGen), protocols (MCP, A2A), patterns (ReAct, tool use), products (Devin, Claude Code, Operator), and market data
+- **Key files**: `agentic-ai/` — `outline.yaml`, `fields.yaml`, `generate_report.py`, `report.md` (5,918 lines), `results/`
+
+---
+
+## Completed: AI Business Models & Strategy 2024-2026
+
+- **42 JSON files** covering business model patterns, pricing strategies, unit economics, investment dynamics, case studies, and emerging models
+- **Categories**: Patterns (14), Pricing (2), Market Data (12), Frameworks (4), Case Studies (6), Emerging (4)
+- **Key files**: `business-models-ai/` — `outline.yaml`, `fields.yaml`, `generate_report.py`, `report.md` (6,212 lines), `results/`
 
 ---
 

@@ -1,0 +1,208 @@
+# ABOUTME: Field definitions for Agentic AI research.
+# ABOUTME: Covers identity, architecture, capabilities, adoption, interoperability, safety, and entrepreneurial relevance.
+
+basic_information:
+  name:
+    description: "Official name of the agent framework/product/concept"
+    detail_level: brief
+  type:
+    description: "Category: framework | protocol | pattern | product | market_data | standard | platform"
+    detail_level: brief
+  creator:
+    description: "Company or organization behind it"
+    detail_level: brief
+  release_date:
+    description: "Initial release or announcement date"
+    detail_level: brief
+  license:
+    description: "Open-source license (MIT, Apache 2.0, etc.) or proprietary"
+    detail_level: brief
+  current_version:
+    description: "Latest version or release identifier"
+    detail_level: brief
+
+technical_architecture:
+  architecture_pattern:
+    description: >
+      Core architecture: single_agent | multi_agent | orchestrator | graph_based |
+      code_first | event_driven | pipeline
+    detail_level: brief
+  underlying_models:
+    description: "Which LLMs it supports or is built on"
+    detail_level: moderate
+  tool_integration:
+    description: "How external tools/APIs are connected (MCP, function calling, plugins, etc.)"
+    detail_level: moderate
+  planning_approach:
+    description: "How the agent plans: ReAct | tree_of_thought | graph | hierarchical | code_as_plan"
+    detail_level: moderate
+  multi_agent_support:
+    description: "Whether and how multiple agents can collaborate: manager, sequential, swarm, group chat"
+    detail_level: moderate
+
+memory_and_context:
+  memory_types_supported:
+    description: >
+      Types of memory: short_term (conversation) | episodic (past interactions) |
+      semantic (knowledge) | procedural (learned skills) | none
+    detail_level: moderate
+  context_window_management:
+    description: "How the agent manages context limits: truncation, summarization, retrieval, sliding window"
+    detail_level: moderate
+  persistence_mechanism:
+    description: "How agent state is persisted: in_memory | database | vector_store | file_system | cloud"
+    detail_level: brief
+  context_engineering_approach:
+    description: "Whether and how the system treats context as a first-class architectural concern"
+    detail_level: moderate
+
+capabilities:
+  core_capabilities:
+    description: "Primary features and what the agent can do"
+    detail_level: detailed
+  supported_modalities:
+    description: "Text, code, vision, browser, file system, voice, etc."
+    detail_level: brief
+  autonomy_level:
+    description: >
+      Level of human oversight: fully_autonomous | human_in_loop |
+      supervised | approval_required | copilot
+    detail_level: brief
+  tool_ecosystem:
+    description: "Number and types of tools/integrations available"
+    detail_level: moderate
+
+agent_interoperability:
+  mcp_support:
+    description: "Whether and how the agent supports Model Context Protocol"
+    detail_level: brief
+  a2a_support:
+    description: "Whether and how the agent supports Agent-to-Agent Protocol"
+    detail_level: brief
+  agents_md_support:
+    description: "Whether the agent reads/respects AGENTS.md project instructions"
+    detail_level: brief
+  cross_framework_compatibility:
+    description: "How well the agent interoperates with other frameworks and tools"
+    detail_level: moderate
+
+safety_and_guardrails:
+  permission_model:
+    description: "How the agent manages permissions: allow_list | deny_list | capability_based | sandbox | unrestricted"
+    detail_level: moderate
+  escalation_policy:
+    description: "When and how the agent escalates to human oversight"
+    detail_level: moderate
+  hallucination_mitigation:
+    description: "Strategies to prevent and detect agent hallucinations"
+    detail_level: moderate
+  audit_trail:
+    description: "Whether agent actions are logged and traceable"
+    detail_level: brief
+  human_oversight_pattern:
+    description: "How human-in-the-loop is implemented: pre-approval | post-review | confidence_threshold | always_on"
+    detail_level: moderate
+
+governance_and_standards:
+  governance_body:
+    description: "Which standards body or foundation governs this (AAIF, Linux Foundation, ISO, etc.)"
+    detail_level: brief
+  contributing_protocols:
+    description: "Which open protocols or standards this item contributes to or implements"
+    detail_level: moderate
+  regulatory_compliance:
+    description: "Compliance certifications or readiness: EU_AI_Act | SOC2 | HIPAA | none"
+    detail_level: moderate
+
+deployment_and_operations:
+  deployment_modes:
+    description: "Where it can run: cloud | local | hybrid | edge | managed_service"
+    detail_level: brief
+  scalability_model:
+    description: "How it scales: horizontal | vertical | serverless | fixed"
+    detail_level: brief
+  cost_per_task:
+    description: "Typical cost for agent operations (API costs, compute, etc.)"
+    detail_level: moderate
+  resource_requirements:
+    description: "Hardware/infrastructure needed to run"
+    detail_level: moderate
+
+observability_and_ops:
+  monitoring_integration:
+    description: "Built-in or compatible monitoring/observability tools (LangSmith, Langfuse, etc.)"
+    detail_level: moderate
+  tracing_support:
+    description: "Whether agent execution traces are available for debugging"
+    detail_level: brief
+  production_readiness_level:
+    description: "Maturity: experimental | beta | production_ready | enterprise_grade"
+    detail_level: brief
+
+adoption_and_market:
+  github_stars:
+    description: "GitHub stars if open-source"
+    detail_level: brief
+  adoption_scale:
+    description: "Number of users, downloads, or enterprise deployments"
+    detail_level: moderate
+  pricing_model:
+    description: "Free, freemium, per-agent, per-action, enterprise, open-source"
+    detail_level: brief
+  key_use_cases:
+    description: "Primary use cases and industries"
+    detail_level: moderate
+  competitive_position:
+    description: "Where it sits relative to alternatives"
+    detail_level: moderate
+
+ecosystem_maturity:
+  community_size:
+    description: "Size and activity of developer community (GitHub contributors, Discord, forums)"
+    detail_level: moderate
+  documentation_quality:
+    description: "Quality and completeness of documentation: excellent | good | adequate | poor"
+    detail_level: brief
+  third_party_integrations_count:
+    description: "Number of available integrations, plugins, or MCP servers"
+    detail_level: brief
+  tutorial_availability:
+    description: "Availability of tutorials, courses, and learning resources"
+    detail_level: brief
+
+human_agent_interaction:
+  autonomy_spectrum:
+    description: >
+      Where on the spectrum: copilot (suggestions) | assistant (executes with approval) |
+      autonomous (acts independently) | fully_delegated (unsupervised)
+    detail_level: brief
+  handoff_mechanism:
+    description: "How the agent hands off to humans when needed"
+    detail_level: moderate
+  feedback_loop:
+    description: "How user feedback improves agent behavior over time"
+    detail_level: moderate
+
+entrepreneurial_relevance:
+  startup_applicability:
+    description: "How a startup founder should think about this: when to use, when to avoid"
+    detail_level: detailed
+  build_vs_buy:
+    description: "When to use this vs. alternatives, cost-benefit for startups"
+    detail_level: moderate
+  session_mapping:
+    description: "Which course session this supports (1-5)"
+    detail_level: brief
+
+confidence:
+  data_quality:
+    description: "High / Medium / Low — based on source reputation and recency"
+    detail_level: brief
+  cross_reference:
+    description: "Other sources confirming the information"
+    detail_level: moderate
+  caveats:
+    description: "Known limitations or rapidly evolving status"
+    detail_level: moderate
+
+uncertain: []

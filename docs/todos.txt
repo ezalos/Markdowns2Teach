@@ -16,6 +16,16 @@ Preparer les QCMs
 Preparer un deck pour me presenter et presenter:
 - le cours complet dans ses grandes lignes
 - les evaluations qu'il y aura
-- les projets qu'il y aura
+- les projets qu'il y aura 
 
 
+
+Error metrcis (great qcm for a given pbm) : 
+- Classification 
+- Regression 
+
+
+Tasks types (great qcm for a given pbm) : 
+- Classification 
+- Regression 
+- Computer vision types

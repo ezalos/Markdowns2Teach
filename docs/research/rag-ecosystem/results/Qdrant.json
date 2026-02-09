@@ -1,0 +1,81 @@
+{
+  "basic_information": {
+    "name": "Qdrant",
+    "type": "vector_database",
+    "creator": "Qdrant Solutions GmbH (Berlin, Germany)",
+    "description": "Qdrant is a high-performance, open-source vector similarity search engine and database written in Rust. It provides a production-ready service with a convenient API to store, search, and manage vectors with additional payload data. Qdrant is notable for its advanced filtering engine, binary quantization (up to 40x faster searches), native sparse vector support for hybrid search, and EU-based data sovereignty. It is designed for the next generation of AI applications including RAG, semantic search, recommendation systems, and agentic AI workflows.",
+    "release_date": "Initial GitHub commit May 2020; v1.0 released February 2023; latest version v1.16 released November 2025",
+    "license": "Apache 2.0",
+    "github_stars": "~28,700 stars on GitHub (as of February 2026)"
+  },
+  "technical_architecture": {
+    "architecture_type": "Distributed, segment-based architecture with custom storage engine. Supports in-memory and disk-based (mmap) modes. Kubernetes-native with horizontal scaling, automatic load balancing, sharding, and replication. Segments allow incremental HNSW indexing for upsert-heavy workloads. Offers managed cloud, hybrid cloud, and private cloud deployment modes.",
+    "language": "Rust (core engine); client SDKs in Python, TypeScript/JavaScript, Go, Java, C#, and Rust",
+    "embedding_dimensions": "Supports arbitrary embedding dimensions; optimized for high-dimensional vectors (768, 1024, 1536, 3072+). Binary quantization works best with dimensions >= 1024.",
+    "indexing_algorithm": "HNSW (Hierarchical Navigable Small World) as primary index, with GPU-accelerated HNSW indexing (added 2025). Supports scalar quantization, binary quantization (1-bit, reducing memory 32x), 1.5-bit quantization, 2-bit quantization, and product quantization. Inline storage embeds quantized vectors directly into the HNSW graph for improved disk-based performance. ACORN algorithm for improved filtered vector search (v1.16).",
+    "scalability": "Horizontal scaling via sharding and replication across Kubernetes clusters. Supports billions of vectors in production (Tripadvisor uses 1B+ reviews). Tiered multitenancy for efficiently supporting both small and large tenants within a single system. Multi-node distributed mode with automatic load balancing and fault tolerance.",
+    "deployment_options": "Qdrant Cloud (fully managed on AWS, GCP, Azure), Hybrid Cloud (customer's Kubernetes clusters managed by Qdrant), Private Cloud (air-gapped on-premises), self-hosted via Docker/Kubernetes, available on AWS Marketplace, Google Cloud Marketplace, and Azure Marketplace"
+  },
+  "rag_specific_capabilities": {
+    "retrieval_method": "Dense vector search (cosine, dot product, Euclidean), sparse vector search (BM25/SPLADE with built-in IDF computation), hybrid search combining dense + sparse with fusion or reranking, multi-vector search with native ColBERT late-interaction support, discovery search, and recommendation API. Query API (v1.10+) unifies all retrieval modes.",
+    "chunking_strategy_support": "Qdrant itself is storage/retrieval layer and is agnostic to chunking strategy. Integrates with LangChain, LlamaIndex, and Unstructured for fixed-size, semantic, recursive, and document-structure-aware chunking. FastEmbed library handles embedding generation. Users implement chunking via orchestration frameworks.",
+    "reranking_support": "Native multi-vector ColBERT reranking support (v1.10+). Supports prefetch + rerank pipeline where candidates are retrieved with dense or sparse vectors and reranked with ColBERT late-interaction scores. Score fusion methods (RRF) for hybrid search. Integration with cross-encoder rerankers via LangChain/LlamaIndex.",
+    "multimodal_support": "Supports any embedding type including image embeddings (CLIP), audio embeddings, and multi-modal embeddings. Named vectors allow storing multiple embedding types per point (e.g., text + image). Multimodal RAG tutorials available with LlamaIndex integration using CLIP for unified text-image search.",
+    "graph_rag_support": "No native knowledge graph, but documented GraphRAG integration with Neo4j. Qdrant serves as the vector search component alongside Neo4j's graph structure for enhanced retrieval. Official tutorials and community examples for GraphRAG pipelines using Qdrant + Neo4j.",
+    "citation_grounding": "No built-in citation or grounding verification. Payload storage allows attaching source metadata (URLs, page numbers, document IDs) to vectors for downstream citation generation by the LLM orchestration layer.",
+    "context_window_optimization": "No built-in context window management. Relies on orchestration frameworks (LangChain, LlamaIndex) for context selection, compression, and summarization. Qdrant's efficient retrieval and filtering help select the most relevant chunks to fit within LLM context windows."
+  },
+  "performance_and_benchmarks": {
+    "latency": "Sub-100ms for most RAG workloads. Approximately 20-50ms p50 latency in comparative benchmarks. With binary quantization, search latency reduces significantly (up to 40x faster than full-precision). Filtered search performance improved with ACORN algorithm in v1.16.",
+    "throughput": "626 QPS at 99.5% recall on 1M vectors benchmark. 3x faster than Elasticsearch on vector search. Fastest ingestion and indexing among competitors due to multi-segment architecture. GPU-accelerated HNSW indexing further improves ingestion throughput (added 2025).",
+    "accuracy_metrics": "Configurable recall via HNSW ef parameter. Achieves 99.5% recall in benchmarks. Binary quantization with oversampling and re-scoring maintains high recall despite aggressive compression. Full-precision vectors kept on disk for re-scoring ensures search quality.",
+    "benchmark_results": "On ANN-Benchmarks methodology: 626 QPS at 99.5% recall on 1M vectors. Competitive with Milvus and Pinecone (which achieve slightly lower latency at massive scale). 3x faster than Elasticsearch. Redis reported 3.4x higher QPS than Qdrant at same recall levels in Redis's own benchmarks. Qdrant publishes its own open-source benchmark tool inspired by ann-benchmarks."
+  },
+  "integration_and_ecosystem": {
+    "framework_compatibility": "LangChain (langchain-qdrant package with hybrid search support), LlamaIndex (QdrantVectorStore with dense/sparse/hybrid modes), Haystack (QdrantDocumentStore), DSPy, AutoGen, CrewAI, n8n (official node), Airflow, and 35+ total integrations added in 2025. Also integrates with Spring AI (Java), Canopy, and Semantic Kernel.",
+    "model_compatibility": "Model-agnostic — works with any embedding model. FastEmbed (Qdrant's own library) supports sentence-transformers, BGE, E5, CLIP models via ONNX Runtime (no GPU needed). Compatible with OpenAI (text-embedding-ada-002, text-embedding-3-small/large), Cohere (embed-english-v3.0), Google (Vertex AI embeddings), Mistral (mistral-embed), Jina AI, Voyage AI, and all open-source models on Hugging Face.",
+    "mcp_integration_status": "Official MCP server available (qdrant/mcp-server-qdrant on GitHub and PyPI). Provides qdrant-store and qdrant-find tools for semantic memory. Compatible with Claude Code, Cursor, Windsurf, and any MCP-compatible AI agent. Supports both stdio and SSE transport.",
+    "data_source_connectors": "Via Airbyte: connectors for S3, PostgreSQL, MySQL, MongoDB, Snowflake, BigQuery, Salesforce, HubSpot, Stripe, Notion, Confluence, Slack, Google Drive, and 300+ sources. Via Unstructured: PDF, Office documents, images, HTML ingestion. Via qdrant-loader (community): Confluence, JIRA, Git repositories. Direct S3 ingestion via LangChain S3 loader. Apache Kafka and Apache Spark connectors available.",
+    "observability_integration": "Qdrant exposes Prometheus metrics and supports Grafana dashboards for cluster monitoring. Compatible with LangSmith, Langfuse, and Arize Phoenix via LangChain/LlamaIndex tracing integration (OpenTelemetry). Qdrant Cloud provides built-in monitoring dashboard for cluster health, latency, and resource usage."
+  },
+  "pricing_and_cost": {
+    "pricing_model": "Open-core model: open-source engine (Apache 2.0) is free. Qdrant Cloud uses pay-as-you-go pricing based on cluster size (RAM + CPU + disk). Hybrid Cloud starts at $0.014/hour. Enterprise pricing is custom.",
+    "free_tier": "Free 1GB cluster on Qdrant Cloud (no credit card required). Supports up to ~1M 768-dim vectors with quantization. Self-hosted is completely free with no limits.",
+    "cost_at_scale": "Managed Cloud: ~$102/month on AWS us-east-1 for a standard benchmark workload (1M vectors, 1536 dimensions, no quantization). With binary quantization, memory and thus cost can be reduced by up to 32x. Self-hosted costs are infrastructure-only. Hybrid Cloud pricing starts at $0.014/hour (~$10/month minimum) plus infrastructure costs.",
+    "total_cost_of_ownership": "Self-hosted: free software + infrastructure (e.g., ~$50-200/month for a small VM handling 1-10M vectors). Cloud managed: $25-500/month depending on cluster size. With binary quantization, RAM requirements drop dramatically, reducing cloud compute costs. Embedding generation costs are separate (FastEmbed is free, OpenAI embeddings ~$0.02-0.13 per 1M tokens). Main TCO advantage vs Pinecone: no per-vector pricing, open-source avoids lock-in."
+  },
+  "adoption_and_market": {
+    "market_position": "Top-tier open-source vector database, strong challenger to Pinecone (proprietary leader) and peer to Weaviate and Milvus. Differentiated by Rust performance, EU headquarters, advanced filtering, and binary quantization. Positioned as the performance-focused, privacy-friendly option in the vector DB market.",
+    "notable_customers": "Tripadvisor (1B+ reviews for AI Trip Planner, 2-3x revenue lift), OpenTable (AI Concierge, 60K+ restaurants), HubSpot (Breeze AI assistant), Bosch (enterprise vector search), and growing enterprise adoption across e-commerce, fintech, and SaaS verticals.",
+    "community_size": "~28,700 GitHub stars, 8,000+ Discord members, 35+ framework integrations. Docker Hub: qdrant/qdrant image with millions of pulls. PyPI qdrant-client actively maintained. Growing contributor community.",
+    "funding_and_valuation": "Total funding: $37.8M across 3 rounds. Pre-seed: ~$2.2M. Seed: $7.5M (April 2023, led by Unusual Ventures with 42CAP and IBB Ventures). Series A: $28M (January 2024, led by Spark Capital with Unusual Ventures and 42CAP). Revenue reported at $9.2M in 2024 with ~89 employees. No Series B announced as of February 2026.",
+    "competitive_landscape": "Direct competitors: Pinecone (fully managed, proprietary, higher cost but zero-ops), Weaviate (Go-based, strong hybrid search, more memory-hungry at scale), Milvus/Zilliz (C++, highest raw throughput at massive scale), Chroma (lightweight, developer-friendly, smaller scale). Indirect competitors: pgvector (PostgreSQL extension, simpler but less performant), Redis Vector Search, Elasticsearch vector search. Qdrant differentiates via: Rust performance, binary quantization, advanced pre-filtering, EU data sovereignty, and open-source with no vendor lock-in."
+  },
+  "entrepreneurial_relevance": {
+    "startup_applicability": "Ideal for startups building RAG-powered products, semantic search, or recommendation systems. Best fit: teams of 2-50 with moderate DevOps capability. Free tier allows prototyping with zero cost. Self-hosting is viable for cost-conscious startups (1 developer can manage it). FastEmbed eliminates GPU dependency for embedding generation. EU-based startups benefit from GDPR compliance and EU data residency. Start with Qdrant Cloud free tier for POC, migrate to self-hosted or hybrid cloud as scale demands.",
+    "build_vs_buy_guidance": "Use Qdrant Cloud (managed) when: team < 5 engineers, need fast time-to-market, budget allows $25-500/month. Self-host when: data sovereignty is critical, cost optimization at scale matters (10M+ vectors), or air-gapped deployment required. Hybrid Cloud is the middle ground for enterprises needing control with managed operations. Avoid self-hosting if no Kubernetes/Docker expertise on team.",
+    "time_to_production": "POC: 1-3 days (Docker + Python client + FastEmbed). MVP with RAG pipeline: 1-2 weeks using LangChain or LlamaIndex integration. Production deployment on Qdrant Cloud: 2-4 weeks including testing and optimization. Self-hosted production with Kubernetes: 4-8 weeks including infrastructure setup, monitoring, and performance tuning.",
+    "key_lessons": [
+      "1. Start with binary quantization early — it provides 40x speed improvement and 32x memory reduction with minimal accuracy loss on high-dimensional embeddings (>= 1024 dims), dramatically reducing infrastructure costs.",
+      "2. Use hybrid search (dense + sparse) from the start — combining semantic and keyword retrieval via Qdrant's native BM25/SPLADE support significantly improves RAG accuracy without requiring a separate search engine.",
+      "3. Leverage FastEmbed to avoid GPU dependency — Qdrant's lightweight ONNX-based embedding library generates high-quality embeddings on CPU, eliminating GPU costs for startups.",
+      "4. EU data sovereignty is a competitive advantage — for European startups, Qdrant's Berlin HQ, GDPR compliance, and Hybrid Cloud deployment on EU infrastructure differentiates from US-based alternatives like Pinecone.",
+      "5. Don't over-engineer early — start with Qdrant Cloud free tier and simple dense search, then incrementally add hybrid search, quantization, and multi-tenancy as your product scales and requirements clarify."
+    ],
+    "no_code_interface": "Qdrant Web UI dashboard available at port 6333/dashboard for collection management, data exploration, and REST API console. Not a full no-code RAG pipeline builder, but provides visual interface for managing vectors and collections without code. n8n integration enables no-code workflow automation with Qdrant.",
+    "session_mapping": "Session 3 (Framing & managing AI projects — Build vs Buy, technical architecture decisions) and Session 4 (AI business models & strategy — infrastructure cost optimization, scaling decisions)"
+  },
+  "confidence": {
+    "data_quality": "High — information sourced from official Qdrant documentation, GitHub repository (verified 28,682 stars via API), TechCrunch funding reports, and official blog posts. Benchmark data cross-referenced across multiple independent sources.",
+    "cross_reference": "Funding confirmed by TechCrunch, Crunchbase, and Tracxn. Performance claims validated by independent benchmark comparisons (Tiger Data, LiquidMetal AI, Firecrawl blog). GitHub stars verified via GitHub API. Customer case studies from official Qdrant website.",
+    "caveats": "Benchmark results vary significantly by configuration, dataset, and hardware — Qdrant's own benchmarks may favor its architecture. Redis claims 3.4x higher QPS in its own benchmarks. Revenue figure ($9.2M) from third-party estimate (Latka), not officially confirmed. Binary quantization's 40x speed claim is for specific high-dimensional models; lower-dimensional embeddings may see less improvement. No Series B funding announced despite being 2+ years since Series A, which could indicate either profitability or fundraising challenges.",
+    "security_posture": "SOC 2 Type II and HIPAA certified. JWT-based RBAC for granular access control. TLS encryption in transit, encryption at rest on all cloud storage volumes. Network isolation between cloud clusters. GDPR-compliant with DPA available. Hybrid Cloud keeps data within customer infrastructure. Known vector DB attack surfaces (embedding inversion, knowledge base poisoning) are not uniquely mitigated but payload filtering and access control reduce exposure."
+  },
+  "uncertain": [
+    "cost_at_scale",
+    "total_cost_of_ownership",
+    "throughput",
+    "benchmark_results",
+    "community_size"
+  ]
+}

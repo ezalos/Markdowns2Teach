@@ -1,0 +1,172 @@
+# ABOUTME: Field definitions for AI Business Models & Strategy research.
+# ABOUTME: Covers business model structure, financials, market positioning, AI-specific economics, and entrepreneurial relevance.
+
+basic_information:
+  name:
+    description: "Official name of the business model pattern, company, or concept"
+    detail_level: brief
+  type:
+    description: "Category: pattern | pricing | framework | case_study | market_data"
+    detail_level: brief
+  description:
+    description: "One-paragraph summary of what this item covers"
+    detail_level: moderate
+  source_companies:
+    description: "Key companies exemplifying this model or data point"
+    detail_level: moderate
+  time_period:
+    description: "Relevant time period for data and analysis"
+    detail_level: brief
+
+business_model_structure:
+  revenue_model:
+    description: "How money is made: subscription, usage-based, transaction, licensing, advertising, hybrid"
+    detail_level: moderate
+  pricing_strategy:
+    description: "Specific pricing approach: per-token, per-seat, per-outcome, freemium, tiered, credit-based"
+    detail_level: moderate
+  cost_structure:
+    description: "Major cost categories and their relative weight (compute, data, talent, distribution)"
+    detail_level: moderate
+  value_proposition:
+    description: "Core value delivered to customers"
+    detail_level: moderate
+  target_customer:
+    description: "Primary customer segments: enterprise, SMB, developer, consumer, government"
+    detail_level: brief
+  distribution_channel:
+    description: "How the product reaches customers: API, SaaS, marketplace, OEM, direct sales"
+    detail_level: brief
+  monetization_timeline:
+    description: "Time from launch to meaningful revenue, path to profitability"
+    detail_level: moderate
+
+financial_metrics:
+  revenue_range:
+    description: "Current revenue or ARR with date (e.g., $20B ARR as of 2025)"
+    detail_level: moderate
+  gross_margin:
+    description: "Gross margin percentage and what drives it (compute costs, data costs)"
+    detail_level: moderate
+  burn_rate:
+    description: "Monthly burn rate or cash runway if applicable"
+    detail_level: brief
+  cac_ltv_ratio:
+    description: "Customer acquisition cost to lifetime value ratio"
+    detail_level: moderate
+  funding_total:
+    description: "Total funding raised, latest round details"
+    detail_level: moderate
+  valuation:
+    description: "Latest valuation with date and context"
+    detail_level: moderate
+  arr_growth_rate:
+    description: "Annual recurring revenue growth rate (YoY)"
+    detail_level: brief
+  path_to_profitability:
+    description: "Whether profitable, when expected, key milestones"
+    detail_level: moderate
+
+market_positioning:
+  competitive_landscape:
+    description: "Key competitors and how this item relates to them"
+    detail_level: moderate
+  market_size_tam:
+    description: "Total addressable market with source and date"
+    detail_level: moderate
+  differentiation:
+    description: "What makes this distinct from alternatives"
+    detail_level: moderate
+  moat_type:
+    description: "Type of competitive advantage: data, network_effects, brand, switching_costs, scale, regulatory, technology"
+    detail_level: moderate
+  market_share:
+    description: "Estimated market share if available"
+    detail_level: brief
+
+ai_specific_economics:
+  compute_cost_ratio:
+    description: "What percentage of COGS goes to compute/inference"
+    detail_level: moderate
+  data_advantage:
+    description: "How proprietary data creates business value"
+    detail_level: moderate
+  model_dependency:
+    description: "Dependency on specific foundation models and associated risks"
+    detail_level: moderate
+  api_cost_structure:
+    description: "Breakdown of API/inference costs passed to or absorbed from customers"
+    detail_level: moderate
+  inference_cost_trend:
+    description: "How inference costs are changing and business impact"
+    detail_level: moderate
+  training_cost_economics:
+    description: "Training costs and how they affect competitive dynamics"
+    detail_level: moderate
+  energy_cost_factor:
+    description: "Role of energy costs in business model viability"
+    detail_level: brief
+
+scaling_and_growth:
+  growth_strategy:
+    description: "Primary growth levers: PLG, enterprise sales, partnerships, community, viral"
+    detail_level: moderate
+  network_effects:
+    description: "Whether and how network effects operate (data, marketplace, community)"
+    detail_level: moderate
+  flywheel_description:
+    description: "Description of the business flywheel if one exists"
+    detail_level: moderate
+  scalability_model:
+    description: "How unit economics change with scale (improving, constant, degrading)"
+    detail_level: moderate
+  geographic_expansion:
+    description: "Geographic strategy and regional dynamics"
+    detail_level: brief
+  customer_retention:
+    description: "Retention rates, churn, and what drives stickiness"
+    detail_level: moderate
+
+risk_and_challenges:
+  key_risks:
+    description: "Top 3-5 business risks specific to this model"
+    detail_level: detailed
+  regulatory_exposure:
+    description: "How regulation (EU AI Act, GDPR, etc.) affects this business model"
+    detail_level: moderate
+  commoditization_risk:
+    description: "Risk of the core offering becoming commodity, and defensive strategies"
+    detail_level: moderate
+  talent_dependency:
+    description: "How dependent the model is on scarce AI talent"
+    detail_level: brief
+  vendor_lock_in:
+    description: "Dependency on specific vendors (cloud, model providers) and switching costs"
+    detail_level: moderate
+
+entrepreneurial_relevance:
+  startup_applicability:
+    description: "How a startup founder should think about this: when to use, when to avoid"
+    detail_level: detailed
+  build_vs_buy_guidance:
+    description: "When to build this capability vs. buying/licensing it"
+    detail_level: moderate
+  key_lessons:
+    description: "Top 3-5 actionable lessons for entrepreneurs"
+    detail_level: detailed
+  session_mapping:
+    description: "Which course session this supports (1-5)"
+    detail_level: brief
+
+confidence:
+  data_quality:
+    description: "High / Medium / Low — based on source reputation and recency"
+    detail_level: brief
+  cross_reference:
+    description: "Other sources confirming the information"
+    detail_level: moderate
+  caveats:
+    description: "Known limitations or rapidly evolving status"
+    detail_level: moderate
+
+uncertain: []
