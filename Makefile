@@ -1,14 +1,17 @@
 # ABOUTME: Build automation for Marp slide decks.
-# ABOUTME: Provides targets for preview, build (HTML+PPTX), and clean.
+# ABOUTME: Provides targets for preview, build (HTML+PPTX), sync to GDrive, and clean.
 
 SLIDES_DIR := slides
 DIST_DIR := dist
+HTML_DIR := $(DIST_DIR)/html
+PPTX_DIR := $(DIST_DIR)/pptx
 MARP := marp
+GDRIVE_REMOTE := gdrive:Travail/Formations/Sorbonne/AutoDecks
 
 # Find all .md files under slides/
 SLIDE_FILES := $(shell find $(SLIDES_DIR) -name '*.md' -type f)
 
-.PHONY: all preview build pptx html check check-citations dedup clean help
+.PHONY: all preview build pptx html index check check-citations dedup clean sync help
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
@@ -21,23 +24,34 @@ preview: ## Launch Marp preview server
 
 build: html pptx ## Build both HTML and PPTX
 
-html: $(DIST_DIR) ## Build HTML slides
+html: $(HTML_DIR) ## Build HTML slides → dist/html/
 	@for f in $(SLIDE_FILES); do \
-		outdir=$(DIST_DIR)/$$(dirname $$f | sed 's|^$(SLIDES_DIR)/||'); \
-		mkdir -p "$$outdir"; \
-		outfile="$$outdir/$$(basename $$f .md).html"; \
+		slug=$$(dirname $$f | sed 's|^$(SLIDES_DIR)/||'); \
+		outfile="$(HTML_DIR)/$$(basename $$f .md).html"; \
 		echo "  HTML: $$f -> $$outfile"; \
 		$(MARP) "$$f" -o "$$outfile"; \
 	done
-
-pptx: $(DIST_DIR) ## Build PPTX presentations
-	@for f in $(SLIDE_FILES); do \
-		outdir=$(DIST_DIR)/$$(dirname $$f | sed 's|^$(SLIDES_DIR)/||'); \
-		mkdir -p "$$outdir"; \
-		outfile="$$outdir/$$(basename $$f .md).pptx"; \
-		echo "  PPTX: $$f -> $$outfile"; \
-		$(MARP) "$$f" -o "$$outfile"; \
+	@for d in $$(find $(SLIDES_DIR) -type d -name assets); do \
+		slug=$$(echo "$$d" | sed 's|^$(SLIDES_DIR)/||;s|/assets$$||'); \
+		echo "  ASSETS: $$d -> $(HTML_DIR)/assets/$$slug"; \
+		mkdir -p "$(HTML_DIR)/assets/$$slug"; \
+		cp -ru "$$d/." "$(HTML_DIR)/assets/$$slug/"; \
 	done
+	@$(MAKE) index
+
+index: $(HTML_DIR) ## Generate index.html with links to all decks
+	@echo "  INDEX: $(HTML_DIR)/index.html"
+	@bash scripts/generate-index.sh $(SLIDES_DIR) $(HTML_DIR)
+
+pptx: $(PPTX_DIR) ## Build PPTX presentations → dist/pptx/
+	@for f in $(SLIDE_FILES); do \
+		outfile="$(PPTX_DIR)/$$(basename $$f .md).pptx"; \
+		echo "  PPTX: $$f -> $$outfile"; \
+		$(MARP) --pptx-editable "$$f" -o "$$outfile"; \
+	done
+
+sync: ## Sync PPTX files to Google Drive via rclone
+	rclone sync $(PPTX_DIR)/ $(GDRIVE_REMOTE) --progress
 
 check: ## Warn about slides likely to overflow
 	@bash scripts/check-overflow.sh 15 $(SLIDES_DIR)
@@ -50,8 +64,11 @@ dedup: ## Remove duplicate images from all asset directories
 		python3 scripts/dedup-images.py "$$d"; \
 	done
 
-$(DIST_DIR):
-	mkdir -p $(DIST_DIR)
+$(HTML_DIR):
+	mkdir -p $(HTML_DIR)
+
+$(PPTX_DIR):
+	mkdir -p $(PPTX_DIR)
 
 clean: ## Remove all build artifacts
-	rm -rf $(DIST_DIR)
+	rip $(DIST_DIR) 2>/dev/null || true

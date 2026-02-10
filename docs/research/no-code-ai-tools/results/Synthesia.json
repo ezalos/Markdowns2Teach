@@ -1,0 +1,88 @@
+{
+  "basic_information": {
+    "name": "Synthesia",
+    "type": "content_generation",
+    "creator": "Synthesia Ltd (London, UK) — co-founded by Victor Riparbelli (CEO), Steffen Tjerrild, Lourdes Agapito, and Matthias Niessner in 2017",
+    "description": "Synthesia is the leading AI video generation platform that converts text scripts into professional-quality videos featuring hyper-realistic digital avatars. It enables entrepreneurs and enterprise teams to produce training, onboarding, marketing, and communication videos in 160+ languages without cameras, studios, or actors. For entrepreneurs, Synthesia slashes video production costs by up to 90% and turnaround times from weeks to minutes, making professional video content accessible to any startup regardless of budget.",
+    "release_date": "Founded 2017; Synthesia 3.0 launched October 1, 2025; Express-2 avatars introduced 2025",
+    "url": "https://www.synthesia.io"
+  },
+  "technical_capabilities": {
+    "underlying_models": "Proprietary Express-2 diffusion transformer (DiT) model for full-body avatar generation and lip sync; Express-Voice proprietary voice cloning model; integrates Google Veo 3.1 and OpenAI Sora 2 via AI Playground (available on all plans including free); no third-party LLM dependency for core video generation",
+    "customization_depth": "workflow-builder — users select avatars, write scripts, choose voices/languages, customize branding (colors, logos, fonts on Enterprise), and can create custom avatars from a single prompt or a short recording. API access on Creator/Enterprise plans enables programmatic video generation. Fine-tuning of the underlying model is not exposed to users.",
+    "input_types": ["text", "documents", "PowerPoint", "URLs", "image", "audio"],
+    "output_types": ["video", "audio", "API"],
+    "api_access": "Yes — REST API with Bearer token authentication, webhook support for event notifications (e.g., video.completed), sandbox environment for testing. Available on Creator and Enterprise plans. Documentation at docs.synthesia.io.",
+    "deployment_options": "Cloud-only SaaS platform; videos can be embedded via iframe/embed code on websites, LMS, and LXP platforms; SCORM package export for LMS; downloadable MP4 files; shareable branded video pages with custom URLs",
+    "ai_model_flexibility": "single-provider — Synthesia uses proprietary models (Express-2 for avatars, Express-Voice for voice cloning). AI Playground adds Google Veo 3.1 and Sora 2 for supplementary video asset generation. Users cannot bring their own models."
+  },
+  "user_experience": {
+    "target_user": ["business_user", "marketer", "enterprise_team", "designer"],
+    "learning_curve": "minutes — select avatar, type script, generate video. First useful output achievable in under 10 minutes.",
+    "setup_time": "5-10 minutes from signup to first generated video",
+    "collaboration_features": "Shared workspaces, team roles and permissions, commenting on video drafts, version history, brand kits (Enterprise), live collaboration (Enterprise), centralized media and template libraries",
+    "template_library": "Extensive library of 100+ professionally designed video templates organized by use case (training, onboarding, marketing, how-to, product demos). Templates include pre-configured layouts, avatars, and scenes. Users can save custom templates for brand consistency.",
+    "visual_builder_type": "form-based — scene-by-scene editor with avatar selection, script input, media upload, and layout options. PowerPoint import workflow also available. Natural-language script-to-video coming with Copilot feature in 2026."
+  },
+  "ai_and_rag_capabilities": {
+    "rag_support": "Limited — Copilot feature (announced for 2026) will connect to knowledge bases to auto-generate scripts and suggest visual elements. Currently, users can upload documents and PowerPoint files as source material, but there is no full RAG pipeline for dynamic knowledge retrieval during generation.",
+    "agent_capabilities": "single-step — current platform generates videos from input in a single pass. Video Agents (announced for early 2026, Enterprise only) will enable real-time conversational AI avatars that can hold interactive dialogues with viewers, representing a move toward multi-step agent capabilities.",
+    "model_selection": "Single-vendor for core avatar generation (proprietary Express-2). AI Playground offers choice between Google Veo 3.1 and Sora 2 for supplementary video clips. No BYOM option.",
+    "prompt_management": "Script editor with scene-by-scene organization; PowerPoint speaker notes auto-converted to scripts; Copilot (2026) will offer AI-assisted script writing and optimization. No formal prompt versioning system."
+  },
+  "integration_and_ecosystem": {
+    "key_integrations": "LMS platforms (Litmos, TalentLMS, Thinkific, Udemy, Docebo), PowerPoint import, SCORM export, website embedding (iframe), API for custom integrations, branded video pages. Enterprise integrations include SSO (SAML/OIDC), custom branding, and bulk personalization workflows.",
+    "integration_count": "20+ direct integrations with LMS and content platforms, plus REST API for custom connections [uncertain]",
+    "mcp_support": "No — no evidence of Model Context Protocol support as of February 2026",
+    "webhook_support": "Yes — full webhook API with event subscriptions (video.completed, video.failed, etc.). Create, list, and manage webhooks programmatically via the API.",
+    "export_formats": "MP4 (Full HD 1920x1080), WAV audio, SRT/VTT captions, SCORM packages for LMS, embed code (iframe), shareable branded video page URLs"
+  },
+  "pricing_and_accessibility": {
+    "pricing_model": "freemium — free Basic plan with limited features; paid subscription plans billed monthly or annually; Enterprise on custom annual contracts",
+    "free_tier_limits": "3 minutes of AI-generated video per month; 1 watermarked video export per month; access to AI Playground (Veo 3.1, Sora 2); limited avatar selection; Synthesia branding/watermark on exports",
+    "paid_plans": "Starter: $29/month ($18/month billed annually at $216/year) — more video minutes, no watermark, Full HD export, basic collaboration. Creator: $89/month ($64/month billed annually) — API access, custom avatars, premium templates, priority rendering. Enterprise: custom annual contract — SSO, brand kits, bulk personalization, dedicated CSM, advanced analytics, Video Agents (2026), AI screen recording, live collaboration.",
+    "open_source": "no (proprietary)",
+    "self_hosting_option": "No — cloud-only SaaS platform with no self-hosting option",
+    "data_residency_and_sovereignty": "EU-based data storage in AWS Ireland data centers; operational and secondary backups in Ireland and AWS Frankfurt (Germany). SOC 2 Type II certified, ISO 27001 certified, ISO 42001 (AI management) certified. GDPR compliant with Data Processing Agreement; EU-to-US transfers safeguarded by Standard Contractual Clauses (SCCs). Strong fit for EU-based organizations with data sovereignty requirements."
+  },
+  "adoption_and_market": {
+    "market_position": "Leader — dominant player in AI avatar video generation for enterprise. Trusted by 90% of Fortune 100 companies (as of late 2025). Over 60,000 business customers and 1M+ registered users. Market leader in enterprise AI video, particularly strong in L&D (learning and development) and corporate communications.",
+    "notable_customers": "Heineken (70,000+ employees trained globally), Xerox, Zoom, BSH, Reuters, BBC, Amazon, Accenture, and nearly half of the Fortune 500. Primary use cases: employee training, onboarding, internal communications, customer enablement, and marketing videos.",
+    "community_size": "1M+ registered users across 60,000+ businesses; 500+ employees; offices in London (HQ), Amsterdam, Copenhagen, Munich, New York, Zurich. Active Synthesia Academy for user education.",
+    "funding_and_valuation": "Total funding: $536M over 7 rounds from 34 investors. Series E (January 2026): $200M at $4B valuation, led by Alphabet's GV with participation from Nvidia NVentures, Evantic, Hedosophia, Accel, NEA, Air Street Capital. Previous Series D (January 2025): $180M at $2.1B valuation. Adobe Ventures strategic investment in 2025. ARR crossed $100M in April 2025, reached ~$146M by September 2025, targeting $200M+ in 2026.",
+    "competitive_landscape": "Main competitors: HeyGen (strongest for individual creators/marketers, strong lip sync), Colossyan (focused on instructional/training video, popular with SMBs and education), D-ID (fast talking-head generation from still photos, simpler use case), Elai.io, Hour One. Synthesia differentiates through: enterprise-grade security/compliance (SOC 2, ISO 27001, GDPR), 160+ language support, Express-2 full-body avatars with natural gestures, LMS/SCORM integration, and scale (largest customer base in the category).",
+    "ecosystem_lock_in_risk": "medium — videos export as standard MP4 files and SCORM packages, so content is portable. However, custom avatars, brand kits, and workflow automations are platform-specific. API-generated video workflows would need re-engineering to switch providers. No open format for avatar definitions."
+  },
+  "teaching_and_classroom": {
+    "class_project_idea": "Project 1 — 'AI Pitch Video' (60 min): Students create a 2-minute investor pitch video for their startup idea using Synthesia. They write a pitch script, select an avatar, generate the video in French and English, then present both versions to the class. Debrief on: cost savings vs traditional video production, multilingual content strategy, and when AI video is/isn't appropriate. Project 2 — 'Multilingual Product Demo' (45 min): Students pick a real product, write a 90-second demo script, generate versions in 3 languages (French, English, and one market-expansion language), and analyze how AI translation quality affects brand perception. Discuss implications for international go-to-market strategy.",
+    "tutorial_resources": [
+      "https://www.synthesia.io/post/how-to-make-synthesia-videos — Official step-by-step guide",
+      "https://academy.synthesia.io/ — Synthesia Academy (structured learning path)",
+      "https://docs.synthesia.io/docs/video-creation — Official documentation for video creation",
+      "https://www.synthesia.io/blog/category/how-to-guides — How-to guides collection",
+      "https://magichour.ai/blog/beginners-guide-to-making-ai-videos-with-synthesia — Third-party beginner guide"
+    ],
+    "student_prerequisites": "nothing — fully no-code, browser-based. Students only need a web browser and a free Synthesia account. Basic prompting/scripting skills helpful but not required.",
+    "session_mapping": "Session 2 (Prompt engineering & no-code tools) — hands-on AI video creation exercise; Session 4 (AI business models) — analyze Synthesia's freemium-to-enterprise business model, unit economics of AI video vs traditional production, and content generation as a service"
+  },
+  "entrepreneurial_relevance": {
+    "startup_applicability": "Highly applicable at all startup stages. Pre-seed/Seed: create polished pitch videos, product demos, and explainer content without video production budget. Series A+: scale onboarding and training videos across languages as team grows internationally. Growth stage: automate personalized video outreach for sales and marketing at scale via API. Best for teams of 1-500+ who need professional video content but lack video production resources or budget. Ideal use cases: SaaS product demos, investor pitches, customer onboarding, multilingual marketing, internal training.",
+    "time_to_mvp": "Minutes to first video — a startup can go from script to professional-quality video in under 15 minutes. A full library of 10 training/onboarding videos can be produced in a single day vs weeks with traditional production. API integration for automated video workflows takes 1-3 days for a developer.",
+    "build_vs_buy_guidance": "Buy (Synthesia) when: you need professional videos quickly, your team lacks video production skills, you need multilingual content, or you want to scale video production without scaling headcount. Build custom when: you need real-time interactive avatars beyond what Video Agents offer, you require on-premises processing for sensitive data, or your use case demands highly specialized avatar behaviors not supported by the platform. Cost comparison: traditional corporate video production costs $1,000-$10,000+ per minute; Synthesia costs $18-89/month for unlimited editing with per-minute generation limits.",
+    "key_lessons": [
+      "1. AI video democratizes professional content creation — startups can now produce enterprise-grade training and marketing videos that previously required $50K+ budgets and weeks of production time.",
+      "2. Multilingual content is a growth multiplier — with 160+ languages available instantly, startups can test international markets and serve diverse audiences without translation agencies or native-speaker hires.",
+      "3. The freemium-to-enterprise pricing model is a masterclass — Synthesia's journey from free tier to 90% Fortune 100 penetration shows how product-led growth works in B2B AI: let users experience value (free plan), convert teams (Starter/Creator), then land enterprise deals (70% of revenue).",
+      "4. Compliance and trust are competitive moats — Synthesia's investment in SOC 2, ISO 27001, GDPR, and EU data residency enabled them to win enterprise deals that competitors with weaker security postures could not. For AI startups, security certifications are not overhead — they are revenue enablers.",
+      "5. Beware of the 'uncanny valley' risk — AI-generated videos are increasingly realistic but not perfect. Entrepreneurs should use AI video where it adds genuine value (training, internal comms, scaled content) rather than where human authenticity is critical (investor face-to-face, sensitive HR communications)."
+    ]
+  },
+  "confidence": {
+    "data_quality": "High — based on official Synthesia website, TechCrunch, CNBC, Tracxn, G2, Capterra, and multiple review sites. Financial data confirmed across multiple sources (TechCrunch, CNBC, Synthesia blog).",
+    "cross_reference": "Funding/valuation confirmed by TechCrunch, CNBC, Tracxn, Synthesia official blog. Pricing confirmed by official pricing page, Tekpon, Capterra, G2. Customer metrics confirmed by Synthesia blog, Seedcamp, Starter Story, Contrary Research. Feature details confirmed by official docs, product blog, and third-party reviews.",
+    "caveats": "Integration count is approximate (20+) — official documentation does not provide an exact number. Free tier limits may change as Synthesia frequently updates plans. Video Agents and Copilot features announced for 2026 but not yet generally available. ARR figures from late 2025 are estimates from third-party sources (Sacra, GetLatka). The AI video market is rapidly evolving with new competitors emerging frequently."
+  },
+  "uncertain": [
+    "integration_count"
+  ]
+}

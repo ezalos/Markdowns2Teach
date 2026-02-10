@@ -1,0 +1,85 @@
+{
+  "basic_information": {
+    "name": "Arena (formerly Chatbot Arena / LMSYS Chatbot Arena)",
+    "type": "data_eval",
+    "creator": "Arena Intelligence Inc. (formerly LMSYS), founded by Anastasios N. Angelopoulos (CEO) and Wei-Lin Chiang (CTO) from UC Berkeley's Sky Computing Lab, with Ion Stoica as advisor",
+    "description": "Arena is the gold-standard community-driven platform for evaluating LLMs through blind pairwise human comparison. Users submit prompts to two anonymous models, vote for the better response, and the platform aggregates millions of votes into Elo-like rankings using the Bradley-Terry statistical model. For entrepreneurs, it is the most trusted public benchmark to compare model quality before choosing which LLM to build on or fine-tune — and its enterprise evaluation service (launched Sept 2025, ~$30M ARR within months) lets companies run private evaluations on their own fine-tuned models.",
+    "release_date": "April 2023 (initial launch as Chatbot Arena); May 2024 (incorporated as company); September 2024 (lmarena.ai domain); January 2026 ($150M Series A at $1.7B valuation); January 28, 2026 (rebranded to Arena at arena.ai)",
+    "url": "https://arena.ai/"
+  },
+  "technical_details": {
+    "approach_type": "evaluation",
+    "base_models_supported": "Model-agnostic: evaluates any LLM accessible via API or open weights. As of 2025-2026, has benchmarked 400+ models including GPT-4o, Claude 3.5/Opus 4, Gemini 2, Llama 3/4, Mistral Large, Grok, DeepSeek, Command R+, and many more. Supports text, vision, and multimodal models.",
+    "parameter_efficiency": "N/A — evaluation platform, not a training method",
+    "memory_requirements": "N/A — cloud-based platform, no local GPU needed to use the leaderboard. Self-hosting via FastChat requires standard web server resources.",
+    "gpu_requirements": "N/A for end users. Model providers supply their own inference compute. Self-hosting requires GPU resources proportional to models served.",
+    "training_speed": "N/A — no training involved. A newly submitted model typically needs several hundred to a few thousand votes before its Elo rating stabilizes on the leaderboard.",
+    "supported_modalities": "text-only | vision-language | multimodal (text, image, and video arenas are available as of 2026)",
+    "alignment_method_support": "N/A — evaluation platform. However, Arena scores are frequently used to validate alignment methods (RLHF, DPO, GRPO, etc.) by comparing model quality before and after alignment.",
+    "multi_lora_serving": "N/A"
+  },
+  "implementation": {
+    "setup_complexity": "minutes (to use the public platform at arena.ai); hours to days (to self-host via FastChat for private evaluation)",
+    "code_requirements": "none (public platform is a web interface); Python-advanced (for self-hosting or using the FastChat framework)",
+    "framework_dependencies": "Public platform: none — web browser only. Self-hosting: FastChat (Python, PyTorch, Transformers, Gradio). The FastChat project is open source under Apache 2.0 at github.com/lm-sys/FastChat.",
+    "cloud_vs_local": "both — public cloud platform at arena.ai, or self-hosted via open-source FastChat",
+    "docker_support": "Yes — FastChat supports Docker deployment for self-hosted instances"
+  },
+  "data_requirements": {
+    "minimum_dataset_size": "N/A for evaluation users. The platform itself requires hundreds to thousands of pairwise votes per model for statistically meaningful Elo ratings. As of 2026, the platform has collected 6M+ total human votes.",
+    "data_format": "User prompts are free-form text (or images for vision arena). Evaluation data is structured as pairwise preference pairs (model A response vs model B response + human vote). The platform collects conversation logs with anonymized model identifiers.",
+    "data_quality_requirements": "Vote quality is maintained through anonymization (users cannot game votes for known models), deduplication of suspicious voting patterns, and statistical outlier detection. The 2025 'Leaderboard Illusion' paper raised concerns about sampling bias and preferential private testing access that Arena is addressing.",
+    "synthetic_data_support": "N/A for the evaluation platform itself. However, Arena-Hard-Auto (github.com/lmarena/arena-hard-auto) is an automated benchmark that uses LLM judges instead of human votes, enabling synthetic evaluation at scale."
+  },
+  "pricing_and_cost": {
+    "pricing_model": "free (public platform for voting and viewing leaderboard) | usage-based (enterprise AI Evaluations service launched September 2025)",
+    "cost_per_training_run": "N/A — not a training tool. The enterprise evaluation service pricing is not publicly disclosed but generated ~$30M ARR within months of launch.",
+    "free_tier": "Full public access to the Arena for voting, comparing models side-by-side, and viewing the leaderboard — completely free, no account required. Model providers pay their own inference costs to participate.",
+    "cost_vs_alternatives": "Free for public benchmarking, which is a major advantage vs. running your own human evaluation (which costs $5-50 per evaluation via services like Scale AI or Surge AI). Arena-Hard-Auto provides a free automated approximation. Enterprise private evaluations cost money but provide controlled, statistically rigorous evaluation that would be very expensive to replicate in-house.",
+    "open_weight_license": "Apache 2.0 (FastChat framework and Arena-Hard-Auto are fully open source)"
+  },
+  "performance_and_quality": {
+    "benchmark_improvements": "N/A — Arena measures model quality rather than improving it. However, Arena Elo scores are the most cited benchmark for comparing model generations. Top models score ~1400 Elo (as of early 2026). A 50-point Elo gap roughly corresponds to a 57% win rate in head-to-head comparison.",
+    "quality_metrics": "Bradley-Terry model coefficients presented as Elo-like scores with confidence intervals. Categories include: Overall, Hard Prompts (37% of votes), Coding (26%), Math, Vision, Style-Controlled (removes length/formatting bias), Instruction Following, Multi-turn, and 23 Occupational Categories. Arena Expert captures domain-specific expert prompts.",
+    "evaluation_tools": "Arena IS the evaluation tool. Compatible with: Arena-Hard-Auto (automated LLM-judge version), MT-Bench (multi-turn benchmark also from LMSYS), AlpacaEval, OpenAI Evals, and custom benchmarks. Arena scores are frequently cross-referenced with these other benchmarks.",
+    "overfitting_risks": "The 2025 'Leaderboard Illusion' paper documented 'bench-maxing' risks: models can be tuned specifically to perform well on Arena-style prompts. Meta reportedly tested 27 Llama 4 variants privately, publishing only the top scorer. Style-controlled Elo partially mitigates formatting/length gaming.",
+    "catastrophic_forgetting_risk": "N/A — evaluation platform, not a training method",
+    "safety_alignment_impact": "Arena indirectly measures safety/alignment quality: models that refuse reasonable prompts or produce harmful content tend to receive fewer votes. Specific 'Refusal' category tracks how models handle sensitive prompts. However, the platform does not explicitly score safety compliance."
+  },
+  "business_relevance": {
+    "use_case_fit": "Best for: (1) Comparing foundation models before choosing one to build on or fine-tune, (2) Validating that your fine-tuned model improves on the base model via Arena-Hard-Auto, (3) Understanding model strengths by category (coding, math, creative writing, etc.), (4) Enterprise private evaluation of unreleased models, (5) Tracking the competitive landscape of LLM capabilities over time.",
+    "startup_applicability": "Essential for any AI startup at any stage. Pre-seed/seed: use the free leaderboard to select the best base model for your use case (check category-specific rankings, not just overall). Series A+: consider the enterprise evaluation service for private model comparison. The Arena router 'Max' (Feb 2026) shows how startups can leverage multi-model routing. Budget: free for public use; enterprise evaluation service for funded startups. Team: no technical expertise needed for leaderboard consultation; data science team helpful for interpreting category-specific results.",
+    "build_vs_buy_guidance": "Use the free public leaderboard for model selection decisions — no need to build your own evaluation infrastructure. For private fine-tuned model evaluation, consider: (1) Arena-Hard-Auto (free, open-source, automated) for quick iteration, (2) Arena enterprise service for rigorous human evaluation with statistical guarantees, (3) Self-hosted FastChat for fully private evaluation. Cost-benefit: building comparable human evaluation infrastructure in-house would require recruiting evaluators, building UIs, implementing statistical models — easily $50K-100K+ vs. using Arena's existing infrastructure.",
+    "time_to_production": "hours — leaderboard consultation is immediate. Arena-Hard-Auto can be set up in hours. Enterprise evaluation service onboarding is days to weeks.",
+    "regulatory_compliance": "Arena publishes anonymized conversation data for research transparency (with user consent). EU AI Act relevance: Arena's evaluation methodology could serve as evidence for model quality assessment in conformity evaluations. GDPR: user prompts are collected with consent; conversation data is published in anonymized form. Data sovereignty: prompts are processed on Arena's infrastructure (US-based).",
+    "key_lessons": [
+      "Always check category-specific Arena scores, not just overall Elo — a model ranking #5 overall might be #1 for coding or #15 for math, which matters hugely for your specific use case.",
+      "Style-controlled Elo is more reliable than raw Elo — longer, more formatted responses get more votes regardless of quality; style-controlled scores remove this bias and reveal true capability differences.",
+      "Arena scores reflect general chatbot quality, not domain-specific performance — for specialized tasks (legal, medical, finance), supplement Arena scores with domain-specific evaluation on your own data.",
+      "Use Arena-Hard-Auto for rapid iteration during fine-tuning — it correlates well with human Arena scores and gives fast automated feedback without waiting for thousands of human votes.",
+      "Be aware of the 'Leaderboard Illusion' — large labs may privately test many variants and only publish the top scorer; treat Arena rankings as one signal among several, not absolute truth."
+    ]
+  },
+  "teaching_and_classroom": {
+    "class_project_idea": "Project 1 (45 min): 'LLM Taste Test' — Students visit arena.ai, run 10 blind comparisons on business-relevant prompts (e.g., draft a cold email, summarize a financial report, brainstorm startup ideas), record their votes, then compare their preferences to the official leaderboard rankings. Discussion: Did your intuition match the Elo scores? Were you biased by response length or formatting? This teaches evaluation methodology and reveals how human preferences shape AI benchmarks. Project 2 (60 min): 'Build Your Own Mini-Arena' — Students form pairs, each pair picks two LLMs (e.g., GPT-4o vs Claude vs Mistral via free APIs or web interfaces). They create 5 business prompts, collect blind votes from classmates, and compute a simple win-rate ranking. Compare results to official Arena scores. Discussion: How many votes do you need for reliable rankings? What biases emerged?",
+    "tutorial_resources": [
+      "https://arena.ai/ — Official platform, free to use, no account needed",
+      "https://arena.ai/how-it-works — Official explanation of Arena methodology",
+      "https://lmsys.org/blog/2023-05-03-arena/ — Original launch blog post explaining Elo system",
+      "https://lmsys.org/blog/2024-08-28-style-control/ — Style-controlled rankings explanation",
+      "https://arxiv.org/abs/2403.04132 — Academic paper: 'Chatbot Arena: An Open Platform for Evaluating LLMs by Human Preference'",
+      "https://github.com/lm-sys/FastChat — Open-source FastChat framework (Apache 2.0)",
+      "https://github.com/lmarena/arena-hard-auto — Arena-Hard-Auto automated benchmark",
+      "https://huggingface.co/spaces/lmarena-ai/lmarena-leaderboard — Hugging Face leaderboard mirror",
+      "https://www.timeatlas.com/chatbot-arena/ — Beginner-friendly tutorial on using Chatbot Arena"
+    ],
+    "student_prerequisites": "nothing — the public platform requires only a web browser; understanding the statistical methodology benefits from basic prompting experience",
+    "session_mapping": "Session 1 (Fundamentals & AI landscape): Use Arena leaderboard to explore the current AI model landscape and understand model differences. Session 2 (Prompt engineering): Use Arena to compare how different models respond to various prompting strategies. Session 3 (AI project framing): Use Arena scores as a model selection tool in the Build vs Buy decision framework."
+  },
+  "confidence": {
+    "data_quality": "High — information sourced from official LMSYS/Arena blog posts, the peer-reviewed arXiv paper (ICML 2024), Wikipedia, Contrary Research, TechCrunch, a16z, and SiliconANGLE. Funding figures confirmed across multiple financial news sources.",
+    "cross_reference": "Confirmed across: arXiv paper 2403.04132 (methodology), Wikipedia article on Arena, Contrary Research business breakdown, TechCrunch and SiliconANGLE (funding), official LMSYS blog posts (features and categories), Berkeley News (founder profiles), Skywork review (criticism analysis).",
+    "caveats": "The April 2025 'Leaderboard Illusion' paper raised serious concerns about preferential private testing access for large labs and sampling biases — Arena acknowledged these issues and is working on fixes. The platform's audience skews toward English-speaking tech enthusiasts, which may not reflect broader user preferences. Arena recently rebranded from LMArena to Arena (Jan 2026) and is rapidly evolving as a commercial entity ($1.7B valuation), which may affect its perceived neutrality as a benchmark. The Max router (Feb 2026) represents a pivot toward being a product company, not just a benchmark."
+  },
+  "uncertain": []
+}

@@ -1,0 +1,177 @@
+# ABOUTME: Field definitions for No-Code & Low-Code AI Tools research.
+# ABOUTME: Covers basic info, technical capabilities, UX, AI features, integrations, pricing, adoption, teaching use, and entrepreneurial relevance.
+
+basic_information:
+  name:
+    description: "Official name of the tool or platform"
+    detail_level: brief
+  type:
+    description: "Category: chatbot_assistant | automation | ml_training | content_generation | vibe_coding | research_analysis | self_hosted | enterprise"
+    detail_level: brief
+  creator:
+    description: "Company or organization that created/maintains this"
+    detail_level: brief
+  description:
+    description: "One-paragraph summary of what this tool does and why it matters for entrepreneurs"
+    detail_level: moderate
+  release_date:
+    description: "Initial release or latest major version date"
+    detail_level: brief
+  url:
+    description: "Official website URL"
+    detail_level: brief
+
+technical_capabilities:
+  underlying_models:
+    description: "Which LLMs/AI models are supported (GPT-4o, Claude, Gemini, Mistral, open-source, custom)"
+    detail_level: moderate
+  customization_depth:
+    description: "How deep users can customize: prompt-only | workflow-builder | fine-tune | code-extension"
+    detail_level: moderate
+  input_types:
+    description: "Supported input types: text, image, audio, video, documents, CSV, URLs"
+    detail_level: brief
+  output_types:
+    description: "What the tool produces: text, chatbot, app, video, image, chart, code, API"
+    detail_level: brief
+  api_access:
+    description: "Whether the tool provides API access for programmatic use (yes/no, REST/webhook/SDK)"
+    detail_level: brief
+  deployment_options:
+    description: "How the tool is deployed: cloud-only, self-hosted, embed, export, Docker, on-device"
+    detail_level: moderate
+  ai_model_flexibility:
+    description: "Model lock-in: single-provider (e.g., GPT only) | multi-provider | bring-your-own-model"
+    detail_level: moderate
+
+user_experience:
+  target_user:
+    description: "Primary audience: business_user | designer | marketer | developer | student | enterprise_team"
+    detail_level: brief
+  learning_curve:
+    description: "Time to first useful output: minutes | hours | days"
+    detail_level: brief
+  setup_time:
+    description: "Minutes from signup to first working demo (approximate)"
+    detail_level: brief
+  collaboration_features:
+    description: "Team features: shared workspaces, roles, comments, version history"
+    detail_level: brief
+  template_library:
+    description: "Availability and quality of pre-built templates, starters, or examples"
+    detail_level: moderate
+  visual_builder_type:
+    description: "Interface paradigm: drag-drop | natural-language | form-based | hybrid | code-editor"
+    detail_level: brief
+
+ai_and_rag_capabilities:
+  rag_support:
+    description: "Built-in knowledge base / document upload / RAG pipeline support"
+    detail_level: moderate
+  agent_capabilities:
+    description: "Agent support: none | single-step | multi-step | multi-agent | autonomous"
+    detail_level: moderate
+  model_selection:
+    description: "Can users choose/switch AI models? Single-vendor, multi-vendor, or BYOM (bring your own model)"
+    detail_level: moderate
+  prompt_management:
+    description: "Built-in prompt templates, versioning, or optimization features"
+    detail_level: brief
+
+integration_and_ecosystem:
+  key_integrations:
+    description: "Most important integrations (Slack, Gmail, Notion, Salesforce, databases, APIs)"
+    detail_level: moderate
+  integration_count:
+    description: "Total number of available integrations/connectors"
+    detail_level: brief
+  mcp_support:
+    description: "Whether the tool supports Model Context Protocol (MCP) for agent interoperability"
+    detail_level: brief
+  webhook_support:
+    description: "Webhook/API trigger support for custom automations"
+    detail_level: brief
+  export_formats:
+    description: "What users can export: code, data, API endpoint, standalone app, embed widget"
+    detail_level: moderate
+
+pricing_and_accessibility:
+  pricing_model:
+    description: "Pricing structure: free | freemium | subscription | credit-based | usage-based | open-source"
+    detail_level: moderate
+  free_tier_limits:
+    description: "Specific free tier limits (messages, projects, credits, users, features)"
+    detail_level: moderate
+  paid_plans:
+    description: "Key paid plan prices and what they unlock"
+    detail_level: moderate
+  open_source:
+    description: "Open-source status: yes (license) | open-core | no (proprietary)"
+    detail_level: brief
+  self_hosting_option:
+    description: "Whether self-hosting is available and how easy it is"
+    detail_level: brief
+  data_residency_and_sovereignty:
+    description: "Where data is processed/stored, EU hosting options, GDPR compliance, EU AI Act readiness"
+    detail_level: moderate
+
+adoption_and_market:
+  market_position:
+    description: "Leader, challenger, niche, or emerging in its category"
+    detail_level: moderate
+  notable_customers:
+    description: "Key customers or notable use cases"
+    detail_level: moderate
+  community_size:
+    description: "GitHub stars, registered users, monthly active users, template count"
+    detail_level: brief
+  funding_and_valuation:
+    description: "Total funding, latest round, valuation, growth trajectory"
+    detail_level: moderate
+  competitive_landscape:
+    description: "Main competitors and key differentiators"
+    detail_level: moderate
+  ecosystem_lock_in_risk:
+    description: "Lock-in level: low (open/exportable) | medium (proprietary but with export) | high (walled garden)"
+    detail_level: moderate
+
+teaching_and_classroom:
+  class_project_idea:
+    description: "1-2 concrete entrepreneurial project ideas students can build in a 45-90 min session"
+    detail_level: detailed
+  tutorial_resources:
+    description: "URLs to official tutorials, YouTube walkthroughs, documentation suitable for beginners"
+    detail_level: detailed
+  student_prerequisites:
+    description: "What students need to know beforehand: nothing | basic prompting | basic Python | specific tool"
+    detail_level: brief
+  session_mapping:
+    description: "Which course session(s) this supports (1-5) and how"
+    detail_level: brief
+
+entrepreneurial_relevance:
+  startup_applicability:
+    description: "When and why a startup should use this tool: stage, team size, use case fit"
+    detail_level: detailed
+  time_to_mvp:
+    description: "How fast can you go from idea to working MVP using this tool"
+    detail_level: moderate
+  build_vs_buy_guidance:
+    description: "When to use this vs. building custom: cost, flexibility, scale tradeoffs"
+    detail_level: moderate
+  key_lessons:
+    description: "Top 3-5 actionable lessons for entrepreneurs using this tool"
+    detail_level: detailed
+
+confidence:
+  data_quality:
+    description: "High / Medium / Low — based on source reputation and recency"
+    detail_level: brief
+  cross_reference:
+    description: "Other sources confirming the information"
+    detail_level: moderate
+  caveats:
+    description: "Known limitations, rapidly evolving features, or contested claims"
+    detail_level: moderate
+
+uncertain: []

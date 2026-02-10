@@ -1,0 +1,263 @@
+# ABOUTME: Research outline for AI Case Studies for Entrepreneurs 2024-2026.
+# ABOUTME: 30 items across 10 categories, cross-session gap-filling resource.
+
+topic: "AI Case Studies for Entrepreneurs 2024-2026"
+description: >
+  Real-world AI adoption case studies across industries, with focus on European/French
+  companies and startups. Each case is a self-contained 1-slide story usable across
+  multiple course sessions. Covers success stories, failure cases, ROI data, and
+  implementation lessons for M2 Entrepreneurship students.
+
+categories:
+  - name: "European AI-Native Startups"
+    description: "French/EU-founded AI companies with strong entrepreneurial narratives"
+  - name: "AI in Retail & Consumer"
+    description: "AI adoption in retail, e-commerce, and consumer-facing businesses"
+  - name: "AI in Healthcare & Biotech"
+    description: "AI applications in healthcare, drug discovery, and medical tech"
+  - name: "AI in Finance, Insurance & Legal"
+    description: "AI in fintech, insurtech, and legal tech sectors"
+  - name: "AI in Creative Industries"
+    description: "AI in media, music, video, and content creation including IP/licensing"
+  - name: "Enterprise AI Transformation"
+    description: "Large companies integrating AI into core operations"
+  - name: "AI Failures & Cautionary Tales"
+    description: "Cases where AI went wrong — legal, ethical, reputational"
+  - name: "AI Developer Tools & Infrastructure"
+    description: "Platforms and tools enabling AI development for startups"
+  - name: "AI Geopolitical Disruption & Defense"
+    description: "AI cases shaped by geopolitics, sovereignty, and defense"
+  - name: "AI Customer Service & Mobility"
+    description: "AI-powered customer service platforms and autonomous systems"
+
+items:
+  # --- European AI-Native Startups (4) ---
+  - name: "Mistral AI"
+    category: "European AI-Native Startups"
+    description: >
+      French LLM company, EUR 11.7B valuation (Sept 2025 Series C). Open-weight strategy,
+      EU sovereignty narrative, Le Chat consumer app, Mistral Compute infrastructure.
+      Partnered with Helsing on defense AI. The European AI champion story.
+
+  - name: "Dust.tt"
+    category: "European AI-Native Startups"
+    description: >
+      French AI assistant platform for enterprises, YC-backed. Agentic workflow focus —
+      lets companies build custom AI assistants connected to internal tools and data.
+      Lean team, product-led growth model.
+
+  - name: "Photoroom"
+    category: "European AI-Native Startups"
+    description: >
+      French AI photo editing app, 150M+ downloads. Freemium consumer app pivoted to
+      B2B API for e-commerce product photos. Profitable with strong unit economics.
+      Example of consumer-to-platform business model evolution.
+
+  - name: "Synthesia"
+    category: "European AI-Native Startups"
+    description: >
+      UK/EU AI video generation platform, $2.1B valuation. Pivoted from consumer to
+      enterprise B2B (corporate training, marketing videos). Avatar-based AI video
+      at scale. Strong enterprise sales motion.
+
+  # --- AI in Retail & Consumer (2) ---
+  - name: "Klarna"
+    category: "AI in Retail & Consumer"
+    description: >
+      Swedish fintech that replaced 700 customer service agents with AI (2024), then
+      reversed course (May 2025). CEO admitted quality suffered, now hiring humans back.
+      Perfect "hubris to humility" arc. IPO occurred despite controversy.
+
+  - name: "Carrefour"
+    category: "AI in Retail & Consumer"
+    description: >
+      French retailer deploying AI for shelf optimization, demand forecasting, and
+      chatbot "Hopla" for customer queries. Large-scale enterprise AI rollout in
+      traditional retail. Partnership with Google Cloud.
+
+  # --- AI in Healthcare & Biotech (2) ---
+  - name: "Doctolib"
+    category: "AI in Healthcare & Biotech"
+    description: >
+      French healthtech platform (80M+ European users) adding AI triage and medical
+      note summarization for doctors. AI augmenting (not replacing) healthcare
+      professionals. GDPR-compliant health data handling at scale.
+
+  - name: "Owkin"
+    category: "AI in Healthcare & Biotech"
+    description: >
+      French AI biotech using federated learning for drug discovery, raised $300M+.
+      Key partnership with Sanofi. Privacy-preserving AI (data stays in hospitals).
+      Deep tech with long time-to-market but massive potential.
+
+  # --- AI in Finance, Insurance & Legal (4) ---
+  - name: "Alan"
+    category: "AI in Finance, Insurance & Legal"
+    description: >
+      French health insurance unicorn using AI for claims processing, member experience,
+      and preventive health recommendations. AI-native insurance from day one.
+      Example of building AI into core product vs. bolting it on.
+
+  - name: "Shift Technology"
+    category: "AI in Finance, Insurance & Legal"
+    description: >
+      French AI for insurance fraud detection, used by 100+ insurers globally.
+      B2B SaaS model in a regulated industry. Demonstrates domain-specific AI
+      with clear, quantifiable ROI (fraud savings).
+
+  - name: "Doctrine.fr"
+    category: "AI in Finance, Insurance & Legal"
+    description: >
+      French legal AI platform — NLP-powered case law search used by top French
+      law firms. Verticalized AI in a traditionally conservative profession.
+      Example of domain expertise + AI creating defensible moat.
+
+  - name: "Harvey AI"
+    category: "AI in Finance, Insurance & Legal"
+    description: >
+      US legal AI platform, $2B+ valuation, backed by OpenAI. Used by elite law
+      firms (Allen & Overy). Relevant business model template for EU legal AI
+      startups. Enterprise pricing, white-glove deployment.
+
+  # --- AI in Creative Industries (3) ---
+  - name: "Runway"
+    category: "AI in Creative Industries"
+    description: >
+      AI video generation leader, Gen-3 model used in Hollywood productions.
+      Creative tool positioning (not replacement). Pricing model: credits-based
+      for prosumer, enterprise for studios.
+
+  - name: "ElevenLabs"
+    category: "AI in Creative Industries"
+    description: >
+      Voice AI company (Polish/UK founders), $11B valuation (Feb 2026), $330M ARR.
+      Dubbing, voiceover, conversational AI. Expanded from TTS into full audio
+      platform. Enterprise clients include Deutsche Telekom, Revolut. IPO planned 2027-2028.
+
+  - name: "Warner Music / Suno Settlement"
+    category: "AI in Creative Industries"
+    description: >
+      First major music industry + AI licensing deal (Nov 2025). Warner settled
+      copyright suit; Suno agreed to phase out unlicensed models and launch
+      licensed models in 2026. Establishes the "license-first" template for
+      generative AI business models. Counter-case: Anthropic faces $3.1B music suit.
+
+  # --- Enterprise AI Transformation (4) ---
+  - name: "L'Oréal"
+    category: "Enterprise AI Transformation"
+    description: >
+      AI for beauty personalization — skin diagnostics, virtual try-on via ModiFace
+      acquisition. Measurable ROI from AI-powered product recommendations.
+      Example of acquiring AI capability vs. building in-house.
+
+  - name: "Schneider Electric"
+    category: "Enterprise AI Transformation"
+    description: >
+      Industrial AI for energy management and predictive maintenance at global scale.
+      AI reducing energy consumption for clients. B2B industrial AI with clear
+      sustainability angle and quantifiable savings.
+
+  - name: "Duolingo"
+    category: "Enterprise AI Transformation"
+    description: >
+      Hybrid success/cautionary tale. Replaced contractor translators with AI,
+      launched 148 AI-written courses, 4-5x content production boost. CEO admitted
+      "small hits on quality" acceptable. Stock surged 30% but raises human cost
+      and quality tradeoff questions.
+
+  - name: "Renault"
+    category: "Enterprise AI Transformation"
+    description: >
+      French automaker using AI for quality control on production lines, supply
+      chain optimization, and autonomous driving R&D. Example of AI in traditional
+      French industry. Partnership with Google Cloud.
+
+  # --- AI Failures & Cautionary Tales (4) ---
+  - name: "Air Canada Chatbot Lawsuit"
+    category: "AI Failures & Cautionary Tales"
+    description: >
+      AI chatbot gave wrong refund policy information to a customer. Airline held
+      legally liable (Feb 2024 ruling). First major case establishing that companies
+      are responsible for their AI agents' statements. Simple case, clear lesson.
+
+  - name: "Grok / xAI Deepfake Crisis"
+    category: "AI Failures & Cautionary Tales"
+    description: >
+      xAI's Grok image tool enabled 3M+ sexualized deepfakes in 11 days (Dec 2025),
+      including ~23K images of children. EU investigation, California cease-and-desist
+      (first under AB 621), Malaysia/Indonesia bans. Tests EU AI Act enforcement.
+
+  - name: "UnitedHealth nH Predict Algorithm"
+    category: "AI Failures & Cautionary Tales"
+    description: >
+      AI algorithm used to deny Medicare coverage to elderly patients. 90%+ of denials
+      overturned on appeal, proving the algorithm prioritized cost savings over accuracy.
+      Nationwide class action. Systemic AI harm at scale (6M patient database).
+
+  - name: "Mobley v. Workday (AI Hiring Bias)"
+    category: "AI Failures & Cautionary Tales"
+    description: >
+      Nationwide class action (certified May 2025) alleging Workday's AI screening
+      discriminated against 40+ year-old applicants. Rejected from 100+ jobs within
+      minutes. Landmark: AI vendors (not just employers) can be liable for discrimination.
+
+  # --- AI Developer Tools & Infrastructure (3) ---
+  - name: "Hugging Face"
+    category: "AI Developer Tools & Infrastructure"
+    description: >
+      French-founded open-source ML hub, $4.5B valuation. Community moat — largest
+      model marketplace (1M+ models). Revenue from enterprise Hub, inference API,
+      and Spaces. Open-source ecosystem play.
+
+  - name: "Cursor (Anysphere)"
+    category: "AI Developer Tools & Infrastructure"
+    description: >
+      AI coding IDE, $29.3B valuation (Nov 2025), $1B+ ARR. Tripled valuation in
+      6 months. The "vibe coding" revolution — entrepreneurs build software through
+      natural language. Fastest-growing developer tool ever.
+
+  - name: "Lovable"
+    category: "AI Developer Tools & Infrastructure"
+    description: >
+      AI app builder that went from $0 to $50M ARR in ~6 months (late 2024 to May 2025).
+      1.2M+ apps built, 30K+ paid users. Non-technical founders can ship products in
+      hours. Embodies the no-code AI app building paradigm.
+
+  # --- AI Geopolitical Disruption & Defense (2) ---
+  - name: "DeepSeek (R1/V3)"
+    category: "AI Geopolitical Disruption & Defense"
+    description: >
+      Chinese open-source AI lab matching frontier performance at 1/40th cost ($0.10
+      vs $4.40 per 1M tokens). "Sputnik moment" for Western AI. Forced re-evaluation
+      of compute moat thesis. Benefits EU startups via cheap frontier-quality models.
+      Open-source beating proprietary.
+
+  - name: "Helsing"
+    category: "AI Geopolitical Disruption & Defense"
+    description: >
+      Paris/Munich defense AI, EUR 12B valuation (June 2025). Building autonomous
+      fighter jets (Europa) and strike drones for European military. Partnered with
+      Mistral on military AI. Defense tech funding doubled to $49.1B in 2025.
+      EU sovereignty in defense AI.
+
+  # --- AI Customer Service & Mobility (2) ---
+  - name: "Sierra AI"
+    category: "AI Customer Service & Mobility"
+    description: >
+      AI customer service platform, $10B valuation (Sept 2025), $150M ARR (Jan 2026).
+      Co-founded by ex-Salesforce CEO. WeightWatchers achieves 70% resolution rate.
+      Voice agents surpassed text. Represents "Klarna done right" — agentic AI
+      for enterprise CX.
+
+  - name: "Wayve"
+    category: "AI Customer Service & Mobility"
+    description: >
+      UK autonomous driving startup, $1.3B+ raised (SoftBank, Microsoft, Nvidia).
+      Partnered with Uber for London robotaxi trials (spring 2026). Licenses AI to
+      OEMs rather than building cars — platform business model. First major European
+      competitor to Waymo.
+
+execution:
+  batch_size: 3
+  items_per_agent: 1
+  output_dir: "./results"

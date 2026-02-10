@@ -31,7 +31,7 @@ Markdowns2Teach/
 ├── CLAUDE.md                        # This file
 ├── .marprc.yml                      # Marp CLI config
 ├── .gitignore
-├── Makefile                         # build/preview/clean/check
+├── Makefile                         # build/preview/clean/check/sync
 ├── themes/
 │   └── sorbonne.css                 # Custom Marp theme
 ├── slides/
@@ -40,13 +40,19 @@ Markdowns2Teach/
 │       └── assets/                  # Images (subdirs per deck if multiple)
 ├── scripts/
 │   ├── extract-images.sh            # PDF image extraction
-│   └── check-overflow.sh            # Slide overflow linter
-├── references/                      # Source PDFs and HTML (not generated)
-│   ├── AndrewNg/                    # W1.pdf, W2.pdf, W3.pdf
-│   └── KevinVu/                     # cours_*.html, cours_*.pdf
-├── docs/                            # Course planning documents
-├── plans/                           # Conversion roadmaps and specs
+│   ├── check-overflow.sh            # Slide overflow linter
+│   └── generate-index.sh            # HTML index page generator
+├── docs/
+│   ├── plans/                       # Conversion roadmaps and specs
+│   ├── research/                    # Research pipeline outputs
+│   └── sources/                     # Source materials (gitignored except READMEs)
+│       ├── courses/                 # Course PDFs and HTML
+│       │   ├── AndrewNg/            # W1.pdf, W2.pdf, W3.pdf
+│       │   └── KevinVu/             # cours_*.html, cours_*.pdf
+│       └── books/                   # Reference books
 └── dist/                            # Generated output (gitignored)
+    ├── html/                        # Flat HTML output + assets/
+    └── pptx/                        # Flat PPTX output
 ```
 
 **Naming conventions:**
@@ -131,9 +137,10 @@ Every data claim must be sourced. Use the following format on all research-backe
 ```bash
 make help       # Show available targets
 make build      # Build HTML + PPTX to dist/
-make html       # Build HTML only
-make pptx       # Build PPTX only
+make html       # Build HTML only → dist/html/
+make pptx       # Build PPTX only → dist/pptx/
 make preview    # Launch Marp preview server
+make sync       # Sync dist/pptx/ to GDrive via rclone
 make clean      # Remove dist/
 ```
 
@@ -147,11 +154,10 @@ make clean      # Remove dist/
 
 | Path | Contents |
 |------|----------|
-| `references/AndrewNg/W1.pdf` | Andrew Ng "Generative AI for Everyone" W1 (88p) |
-| `references/AndrewNg/W2.pdf` | Andrew Ng "Generative AI for Everyone" W2 (57p) |
-| `references/AndrewNg/W3.pdf` | Andrew Ng "Generative AI for Everyone" W3 (49p) |
-| `references/KevinVu/cours_*.html` | Kevin Vu WebSlides course decks (7 sessions) |
-| `references/KevinVu/cours_*.pdf` | Kevin Vu course PDFs |
-| `docs/2026 M2 - ML & DeepTech.md` | Course plan, themes, and session structure |
-| `docs/Kevin Vu M2 Sorbonne *.md` | Notes from meeting with previous teacher |
-| `docs/NotebookLM.prompt.txt` | Audience context and pedagogical goals |
+| `docs/sources/courses/AndrewNg/W1.pdf` | Andrew Ng "Generative AI for Everyone" W1 (88p) |
+| `docs/sources/courses/AndrewNg/W2.pdf` | Andrew Ng "Generative AI for Everyone" W2 (57p) |
+| `docs/sources/courses/AndrewNg/W3.pdf` | Andrew Ng "Generative AI for Everyone" W3 (49p) |
+| `docs/sources/courses/KevinVu/cours_*.html` | Kevin Vu WebSlides course decks (7 sessions) |
+| `docs/sources/courses/KevinVu/cours_*.pdf` | Kevin Vu course PDFs |
+| `docs/Outline - 2026 M2 - ML & DeepTech.md` | Course plan, themes, and session structure |
+| `docs/Meeting Notes - Kevin Vu M2 Sorbonne.md` | Notes from meeting with previous teacher |

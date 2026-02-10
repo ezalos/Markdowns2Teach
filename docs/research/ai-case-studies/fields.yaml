@@ -1,0 +1,131 @@
+# ABOUTME: Field definitions for AI Case Studies research (28 fields, 7 categories).
+# ABOUTME: Each field has name, description, and detail_level (brief/moderate/detailed).
+
+topic: "AI Case Studies for Entrepreneurs 2024-2026"
+
+field_categories:
+
+  # --- Identity (5 fields) ---
+  - name: "Identity"
+    description: "Basic identification of the company or case"
+    fields:
+      - name: "company_name"
+        description: "Name of the company or organization in the case study"
+        detail_level: "brief"
+      - name: "headquarters"
+        description: "City, Country of headquarters"
+        detail_level: "brief"
+      - name: "sector"
+        description: "Primary industry sector (e.g., Healthcare, Fintech, Legal, Retail, Creative, Defense)"
+        detail_level: "brief"
+      - name: "company_stage"
+        description: "Startup / Scale-up / Enterprise / Government — stage at time of the AI case"
+        detail_level: "brief"
+      - name: "founded_year"
+        description: "Year founded, or year the AI initiative was launched (for enterprises)"
+        detail_level: "brief"
+
+  # --- AI Implementation (5 fields) ---
+  - name: "AI Implementation"
+    description: "Technical details of how AI was deployed"
+    fields:
+      - name: "ai_use_case"
+        description: "Primary AI application — what problem is being solved and how"
+        detail_level: "detailed"
+      - name: "ai_technology_used"
+        description: "Models, tools, frameworks involved (e.g., GPT-4, custom model, RAG, computer vision, federated learning)"
+        detail_level: "moderate"
+      - name: "build_vs_buy"
+        description: "Did they build in-house, buy/license AI, acquire a company, or hybrid approach?"
+        detail_level: "moderate"
+      - name: "implementation_timeline"
+        description: "How long from decision to production deployment? Key milestones"
+        detail_level: "moderate"
+      - name: "integration_approach"
+        description: "API integration / embedded model / full custom pipeline / platform play"
+        detail_level: "moderate"
+
+  # --- Business Impact (4 fields) ---
+  - name: "Business Impact"
+    description: "Measurable outcomes and business model effects"
+    fields:
+      - name: "quantified_roi"
+        description: "Revenue increase, cost savings, efficiency gains — with specific numbers and timeframes"
+        detail_level: "detailed"
+      - name: "before_after_comparison"
+        description: "What the process looked like before AI vs after — concrete operational change"
+        detail_level: "detailed"
+      - name: "scale_of_deployment"
+        description: "Number of users, transactions, or processes affected by the AI system"
+        detail_level: "moderate"
+      - name: "revenue_model_change"
+        description: "Did AI fundamentally change how the company makes money? New revenue streams, pricing model shifts"
+        detail_level: "moderate"
+
+  # --- Lessons & Risks (5 fields) ---
+  - name: "Lessons & Risks"
+    description: "What worked, what failed, and key takeaways"
+    fields:
+      - name: "key_success_factor"
+        description: "The single most important factor that made this succeed (or not)"
+        detail_level: "detailed"
+      - name: "main_challenge"
+        description: "Biggest obstacle encountered during AI adoption — technical, organizational, regulatory"
+        detail_level: "moderate"
+      - name: "failure_point"
+        description: "What specifically went wrong — for cautionary tales. Leave empty for success stories"
+        detail_level: "detailed"
+      - name: "ethical_or_regulatory_issue"
+        description: "GDPR, bias, job displacement, legal liability, copyright, safety — any ethical dimension"
+        detail_level: "moderate"
+      - name: "lesson_for_entrepreneurs"
+        description: "One-line actionable takeaway for a startup founder considering AI"
+        detail_level: "brief"
+
+  # --- Teaching Relevance (3 fields) ---
+  - name: "Teaching Relevance"
+    description: "How this case maps to the course curriculum"
+    fields:
+      - name: "session_mapping"
+        description: "Which course session(s) this case best fits: S1 (Fundamentals), S2 (Prompt/No-code), S3 (Projects), S4 (Business Models), S5 (Ethics)"
+        detail_level: "brief"
+      - name: "discussion_question"
+        description: "Ready-to-use class discussion prompt in French, business-framed"
+        detail_level: "moderate"
+      - name: "one_slide_summary"
+        description: "2-3 sentence story arc for a single Marp slide — problem, AI solution, outcome"
+        detail_level: "detailed"
+
+  # --- Strategic & Competitive (3 fields) ---
+  - name: "Strategic & Competitive"
+    description: "Competitive positioning and strategic choices"
+    fields:
+      - name: "competitive_moat"
+        description: "Sustainable competitive advantage from AI — data network effects, proprietary models, switching costs, regulatory advantage, community"
+        detail_level: "moderate"
+      - name: "open_vs_proprietary_strategy"
+        description: "Open-source/open-weight vs proprietary models vs hybrid — and how this choice affects business model and competitive position"
+        detail_level: "moderate"
+      - name: "data_strategy"
+        description: "How the company acquires, licenses, and governs training data — proprietary, licensed, public, synthetic, user-generated"
+        detail_level: "moderate"
+
+  # --- Regulatory & Impact (3 fields) ---
+  - name: "Regulatory & Impact"
+    description: "Regulatory classification, workforce effects, and environmental footprint"
+    fields:
+      - name: "eu_ai_act_risk_category"
+        description: "Classification under EU AI Act: prohibited / high-risk / limited-risk / minimal-risk / GPAI. Include compliance requirements if relevant"
+        detail_level: "moderate"
+      - name: "workforce_impact"
+        description: "How AI affected headcount, roles, and skills — net job creation, displacement, reskilling, or transformation"
+        detail_level: "moderate"
+      - name: "energy_and_sustainability_impact"
+        description: "Environmental footprint — compute costs, energy consumption, carbon footprint, or sustainability benefits of the AI solution"
+        detail_level: "brief"
+
+# Reserved field — auto-filled during deep research phase
+uncertain_field:
+  name: "uncertain"
+  description: "List of field names where the researched value has low confidence or could not be verified"
+  detail_level: "brief"

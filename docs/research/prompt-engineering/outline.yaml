@@ -1,0 +1,266 @@
+# ABOUTME: Research outline for Advanced Prompt Engineering 2024-2026.
+# ABOUTME: 30 items across 8 categories, Session 2 complement research.
+
+topic: "Advanced Prompt Engineering 2024-2026"
+description: >
+  Advanced prompt engineering techniques beyond basics — structured prompting patterns,
+  chain-of-thought, reasoning elicitation, prompt chaining, security, programmatic
+  optimization, evaluation frameworks, and production operations. Complements Andrew Ng's
+  existing deck-02 coverage. Business-framed for M2 Entrepreneurship students who are
+  already heavy LLM users. Covers both manual craft and emerging automated/programmatic
+  approaches (DSPy, OPRO, prompt compilers). Includes prompt security from a business
+  risk perspective and the paradigm shift toward context engineering.
+
+categories:
+  - name: "Core Prompting Techniques"
+    description: "Foundational advanced patterns that every LLM practitioner should master"
+  - name: "Advanced Reasoning Patterns"
+    description: "Techniques for eliciting complex reasoning and problem-solving from LLMs"
+  - name: "Prompt Chaining & Orchestration"
+    description: "Multi-step prompt architectures for complex workflows"
+  - name: "Programmatic Prompt Optimization"
+    description: "Automated and algorithmic approaches to prompt improvement"
+  - name: "Prompt Security & Safety"
+    description: "Attack vectors, defenses, and safety infrastructure for LLM applications"
+  - name: "Evaluation & Testing"
+    description: "Frameworks and methods for measuring and testing prompt quality"
+  - name: "Context Engineering & Production"
+    description: "The paradigm shift from prompt engineering to context engineering, plus production ops"
+  - name: "Emerging Trends 2025-2026"
+    description: "New paradigms reshaping how we interact with LLMs"
+
+items:
+  # --- Core Prompting Techniques (4) ---
+  - name: "Chain-of-Thought (CoT) Prompting"
+    category: "Core Prompting Techniques"
+    description: >
+      Step-by-step reasoning elicitation, the foundational "think step by step" technique.
+      Wei et al. 2022, now standard practice. Zero-shot CoT vs few-shot CoT. The most
+      impactful single prompt engineering technique ever published.
+
+  - name: "Few-Shot & In-Context Learning"
+    category: "Core Prompting Techniques"
+    description: >
+      Providing examples in the prompt to steer output format and quality. The most widely
+      used technique after zero-shot. Example selection strategies, ordering effects,
+      label bias. DSPy's BootstrapFewShot automates example selection.
+
+  - name: "System Prompts & Role Engineering"
+    category: "Core Prompting Techniques"
+    description: >
+      Crafting system-level instructions that define persona, constraints, and output format.
+      The "invisible architecture" of every LLM app. Claude's system prompt best practices,
+      OpenAI's system message patterns. Instruction hierarchy (system > user > tool).
+
+  - name: "Structured Output Prompting (JSON/XML/Schema)"
+    category: "Core Prompting Techniques"
+    description: >
+      Forcing LLMs to output in machine-readable formats. Critical for production pipelines.
+      OpenAI Structured Outputs (response_format), Anthropic XML tags, Gemini native schema
+      enforcement. JSON mode vs schema-constrained generation.
+
+  # --- Advanced Reasoning Patterns (4) ---
+  - name: "Tree-of-Thoughts (ToT)"
+    category: "Advanced Reasoning Patterns"
+    description: >
+      Branching exploration of multiple reasoning paths with self-evaluation. Yao et al. 2023.
+      Enables complex problem-solving by letting the model explore, evaluate, and backtrack.
+      BFS vs DFS exploration strategies.
+
+  - name: "ReAct (Reasoning + Acting)"
+    category: "Advanced Reasoning Patterns"
+    description: >
+      Interleaving reasoning traces with tool calls. Yao et al. 2023. Foundation of modern
+      AI agents. Thought-Action-Observation loop. Used in LangChain agents, Claude tool use,
+      OpenAI function calling patterns.
+
+  - name: "Meta-Prompting & Prompt Generation"
+    category: "Advanced Reasoning Patterns"
+    description: >
+      Using LLMs to generate and optimize prompts. "Prompt an LLM to write better prompts."
+      Zhou et al. APE (Automatic Prompt Engineer), DSPy optimizers, Claude's meta-prompt
+      patterns. Self-improving prompt systems.
+
+  - name: "Anthropic Prompt Engineering (Claude)"
+    category: "Advanced Reasoning Patterns"
+    description: >
+      Claude-specific techniques: XML tags for structure, thinking blocks, extended thinking
+      (budget_tokens), prefill for steering, prompt caching (90% cost reduction). Claude 4
+      best practices. The "think" tool pattern for agentic reasoning.
+
+  # --- Prompt Chaining & Orchestration (3) ---
+  - name: "Prompt Chaining (Sequential Pipelines)"
+    category: "Prompt Chaining & Orchestration"
+    description: >
+      Breaking complex tasks into sequential prompt steps. Output of step N feeds step N+1.
+      Standard production pattern. LangChain chains, Claude multi-step workflows.
+      Error handling and fallback strategies between steps.
+
+  - name: "Routing & Classification Prompts"
+    category: "Prompt Chaining & Orchestration"
+    description: >
+      First prompt classifies intent, routes to specialized downstream prompts. Reduces cost
+      and improves accuracy by using cheaper models for routing and specialized prompts for
+      execution. Semantic routing patterns.
+
+  - name: "Ensemble & Verification Patterns"
+    category: "Prompt Chaining & Orchestration"
+    description: >
+      Multiple prompts tackle same task, results are compared/merged. "Judge" LLM evaluates
+      outputs. Majority voting, weighted ensemble, constitutional AI-style critique chains.
+      Used in production for high-stakes decisions.
+
+  # --- Programmatic Prompt Optimization (5) ---
+  - name: "DSPy Framework"
+    category: "Programmatic Prompt Optimization"
+    description: >
+      Stanford's framework for programmatic prompt optimization. Compiles declarative specs
+      into optimized prompts. Replaces manual prompt engineering with programmatic modules
+      (Signatures, Modules, Optimizers). BootstrapFewShot, MIPRO, BayesianSignatureOptimizer.
+
+  - name: "Automatic Prompt Optimization (OPRO, TextGrad, EvoPrompt)"
+    category: "Programmatic Prompt Optimization"
+    description: >
+      Family of algorithmic prompt optimization methods beyond DSPy. OPRO (Google, 8-50%
+      improvement via LLM-as-optimizer), TextGrad (gradient-descent-style critique loops),
+      EvoPrompt (evolutionary algorithms, up to 25% improvement on BBH). Two 2025 survey
+      papers systematize the field (EMNLP, arXiv).
+
+  - name: "Prompt Caching & Token Economics"
+    category: "Programmatic Prompt Optimization"
+    description: >
+      Cross-provider caching strategies: Anthropic (90% cost reduction, explicit), OpenAI
+      (50% reduction, automatic), Google (explicit API). Break-even at 3-5 requests.
+      Enterprise case: $45K/month to $8K/month. January 2026 paper on caching for agentic
+      tasks. Prompt design patterns that maximize cache hit rates.
+
+  - name: "Prompt Compression & Token Optimization"
+    category: "Programmatic Prompt Optimization"
+    description: >
+      LLMLingua (Microsoft) achieves 20x compression with minimal performance loss.
+      LLMLingua-2 is 3-6x faster. AutoCompressor uses summary vectors for up to 480x
+      compression. NAACL 2025 oral paper surveys the field. Production-critical for cost
+      control — 80-90% reduction in RAG pipeline costs.
+
+  - name: "Prompt Management Platforms & Production Ops"
+    category: "Programmatic Prompt Optimization"
+    description: >
+      PromptLayer, Humanloop, Portkey, Maxim AI, Braintrust. Prompt versioning (Git-style),
+      A/B testing, environment separation (dev/staging/prod), deployment gating, collaborative
+      editing. The "DevOps for prompts" layer. Critical for any entrepreneur building an AI
+      product at scale.
+
+  # --- Prompt Security & Safety (5) ---
+  - name: "Prompt Injection Attacks"
+    category: "Prompt Security & Safety"
+    description: >
+      Direct and indirect injection: making LLMs ignore instructions. #1 security risk for
+      LLM applications (OWASP LLM Top 10 2025). Direct injection in user input, indirect
+      injection via retrieved documents/tools. Real-world examples and business impact.
+
+  - name: "Jailbreaking Techniques & Defenses"
+    category: "Prompt Security & Safety"
+    description: >
+      Bypassing safety guardrails: DAN, crescendo attacks, multi-turn exploitation, many-shot
+      jailbreaking. Arms race between attackers and defenders. Automated jailbreak discovery.
+      Business risk: brand damage, legal liability, regulatory non-compliance.
+
+  - name: "Defensive Prompt Engineering"
+    category: "Prompt Security & Safety"
+    description: >
+      Input validation, output filtering, sandwich defense, instruction hierarchy, delimiter
+      strategies. Building robust prompts that resist manipulation. Anthropic's constitutional
+      AI approach. OpenAI's instruction hierarchy training (ICLR 2025).
+
+  - name: "Instruction Hierarchy & Privilege Levels"
+    category: "Prompt Security & Safety"
+    description: >
+      OpenAI's ICLR 2025 research on training LLMs to prioritize system-level instructions
+      over user/third-party input. Improves system prompt extraction defense by 63% and
+      jailbreak robustness by 30%+. Architectural defense beyond prompt-level tricks.
+      Anthropic's instruction precedence model.
+
+  - name: "Red Teaming Frameworks & Automated Adversarial Testing"
+    category: "Prompt Security & Safety"
+    description: >
+      Promptfoo Red Team, DeepTeam, Garak (100+ attack modules), PyRIT (Microsoft), ARTKIT.
+      Production-grade security testing infrastructure. EU AI Act Article 15 requires
+      documented adversarial testing for high-risk systems by mid-2026. Automated attack
+      generation and defense evaluation.
+
+  # --- Evaluation & Testing (3) ---
+  - name: "LLM-as-a-Judge"
+    category: "Evaluation & Testing"
+    description: >
+      Using LLMs to evaluate LLM outputs. MT-Bench, Arena patterns, pairwise comparison.
+      Scalable alternative to human evaluation. Rubric design, calibration, bias mitigation.
+      Claude and GPT-4 as judges. Production quality gates.
+
+  - name: "Prompt Testing Frameworks"
+    category: "Evaluation & Testing"
+    description: >
+      Promptfoo, DeepEval, Braintrust — systematic prompt regression testing. CI/CD for
+      prompts. Assert-based testing (accuracy, relevance, toxicity). Automated test
+      generation. Integration with GitHub Actions and production pipelines.
+
+  - name: "Guardrails & Runtime Safety Frameworks"
+    category: "Evaluation & Testing"
+    description: >
+      NVIDIA NeMo Guardrails, Guardrails AI, Llama Guard, Constitutional AI patterns.
+      Programmable safety layers between prompts and model output. Input/output rails,
+      topic rails, fact-checking rails. Integration with LangChain/LlamaIndex.
+      Palo Alto Networks partnership (Nov 2025).
+
+  # --- Context Engineering & Production (3) ---
+  - name: "Context Engineering (the Paradigm Shift)"
+    category: "Context Engineering & Production"
+    description: >
+      The industry shift from "what to say to the model" to "what the model knows when you
+      say it." Coined mid-2025, endorsed by Anthropic (Sept 2025), Gartner, LangChain's
+      State of Agent Engineering (57% of orgs with agents in production). Encompasses prompt
+      engineering as a subset. The overarching meta-trend reframing the entire discipline.
+
+  - name: "MCP & Tool Integration for Prompt Design"
+    category: "Context Engineering & Production"
+    description: >
+      Anthropic's Model Context Protocol (Nov 2024) standardizing LLM-to-tool connectivity.
+      97M+ monthly SDK downloads, backed by OpenAI, Google, Microsoft. Donated to Linux
+      Foundation (Dec 2025). The prompt-engineering angle: just-in-time context loading,
+      tool description design, schema-driven capability exposure.
+
+  - name: "Long-Context Window Prompting Strategies"
+    category: "Context Engineering & Production"
+    description: >
+      With Claude Opus 4.6 at 1M tokens and Gemini at 1M+, specific techniques have emerged:
+      document anchoring with IDs, instruction placement optimization, structured chunking,
+      needle-in-haystack testing, compaction strategies. When to use long context vs. RAG.
+
+  # --- Emerging Trends 2025-2026 (3) ---
+  - name: "Thinking Models & Extended Reasoning"
+    category: "Emerging Trends 2025-2026"
+    description: >
+      o1/o3, Claude extended thinking (budget_tokens), DeepSeek-R1 — models that reason
+      internally before answering. Changes what prompts need to do: less scaffolding, more
+      goal-specification. "Think step by step" becomes counterproductive. OpenAI reasoning
+      guide, Anthropic extended thinking tips.
+
+  - name: "Prompting for Code Generation"
+    category: "Emerging Trends 2025-2026"
+    description: >
+      Techniques specific to AI-assisted coding: specification-driven prompting, test-first
+      prompting, docstring-driven generation, CLAUDE.md/rules files as persistent system
+      prompts. Cursor rules, GitHub Copilot patterns. The "vibe coding" phenomenon
+      (Karpathy, Feb 2025) — natural language as the new programming interface.
+
+  - name: "PII & Data Leakage Prevention"
+    category: "Emerging Trends 2025-2026"
+    description: >
+      Preventing LLMs from exposing sensitive data in prompts or via training data extraction.
+      Guardrails for PII detection, prompt-level redaction strategies, differential privacy
+      in few-shot examples. GDPR implications for EU entrepreneurs. Microsoft Presidio,
+      custom regex + LLM hybrid approaches.
+
+execution:
+  batch_size: 3
+  items_per_agent: 1
+  output_dir: "./results"

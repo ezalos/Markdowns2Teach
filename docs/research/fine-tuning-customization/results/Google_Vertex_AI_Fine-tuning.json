@@ -1,0 +1,92 @@
+{
+  "basic_information": {
+    "name": "Google Vertex AI Fine-tuning",
+    "type": "platform",
+    "creator": "Google Cloud (Google DeepMind for Gemini models)",
+    "description": "Google Vertex AI Fine-tuning is Google Cloud's managed enterprise platform for customizing Gemini foundation models. It supports supervised fine-tuning (SFT) and preference tuning (DPO) on Gemini 2.5 Pro, Gemini 2.5 Flash, and Gemini 2.5 Flash-Lite, handling text, image, audio, video, and document modalities. For entrepreneurs, it provides a fully managed, TPU-based fine-tuning service requiring no infrastructure management, with deep integration into Google Cloud's MLOps ecosystem (Vertex AI Pipelines, Model Registry, Endpoints). The adapter-based approach (LoRA) keeps costs low and enables multiple task-specific adapters from a single base model, making it attractive for startups already using Google Cloud.",
+    "release_date": "December 2023 (initial Gemini Pro fine-tuning on Vertex AI); Gemini 2.5 SFT GA in mid-2025; preference tuning (DPO) for Gemini 2.5 Flash launched November 2025",
+    "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/tune-models"
+  },
+  "technical_details": {
+    "approach_type": "parameter-efficient (adapter/LoRA by default); full fine-tuning available for complex tasks at higher cost",
+    "base_models_supported": "Gemini 2.5 Pro, Gemini 2.5 Flash, Gemini 2.5 Flash-Lite (current supported models for SFT). Gemini 2.0 Flash and 2.0 Flash-Lite also supported. Open models (Gemma 2, Llama 2/3) can be fine-tuned via Vertex AI custom training with TPUs/GPUs and Model Garden. Older Gemini 1.5 models deprecated May 2025.",
+    "parameter_efficiency": "Adapter tuning (LoRA) updates a small subset of parameters. Adapter size is configurable (rank 1, 2, 4, 8 for Gemini 2.5 Pro). Only adapter weights (a few MB to GB) are saved, not the full model. Full fine-tuning option updates 100% of parameters for maximum quality at higher cost.",
+    "memory_requirements": "N/A for users — fully managed cloud platform. Google handles TPU/GPU allocation internally. Users do not need to provision or manage hardware.",
+    "gpu_requirements": "Cloud-only (TPU-based infrastructure managed by Google). For custom training with open models, Vertex AI supports TPU v5e, NVIDIA A100, H100, and L4 GPUs.",
+    "training_speed": "Depends on model size and dataset. Typical SFT job with 100-500 examples on Gemini Flash: 30 minutes to 2 hours. Gemini 2.5 Pro fine-tuning may take 1-4 hours. LoRA fine-tuning with TPU v5e for open models like Llama2: 20-60 minutes. Checkpointing allows monitoring and early stopping.",
+    "supported_modalities": "multimodal — text, image, audio, video, and document data types are all supported for supervised fine-tuning on Gemini models",
+    "alignment_method_support": "SFT (supervised fine-tuning) and DPO (Direct Preference Optimization / preference tuning). RLHF is referenced in documentation but preference tuning via DPO is the primary alignment method available. DPO supported on Gemini 2.5 Flash and Flash-Lite as of November 2025.",
+    "multi_lora_serving": "Yes — adapter-based tuning saves only the adapter weights, and multiple LoRA adapters can be served from a single base model. Vertex AI supports deploying multiple adapters via Hugging Face Deep Learning containers with custom handlers for dynamic adapter swapping per request."
+  },
+  "implementation": {
+    "setup_complexity": "hours — requires Google Cloud project setup, IAM permissions, Cloud Storage bucket for data, and familiarity with Vertex AI console or SDK. First fine-tuning run can be launched within a few hours. Vertex AI Studio (web UI) simplifies the process significantly for non-engineers.",
+    "code_requirements": "none (via Vertex AI Studio web UI) | Python-basic (via Google Gen AI SDK or Vertex AI SDK for Python) | config-file-only (via REST API with curl)",
+    "framework_dependencies": "Managed platform — no framework installation needed for Gemini fine-tuning. For SDK usage: google-cloud-aiplatform Python package, google-genai SDK. For custom training with open models: PyTorch, Transformers, PEFT, TRL. Optional: rouge-score, matplotlib, pandas for evaluation.",
+    "cloud_vs_local": "cloud-only (for Gemini models). Vertex AI custom training supports containerized workloads for open models that could theoretically be replicated locally, but Gemini fine-tuning is exclusively cloud-based.",
+    "docker_support": "Yes — Vertex AI supports custom Docker containers via Artifact Registry for custom training jobs. Kubeflow/TFX pipelines can orchestrate fine-tuning workflows with containerized components. Pre-built Deep Learning containers available for common frameworks (PyTorch, TensorFlow, Hugging Face)."
+  },
+  "data_requirements": {
+    "minimum_dataset_size": "Recommended minimum: 100 examples for adapter tuning. 1-50 examples insufficient (use few-shot prompting instead). 100-500 examples is the sweet spot for style/format adaptation. 1,000+ examples needed for complex reasoning, new languages (DSLs), or specific knowledge domains. Quality matters far more than quantity.",
+    "data_format": "JSONL format uploaded to Google Cloud Storage bucket. Conversation format with User/Model turn structure. For preference tuning (DPO): JSONL with prompts containing paired chosen (preferred) and rejected responses. Supports inline text, image URIs, audio URIs, video URIs, and document URIs within JSONL examples.",
+    "data_quality_requirements": "High-quality labeled data is critical. Google recommends: consistent formatting across examples, diverse and representative examples, correct labels/responses, removal of duplicates, balanced class distribution for classification tasks. Curating challenging examples yields more significant improvements with less data. Validation split recommended for overfitting detection.",
+    "synthetic_data_support": "Not natively built into Vertex AI fine-tuning workflow, but Gemini models can be used to generate synthetic training data via the API before fine-tuning. Google's distillation features allow using larger Gemini models (e.g., 2.5 Pro) to generate training data for smaller models (e.g., Flash-Lite). No dedicated synthetic data generation pipeline in the fine-tuning UI itself."
+  },
+  "pricing_and_cost": {
+    "pricing_model": "per-token (training) + per-token (inference). Training cost calculated as: (tokens in dataset) x (number of epochs) x (per-token training rate). Inference pricing same as base model rates for each Gemini version.",
+    "cost_per_training_run": "Gemini 2.5 Flash training: approximately $2-4 per million training tokens. Example: 100K tokens dataset x 4 epochs = 400K training tokens, costing approximately $0.80-$1.60. Gemini 2.5 Pro training costs more (exact pricing varies). A typical enterprise fine-tuning job (500 examples, ~500K tokens, 5 epochs) would cost roughly $5-$20 depending on model.",
+    "free_tier": "New Google Cloud accounts receive $300 in free credits valid for 90 days, applicable to Vertex AI fine-tuning. Google AI Studio (non-Vertex) offers free Gemini fine-tuning tier with rate limits. No permanent free tier for Vertex AI fine-tuning specifically.",
+    "cost_vs_alternatives": "Significantly cheaper than fine-tuning GPT-4 on OpenAI ($25/M training tokens for GPT-4o). Comparable to or slightly more expensive than open-source self-hosted solutions (but eliminates infrastructure management). More expensive than Google AI Studio free tier but offers enterprise features (SLAs, data governance, VPC). Much cheaper than full fine-tuning approaches since adapter tuning is the default. Fine-tuning a small Gemini Flash model can be more cost-effective than prompt-engineering a larger Pro model at scale.",
+    "open_weight_license": "proprietary — Gemini models are closed-weight. Fine-tuned adapters belong to the customer but cannot be extracted from the platform. Open models (Gemma, Llama) on Vertex AI Model Garden have their own licenses (Gemma: Google Terms, Llama: Meta Community License)."
+  },
+  "performance_and_quality": {
+    "benchmark_improvements": "Google reports significant improvements on domain-specific tasks with SFT. Classification tasks see notable gains in precision and format adherence. Typical improvements: +10-30% on domain-specific evaluation metrics depending on task complexity and data quality. Style/format adaptation tasks can see near-100% compliance with fine-tuning vs. inconsistent results with prompting alone.",
+    "quality_metrics": "Vertex AI automatically tracks: training loss curves, token accuracy (predicted vs. ground truth), validation loss. Additional evaluation via Vertex AI Evaluation service: pointwise and pairwise evaluations, exact match, BLEU, ROUGE metrics, custom evaluation criteria. LLM Comparator tool for A/B testing between model versions. Human evaluation recommended for subjective quality.",
+    "evaluation_tools": "Vertex AI Model Evaluation (built-in), LLM Comparator, Vertex AI Experiments for tracking runs, integration with Arize AI for observability, custom evaluation pipelines via Vertex AI Pipelines. Google Cloud also supports AutoSxS (automatic side-by-side) evaluation.",
+    "overfitting_risks": "Medium risk — mitigated by adapter tuning (fewer trainable parameters than full FT). Key indicators: validation loss significantly exceeding training loss. Mitigation strategies: use validation dataset split, monitor checkpoints, experiment with learning rate multiplier (values < 1 if overfitting, > 1 if underfitting), use early stopping via checkpoint selection, start with fewer epochs (3-5) and increase if needed.",
+    "catastrophic_forgetting_risk": "Low to Medium — adapter-based tuning (LoRA) inherently reduces catastrophic forgetting risk since base model weights are frozen. Google explicitly recommends that SFT should focus on style, format, and behavior adaptation rather than injecting new factual knowledge. For knowledge-intensive tasks, RAG (Retrieval-Augmented Generation) is recommended over fine-tuning. Full fine-tuning carries higher forgetting risk.",
+    "safety_alignment_impact": "Google maintains safety guardrails on fine-tuned Gemini models. Vertex AI provides multi-layered safety: input/output screening, configurable safety settings, content moderation via Gemini Flash Lite callbacks. Fine-tuning cannot fully override Google's built-in safety filters, reducing risk of guardrail degradation. However, SFT can subtly shift model behavior — preference tuning (DPO) is recommended for alignment-sensitive use cases."
+  },
+  "business_relevance": {
+    "use_case_fit": "Best for: classification and entity extraction (reducing verbose outputs), customer support chatbots with specific tone/knowledge, document summarization in domain-specific formats, content generation matching brand voice, code generation for internal frameworks, sentiment analysis with custom taxonomies, multilingual adaptation. Also supports multimodal fine-tuning for image/video/audio understanding tasks. Less ideal for: pure knowledge injection (use RAG instead).",
+    "startup_applicability": "Ideal for startups already on Google Cloud (GCP) that need enterprise-grade fine-tuning without ML infrastructure expertise. Best suited for: Series A+ startups with $10K+/month cloud budgets, teams of 2-5 engineers who need managed MLOps, B2B SaaS products requiring data sovereignty guarantees, startups in regulated industries (fintech, healthtech) needing compliance certifications. Pre-seed/seed startups may find the $300 free credits sufficient for experimentation but should consider Google AI Studio free tier for initial prototyping before moving to Vertex AI.",
+    "build_vs_buy_guidance": "Use Vertex AI (buy) when: you need enterprise SLAs, data governance, EU data residency, compliance certifications, or are already on GCP. Use open-source tools (build) when: you need full control over training, want to run on-premises, need to serve models outside Google Cloud, or have a strong ML engineering team. Vertex AI eliminates infrastructure management but creates vendor lock-in with Google Cloud. Adapter weights cannot be extracted for use outside Vertex AI (for Gemini models). For open models (Gemma, Llama), Vertex AI Model Garden provides a middle ground.",
+    "time_to_production": "Days to weeks. First fine-tuning experiment: hours (with data ready). Production deployment: 1-2 weeks including data preparation, iterative tuning, evaluation, and endpoint configuration. Vertex AI Studio UI enables non-engineers to launch tuning jobs in minutes once data is prepared. Ongoing iteration cycle: days per experiment.",
+    "regulatory_compliance": "Strong EU compliance posture. GDPR: Google commits to not using customer data to train its own models without permission. Data processed in EU-hosted data centers with Standard Contractual Clauses for cross-border transfers. EU AI Act: Google is signing the General Purpose AI Code of Practice. SOC 2, ISO 27001, HIPAA compliance. Vertex AI supports data residency controls (choose processing region). Fine-tuned models and training data remain customer-owned. Model lineage tracking enables AI Act transparency requirements.",
+    "key_lessons": [
+      "Start with prompting and RAG before fine-tuning — fine-tuning is for style/format/behavior adaptation, not knowledge injection. Google explicitly recommends this hierarchy.",
+      "Quality over quantity: 100-500 high-quality, diverse examples outperform 10,000 mediocre ones. Curate challenging edge cases for maximum impact.",
+      "Adapter tuning (LoRA) is the default and recommended approach — it is cheaper, faster, and reduces overfitting risk vs. full fine-tuning. Only escalate to full FT for highly complex tasks.",
+      "Use Vertex AI Studio for fast prototyping, then move to SDK/API for production pipelines. The web UI dramatically lowers the barrier for non-ML team members to experiment.",
+      "Plan for vendor lock-in: Gemini fine-tuned adapters are not portable outside Google Cloud. If portability matters, consider fine-tuning open models (Gemma, Llama) on Vertex AI Model Garden instead."
+    ]
+  },
+  "teaching_and_classroom": {
+    "class_project_idea": [
+      "Sentiment Classifier Fine-tuning (45 min): Students use Vertex AI Studio (web UI, no code) to fine-tune Gemini 2.5 Flash-Lite on 100 French product reviews labeled positive/negative/neutral. They prepare 100 examples in JSONL format (provided as template), upload to Cloud Storage, launch SFT via the console, then compare the tuned model's classification accuracy vs. zero-shot prompting on 20 held-out examples. Discussion: when does fine-tuning beat prompting?",
+      "Brand Voice Adapter (60 min): Students fine-tune Gemini Flash to generate marketing copy matching a specific brand's tone of voice (e.g., luxury vs. casual startup). Each team picks a different brand, prepares 50 input-output examples of brand-specific writing, fine-tunes via the Python SDK, and presents A/B comparisons of base vs. tuned outputs. Discussion: ROI of fine-tuning for content consistency at scale."
+    ],
+    "tutorial_resources": [
+      "Official Google Codelab — Fine-tune Gemini on Vertex AI: https://codelabs.developers.google.com/codelabs/production-ready-ai-with-gc/9-ai-finetuning/finetune-gemini-vertex-ai",
+      "Official Google Codelab — Fine-Tuning LLMs with Vertex AI SFT: https://codelabs.developers.google.com/llm-finetuning-supervised",
+      "Google Cloud Documentation — Supervised Fine-tuning for Gemini: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini-use-supervised-tuning",
+      "Google Cloud Documentation — Data Preparation: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini-supervised-tuning-prepare",
+      "GitHub — DPO Preference Tuning Notebook: https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/tuning/dpo_gemini_get_started.ipynb",
+      "GitHub — Vertex AI Tuning Token Count and Cost Estimation Notebook: https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/tuning/vertexai_supervised_tuning_token_count_and_cost_estimation.ipynb",
+      "Vertex AI Generative AI Notebook Tutorials: https://cloud.google.com/vertex-ai/generative-ai/docs/tutorials",
+      "YouTube — Google Cloud Fine-tuning Gemini walkthrough (search 'fine-tune Gemini Vertex AI' on YouTube for latest)"
+    ],
+    "student_prerequisites": "basic prompting (for Vertex AI Studio UI approach); basic Python (for SDK approach). Google Cloud account required ($300 free trial credits). No ML/deep learning knowledge needed for the managed fine-tuning workflow.",
+    "session_mapping": "Session 3 (AI project framing — Build vs Buy: Vertex AI as example of 'Buy' managed platform) and Session 4 (AI business models — unit economics of fine-tuning vs. prompting at scale, cost optimization strategies)"
+  },
+  "confidence": {
+    "data_quality": "High — based primarily on official Google Cloud documentation, Google Cloud blog posts, and Google Codelabs. Pricing data cross-referenced across multiple sources including third-party analyses.",
+    "cross_reference": "Google Cloud official documentation (docs.cloud.google.com), Google Cloud Blog announcements, Google Developer Forums (discuss.google.dev), Dev.to engineering manual, Medium articles by Google Cloud community authors, Lindy.ai and Pump.co pricing analyses, CloudZero Gemini pricing guide",
+    "caveats": "Pricing evolves rapidly — exact per-token training costs should be verified on cloud.google.com/vertex-ai/generative-ai/pricing before classroom use. Gemini model lineup changes frequently (1.5 deprecated May 2025, 2.0/2.5 currently active, 3.0 emerging for enterprise). Adapter weights are not portable outside Google Cloud for Gemini models. DPO/preference tuning is relatively new (Nov 2025) and may see feature changes. Full fine-tuning availability and pricing details are less documented than adapter tuning."
+  },
+  "uncertain": [
+    "cost_per_training_run",
+    "benchmark_improvements",
+    "training_speed",
+    "synthetic_data_support"
+  ]
+}

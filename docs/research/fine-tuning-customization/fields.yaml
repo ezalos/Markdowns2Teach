@@ -1,0 +1,166 @@
+# ABOUTME: Field definitions for Fine-tuning & Model Customization research.
+# ABOUTME: Covers basic info, technical details, implementation, data requirements, pricing, performance, business relevance, teaching use, and confidence.
+
+basic_information:
+  name:
+    description: "Official name of the method, platform, tool, or strategy"
+    detail_level: brief
+  type:
+    description: "Category: method | alignment | platform | tool | data_eval | strategy"
+    detail_level: brief
+  creator:
+    description: "Company, lab, or research group that created/maintains this"
+    detail_level: brief
+  description:
+    description: "One-paragraph summary of what this is and why it matters for entrepreneurs"
+    detail_level: moderate
+  release_date:
+    description: "Initial release or latest major version date"
+    detail_level: brief
+  url:
+    description: "Official website, paper, or documentation URL"
+    detail_level: brief
+
+technical_details:
+  approach_type:
+    description: "Fine-tuning approach: full-parameter | parameter-efficient | alignment | distillation | data-centric | evaluation | strategic"
+    detail_level: brief
+  base_models_supported:
+    description: "Which base models can be fine-tuned with this method/platform (Llama, Mistral, GPT, Gemini, open-source, etc.)"
+    detail_level: moderate
+  parameter_efficiency:
+    description: "Percentage of parameters trained (e.g., LoRA ~0.1-1%, full ~100%) or N/A for non-method items"
+    detail_level: moderate
+  memory_requirements:
+    description: "GPU VRAM needed (e.g., 24GB for QLoRA 7B, 80GB for FFT 7B, N/A for cloud platforms)"
+    detail_level: moderate
+  gpu_requirements:
+    description: "Minimum GPU hardware (e.g., RTX 4090, A100, H100, free Colab T4) or cloud-only"
+    detail_level: moderate
+  training_speed:
+    description: "Typical training time for a standard fine-tuning job (e.g., 1hr for 7B LoRA on 10k examples)"
+    detail_level: moderate
+  supported_modalities:
+    description: "What data types: text-only | vision-language | audio | multimodal | code"
+    detail_level: brief
+  alignment_method_support:
+    description: "Which alignment methods supported: SFT | DPO | RLHF | GRPO | ORPO | KTO | RFT | N/A"
+    detail_level: moderate
+  multi_lora_serving:
+    description: "Whether multiple LoRA adapters can be served concurrently from one base model (yes/no/N/A)"
+    detail_level: brief
+
+implementation:
+  setup_complexity:
+    description: "Time to first fine-tuning run: minutes | hours | days"
+    detail_level: brief
+  code_requirements:
+    description: "Coding skill needed: none | config-file-only | Python-basic | Python-advanced"
+    detail_level: brief
+  framework_dependencies:
+    description: "Required frameworks/libraries (PyTorch, Transformers, PEFT, TRL, etc.) or none for managed platforms"
+    detail_level: moderate
+  cloud_vs_local:
+    description: "Where it runs: cloud-only | local-only | both | self-hosted"
+    detail_level: brief
+  docker_support:
+    description: "Docker/container deployment support for reproducible fine-tuning environments"
+    detail_level: brief
+
+data_requirements:
+  minimum_dataset_size:
+    description: "Minimum examples for useful fine-tuning (e.g., 50-100 for LoRA, 10k+ for FFT, N/A for strategy items)"
+    detail_level: moderate
+  data_format:
+    description: "Required data format: JSONL, CSV, conversation pairs, preference pairs, grader functions"
+    detail_level: brief
+  data_quality_requirements:
+    description: "Data quality considerations: deduplication, label quality, domain relevance, format consistency"
+    detail_level: moderate
+  synthetic_data_support:
+    description: "Whether/how synthetic data can be used for fine-tuning (LLM-generated examples, distillation data)"
+    detail_level: moderate
+
+pricing_and_cost:
+  pricing_model:
+    description: "Pricing structure: free | open-source | per-GPU-hour | per-token | per-epoch | subscription | usage-based"
+    detail_level: moderate
+  cost_per_training_run:
+    description: "Typical cost for a standard fine-tuning job (e.g., $5 for 7B LoRA 10k examples on Together AI)"
+    detail_level: moderate
+  free_tier:
+    description: "Free tier availability and limits (free Colab, free HF Spaces, trial credits, etc.)"
+    detail_level: moderate
+  cost_vs_alternatives:
+    description: "Cost comparison: this approach vs RAG, vs prompt engineering, vs larger model without fine-tuning"
+    detail_level: moderate
+  open_weight_license:
+    description: "License type for open-source tools/models: Apache 2.0 | MIT | Llama Community License | proprietary | N/A"
+    detail_level: brief
+
+performance_and_quality:
+  benchmark_improvements:
+    description: "Typical accuracy/quality improvements from fine-tuning (e.g., +15% on domain tasks, +30% on code)"
+    detail_level: moderate
+  quality_metrics:
+    description: "How to measure fine-tuning success: loss curves, eval metrics, human evaluation, A/B testing"
+    detail_level: moderate
+  evaluation_tools:
+    description: "Compatible evaluation frameworks (OpenAI Evals, LMSYS Arena, custom benchmarks)"
+    detail_level: moderate
+  overfitting_risks:
+    description: "Overfitting risk level and mitigation strategies (early stopping, validation split, regularization)"
+    detail_level: moderate
+  catastrophic_forgetting_risk:
+    description: "Risk of losing general capabilities during fine-tuning and mitigation strategies"
+    detail_level: moderate
+  safety_alignment_impact:
+    description: "How fine-tuning affects model safety/alignment guardrails, risk of guardrail degradation"
+    detail_level: moderate
+
+business_relevance:
+  use_case_fit:
+    description: "Best use cases for this method/platform (customer support, code gen, domain expert, content, classification)"
+    detail_level: moderate
+  startup_applicability:
+    description: "When and why a startup should use this: stage, team size, budget, technical capacity"
+    detail_level: detailed
+  build_vs_buy_guidance:
+    description: "When to use managed platforms vs open-source tools vs build custom: cost, flexibility, scale tradeoffs"
+    detail_level: moderate
+  time_to_production:
+    description: "Timeline from decision to deploy: hours, days, weeks, months"
+    detail_level: moderate
+  regulatory_compliance:
+    description: "EU AI Act training data disclosure, GDPR implications, data sovereignty, compliance requirements"
+    detail_level: moderate
+  key_lessons:
+    description: "Top 3-5 actionable lessons for entrepreneurs considering this approach"
+    detail_level: detailed
+
+teaching_and_classroom:
+  class_project_idea:
+    description: "1-2 concrete project ideas students can execute in a 45-90 min session"
+    detail_level: detailed
+  tutorial_resources:
+    description: "URLs to official tutorials, YouTube walkthroughs, Colab notebooks, documentation for beginners"
+    detail_level: detailed
+  student_prerequisites:
+    description: "What students need to know: nothing | basic prompting | basic Python | intermediate Python | ML basics"
+    detail_level: brief
+  session_mapping:
+    description: "Which course session(s) this supports (1-5) and how"
+    detail_level: brief
+
+confidence:
+  data_quality:
+    description: "High / Medium / Low — based on source reputation and recency"
+    detail_level: brief
+  cross_reference:
+    description: "Other sources confirming the information"
+    detail_level: moderate
+  caveats:
+    description: "Known limitations, rapidly evolving features, or contested claims"
+    detail_level: moderate
+
+uncertain: []

@@ -1,0 +1,128 @@
+# ABOUTME: Field definitions for Advanced Prompt Engineering research (28 fields, 8 categories).
+# ABOUTME: Each field has name, description, and detail_level (brief/moderate/detailed).
+
+topic: "Advanced Prompt Engineering 2024-2026"
+
+field_categories:
+
+  # --- Identity (4 fields) ---
+  - name: "Identity"
+    description: "Basic identification of the technique, pattern, or tool"
+    fields:
+      - name: "technique_name"
+        description: "Name of the technique, pattern, framework, or tool"
+        detail_level: "brief"
+      - name: "category_type"
+        description: "Technique / Tool / Framework / Pattern / Attack / Defense — what kind of item this is"
+        detail_level: "brief"
+      - name: "origin"
+        description: "Original paper, creator, or company with year (e.g., 'Wei et al. 2022, Google Brain' or 'Anthropic, Nov 2024')"
+        detail_level: "brief"
+      - name: "key_reference"
+        description: "Primary URL — paper, official docs, or canonical tutorial"
+        detail_level: "brief"
+
+  # --- Technical Description (6 fields) ---
+  - name: "Technical Description"
+    description: "How the technique works, with concrete examples and usage guidance"
+    fields:
+      - name: "how_it_works"
+        description: "Plain-language explanation of the mechanism in 2-3 sentences, accessible to non-engineers"
+        detail_level: "detailed"
+      - name: "prompt_example"
+        description: "A concrete prompt snippet (3-10 lines) illustrating the technique in action"
+        detail_level: "detailed"
+      - name: "when_to_use"
+        description: "Situations, tasks, or product types where this technique excels"
+        detail_level: "moderate"
+      - name: "when_not_to_use"
+        description: "Anti-patterns, situations where this hurts performance, wastes tokens, or is counterproductive"
+        detail_level: "moderate"
+      - name: "provider_specific_syntax"
+        description: "How the technique is implemented differently across OpenAI, Anthropic Claude, Google Gemini, and open-source models. Include API parameter names where relevant"
+        detail_level: "moderate"
+      - name: "context_window_requirements"
+        description: "Minimum context window needed and how the technique scales with window size. Whether it becomes unnecessary or critical with 1M-token contexts"
+        detail_level: "brief"
+
+  # --- Business Value (5 fields) ---
+  - name: "Business Value"
+    description: "Business impact, costs, and strategic implications for entrepreneurs"
+    fields:
+      - name: "business_impact"
+        description: "How this technique creates measurable business value — revenue, efficiency, quality, user experience"
+        detail_level: "detailed"
+      - name: "token_cost_impact"
+        description: "Quantified effect on token usage and API costs. Example: 'Prompt caching saves 50-90%', 'CoT adds 2-3x output tokens'. Include concrete numbers where available"
+        detail_level: "moderate"
+      - name: "difficulty_level"
+        description: "Beginner / Intermediate / Advanced — how hard to implement for a non-engineer entrepreneur"
+        detail_level: "brief"
+      - name: "tool_support"
+        description: "Which platforms and tools support this natively (OpenAI, Claude, LangChain, DSPy, Promptfoo, etc.)"
+        detail_level: "moderate"
+      - name: "automation_potential"
+        description: "Whether the technique can be automated (via DSPy, OPRO, EvoPrompt, etc.) or requires human craft. For entrepreneurs deciding where to invest human effort vs. automated optimization"
+        detail_level: "moderate"
+
+  # --- Implementation (3 fields) ---
+  - name: "Implementation"
+    description: "Practical guide to implementing the technique"
+    fields:
+      - name: "implementation_steps"
+        description: "Step-by-step guide to implement (3-5 bullet points), practical enough for a hands-on workshop"
+        detail_level: "detailed"
+      - name: "common_mistakes"
+        description: "Typical errors when applying this technique — what beginners get wrong"
+        detail_level: "moderate"
+      - name: "production_considerations"
+        description: "What changes when going from prototype to production: reliability, monitoring, edge cases, scaling"
+        detail_level: "moderate"
+
+  # --- Effectiveness (4 fields) ---
+  - name: "Effectiveness"
+    description: "Measured performance, compatibility, and limitations"
+    fields:
+      - name: "measured_improvement"
+        description: "Quantified performance gain (accuracy, speed, cost) with source citation. Example: 'CoT improves GSM8K accuracy from 56% to 78% (Wei et al. 2022)'"
+        detail_level: "detailed"
+      - name: "model_compatibility"
+        description: "Which models support this well vs. poorly. Note minimum model size or capability requirements"
+        detail_level: "moderate"
+      - name: "reasoning_model_compatibility"
+        description: "Whether the technique works differently or is unnecessary with reasoning models (o3, Claude extended thinking, DeepSeek-R1). Example: 'CoT is redundant with extended thinking enabled'"
+        detail_level: "moderate"
+      - name: "limitations"
+        description: "Known failure modes, edge cases, or situations where the technique breaks down"
+        detail_level: "moderate"
+
+  # --- Security (1 field) ---
+  - name: "Security"
+    description: "Security implications of the technique"
+    fields:
+      - name: "security_risk_profile"
+        description: "What security vulnerabilities the technique introduces or mitigates. OWASP LLM Top 10 mapping where relevant. Example: 'Few-shot can leak PII from examples; RAG prompting can be vector-poisoned'"
+        detail_level: "moderate"
+
+  # --- Teaching Relevance (4 fields) ---
+  - name: "Teaching Relevance"
+    description: "How this maps to the course curriculum and classroom use"
+    fields:
+      - name: "session_mapping"
+        description: "Which course session(s) this best fits: S1 (Fundamentals), S2 (Prompt/No-code), S3 (Projects), S4 (Business Models), S5 (Ethics)"
+        detail_level: "brief"
+      - name: "discussion_question"
+        description: "Ready-to-use class discussion prompt in French, business-framed for entrepreneurs"
+        detail_level: "moderate"
+      - name: "hands_on_exercise"
+        description: "Brief description of a practical exercise students could do in class (10-15 min)"
+        detail_level: "moderate"
+      - name: "one_slide_summary"
+        description: "2-3 sentence story arc for a single Marp slide — what it is, why it matters, key takeaway"
+        detail_level: "detailed"
+
+# Reserved field — auto-filled during deep research phase
+uncertain_field:
+  name: "uncertain"
+  description: "List of field names where the researched value has low confidence or could not be verified"
+  detail_level: "brief"

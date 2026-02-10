@@ -1,0 +1,108 @@
+# ABOUTME: Research outline for No-Code & Low-Code AI Tools 2024-2026.
+# ABOUTME: Covers chatbot builders, automation, ML training, content generation, vibe coding, research, self-hosted AI, and enterprise platforms.
+
+topic: "No-Code & Low-Code AI Tools 2024-2026"
+description: >
+  Practical mapping of no-code and low-code AI tools for entrepreneurs — chatbot/assistant builders,
+  AI workflow automation, no-code ML training, content/pitch generation, vibe coding platforms,
+  AI research tools, self-hosted AI stacks, and enterprise platforms. Emphasis on free tiers,
+  classroom usability, entrepreneurial project ideas, and teaching resources.
+time_range: "last 6 months"
+session: 2
+
+items:
+  # Build an AI Chatbot/Assistant
+  - name: "OpenAI GPT Builder (Custom GPTs)"
+    category: "chatbot_assistant"
+    notes: "No-code custom ChatGPT creation, GPT Store, most students already use ChatGPT"
+  - name: "Mistral Le Chat + La Plateforme"
+    category: "chatbot_assistant"
+    notes: "French sovereign AI assistant + API, Le Chat free, La Plateforme API, $14B valuation, essential for Sorbonne context"
+  - name: "Voiceflow"
+    category: "chatbot_assistant"
+    notes: "Conversational AI design platform, visual drag-drop builder, free tier (2 agents), already in course plan"
+  - name: "Botpress"
+    category: "chatbot_assistant"
+    notes: "Open-source chatbot builder, visual flow editor, GPT-native, free tier (5 bots, 2k msgs/mo)"
+  - name: "Dify"
+    category: "chatbot_assistant"
+    notes: "Open-source AI app platform, visual workflows, RAG knowledge base, agent framework, 90k+ GitHub stars"
+
+  # Automate Business Processes with AI
+  - name: "n8n AI"
+    category: "automation"
+    notes: "Open-source workflow automation with AI nodes, self-hostable, 100+ integrations, free self-hosted"
+  - name: "Make (Integromat) AI"
+    category: "automation"
+    notes: "Visual automation platform with AI modules (OpenAI, Claude, Gemini), free tier (1k ops/mo)"
+  - name: "Zapier Central / AI"
+    category: "automation"
+    notes: "AI-powered automation, natural language workflow builder, most well-known brand, free (100 tasks/mo)"
+  - name: "Lindy AI"
+    category: "automation"
+    notes: "No-code AI agent platform, 1000+ templates, 4000+ integrations, Computer Use, free tier (400 credits/mo)"
+
+  # Train a Custom ML Model — No Code
+  - name: "Teachable Machine (Google)"
+    category: "ml_training"
+    notes: "Browser-based ML model training, 100% free, image/sound/pose, already in course plan, 20-min demo"
+  - name: "Hugging Face Spaces + Gradio"
+    category: "ml_training"
+    notes: "Deploy/use HF models without coding, Gradio for instant web UIs, free basic Spaces"
+
+  # Generate Content & Pitch Materials
+  - name: "Gamma"
+    category: "content_generation"
+    notes: "AI-powered presentation builder, generates slides from text, free (10 AI credits)"
+  - name: "Canva Magic Studio"
+    category: "content_generation"
+    notes: "AI-powered design suite (Magic Write, Magic Design), free tier, students likely already use Canva"
+  - name: "Runway ML"
+    category: "content_generation"
+    notes: "AI video/image generation, Gen-3 Alpha, free (125 credits), leading creative AI tool"
+  - name: "Synthesia"
+    category: "content_generation"
+    notes: "AI avatar video generation, 230+ avatars, 140+ languages, useful for pitch videos, $29/mo starter"
+
+  # Build a Web App with AI / Vibe Coding
+  - name: "Bolt.new (StackBlitz)"
+    category: "vibe_coding"
+    notes: "AI-generated full-stack apps from text, poster child of vibe coding, free tier"
+  - name: "Lovable (ex-GPT Engineer)"
+    category: "vibe_coding"
+    notes: "AI app generation, full-stack, free (5 projects), strong competitor to Bolt"
+  - name: "Replit Agent"
+    category: "vibe_coding"
+    notes: "Full IDE + hosting, AI builds and deploys from natural language, free basic tier"
+  - name: "Cursor"
+    category: "vibe_coding"
+    notes: "AI-native code editor (VS Code fork), multi-model, $20/mo, represents developer-side of vibe coding"
+
+  # AI-Powered Research & Analysis
+  - name: "NotebookLM (Google)"
+    category: "research_analysis"
+    notes: "AI research assistant, document upload, AI-generated podcasts, 100% free"
+  - name: "Perplexity"
+    category: "research_analysis"
+    notes: "RAG-powered AI search with cited sources, free (5 Pro/day), teaches source verification"
+  - name: "Julius AI"
+    category: "research_analysis"
+    notes: "Chat-based data analysis, upload CSV/Excel, get charts/forecasts, no code, perfect for business students"
+
+  # Self-Hosted / Open-Source AI Stack
+  - name: "Open WebUI + Ollama"
+    category: "self_hosted"
+    notes: "Self-hosted ChatGPT alternative, run local LLMs, free, GDPR-friendly, data sovereignty angle"
+  - name: "Flowise"
+    category: "self_hosted"
+    notes: "Open-source visual AI workflow builder, drag-drop, self-hostable, Node.js, runs on 8GB RAM"
+
+  # Enterprise No-Code AI
+  - name: "Microsoft Power Platform AI Builder"
+    category: "enterprise"
+    notes: "Enterprise no-code AI in Power Apps/Power Automate, GPT integration, free dev environment"
+
+execution:
+  batch_size: 3
+  items_per_agent: 1
+  output_dir: "./results"

@@ -14,7 +14,7 @@ Each research topic goes through three phases:
 
 ---
 
-## Completion Status (as of 2026-02-09)
+## Completion Status (as of 2026-02-10)
 
 | # | Topic | Session | Type | Items | Status | Report |
 |---|-------|---------|------|-------|--------|--------|
@@ -26,11 +26,11 @@ Each research topic goes through three phases:
 | 8 | **AI Tech Watch & Learning Resources** | 1 | Gap-filling | 35 | **DONE** | `ai-tech-watch-resources/report.md` |
 | 11 | **Agentic AI & MCP Ecosystem 2025-2026** | 4 | Complement | 40 | **DONE** | `agentic-ai/report.md` |
 | 13 | **AI Regulation, Ethics & Governance** | 5 | Complement | 29 | **DONE** | `ai-regulation-ethics/report.md` |
-| 4 | No-Code & Low-Code AI Tools | 2 | Gap-filling | — | Pending | — |
-| 7 | AI Case Studies for Entrepreneurs | Cross | Gap-filling | — | Pending | — |
-| 9 | RAG Ecosystem & Implementation Tools | 3 | Complement | — | Pending | — |
-| 10 | Fine-tuning & Model Customization | 3 | Complement | — | Pending | — |
-| 12 | Advanced Prompt Engineering | 2 | Complement | — | Pending | — |
+| 4 | **No-Code & Low-Code AI Tools** | 2 | Gap-filling | 25 | **DONE** | `no-code-ai-tools/report.md` |
+| 7 | **AI Case Studies for Entrepreneurs** | Cross | Gap-filling | 30 | **DONE** | `ai-case-studies/report.md` |
+| 9 | **RAG Ecosystem & Implementation Tools** | 3 | Complement | 61 | **DONE** | `rag-ecosystem/report.md` |
+| 10 | **Fine-tuning & Model Customization** | 3 | Complement | 32 | **DONE** | `fine-tuning-customization/report.md` |
+| 12 | **Advanced Prompt Engineering** | 2 | Complement | 30 | **DONE** | `prompt-engineering/report.md` |
 
 **"Gap-filling"** = content Andrew Ng doesn't cover at all.
 **"Complement"** = deepens/updates what Andrew Ng covers in the existing 3 slide decks.
@@ -189,15 +189,16 @@ Each JSON follows this nested structure:
 
 ---
 
-## Pipeline for Remaining Topics (5 of 13)
+## Pipeline Complete (13 of 13)
 
-Execution order:
+All 13 research topics have been completed.
 
-1. **Research 9**: RAG Ecosystem & Implementation — practical RAG stack guide (Session 3)
-2. **Research 10**: Fine-tuning & Model Customization — how to actually fine-tune (Session 3)
-3. **Research 4**: No-Code & Low-Code AI Tools — tool comparison for hands-on exercises (Session 2)
-4. **Research 7**: AI Case Studies for Entrepreneurs — 1-slide company stories, French/EU priority (Cross-session)
-5. **Research 12**: Advanced Prompt Engineering — techniques beyond basics (Session 2)
+---
+
+## Completed: Advanced Prompt Engineering 2024-2026
+
+- **30 JSON files** covering techniques across 8 categories: Core Prompting, Advanced Reasoning, Prompt Chaining, Programmatic Optimization, Security & Safety, Evaluation & Testing, Context Engineering, Emerging Trends
+- **Key files**: `prompt-engineering/` — `outline.yaml`, `fields.yaml`, `generate_report.py`, `report.md`, `results/`
 
 ---
 
@@ -234,6 +235,14 @@ Execution order:
 - **42 JSON files** covering business model patterns, pricing strategies, unit economics, investment dynamics, case studies, and emerging models
 - **Categories**: Patterns (14), Pricing (2), Market Data (12), Frameworks (4), Case Studies (6), Emerging (4)
 - **Key files**: `business-models-ai/` — `outline.yaml`, `fields.yaml`, `generate_report.py`, `report.md` (6,212 lines), `results/`
+
+---
+
+## Completed: Fine-tuning & Model Customization 2024-2026
+
+- **32 JSON files** covering fine-tuning methods, alignment techniques, managed platforms, open-source tools, data/eval frameworks, and business strategy
+- **Categories**: Methods (11), Alignment (3), Platforms (6), Tools (3), Data & Eval (4), Strategy (5)
+- **Key files**: `fine-tuning-customization/` — `outline.yaml`, `fields.yaml`, `generate_report.py`, `report.md` (4,475 lines), `results/`
 
 ---
 

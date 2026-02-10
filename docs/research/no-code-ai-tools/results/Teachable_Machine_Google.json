@@ -1,0 +1,101 @@
+{
+  "basic_information": {
+    "name": "Teachable Machine",
+    "type": "ml_training",
+    "creator": "Google Creative Lab (in collaboration with PAIR team, Stoej, and Use All Five)",
+    "description": "Teachable Machine is a free, browser-based tool that lets anyone train custom machine learning classification models for images, sounds, and poses without writing any code. It uses transfer learning on top of MobileNet (for images) and runs entirely in the browser via TensorFlow.js, meaning training data never leaves the user's device unless explicitly saved to Google Drive. For entrepreneurs, it is the fastest path from idea to a working ML classifier prototype -- a 20-minute demo can produce a functional model that exports to TensorFlow.js, TensorFlow Lite, or Core ML for deployment in web apps, mobile apps, or edge devices.",
+    "release_date": "V1: 2017 (experiment), V2.0: November 2019 (official release with sound and pose support)",
+    "url": "https://teachablemachine.withgoogle.com/"
+  },
+  "technical_capabilities": {
+    "underlying_models": "Uses a pre-trained MobileNet V2 model as the base feature extractor for image classification (transfer learning). For audio, it uses a speech command recognizer model. For pose detection, it uses PoseNet. All inference and training runs via TensorFlow.js in the browser. V1 used k-nearest neighbors for classification; V2 trains a multi-layer perceptron on top of MobileNet embeddings.",
+    "customization_depth": "fine-tune -- Users provide labeled training examples (images, audio clips, or poses) and the tool performs transfer learning, retraining the final classification layers on top of the frozen MobileNet feature extractor. Users can adjust epochs, batch size, and learning rate in advanced settings. No prompt-based or code-based customization within the tool itself, but exported models can be further customized in TensorFlow.",
+    "input_types": ["image", "audio", "pose (webcam body tracking)"],
+    "output_types": ["classification model (TensorFlow.js)", "classification model (TensorFlow Lite)", "classification model (Core ML)", "embeddable web demo"],
+    "api_access": "No direct API. However, exported TensorFlow.js models can be loaded and served via any web server or Node.js backend. Google hosts uploaded models at a shareable URL for free, which acts as a lightweight model-serving endpoint.",
+    "deployment_options": "Cloud-hosted model URL (Google Cloud, free), local download (TensorFlow.js zip), TensorFlow Lite export (for Android/embedded), Core ML export (for iOS/macOS), embeddable in any web page via TensorFlow.js library, on-device via Coral Edge TPU (Google Coral project-teachable).",
+    "ai_model_flexibility": "single-provider -- Locked to Google's MobileNet/PoseNet/speech models as base architectures. No option to swap in other base models. However, exported models are standard TensorFlow format, so they can be used independently of the Teachable Machine platform."
+  },
+  "user_experience": {
+    "target_user": "student, business_user, designer, educator -- Anyone without ML expertise who wants to understand or prototype classification models. Particularly popular with K-12 and university educators, creative coders, and non-technical entrepreneurs exploring ML concepts.",
+    "learning_curve": "minutes -- Most users can train their first model in under 10 minutes with zero prior ML knowledge. The interface is extremely intuitive: add examples to classes, click Train, test with live input.",
+    "setup_time": "2-5 minutes from opening the website to having a trained model. No signup required, no software installation, no configuration. Just open the browser and start.",
+    "collaboration_features": "Minimal. Projects can be saved to Google Drive for personal cloud backup, but there are no shared workspaces, team roles, commenting, or version history features. Each project is individual.",
+    "template_library": "No built-in template library within the tool itself. However, Google provides starter projects (Bananameter, Head Tilt, Snap/Clap/Whistle) on the main website, and the community has built an extensive collection via the awesome-teachable-machine GitHub repository (SashiDo/awesome-teachable-machine) and Google's Experiments with Google gallery.",
+    "visual_builder_type": "form-based -- The interface presents a linear workflow: (1) define classes, (2) add training examples via webcam/upload, (3) click Train, (4) test with live preview, (5) export. No drag-and-drop canvas or node editor."
+  },
+  "ai_and_rag_capabilities": {
+    "rag_support": "none -- Teachable Machine is a classification model trainer, not a knowledge-base or document-processing tool. It does not support RAG, document upload for retrieval, or any text-based AI pipeline.",
+    "agent_capabilities": "none -- The tool produces classification models only. It has no agent, multi-step reasoning, or autonomous capabilities.",
+    "model_selection": "Single-vendor (Google). The base model is fixed: MobileNet for images, PoseNet for poses, speech command recognizer for audio. Users cannot choose or swap models within the tool.",
+    "prompt_management": "none -- There is no prompt-based interaction. The tool works with labeled training examples, not text prompts."
+  },
+  "integration_and_ecosystem": {
+    "key_integrations": "TensorFlow.js (web deployment), TensorFlow Lite (Android, Raspberry Pi, Arduino, microcontrollers), Core ML (iOS/macOS), Google Coral Edge TPU, p5.js (creative coding), Node.js (server-side inference), Scratch (via extensions for K-12 education), Node-RED (via node-red-contrib-teachable-machine), Arduino (via TFLite), Google Drive (project saving).",
+    "integration_count": "Not a traditional integration platform. The tool exports standard ML model formats (TF.js, TFLite, Core ML) that integrate with any system supporting those frameworks. Community-built connectors exist for Node-RED, Scratch, p5.js, and more.",
+    "mcp_support": "No",
+    "webhook_support": "No native webhook support. Exported models can be wrapped in custom webhook/API endpoints by the developer.",
+    "export_formats": "TensorFlow.js (model.json + weights, hosted URL or local zip), TensorFlow Lite (quantized .tflite file), Core ML (.mlmodel file), TensorFlow SavedModel (for advanced TF users). Each export includes code snippets showing how to load and use the model."
+  },
+  "pricing_and_accessibility": {
+    "pricing_model": "free -- Completely free with no paid tiers, no usage limits, no account required. Google hosts exported TensorFlow.js models for free at shareable URLs with no expiration announced.",
+    "free_tier_limits": "No limits. Unlimited projects, unlimited training samples, unlimited exports, unlimited hosted model URLs. The only practical limits are browser memory (large datasets of 500-1000+ images across many classes can cause browser crashes) and the 1-second audio clip limitation for sound projects.",
+    "paid_plans": "None. The tool is entirely free. There is no premium or enterprise tier.",
+    "open_source": "Partially open-source. The community libraries (teachablemachine-community) are open-source under Apache 2.0 license on GitHub. Teachable Machine V1 source code is also open-source. The V2 web application itself is not fully open-source, but the underlying TensorFlow.js models and integration libraries are.",
+    "self_hosting_option": "The web tool itself cannot be self-hosted (it runs on Google's infrastructure at teachablemachine.withgoogle.com). However, exported models can be fully self-hosted. The V1 source code and community libraries can be used to build custom implementations.",
+    "data_residency_and_sovereignty": "Training data stays on-device in the browser -- it is never uploaded to Google servers unless the user explicitly saves a project to Google Drive. Exported models hosted by Google are stored on Google Cloud infrastructure (US-based). For GDPR-sensitive deployments, users can download models locally and self-host them, avoiding any data transfer to Google. The on-device training approach is inherently privacy-friendly as no training data leaves the user's machine."
+  },
+  "adoption_and_market": {
+    "market_position": "Leader in the educational/introductory no-code ML category. It is the go-to tool for teaching ML concepts to non-technical audiences and is widely used in K-12, university, and creative coding contexts. However, it is positioned as a learning/prototyping tool rather than a production ML platform, so it does not compete directly with enterprise tools like Amazon SageMaker, Vertex AI, or even Lobe/CreateML for production use cases.",
+    "notable_customers": "Used in curriculum at Stanford d.school, NYU ITP, MIT Media Lab, and hundreds of other educational institutions worldwide. Featured in Google's AI Experiments gallery. Used by creative technologists, artists, and educators globally. Adopted in STEM education programs across 201 countries.",
+    "community_size": "Over 182,000 users across 201 countries have created over 125,000 classification models (as of Google's published stats). GitHub: teachablemachine-community has ~1,600-1,700 stars and ~750-830 forks. The awesome-teachable-machine curated list on GitHub aggregates community projects and resources.",
+    "funding_and_valuation": "Not applicable. Teachable Machine is a free tool built by Google Creative Lab as an experimental project. It has no independent funding, revenue model, or valuation. It is funded as part of Google's broader AI education and creative technology initiatives.",
+    "competitive_landscape": "Main competitors: Microsoft Lobe (discontinued/sunset in 2023, similar browser-based approach), Apple Create ML (macOS-only, more powerful but requires Mac and some technical knowledge), Roboflow (computer vision focused, more advanced, freemium), Landing.ai (enterprise computer vision), MakeML (mobile-focused object detection). Teachable Machine's key differentiators are: (1) zero barrier to entry -- no signup, no download, entirely browser-based, (2) completely free, (3) on-device training for privacy, (4) backed by Google's brand trust, (5) strongest educational ecosystem and community.",
+    "ecosystem_lock_in_risk": "low -- Models export to standard open formats (TensorFlow.js, TensorFlow Lite, Core ML). Training data stays on-device. No account required. No proprietary format. Once exported, models work independently of Google. The only mild lock-in is the free model hosting URL on Google Cloud, but local download is always available."
+  },
+  "teaching_and_classroom": {
+    "class_project_idea": "Project 1 (45 min): 'Product Quality Detector' -- Students build an image classifier that distinguishes between 'good' and 'defective' products (e.g., ripe vs. unripe fruit, intact vs. cracked packaging). They collect 30-50 webcam images per class, train the model in-browser, test it live, then discuss how such a system could be deployed in a startup's quality control pipeline. This demonstrates supervised learning, training data quality, and the business case for visual inspection AI. Students export the model and see the TensorFlow.js code snippet, connecting the no-code experience to the underlying technical stack. Project 2 (60-90 min): 'Gesture-Controlled Prototype' -- Students train a pose or image model to recognize 3-4 hand gestures (thumbs up, open palm, pointing, fist), then integrate it into a simple web page using the provided TensorFlow.js code snippet to trigger different actions (display different product info, navigate slides, or control a simple game). This demonstrates the full pipeline from training to deployment and sparks discussion about gesture-based UX in retail, accessibility, or smart-home startups.",
+    "tutorial_resources": [
+      "https://teachablemachine.withgoogle.com/ -- Official tool with built-in step-by-step guidance",
+      "https://blog.google/technology/ai/teachable-machine/ -- Google blog post introducing Teachable Machine 2.0",
+      "https://medium.com/@warronbebster/teachable-machine-tutorial-bananameter-4bfffa765866 -- Bananameter tutorial (beginner-friendly, image classification)",
+      "https://github.com/SashiDo/awesome-teachable-machine -- Curated list of tutorials, projects, and resources",
+      "https://codelabs.developers.google.com/tensorflowjs-transfer-learning-teachable-machine -- Google Codelab: Build your own Teachable Machine with TensorFlow.js (intermediate)",
+      "https://experiments.withgoogle.com/teachable-machine -- Google Experiments gallery page",
+      "https://www.geeksforgeeks.org/machine-learning/machine-learning-model-with-teachable-machine/ -- GeeksforGeeks step-by-step guide",
+      "https://www.instructables.com/Easy-Machine-Learning-Object-Detection-With-Teacha/ -- Instructables 9-step walkthrough",
+      "https://www.techlearning.com/how-to/what-is-teachable-machine-how-to-use-it-to-teach -- Tech & Learning guide for educators",
+      "https://www.analyticsvidhya.com/blog/2020/12/deep-learning-with-google-teachable-machine/ -- Analytics Vidhya tutorial"
+    ],
+    "student_prerequisites": "nothing -- No coding, no ML knowledge, no software installation required. Students only need a modern web browser (Chrome recommended) and optionally a webcam/microphone. The tool is designed for absolute beginners.",
+    "session_mapping": "Session 2 (Prompt Engineering & No-Code Tools): Primary session. 20-minute live demo where students train an image classifier together, then 25-40 minute hands-on project where they build their own model. Bridges the gap between 'AI as a black box' and understanding supervised learning, training data, and model evaluation. Also relevant to Session 1 (Fundamentals) as an ice-breaker activity to make ML tangible from day one."
+  },
+  "entrepreneurial_relevance": {
+    "startup_applicability": "Best for: (1) Very early-stage startups (idea/pre-seed) that need to validate whether an image/sound/pose classification concept is feasible before investing in custom ML development. (2) Non-technical founders who want to build a quick proof-of-concept to show investors or potential customers. (3) Startups exploring computer vision or audio classification use cases (quality control, gesture UX, sound monitoring, accessibility). Stage: Ideation through early MVP. Team size: 1-3 people, no ML engineer required. Use case fit: Binary or multi-class classification of images, sounds, or poses. Not suitable for: NLP, generative AI, regression, object detection (bounding boxes), or any task requiring >20-30 classes or high-precision production models.",
+    "time_to_mvp": "Minutes to hours. A functional proof-of-concept classifier can be trained in 10-20 minutes. Integrating the exported TensorFlow.js model into a basic web page takes 1-2 hours for someone with basic web development skills, using the provided code snippets. A polished demo-ready prototype: 1-2 days.",
+    "build_vs_buy_guidance": "Use Teachable Machine when: (1) You need to validate a classification idea quickly and cheaply (cost: $0), (2) You are non-technical and need to demonstrate feasibility, (3) You want to teach your team about ML concepts hands-on, (4) Privacy matters and you want on-device training with no data leaving the browser. Outgrow to custom solutions when: (1) You need more than simple classification (object detection, segmentation, generation), (2) You need to handle large datasets (500+ images causes browser crashes), (3) You need production-grade accuracy and robustness, (4) You need continuous retraining or MLOps pipelines. Progression path: Teachable Machine (prototype) -> Roboflow or Vertex AI AutoML (production-grade training) -> Custom TensorFlow/PyTorch (full control).",
+    "key_lessons": [
+      "1. Data quality trumps data quantity: Teachable Machine makes it viscerally clear that ML models are only as good as their training data. 30 diverse, well-lit images per class often outperform 200 poor-quality images. Entrepreneurs must budget for data collection and curation, not just model development.",
+      "2. ML is not magic -- it is pattern matching: By building a model in 10 minutes, entrepreneurs demystify AI and understand its fundamental limitation: it finds patterns in examples you provide. This realistic expectation prevents overpromising AI capabilities to investors or customers.",
+      "3. The 80/20 rule of AI product development: Getting a working prototype takes 20% of the effort; making it production-ready takes 80%. Teachable Machine handles the first 20% beautifully, but entrepreneurs must plan for the engineering work needed to go from demo to deployable product.",
+      "4. Transfer learning is the startup's secret weapon: Instead of training from scratch (which requires massive datasets and GPU compute), startups can leverage pre-trained models and fine-tune them for specific use cases. This principle applies far beyond Teachable Machine -- it is how most production AI startups operate.",
+      "5. Privacy-by-design is achievable: On-device training proves that ML does not require sending user data to the cloud. This architecture can be a competitive advantage, especially in GDPR-regulated European markets or sensitive industries like healthcare and education."
+    ]
+  },
+  "confidence": {
+    "data_quality": "High -- Information sourced from Google's official blog, the Teachable Machine website, peer-reviewed CHI 2020 paper (ACM Digital Library), Google Codelabs documentation, and well-established community repositories. The tool has been stable since 2019 with no major updates announced.",
+    "cross_reference": [
+      "Google AI Blog: https://blog.google/technology/ai/teachable-machine/",
+      "CHI 2020 Paper (ACM DL): https://dl.acm.org/doi/10.1145/3334480.3382839",
+      "Google Research Publication: https://research.google/pubs/teachable-machine-approachable-web-based-tool-for-exploring-machine-learning-classification/",
+      "GitHub teachablemachine-community: https://github.com/googlecreativelab/teachablemachine-community",
+      "Google Experiments Gallery: https://experiments.withgoogle.com/teachable-machine",
+      "ScienceDirect comparative study (2025): https://www.sciencedirect.com/science/article/pii/S1110866525000738"
+    ],
+    "caveats": "Teachable Machine has not received significant feature updates since V2.0 in 2019. While still fully functional, it may be considered maintenance-mode software. The project is explicitly labeled 'not an official Google product' -- it is an experiment by Google Creative Lab, which means there is no SLA or guarantee of long-term support. Browser-based training has hard limits: datasets over 500-1000 images can crash the browser tab. The 1-second audio clip limitation restricts sound classification use cases. Microsoft Lobe, which was a close competitor, was sunset in 2023, leaving Teachable Machine with fewer peer comparisons but also raising questions about the longevity of free no-code ML tools from big tech companies."
+  },
+  "uncertain": [
+    "community_size",
+    "funding_and_valuation"
+  ]
+}

@@ -12,8 +12,9 @@ slides/**/assets/**/*.png
 slides/**/assets/**/*.jpg
 slides/**/assets/**/*.gif
 
-# Reference materials (large binary source files — PDFs, notebooks, HTML archives)
-references/
+# Source materials (large binary files — PDFs, notebooks, HTML archives)
+docs/sources/
+!docs/sources/**/README.md
 
 # Archive files
 *.zip

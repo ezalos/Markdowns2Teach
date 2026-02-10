@@ -1,0 +1,83 @@
+{
+  "basic_information": {
+    "name": "DeepEval",
+    "type": "evaluation",
+    "creator": "Confident AI (founded by Jeffrey Ip and Kritin)",
+    "description": "DeepEval is an open-source, Python-first LLM evaluation framework often described as 'Pytest for LLMs.' It provides 50+ research-backed metrics for evaluating RAG pipelines, agents, chatbots, and fine-tuned models, with native CI/CD integration via Pytest. Version 3.0 introduced component-level evaluation granularity, conversation simulation, and production-ready observability. The companion cloud platform Confident AI extends DeepEval with team collaboration, dataset management, tracing, and production monitoring. DeepEval stands out for its self-explaining metrics (which provide reasons for scores), synthetic data generation, and comprehensive multimodal evaluation capabilities.",
+    "release_date": "Initial release ~2023; v3.0 released May 27, 2025; latest version 3.7.5 (as of early 2026)",
+    "license": "Apache 2.0",
+    "github_stars": "~12,800 (as of February 2026)"
+  },
+  "technical_architecture": {
+    "architecture_type": "Python library (pip-installable), runs locally or in CI/CD environments. Evaluation metrics execute via LLM-as-a-judge (using configurable LLM providers) or deterministic NLP models that run locally. Confident AI cloud platform provides a hosted API and dashboard layer on top.",
+    "language": "Python",
+    "embedding_dimensions": "Not directly applicable — DeepEval evaluates outputs rather than generating embeddings. However, it integrates with any embedding model for RAG evaluation pipelines and supports evaluation of embedding quality via retrieval metrics.",
+    "indexing_algorithm": "Not applicable — DeepEval is an evaluation framework, not a vector database. It evaluates retrieval quality through metrics like Contextual Precision, Contextual Recall, and Contextual Relevancy.",
+    "scalability": "Supports async evaluation execution in CI/CD. Can handle large evaluation datasets via the Synthesizer for generating thousands of test cases. Confident AI cloud platform scales to 50K+ monitored LLM responses/month on Premium tier. Production monitoring supports high-throughput tracing.",
+    "deployment_options": "Local Python environment (pip install deepeval), CI/CD pipelines (GitHub Actions, GitLab CI, Jenkins, any CI environment), Docker-based workflows. Confident AI cloud platform available as SaaS with data residency in US (North Carolina) or EU (Frankfurt). Enterprise tier offers deployment on AWS, Azure, or GCP."
+  },
+  "rag_specific_capabilities": {
+    "retrieval_method": "Evaluates all retrieval methods — DeepEval provides metrics for dense vector retrieval, sparse retrieval, and hybrid approaches. Key retrieval evaluation metrics include Contextual Precision (measures ranking quality of retrieved context), Contextual Recall (measures completeness of retrieval), and Contextual Relevancy (measures relevance of retrieved documents to the query).",
+    "chunking_strategy_support": "Not a chunking tool itself, but evaluates the effectiveness of any chunking strategy through retrieval metrics. Useful for comparing fixed-size vs. semantic vs. recursive chunking by measuring downstream retrieval and generation quality.",
+    "reranking_support": "Evaluates the impact of reranking through retrieval metrics (Contextual Precision measures whether relevant documents are ranked higher). Does not provide built-in reranking, but evaluates whether reranking strategies improve retrieval quality.",
+    "multimodal_support": "Full multimodal evaluation support via MLLMImage objects in test cases. Supports local images, remote URLs, and base64 data. Dedicated multimodal metrics include: Image Coherence (text-image alignment), Image Editing quality, Multimodal Faithfulness (claim verification across text and images), and Multimodal Contextual Relevancy. Works with OpenAI multimodal GPT models or custom MLLM models.",
+    "graph_rag_support": "No built-in graph RAG evaluation metrics, but G-Eval custom metric framework can be configured to evaluate graph-enhanced retrieval quality with custom criteria.",
+    "citation_grounding": "Faithfulness metric directly evaluates whether generated outputs are grounded in retrieval context. The metric extracts claims from the output and classifies each as truthful or not based on the provided context. Self-explaining nature provides specific reasons for faithfulness scores.",
+    "context_window_optimization": "Not directly applicable — DeepEval evaluates outputs rather than managing context windows. However, its Summarization metric evaluates compression quality (alignment_score for factual accuracy + coverage_score for information completeness), which is relevant for context window optimization strategies."
+  },
+  "performance_and_benchmarks": {
+    "latency": "Evaluation latency depends on the LLM judge model used. Typical single-metric evaluation takes 2-10 seconds per test case when using GPT-4o as judge. Deterministic metrics (BLEU, ROUGE, etc.) execute in milliseconds. Async execution in CI/CD reduces wall-clock time for batch evaluations.",
+    "throughput": "Claims 20 million daily evaluations across the platform. Supports parallel async evaluation execution. Batch evaluation of hundreds of test cases is standard in CI/CD workflows.",
+    "accuracy_metrics": "Provides 50+ metrics organized by use case: RAG metrics (Faithfulness, Answer Relevancy, Contextual Recall, Contextual Precision, Contextual Relevancy, RAGAS), Agentic metrics (Task Completion, Tool Correctness), Safety metrics (Hallucination, Bias, Toxicity), Quality metrics (G-Eval custom criteria, Summarization), Conversational metrics (Knowledge Retention, Conversation Completeness, Conversation Relevancy, Role Adherence), and Multimodal metrics (Image Coherence, Image Editing, Multimodal Faithfulness, Multimodal Contextual Relevancy).",
+    "benchmark_results": "No standard benchmark positioning (MTEB, BEIR) as DeepEval is an evaluation tool rather than a model. DeepEval's metrics are validated against research papers (G-Eval based on the original NLG evaluation paper). Self-explaining metrics provide interpretable scores with reasoning."
+  },
+  "integration_and_ecosystem": {
+    "framework_compatibility": "LangChain (evaluation of LangChain pipelines), LlamaIndex (native integration for tracing and evaluating agents — FunctionAgent, ReActAgent, CodeActAgent), Haystack (via deepeval-haystack package), DSPy (compatible via Python interface). Framework-agnostic evaluation — works with any Python-based LLM application.",
+    "model_compatibility": "OpenAI (GPT-4o, GPT-4, GPT-3.5 as evaluation judges), Anthropic (Claude models), Google (Gemini), Azure OpenAI, AWS Bedrock (native support), Ollama (local open-source models), any custom model via DeepEvalBaseLLM/DeepEvalBaseMLLM base classes. Supports any model that can serve as an LLM judge.",
+    "mcp_integration_status": "Yes — DeepEval provides MCP (Model Context Protocol) evaluation support. Integrates with the official MCP SDK for evaluating MCP-based applications across single and multi-turn interactions. Evaluates tool usage efficiency, argument generation, and task completion for MCP servers.",
+    "data_source_connectors": "Not a data ingestion tool — works with any data that can be represented as Python test cases (input, actual_output, expected_output, retrieval_context). Synthesizer can generate test data from documents/knowledge bases. Confident AI provides dataset management via cloud platform.",
+    "observability_integration": "Confident AI provides native observability (tracing, monitoring, production alerts). Framework-agnostic with OpenTelemetry support. Integrates with LlamaIndex tracing. Positions as alternative to LangSmith, Langfuse, and Arize Phoenix for evaluation-centric observability. Supports 10+ framework integrations including OpenAI, Pydantic AI, and LangChain."
+  },
+  "pricing_and_cost": {
+    "pricing_model": "Open-core model: DeepEval open-source framework is free (Apache 2.0). Confident AI cloud platform uses per-user-per-month SaaS pricing with tiered plans based on usage limits (test runs, monitored responses, data retention).",
+    "free_tier": "DeepEval OSS: fully free, unlimited local usage. Confident AI Free tier: $0/month, 2 user seats, 1 project, 5 test runs per week, up to 10K traces/month, 1 week data retention.",
+    "cost_at_scale": "Starter: $29.99/user/month (1 project, 10K monitored responses/month, 3 months retention). Premium: $79.99/user/month (1 project, 50K monitored responses/month, 50K online evaluation metric runs/month, 1 year retention). Enterprise: custom pricing for high-scale, enhanced security, compliance (HIPAA, SOC2). Additional cost: LLM API calls for judge models (e.g., GPT-4o costs ~$2.50-5/1K evaluations depending on metric complexity).",
+    "total_cost_of_ownership": "For a startup running 10K evaluations/month: DeepEval OSS is free + ~$25-50/month in LLM judge API costs. With Confident AI Starter for team collaboration: ~$30-60/month per user + LLM costs. Enterprise with 50K+ evaluations: ~$80-160/month per user + LLM costs + potential self-hosting infrastructure. The LLM judge cost is often the dominant variable cost."
+  },
+  "adoption_and_market": {
+    "market_position": "Leading open-source LLM evaluation framework. Claims to be the most adopted LLM evaluation framework globally. Competes directly with Ragas for RAG evaluation and with broader platforms like Arize Phoenix, LangSmith, and Braintrust for LLM observability. Y Combinator-backed startup with strong developer community traction.",
+    "notable_customers": "Specific enterprise customer names not publicly disclosed. Targets regulated industries (healthcare, insurance, financial services) with HIPAA compliance and BAA support. Used across enterprises requiring production LLM monitoring and CI/CD evaluation pipelines.",
+    "community_size": "~12,800 GitHub stars, ~3,210 Discord members, ~73,900 monthly PyPI downloads (18,477 weekly), active X/Twitter presence (@deepeval). Growing contributor community on GitHub.",
+    "funding_and_valuation": "Total funding: $2.7M across 2 rounds. Seed round: $2.2M (oversubscribed, closed in 5 days). Investors: Y Combinator, Flex Capital, Oliver Jung, Vermilion Cliffs Ventures, Liquid 2 Ventures, January Capital, Rebel Fund. Headquartered in San Francisco. Valuation not publicly disclosed.",
+    "competitive_landscape": "Main competitors: Ragas (RAG-focused, lighter weight, less self-explaining metrics), Arize Phoenix (broader observability with some evaluation), LangSmith (LangChain-native tracing + evaluation), Braintrust (evaluation + logging platform), Langfuse (open-source observability), Patronus AI (enterprise safety evaluation). DeepEval differentiates with: self-explaining metrics, 50+ metrics breadth, Pytest-native CI/CD integration, synthetic data generation, multimodal evaluation, and the open-core model with Confident AI cloud."
+  },
+  "entrepreneurial_relevance": {
+    "startup_applicability": "Highly applicable for any startup building LLM-powered products. Best fit: (1) Teams of 2-10 engineers building RAG chatbots, AI agents, or content generation tools who need automated quality assurance. (2) Startups in regulated industries (fintech, healthtech) needing auditable evaluation trails. (3) Solo developers who want Pytest-like testing for LLM outputs before shipping. Budget: free for open-source usage; $30-80/user/month for cloud features. Can start with zero budget using just the OSS framework.",
+    "build_vs_buy_guidance": "Use DeepEval OSS (free) for: local development, CI/CD integration, custom metric development, small teams comfortable with Python. Add Confident AI cloud when: you need team collaboration, dataset management across team members, production monitoring dashboards, or compliance requirements (HIPAA/SOC2). The open-core model means you can start free and upgrade incrementally — no vendor lock-in on the evaluation logic itself.",
+    "time_to_production": "Hours to first evaluation (pip install deepeval + write first test). 1-2 days to integrate into CI/CD pipeline. 1-2 weeks for comprehensive evaluation suite with custom metrics, synthetic datasets, and production monitoring. The Pytest-native interface means Python developers can be productive immediately.",
+    "key_lessons": [
+      "Evaluation-driven development: Treat LLM outputs like code — write tests (evaluation metrics) before shipping. DeepEval's Pytest integration makes this natural for engineering teams.",
+      "Self-explaining metrics save debugging time: Unlike black-box scores, DeepEval metrics tell you WHY a score is low, dramatically reducing time spent diagnosing RAG pipeline issues.",
+      "Synthetic data generation bootstraps evaluation: Don't wait for production data to start evaluating. Use DeepEval's Synthesizer to generate thousands of test cases from your knowledge base in minutes.",
+      "Component-level evaluation prevents finger-pointing: With v3.0's component-level metrics, you can pinpoint whether the retriever, generator, or tool call is causing quality issues — essential for debugging multi-step agents.",
+      "Red teaming is not optional: DeepEval/DeepTeam can scan for 40+ security vulnerabilities (bias, toxicity, PII leakage, jailbreaking) — critical before any customer-facing LLM deployment."
+    ],
+    "no_code_interface": "Confident AI cloud platform provides a web-based dashboard for viewing evaluation results, managing datasets, and monitoring production LLM performance. However, the core evaluation definition (metrics, test cases) requires Python code. No visual drag-and-drop pipeline builder.",
+    "session_mapping": "Session 3 (AI project management — evaluation as quality assurance), Session 5 (Ethics & governance — red teaming, bias detection, safety evaluation). Also relevant to Session 2 (prompt engineering — using G-Eval to evaluate prompt quality)."
+  },
+  "confidence": {
+    "data_quality": "High — information sourced from official GitHub repository, PyPI, Confident AI official website and blog, official documentation, Y Combinator profile, and corroborated by third-party reviews (ZenML, Arize, LlamaIndex, Codecademy, dev.to).",
+    "cross_reference": "GitHub repository (confident-ai/deepeval), PyPI package page, Confident AI pricing page, Y Combinator company profile, multiple third-party comparison articles (ZenML, Comet, Arize, dev.to), Medium technical articles, LlamaIndex official integration documentation.",
+    "caveats": "GitHub stars count (~12.8K) and PyPI downloads (~74K/month) are rapidly growing and will be outdated quickly. Pricing tiers may change. The 50+ metrics claim includes multimodal variants and may count related metrics separately. LLM judge costs are variable and depend heavily on the chosen model and metric complexity. Red teaming functionality has been separated into a standalone project (DeepTeam) since v3.0. Confident AI valuation is not public despite PitchBook listing.",
+    "security_posture": "DeepEval itself runs locally — no data leaves the machine unless Confident AI cloud is enabled. Confident AI offers HIPAA compliance, SOC2 compliance, BAA agreements for Premium customers. Data residency options: US (North Carolina) or EU (Frankfurt). Enterprise tier supports deployment on customer's own AWS/Azure/GCP. The companion DeepTeam framework specifically addresses LLM security testing with 40+ vulnerability scans covering OWASP Top 10 for LLMs and NIST AI RMF guidelines. Potential concern: LLM-as-a-judge evaluation sends test data to the judge LLM provider (e.g., OpenAI), which may be a data privacy consideration for sensitive content."
+  },
+  "uncertain": [
+    "github_stars",
+    "community_size",
+    "notable_customers",
+    "latency",
+    "throughput",
+    "cost_at_scale",
+    "total_cost_of_ownership"
+  ]
+}
