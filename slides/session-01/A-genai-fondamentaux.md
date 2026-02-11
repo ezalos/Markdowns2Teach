@@ -32,33 +32,26 @@ M2 Entrepreneuriat · Sorbonne · 2026
 
 # 01 — L'essor de la Generative AI
 
-- *$2,6 – 4,4 trillions* de valeur annuelle potentielle *(McKinsey)*
-- *+7% du PIB mondial* sur 10 ans *(Goldman Sachs)*
-- *80% des travailleurs* verront au moins 10% de leurs tâches impactées *(OpenAI / UPenn)*
+- *$2,6 – 4,4 trillions* de valeur annuelle potentielle [1]
+- *+15% du PIB mondial* d'ici 2035 [2]
+- *66% des jobs aux US* veront leurs taches quotidiennes transformees par l'IA [3]
 
 > Après le lancement de ChatGPT (nov. 2022), les mentions d'"IA" dans les *earnings calls* du S&P 500 ont explosé.
 
-![bg right:45%](assets/ng01/img-002.png)
+![bg right:45%](assets/A/01-number-of-sp500-earnings-calls-citing-AI-10-year.webp) [4]
 
 *Question pour la classe* : Si le coût de l'intelligence machine tend vers zéro, quel service aujourd'hui trop coûteux pour être automatisé devient une opportunité de startup demain ?
+
+<small>Sources : [1] [McKinsey](https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier) [2] [PWC](https://www.pwc.com/gx/en/news-room/press-releases/2025/ai-adoption-could-boost-global-gdp-by-an-additional-15-percentage.html) [3] [EY](https://www.ey.com/en_gl/insights/ai/how-gen-ai-will-impact-the-labor-market) [4] [Factset](https://insight.factset.com/highest-number-of-sp-500-earnings-calls-citing-ai-over-the-past-10-years-1)</small>
 
 ---
 
 # 02 — Qu'est-ce que la Generative AI ?
 
-Des systèmes d'intelligence artificielle capables de *produire du contenu de haute qualité* : texte, images, audio, vidéo.
+Des systèmes d'intelligence artificielle capables de *produire du contenu de haute qualité* : texte, code, images, audio, vidéo.
 
-*Fonctionnement de base* :
-- L'utilisateur écrit un *prompt* (une instruction en langage naturel)
-- Le modèle génère une *réponse* (texte, image, code...)
-
-*Acteurs majeurs en 2026* :
-- *ChatGPT* (OpenAI) — rédaction, analyse, code
-- *Claude* (Anthropic) — raisonnement, analyse documentaire
-- *Gemini* (Google) — recherche augmentée
-- *Le Chat* (Mistral AI) — alternative européenne
-
-![bg right:45%](assets/ng01/img-006.png)
+![bg right:45%](assets/A/02-mistral_screenshot.png) 
+![bg left:45%](assets/A/02-chatgpt_screenshot.png)
 
 ---
 
@@ -74,19 +67,19 @@ Au-delà des chatbots grand public, la Generative AI est un *developer tool* pui
 
 > En 2025, des startups comme Bolt.new et Lovable permettent de coder des apps entières via prompt.
 
-![bg right:45%](assets/ng01/img-008.png)
+![bg right:45%](assets/A/03-googlecolab-generation.png)
 
 ---
 
 # 04 — L'IA est déjà partout
 
-| Technologie IA | Exemples | Vous l'utilisez déjà ? |
-|---|---|---|
-| Web Search | Google, Bing | Tous les jours |
-| Fraud Detection | Paiements CB | À chaque achat |
-| Recommender Systems | Amazon, Netflix, Spotify | Constamment |
-| Machine Translation | DeepL, Google Translate | Régulièrement |
-| Speech Recognition | Siri, Alexa, Whisper | Souvent |
+| Technologie IA | Exemples |
+|---|---|
+| Web Search | Google, Bing |
+| Fraud Detection | Paiements CB |
+| Recommender Systems | Amazon, Netflix, Spotify |
+| Machine Translation | DeepL, Google Translate |
+| Speech Recognition | Siri, Alexa, Whisper |
 
 > *Point clé pour entrepreneurs* : L'IA "classique" (prédictive) crée de la valeur depuis 15 ans. La *Generative AI* ouvre un nouvel espace — la création de contenu et le raisonnement.
 
@@ -97,20 +90,44 @@ Au-delà des chatbots grand public, la Generative AI est un *developer tool* pui
 La Generative AI ne se limite pas au texte :
 
 - *Images* : Midjourney, DALL-E, Stable Diffusion, Flux
-- *Audio* : génération de voix (ElevenLabs), musique (Suno)
-- *Vidéo* : Sora (OpenAI), Runway, Kling
 
 *Cas d'usage business* :
 - Créer des visuels marketing sans graphiste
-- Produire des voix-off pour des formations
-- Générer des vidéos de démonstration produit
 
 ![bg right:45%](assets/ng01/img-009.png)
 ![bg](assets/ng01/img-010.png)
 
 ---
 
-# 06 — Ce que vous allez apprendre
+# 06 — Au-delà du texte : audio
+
+La Generative AI ne se limite pas au texte :
+
+- *Audio* : génération de voix (ElevenLabs), musique (Suno)
+
+![](assets/A/suno.png)
+[Suno](https://suno.com/s/TDY3F2UiDfBxkIVI)
+
+*Cas d'usage business* :
+- Produire des voix-off pour des formations
+
+
+---
+
+# 07 — Au-delà du texte : vidéo
+
+La Generative AI ne se limite pas au texte :
+
+- *Vidéo* : Sora (OpenAI), Runway, Kling, Seedance2
+
+[Prompt example : drone racing an abandoned factory ](https://www.youtube.com/watch?v=-MluR9dqt5w&t=12s)
+
+*Cas d'usage business* :
+- Générer des vidéos de démonstration produit
+
+---
+
+# 08 — Ce que vous allez apprendre
 
 Trois piliers pour maîtriser la Generative AI en tant qu'entrepreneur :
 
@@ -126,30 +143,26 @@ Trois piliers pour maîtriser la Generative AI en tant qu'entrepreneur :
 
 <!-- _class: cols -->
 
-# 07 — Les grandes familles de l'IA
+# 09 — Les grandes familles de l'IA
 
-<div class="left">
+#TODO: 
 
-### Supervised Learning
-- *Input A → Output B* — ex : email → spam ? image → diagnostic ?
+What technology is applied : 
 
-### Unsupervised Learning
-- Patterns sans labels (ex : segmentation clients)
+![](assets/A/ai-onion-raghunitb.png)
 
-</div>
-<div class="right">
+How the algorithm interact with data :
 
-### Generative AI
-- Génère du *contenu original* (texte, images, audio, vidéo, code)
+![](assets/A/unsupervised-supervised-reinforcement.png)
+---
 
-### Reinforcement Learning
-- Apprend par essai/erreur (ex : jeux, robotique, trading)
+# 10 — Unsupervised Learning & Supervised Learning —
 
-</div>
+![](assets/A/unsupervise-supervise-reinforcement.png)
 
 ---
 
-# 08 — Supervised Learning — exemples business
+# 10 — Supervised Learning — exemples business
 
 | Input (A) | Output (B) | Application métier |
 |---|---|---|
@@ -165,7 +178,33 @@ Trois piliers pour maîtriser la Generative AI en tant qu'entrepreneur :
 
 ---
 
+# 10 — Unsupervised Learning — exemples business
+
+
+| Data mix  | Application métier |
+| --------- | ------------------ |
+| Application data usage | Customer Segmentation |
+| Product reviews | Complains clustering |
+| Forum Chats | Topic Modeling |
+| Netflix videos | Recommender Systems |
+
+---
+
+# 11 — Reinforcement Learning — exemples business
+
+
+| Simulateur               | Application métier    |
+| ---------------------- | --------------------- |
+| Driving simulator | Self-driving car |
+| Physic similutor | Robotics pre-training |
+| Website users influx | News Recommendation |
+| Trading exchange | Algorithmic Trader |
+
+---
+
 # 09 — Pourquoi l'IA explose maintenant
+
+![](assets/A/history-of-AI.png)
 
 *2010–2020 : l'ère du Large Scale Supervised Learning*
 
@@ -173,10 +212,17 @@ Trois piliers pour maîtriser la Generative AI en tant qu'entrepreneur :
 - Les petits modèles plafonnent vite — les grands modèles continuent de progresser
 - Cela a motivé la course au *scale* : plus de compute, plus de data
 
+![](assets/A/epoch-ai-dataset_size.png) [1]
+![](assets/A/METR-task-len-horizon.png) [2]
+
 *2020+ : l'ère des Large Language Models*
 
 - Application du même principe au texte : entraîner des modèles *massifs* sur des *centaines de milliards de mots*
 - Résultat : des modèles capables de générer du texte de qualité humaine
+
+
+<small>Sources : [1] [EpochAI](https://epoch.ai/data-insights/dataset-size-trend) [2] [METR]([link](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/)) </small>
+
 
 ---
 
@@ -192,6 +238,8 @@ Les LLMs utilisent le Supervised Learning pour *prédire le mot suivant*, mot pa
 | My favorite food is a bagel with cream | *cheese* |
 
 > Un LLM entraîné sur des centaines de milliards de mots apprend les patterns du langage et devient capable de générer du texte cohérent et pertinent.
+
+![](assets/A/lllm-gen-example.png)
 
 ---
 
@@ -318,6 +366,8 @@ Les modèles de génération d'images créent des visuels à partir de *descript
 # 17 — Comment ça marche : les Diffusion Models
 
 Le principe est élégant — on entraîne un modèle à *enlever du bruit* d'une image :
+
+![](assets/A/diffusion_model.gif)
 
 *Phase d'entraînement* :
 1. Prendre une image nette (ex : une pomme)

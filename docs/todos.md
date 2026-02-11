@@ -38,6 +38,9 @@ Please create a sync of the local slides to GDrive easily (you can use uvx if it
 - [ ] LLM Evaluation chapter — needs research (Chip Huyen AIE Ch 3-4 as starting point)
 - [ ] Regression metrics slides (MAE, MSE, RMSE) — add to Session 3A
 
+
+https://epoch.ai/data-insights/dataset-size-trend
+
 # Things to research
 
 - [ ] DO a N8N tutorial with hf usage
@@ -90,12 +93,25 @@ Preparer des quesitons a ajouter au cours
 
 
 
+![bg right:45%](assets/) [1]
+
+<small>Sources : [1] [Gartner](link) </small>
+
 
 # CORRECTIONS : 
 
+Ma slide d'intro, j'enseigne a  Master 2 Innovation Management des Technologies et Entrepreneuriat (IMT&E) à Paris 1 Panthéon-Sorbonne (et non juste Sorbonne). Et mon cours est bien Deep Tech & Machine Learning (UE3)
 
 
+### Comments on : session-01/A-genai-fondamentaux.md
 
+Slides numbers should be corrected
 
+After : 
 
-https://insight.factset.com/hs-fs/hubfs/1)Insight/2025/12.2025/12.08.2025_Earnings%20Insight/01-number-of-sp500-earnings-calls-citing-AI-10-year.png?width=672&height=384&name=01-number-of-sp500-earnings-calls-citing-AI-10-year.png
+# 09 — Les grandes familles de l'IA
+
+the big paragraph should become a little sheet
+
+It would be a great occasion to introduce the content about the different types of ML models 
+
