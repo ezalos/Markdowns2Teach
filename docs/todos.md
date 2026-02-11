@@ -1,25 +1,17 @@
 
-# Engineering 
+# Engineering
 
-You need to commit the changes to the repo (still ignoring large files / pdf / ...)
-
-I notably updated the directory structre (you should update readme as well): 
-  - docs 
-    - sources
-      - courses (was previously ./refecences)
-        - AndrewNg
-        - KevinVU
-    - research
-    - plans 
-  - slides 
-  - dist
+- [x] Updated the directory structure (session-based layout under `slides/session-XX/`)
+- [x] Dist split by file type (`dist/html/`, `dist/pptx/`)
+- [x] GDrive sync via rclone (`make sync` → `gdrive:Travail/Formations/Sorbonne/AutoDecks`)
+- [x] Commit the changes to the repo (still ignoring large files / pdf / ...)
 
 Also please reorganize dist to be split by file type :
   - dist
     - html
       - xxxx.html
     - pptx
-      - xxxx.pptx 
+      - xxxx.pptx
 
 
 Please create a sync of the local slides to GDrive easily (you can use uvx if it helps)
@@ -30,36 +22,36 @@ Please create a sync of the local slides to GDrive easily (you can use uvx if it
 
 ## No-code tools
 
-- 
+-
 
 ## Nice things which could be added
 
-- [ ] Make sure RAG is explained in architecture term
-- [ ] Nvidia Moat and CUDA, get back this : https://newsletter.semianalysis.com/p/nvidiaopenaitritonpytorch 
+- [x] Make sure RAG is explained in architecture term
+- [ ] Nvidia Moat and CUDA, get back this : https://newsletter.semianalysis.com/p/nvidiaopenaitritonpytorch
 - [ ] Nvidia Moat and in light of Google TPU move
+- [ ] NVIDIA moat deep research — semianalysis article is 2023, needs update for Blackwell/ROCm/TPU v5 era
 
 - [ ] Add State of AI report to it !!!!
 - [ ] Speak about Claude Code revolutionnizing the way we code + OpenClaw
 
-
 - [ ] Book from Chip Huyen : ML-OPs & ML-Engineering
+- [ ] LLM Evaluation chapter — needs research (Chip Huyen AIE Ch 3-4 as starting point)
+- [ ] Regression metrics slides (MAE, MSE, RMSE) — add to Session 3A
 
 # Things to research
 
 - [ ] DO a N8N tutorial with hf usage
 - [ ] Prepare a N8N course with hf usage
-- [ ] 
+- [ ]
 
 
-Huggingface spaces : 
-- Interesting I would like to show it to them 
+Huggingface spaces :
+- Interesting I would like to show it to them
 
 
-Pour la veille techno : 
+Pour la veille techno :
 - AI News is sooo good
-- https://www.wizwand.com/ 
-
-
+- https://www.wizwand.com/
 
 
 
@@ -68,123 +60,42 @@ Pour la veille techno :
 
 ### QCM
 
-Preparer les QCMs 
+Preparer les QCMs
+- [x] Session 1 QCM (`docs/qcm/session-01-qcm.md`)
+- [x] Session 3 QCM (`docs/qcm/session-03-qcm.md`)
+- [ ] QCMs for Sessions 2, 4, 5
+
 Preparer un deck pour me presenter et presenter:
+- [x] Intro deck (`slides/session-01/0-intro-cours.md`)
 - le cours complet dans ses grandes lignes
 - les evaluations qu'il y aura
-- les projets qu'il y aura 
+- les projets qu'il y aura
 
 
 
-Error metrcis (great qcm for a given pbm) : 
-- Classification 
-- Regression 
+Error metrcis (great qcm for a given pbm) :
+- Classification
+- Regression
 
 
-Tasks types (great qcm for a given pbm) : 
-- Classification 
-- Regression 
+Tasks types (great qcm for a given pbm) :
+- Classification
+- Regression
 - Computer vision types
 
 
-# Course plan again
 
-What seems good : 
-
-3 hours = 
-- Section A (Slide deck) - 45 mins + 15 mins break
-- Section B (Slide deck) - 45 mins + 15 mins break
-- Section C (Either Practice | QCMs | Intervenant externe |  ) 45 mins + 15 mins bonus
+Preparer des quesitons a ajouter au cours
 
 
-## 1 - Course Intro AI : 
-
-15 min intro about : 
-- Who I Am
-- The course plan
-- The rules and QCM + Housework
-
-- A : What's AI ?
-  - Not AI
-  - Rule based
-  - Pure stats
-  - ML algorithms
-    - My special Notebooks about Linear Regression
-  - DL
-    - Showcase of different models : 
-      - Text classif 
-      - Computer Vision
-      - 
-  - GenAI
-    - Text
-    - Image
-    - Sound
-    - Video
-    - Robot
-- B : Dive on examples
-  - Linear Regression
-  - Random Forest
-- C : How to evaluate AI ?
-  - We evaluate differently depending on the system
-    - Classification
-    - Regression
-    - Computer Vision tasks
-    - LLM evaluations
-  - Cost
-  - legale
-  - acccessibilite technique
-  - Open-Source or as-a-service
 
 
-Let's make together : 
-- An N8n takes input send it to more
+
+# CORRECTIONS : 
 
 
-## 2 - Course Deeper in AI : 
-
-- ML systems 
-  - API / Local or Cloud deployment / Database or S3 / Monitoring
-  - Showing : 
-    - Mail spam filter
-    - RAG : 
-      - Must explain what are embeddings !!!
-    - Video Search Engine
-    - Fashion online watcher
-    - CodeAgent
-
-- Dive on LLMs : 
-  - key players
-  - how to evaluate LLMs
-  - OSS vs closed API
-  - Dive RAG
-  - Dive finetuning
-  - Dive Agentic AI
-
-- Tech watch ?
-
-## 3 - Others
-- AI project management
-- AI regulation + AI Safety
-- Entrepreunership YC rules
 
 
-## 4 - Business AI
-- AI Value Chain 
-- AI Market 
-- AI Business models
-
-## 5 - 
-Group projects showcase ? 
-QCM 
 
 
-The course would have to be restructured in the following manner : 
-  - docs 
-    - slides 
-      - assets
-      - Session${SESSION_NB}-Deck${DECK_NB}-Title.md
-  - dist
-    - html
-      - Session${SESSION_NB}-Deck${DECK_NB}-Title.html
-    - pptx
-      - Session${SESSION_NB}-Deck${DECK_NB}-Title.pptx 
+https://insight.factset.com/hs-fs/hubfs/1)Insight/2025/12.2025/12.08.2025_Earnings%20Insight/01-number-of-sp500-earnings-calls-citing-AI-10-year.png?width=672&height=384&name=01-number-of-sp500-earnings-calls-citing-AI-10-year.png

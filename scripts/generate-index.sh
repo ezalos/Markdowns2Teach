@@ -21,14 +21,6 @@ get_title() {
     fi
 }
 
-# Build a lookup: basename (no ext) → source slug (directory name under slides/)
-declare -A FILE_TO_SLUG
-for f in $(find "$SLIDES_DIR" -name '*.md' -type f); do
-    base=$(basename "$f" .md)
-    slug=$(dirname "$f" | sed "s|^$SLIDES_DIR/||")
-    FILE_TO_SLUG["$base"]="$slug"
-done
-
 # Write HTML header
 cat > "$OUTPUT" <<'HEADER'
 <!DOCTYPE html>
@@ -53,30 +45,38 @@ cat > "$OUTPUT" <<'HEADER'
 <p class="subtitle">Deep Tech &amp; ML — M2 Entrepreneuriat Sorbonne</p>
 HEADER
 
-# Build a sorted list of "slug/filename" pairs for proper grouping
+# Build a sorted list of "slug\tfilename" pairs for proper grouping.
+# HTML files are named <slug>-<deck>.html (e.g. session-01-A-genai-fondamentaux.html).
+# Extract slug by matching the session-XX prefix.
 sorted_entries=""
 for f in $(find "$HTML_DIR" -maxdepth 1 -name '*.html' ! -name 'index.html'); do
     filename=$(basename "$f")
     base="${filename%.html}"
-    slug="${FILE_TO_SLUG[$base]:-unknown}"
+    # Extract session slug (session-XX) from the filename prefix
+    if [[ "$base" =~ ^(session-[0-9]+)- ]]; then
+        slug="${BASH_REMATCH[1]}"
+    else
+        slug="unknown"
+    fi
     sorted_entries+="$slug	$filename"$'\n'
 done
 sorted_entries=$(echo "$sorted_entries" | sort)
 
-# Group HTML files by source slug
+# Group HTML files by session slug
 current_group=""
 while IFS=$'\t' read -r slug filename; do
     [ -z "$slug" ] && continue
     base="${filename%.html}"
 
-    # Resolve title from source .md
-    srcfile="$SLIDES_DIR/$slug/$base.md"
+    # Resolve title from source .md — strip slug prefix to get deck basename
+    deck_base="${base#"$slug"-}"
+    srcfile="$SLIDES_DIR/$slug/$deck_base.md"
     title=""
     if [ -f "$srcfile" ]; then
         title=$(get_title "$srcfile")
     fi
     if [ -z "$title" ]; then
-        title=$(echo "$base" | sed 's/^[0-9]*-//;s/-/ /g')
+        title=$(echo "$deck_base" | sed 's/^[0-9]*-//;s/-/ /g')
     fi
 
     # Start new group if needed
@@ -85,7 +85,16 @@ while IFS=$'\t' read -r slug filename; do
             echo '</ul>' >> "$OUTPUT"
         fi
         current_group="$slug"
-        echo "<h2>$slug</h2>" >> "$OUTPUT"
+        # Map session directories to human-readable labels
+        group_label="$slug"
+        case "$slug" in
+            session-01) group_label="Session 1 — Comprendre l'IA en 2026" ;;
+            session-02) group_label="Session 2 — Construire avec l'IA" ;;
+            session-03) group_label="Session 3 — Cadrer un projet IA" ;;
+            session-04) group_label="Session 4 — Le business de l'IA" ;;
+            session-05) group_label="Session 5 — Éthique, gouvernance & clôture" ;;
+        esac
+        echo "<h2>$group_label</h2>" >> "$OUTPUT"
         echo '<ul>' >> "$OUTPUT"
     fi
 

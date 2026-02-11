@@ -18,11 +18,15 @@ Target audience: business school students (mostly non-engineers), entrepreneuria
 
 ## Course Structure (5 sessions)
 
-1. **Fundamentals & AI landscape** — AI categories, ecosystem actors, first hands-on
-2. **Prompt engineering & no-code tools** — advanced prompts, Teachable Machine, Voiceflow
-3. **Framing & managing AI projects** — CRISP-DM, AI Canvas, Build vs Buy
-4. **AI business models & strategy** — business model patterns, scaling, unit economics
-5. **Ethics, governance & final presentations** — EU AI Act, bias, final project pitches
+| Session | Title | Deck A | Deck B |
+|---------|-------|--------|--------|
+| 1 | Comprendre l'IA en 2026 | L'IA Générative : ce qu'elle sait faire | L'IA au-delà des LLMs |
+| 2 | Construire avec l'IA | Du Prompt au Produit | L'Ingénierie IA |
+| 3 | Cadrer un projet IA | Évaluer une solution IA | Méthodologie projet IA |
+| 4 | Le business de l'IA | L'écosystème IA | Business Models & Cas Réels |
+| 5 | Éthique, gouvernance & clôture | Régulation & IA responsable | *(presentations + QCM)* |
+
+Each 3h session follows: **Deck A** (45 min) → break → **Deck B** (45 min) → break → **Block C** (practice/QCM/speaker, 45 min).
 
 ## Directory Structure
 
@@ -35,14 +39,19 @@ Markdowns2Teach/
 ├── themes/
 │   └── sorbonne.css                 # Custom Marp theme
 ├── slides/
-│   └── <source-slug>/
-│       ├── XX-topic-name.md         # Slide deck(s)
-│       └── assets/                  # Images (subdirs per deck if multiple)
+│   └── session-XX/                  # One dir per session (01–05)
+│       ├── A-slug.md                # Deck A (first half of session)
+│       ├── B-slug.md                # Deck B (second half, optional)
+│       └── assets/                  # Images (subdirs by source prefix)
+│           ├── ng01/                # Andrew Ng W1 images
+│           ├── ng02/                # Andrew Ng W2 images
+│           └── ng03/                # Andrew Ng W3 images
 ├── scripts/
 │   ├── extract-images.sh            # PDF image extraction
 │   ├── check-overflow.sh            # Slide overflow linter
 │   └── generate-index.sh            # HTML index page generator
 ├── docs/
+│   ├── archive/slides-v1/           # Pre-restructuring slide archive
 │   ├── plans/                       # Conversion roadmaps and specs
 │   ├── research/                    # Research pipeline outputs
 │   └── sources/                     # Source materials (gitignored except READMEs)
@@ -56,11 +65,12 @@ Markdowns2Teach/
 ```
 
 **Naming conventions:**
-- Source directories: `<source-slug>/` (no intermediate `chXX` dirs)
-- Files: `XX-topic-name.md` (2-digit prefix for ordering within a source)
-- Multi-deck sources: file prefix provides ordering (`01-`, `02-`, etc.)
-- Assets: `assets/` per source; use `assets/XX/` subdirs when multiple decks share one source
+- Session directories: `session-XX/` (XX = 01–05)
+- Deck files: `A-slug.md`, `B-slug.md` — letter prefix provides ordering within session
+- Session 5 has only deck A (deck B is live presentations)
+- Assets: `assets/` per session, with source-prefix subdirs (`ng01/`, `ng02/`, `ng03/`)
 - English names for files/dirs
+- Original topic-based decks archived at `docs/archive/slides-v1/`
 
 ## Marp Slide Standards
 
@@ -71,10 +81,12 @@ Markdowns2Teach/
 marp: true
 theme: sorbonne
 paginate: true
-header: "Deep Tech & ML — M2 Entrepreneuriat Sorbonne"
-footer: "Source attribution · License"
+header: "Deep Tech & ML — Session N · M2 Entrepreneuriat Sorbonne"
+footer: "Sources multiples · DeepLearning.AI CC BY-SA 2.0"
 ---
 ```
+
+The header includes the session number. The footer lists source attributions — use the multi-source format when a deck draws from several sources, or the Andrew Ng specific attribution when it's primarily his material.
 
 ### File header comments
 
@@ -146,9 +158,25 @@ make clean      # Remove dist/
 
 ## Attribution
 
-- Andrew Ng / DeepLearning.AI materials: **CC BY-SA 2.0** — educational use, must cite DeepLearning.AI as source
-- Footer on adapted slides: `Adapté de *Generative AI for Everyone* par Andrew Ng · DeepLearning.AI · CC BY-SA 2.0`
-- Kevin Vu / Dauphine archived materials: attribution TBD
+- **Andrew Ng / DeepLearning.AI**: CC BY-SA 2.0 — cite DeepLearning.AI as source
+  - Footer: `Adapté de *Generative AI for Everyone* par Andrew Ng · DeepLearning.AI · CC BY-SA 2.0`
+- **Kevin Vu / Dauphine**: archived materials, attribution TBD
+- **Research decks**: original content based on cited sources (URLs in slide `<small>` tags)
+- **Multi-source decks**: use `Sources multiples · DeepLearning.AI CC BY-SA 2.0` when combining Andrew Ng + research content
+
+## Slide Decks
+
+| Path | Title | Slides |
+|------|-------|--------|
+| `slides/session-01/A-genai-fondamentaux.md` | L'IA Générative : ce qu'elle sait faire | 21 |
+| `slides/session-01/B-au-dela-des-llms.md` | L'IA au-delà des LLMs | 19 |
+| `slides/session-02/A-prompt-au-produit.md` | Du Prompt au Produit | 19 |
+| `slides/session-02/B-ingenierie-ia.md` | L'Ingénierie IA | 20 |
+| `slides/session-03/A-evaluer-solution-ia.md` | Évaluer une solution IA | 18 |
+| `slides/session-03/B-methodologie-projet.md` | Méthodologie projet IA | 17 |
+| `slides/session-04/A-ecosysteme-ia.md` | L'écosystème IA | 18 |
+| `slides/session-04/B-business-models.md` | Business Models & Cas Réels | 17 |
+| `slides/session-05/A-regulation-ethique.md` | Régulation & IA responsable | 23 |
 
 ## Source Materials
 
@@ -159,5 +187,7 @@ make clean      # Remove dist/
 | `docs/sources/courses/AndrewNg/W3.pdf` | Andrew Ng "Generative AI for Everyone" W3 (49p) |
 | `docs/sources/courses/KevinVu/cours_*.html` | Kevin Vu WebSlides course decks (7 sessions) |
 | `docs/sources/courses/KevinVu/cours_*.pdf` | Kevin Vu course PDFs |
+| `docs/archive/slides-v1/` | Pre-restructuring slide archive (15 topic directories) |
+| `docs/research/` | Research pipeline outputs (13 topics, reports + raw data) |
 | `docs/Outline - 2026 M2 - ML & DeepTech.md` | Course plan, themes, and session structure |
 | `docs/Meeting Notes - Kevin Vu M2 Sorbonne.md` | Notes from meeting with previous teacher |

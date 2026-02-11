@@ -27,7 +27,7 @@ build: html pptx ## Build both HTML and PPTX
 html: $(HTML_DIR) ## Build HTML slides → dist/html/
 	@for f in $(SLIDE_FILES); do \
 		slug=$$(dirname $$f | sed 's|^$(SLIDES_DIR)/||'); \
-		outfile="$(HTML_DIR)/$$(basename $$f .md).html"; \
+		outfile="$(HTML_DIR)/$$slug-$$(basename $$f .md).html"; \
 		echo "  HTML: $$f -> $$outfile"; \
 		$(MARP) "$$f" -o "$$outfile"; \
 	done
@@ -45,7 +45,8 @@ index: $(HTML_DIR) ## Generate index.html with links to all decks
 
 pptx: $(PPTX_DIR) ## Build PPTX presentations → dist/pptx/
 	@for f in $(SLIDE_FILES); do \
-		outfile="$(PPTX_DIR)/$$(basename $$f .md).pptx"; \
+		slug=$$(dirname $$f | sed 's|^$(SLIDES_DIR)/||'); \
+		outfile="$(PPTX_DIR)/$$slug-$$(basename $$f .md).pptx"; \
 		echo "  PPTX: $$f -> $$outfile"; \
 		$(MARP) --pptx-editable "$$f" -o "$$outfile"; \
 	done
