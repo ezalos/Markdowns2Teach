@@ -42,7 +42,7 @@ cat > "$OUTPUT" <<'HEADER'
 </style>
 </head><body>
 <h1>Slide Decks</h1>
-<p class="subtitle">Deep Tech &amp; ML — M2 Entrepreneuriat Sorbonne</p>
+<p class="subtitle">Deep Tech &amp; ML (UE3) — M2 IMT&amp;E · Paris 1 Panthéon-Sorbonne</p>
 HEADER
 
 # Build a sorted list of "slug\tfilename" pairs for proper grouping.

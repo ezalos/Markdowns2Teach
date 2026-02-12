@@ -109,7 +109,7 @@ Good discussion questions:
 marp: true
 theme: sorbonne
 paginate: true
-header: "Deep Tech & ML — M2 Entrepreneuriat Sorbonne"
+header: "Deep Tech & ML (UE3) — Session N · M2 IMT&E · Paris 1 Panthéon-Sorbonne"
 footer: "Recherche [Topic] 2024–2026 · Données publiques"
 ---
 ```

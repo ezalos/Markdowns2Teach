@@ -11,7 +11,7 @@ GDRIVE_REMOTE := gdrive:Travail/Formations/Sorbonne/AutoDecks
 # Find all .md files under slides/
 SLIDE_FILES := $(shell find $(SLIDES_DIR) -name '*.md' -type f)
 
-.PHONY: all preview build pptx html index check check-citations dedup clean sync help
+.PHONY: all preview build pptx html html-inline index check check-citations dedup clean sync serve help
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
@@ -32,10 +32,9 @@ html: $(HTML_DIR) ## Build HTML slides → dist/html/
 		$(MARP) "$$f" -o "$$outfile"; \
 	done
 	@for d in $$(find $(SLIDES_DIR) -type d -name assets); do \
-		slug=$$(echo "$$d" | sed 's|^$(SLIDES_DIR)/||;s|/assets$$||'); \
-		echo "  ASSETS: $$d -> $(HTML_DIR)/assets/$$slug"; \
-		mkdir -p "$(HTML_DIR)/assets/$$slug"; \
-		cp -ru "$$d/." "$(HTML_DIR)/assets/$$slug/"; \
+		echo "  ASSETS: $$d -> $(HTML_DIR)/assets/"; \
+		mkdir -p "$(HTML_DIR)/assets"; \
+		cp -ru "$$d/." "$(HTML_DIR)/assets/"; \
 	done
 	@$(MAKE) index
 
@@ -50,6 +49,12 @@ pptx: $(PPTX_DIR) ## Build PPTX presentations → dist/pptx/
 		echo "  PPTX: $$f -> $$outfile"; \
 		$(MARP) --pptx-editable "$$f" -o "$$outfile"; \
 	done
+
+html-inline: html ## Inject image preloader script into HTML slides
+	@python3 scripts/inline-images.py $(HTML_DIR)
+
+serve: html-inline ## Serve HTML slides with image preloader on port 3901
+	npx -y serve $(HTML_DIR) -l 3901 --cors --no-etag
 
 sync: ## Sync PPTX files to Google Drive via rclone
 	rclone sync $(PPTX_DIR)/ $(GDRIVE_REMOTE) --progress

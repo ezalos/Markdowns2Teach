@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Slide decks for the **"Deep Tech & Machine Learning"** course, M2 Entrepreneuriat at Sorbonne (5 sessions x 3h, Mon 17h30–20h30, ~15–20 students).
+Slide decks for the **"Deep Tech & Machine Learning" (UE3)** course, M2 IMT&E at Paris 1 Panthéon-Sorbonne (5 sessions x 3h, Mon 17h30–20h30, ~15–20 students).
 
 Target audience: business school students (mostly non-engineers), entrepreneurially-minded, heavy LLM users, curious about the latest AI products. Some have coded a bit but get lost in deep technical detail.
 
@@ -81,7 +81,7 @@ Markdowns2Teach/
 marp: true
 theme: sorbonne
 paginate: true
-header: "Deep Tech & ML — Session N · M2 Entrepreneuriat Sorbonne"
+header: "Deep Tech & ML (UE3) — Session N · M2 IMT&E · Paris 1 Panthéon-Sorbonne"
 footer: "Sources multiples · DeepLearning.AI CC BY-SA 2.0"
 ---
 ```
@@ -168,7 +168,7 @@ make clean      # Remove dist/
 
 | Path | Title | Slides |
 |------|-------|--------|
-| `slides/session-01/A-genai-fondamentaux.md` | L'IA Générative : ce qu'elle sait faire | 21 |
+| `slides/session-01/A-genai-fondamentaux.md` | L'IA Générative : ce qu'elle sait faire | 27 |
 | `slides/session-01/B-au-dela-des-llms.md` | L'IA au-delà des LLMs | 19 |
 | `slides/session-02/A-prompt-au-produit.md` | Du Prompt au Produit | 19 |
 | `slides/session-02/B-ingenierie-ia.md` | L'Ingénierie IA | 20 |

@@ -2,7 +2,7 @@
 marp: true
 theme: sorbonne
 paginate: true
-header: "Deep Tech & ML — Session 1 · M2 Entrepreneuriat Sorbonne"
+header: "Deep Tech & ML (UE3) — Session 1 · M2 IMT&E · Paris 1 Panthéon-Sorbonne"
 footer: ""
 ---
 
@@ -13,9 +13,9 @@ footer: ""
 <!-- _paginate: skip -->
 <!-- _header: "" -->
 
-# Deep Tech & Machine Learning
+# Deep Tech & Machine Learning (UE3)
 
-## M2 Entrepreneuriat · Sorbonne · 2026
+## M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 
 ---
 

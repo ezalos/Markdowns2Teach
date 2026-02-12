@@ -2,12 +2,12 @@
 marp: true
 theme: sorbonne
 paginate: true
-header: "Deep Tech & ML — Session 1 · M2 Entrepreneuriat Sorbonne"
+header: "Deep Tech & ML (UE3) — Session 1 · M2 IMT&E · Paris 1 Panthéon-Sorbonne"
 footer: "Adapté de *Generative AI for Everyone* par Andrew Ng · DeepLearning.AI · CC BY-SA 2.0"
 ---
 
 <!-- ABOUTME: Introduction à la Generative AI — concepts, capacités (Writing/Reading/Chatting) et génération d'images. -->
-<!-- ABOUTME: Première moitié de la Session 1, business-framed pour étudiants M2 Entrepreneuriat. -->
+<!-- ABOUTME: Première moitié de la Session 1, business-framed pour étudiants M2 IMT&E Paris 1 Panthéon-Sorbonne. -->
 
 <!-- _class: title -->
 <!-- _paginate: skip -->
@@ -18,7 +18,7 @@ footer: "Adapté de *Generative AI for Everyone* par Andrew Ng · DeepLearning.A
 
 ## Session 1A — L'IA Générative : ce qu'elle sait faire
 
-M2 Entrepreneuriat · Sorbonne · 2026
+M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 
 ---
 
@@ -38,7 +38,7 @@ M2 Entrepreneuriat · Sorbonne · 2026
 
 > Après le lancement de ChatGPT (nov. 2022), les mentions d'"IA" dans les *earnings calls* du S&P 500 ont explosé.
 
-![bg right:45%](assets/A/01-number-of-sp500-earnings-calls-citing-AI-10-year.webp) [4]
+![bg right:45% contain](assets/A/01-number-of-sp500-earnings-calls-citing-AI-10-year.webp) [4]
 
 *Question pour la classe* : Si le coût de l'intelligence machine tend vers zéro, quel service aujourd'hui trop coûteux pour être automatisé devient une opportunité de startup demain ?
 
@@ -50,8 +50,8 @@ M2 Entrepreneuriat · Sorbonne · 2026
 
 Des systèmes d'intelligence artificielle capables de *produire du contenu de haute qualité* : texte, code, images, audio, vidéo.
 
-![bg right:45%](assets/A/02-mistral_screenshot.png) 
-![bg left:45%](assets/A/02-chatgpt_screenshot.png)
+![bg right:55% contain](assets/A/02-chatgpt_screenshot.png)
+![bg contain](assets/A/02-mistral_screenshot.png)
 
 ---
 
@@ -65,9 +65,11 @@ Au-delà des chatbots grand public, la Generative AI est un *developer tool* pui
 
 *Pour les entrepreneurs* : même sans équipe technique, les LLMs permettent de construire des *MVPs fonctionnels* en quelques jours.
 
-> En 2025, des startups comme Bolt.new et Lovable permettent de coder des apps entières via prompt.
+> En 2025, des startups comme Bolt.new et Lovable permettent de coder des apps entières via prompt. [1][2]
 
-![bg right:45%](assets/A/03-googlecolab-generation.png)
+![bg right:45% contain](assets/A/03-googlecolab-generation.png)
+
+<small>Sources : [1] [Bolt.new](https://bolt.new/) · [2] [Lovable](https://lovable.dev/)</small>
 
 ---
 
@@ -89,13 +91,15 @@ Au-delà des chatbots grand public, la Generative AI est un *developer tool* pui
 
 La Generative AI ne se limite pas au texte :
 
-- *Images* : Midjourney, DALL-E, Stable Diffusion, Flux
+- *Images* : Midjourney [1], DALL-E [2], Stable Diffusion [3], Flux [4]
 
 *Cas d'usage business* :
 - Créer des visuels marketing sans graphiste
 
-![bg right:45%](assets/ng01/img-009.png)
-![bg](assets/ng01/img-010.png)
+![bg right:45% contain](assets/ng01/img-009.png)
+![bg contain](assets/ng01/img-010.png)
+
+<small>Sources : [1] [Midjourney](https://www.midjourney.com/) · [2] [OpenAI DALL-E](https://openai.com/dall-e-3) · [3] [Stability AI](https://stability.ai/) · [4] [Black Forest Labs](https://blackforestlabs.ai/)</small>
 
 ---
 
@@ -103,7 +107,7 @@ La Generative AI ne se limite pas au texte :
 
 La Generative AI ne se limite pas au texte :
 
-- *Audio* : génération de voix (ElevenLabs), musique (Suno)
+- *Audio* : génération de voix (ElevenLabs [1]), musique (Suno [2])
 
 ![](assets/A/suno.png)
 [Suno](https://suno.com/s/TDY3F2UiDfBxkIVI)
@@ -111,6 +115,7 @@ La Generative AI ne se limite pas au texte :
 *Cas d'usage business* :
 - Produire des voix-off pour des formations
 
+<small>Sources : [1] [ElevenLabs](https://elevenlabs.io/) · [2] [Suno](https://suno.com/)</small>
 
 ---
 
@@ -118,12 +123,14 @@ La Generative AI ne se limite pas au texte :
 
 La Generative AI ne se limite pas au texte :
 
-- *Vidéo* : Sora (OpenAI), Runway, Kling, Seedance2
+- *Vidéo* : Sora (OpenAI) [1], Runway [2], Kling (Kuaishou) [3], Seedance2
 
-[Prompt example : drone racing an abandoned factory ](https://www.youtube.com/watch?v=-MluR9dqt5w&t=12s)
+[Prompt example : drone racing an abandoned factory](https://www.youtube.com/watch?v=-MluR9dqt5w&t=12s)
 
 *Cas d'usage business* :
 - Générer des vidéos de démonstration produit
+
+<small>Sources : [1] [OpenAI Sora](https://openai.com/sora) · [2] [Runway](https://runwayml.com/) · [3] [Kling AI](https://klingai.com/)</small>
 
 ---
 
@@ -145,24 +152,35 @@ Trois piliers pour maîtriser la Generative AI en tant qu'entrepreneur :
 
 # 09 — Les grandes familles de l'IA
 
-#TODO: 
+<div class="left">
 
-What technology is applied : 
+| Type | Principe | Exemple business |
+|------|----------|-----------------|
+| **Supervised Learning** | Input A → Output B | Email → spam ? |
+| **Unsupervised Learning** | Patterns sans labels | Segmentation clients |
+| **Reinforcement Learning** | Essai/erreur + récompense | Trading algorithmique |
+| **Generative AI** | Génère du contenu original | Texte, images, code |
+
+> Les slides suivantes détaillent chaque famille avec des exemples concrets.
+
+</div>
+<div class="right">
 
 ![](assets/A/ai-onion-raghunitb.png)
 
-How the algorithm interact with data :
-
-![](assets/A/unsupervised-supervised-reinforcement.png)
----
-
-# 10 — Unsupervised Learning & Supervised Learning —
-
-![](assets/A/unsupervise-supervise-reinforcement.png)
+</div>
 
 ---
 
-# 10 — Supervised Learning — exemples business
+# 10 — Supervised, Unsupervised & Reinforcement Learning
+
+Comment l'algorithme interagit avec les données — chaque approche répond à un type de problème différent.
+
+![bg right:50% contain](assets/A/unsupervise-supervise-reinforcement.png)
+
+---
+
+# 11 — Supervised Learning — exemples business
 
 | Input (A) | Output (B) | Application métier |
 |---|---|---|
@@ -174,11 +192,13 @@ How the algorithm interact with data :
 | Enregistrement audio | Transcription texte | Speech Recognition |
 | Avis client | Sentiment (pos/neg) | Veille e-réputation |
 
-> *Pour un entrepreneur* : le Supervised Learning reste la technologie IA la plus *déployée* et la plus *rentable*. La Generative AI est plus récente mais croît le plus vite.
+> *Pour un entrepreneur* : le Supervised Learning (classification, prédiction) reste la technologie IA la plus *rentable* en production [1]. La Generative AI l'a dépassé en fréquence de déploiement depuis 2024 [2], mais croissance ≠ revenus prouvés.
+
+<small>Sources : [1] [McKinsey State of AI 2024](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-2024) · [2] [Gartner](https://www.gartner.com/en/newsroom/press-releases/2024-05-07-gartner-survey-finds-generative-ai-is-now-the-most-frequently-deployed-ai-solution-in-organizations)</small>
 
 ---
 
-# 10 — Unsupervised Learning — exemples business
+# 12 — Unsupervised Learning — exemples business
 
 
 | Data mix  | Application métier |
@@ -190,7 +210,7 @@ How the algorithm interact with data :
 
 ---
 
-# 11 — Reinforcement Learning — exemples business
+# 13 — Reinforcement Learning — exemples business
 
 
 | Simulateur               | Application métier    |
@@ -202,9 +222,9 @@ How the algorithm interact with data :
 
 ---
 
-# 09 — Pourquoi l'IA explose maintenant
+# 14 — Pourquoi l'IA explose maintenant
 
-![](assets/A/history-of-AI.png)
+![bg right:45% contain](assets/A/history-of-AI.png)
 
 *2010–2020 : l'ère du Large Scale Supervised Learning*
 
@@ -212,21 +232,29 @@ How the algorithm interact with data :
 - Les petits modèles plafonnent vite — les grands modèles continuent de progresser
 - Cela a motivé la course au *scale* : plus de compute, plus de data
 
-![](assets/A/epoch-ai-dataset_size.png) [1]
-![](assets/A/METR-task-len-horizon.png) [2]
-
 *2020+ : l'ère des Large Language Models*
 
 - Application du même principe au texte : entraîner des modèles *massifs* sur des *centaines de milliards de mots*
 - Résultat : des modèles capables de générer du texte de qualité humaine
 
+---
 
-<small>Sources : [1] [EpochAI](https://epoch.ai/data-insights/dataset-size-trend) [2] [METR]([link](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/)) </small>
+# 15 — La preuve par les données
+
+![bg right:45% contain vertical](assets/A/epoch-ai-dataset_size.png)
+![bg contain](assets/A/METR-task-len-horizon.png)
+
+- La taille des datasets d'entraînement croît de manière exponentielle [1]
+- Les tâches que l'IA peut accomplir de manière autonome s'allongent rapidement [2]
+
+> Ces deux courbes expliquent pourquoi chaque trimestre apporte des capacités IA que personne n'anticipait un an plus tôt.
+
+<small>Sources : [1] [EpochAI](https://epoch.ai/data-insights/dataset-size-trend) · [2] [METR](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/)</small>
 
 
 ---
 
-# 10 — Comment fonctionnent les LLMs
+# 16 — Comment fonctionnent les LLMs
 
 Les LLMs utilisent le Supervised Learning pour *prédire le mot suivant*, mot par mot :
 
@@ -243,7 +271,7 @@ Les LLMs utilisent le Supervised Learning pour *prédire le mot suivant*, mot pa
 
 ---
 
-# 11 — Les LLMs comme partenaire de réflexion
+# 17 — Les LLMs comme partenaire de réflexion
 
 Un LLM n'est pas juste un moteur de recherche amélioré. C'est un *Writing Partner* :
 
@@ -265,7 +293,7 @@ Un LLM n'est pas juste un moteur de recherche amélioré. C'est un *Writing Part
 
 ---
 
-# 12 — Les trois familles de tâches LLM
+# 18 — Les trois familles de tâches LLM
 
 | Catégorie | Exemples | Type d'app |
 |---|---|---|
@@ -277,11 +305,11 @@ Un LLM n'est pas juste un moteur de recherche amélioré. C'est un *Writing Part
 - *Web-based* : ChatGPT, Claude, Le Chat — interaction directe
 - *Software application* : le LLM est intégré dans un produit (email routing, analyse automatisée)
 
-![bg right:45%](assets/ng01/img-026.png)
+![bg right:45% contain](assets/ng01/img-026.png)
 
 ---
 
-# 13 — Writing : brainstorming et rédaction assistée
+# 19 — Writing : brainstorming et rédaction assistée
 
 Les LLMs excellent pour le *brainstorming* — tâche à faible risque et forte valeur créative :
 
@@ -298,7 +326,7 @@ Les LLMs excellent pour le *brainstorming* — tâche à faible risque et forte 
 
 ---
 
-# 14 — Reading : résumer et classifier
+# 20 — Reading : résumer et classifier
 
 Un des cas d'usage les plus puissants pour les entreprises :
 
@@ -313,11 +341,11 @@ Un des cas d'usage les plus puissants pour les entreprises :
 
 > *Clé du succès* : un bon prompt de classification a 3 éléments — la *tâche*, les *choix possibles*, et les *données* à analyser.
 
-![bg right:45%](assets/ng01/img-024.png)
+![bg right:45% contain](assets/ng01/img-024.png)
 
 ---
 
-# 15 — Chatting : du bot interne au service client
+# 21 — Chatting : du bot interne au service client
 
 *BettaBurgers* — un chatbot de prise de commande sans friction, sans attente téléphonique.
 
@@ -342,28 +370,30 @@ Un des cas d'usage les plus puissants pour les entreprises :
 
 ---
 
-# 16 — La génération d'images par IA
+# 22 — La génération d'images par IA
 
 Les modèles de génération d'images créent des visuels à partir de *descriptions textuelles* :
 
 *Outils majeurs en 2026* :
-- *Midjourney* — qualité artistique, très populaire
-- *DALL-E 3* (OpenAI) — intégré à ChatGPT
-- *Flux* (Black Forest Labs) — open source, haute qualité
-- *Stable Diffusion* — open source, très personnalisable
+- *Midjourney* [1] — qualité artistique, très populaire
+- *DALL-E 3* (OpenAI) [2] — intégré à ChatGPT
+- *Flux* (Black Forest Labs) [3] — open source, haute qualité
+- *Stable Diffusion* [4] — open source, très personnalisable
 
 *Pour les entrepreneurs* :
 - Prototypage visuel rapide et quasi gratuit
 - A/B testing de visuels marketing
 - Attention aux *droits d'auteur* — sujet juridique en évolution
 
-![bg right:33%](assets/ng01/img-028.png)
-![bg](assets/ng01/img-030.png)
-![bg](assets/ng01/img-029.png)
+![bg right:40% contain](assets/ng01/img-028.png)
+![bg contain](assets/ng01/img-030.png)
+![bg contain](assets/ng01/img-029.png)
+
+<small>Sources : [1] [Midjourney](https://www.midjourney.com/) · [2] [OpenAI DALL-E](https://openai.com/dall-e-3) · [3] [Black Forest Labs](https://blackforestlabs.ai/) · [4] [Stability AI](https://stability.ai/)</small>
 
 ---
 
-# 17 — Comment ça marche : les Diffusion Models
+# 23 — Comment ça marche : les Diffusion Models
 
 Le principe est élégant — on entraîne un modèle à *enlever du bruit* d'une image :
 
@@ -391,7 +421,7 @@ Le principe est élégant — on entraîne un modèle à *enlever du bruit* d'un
 
 ---
 
-# 18 — Le test du "fresh college grad"
+# 24 — Le test du "fresh college grad"
 
 Comment évaluer si un LLM peut réaliser une tâche ? Utilisez cette heuristique :
 
@@ -408,23 +438,25 @@ Comment évaluer si un LLM peut réaliser une tâche ? Utilisez cette heuristiqu
 
 ---
 
-# 19 — Hallucinations et Knowledge Cutoffs
+# 25 — Hallucinations et Knowledge Cutoffs
 
 *Hallucinations* — le LLM *invente des informations avec un ton très confiant* :
-- Un avocat américain a soumis un mémoire juridique contenant des *affaires inventées* par ChatGPT (*NYT*, 2023)
+- Un avocat américain a soumis un mémoire juridique contenant des *affaires inventées* par ChatGPT [1]
 - Règle d'or : ne jamais publier un contenu IA sans *vérification humaine*
 
 *Knowledge Cutoffs* — l'IA vit dans le passé :
 - Les connaissances sont *figées à la date d'entraînement*
 - Les données de la semaine dernière restent inaccessibles (sauf accès web)
 
-![bg right:45%](assets/ng01/img-022.png)
+![bg right:45% contain](assets/ng01/img-022.png)
 
 *Question pour la classe* : Quelles informations de votre entreprise ne devriez-vous JAMAIS mettre dans un prompt ChatGPT ?
 
+<small>Sources : [1] [NYT](https://www.nytimes.com/2023/05/27/nyregion/avianca-chatgpt-fake-citations.html)</small>
+
 ---
 
-# 20 — Récapitulatif — ce que l'IA sait et ne sait pas faire
+# 26 — Récapitulatif — ce que l'IA sait et ne sait pas faire
 
 | L'IA *sait* faire | L'IA *ne sait pas* (encore) faire |
 |---|---|
@@ -439,7 +471,7 @@ Comment évaluer si un LLM peut réaliser une tâche ? Utilisez cette heuristiqu
 
 ---
 
-# 21 — Points clés à retenir
+# 27 — Points clés à retenir
 
 *Comprendre* :
 - La Generative AI produit du contenu (texte, image, audio, vidéo) à partir de prompts

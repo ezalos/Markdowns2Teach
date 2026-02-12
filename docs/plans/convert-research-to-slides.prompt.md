@@ -5,7 +5,7 @@
 
 ## Your Task
 
-Convert a completed research topic into a Marp slide deck for the M2 Entrepreneuriat course at Sorbonne.
+Convert a completed research topic into a Marp slide deck for the M2 IMT&E course at Paris 1 Panthéon-Sorbonne.
 
 **You will be given**: a path to a research directory (e.g. `docs/research/ai-market-intelligence/`) containing `report.md` and `results/*.json`.
 
