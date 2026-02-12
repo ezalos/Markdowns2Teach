@@ -2,7 +2,7 @@
 marp: true
 theme: sorbonne
 paginate: true
-header: "Deep Tech & ML — Session 3 · M2 Entrepreneuriat Sorbonne"
+header: "Deep Tech & ML (UE3) — Session 3 · M2 IMT&E · Paris 1 Panthéon-Sorbonne"
 footer: "Sources multiples · DeepLearning.AI CC BY-SA 2.0 · Données publiques"
 ---
 
@@ -18,7 +18,7 @@ footer: "Sources multiples · DeepLearning.AI CC BY-SA 2.0 · Données publiques
 
 ## Session 3B — Méthodologie projet IA
 
-M2 Entrepreneuriat · Sorbonne · 2026
+M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 
 ---
 
@@ -36,14 +36,14 @@ Le framework le plus utilisé en Data Science — **43% d'adoption**, #1 depuis 
 
 1. **Business Understanding** — définir le problème et les critères de succès
 2. **Data Understanding** — explorer, inventorier, évaluer la qualité
-3. **Data Preparation** — nettoyer, transformer (**50-70% de l'effort** total)
+3. **Data Preparation** — nettoyer, transformer (**50-70% de l'effort** total) [2]
 4. **Modeling** — entraîner, comparer, tuner les modèles
 5. **Evaluation** — valider vs les critères business (pas que les métriques ML)
 6. **Deployment** — mettre en production + monitoring continu
 
 > Né d'un **programme de recherche européen** (EU ESPRIT, 1996-1999). Jamais mis à jour — mais toujours dominant.
 
-<small>Sources : [1] [DataScience-PM](https://www.datascience-pm.com/crisp-dm-2/) · [IBM](https://public.dhe.ibm.com/software/analytics/spss/documentation/modeler/14.2/es/CRISP-DM.pdf)</small>
+<small>Sources : [1] [DataScience-PM](https://www.datascience-pm.com/crisp-dm-2/) · [2] [IBM SPSS Modeler CRISP-DM Guide](https://www.ibm.com/docs/en/spss-modeler/18.5.0?topic=dm-data-preparation)</small>
 
 ---
 
@@ -57,7 +57,7 @@ Le framework le plus utilisé en Data Science — **43% d'adoption**, #1 depuis 
 
 - **Consortium européen** : DaimlerChrysler, NCR, SPSS, OHRA [1]
 - CRISP-ML(Q) (2021) ajoute Monitoring + Quality Assurance [2]
-- Cité **400+ fois** en littérature académique depuis 2021
+- Le paper fondateur cité **1 100+ fois** en littérature académique [3]
 - Parler CRISP-DM **signale la maturité** aux investisseurs
 
 </div>
@@ -66,13 +66,13 @@ Le framework le plus utilisé en Data Science — **43% d'adoption**, #1 depuis 
 ### Les red flags
 
 - Un prestataire qui saute le **Business Understanding**
-- Data Preparation = **50-70%** du temps — budgétez en conséquence
+- Data Preparation = **50-70%** du temps [4] — budgétez en conséquence
 - Un projet "fini" au premier essai — le cycle est **itératif**
 - Pas de phase **Evaluation** avec des critères business
 
 </div>
 
-<small>Sources : [1] [CRISP-DM](https://public.dhe.ibm.com/software/analytics/spss/documentation/modeler/14.2/es/CRISP-DM.pdf) · [2] [ml-ops.org](https://ml-ops.org/content/crisp-ml)</small>
+<small>Sources : [1] [CRISP-DM](https://public.dhe.ibm.com/software/analytics/spss/documentation/modeler/14.2/es/CRISP-DM.pdf) · [2] [ml-ops.org](https://ml-ops.org/content/crisp-ml) · [3] [Semantic Scholar](https://www.semanticscholar.org/paper/48b9293cfd4297f855867ca278f7069abc6a9c24) · [4] [IBM SPSS Modeler CRISP-DM Guide](https://www.ibm.com/docs/en/spss-modeler/18.5.0?topic=dm-data-preparation)</small>
 
 ---
 
@@ -298,7 +298,7 @@ Votre tâche est-elle bien définie en langage naturel ?
 
 - **Build in-house** : a construit ses propres outils IA
 - **EUR 700M** économisés depuis 2019 via maintenance prédictive et optimisation énergie [1]
-- **5 Mds** de data points traités par jour
+- **7,4M** d'assets connectés via EcoStruxure IoT [2]
 - A commencé par un cas d'usage simple : **maintenance prédictive**
 
 ### Ce que ça prouve
@@ -312,7 +312,7 @@ Votre tâche est-elle bien définie en langage naturel ?
 
 > **Pas de réponse universelle** au Build vs Buy — ça dépend de vos ressources et de votre timeline.
 
-<small>Sources : [1] [Schneider Electric](https://www.se.com/)</small>
+<small>Sources : [1] [Schneider Electric](https://www.se.com/ww/en/about-us/newsroom/) · [2] [EcoStruxure Platform](https://www.se.com/ww/en/work/campaign/innovation/platform/)</small>
 
 ---
 
@@ -391,18 +391,18 @@ Votre tâche est-elle bien définie en langage naturel ?
 
 **Phase 1 — Valider une idée** (0-3 mois) :
 - Use Case Prioritization, AI Project Canvas, MVP Prompt Engineering
-- Budget : < 10K EUR, 1-2 personnes, livrable en 1-4 semaines
+- Budget : ~10-30K EUR, 1-2 personnes, livrable en 1-4 semaines [1]
 
 **Phase 2 — Construire un produit** (3-12 mois) :
 - ML Canvas, Build vs Buy, CRISP-DM ou LLMOps, ROI Framework
-- Budget : 50-200K EUR, 3-5 personnes, cycles de 2-4 semaines
+- Budget : 50-150K EUR, 3-5 personnes, cycles de 2-4 semaines [1]
 
 **Phase 3 — Scaler** (12+ mois) :
 - Data Flywheel, FinOps, ISO 42001 / EU AI Act compliance
 
 > **Commencez toujours par la Phase 1** — même si vous pensez connaître la réponse.
 
-<small>Sources : [1] Estimations sectorielles 2024-2026</small>
+<small>Sources : [1] [Azilen — AI Development Cost 2025](https://www.azilen.com/blog/ai-development-cost/)</small>
 
 ---
 

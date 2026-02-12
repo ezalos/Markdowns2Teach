@@ -2,12 +2,12 @@
 marp: true
 theme: sorbonne
 paginate: true
-header: "Deep Tech & ML — Session 5 · M2 Entrepreneuriat Sorbonne"
+header: "Deep Tech & ML (UE3) — Session 5 · M2 IMT&E · Paris 1 Panthéon-Sorbonne"
 footer: "Sources multiples · DeepLearning.AI CC BY-SA 2.0 · Données publiques"
 ---
 
 <!-- ABOUTME: Session 5 — Régulation IA (EU AI Act, RGPD, global), impact sociétal, Responsible AI, veille et clôture du cours. -->
-<!-- ABOUTME: Deck final du cours M2 Entrepreneuriat Sorbonne, cadré business pour non-ingénieurs. -->
+<!-- ABOUTME: Deck final du cours M2 IMT&E Paris 1 Panthéon-Sorbonne, cadré business pour non-ingénieurs. -->
 
 <!-- _class: title -->
 <!-- _paginate: skip -->
@@ -18,7 +18,7 @@ footer: "Sources multiples · DeepLearning.AI CC BY-SA 2.0 · Données publiques
 
 ## Session 5 — Éthique, gouvernance & clôture
 
-M2 Entrepreneuriat · Sorbonne · 2026
+M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 
 ---
 
@@ -144,7 +144,7 @@ Trois questions à se poser **avant** de lancer un produit IA :
 
 **Vos données** :
 - Conformité EU AI Act : **~€330K** (système high-risk, Annex III)
-- 33% des startups IA européennes sont dans des catégories high-risk
+- 33% des startups IA européennes se classent dans des catégories high-risk [1]
 - Un concurrent US ne se conforme pas et ne peut pas vendre en UE
 
 **Questions pour la classe** :
@@ -152,6 +152,8 @@ Trois questions à se poser **avant** de lancer un produit IA :
 - Le coût de conformité (€330K) est-il un **mur** ou un **moat** ?
 - Comment financer la conformité ? (Sandbox gratuit, aides BPI, investisseurs ?)
 - Un concurrent non-conforme qui entre quand même en UE — quel risque ?
+
+<small>Sources : [1] [appliedAI](https://www.appliedai.de/en/hub-en/ai-act-impact-survey)</small>
 
 ---
 
@@ -170,12 +172,12 @@ Trois questions à se poser **avant** de lancer un produit IA :
 - Le tribunal a jugé les **fournisseurs IA directement responsables**
 
 **Autres cas** :
-- **Amazon** a abandonné son outil de recrutement IA en 2018 (biais de genre irréparable)
+- **Amazon** a abandonné son outil de recrutement IA en 2018 (biais de genre irréparable) [2]
 - **COMPAS** — biais racial dans les recommandations de peine pour la justice US
 
 > **Pour un entrepreneur** : si votre IA touche au recrutement, au crédit ou à l'assurance, le biais est votre **risque juridique n°1**.
 
-<small>Sources : [1] [Bloomberg Law](https://news.bloomberglaw.com/) · [2] [NYC](https://www.nyc.gov/)</small>
+<small>Sources : [1] [Bloomberg Law](https://news.bloomberglaw.com/) · [2] [Reuters](https://www.reuters.com/article/us-amazon-com-jobs-automation-insight-idUSKCN1MK08G)</small>
 
 ---
 
@@ -183,7 +185,7 @@ Trois questions à se poser **avant** de lancer un produit IA :
 
 **Copyright — les procès qui dessinent le droit** :
 - **NYT v. OpenAI** : en cours, juge ordonne divulgation de 20M de logs (jan. 2026) [1]
-- **Thomson Reuters v. Ross** : premier rejet du fair use pour l'entraînement IA (fév. 2025)
+- **Thomson Reuters v. Ross** : premier rejet du fair use pour l'entraînement IA (fév. 2025) [4]
 - **Opt-out** : Directive DSM Art. 4 — robots.txt ou TDMRep pour refuser le text mining
 
 **Deepfakes & contenu synthétique** :
@@ -192,7 +194,7 @@ Trois questions à se poser **avant** de lancer un produit IA :
 
 > Les deployers doivent révéler les deepfakes **dès la première exposition**.
 
-<small>Sources : [1] [NYT](https://www.nytimes.com/) · [2] [EU AI Act Art. 50](https://eur-lex.europa.eu/eli/reg/2024/1689) · [3] [C2PA](https://c2pa.org/)</small>
+<small>Sources : [1] [NYT](https://www.nytimes.com/) · [2] [EU AI Act Art. 50](https://eur-lex.europa.eu/eli/reg/2024/1689) · [3] [C2PA](https://c2pa.org/) · [4] [Loeb & Loeb](https://www.loeb.com/en/insights/publications/2025/02/thomson-reuters-v-ross-intelligence-inc)</small>
 
 ---
 
@@ -275,7 +277,7 @@ Le principe fondamental :
 >
 > — **Curtis Langlotz**, Professor of Radiology, Stanford University
 
-En 2016, Geoffrey Hinton prédisait la fin des radiologues. **8 ans plus tard** : il y en a **plus**, et ils gagnent **mieux** leur vie.
+En 2016, Geoffrey Hinton prédisait la fin des radiologues [1]. **8 ans plus tard** : il y en a **plus** (+7% entre 2015-2019), et ils gagnent **mieux** leur vie [2].
 
 Cette citation s'applique à **tous les métiers** :
 - L'IA ne remplacera pas les **avocats**. Mais les avocats qui utilisent l'IA...
@@ -283,6 +285,8 @@ Cette citation s'applique à **tous les métiers** :
 - L'IA ne remplacera pas les **entrepreneurs**. Mais...
 
 > Le vrai risque n'est pas l'IA. C'est de ne pas l'utiliser.
+
+<small>Sources : [1] [AuntMinnie](https://www.auntminnie.com/imaging-informatics/artificial-intelligence/article/15746014/hinton-acknowledges-mistake-in-predicting-ai-replacement-of-radiologists) · [2] [The New Republic](https://newrepublic.com/article/187203/ai-radiology-geoffrey-hinton-nobel-prediction)</small>
 
 ---
 
@@ -320,7 +324,7 @@ Les dommages causés par l'IA sont **concrets et documentés** :
 | Incident | Impact |
 |---|---|
 | **COMPAS** (justice US) | Biais racial dans les recommandations de peine |
-| **Flash Crash** (2010) | Perte de **$1T** en minutes sur les marchés |
+| **Flash Crash** (2010) | Perte de **$1T** en minutes sur les marchés [2] |
 | **Character.AI** (2024) | Suicide d'un adolescent de 14 ans après interactions prolongées [1] |
 | **Voitures autonomes** | Accidents mortels réels (Uber 2018, Tesla) |
 
@@ -328,7 +332,7 @@ Les dommages causés par l'IA sont **concrets et documentés** :
 
 ![w:200](assets/ng03/img-007.png) ![w:200](assets/ng03/img-008.png) ![w:200](assets/ng03/img-006.png)
 
-<small>Sources : [1] [CA Gov](https://www.gov.ca.gov/) · Adapté de Andrew Ng · DeepLearning.AI · CC BY-SA 2.0</small>
+<small>Sources : [1] [CA Gov](https://www.gov.ca.gov/) · [2] [SEC/CFTC](https://www.sec.gov/news/studies/2010/marketevents-report.pdf) · Adapté de Andrew Ng · DeepLearning.AI · CC BY-SA 2.0</small>
 
 ---
 
@@ -361,11 +365,11 @@ Les dommages causés par l'IA sont **concrets et documentés** :
 | **Microsoft** | 6 principes, Office of Responsible AI | **67** red-teams en 2024 [1] |
 | **Google** | 7 AI Principles, Frontier Safety v3.0 | Critical Capability Levels [2] |
 | **Anthropic** | Responsible Scaling Policy v2.2 | **ASL-3** activé mai 2025 [3] |
-| **Meta** | Équipe RAI **dissoute** nov. 2023 | Refuse le Code of Practice GPAI |
+| **Meta** | Équipe RAI **dissoute** nov. 2023 [4] | Refuse le Code of Practice GPAI |
 
 > **Paradoxe Meta** : refuse l'auto-régulation **et** dissout son équipe RAI — tout en publiant des outils open-source (LlamaFirewall, Llama Guard 4).
 
-<small>Sources : [1] [Microsoft](https://www.microsoft.com/en-us/ai/principles-and-approach) · [2] [Google](https://deepmind.google/discover/blog/) · [3] [Anthropic](https://www.anthropic.com/responsible-scaling-policy)</small>
+<small>Sources : [1] [Microsoft](https://www.microsoft.com/en-us/ai/principles-and-approach) · [2] [Google](https://deepmind.google/discover/blog/) · [3] [Anthropic](https://www.anthropic.com/responsible-scaling-policy) · [4] [CNBC](https://www.cnbc.com/2023/11/18/facebook-parent-meta-breaks-up-its-responsible-ai-team.html)</small>
 
 ---
 
@@ -478,4 +482,4 @@ Les dommages causés par l'IA sont **concrets et documentés** :
 
 Bonne continuation et bonne veille !
 
-M2 Entrepreneuriat · Sorbonne · 2026
+M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026

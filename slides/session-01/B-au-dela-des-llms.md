@@ -2,7 +2,7 @@
 marp: true
 theme: sorbonne
 paginate: true
-header: "Deep Tech & ML — Session 1 · M2 Entrepreneuriat Sorbonne"
+header: "Deep Tech & ML (UE3) — Session 1 · M2 IMT&E · Paris 1 Panthéon-Sorbonne"
 footer: "Sources multiples · DeepLearning.AI CC BY-SA 2.0 · Kevin Vu / Dauphine"
 ---
 
@@ -18,7 +18,7 @@ footer: "Sources multiples · DeepLearning.AI CC BY-SA 2.0 · Kevin Vu / Dauphin
 
 ## Session 1B — L'IA au-delà des LLMs
 
-M2 Entrepreneuriat · Sorbonne · 2026
+M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 
 ---
 
@@ -153,11 +153,13 @@ Il n'existe *pas de prompt parfait universel* — mais un *processus* pour s'am�
 - Ex : emails clients, photos produit, appels SAV
 - *Terrain de jeu de la Generative AI*
 
-> **80%** des données d'entreprise sont non structurées (Gartner)
+> **80%** des données d'entreprise sont non structurées [1]
 
 </div>
 
 > *Règle pratique* : si votre cas repose sur un *tableur*, pensez ML classique. S'il repose sur du *texte libre*, pensez Generative AI.
+
+<small>Sources : [1] [IDC — Data Age 2025](https://www.seagate.com/files/www-content/our-story/trends/files/idc-seagate-dataage-whitepaper.pdf)</small>
 
 ---
 
@@ -189,8 +191,8 @@ Il n'existe *pas de prompt parfait universel* — mais un *processus* pour s'am�
 # 08 — La percée de 2012 : ImageNet et le Deep Learning
 
 *Le moment charnière* :
-- *ImageNet* : base de données de 14 millions d'images, 1000 catégories
-- *AlexNet* (2012) : un CNN profond réduit le taux d'erreur de 26% à 16%
+- *ImageNet* : base de données de 14 millions d'images, 1000 catégories [1]
+- *AlexNet* (2012) : un CNN profond réduit le taux d'erreur de 26% à 15% [2]
 
 *Pourquoi maintenant ?*
 - *GPU* : puissance de calcul 100x supérieure
@@ -198,6 +200,8 @@ Il n'existe *pas de prompt parfait universel* — mais un *processus* pour s'am�
 - *Algorithmes* : techniques de Deep Learning plus efficaces
 
 *Le Deep Learning = convergence* de trois facteurs : compute, données, algorithmes. Quand les trois sont réunis, les performances explosent.
+
+<small>Sources : [1] [Deng et al. 2009](https://www.image-net.org/static_files/papers/imagenet_cvpr09.pdf) · [2] [Krizhevsky et al. 2012](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks)</small>
 
 ---
 
@@ -245,15 +249,17 @@ Il n'existe *pas de prompt parfait universel* — mais un *processus* pour s'am�
 </div>
 <div class="right">
 
-### Évolution sur ImageNet
+### Évolution sur ImageNet (top-5)
 
 | Modèle | Année | Précision |
 |---|---|---|
-| AlexNet | 2012 | 84,7% |
-| VGGNet | 2014 | 92,3% |
-| ResNet | 2015 | 95,5% |
+| AlexNet | 2012 | 84,7% [1] |
+| VGGNet | 2014 | 92,7% [2] |
+| ResNet | 2015 | 95,5% [3] |
 
 > En 3 ans, la précision est passée de 85% à 96% — une accélération sans précédent.
+
+<small>Sources : [1] [Krizhevsky et al. 2012](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks) · [2] [Simonyan & Zisserman 2014](https://arxiv.org/abs/1409.1556) · [3] [He et al. 2015](https://arxiv.org/abs/1512.03385)</small>
 
 </div>
 
@@ -355,9 +361,9 @@ Trois disruptions transforment le paysage IA en 2025 :
 
 1. *10-30x moins cher* — Phi-4 à $0,07/1M vs GPT-4o à $2,50/1M [1]
 2. *On-device* — pas de cloud, pas de latence
-3. *< 2s de latence* — réponse instantanée
+3. *< 2s de latence* — seuil TTFT standard [3]
 4. *Données locales = RGPD friendly* [2]
-5. *Fine-tuning abordable* — $100-500
+5. *Fine-tuning abordable* — $50-500 via LoRA [4]
 
 </div>
 <div class="right">
@@ -375,7 +381,7 @@ Trois disruptions transforment le paysage IA en 2025 :
 
 > Les SLMs ne remplacent pas les Frontier Models — ils les *complètent* pour les tâches simples et sensibles.
 
-<small>Sources : [1] [Microsoft](https://azure.microsoft.com/en-us/blog/introducing-phi-4-microsoft-s-newest-small-language-model/) · [2] [Stanford HAI](https://hai.stanford.edu/ai-index/2025-ai-index-report)</small>
+<small>Sources : [1] [Microsoft](https://azure.microsoft.com/en-us/blog/introducing-phi-4-microsoft-s-newest-small-language-model/) · [2] [Stanford HAI](https://hai.stanford.edu/ai-index/2025-ai-index-report) · [3] [MLCommons](https://mlcommons.org/2025/09/small-llm-inference-5-1/) · [4] [Stratagem Systems](https://www.stratagem-systems.com/blog/lora-fine-tuning-cost-analysis-2026)</small>
 
 ---
 

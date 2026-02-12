@@ -2,7 +2,7 @@
 marp: true
 theme: sorbonne
 paginate: true
-header: "Deep Tech & ML — Session 4 · M2 Entrepreneuriat Sorbonne"
+header: "Deep Tech & ML (UE3) — Session 4 · M2 IMT&E · Paris 1 Panthéon-Sorbonne"
 footer: "Recherche AI Value Chain & Market Intelligence 2024–2025 · Données publiques"
 ---
 
@@ -18,7 +18,7 @@ footer: "Recherche AI Value Chain & Market Intelligence 2024–2025 · Données 
 
 ## 9 couches, 50 entreprises — qui capture la valeur ?
 
-M2 Entrepreneuriat · Sorbonne · 2026
+M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 
 ---
 
@@ -151,14 +151,14 @@ Les hyperscalers investissent massivement dans l'infrastructure IA :
 </div>
 <div class="right">
 
-- **CUDA** : 18 ans d'écosystème, **98%** des devs IA [2]
+- **CUDA** : 18 ans d'écosystème, **98%** du marché GPU IA [2]
 - Migration vers AMD = réécrire tout le stack
 - Le compute = **1er poste de coût** d'une startup IA
 - **56%** de marge nette — quasi-monopole [1]
 
 </div>
 
-<small>Sources : [1] [NVIDIA IR FY2025](https://investor.nvidia.com/news/press-release-details/2025/NVIDIA-Announces-Financial-Results-for-Fourth-Quarter-and-Fiscal-2025/) · [2] Estimations développeurs</small>
+<small>Sources : [1] [NVIDIA IR FY2025](https://investor.nvidia.com/news/press-release-details/2025/NVIDIA-Announces-Financial-Results-for-Fourth-Quarter-and-Fiscal-2025/) · [2] [TechInsights via Tom's Hardware](https://www.tomshardware.com/tech-industry/nvidia-shipped-376m-data-center-gpus-in-2023-dominates-business-with-98-revenue-share)</small>
 
 ---
 
@@ -172,9 +172,9 @@ Les hyperscalers investissent massivement dans l'infrastructure IA :
 | OVHcloud | France | €1,085 Mds | Cloud souverain européen |
 | Scaleway (Iliad) | France | Filiale d'Iliad | Cloud européen, partenariat Mistral |
 
-> Les 3 hyperscalers US captent **~65%** du marché cloud mondial. OVHcloud et Scaleway sont les alternatives souveraines.
+> Les 3 hyperscalers US captent **~65%** du marché cloud mondial [2]. OVHcloud et Scaleway sont les alternatives souveraines.
 
-<small>Sources : [1] Résultats annuels 2024-2025 ([AWS](https://ir.aboutamazon.com/), [Microsoft](https://www.microsoft.com/en-us/Investor/), [Google](https://abc.xyz/investor/))</small>
+<small>Sources : [1] Résultats annuels 2024-2025 ([AWS](https://ir.aboutamazon.com/), [Microsoft](https://www.microsoft.com/en-us/Investor/), [Google](https://abc.xyz/investor/)) · [2] [Canalys Q1 2025](https://canalys.com/newsroom/global-cloud-q1-2025)</small>
 
 ---
 
@@ -245,12 +245,12 @@ Les hyperscalers investissent massivement dans l'infrastructure IA :
 
 - **Seul** fournisseur frontier avec hébergement natif UE [2]
 - Medium 3 : **$0,40/$2** vs GPT-4o **$2,50/$10** [2]
-- Contrat armée française, ASML investisseur (€1,3 Md)
+- Contrat armée française, ASML investisseur (**€1,3 Md**) [3]
 - On-premises pour RGPD strict → moat souveraineté
 
 </div>
 
-<small>Sources : [1] [Mistral AI](https://mistral.ai/news/mistral-ai-raises-1-7-b-to-accelerate-technological-progress-with-ai) · [2] [CNBC](https://www.cnbc.com/)</small>
+<small>Sources : [1] [Mistral AI](https://mistral.ai/news/mistral-ai-raises-1-7-b-to-accelerate-technological-progress-with-ai) · [2] [CNBC](https://www.cnbc.com/) · [3] [CNBC](https://www.cnbc.com/2025/09/09/ai-firm-mistral-valued-at-14-billion-as-asml-takes-major-stake.html)</small>
 
 ---
 

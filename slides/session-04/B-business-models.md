@@ -2,7 +2,7 @@
 marp: true
 theme: sorbonne
 paginate: true
-header: "Deep Tech & ML — Session 4 · M2 Entrepreneuriat Sorbonne"
+header: "Deep Tech & ML (UE3) — Session 4 · M2 IMT&E · Paris 1 Panthéon-Sorbonne"
 footer: "Recherche Business Models & Case Studies 2024–2025 · Données publiques"
 ---
 
@@ -18,7 +18,7 @@ footer: "Recherche Business Models & Case Studies 2024–2025 · Données publiq
 
 ## Tarifer, structurer, défendre — le guide entrepreneur
 
-M2 Entrepreneuriat · Sorbonne · 2026
+M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 
 ---
 
@@ -42,12 +42,12 @@ L'inférence IA connaît une **déflation historique** :
 
 | Tier | Modèle | Prix input/output |
 |------|--------|-------------------|
-| Budget | GPT-4o mini | $0,15 / $0,60 |
-| Budget | DeepSeek R1 | $0,55 / $2,19 |
-| Mid | Claude Sonnet 4.5 | $3,00 / $15,00 |
-| Premium | GPT-4 Turbo | $10,00 / $30,00 |
+| Budget | GPT-4o mini | $0,15 / $0,60 [3] |
+| Budget | DeepSeek R1 | $0,55 / $2,19 [4] |
+| Mid | Claude Sonnet 4.5 | $3,00 / $15,00 [5] |
+| Premium | GPT-4 Turbo | $10,00 / $30,00 [3] |
 
-<small>Sources : [1] [Stanford HAI](https://hai.stanford.edu/ai-index/2025-ai-index-report) · [Epoch AI](https://epoch.ai/data-insights/llm-inference-price-trends)</small>
+<small>Sources : [1] [Stanford HAI](https://hai.stanford.edu/ai-index/2025-ai-index-report) · [2] [Epoch AI](https://epoch.ai/data-insights/llm-inference-price-trends) · [3] [OpenAI Pricing](https://openai.com/api/pricing/) · [4] [DeepSeek Pricing](https://api-docs.deepseek.com/quick_start/pricing) · [5] [Anthropic Pricing](https://www.anthropic.com/pricing)</small>
 
 ---
 
@@ -163,12 +163,12 @@ Pourquoi ça marche :
 | Switching costs | Forte | Cursor (workflows intégrés) |
 | Expertise domaine | Forte | Harvey (legal AI) |
 | Régulation | Forte | Mistral (hébergement UE) |
-| Échelle compute | Moyenne | OpenAI ($57 Mds levés) |
+| Échelle compute | Moyenne | OpenAI ($57,9 Mds levés) [1] |
 | Marque / confiance | Moyenne | Anthropic ("responsible AI") |
 
 > Les moats les plus durables sont basés sur les **données** et les **effets de réseau**. Le modèle seul n'est plus un moat.
 
-<small>Sources : [a16z](https://a16z.com/data-moats/) · [Bessemer](https://www.bvp.com/)</small>
+<small>Sources : [1] [Tracxn](https://tracxn.com/d/companies/openai/__kElhSG7uVGeFk1i71Co9-nwFtmtyMVT7f-YHMn4TFBg/funding-and-investors) · [a16z](https://a16z.com/data-moats/) · [Bessemer](https://www.bvp.com/)</small>
 
 ---
 
@@ -232,7 +232,7 @@ Mais attention (a16z, 2019) :
 | Stratégie | Acquisition de **ModiFace** (AR/AI beauty) |
 | Impact e-commerce | Conversion **3x** avec essayage virtuel |
 | Revenue Tech | **€150 M** CA d'un segment BeautyTech entier |
-| Organisation | 2 000+ experts tech/data, 50+ brevets IA |
+| Organisation | 8 000+ experts tech/data, 694 brevets déposés (2024) [1] |
 
 - **Build vs Buy** : L'Oréal a choisi d'**acquérir** l'expertise plutôt que de construire
 - Schneider Electric a fait l'inverse : build in-house → **€700 M** économisés depuis 2019 [2]
@@ -240,7 +240,7 @@ Mais attention (a16z, 2019) :
 
 > Il n'y a pas une bonne réponse — l'approche dépend de votre timing et de vos capacités internes.
 
-<small>Sources : [1] [L'Oréal](https://www.loreal.com/) · [2] [Schneider](https://www.se.com/) · [3] [Renault](https://www.renaultgroup.com/)</small>
+<small>Sources : [1] [L'Oréal Annual Report 2024](https://www.loreal-finance.com/en/annual-report-2024/beauty-tech-champion/) · [2] [Schneider](https://www.se.com/) · [3] [Renault](https://www.renaultgroup.com/)</small>
 
 ---
 

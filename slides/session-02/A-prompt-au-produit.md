@@ -2,7 +2,7 @@
 marp: true
 theme: sorbonne
 paginate: true
-header: "Deep Tech & ML — Session 2 · M2 Entrepreneuriat Sorbonne"
+header: "Deep Tech & ML (UE3) — Session 2 · M2 IMT&E · Paris 1 Panthéon-Sorbonne"
 footer: "Adapté de *Generative AI for Everyone* par Andrew Ng · DeepLearning.AI · CC BY-SA 2.0"
 ---
 <!-- ABOUTME: Du prompt au produit — 3 catégories d'apps GenAI, lifecycle, prompt-based development, tokens et coûts. -->
@@ -17,7 +17,7 @@ footer: "Adapté de *Generative AI for Everyone* par Andrew Ng · DeepLearning.A
 
 ## Session 2A — Construire avec la Generative AI
 
-M2 Entrepreneuriat · Sorbonne · 2026
+M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 
 ---
 
@@ -51,9 +51,11 @@ Pour construire un classifieur de sentiment, il fallait :
 2. **Entraîner un modèle** — écrire du code spécialisé (LSTM, Transformers...)
 3. **Déployer le modèle** — infrastructure serveur, monitoring
 
-**Durée typique** : ~7 mois (1 mois données + 3 mois entraînement + 3 mois déploiement)
+**Durée typique** : ~6–12 mois (1 mois données + 3 mois entraînement + 3 mois déploiement) [1]
 
 > Ce processus nécessitait une équipe d'ingénieurs ML et un budget significatif. Seules les grandes entreprises pouvaient se le permettre.
+
+<small>Sources : [1] [Andrew Ng, *Generative AI for Everyone*, DeepLearning.AI](https://www.coursera.org/learn/generative-ai-for-everyone)</small>
 
 ![bg right:45%](assets/ng02/img-007.png)
 
@@ -269,14 +271,16 @@ Les LLMs ne raisonnent pas en mots mais en **Tokens** — des fragments de mots.
 
 | Modèle | Input (par 1M tokens) | Output (par 1M tokens) | Positionnement |
 |---|---|---|---|
-| GPT-4o | $2,50 | $10,00 | Premium, multimodal |
-| GPT-4o mini | $0,15 | $0,60 | Rapide, économique |
-| Claude 3.5 Sonnet | $3,00 | $15,00 | Raisonnement avancé |
-| Claude 3.5 Haiku | $0,25 | $1,25 | Rapide, bon marché |
-| Mistral Large | $2,00 | $6,00 | Souveraineté européenne |
-| Mistral Small | $0,10 | $0,30 | Ultra-économique |
+| GPT-4o | $2,50 | $10,00 | Premium, multimodal [1] |
+| GPT-4o mini | $0,15 | $0,60 | Rapide, économique [1] |
+| Claude 3.5 Sonnet | $3,00 | $15,00 | Raisonnement avancé [2] |
+| Claude 3 Haiku | $0,25 | $1,25 | Rapide, bon marché [2] |
+| Mistral Large | $2,00 | $6,00 | Souveraineté européenne [3] |
+| Mistral Small | $0,10 | $0,30 | Ultra-économique [3] |
 
-> Les prix ont chuté de **~10x en 2 ans**. La tendance continue : le coût marginal de l'intelligence baisse drastiquement.
+> Les prix chutent d'environ **~10x par an** à performance équivalente [4]. La tendance continue : le coût marginal de l'intelligence baisse drastiquement.
+
+<small>Sources : [1] [OpenAI](https://openai.com/api/pricing/) · [2] [Anthropic](https://docs.anthropic.com/en/docs/about-claude/models) · [3] [Mistral AI](https://mistral.ai/pricing) · [4] [a16z](https://a16z.com/llmflation-llm-inference-cost/)</small>
 
 ---
 
@@ -326,7 +330,9 @@ Votre tâche est-elle bien définie en langage naturel ?
                    └─ NON → Envisagez le PRETRAINING (rare)
 ```
 
-> **90%** des projets GenAI en startup se résolvent avec Prompting + RAG. Le Fine-tuning est utile mais pas toujours nécessaire.
+> **90%** des projets GenAI en startup se résolvent avec Prompting + RAG [1]. Le Fine-tuning est utile mais pas toujours nécessaire.
+
+<small>Sources : [1] Adapté de *Generative AI for Everyone* par Andrew Ng · [DeepLearning.AI](https://www.coursera.org/learn/generative-ai-for-everyone) · CC BY-SA 2.0</small>
 
 ---
 

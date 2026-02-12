@@ -2,7 +2,7 @@
 marp: true
 theme: sorbonne
 paginate: true
-header: "Deep Tech & ML — Session 3 · M2 Entrepreneuriat Sorbonne"
+header: "Deep Tech & ML (UE3) — Session 3 · M2 IMT&E · Paris 1 Panthéon-Sorbonne"
 footer: "Sources multiples · Kevin Vu / Dauphine · Données publiques"
 ---
 
@@ -18,7 +18,7 @@ footer: "Sources multiples · Kevin Vu / Dauphine · Données publiques"
 
 ## Session 3A — Évaluer une solution IA
 
-M2 Entrepreneuriat · Sorbonne · 2026
+M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 
 ---
 
@@ -347,11 +347,11 @@ Les benchmarks sont partout en 2026 — mais tous ne se valent pas :
 
 | Approche | Coût initial | Coût mensuel |
 |----------|-------------|-------------|
-| **API GPT-4o** | ~0 EUR | $2,50-$10/M tokens |
-| **API DeepSeek** | ~0 EUR | $0,28-$0,42/M tokens |
-| **RAG** | 5-15K EUR | 50-8 000 EUR/mois |
-| **Fine-tune QLoRA** | 100-5 000 EUR | ~500 EUR/mois |
-| **Build from scratch** | >1M EUR | >10K EUR/mois |
+| **API GPT-4o** | ~0 EUR | $2,50-$10/M tokens [3] |
+| **API DeepSeek** | ~0 EUR | $0,28-$0,42/M tokens [4] |
+| **RAG** | 5-15K EUR | 50-8 000 EUR/mois [1] |
+| **Fine-tune QLoRA** | 100-5 000 EUR | ~500 EUR/mois [1] |
+| **Build from scratch** | >1M EUR | >10K EUR/mois [1] |
 
 </div>
 <div class="right">
@@ -360,13 +360,13 @@ Les benchmarks sont partout en 2026 — mais tous ne se valent pas :
 
 - Si coûts API > **15K EUR/mois** : évaluez le self-hosting Mistral ou Llama [1]
 - Les abonnements/licences = **< 40%** des dépenses réelles [2]
-- **65%** des surcoûts imprévus viennent de l'infra et du talent
+- La majorité des surcoûts imprévus viennent de l'infra et du talent [2]
 
 > Budgétez l'iceberg : Data Preparation, intégration, et Change Management sont les vrais postes.
 
 </div>
 
-<small>Sources : [1] [a16z](https://a16z.com/) · [2] [Gartner](https://www.gartner.com/)</small>
+<small>Sources : [1] [a16z](https://a16z.com/) · [2] [Gartner](https://www.gartner.com/) · [3] [OpenAI Pricing](https://openai.com/api/pricing/) · [4] [DeepSeek Pricing](https://api-docs.deepseek.com/quick_start/pricing)</small>
 
 ---
 

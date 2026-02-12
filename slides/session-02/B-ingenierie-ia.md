@@ -2,7 +2,7 @@
 marp: true
 theme: sorbonne
 paginate: true
-header: "Deep Tech & ML — Session 2 · M2 Entrepreneuriat Sorbonne"
+header: "Deep Tech & ML (UE3) — Session 2 · M2 IMT&E · Paris 1 Panthéon-Sorbonne"
 footer: "Sources multiples · DeepLearning.AI CC BY-SA 2.0 · Données publiques"
 ---
 <!-- ABOUTME: L'ingénierie IA — RAG, embeddings, Fine-tuning, agents, pour comprendre les briques techniques. -->
@@ -17,7 +17,7 @@ footer: "Sources multiples · DeepLearning.AI CC BY-SA 2.0 · Données publiques
 
 ## Session 2B — RAG, Fine-tuning & Agents
 
-M2 Entrepreneuriat · Sorbonne · 2026
+M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 
 ---
 
@@ -97,14 +97,14 @@ Un **Embedding** convertit du texte en un vecteur numérique de grande dimension
 
 | Modèle | Éditeur | Dimensions | Prix/M tokens |
 |---|---|---|---|
-| **text-embedding-3-large** | OpenAI | 3 072 | $0,13 |
-| **Embed v4** | Cohere | 1 024 | $0,12 |
-| **jina-embeddings-v3** | Jina AI (Berlin) | 1 024 | $0,02 |
+| **text-embedding-3-large** | OpenAI | 3 072 | $0,13 [2] |
+| **Embed v4** | Cohere | 1 024 | $0,12 [3] |
+| **jina-embeddings-v3** | Jina AI (Berlin) | 1 024 | $0,02 [4] |
 | **BGE-M3** | BAAI | 1 024 | Gratuit (OSS) |
 
 > La qualité du **Chunking** (découpage des documents) impacte plus que le choix du modèle d'embedding [1].
 
-<small>Sources : [1] [Anthropic](https://www.anthropic.com/news/contextual-retrieval)</small>
+<small>Sources : [1] [Anthropic](https://www.anthropic.com/news/contextual-retrieval) · [2] [OpenAI Pricing](https://openai.com/api/pricing/) · [3] [Cohere Pricing](https://cohere.com/pricing) · [4] [Jina AI](https://jina.ai/embeddings/)</small>
 
 ---
 
