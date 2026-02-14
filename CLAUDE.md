@@ -51,8 +51,26 @@ Markdowns2Teach/
 │   ├── check-overflow.sh            # Slide overflow linter
 │   └── generate-index.sh            # HTML index page generator
 ├── docs/
+│   ├── outline.md                   # Active session map
+│   ├── todos.md                     # Active task tracker
+│   ├── notes/                       # Informal notes and drafts
+│   │   ├── Meeting Notes - Kevin Vu M2 Sorbonne.md
+│   │   ├── Outline - 2026 M2 - ML & DeepTech.md
+│   │   └── prompt_continue_deep_research.md
+│   ├── references/                  # Formalized course references
+│   │   ├── course-identity.md       # Course identity and student profile
+│   │   ├── course-architecture.md   # Session calendar and topics
+│   │   ├── deck-guidelines.md       # How to build a slide deck
+│   │   ├── source-guidelines.md     # Source selection and citation
+│   │   ├── research-to-slides-template.md  # Conversion checklist
+│   │   ├── convert-research-to-slides.prompt.md  # Standalone conversion prompt
+│   │   └── citation-remediation.md  # Citation audit plan
+│   ├── plans/                       # One-shot roadmaps
+│   │   ├── andrew-ng-conversion-roadmap.md
+│   │   ├── 2026_02_07-convert_references.md
+│   │   └── NotebookLM.prompt.txt
 │   ├── archive/slides-v1/           # Pre-restructuring slide archive
-│   ├── plans/                       # Conversion roadmaps and specs
+│   ├── qcm/                         # Quiz materials
 │   ├── research/                    # Research pipeline outputs
 │   └── sources/                     # Source materials (gitignored except READMEs)
 │       ├── courses/                 # Course PDFs and HTML
@@ -189,5 +207,6 @@ make clean      # Remove dist/
 | `docs/sources/courses/KevinVu/cours_*.pdf` | Kevin Vu course PDFs |
 | `docs/archive/slides-v1/` | Pre-restructuring slide archive (15 topic directories) |
 | `docs/research/` | Research pipeline outputs (13 topics, reports + raw data) |
-| `docs/Outline - 2026 M2 - ML & DeepTech.md` | Course plan, themes, and session structure |
-| `docs/Meeting Notes - Kevin Vu M2 Sorbonne.md` | Notes from meeting with previous teacher |
+| `docs/notes/Outline - 2026 M2 - ML & DeepTech.md` | Course plan, themes, and session structure |
+| `docs/notes/Meeting Notes - Kevin Vu M2 Sorbonne.md` | Notes from meeting with previous teacher |
+| `docs/references/` | Formalized course references (identity, architecture, guidelines) |

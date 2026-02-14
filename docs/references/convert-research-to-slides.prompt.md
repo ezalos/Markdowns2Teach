@@ -13,7 +13,7 @@ Convert a completed research topic into a Marp slide deck for the M2 IMT&E cours
 
 ### Phase 1: Read the references
 
-1. Read the conversion template: `plans/research-to-slides-template.md` — this is your playbook
+1. Read the conversion template: `docs/references/research-to-slides-template.md` — this is your playbook
 2. Read the reference deck: `slides/ai-value-chain/01-ai-value-chain.md` — match this style exactly
 3. Read the project conventions: `CLAUDE.md` — especially slide standards and language rules
 

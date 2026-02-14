@@ -39,7 +39,7 @@ Please create a sync of the local slides to GDrive easily (you can use uvx if it
 - [ ] Regression metrics slides (MAE, MSE, RMSE) — add to Session 3A
 
 
-https://epoch.ai/data-insights/dataset-size-trend
+
 
 # Things to research
 
@@ -115,3 +115,8 @@ the big paragraph should become a little sheet
 
 It would be a great occasion to introduce the content about the different types of ML models 
 
+.
+
+Also there is a bunch of informations said which do not have rigourous source. I would really like you to go find them all and update them.
+
+Also I sometimes put multiple images by slide,. i would love you to either fit them all on a same slide, or to duplicate the slides.
