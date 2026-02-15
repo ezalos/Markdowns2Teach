@@ -1,0 +1,223 @@
+{
+  "name": "07 \u2014 Hate Speech Detection",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        300
+      ],
+      "id": "b1efc26a-1c41-4024-9313-f96c60f8b947",
+      "name": "Telegram Trigger",
+      "webhookId": "3fe0b243-c88f-4521-8eaa-ce6231694a76",
+      "credentials": {
+        "telegramApi": {
+          "id": "PLACEHOLDER",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "f66a0901-f5b9-49e5-a738-75961abd7e66",
+      "name": "When chat message received",
+      "webhookId": "6b2c80b3-256b-447e-b522-af7141daff00"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://router.huggingface.co/hf-inference/models/facebook/roberta-hate-speech-dynabench-r4-target",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ inputs: $json.chatInput }) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        220,
+        0
+      ],
+      "id": "e1b25763-c22d-4b01-b4b8-636487ce9e95",
+      "name": "Classify Hate Speech",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "PLACEHOLDER",
+          "name": "Bearer Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{ (() => {\n  const results = $json[0] || $json;\n  const lines = (Array.isArray(results) ? results : [results])\n    .map(r => `${r.label}: ${(r.score * 100).toFixed(1)}%`)\n    .join('\\n');\n  return JSON.stringify({ output: lines });\n})() }}"
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        440,
+        0
+      ],
+      "id": "d953f0a6-96fc-41ce-b949-24b18d9044c6",
+      "name": "Format Response"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://router.huggingface.co/hf-inference/models/facebook/roberta-hate-speech-dynabench-r4-target",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ inputs: $json.message.text }) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        220,
+        300
+      ],
+      "id": "765b7569-6d25-44e6-990c-b84929a060ef",
+      "name": "Classify Hate Speech (Telegram)",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "PLACEHOLDER",
+          "name": "Bearer Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{ (() => {\n  const results = $json[0] || $json;\n  const lines = (Array.isArray(results) ? results : [results])\n    .map(r => `${r.label}: ${(r.score * 100).toFixed(1)}%`)\n    .join('\\n');\n  return JSON.stringify({ output: lines });\n})() }}"
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        440,
+        300
+      ],
+      "id": "8f8c7626-7067-42db-bbcc-4e500dd2ccca",
+      "name": "Format for Telegram"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        660,
+        300
+      ],
+      "id": "cffc07c2-43c7-4768-bee9-8e58872a8e60",
+      "name": "Send a text message",
+      "webhookId": "0220a08d-0b81-4041-8da7-18bf77d03290",
+      "credentials": {
+        "telegramApi": {
+          "id": "PLACEHOLDER",
+          "name": "Telegram account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Classify Hate Speech",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Classify Hate Speech": {
+      "main": [
+        [
+          {
+            "node": "Format Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Classify Hate Speech (Telegram)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Classify Hate Speech (Telegram)": {
+      "main": [
+        [
+          {
+            "node": "Format for Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format for Telegram": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "tags": []
+}

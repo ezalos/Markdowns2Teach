@@ -1,0 +1,223 @@
+{
+  "name": "01 \u2014 Sentiment Analysis for Reviews",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        300
+      ],
+      "id": "76dfa859-2731-4cd0-8e5b-01d35a41c690",
+      "name": "Telegram Trigger",
+      "webhookId": "9ee7989a-389b-4194-a543-c701eacad0de",
+      "credentials": {
+        "telegramApi": {
+          "id": "PLACEHOLDER",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "002eeb49-b620-4938-8142-adb1916ec993",
+      "name": "When chat message received",
+      "webhookId": "5f9ff91e-6bb0-40fb-86b2-78790d0607d1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://router.huggingface.co/hf-inference/models/distilbert/distilbert-base-uncased-finetuned-sst-2-english",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ inputs: $json.chatInput }) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        220,
+        0
+      ],
+      "id": "d99eace0-c378-4a5e-a901-31d0067e014b",
+      "name": "Classify Sentiment",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "PLACEHOLDER",
+          "name": "Bearer Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{ (() => {\n  const results = $json[0] || $json;\n  const lines = (Array.isArray(results) ? results : [results])\n    .map(r => `${r.label}: ${(r.score * 100).toFixed(1)}%`)\n    .join('\\n');\n  return JSON.stringify({ output: lines });\n})() }}"
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        440,
+        0
+      ],
+      "id": "2463da07-8dd0-4c60-aab9-2a94dfd6f2f8",
+      "name": "Format Response"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://router.huggingface.co/hf-inference/models/distilbert/distilbert-base-uncased-finetuned-sst-2-english",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ inputs: $json.message.text }) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        220,
+        300
+      ],
+      "id": "2af7600c-4179-42fc-80f1-c6d5a98ac0a0",
+      "name": "Classify Sentiment (Telegram)",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "PLACEHOLDER",
+          "name": "Bearer Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{ (() => {\n  const results = $json[0] || $json;\n  const lines = (Array.isArray(results) ? results : [results])\n    .map(r => `${r.label}: ${(r.score * 100).toFixed(1)}%`)\n    .join('\\n');\n  return JSON.stringify({ output: lines });\n})() }}"
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        440,
+        300
+      ],
+      "id": "c69d492f-0468-4f90-92ac-78ad83a3c5d9",
+      "name": "Format for Telegram"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        660,
+        300
+      ],
+      "id": "98866681-f295-4fc7-aea4-b051cdef97ee",
+      "name": "Send a text message",
+      "webhookId": "254e67d3-9124-43eb-a5bd-1420290feb00",
+      "credentials": {
+        "telegramApi": {
+          "id": "PLACEHOLDER",
+          "name": "Telegram account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Classify Sentiment",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Classify Sentiment": {
+      "main": [
+        [
+          {
+            "node": "Format Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Classify Sentiment (Telegram)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Classify Sentiment (Telegram)": {
+      "main": [
+        [
+          {
+            "node": "Format for Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format for Telegram": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "tags": []
+}

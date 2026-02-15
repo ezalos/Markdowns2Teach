@@ -1,0 +1,223 @@
+{
+  "name": "06 \u2014 Intent Classification",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        300
+      ],
+      "id": "d1cf5d1f-e28b-4153-beb7-d0d21b8ba454",
+      "name": "Telegram Trigger",
+      "webhookId": "4a6c8375-8b2b-41c1-b700-0e80e18d063b",
+      "credentials": {
+        "telegramApi": {
+          "id": "PLACEHOLDER",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "a3e8c126-329e-4a70-a5ec-4db27f00d887",
+      "name": "When chat message received",
+      "webhookId": "55f401b0-764a-43e1-b4b9-702867b23cae"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://router.huggingface.co/hf-inference/models/facebook/bart-large-mnli",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ inputs: $json.chatInput, parameters: { candidate_labels: [\"billing\", \"technical support\", \"returns\", \"general inquiry\"] } }) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        220,
+        0
+      ],
+      "id": "dd1c81ee-2b29-4bfa-bdcb-1d7d39d926f5",
+      "name": "Classify Intent",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "PLACEHOLDER",
+          "name": "Bearer Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{ (() => {\n  const labels = $json.labels || [];\n  const scores = $json.scores || [];\n  const lines = labels.map((l, i) => `${l}: ${(scores[i] * 100).toFixed(1)}%`).join('\\n');\n  return JSON.stringify({ output: lines });\n})() }}"
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        440,
+        0
+      ],
+      "id": "6a3e8c7b-744a-4f8b-a6b6-b06d948e568d",
+      "name": "Format Response"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://router.huggingface.co/hf-inference/models/facebook/bart-large-mnli",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ inputs: $json.message.text, parameters: { candidate_labels: [\"billing\", \"technical support\", \"returns\", \"general inquiry\"] } }) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        220,
+        300
+      ],
+      "id": "c5df5d6e-af91-46f8-aa3a-4d211631836a",
+      "name": "Classify Intent (Telegram)",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "PLACEHOLDER",
+          "name": "Bearer Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{ (() => {\n  const labels = $json.labels || [];\n  const scores = $json.scores || [];\n  const lines = labels.map((l, i) => `${l}: ${(scores[i] * 100).toFixed(1)}%`).join('\\n');\n  return JSON.stringify({ output: lines });\n})() }}"
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        440,
+        300
+      ],
+      "id": "6304435c-d50a-4658-8655-adee5980d92f",
+      "name": "Format for Telegram"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        660,
+        300
+      ],
+      "id": "e9a6a0b9-b441-4327-b449-f83048c90107",
+      "name": "Send a text message",
+      "webhookId": "59b942e9-5ce1-46fa-8836-454930b6f75a",
+      "credentials": {
+        "telegramApi": {
+          "id": "PLACEHOLDER",
+          "name": "Telegram account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Classify Intent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Classify Intent": {
+      "main": [
+        [
+          {
+            "node": "Format Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Classify Intent (Telegram)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Classify Intent (Telegram)": {
+      "main": [
+        [
+          {
+            "node": "Format for Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format for Telegram": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "tags": []
+}

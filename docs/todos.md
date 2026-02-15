@@ -22,7 +22,13 @@ Please create a sync of the local slides to GDrive easily (you can use uvx if it
 
 ## No-code tools
 
--
+- Some n8n video ? Will need to show what's a JSON, and the javascript notation to select a variable
+- Explain what is an API and a WebHook
+- Show the HF interface
+- Show some architecture diagrams (n8n workflows ?)
+
+
+
 
 ## Nice things which could be added
 

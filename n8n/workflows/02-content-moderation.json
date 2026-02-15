@@ -1,0 +1,223 @@
+{
+  "name": "02 \u2014 Content Moderation (Toxic-BERT)",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        300
+      ],
+      "id": "cc0ce212-76a2-411a-bfb7-c1116b98bb42",
+      "name": "Telegram Trigger",
+      "webhookId": "a02aa8f8-bc08-44a3-83ab-8760a94c08c3",
+      "credentials": {
+        "telegramApi": {
+          "id": "PLACEHOLDER",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "790164d3-7794-4214-ad2b-6cc8469b2ba3",
+      "name": "When chat message received",
+      "webhookId": "1d8a31aa-4d0b-4bed-b7b4-7de257473c75"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://router.huggingface.co/hf-inference/models/unitary/toxic-bert",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ inputs: $json.chatInput }) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        220,
+        0
+      ],
+      "id": "e7d872be-8918-4483-959c-2f213f9f676e",
+      "name": "Classify Toxicity",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "PLACEHOLDER",
+          "name": "Bearer Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{ (() => {\n  const results = $json[0] || $json;\n  const lines = (Array.isArray(results) ? results : [results])\n    .map(r => `${r.label}: ${(r.score * 100).toFixed(1)}%`)\n    .join('\\n');\n  return JSON.stringify({ output: lines });\n})() }}"
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        440,
+        0
+      ],
+      "id": "59dda61a-e5e5-4516-a41d-824061b6287f",
+      "name": "Format Response"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://router.huggingface.co/hf-inference/models/unitary/toxic-bert",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ inputs: $json.message.text }) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        220,
+        300
+      ],
+      "id": "3c9f17f9-dda7-4599-854b-583531a241aa",
+      "name": "Classify Toxicity (Telegram)",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "PLACEHOLDER",
+          "name": "Bearer Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{ (() => {\n  const results = $json[0] || $json;\n  const lines = (Array.isArray(results) ? results : [results])\n    .map(r => `${r.label}: ${(r.score * 100).toFixed(1)}%`)\n    .join('\\n');\n  return JSON.stringify({ output: lines });\n})() }}"
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        440,
+        300
+      ],
+      "id": "e772d41a-2331-431d-a672-652efaeaacdd",
+      "name": "Format for Telegram"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        660,
+        300
+      ],
+      "id": "3f95c400-b791-4871-bbbb-8da1b462b91c",
+      "name": "Send a text message",
+      "webhookId": "15d24e07-a842-4853-81d8-19f7674e23e2",
+      "credentials": {
+        "telegramApi": {
+          "id": "PLACEHOLDER",
+          "name": "Telegram account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Classify Toxicity",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Classify Toxicity": {
+      "main": [
+        [
+          {
+            "node": "Format Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Classify Toxicity (Telegram)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Classify Toxicity (Telegram)": {
+      "main": [
+        [
+          {
+            "node": "Format for Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format for Telegram": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "tags": []
+}

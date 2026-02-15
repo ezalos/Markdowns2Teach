@@ -1,0 +1,316 @@
+{
+  "name": "05 \u2014 Plant Disease Detection",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {
+          "responseMessage": "Send me a URL to a image file and I'll classify it."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "b8e868b2-5769-4474-9991-131cf30e95de",
+      "name": "When chat message received",
+      "webhookId": "22ed3fea-2442-482b-aaed-a3d5c3d24b7e"
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $json.chatInput }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        220,
+        0
+      ],
+      "id": "976edab8-96de-4e72-ba49-58b8878a0b40",
+      "name": "Download File"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://router.huggingface.co/hf-inference/models/linkanjarad/mobilenet_v2_1.0_224-plant-disease-identification",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "contentType": "binaryData",
+        "sendBody": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        440,
+        0
+      ],
+      "id": "7d07baaa-dac5-4562-9ba9-99c3d67bce65",
+      "name": "Classify Plant Disease",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "PLACEHOLDER",
+          "name": "Bearer Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{ (() => {\n  const results = $json[0] || $json;\n  const lines = (Array.isArray(results) ? results : [results])\n    .map(r => `${r.label}: ${(r.score * 100).toFixed(1)}%`)\n    .join('\\n');\n  return JSON.stringify({ output: lines });\n})() }}"
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        660,
+        0
+      ],
+      "id": "9e602ab1-3316-4482-b0ee-c94d49d65b3f",
+      "name": "Format Response"
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        400
+      ],
+      "id": "6ca5e0b5-50a8-40d1-9b4c-81025d369dd7",
+      "name": "Telegram Trigger",
+      "webhookId": "49e56cc1-a979-483c-9733-f79cacb24ce3",
+      "credentials": {
+        "telegramApi": {
+          "id": "PLACEHOLDER",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.telegram.org/bot__TELEGRAM_BOT_TOKEN__/getFile",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ file_id: $json.message.photo[$json.message.photo.length - 1].file_id }) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        220,
+        400
+      ],
+      "id": "39fb8d2e-644d-4a9c-b37b-96c72abe84a2",
+      "name": "Get File Info"
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "=https://api.telegram.org/file/bot__TELEGRAM_BOT_TOKEN__/{{ $json.result.file_path }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        440,
+        400
+      ],
+      "id": "97166c4f-0548-4615-b5ab-91428b70da9b",
+      "name": "Download File (Telegram)"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://router.huggingface.co/hf-inference/models/linkanjarad/mobilenet_v2_1.0_224-plant-disease-identification",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "contentType": "binaryData",
+        "sendBody": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        660,
+        400
+      ],
+      "id": "696e90cc-a204-4de5-8931-1612ed6d90ab",
+      "name": "Classify Plant Disease (Telegram)",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "PLACEHOLDER",
+          "name": "Bearer Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{ (() => {\n  const results = $json[0] || $json;\n  const lines = (Array.isArray(results) ? results : [results])\n    .map(r => `${r.label}: ${(r.score * 100).toFixed(1)}%`)\n    .join('\\n');\n  return JSON.stringify({ output: lines });\n})() }}"
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        880,
+        400
+      ],
+      "id": "704b8920-4015-4588-8a57-f5eb0d824c89",
+      "name": "Format for Telegram"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1100,
+        400
+      ],
+      "id": "92c291ef-dd04-4544-8975-d4d74c662797",
+      "name": "Send a text message",
+      "webhookId": "39c65800-f5ee-4383-80d9-6d196f256e50",
+      "credentials": {
+        "telegramApi": {
+          "id": "PLACEHOLDER",
+          "name": "Telegram account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Download File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download File": {
+      "main": [
+        [
+          {
+            "node": "Classify Plant Disease",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Classify Plant Disease": {
+      "main": [
+        [
+          {
+            "node": "Format Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get File Info",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get File Info": {
+      "main": [
+        [
+          {
+            "node": "Download File (Telegram)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download File (Telegram)": {
+      "main": [
+        [
+          {
+            "node": "Classify Plant Disease (Telegram)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Classify Plant Disease (Telegram)": {
+      "main": [
+        [
+          {
+            "node": "Format for Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format for Telegram": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "tags": []
+}

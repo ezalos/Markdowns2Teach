@@ -21,6 +21,10 @@ docs/sources/
 
 # Secrets
 .envrc
+n8n/.env
+
+# n8n runtime data
+n8n/shared/
 
 # OS files
 .DS_Store

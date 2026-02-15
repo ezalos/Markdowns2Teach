@@ -1,0 +1,225 @@
+{
+  "name": "09 \u2014 Resume Screening",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        300
+      ],
+      "id": "010771f2-7727-4e81-b698-a72156f795c5",
+      "name": "Telegram Trigger",
+      "webhookId": "15b0c9f1-6a4e-4d52-b160-07a8e3585048",
+      "credentials": {
+        "telegramApi": {
+          "id": "PLACEHOLDER",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {
+          "responseMessage": "Paste a resume or CV text and I'll score it against a sample job description."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "7739ac2d-aa93-43c1-a5d5-c5d94446dc7a",
+      "name": "When chat message received",
+      "webhookId": "56667ad0-a10b-472d-a985-ffa51d419787"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://router.huggingface.co/hf-inference/models/sentence-transformers/all-MiniLM-L6-v2",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ inputs: { source_sentence: \"We are looking for a software engineer with experience in Python, machine learning, and cloud computing. The ideal candidate has worked with TensorFlow or PyTorch, understands CI/CD pipelines, and can communicate technical concepts to non-technical stakeholders.\", sentences: [$json.chatInput] } }) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        220,
+        0
+      ],
+      "id": "ede94bc3-7432-41bc-a842-defc786a395b",
+      "name": "Classify Resume Match",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "PLACEHOLDER",
+          "name": "Bearer Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{ (() => {\n  const score = Array.isArray($json) ? $json[0] : $json;\n  const pct = (score * 100).toFixed(1);\n  let verdict;\n  if (score >= 0.7) verdict = 'Strong match';\n  else if (score >= 0.4) verdict = 'Moderate match';\n  else verdict = 'Weak match';\n  return JSON.stringify({ output: `Similarity: ${pct}%\\nVerdict: ${verdict}` });\n})() }}"
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        440,
+        0
+      ],
+      "id": "56fc718f-8c80-47dc-aebb-46ab5452ab58",
+      "name": "Format Response"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://router.huggingface.co/hf-inference/models/sentence-transformers/all-MiniLM-L6-v2",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ inputs: { source_sentence: \"We are looking for a software engineer with experience in Python, machine learning, and cloud computing. The ideal candidate has worked with TensorFlow or PyTorch, understands CI/CD pipelines, and can communicate technical concepts to non-technical stakeholders.\", sentences: [$json.message.text] } }) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        220,
+        300
+      ],
+      "id": "96ba7b5c-3325-40fc-ae7a-03fea7870a22",
+      "name": "Classify Resume Match (Telegram)",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "PLACEHOLDER",
+          "name": "Bearer Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{ (() => {\n  const score = Array.isArray($json) ? $json[0] : $json;\n  const pct = (score * 100).toFixed(1);\n  let verdict;\n  if (score >= 0.7) verdict = 'Strong match';\n  else if (score >= 0.4) verdict = 'Moderate match';\n  else verdict = 'Weak match';\n  return JSON.stringify({ output: `Similarity: ${pct}%\\nVerdict: ${verdict}` });\n})() }}"
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        440,
+        300
+      ],
+      "id": "c4cf09ec-7c28-4d1e-8262-3d9da7a006f4",
+      "name": "Format for Telegram"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        660,
+        300
+      ],
+      "id": "f42cfcb8-fe7b-4ece-bdf4-601f4eb26da8",
+      "name": "Send a text message",
+      "webhookId": "55849319-9fe3-4e92-b08e-f8a06c3bca83",
+      "credentials": {
+        "telegramApi": {
+          "id": "PLACEHOLDER",
+          "name": "Telegram account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Classify Resume Match",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Classify Resume Match": {
+      "main": [
+        [
+          {
+            "node": "Format Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Classify Resume Match (Telegram)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Classify Resume Match (Telegram)": {
+      "main": [
+        [
+          {
+            "node": "Format for Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format for Telegram": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "tags": []
+}
