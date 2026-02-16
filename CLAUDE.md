@@ -45,7 +45,8 @@ Markdowns2Teach/
 │       └── assets/                  # Images (subdirs by source prefix)
 │           ├── ng01/                # Andrew Ng W1 images
 │           ├── ng02/                # Andrew Ng W2 images
-│           └── ng03/                # Andrew Ng W3 images
+│           ├── ng03/                # Andrew Ng W3 images
+│           └── infographics/        # PaperBanana-generated diagrams
 ├── scripts/
 │   ├── extract-images.sh            # PDF image extraction
 │   ├── check-overflow.sh            # Slide overflow linter
@@ -64,7 +65,8 @@ Markdowns2Teach/
 │   │   ├── source-guidelines.md     # Source selection and citation
 │   │   ├── research-to-slides-template.md  # Conversion checklist
 │   │   ├── convert-research-to-slides.prompt.md  # Standalone conversion prompt
-│   │   └── citation-remediation.md  # Citation audit plan
+│   │   ├── citation-remediation.md  # Citation audit plan
+│   │   └── paperbanana-guide.md    # PaperBanana infographic generation guide
 │   ├── plans/                       # One-shot roadmaps
 │   │   ├── andrew-ng-conversion-roadmap.md
 │   │   ├── 2026_02_07-convert_references.md
