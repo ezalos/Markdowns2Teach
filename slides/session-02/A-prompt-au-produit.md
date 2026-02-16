@@ -136,12 +136,14 @@ Le Prompt-based Development transforme l'équation économique :
 
 Tout projet Generative AI suit un cycle itératif en 4 phases :
 
-1. **Scope** — Définir précisément le projet et ses objectifs
-2. **Build / Improve** — Construire le système (prompt, pipeline, intégrations)
-3. **Internal Evaluation** — Tester en interne, détecter les erreurs
-4. **Deploy and Monitor** — Mettre en production, surveiller les résultats
+1. **Scope** — Définir le projet et ses objectifs
+2. **Build** — Construire le système (prompt, pipeline)
+3. **Evaluate** — Tester en interne, détecter les erreurs
+4. **Deploy** — Mettre en production, surveiller
 
-> Point essentiel : ce n'est **pas un processus linéaire**. Les flèches de retour entre les étapes sont la norme, pas l'exception.
+> Ce n'est **pas un processus linéaire**. Les retours entre étapes sont la norme.
+
+![bg right:50%](assets/infographics/genai-lifecycle.png)
 
 ---
 
@@ -318,19 +320,16 @@ Quand le Prompting seul ne suffit pas, il existe une progression :
 
 # 17 — Guide de décision : quel outil pour votre projet ?
 
-```
-Votre tâche est-elle bien définie en langage naturel ?
-  └─ OUI → Commencez par le PROMPTING
-       Le résultat est-il satisfaisant ?
-         └─ OUI → Déployez !
-         └─ NON → Le modèle manque-t-il de contexte spécifique ?
-              └─ OUI → Utilisez le RAG
-              └─ NON → Le modèle a-t-il besoin d'un style spécifique ?
-                   └─ OUI → Faites du FINE-TUNING
-                   └─ NON → Envisagez le PRETRAINING (rare)
-```
+L'arbre de décision suit une logique d'escalade progressive :
 
-> **90%** des projets GenAI en startup se résolvent avec Prompting + RAG [1]. Le Fine-tuning est utile mais pas toujours nécessaire.
+- *Prompting* → premier réflexe, toujours commencer ici
+- *RAG* → si le modèle manque de contexte spécifique
+- *Fine-tuning* → si le modèle a besoin d'un style ou format précis
+- *Pretraining* → domaine ultra-spécialisé (rare)
+
+> **90%** des projets GenAI en startup se résolvent avec Prompting + RAG [1].
+
+![bg right:55%](assets/infographics/tool-decision.png)
 
 <small>Sources : [1] Adapté de *Generative AI for Everyone* par Andrew Ng · [DeepLearning.AI](https://www.coursera.org/learn/generative-ai-for-everyone) · CC BY-SA 2.0</small>
 

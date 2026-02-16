@@ -311,18 +311,16 @@ Le principe de **Distillation** :
 
 # 14 — Qu'est-ce qu'un Agent ?
 
-Un **Agent** est un LLM qui enchaîne plusieurs actions de manière autonome :
+Un **Agent** est un LLM qui enchaîne plusieurs actions de manière autonome.
 
-**Exemple** — "Fais une analyse concurrentielle de BetterBurgers" :
-1. L'agent planifie : "Je dois chercher les concurrents, visiter leurs sites, résumer"
-2. → `SEARCH("BetterBurgers competitors")`
-3. → `VISIT(fastburger.com)` → résumé
-4. → `VISIT(burgerworld.com)` → résumé
-5. → Synthèse finale
-
-Le pattern dominant est **ReAct** (Reasoning + Acting) : le modèle alterne réflexion et action [1].
+Le pattern dominant est **ReAct** (Reasoning + Acting) [1] :
+- *Thought* — le modèle raisonne sur la tâche
+- *Action* — il exécute une action (recherche, visite, calcul)
+- *Observation* — il analyse le résultat et décide la suite
 
 > L'agent **décide lui-même** quelles actions exécuter et dans quel ordre. C'est un bond par rapport au simple chat.
+
+![bg right:50%](assets/infographics/agent-react.png)
 
 <small>Sources : [1] [Princeton/Google Research](https://arxiv.org/abs/2210.03629)</small>
 
@@ -332,17 +330,14 @@ Le pattern dominant est **ReAct** (Reasoning + Acting) : le modèle alterne réf
 
 Les LLMs ont des limites intrinsèques. Le **Tool Use** les compense :
 
-| Limite du LLM | Outil externe | Exemple |
-|---|---|---|
-| Mauvais en calcul | **Calculatrice** | "100 x 1,05^8 = ?" |
-| Pas d'info temps réel | **Recherche web** | "Cours du Bitcoin ?" |
-| Ne peut pas agir | **API d'action** | "Commande un burger" |
-| Pas accès à vos données | **Base de données** | "Mon solde ?" |
+- *Calcul* → Calculatrice ("100 x 1,05^8 = ?")
+- *Temps réel* → Recherche web ("Cours du Bitcoin ?")
+- *Action* → API externe ("Commande un burger")
+- *Données privées* → Base de données ("Mon solde ?")
 
-**Comment ça marche** :
-- Le LLM génère un **appel de fonction** au lieu d'une réponse texte
-- Le système exécute la fonction et renvoie le résultat
-- Le LLM formule la réponse finale pour l'utilisateur
+Le LLM génère un **appel de fonction**, le système exécute et renvoie le résultat, puis le LLM formule la réponse finale.
+
+![bg right:50%](assets/infographics/tool-use.png)
 
 ---
 

@@ -173,33 +173,28 @@ Il n'existe *pas de prompt parfait universel* — mais un *processus* pour s'am�
 
 # 07 — L'IA a une histoire cyclique
 
-| Période | Phase | Ce qui s'est passé |
-|---|---|---|
-| *1950s–1960s* | Hype initiale | Promesses irréalistes, le Perceptron est « la machine qui pense » |
-| *1969* | Douche froide | Minsky & Papert montrent les limites du Perceptron simple |
-| *1970s–1980s* | 1er AI Winter | Financement coupé, recherche en déclin |
-| *1986* | Renouveau | Backpropagation relance l'intérêt |
-| *1990s* | 2e AI Winter | Résultats ne suivent pas les promesses commerciales |
-| *2012* | Renaissance | AlexNet écrase la compétition ImageNet |
-| *2017* | Transformer | « Attention Is All You Need » — naissance des LLMs |
-| *2022+* | Ère GenAI | ChatGPT, GPT-4, Claude, Mistral — adoption de masse |
+- *1950s–1960s* : Hype initiale — le Perceptron est « la machine qui pense »
+- *1970s–1990s* : Deux AI Winters — financement coupé, promesses non tenues
+- *2012* : Renaissance — AlexNet écrase ImageNet
+- *2017* : Transformer — « Attention Is All You Need »
+- *2022+* : Ère GenAI — ChatGPT, Claude, Mistral, adoption de masse
 
-> *Leçon pour un entrepreneur* : connaître le cycle aide à évaluer les promesses actuelles. Nous sommes en phase de percée depuis 2012 — mais les déceptions passées sont instructives.
+> *Leçon pour un entrepreneur* : connaître le cycle aide à évaluer les promesses. Nous sommes en phase de percée depuis 2012 — mais les déceptions passées sont instructives.
+
+![bg right:50%](assets/infographics/ai-history.png)
 
 ---
 
 # 08 — La percée de 2012 : ImageNet et le Deep Learning
 
-*Le moment charnière* :
-- *ImageNet* : base de données de 14 millions d'images, 1000 catégories [1]
-- *AlexNet* (2012) : un CNN profond réduit le taux d'erreur de 26% à 15% [2]
+*Le Deep Learning = convergence* de trois facteurs :
+- *GPU* — puissance de calcul 100x supérieure
+- *Data* — Internet génère des volumes massifs
+- *Algorithmes* — techniques de Deep Learning plus efficaces
 
-*Pourquoi maintenant ?*
-- *GPU* : puissance de calcul 100x supérieure
-- *Data* : Internet génère des volumes massifs
-- *Algorithmes* : techniques de Deep Learning plus efficaces
+*AlexNet* (2012) réduit le taux d'erreur ImageNet de 26% à 15% [1] [2]. Quand les trois facteurs sont réunis, les performances explosent.
 
-*Le Deep Learning = convergence* de trois facteurs : compute, données, algorithmes. Quand les trois sont réunis, les performances explosent.
+![bg right:50%](assets/infographics/dl-convergence.png)
 
 <small>Sources : [1] [Deng et al. 2009](https://www.image-net.org/static_files/papers/imagenet_cvpr09.pdf) · [2] [Krizhevsky et al. 2012](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks)</small>
 
@@ -215,15 +210,17 @@ Il n'existe *pas de prompt parfait universel* — mais un *processus* pour s'am�
 
 # 09 — Quelle architecture pour quel problème ?
 
-| Architecture | Spécialité | Points forts | Limites |
-|---|---|---|---|
-| *CNN* | Images, vidéo | Détection de patterns visuels | Pas adapté au texte |
-| *RNN / LSTM* | Séquences, texte | Mémoire temporelle | Lent, mémoire limitée |
-| *GAN* | Génération | Résultats spectaculaires | Difficile à entraîner |
-| *Encoder/Decoder* | Multi-modal | Très polyvalent | Coûteux en calcul |
-| *Transformer* | Texte, code, multi-modal | Base de GPT, Claude, Mistral | Très coûteux |
+Cinq familles d'architectures, chacune optimisée pour un type de données :
 
-> *Pour un entrepreneur* : vous n'avez pas besoin de choisir l'architecture vous-même. Mais comprendre les forces de chacune vous aide à *évaluer les solutions proposées*.
+- *CNN* — images et vidéo (détection de patterns visuels)
+- *RNN / LSTM* — séquences et texte (mémoire temporelle)
+- *GAN* — génération (compétition générateur vs discriminateur)
+- *Encoder/Decoder* — multi-modal (traduction, sous-titrage)
+- *Transformer* — texte, code, multi-modal (base de GPT, Claude, Mistral)
+
+> *Pour un entrepreneur* : comprendre les forces de chaque architecture aide à *évaluer les solutions proposées*.
+
+![bg right:55%](assets/infographics/architectures.png)
 
 ---
 
@@ -299,14 +296,11 @@ Il n'existe *pas de prompt parfait universel* — mais un *processus* pour s'am�
 1. *Encoder* : compresse l'information en une représentation dense (« le sens »)
 2. *Decoder* : reconstruit une sortie à partir de cette représentation
 
-| Input (Encoder) | Output (Decoder) | Application |
-|---|---|---|
-| Texte français | Texte anglais | Traduction automatique |
-| Image | Texte descriptif | Sous-titrage automatique |
-| Texte | Image | DALL-E, Midjourney |
-| Audio | Texte | Transcription (Whisper) |
+*Exemples* : traduction (texte → texte), sous-titrage (image → texte), DALL-E (texte → image), Whisper (audio → texte)
 
 > L'architecture Encoder/Decoder est la *brique fondamentale* derrière les LLMs que vous utilisez quotidiennement (ChatGPT, Claude, Mistral Le Chat).
+
+![bg right:50%](assets/infographics/encoder-decoder.png)
 
 ---
 

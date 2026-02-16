@@ -4,6 +4,10 @@
 # Build output
 dist/
 
+# Generated infographics (PaperBanana workspace)
+infographics/
+outputs/
+
 # Node
 node_modules/
 
