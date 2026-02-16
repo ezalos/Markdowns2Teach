@@ -84,17 +84,18 @@ Après génération, organiser les résultats dans `infographics/` :
 
 ```
 infographics/
-├── descriptive-name.png          ← copie de final_output.png
-├── another-diagram.png
-└── runs/                         ← provenance (ne pas supprimer)
-    ├── run_20260216_171255_a6ef8c/
-    ├── run_20260216_171257_39e262/
-    └── ...
+├── ai-history_run_20260216_171305_8a5d6f.png
+├── dl-convergence_run_20260216_171308_a41957.png
+└── ...
 ```
 
+**Convention de nommage** : `<descriptive-name>_<run_id>.png`
+- Partie gauche : nom descriptif en kebab-case (ex : `ai-history`)
+- Partie droite : l'identifiant du run PaperBanana (ex : `run_20260216_171305_8a5d6f`)
+- Cela permet de retrouver le dossier `outputs/<run_id>/` original (planning, metadata, itérations)
+
 **Règles** :
-- Copier `final_output.png` avec un nom descriptif (kebab-case, ex : `ai-history.png`)
-- **Conserver les `run_*/` dans un sous-dossier `runs/`** — la provenance est précieuse pour régénérer ou comprendre un diagramme
+- Copier `final_output.png` avec le nom descriptif + run ID
 - `infographics/` et `outputs/` sont gitignorés
 
 ## Intégration dans les slides Marp
@@ -102,7 +103,7 @@ infographics/
 Copier les PNGs nécessaires dans `slides/session-XX/assets/infographics/` :
 
 ```bash
-cp infographics/my-diagram.png slides/session-02/assets/infographics/
+cp infographics/my-diagram_run_20260216_171305_8a5d6f.png slides/session-02/assets/infographics/
 ```
 
 Utiliser la syntaxe Marp background image :
@@ -115,7 +116,7 @@ Utiliser la syntaxe Marp background image :
 
 > Callout ou insight
 
-![bg right:50%](assets/infographics/my-diagram.png)
+![bg right:50%](assets/infographics/my-diagram_run_20260216_171305_8a5d6f.png)
 ```
 
 **Conventions d'intégration** :
@@ -136,5 +137,4 @@ Utiliser la syntaxe Marp background image :
 
 1. Le `final_output.png` est-il lisible à la taille d'une demi-slide ?
 2. Les éléments clés sont-ils tous présents et correctement labelés ?
-3. Le run directory a-t-il été préservé dans `infographics/runs/` ?
-4. Le PNG a-t-il un nom descriptif en kebab-case ?
+3. Le PNG a-t-il un nom `<descriptive>_<run_id>.png` ?

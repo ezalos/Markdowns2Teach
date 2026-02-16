@@ -143,7 +143,7 @@ Tout projet Generative AI suit un cycle itératif en 4 phases :
 
 > Ce n'est **pas un processus linéaire**. Les retours entre étapes sont la norme.
 
-![bg right:50%](assets/infographics/genai-lifecycle.png)
+![bg right:50%](assets/infographics/genai-lifecycle_run_20260216_171314_f23e16.png)
 
 ---
 
@@ -329,7 +329,7 @@ L'arbre de décision suit une logique d'escalade progressive :
 
 > **90%** des projets GenAI en startup se résolvent avec Prompting + RAG [1].
 
-![bg right:55%](assets/infographics/tool-decision.png)
+![bg right:55%](assets/infographics/tool-decision_run_20260216_171316_911dd4.png)
 
 <small>Sources : [1] Adapté de *Generative AI for Everyone* par Andrew Ng · [DeepLearning.AI](https://www.coursera.org/learn/generative-ai-for-everyone) · CC BY-SA 2.0</small>
 

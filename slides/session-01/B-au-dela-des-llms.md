@@ -181,7 +181,7 @@ Il n'existe *pas de prompt parfait universel* — mais un *processus* pour s'am�
 
 > *Leçon pour un entrepreneur* : connaître le cycle aide à évaluer les promesses. Nous sommes en phase de percée depuis 2012 — mais les déceptions passées sont instructives.
 
-![bg right:50%](assets/infographics/ai-history.png)
+![bg right:50%](assets/infographics/ai-history_run_20260216_171305_8a5d6f.png)
 
 ---
 
@@ -194,7 +194,7 @@ Il n'existe *pas de prompt parfait universel* — mais un *processus* pour s'am�
 
 *AlexNet* (2012) réduit le taux d'erreur ImageNet de 26% à 15% [1] [2]. Quand les trois facteurs sont réunis, les performances explosent.
 
-![bg right:50%](assets/infographics/dl-convergence.png)
+![bg right:50%](assets/infographics/dl-convergence_run_20260216_171308_a41957.png)
 
 <small>Sources : [1] [Deng et al. 2009](https://www.image-net.org/static_files/papers/imagenet_cvpr09.pdf) · [2] [Krizhevsky et al. 2012](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks)</small>
 
@@ -220,7 +220,7 @@ Cinq familles d'architectures, chacune optimisée pour un type de données :
 
 > *Pour un entrepreneur* : comprendre les forces de chaque architecture aide à *évaluer les solutions proposées*.
 
-![bg right:55%](assets/infographics/architectures.png)
+![bg right:55%](assets/infographics/architectures_run_20260216_171312_60551f.png)
 
 ---
 
@@ -300,7 +300,7 @@ Cinq familles d'architectures, chacune optimisée pour un type de données :
 
 > L'architecture Encoder/Decoder est la *brique fondamentale* derrière les LLMs que vous utilisez quotidiennement (ChatGPT, Claude, Mistral Le Chat).
 
-![bg right:50%](assets/infographics/encoder-decoder.png)
+![bg right:50%](assets/infographics/encoder-decoder_run_20260216_171310_3b56bd.png)
 
 ---
 

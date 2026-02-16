@@ -320,7 +320,7 @@ Le pattern dominant est **ReAct** (Reasoning + Acting) [1] :
 
 > L'agent **décide lui-même** quelles actions exécuter et dans quel ordre. C'est un bond par rapport au simple chat.
 
-![bg right:50%](assets/infographics/agent-react.png)
+![bg right:50%](assets/infographics/agent-react_run_20260216_171318_224f91.png)
 
 <small>Sources : [1] [Princeton/Google Research](https://arxiv.org/abs/2210.03629)</small>
 
@@ -337,7 +337,7 @@ Les LLMs ont des limites intrinsèques. Le **Tool Use** les compense :
 
 Le LLM génère un **appel de fonction**, le système exécute et renvoie le résultat, puis le LLM formule la réponse finale.
 
-![bg right:50%](assets/infographics/tool-use.png)
+![bg right:50%](assets/infographics/tool-use_run_20260216_171320_c1b044.png)
 
 ---
 
