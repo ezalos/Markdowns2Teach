@@ -32,16 +32,18 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 
 # 01 — CRISP-DM : 6 phases cycliques
 
-Le framework le plus utilisé en Data Science — **43% d'adoption**, #1 depuis 2002 [1] :
+![bg right:50%](assets/infographics/crisp-dm_run_20260216_171255_a6ef8c.png)
 
-1. **Business Understanding** — définir le problème et les critères de succès
-2. **Data Understanding** — explorer, inventorier, évaluer la qualité
-3. **Data Preparation** — nettoyer, transformer (**50-70% de l'effort** total) [2]
-4. **Modeling** — entraîner, comparer, tuner les modèles
-5. **Evaluation** — valider vs les critères business (pas que les métriques ML)
-6. **Deployment** — mettre en production + monitoring continu
+Le standard Data Science — **43% d'adoption**, #1 depuis 2002 [1] :
 
-> Né d'un **programme de recherche européen** (EU ESPRIT, 1996-1999). Jamais mis à jour — mais toujours dominant.
+1. **Business Understanding** — problème + critères de succès
+2. **Data Understanding** — explorer, évaluer la qualité
+3. **Data Preparation** — **50-70% de l'effort** total [2]
+4. **Modeling** — entraîner, comparer, tuner
+5. **Evaluation** — valider vs critères business
+6. **Deployment** — production + monitoring
+
+> Né d'un programme européen (EU ESPRIT, 1996-1999). Jamais mis à jour — toujours dominant.
 
 <small>Sources : [1] [DataScience-PM](https://www.datascience-pm.com/crisp-dm-2/) · [2] [IBM SPSS Modeler CRISP-DM Guide](https://www.ibm.com/docs/en/spss-modeler/18.5.0?topic=dm-data-preparation)</small>
 
@@ -78,17 +80,20 @@ Le framework le plus utilisé en Data Science — **43% d'adoption**, #1 depuis 
 
 # 03 — LLMOps : le cycle GenAI
 
-CRISP-DM date de 1999. Pour les projets **LLM/GenAI**, un cycle en **9 phases** [1] :
+![bg right:50%](assets/infographics/llmops_run_20260216_171257_39e262.png)
 
-1. **Problem Definition** — cadrer le use case et les critères de succès
-2. **Model Selection** — benchmark sur votre domaine (Mistral vs Claude vs GPT)
-3. **Data Preparation** — knowledge base, chunking, embeddings pour RAG
-4. **Prompt Engineering** — system prompts, few-shot, chain-of-thought
-5. **Evaluation (Evals)** — golden datasets, métriques automatisées + humaines
-6. **Guardrails** — filtrage toxicité, PII, hallucinations [2]
-7. **Deployment** — API serving, caching, rate limiting
-8. **Observability** — tracing distribué, coûts par requête
-9. **Feedback Loops** — corrections humaines, amélioration continue
+CRISP-DM date de 1999. Pour la GenAI, **9 phases** en 3 blocs [1] :
+
+**Define** — cadrer le projet
+- Problem Definition, Model Selection, Data Preparation
+
+**Build** — construire la solution
+- Prompt Engineering, Evaluation (Evals), Guardrails [2]
+
+**Operate** — maintenir en production
+- Deployment, Observability, Feedback Loops
+
+> Différence clé vs CRISP-DM : **Guardrails** et **Observability** sont des phases à part entière, pas des options.
 
 <small>Sources : [1] [DataScience-PM](https://www.datascience-pm.com/the-genai-life-cycle/) · [2] [NVIDIA](https://developer.nvidia.com/blog/mastering-llm-techniques-llmops/)</small>
 
@@ -208,20 +213,16 @@ Avant de construire un modèle, **5 patterns** pour tester la valeur [1] :
 
 # 08 — Le guide de décision
 
-```
-Votre tâche est-elle bien définie en langage naturel ?
-  OUI --> Commencez par le PROMPTING
-       Le résultat est-il satisfaisant ?
-         OUI --> Déployez !
-         NON --> Le modèle manque-t-il de contexte spécifique ?
-              OUI --> Utilisez le RAG
-              NON --> Besoin d'un style/savoir spécifique ?
-                   OUI --> Faites du FINE-TUNING
-                   NON --> Votre domaine est-il totalement unique ?
-                        OUI --> Envisagez le PRETRAINING (rare)
-```
+![bg right:55%](assets/infographics/decision-guide_run_20260216_171259_3f18b9.png)
 
-> **90%** des projets GenAI en startup se résolvent avec Prompting + RAG [1]. Le Fine-tuning est utile mais pas toujours nécessaire.
+Quatre niveaux d'investissement technique :
+
+- **Prompting** — premier réflexe, suffisant pour beaucoup de cas
+- **RAG** — le modèle manque de contexte spécifique à votre domaine
+- **Fine-tuning** — besoin d'un style ou savoir-faire particulier
+- **Pretraining** — domaine totalement unique (rare et coûteux)
+
+> **90%** des projets GenAI en startup se résolvent avec Prompting + RAG [1].
 
 <small>Sources : [1] Adapté de *Generative AI for Everyone* par Andrew Ng · DeepLearning.AI · CC BY-SA 2.0</small>
 

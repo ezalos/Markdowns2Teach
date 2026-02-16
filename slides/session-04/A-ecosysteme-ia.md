@@ -106,19 +106,17 @@ Les hyperscalers investissent massivement dans l'infrastructure IA :
 
 # 04 — Vue d'ensemble : les 9 couches du stack IA
 
-| # | Couche | Rôle | Exemples clés |
-|---|--------|------|---------------|
-| 0 | Energy | Alimentation des data centers | Crusoe Energy, CFS |
-| 1 | Hardware | GPUs, puces, mémoire | NVIDIA, TSMC, ASML |
-| 2 | Cloud Infrastructure | Location de compute GPU | AWS, Azure, OVHcloud |
-| 3 | Data Infrastructure | Labeling, data platforms | Scale AI, Databricks |
-| 4 | Foundation Models | Entraînement des LLMs | OpenAI, Mistral AI |
-| 5 | Model Hubs | Distribution de modèles | Hugging Face, Ollama |
-| 6 | APIs & Orchestration | Routing, Vector DBs | OpenRouter, Pinecone |
-| 7 | Évaluation & Safety | Benchmarks, compliance | LMSYS, Giskard |
-| 8 | Applications | Produits AI-natives | Cursor, Perplexity |
+![bg right:55%](assets/infographics/ai-stack-9_run_20260216_171301_8858a8.png)
 
-> Vers le bas = plus de capital, plus de concentration. Vers le haut = plus de différenciation possible.
+De l'énergie aux applications, **9 couches** structurent l'écosystème :
+
+- **0-1 Energy & Hardware** — NVIDIA, TSMC, ASML (capital massif)
+- **2-3 Cloud & Data** — AWS, Azure, Scale AI, Databricks
+- **4-5 Models & Hubs** — OpenAI, Mistral AI, Hugging Face
+- **6-7 APIs & Safety** — OpenRouter, Pinecone, Giskard
+- **8 Applications** — Cursor, Perplexity (pricing power max)
+
+> Vers le bas = plus de **capital**, plus de concentration. Vers le haut = plus de **différenciation** possible.
 
 ---
 

@@ -174,15 +174,14 @@ Pourquoi ça marche :
 
 # 08 — Data flywheel : le cercle vertueux
 
-Le data flywheel : **plus d'utilisateurs → plus de données → meilleur produit → plus d'utilisateurs**
+![bg right:50%](assets/infographics/data-flywheel_run_20260216_171303_bb1a21.png)
+
+**Plus d'utilisateurs → plus de données → meilleur produit → plus d'utilisateurs**
 
 - **Cursor** : 1M+ DAU → chaque keystroke alimente le fine-tuning [1]
 - **OpenAI** : 900M WAU, **2,5 Mds+** de prompts/jour [2]
-- **Midjourney** : 600M+ images → apprentissage des préférences [2]
 
-Mais attention (a16z, 2019) :
-- Les données ne sont un moat que si elles sont **uniques**, **croissantes**, et **intégrées au produit**
-- Des données génériques (web scraping) ne constituent **pas** un avantage défendable
+> Les données ne sont un moat que si elles sont **uniques**, **croissantes**, et **intégrées au produit**. Des données génériques ≠ avantage défendable (a16z).
 
 <small>Sources : [1] [Sacra](https://sacra.com/c/cursor/) · [2] [Sherwood News](https://sherwood.news/)</small>
 
