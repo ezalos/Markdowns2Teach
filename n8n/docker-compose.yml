@@ -1,0 +1,25 @@
+# ABOUTME: Docker Compose configuration for n8n workflow automation.
+# ABOUTME: Exposes n8n on port 1111 for the M2 course classification workflow.
+
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n
+    restart: unless-stopped
+    ports:
+      - "1111:5678"
+    environment:
+      - GENERIC_TIMEZONE=${GENERIC_TIMEZONE}
+      - TZ=${GENERIC_TIMEZONE}
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=http
+      - N8N_HOST=${N8N_HOST}
+      - WEBHOOK_URL=${WEBHOOK_URL}
+      - N8N_EDITOR_BASE_URL=${N8N_EDITOR_BASE_URL}
+      - N8N_SECURE_COOKIE=false
+      - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
+    volumes:
+      - n8n_data:/home/node/.n8n
+      - ./shared:/files
+
+volumes:
+  n8n_data:
