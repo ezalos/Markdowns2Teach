@@ -24,8 +24,8 @@ footer: ""
 **Louis — ML Research Engineer**
 
 - *ML Research Engineer* chez Heuritech (4+ ans en ML de production)
-- *Freelance AI Curriculum Architect* pour 42 Network (20 000+ étudiants)
-- *Président* de 42AI
+- *AI Curriculum Architect* pour 42 Network (20 000+ étudiants)
+- Ancien *Président* de l'AI Lab de 42
 - *Co-fondateur* d'ICONO SAS (startup IA & Computer Vision)
 
 *Ce que je fais au quotidien* :
@@ -33,7 +33,7 @@ footer: ""
 - Pipelines ML distribués traitant des millions de frames vidéo par jour
 - De la recherche à la production : prototypage → déploiement
 
-> Mon objectif dans ce cours : vous donner l'intuition de ce que le ML peut (et ne peut pas) faire en pratique.
+> Mon objectif : vous donner l'intuition de ce que le ML peut (et ne peut pas) faire en pratique.
 
 ---
 
@@ -41,12 +41,14 @@ footer: ""
 
 *Bridging the gap* entre la Deep Tech et la décision business.
 
-| Ce que ce cours **est** | Ce que ce cours **n'est pas** |
+| Ce que ce cours est | Ce que ce cours n'est pas |
 |---|---|
 | Comprendre les capacités de l'IA | Un cours de Data Science |
 | Cadrer et piloter un projet IA | Apprendre à coder des modèles |
 | Identifier les opportunités business | Un catalogue d'outils |
 | Développer un regard critique | Une formation ChatGPT |
+
+**5 sessions × 3h** · Du 23 février au 30 mars 2026 · Lundi 17h30–20h30
 
 > Vous êtes des *décideurs*, pas des exécutants techniques. On va vous donner les clés pour décider intelligemment.
 
@@ -54,13 +56,13 @@ footer: ""
 
 # 03 — Plan du cours
 
-| Session | Thème | Vous saurez… |
-|---|---|---|
-| **1** | Comprendre l'IA en 2026 | Ce que l'IA sait et ne sait pas faire |
-| **2** | Construire avec l'IA | Comment on passe d'un prompt à un produit |
-| **3** | Cadrer un projet IA | Évaluer, choisir et piloter une solution IA |
-| **4** | Le business de l'IA | Qui gagne de l'argent, comment, et pourquoi |
-| **5** | Éthique & clôture | Les règles du jeu et vos présentations finales |
+| Session | Date | Thème | Vous saurez… |
+|---|---|---|---|
+| **1** | 23 fév. | Comprendre l'IA en 2026 | Ce que l'IA sait et ne sait pas faire |
+| **2** | 9 mars | Construire avec l'IA | Comment on passe d'un prompt à un produit |
+| **3** | 16 mars | Cadrer un projet IA | Évaluer, choisir et piloter une solution IA |
+| **4** | 23 mars | Le business de l'IA | Qui gagne de l'argent, comment, et pourquoi |
+| **5** | 30 mars | Éthique & clôture | Les règles du jeu et vos présentations finales |
 
 ---
 
@@ -74,7 +76,12 @@ Chaque session de 3h suit le même rythme :
 | *Pause* | 15 min | |
 | **Deck B** | 45 min | Cours + discussion |
 | *Pause* | 15 min | |
-| **Bloc C** | 45 min | Pratique / QCM / Intervenant |
+| **Bloc C** | 45 min | Pratique ou intervenant |
+
+**Bloc C** par session :
+- **S1–S3** : Ateliers n8n + HuggingFace (projet de groupe)
+- **S4** : Intervenants externes (Mistral AI, startup IA)
+- **S5** : Présentations finales + QCM
 
 > Les questions sont bienvenues *à tout moment*. N'attendez pas la fin.
 
@@ -82,46 +89,45 @@ Chaque session de 3h suit le même rythme :
 
 # 05 — Évaluation
 
-<!-- TODO: Louis — à compléter avec les modalités exactes -->
-
 | Composante | Poids | Format |
 |---|---|---|
-| **QCM de fin de session** | *TBD* | Questions à choix multiples après chaque session |
-| **Projet de groupe** | *TBD* | Par équipes de 4, présentation en Session 5 |
-| **Participation** | *TBD* | Engagement en cours et en ateliers |
+| **QCM final** | 30% | 20 questions, 30 min, en Session 5 |
+| **Projet de groupe** | 50% | Par équipes de 4, présentation en Session 5 |
+| **Participation** | 20% | Engagement en cours et en ateliers |
+
+> Détails complets du projet et des critères dans le **Bloc C** de cette session.
 
 ---
 
 # 06 — QCM — Comment ça marche
 
-<!-- TODO: Louis — à compléter avec le format exact -->
-
-- Un QCM à la fin de chaque session (ou de certaines sessions)
-- Questions à choix multiples sur le contenu couvert
+- Un **QCM unique** en Session 5, couvrant l'ensemble du cours
+- Questions à choix multiples sur les 5 sessions
 - *Objectif* : vérifier la compréhension, pas piéger
 
-*Format type* :
-- ~10-15 questions par QCM
-- Durée : ~15 minutes
-- Supports de cours autorisés : *TBD*
+*Format* :
+- **20 questions** à choix multiples
+- Durée : **30 minutes**
+- Supports de cours autorisés : aucun
 
 ---
 
 # 07 — Projet de groupe
 
-<!-- TODO: Louis — à compléter avec le sujet et les critères -->
-
 **Équipes** : 7 groupes de 4 étudiants
 
-**Livrable** : *à définir*
+**Sujet** : Construire un système de **classification IA** avec HuggingFace + n8n
 
-**Présentation finale** : Session 5 — 5 min par équipe + questions
+**3 livrables** : workflow n8n (JSON) + jeu de test (20+ cas) + présentation (5 min en S5)
 
 *Critères d'évaluation* :
-- Pertinence du problème choisi
-- Qualité de l'analyse et du cadrage
-- Réalisme de la solution proposée
-- Clarté de la présentation
+- Choix du modèle et justification (25%)
+- Qualité de l'évaluation (25%)
+- Honnêteté de l'analyse (20%)
+- Déploiement fonctionnel (15%)
+- Présentation (15%)
+
+> Tous les détails dans le **Bloc C** — après la pause !
 
 ---
 
@@ -136,6 +142,8 @@ Chaque session de 3h suit le même rythme :
 - Des cas concrets et récents (2024–2026)
 - De l'honnêteté sur ce que l'IA sait et ne sait pas faire
 - De la disponibilité pour vos questions, en cours et par email
+
+**Contact** : develle.louis@gmail.com
 
 > *On y va ?*
 

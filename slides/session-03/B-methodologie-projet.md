@@ -32,7 +32,7 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 
 # 01 — CRISP-DM : 6 phases cycliques
 
-![bg right:50%](assets/infographics/crisp-dm_run_20260216_171255_a6ef8c.png)
+![bg right:50% contain](assets/infographics/crisp-dm_run_20260216_171255_a6ef8c.png)
 
 Le standard Data Science — **43% d'adoption**, #1 depuis 2002 [1] :
 
@@ -80,7 +80,7 @@ Le standard Data Science — **43% d'adoption**, #1 depuis 2002 [1] :
 
 # 03 — LLMOps : le cycle GenAI
 
-![bg right:50%](assets/infographics/llmops_run_20260216_171257_39e262.png)
+![bg right:50% contain](assets/infographics/llmops_run_20260216_171257_39e262.png)
 
 CRISP-DM date de 1999. Pour la GenAI, **9 phases** en 3 blocs [1] :
 
@@ -213,7 +213,7 @@ Avant de construire un modèle, **5 patterns** pour tester la valeur [1] :
 
 # 08 — Le guide de décision
 
-![bg right:55%](assets/infographics/decision-guide_run_20260216_171259_3f18b9.png)
+![bg right:55% contain](assets/infographics/decision-guide_run_20260216_171259_3f18b9.png)
 
 Quatre niveaux d'investissement technique :
 

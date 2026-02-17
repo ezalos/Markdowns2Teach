@@ -71,7 +71,7 @@ section strong {
 }
 
 section em {
-  color: var(--text-muted);
+  color: var(--accent-orange);
   font-style: italic;
 }
 

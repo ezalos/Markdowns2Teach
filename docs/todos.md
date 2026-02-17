@@ -29,8 +29,30 @@ Please create a sync of the local slides to GDrive easily (you can use uvx if it
 
 
 
+## Course content
+
+I would like to change the course order a bit : 
+Deck-A : First I would like to define AI, 
+and then make a general slide about approach the different ways to categorize AI : 
+- By their algorithm type (stat/ml/dl/gen-ai)
+- By their label type (supervise/unsup/rl)
+- By their data type (tabulaire/text/image/...)
+- task type (classif / regression / summarization / object detection) -> should be with a hf screenshot of all the possible task that can be selected
+
+And then we go through each to give details with 1-3 slides 
+
+- Algo type for dl give hte keras link : https://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=4,2&seed=0.20188&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false
+- In supervised learning -> give an example with LR
+
+I need to prepare the g-sheet
+
+I should make sur S2 has evaluation in it.
 
 ## Nice things which could be added
+
+
+
+- [ ] Difference between the different type of training done (pretrianing + instruct + thinking + ...) and then what can be done later : finetuning + LoRA
 
 - [x] Make sure RAG is explained in architecture term
 - [ ] Nvidia Moat and CUDA, get back this : https://newsletter.semianalysis.com/p/nvidiaopenaitritonpytorch

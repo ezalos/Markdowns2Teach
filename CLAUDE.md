@@ -188,10 +188,11 @@ make clean      # Remove dist/
 
 | Path | Title | Slides |
 |------|-------|--------|
-| `slides/session-01/A-genai-fondamentaux.md` | L'IA Générative : ce qu'elle sait faire | 27 |
+| `slides/session-01/A-genai-fondamentaux.md` | L'IA Générative : ce qu'elle sait faire | 30 |
 | `slides/session-01/B-au-dela-des-llms.md` | L'IA au-delà des LLMs | 19 |
+| `slides/session-01/C-premier-projet-ia.md` | Votre premier projet IA | 23 |
 | `slides/session-02/A-prompt-au-produit.md` | Du Prompt au Produit | 19 |
-| `slides/session-02/B-ingenierie-ia.md` | L'Ingénierie IA | 20 |
+| `slides/session-02/B-ingenierie-ia.md` | L'Ingénierie IA | 21 |
 | `slides/session-03/A-evaluer-solution-ia.md` | Évaluer une solution IA | 18 |
 | `slides/session-03/B-methodologie-projet.md` | Méthodologie projet IA | 17 |
 | `slides/session-04/A-ecosysteme-ia.md` | L'écosystème IA | 18 |

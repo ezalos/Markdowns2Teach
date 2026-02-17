@@ -30,16 +30,16 @@
 
 | Bloc | Contenu | Fichier |
 |------|---------|---------|
-| **A** | L'IA Générative : ce qu'elle sait faire — GenAI intro, capabilities LLM (écriture/lecture/chat), génération d'image, limites et hallucinations | `slides/session-01/A-genai-fondamentaux.md` (27 slides) |
+| **A** | L'IA Générative : ce qu'elle sait faire — GenAI intro, capabilities LLM (écriture/lecture/chat), génération d'image, limites et hallucinations | `slides/session-01/A-genai-fondamentaux.md` (30 slides) |
 | **B** | L'IA au-delà des LLMs — Prompting, taxonomie IA, histoire (1956–2026), architectures (CNN, RNN, GAN, Transformer), reasoning models, éthique intro | `slides/session-01/B-au-dela-des-llms.md` (19 slides) |
-| **C** | N8N #1 — workflow simple : input → LLM → output | *(design TBD)* |
+| **C** | Votre premier projet IA — Toolbox (JSON, API, Webhooks, HuggingFace, n8n), démo live Sentiment Analysis en 3 nodes, lancement projet de groupe | `slides/session-01/C-premier-projet-ia.md` (23 slides) |
 
 ### Séance 2 — Construire avec l'IA
 
 | Bloc | Contenu | Fichier |
 |------|---------|---------|
 | **A** | Du Prompt au Produit — 3 catégories d'apps IA, cycle de développement prompt-based, tokens, coûts, choix de modèle | `slides/session-02/A-prompt-au-produit.md` (19 slides) |
-| **B** | L'Ingénierie IA — RAG pipeline, Fine-tuning (LoRA, QLoRA, distillation), Agentic AI (ReAct, Tool Use, MCP), matrice RAG vs Fine-tuning | `slides/session-02/B-ingenierie-ia.md` (20 slides) |
+| **B** | L'Ingénierie IA — Training pipeline, RAG pipeline, Fine-tuning (LoRA, QLoRA, distillation), Agentic AI (ReAct, Tool Use, MCP), matrice RAG vs Fine-tuning | `slides/session-02/B-ingenierie-ia.md` (21 slides) |
 | **C** | N8N #2 — workflow avec modèle open-source HuggingFace | *(design TBD)* |
 
 ### Séance 3 — Cadrer un projet IA
@@ -79,10 +79,11 @@
 
 | Fichier | Slides | Statut |
 |---------|--------|--------|
-| `session-01/A-genai-fondamentaux.md` | 27 | ✅ Terminé |
+| `session-01/A-genai-fondamentaux.md` | 30 | ✅ Terminé |
 | `session-01/B-au-dela-des-llms.md` | 19 | ✅ Terminé |
+| `session-01/C-premier-projet-ia.md` | 23 | ✅ Terminé |
 | `session-02/A-prompt-au-produit.md` | 19 | ✅ Terminé |
-| `session-02/B-ingenierie-ia.md` | 20 | ✅ Terminé |
+| `session-02/B-ingenierie-ia.md` | 21 | ✅ Terminé |
 | `session-03/A-evaluer-solution-ia.md` | 18 | ✅ Terminé |
 | `session-03/B-methodologie-projet.md` | 17 | ✅ Terminé |
 | `session-04/A-ecosysteme-ia.md` | 18 | ✅ Terminé |
@@ -103,7 +104,7 @@
 
 | Séance | Statut |
 |--------|--------|
-| Session 1 — N8N #1 | ❌ Design TBD |
+| Session 1 — Votre premier projet IA | ✅ `session-01/C-premier-projet-ia.md` (22 slides) |
 | Session 2 — N8N #2 | ❌ Design TBD |
 | Session 3 | ❌ TBD |
 | Session 4 — Intervenants | ✅ Confirmé (Tanguy + Maxime) |
@@ -111,7 +112,6 @@
 
 ## Éléments non encore conçus
 
-- Progression des ateliers N8N (sessions 1C, 2C, 3C)
-- Projet de groupe fil rouge : livrables, critères d'évaluation, composition des équipes
+- Progression des ateliers N8N (sessions 2C, 3C) — S1-C terminé
 - Compétition prompt engineering : timing, design du dataset
 - Logistique des présentations finales : 28 étudiants, composition des équipes

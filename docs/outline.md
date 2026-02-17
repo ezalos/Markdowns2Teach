@@ -28,8 +28,11 @@ Each 3h session follows:
 - Reasoning models & SLMs highlights
 - Ethics & bias introduction
 
-**C — N8N #1** *(practice — design TBD)*
-- Simple workflow: input → LLM → output
+**C — Votre premier projet IA** (`session-01/C-premier-projet-ia.md`, 22 slides)
+- Toolbox intro: JSON, API, HuggingFace, n8n
+- Live demo: 3-node Sentiment Analysis workflow (Chat Trigger → HTTP Request → Format Response)
+- Project assignment: 7 teams, 10 pre-built projects, evaluation criteria
+- Homework: form teams, create HF account, pick project via Google Sheet
 
 ---
 
@@ -112,7 +115,6 @@ Each 3h session follows:
 
 ## Content Not Yet Designed
 
-- **Practice thread**: N8N workshop progression (Sessions 1C, 2C, 3C)
-- **Final group project**: deliverables, evaluation criteria, team formation
+- **Practice thread**: N8N workshop progression (Sessions 2C, 3C) — S1-C done
 - **Prompt engineering competition**: timing, dataset design
 - **Presentation logistics**: 28 students, team composition

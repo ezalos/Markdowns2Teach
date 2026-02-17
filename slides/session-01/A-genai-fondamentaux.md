@@ -3,7 +3,7 @@ marp: true
 theme: sorbonne
 paginate: true
 header: "Deep Tech & ML (UE3) — Session 1 · M2 IMT&E · Paris 1 Panthéon-Sorbonne"
-footer: "Adapté de *Generative AI for Everyone* par Andrew Ng · DeepLearning.AI · CC BY-SA 2.0"
+footer: "Sources multiples · DeepLearning.AI CC BY-SA 2.0"
 ---
 
 <!-- ABOUTME: Introduction à la Generative AI — concepts, capacités (Writing/Reading/Chatting) et génération d'images. -->
@@ -109,7 +109,7 @@ La Generative AI ne se limite pas au texte :
 
 - *Audio* : génération de voix (ElevenLabs [1]), musique (Suno [2])
 
-![](assets/A/suno.png)
+![bg right:50% contain](assets/A/suno.png)
 [Suno](https://suno.com/s/TDY3F2UiDfBxkIVI)
 
 *Cas d'usage business* :
@@ -134,17 +134,19 @@ La Generative AI ne se limite pas au texte :
 
 ---
 
-# 08 — Ce que vous allez apprendre
+# 08 — Comment l'IA apprend-elle ?
 
-Trois piliers pour maîtriser la Generative AI en tant qu'entrepreneur :
+Vous avez vu ce que l'IA *produit* — mais comment *apprend*-elle ?
 
-| Pilier | Ce que vous saurez faire |
-|---|---|
-| *Comprendre la technologie* | Ce que l'IA peut et ne peut pas faire, les cas d'usage |
-| *Construire des projets GenAI* | Identifier, cadrer et construire des solutions IA |
-| *Impact business et société* | Comment les équipes peuvent en tirer parti, risques et IA responsable |
+| Approche | Analogie | Données requises |
+|---|---|---|
+| **Supervised Learning** | Un professeur corrige des copies | Exemples étiquetés (input → output) |
+| **Unsupervised Learning** | Un explorateur classe ses découvertes | Données brutes, sans étiquettes |
+| **Reinforcement Learning** | Un enfant apprend par essai-erreur | Environnement + signal de récompense |
 
-> Objectif du cours : vous donner les clés de décision, pas vous transformer en Data Scientists.
+> Chaque approche résout un type de problème différent. Les slides suivantes détaillent chaque famille.
+
+![bg right:40% contain](assets/A/unsupervise-supervise-reinforcement.png)
 
 ---
 
@@ -186,13 +188,13 @@ Comment l'algorithme interagit avec les données — chaque approche répond à 
 |---|---|---|
 | Email | Spam ? (0/1) | Filtrage automatique |
 | Pub + profil utilisateur | Clic ? (0/1) | Publicité ciblée |
-| Image radar | Position véhicules | Conduite autonome |
 | Image radio | Diagnostic | Healthcare |
 | Photo produit | Défaut ? (0/1) | Contrôle qualité |
-| Enregistrement audio | Transcription texte | Speech Recognition |
 | Avis client | Sentiment (pos/neg) | Veille e-réputation |
 
-> *Pour un entrepreneur* : le Supervised Learning (classification, prédiction) reste la technologie IA la plus *rentable* en production [1]. La Generative AI l'a dépassé en fréquence de déploiement depuis 2024 [2], mais croissance ≠ revenus prouvés.
+> *Pour un entrepreneur* : le Supervised Learning reste la technique IA la plus *rentable* en production [1]. La Generative AI l'a dépassé en déploiement depuis 2024 [2], mais croissance ≠ revenus prouvés.
+
+![bg right:45% contain](assets/infographics/supervised-learning-pipeline_run_20260217_010840_95e2a7.png)
 
 <small>Sources : [1] [McKinsey State of AI 2024](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-2024) · [2] [Gartner](https://www.gartner.com/en/newsroom/press-releases/2024-05-07-gartner-survey-finds-generative-ai-is-now-the-most-frequently-deployed-ai-solution-in-organizations)</small>
 
@@ -200,46 +202,75 @@ Comment l'algorithme interagit avec les données — chaque approche répond à 
 
 # 12 — Unsupervised Learning — exemples business
 
+L'Unsupervised Learning découvre des *patterns cachés* dans les données — sans étiquettes, sans supervision humaine.
 
-| Data mix  | Application métier |
-| --------- | ------------------ |
-| Application data usage | Customer Segmentation |
-| Product reviews | Complains clustering |
-| Forum Chats | Topic Modeling |
-| Netflix videos | Recommender Systems |
+| Données brutes | Pattern découvert | Application métier |
+|---|---|---|
+| Historique d'achats | Groupes de clients similaires | Segmentation marketing |
+| Avis produits | Thèmes récurrents de plaintes | Amélioration produit |
+| Messages de forums | Sujets de discussion émergents | Topic Modeling |
+| Historique de visionnage | Profils de goûts similaires | Recommandation (Netflix, Spotify) |
+
+> *Pour un entrepreneur* : l'Unsupervised Learning révèle ce que vos clients ne vous disent pas explicitement — leurs comportements naturels et leurs regroupements.
+
+![bg right:45% contain](assets/infographics/unsupervised-learning-patterns_run_20260217_010844_c89082.png)
+
+<small>Sources : [1] [McKinsey State of AI 2024](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-2024)</small>
 
 ---
 
 # 13 — Reinforcement Learning — exemples business
 
+L'agent apprend par *essai-erreur* dans un environnement simulé, guidé par un *signal de récompense*.
 
-| Simulateur               | Application métier    |
-| ---------------------- | --------------------- |
-| Driving simulator | Self-driving car |
-| Physic similutor | Robotics pre-training |
-| Website users influx | News Recommendation |
-| Trading exchange | Algorithmic Trader |
+| Environnement simulé | Action de l'agent | Application métier |
+|---|---|---|
+| Simulateur de conduite | Accélérer, freiner, tourner | Conduite autonome |
+| Simulateur physique | Saisir, marcher, assembler | Robotique industrielle |
+| Flux d'utilisateurs | Recommander un article | Recommandation de contenu |
+| Marché boursier | Acheter, vendre, attendre | Trading algorithmique |
 
----
+> *Jalon historique* : en 2016, AlphaGo (DeepMind) a battu le champion du monde de Go — un jeu avec plus de positions possibles que d'atomes dans l'univers [1].
 
-# 14 — Pourquoi l'IA explose maintenant
+![bg right:45% contain](assets/infographics/reinforcement-learning-cycle_run_20260217_010848_d4776e.png)
 
-![bg right:45% contain](assets/A/history-of-AI.png)
-
-*2010–2020 : l'ère du Large Scale Supervised Learning*
-
-- La performance des modèles IA augmente avec *plus de données* et des *modèles plus grands*
-- Les petits modèles plafonnent vite — les grands modèles continuent de progresser
-- Cela a motivé la course au *scale* : plus de compute, plus de data
-
-*2020+ : l'ère des Large Language Models*
-
-- Application du même principe au texte : entraîner des modèles *massifs* sur des *centaines de milliards de mots*
-- Résultat : des modèles capables de générer du texte de qualité humaine
+<small>Sources : [1] [DeepMind](https://deepmind.google/research/breakthroughs/alphago/)</small>
 
 ---
 
-# 15 — La preuve par les données
+# 14 — Les jalons de l'IA : du Deep Learning aux Transformers
+
+| Année | Jalon | Impact |
+|---|---|---|
+| 1986 | Hinton : Backpropagation [1] | Rend l'entraînement de réseaux profonds possible |
+| 1998 | LeCun : LeNet / MNIST [2] | Première reconnaissance d'écriture industrielle |
+| 2012 | AlexNet + ImageNet [3] | Erreur divisée par 2 — lance l'ère du Deep Learning |
+| 2016 | Google Neural Machine Translation [4] | Traduction quasi-humaine |
+| 2017 | "Attention Is All You Need" [5] | Naissance des Transformers |
+
+> Chaque percée repose sur la précédente : sans la Backpropagation de 1986, pas d'AlexNet en 2012 ; sans AlexNet, pas de Transformers en 2017.
+
+<small>Sources : [1] [Nature](https://www.nature.com/articles/323533a0) · [2] [IEEE](https://ieeexplore.ieee.org/document/726791) · [3] [NeurIPS](https://papers.nips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html) · [4] [arXiv](https://arxiv.org/abs/1609.08144) · [5] [arXiv](https://arxiv.org/abs/1706.03762)</small>
+
+---
+
+# 15 — De BERT à Claude Code : l'accélération
+
+| Année | Jalon | Impact |
+|---|---|---|
+| 2018 | BERT (Google) [1] | Le Pre-Training bidirectionnel révolutionne le NLP |
+| 2019 | BERT déployé sur Google Search [2] | L'IA touche des milliards de requêtes quotidiennes |
+| 2022 | ChatGPT (OpenAI) [3] | 100 millions d'utilisateurs en 2 mois |
+| 2025 | DeepSeek-R1 [4] | Raisonnement open source rivalisant avec les modèles fermés |
+| 2025 | Claude Code (Anthropic) [5] | Agent de code autonome |
+
+> En 7 ans, l'IA est passée d'une avancée académique (BERT) à des outils grand public (ChatGPT) puis à des agents autonomes (Claude Code). Le rythme *s'accélère*.
+
+<small>Sources : [1] [Google AI Blog](https://ai.googleblog.com/2018/11/open-sourcing-bert-state-of-art-pre.html) · [2] [Google Blog](https://blog.google/products/search/search-language-understanding-bert/) · [3] [Reuters](https://www.reuters.com/technology/chatgpt-sets-record-fastest-growing-user-base-analyst-note-2023-02-01/) · [4] [GitHub](https://github.com/deepseek-ai/DeepSeek-R1) · [5] [Anthropic](https://docs.anthropic.com/en/docs/claude-code/overview)</small>
+
+---
+
+# 16 — La preuve par les données
 
 ![bg right:45% contain vertical](assets/A/epoch-ai-dataset_size.png)
 ![bg contain](assets/A/METR-task-len-horizon.png)
@@ -251,10 +282,9 @@ Comment l'algorithme interagit avec les données — chaque approche répond à 
 
 <small>Sources : [1] [EpochAI](https://epoch.ai/data-insights/dataset-size-trend) · [2] [METR](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/)</small>
 
-
 ---
 
-# 16 — Comment fonctionnent les LLMs
+# 17 — Comment fonctionnent les LLMs
 
 Les LLMs utilisent le Supervised Learning pour *prédire le mot suivant*, mot par mot :
 
@@ -267,21 +297,25 @@ Les LLMs utilisent le Supervised Learning pour *prédire le mot suivant*, mot pa
 
 > Un LLM entraîné sur des centaines de milliards de mots apprend les patterns du langage et devient capable de générer du texte cohérent et pertinent.
 
-![](assets/A/lllm-gen-example.png)
+![bg right:45% contain](assets/A/lllm-gen-example.png)
 
 ---
 
-# 17 — Les LLMs comme partenaire de réflexion
+# 18 — Les LLMs comme partenaire de réflexion
 
-Un LLM n'est pas juste un moteur de recherche amélioré. C'est un *Writing Partner* :
+Un LLM n'est pas un moteur de recherche amélioré — c'est un *partenaire de réflexion* :
 
-- *Réécriture* : "Reformule ce paragraphe pour plus de clarté"
-- *Création* : "Écris une histoire de 300 mots pour enfants sur le brossage de dents"
-- *Analyse* : "Quels sont les points faibles de mon business plan ?"
+| Tâche | Web Search | LLM |
+|---|---|---|
+| Résumer un article de 20 pages | Impossible | Synthèse en 5 bullet points |
+| Analyser un business plan | Cherche des templates | Identifie forces et faiblesses |
+| Traduire un contrat juridique | Traduction littérale | Adaptation du registre et du contexte |
 
-*Différence clé avec Google* :
-- *Web Search* : retrouve des pages existantes
-- *LLM* : synthétise et génère du contenu original
+*Exemples en production* : Klarna a traité *2,3 millions de conversations* via son assistant IA dès le premier mois [1]. Notion AI résume et organise les documents de travail [2].
+
+*Question pour la classe* : Pour quelle tâche hebdomadaire utilisez-vous déjà un LLM ?
+
+<small>Sources : [1] [Klarna](https://www.klarna.com/international/press/klarna-ai-assistant-handles-two-thirds-of-customer-service-chats-in-its-first-month/) · [2] [Notion](https://www.notion.so/product/ai)</small>
 
 ---
 
@@ -293,7 +327,7 @@ Un LLM n'est pas juste un moteur de recherche amélioré. C'est un *Writing Part
 
 ---
 
-# 18 — Les trois familles de tâches LLM
+# 19 — Les trois familles de tâches LLM
 
 | Catégorie | Exemples | Type d'app |
 |---|---|---|
@@ -309,7 +343,25 @@ Un LLM n'est pas juste un moteur de recherche amélioré. C'est un *Writing Part
 
 ---
 
-# 19 — Writing : brainstorming et rédaction assistée
+# 20 — Coder avec l'IA : le paysage des outils
+
+*76% des développeurs* utilisent ou prévoient d'utiliser des outils de code IA [1].
+
+| Outil | Type | Pour qui ? |
+|---|---|---|
+| Bolt.new [2] / Lovable [3] | No-Code AI | Non-techniques, prototypage rapide |
+| n8n [4] / Make | Low-Code | Automatisation de workflows |
+| GitHub Copilot [5] | Assisted Code | Développeurs, autocomplétion |
+| Cursor | Assisted Code | Développeurs, édition contextuelle |
+| Claude Code [6] | Autonomous Code | Développeurs, agent autonome |
+
+> *Pour les entrepreneurs* : vous n'avez plus besoin de savoir coder pour construire un MVP. Les outils No-Code IA produisent des applications complètes à partir d'un prompt.
+
+<small>Sources : [1] [Stack Overflow 2024](https://survey.stackoverflow.co/2024/ai) · [2] [Bolt.new](https://bolt.new/) · [3] [Lovable](https://lovable.dev/) · [4] [n8n](https://n8n.io/) · [5] [GitHub Copilot](https://github.com/features/copilot) · [6] [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview)</small>
+
+---
+
+# 21 — Writing : brainstorming et rédaction assistée
 
 Les LLMs excellent pour le *brainstorming* — tâche à faible risque et forte valeur créative :
 
@@ -326,7 +378,7 @@ Les LLMs excellent pour le *brainstorming* — tâche à faible risque et forte 
 
 ---
 
-# 20 — Reading : résumer et classifier
+# 22 — Reading : résumer et classifier
 
 Un des cas d'usage les plus puissants pour les entreprises :
 
@@ -345,7 +397,7 @@ Un des cas d'usage les plus puissants pour les entreprises :
 
 ---
 
-# 21 — Chatting : du bot interne au service client
+# 23 — Chatting : du bot interne au service client
 
 *BettaBurgers* — un chatbot de prise de commande sans friction, sans attente téléphonique.
 
@@ -370,7 +422,7 @@ Un des cas d'usage les plus puissants pour les entreprises :
 
 ---
 
-# 22 — La génération d'images par IA
+# 24 — La génération d'images par IA
 
 Les modèles de génération d'images créent des visuels à partir de *descriptions textuelles* :
 
@@ -393,11 +445,11 @@ Les modèles de génération d'images créent des visuels à partir de *descript
 
 ---
 
-# 23 — Comment ça marche : les Diffusion Models
+# 25 — Comment ça marche : les Diffusion Models
 
 Le principe est élégant — on entraîne un modèle à *enlever du bruit* d'une image :
 
-![](assets/A/diffusion_model.gif)
+![bg right:40% contain](assets/A/diffusion_model.gif)
 
 *Phase d'entraînement* :
 1. Prendre une image nette (ex : une pomme)
@@ -413,6 +465,23 @@ Le principe est élégant — on entraîne un modèle à *enlever du bruit* d'un
 
 ---
 
+# 26 — Du No-Code au Full-Code : le spectre IA
+
+| Niveau | Outils | Compétences requises | Délai MVP |
+|---|---|---|---|
+| *No-Code* | Bolt.new, Lovable, v0 | Vision produit, bon prompt | Heures |
+| *Low-Code* | n8n, Make, Zapier | Logique métier, APIs | Jours |
+| *Assisted Code* | Copilot, Cursor, Windsurf | Bases de programmation | Jours à semaines |
+| *Autonomous Code* | Claude Code, Devin | Architecture, code review | Minutes par feature |
+
+> En 2026, la question n'est plus *"savez-vous coder ?"* mais *"à quel niveau du spectre voulez-vous intervenir ?"*
+
+*Question pour la classe* : Pour votre projet de chatbot, à quel niveau du spectre allez-vous vous positionner ?
+
+![bg right:45% contain](assets/infographics/ai-coding-spectrum_run_20260217_010852_676799.png)
+
+---
+
 <!-- _class: section -->
 
 # Ce que l'IA sait et ne sait pas faire
@@ -421,7 +490,7 @@ Le principe est élégant — on entraîne un modèle à *enlever du bruit* d'un
 
 ---
 
-# 24 — Le test du "fresh college grad"
+# 27 — Le test du "fresh college grad"
 
 Comment évaluer si un LLM peut réaliser une tâche ? Utilisez cette heuristique :
 
@@ -438,7 +507,7 @@ Comment évaluer si un LLM peut réaliser une tâche ? Utilisez cette heuristiqu
 
 ---
 
-# 25 — Hallucinations et Knowledge Cutoffs
+# 28 — Hallucinations et Knowledge Cutoffs
 
 *Hallucinations* — le LLM *invente des informations avec un ton très confiant* :
 - Un avocat américain a soumis un mémoire juridique contenant des *affaires inventées* par ChatGPT [1]
@@ -456,7 +525,7 @@ Comment évaluer si un LLM peut réaliser une tâche ? Utilisez cette heuristiqu
 
 ---
 
-# 26 — Récapitulatif — ce que l'IA sait et ne sait pas faire
+# 29 — Récapitulatif — ce que l'IA sait et ne sait pas faire
 
 | L'IA *sait* faire | L'IA *ne sait pas* (encore) faire |
 |---|---|
@@ -464,27 +533,27 @@ Comment évaluer si un LLM peut réaliser une tâche ? Utilisez cette heuristiqu
 | Classifier du texte (sentiment, catégorie) | Accéder à des données en temps réel (sans outils) |
 | Traduire et adapter le ton | Garantir la véracité de ses réponses |
 | Brainstormer et générer du contenu | Comprendre le contexte spécifique de votre entreprise |
-| Générer des images à partir de texte | Travailler sur des données structurées/tabulaires |
+| Générer des images à partir de texte | Travailler sur des données structurées/tabulaires sans outils |
 | Corriger et réécrire | Remplacer le jugement humain sur des décisions critiques |
 
 > Testez avec l'heuristique du *fresh college grad* : si un jeune diplômé pourrait le faire avec les instructions du prompt, le LLM peut probablement le faire aussi.
 
 ---
 
-# 27 — Points clés à retenir
+# 30 — Points clés à retenir
 
 *Comprendre* :
 - La Generative AI produit du contenu (texte, image, audio, vidéo) à partir de prompts
 - Les LLMs fonctionnent par *prédiction du mot suivant* à très grande échelle
+- L'IA a *40 ans d'histoire* — chaque percée repose sur la précédente
 
 *Appliquer* :
 - Trois familles de tâches : *Writing*, *Reading*, *Chatting*
-- Les tâches de *Reading* sont souvent les plus rentables (automatisation)
+- Les outils de code IA rendent le *prototypage accessible* à tous
 - Déployez progressivement : interne → human-in-the-loop → client final
 
 *Rester vigilant* :
 - Les *Hallucinations* sont un risque réel — toujours vérifier
 - Les *biais* existent — tester avant de déployer
-- Le *Prompt Engineering* est une compétence itérative, pas un don
 
 > *Suite* : Session 1B — L'IA au-delà des LLMs

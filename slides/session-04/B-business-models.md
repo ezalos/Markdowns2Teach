@@ -174,7 +174,7 @@ Pourquoi ça marche :
 
 # 08 — Data flywheel : le cercle vertueux
 
-![bg right:50%](assets/infographics/data-flywheel_run_20260216_171303_bb1a21.png)
+![bg right:50% contain](assets/infographics/data-flywheel_run_20260216_171303_bb1a21.png)
 
 **Plus d'utilisateurs → plus de données → meilleur produit → plus d'utilisateurs**
 

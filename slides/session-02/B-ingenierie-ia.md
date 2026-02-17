@@ -190,9 +190,26 @@ Le RAG est partout en 2025-2026 — **86%** des organisations augmentent leurs L
 
 ---
 
+# 09 — Du texte brut au chatbot : le pipeline d'entraînement
+
+Avant de parler Fine-tuning, il faut comprendre comment un LLM devient un chatbot utile :
+
+| Étape | Ce qu'il apprend | Données | Résultat |
+|-------|-----------------|---------|----------|
+| **Pretraining** | Le langage, les faits, le raisonnement | Trillions de tokens (internet) | Modèle de base (GPT-4 base) |
+| **SFT** (Instruction Tuning) | Suivre des instructions, converser | Milliers de paires (instruction, réponse) | Modèle instruct (GPT-4-turbo) |
+| **RLHF / DPO** (Alignment) | Être utile, honnête, inoffensif | Préférences humaines (A vs B) | Chatbot aligné (ChatGPT, Claude) |
+| **Reasoning Training** | Réfléchir avant de répondre | Chain-of-Thought, preuves | Reasoning model (o3, DeepSeek-R1) |
+
+> Chaque étape **ajoute une couche de capacité** sur la précédente. Le Fine-tuning que vous ferez en tant qu'entrepreneur s'appuie sur un modèle qui a déjà traversé ces 3-4 étapes.
+
+![bg right:40% contain](assets/infographics/training-pipeline_run_20260217_012323_723979.png)
+
+---
+
 <!-- _class: cols -->
 
-# 09 — Fine-tuning : de quoi parle-t-on ?
+# 10 — Fine-tuning : de quoi parle-t-on ?
 
 <div class="left">
 
@@ -218,7 +235,7 @@ Le **Fine-tuning** consiste à ré-entraîner un modèle existant sur vos propre
 
 ---
 
-# 10 — L'escalade de personnalisation
+# 11 — L'escalade de personnalisation
 
 L'ordre de complexité et de coût croissants est clair [1] :
 
@@ -235,7 +252,7 @@ L'ordre de complexité et de coût croissants est clair [1] :
 
 ---
 
-# 11 — LoRA : la démocratisation du Fine-tuning
+# 12 — LoRA : la démocratisation du Fine-tuning
 
 **LoRA** (Low-Rank Adaptation) entraîne de petites matrices au lieu du modèle entier [1] :
 
@@ -254,7 +271,7 @@ L'ordre de complexité et de coût croissants est clair [1] :
 
 ---
 
-# 12 — Distillation : un grand modèle entraîne un petit
+# 13 — Distillation : un grand modèle entraîne un petit
 
 Le principe de **Distillation** :
 - Un **grand modèle** (100B+ paramètres) sait bien faire une tâche
@@ -274,7 +291,7 @@ Le principe de **Distillation** :
 
 <!-- _class: cols -->
 
-# 13 — RAG vs Fine-tuning : comment choisir ?
+# 14 — RAG vs Fine-tuning : comment choisir ?
 
 <div class="left">
 
@@ -309,7 +326,7 @@ Le principe de **Distillation** :
 
 ---
 
-# 14 — Qu'est-ce qu'un Agent ?
+# 15 — Qu'est-ce qu'un Agent ?
 
 Un **Agent** est un LLM qui enchaîne plusieurs actions de manière autonome.
 
@@ -326,7 +343,7 @@ Le pattern dominant est **ReAct** (Reasoning + Acting) [1] :
 
 ---
 
-# 15 — Tool Use : donner des capacités au LLM
+# 16 — Tool Use : donner des capacités au LLM
 
 Les LLMs ont des limites intrinsèques. Le **Tool Use** les compense :
 
@@ -341,7 +358,7 @@ Le LLM génère un **appel de fonction**, le système exécute et renvoie le ré
 
 ---
 
-# 16 — Les agents en 2026 : marché et écosystème
+# 17 — Les agents en 2026 : marché et écosystème
 
 Le marché agentic AI atteint **$7 Mds** en 2025, projeté **$139-260 Mds** en 2034 [1].
 
@@ -358,7 +375,7 @@ Le marché agentic AI atteint **$7 Mds** en 2025, projeté **$139-260 Mds** en 2
 
 ---
 
-# 17 — Agents : attention aux limites
+# 18 — Agents : attention aux limites
 
 Les Agents sont prometteurs mais présentent des défis en 2026 :
 
@@ -383,7 +400,7 @@ Les Agents sont prometteurs mais présentent des défis en 2026 :
 
 ---
 
-# 18 — La boîte à outils de l'entrepreneur IA
+# 19 — La boîte à outils de l'entrepreneur IA
 
 | Besoin | Outil | Effort | Coût |
 |---|---|---|---|
@@ -397,7 +414,7 @@ Les Agents sont prometteurs mais présentent des défis en 2026 :
 
 ---
 
-# 19 — Key Takeaways
+# 20 — Key Takeaways
 
 1. **Le RAG est le standard** — 86% des organisations l'utilisent, c'est souvent votre premier investissement après le Prompting
 
@@ -411,7 +428,7 @@ Les Agents sont prometteurs mais présentent des défis en 2026 :
 
 ---
 
-# 20 — Pour la prochaine séance
+# 21 — Pour la prochaine séance
 
 **À explorer avant la séance 3** :
 
