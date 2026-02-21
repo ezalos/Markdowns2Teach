@@ -20,7 +20,7 @@ Target audience: business school students (mostly non-engineers), entrepreneuria
 
 | Session | Title | Deck A | Deck B |
 |---------|-------|--------|--------|
-| 1 | Comprendre l'IA en 2026 | L'IA Générative : ce qu'elle sait faire | L'IA au-delà des LLMs |
+| 1 | Comprendre l'IA en 2026 | L'IA Générative : ce qu'elle sait faire | Les LLMs |
 | 2 | Construire avec l'IA | Du Prompt au Produit | L'Ingénierie IA |
 | 3 | Cadrer un projet IA | Évaluer une solution IA | Méthodologie projet IA |
 | 4 | Le business de l'IA | L'écosystème IA | Business Models & Cas Réels |
@@ -39,14 +39,18 @@ Markdowns2Teach/
 ├── themes/
 │   └── sorbonne.css                 # Custom Marp theme
 ├── slides/
-│   └── session-XX/                  # One dir per session (01–05)
-│       ├── A-slug.md                # Deck A (first half of session)
-│       ├── B-slug.md                # Deck B (second half, optional)
-│       └── assets/                  # Images (subdirs by source prefix)
-│           ├── ng01/                # Andrew Ng W1 images
-│           ├── ng02/                # Andrew Ng W2 images
-│           ├── ng03/                # Andrew Ng W3 images
-│           └── infographics/        # PaperBanana-generated diagrams
+│   ├── session-XX/                  # One dir per session (01–05)
+│   │   ├── A-slug.md                # Deck A (first half of session)
+│   │   ├── B-slug.md                # Deck B (second half, optional)
+│   │   └── assets/                  # Images (subdirs by source prefix)
+│   │       ├── ng01/                # Andrew Ng W1 images
+│   │       ├── ng02/                # Andrew Ng W2 images
+│   │       ├── ng03/                # Andrew Ng W3 images
+│   │       └── infographics/        # PaperBanana-generated diagrams
+│   └── extra-decks/                 # Optional/extracted decks (not in main sessions)
+│       ├── architectures.md         # CNN, RNN, GAN, Transformer deep dive
+│       ├── D-biais-ethique.md       # Bias & ethics intro (teaser for Session 5)
+│       └── assets/                  # Assets for extra decks
 ├── scripts/
 │   ├── extract-images.sh            # PDF image extraction
 │   ├── check-overflow.sh            # Slide overflow linter
@@ -188,16 +192,19 @@ make clean      # Remove dist/
 
 | Path | Title | Slides |
 |------|-------|--------|
-| `slides/session-01/A-genai-fondamentaux.md` | L'IA Générative : ce qu'elle sait faire | 30 |
-| `slides/session-01/B-au-dela-des-llms.md` | L'IA au-delà des LLMs | 19 |
+| `slides/session-01/A-genai-fondamentaux.md` | L'IA Générative : ce qu'elle sait faire | 27 |
+| `slides/session-01/B-llms.md` | Les LLMs : comprendre et utiliser | 20 |
 | `slides/session-01/C-premier-projet-ia.md` | Votre premier projet IA | 23 |
-| `slides/session-02/A-prompt-au-produit.md` | Du Prompt au Produit | 19 |
-| `slides/session-02/B-ingenierie-ia.md` | L'Ingénierie IA | 21 |
+| `slides/session-02/A-prompt-au-produit.md` | Du Prompt au Produit | 18 |
+| `slides/session-02/B-ingenierie-ia.md` | L'Ingénierie IA | 17 |
 | `slides/session-03/A-evaluer-solution-ia.md` | Évaluer une solution IA | 18 |
 | `slides/session-03/B-methodologie-projet.md` | Méthodologie projet IA | 17 |
 | `slides/session-04/A-ecosysteme-ia.md` | L'écosystème IA | 18 |
 | `slides/session-04/B-business-models.md` | Business Models & Cas Réels | 17 |
 | `slides/session-05/A-regulation-ethique.md` | Régulation & IA responsable | 23 |
+| `slides/extra-decks/architectures.md` | Tour des architectures (CNN, RNN, GAN, Transformer) | 4 |
+| `slides/extra-decks/D-biais-ethique.md` | Biais et éthique : introduction | 3 |
+| `slides/session-02/B-au-dela-des-llms.md` | L'IA au-delà des LLMs *(archive, ex-S01-B)* | 23 |
 
 ## Source Materials
 

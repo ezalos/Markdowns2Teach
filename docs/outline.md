@@ -14,19 +14,24 @@ Each 3h session follows:
 
 ## Session 1 — Comprendre l'IA en 2026
 
-**A — L'IA Générative : ce qu'elle sait faire** (`session-01/A-genai-fondamentaux.md`, 21 slides)
+**A — L'IA Générative : ce qu'elle sait faire** (`session-01/A-genai-fondamentaux.md`, 29 slides)
 - GenAI intro, capabilities, market impact
-- Writing / Reading / Chatting — the 3 LLM task families
-- Image generation with Diffusion Models
-- Capabilities vs limitations, hallucinations, knowledge cutoffs
-
-**B — L'IA au-delà des LLMs** (`session-01/B-au-dela-des-llms.md`, 19 slides)
-- 3 prompting principles (specific, iterative, context)
-- AI taxonomy: ML, Statistics, Data Mining, Deep Learning
-- History: AI winters and renaissances (1956–2026)
+- AI taxonomy: by technique (Stats→ML→DL→GenAI), by paradigm (Supervised/Unsupervised/Self-Supervised/RL), by task (Classification/Detection/Generation)
 - Architecture tour: CNN, RNN, GAN, Transformer
-- Reasoning models & SLMs highlights
-- Ethics & bias introduction
+- Three timelines: ML, Deep Learning, Generative AI (incl. OpenClaw)
+
+**B — L'IA au-delà des LLMs** (`session-01/B-au-dela-des-llms.md`, 23 slides)
+- 3 prompting principles (specific, iterative, context)
+- LLM mechanics: data trends, next-token prediction, LLMs as thought partners
+- Application families: Writing / Reading / Chatting / Coding
+- Image generation with Diffusion Models, No-Code spectrum
+- Capabilities & limitations, hallucinations, knowledge cutoffs
+- Reasoning models, SLMs, decision matrix
+
+**D — Biais et éthique : introduction** (`session-01/D-biais-ethique.md`, 3 slides)
+- Gender bias in LLMs, toxicity
+- Discussion: legal responsibility, bias testing, EU AI Act
+- Teaser for Session 5
 
 **C — Votre premier projet IA** (`session-01/C-premier-projet-ia.md`, 22 slides)
 - Toolbox intro: JSON, API, HuggingFace, n8n
@@ -38,14 +43,15 @@ Each 3h session follows:
 
 ## Session 2 — Construire avec l'IA
 
-**A — Du Prompt au Produit** (`session-02/A-prompt-au-produit.md`, 19 slides)
-- 3 app categories (web, software, autonomous)
+**A — Du Prompt au Produit** (`session-02/A-prompt-au-produit.md`, 20 slides)
+- 4 app categories (Writing, Reading, Chatting, Coding)
 - Prompt-based development lifecycle
-- Scope → Build → Evaluate → Deploy
-- Tokens, costs, model selection
+- Scope → Build → Evaluate → Deploy (with evaluation metrics)
+- Tokens, vocabulary sizes, context windows, costs
 
-**B — L'Ingénierie IA** (`session-02/B-ingenierie-ia.md`, 20 slides)
-- RAG pipeline: embeddings, vector databases, retrieval
+**B — L'Ingénierie IA** (`session-02/B-ingenierie-ia.md`, 23 slides)
+- RAG pipeline: 5 steps (chunk→embed→index→retrieve→generate), hybrid search, reranking
+- 3 LLM generations: Base → Instruct → Thinking
 - Fine-tuning: LoRA, QLoRA, distillation
 - Agentic AI: ReAct, Tool Use, MCP protocol
 - RAG vs Fine-tuning decision matrix

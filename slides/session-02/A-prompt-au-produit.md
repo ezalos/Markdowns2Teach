@@ -5,7 +5,7 @@ paginate: true
 header: "Deep Tech & ML (UE3) — Session 2 · M2 IMT&E · Paris 1 Panthéon-Sorbonne"
 footer: "Adapté de *Generative AI for Everyone* par Andrew Ng · DeepLearning.AI · CC BY-SA 2.0"
 ---
-<!-- ABOUTME: Du prompt au produit — 3 catégories d'apps GenAI, lifecycle, prompt-based development, tokens et coûts. -->
+<!-- ABOUTME: Du prompt au produit — 4 catégories d'apps GenAI, lifecycle, prompt-based development, tokens, context windows et coûts. -->
 <!-- ABOUTME: Cadré pour entrepreneurs M2 : construire un premier produit IA, estimer les coûts, itérer rapidement. -->
 
 <!-- _class: title -->
@@ -29,17 +29,18 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 
 ---
 
-# 01 — Trois catégories d'applications GenAI
+# 01 — Quatre catégories d'applications GenAI
 
-Les applications logicielles utilisant la Generative AI se classent en trois familles :
+Les applications logicielles utilisant la Generative AI se classent en quatre familles :
 
 | Catégorie | Ce que fait l'IA | Exemple concret |
 |---|---|---|
 | **Writing** | Génère du texte à partir d'instructions | FAQ bot, rédaction automatique |
 | **Reading** | Analyse et classifie du contenu | Sentiment Analysis, extraction de données |
 | **Chatting** | Dialogue interactif avec l'utilisateur | Chatbot de commande, support client |
+| **Coding** | Génère, corrige et optimise du code | Copilot, Cursor, Claude Code |
 
-> Ces trois catégories se retrouvent dans presque tous les produits IA que vous utilisez au quotidien.
+> Ces quatre catégories se retrouvent dans presque tous les produits IA que vous utilisez au quotidien. Le Coding est devenu une famille à part entière en 2025.
 
 ---
 
@@ -53,11 +54,11 @@ Pour construire un classifieur de sentiment, il fallait :
 
 **Durée typique** : ~6–12 mois (1 mois données + 3 mois entraînement + 3 mois déploiement) [1]
 
-> Ce processus nécessitait une équipe d'ingénieurs ML et un budget significatif. Seules les grandes entreprises pouvaient se le permettre.
+> Ce processus nécessitait une équipe d'ingénieurs ML et un budget significatif. Et le déploiement n'est que le début : la "hidden technical debt" [2] — maintenance, monitoring, data pipelines — représente la majorité du travail.
 
-<small>Sources : [1] [Andrew Ng, *Generative AI for Everyone*, DeepLearning.AI](https://www.coursera.org/learn/generative-ai-for-everyone)</small>
+![bg right:45% contain](assets/hidden-technical-debt.png)
 
-![bg right:45% contain](assets/ng02/img-007.png)
+<small>Sources : [1] [Andrew Ng, *Generative AI for Everyone*, DeepLearning.AI](https://www.coursera.org/learn/generative-ai-for-everyone) · [2] [Sculley et al. NeurIPS 2015](https://proceedings.neurips.cc/paper_files/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf)</small>
 
 ---
 
@@ -109,6 +110,14 @@ response = llm_response(prompt)
 
 # 05 — Ce que cela change pour les entrepreneurs
 
+<!-- INSTRUCTOR: Réponses attendues pour la question :
+- L'avantage concurrentiel se déplace vers la COMPRÉHENSION DU PROBLÈME et la QUALITÉ DES DONNÉES
+- La technologie est commoditisée — tout le monde a accès aux mêmes APIs
+- Ce qui différencie : connaissance du domaine, relation client, qualité du pipeline de données, rapidité d'itération
+- Exemples : Perplexity (meilleure UX de recherche), Harvey (expertise juridique), Cursor (comprend le workflow dev)
+- Piège classique : penser que "wrapper GPT" = startup viable — sans valeur ajoutée propre, pas de moat
+-->
+
 Le Prompt-based Development transforme l'équation économique :
 
 - **Coût d'entrée quasi nul** — plus besoin de lever des fonds pour une équipe ML
@@ -157,7 +166,10 @@ Le cadrage est l'étape la plus critique. Un mauvais scope = un projet qui écho
 - Comment mesurer le succès ? (métriques claires)
 - Quel niveau de qualité est acceptable ?
 
-**Erreur fréquente des startups** : vouloir tout automatiser d'un coup au lieu de cibler une tâche précise et mesurable.
+**Mesurer le succès** — Définir des KPIs dès le scope :
+- *Précision* : % de réponses correctes (détaillé en Session 3 avec Precision/Recall)
+- *Satisfaction utilisateur* : NPS, taux de résolution au premier contact
+- *ROI* : coût IA vs coût du processus manuel remplacé
 
 > **Conseil pratique** : commencez par le cas d'usage le plus simple qui apporte de la valeur. Vous pourrez toujours élargir ensuite.
 
@@ -232,6 +244,15 @@ Le déploiement ne signifie pas "ouvrir à tout le monde d'un coup" :
 
 # 12 — Lifecycle : les erreurs classiques
 
+<!-- INSTRUCTOR: Réponses attendues pour la question :
+- Test 1 : soumettre des cas CONNUS avec réponses attendues (regression test)
+- Test 2 : soumettre des cas LIMITES (questions hors-scope, requêtes ambiguës, injections de prompt)
+- Test 3 : mesurer le TEMPS DE RÉPONSE et la COHÉRENCE sur 100+ requêtes
+- Bonus : tester le chatbot avec de VRAIS utilisateurs internes avant les clients
+- Piège : ne tester que les cas "happy path" — les erreurs sont dans les edge cases
+- Métriques à suivre : taux de résolution, taux d'escalade vers un humain, satisfaction post-interaction
+-->
+
 | Erreur | Conséquence | Solution |
 |---|---|---|
 | Scope trop large | Projet qui n'aboutit jamais | Cibler une seule tâche précise |
@@ -245,31 +266,13 @@ Le déploiement ne signifie pas "ouvrir à tout le monde d'un coup" :
 
 <!-- _class: section -->
 
-# Tokens et coûts
+# Coûts des APIs
 
 ## Comprendre la facturation des LLMs
 
 ---
 
-# 13 — Qu'est-ce qu'un Token ?
-
-Les LLMs ne raisonnent pas en mots mais en **Tokens** — des fragments de mots.
-
-**Règle approximative** : 1 Token ≈ 3/4 d'un mot (en anglais)
-- "the" → 1 token
-- "programming" → 2 tokens
-- "tonkotsu" → 4 tokens
-
-**Pourquoi c'est important pour vous** :
-- Les APIs facturent **par Token** (input + output)
-- La Context Window (taille maximale du prompt + réponse) est mesurée en Tokens
-- Plus le prompt est long, plus c'est cher
-
-> En français, le ratio est moins favorable (~1 token ≈ 0,6 mot) car le français a des mots plus longs en moyenne.
-
----
-
-# 14 — Combien coûte un appel API ?
+# 13 — Combien coûte un appel API ?
 
 | Modèle | Input (par 1M tokens) | Output (par 1M tokens) | Positionnement |
 |---|---|---|---|
@@ -286,7 +289,7 @@ Les LLMs ne raisonnent pas en mots mais en **Tokens** — des fragments de mots.
 
 ---
 
-# 15 — Exercice : estimer le coût d'un produit IA
+# 14 — Exercice : estimer le coût d'un produit IA
 
 **Scénario** : un chatbot de support client, 1 000 conversations/jour.
 
@@ -303,7 +306,7 @@ Les LLMs ne raisonnent pas en mots mais en **Tokens** — des fragments de mots.
 
 ---
 
-# 16 — Les outils pour améliorer la performance
+# 15 — Les outils pour améliorer la performance
 
 Quand le Prompting seul ne suffit pas, il existe une progression :
 
@@ -318,7 +321,7 @@ Quand le Prompting seul ne suffit pas, il existe une progression :
 
 ---
 
-# 17 — Guide de décision : quel outil pour votre projet ?
+# 16 — Guide de décision : quel outil pour votre projet ?
 
 L'arbre de décision suit une logique d'escalade progressive :
 
@@ -335,7 +338,7 @@ L'arbre de décision suit une logique d'escalade progressive :
 
 ---
 
-# 18 — Les 5 messages clés
+# 17 — Les 5 messages clés
 
 1. **Le Prompt-based Development réduit le time-to-market de mois à jours** — l'IA n'est plus réservée aux grandes entreprises
 
@@ -349,7 +352,7 @@ L'arbre de décision suit une logique d'escalade progressive :
 
 ---
 
-# 19 — Pour la suite
+# 18 — Pour la suite
 
 **Deck B — L'ingénierie IA** :
 - Comment fonctionne le RAG en profondeur (Embeddings, Vector Databases)

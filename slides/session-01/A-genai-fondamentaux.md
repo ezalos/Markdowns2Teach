@@ -3,10 +3,10 @@ marp: true
 theme: sorbonne
 paginate: true
 header: "Deep Tech & ML (UE3) — Session 1 · M2 IMT&E · Paris 1 Panthéon-Sorbonne"
-footer: "Sources multiples · DeepLearning.AI CC BY-SA 2.0"
+footer: "Sources multiples · Données publiques"
 ---
 
-<!-- ABOUTME: Introduction à la Generative AI — concepts, capacités (Writing/Reading/Chatting) et génération d'images. -->
+<!-- ABOUTME: Panorama complet de l'IA — capacités GenAI, taxonomie des techniques, paradigmes d'apprentissage et tâches. -->
 <!-- ABOUTME: Première moitié de la Session 1, business-framed pour étudiants M2 IMT&E Paris 1 Panthéon-Sorbonne. -->
 
 <!-- _class: title -->
@@ -110,7 +110,7 @@ La Generative AI ne se limite pas au texte :
 - *Audio* : génération de voix (ElevenLabs [1]), musique (Suno [2])
 
 ![bg right:50% contain](assets/A/suno.png)
-[Suno](https://suno.com/s/TDY3F2UiDfBxkIVI)
+[Suno](https://suno.com/s/0wLOtKpawnA132Pz)
 
 *Cas d'usage business* :
 - Produire des voix-off pour des formations
@@ -134,36 +134,70 @@ La Generative AI ne se limite pas au texte :
 
 ---
 
-# 08 — Comment l'IA apprend-elle ?
+<!-- _class: section -->
 
-Vous avez vu ce que l'IA *produit* — mais comment *apprend*-elle ?
+# L'IA : bien plus que la Generative AI
 
-| Approche | Analogie | Données requises |
+## AI is Much More Than GenAI
+
+---
+
+# 08 — L'IA traditionnelle reste la majorité de la valeur
+
+La Generative AI fait les gros titres — mais le Machine Learning traditionnel crée *plus de valeur économique* :
+
+| | ML traditionnel | Generative AI |
 |---|---|---|
-| **Supervised Learning** | Un professeur corrige des copies | Exemples étiquetés (input → output) |
-| **Unsupervised Learning** | Un explorateur classe ses découvertes | Données brutes, sans étiquettes |
-| **Reinforcement Learning** | Un enfant apprend par essai-erreur | Environnement + signal de récompense |
+| **Valeur potentielle** | $11 – 17,7 trillions/an [1] | + $2,6 – 4,4 trillions/an [1] |
+| **Part du total** | ~70-80% | ~20-30% |
+| **Déploiement** | 71% des entreprises [2] | 29% comme type le plus fréquent [3] |
+| **Maturité** | Prouvé depuis 15 ans | En phase d'adoption rapide |
+| **Cas typiques** | Prédiction, optimisation, détection | Génération de contenu, raisonnement |
 
-> Chaque approche résout un type de problème différent. Les slides suivantes détaillent chaque famille.
+> *Pour un entrepreneur* : connaître les deux mondes est un avantage compétitif. La GenAI fait le buzz, le ML classique fait le chiffre d'affaires.
 
-![bg right:40% contain](assets/A/unsupervise-supervise-reinforcement.png)
+<small>Sources : [1] [McKinsey](https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier) · [2] [McKinsey State of AI 2025](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai) · [3] [Gartner](https://www.gartner.com/en/newsroom/press-releases/2024-05-07-gartner-survey-finds-generative-ai-is-now-the-most-frequently-deployed-ai-solution-in-organizations)</small>
+
+---
+
+# 09 — Les multiples facettes de l'IA
+
+L'IA se classe selon trois axes complémentaires :
+
+| Axe | Question | Exemples |
+|---|---|---|
+| **Par technique** | *Comment* est construit le modèle ? | Statistics, ML, Deep Learning, GenAI |
+| **Par paradigme** | *Comment* le modèle apprend-il ? | Supervised, Unsupervised, RL, Self-Supervised |
+| **Par tâche** | *Que fait* le modèle ? | Classification, détection, génération |
+
+> Les slides suivantes explorent chaque axe avec des exemples concrets et des démos interactives.
+
+![bg right:40% contain](assets/infographics/ai-taxonomy-overview_run_20260219_095043_3593d3.png)
+
+---
+
+<!-- _class: section -->
+
+# Par technique — de la Statistique à la GenAI
+
+## From Statistics to Generative AI
 
 ---
 
 <!-- _class: cols -->
 
-# 09 — Les grandes familles de l'IA
+# 10 — Vue d'ensemble : Stats → ML → DL → GenAI
 
 <div class="left">
 
-| Type | Principe | Exemple business |
-|------|----------|-----------------|
-| **Supervised Learning** | Input A → Output B | Email → spam ? |
-| **Unsupervised Learning** | Patterns sans labels | Segmentation clients |
-| **Reinforcement Learning** | Essai/erreur + récompense | Trading algorithmique |
-| **Generative AI** | Génère du contenu original | Texte, images, code |
+Chaque couche ajoute de la complexité et de la capacité :
 
-> Les slides suivantes détaillent chaque famille avec des exemples concrets.
+- **Statistics** — analyser et quantifier des données
+- **Machine Learning** — apprendre des patterns à partir de données
+- **Deep Learning** — réseaux de neurones profonds, données massives
+- **Generative AI** — créer du contenu original
+
+> Chaque couche *inclut* les précédentes : la GenAI repose sur le Deep Learning, qui repose sur le ML, qui repose sur les statistiques.
 
 </div>
 <div class="right">
@@ -174,63 +208,174 @@ Vous avez vu ce que l'IA *produit* — mais comment *apprend*-elle ?
 
 ---
 
-# 10 — Supervised, Unsupervised & Reinforcement Learning
+# 11 — Statistics : l'A/B Testing
 
-Comment l'algorithme interagit avec les données — chaque approche répond à un type de problème différent.
+L'outil statistique le plus accessible — et le plus utilisé par les startups :
 
-![bg right:50% contain](assets/A/unsupervise-supervise-reinforcement.png)
+| | Version A | Version B |
+|---|---|---|
+| **Bouton** | "Acheter" (vert) | "Commander maintenant" (orange) |
+| **Visiteurs** | 10 000 | 10 000 |
+| **Conversions** | 230 (2,3%) | 310 (3,1%) |
+| **p-value** | — | 0,0005 (significatif) |
+
+> Pas besoin de modèle ML — une simple comparaison statistique suffit pour prendre des décisions business basées sur des données.
+
+*Question pour la classe* : Quelle variable de votre projet pourriez-vous tester avec un A/B test cette semaine ?
+
+![bg right:40% contain](assets/A/stats-ab-test.png)
 
 ---
 
-# 11 — Supervised Learning — exemples business
+# 12 — Machine Learning : la Linear Regression
 
-| Input (A) | Output (B) | Application métier |
-|---|---|---|
-| Email | Spam ? (0/1) | Filtrage automatique |
-| Pub + profil utilisateur | Clic ? (0/1) | Publicité ciblée |
-| Image radio | Diagnostic | Healthcare |
-| Photo produit | Défaut ? (0/1) | Contrôle qualité |
-| Avis client | Sentiment (pos/neg) | Veille e-réputation |
+L'algorithme ML le plus simple — tracer une droite à travers des données :
 
-> *Pour un entrepreneur* : le Supervised Learning reste la technique IA la plus *rentable* en production [1]. La Generative AI l'a dépassé en déploiement depuis 2024 [2], mais croissance ≠ revenus prouvés.
+- **Input** : budget marketing mensuel (€)
+- **Output** : chiffre d'affaires prédit (€)
+- Le modèle apprend la relation `CA = a × Budget + b`
 
-![bg right:45% contain](assets/infographics/supervised-learning-pipeline_run_20260217_010840_95e2a7.png)
+*Exemples business* :
+- Prédire le prix d'un bien immobilier à partir de sa surface
+- Estimer les revenus en fonction des dépenses publicitaires
+- Prévoir la demande d'un produit
 
-<small>Sources : [1] [McKinsey State of AI 2024](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-2024) · [2] [Gartner](https://www.gartner.com/en/newsroom/press-releases/2024-05-07-gartner-survey-finds-generative-ai-is-now-the-most-frequently-deployed-ai-solution-in-organizations)</small>
+> La Linear Regression est le "Hello World" du Machine Learning. Simple, interprétable, et souvent suffisante.
+
+![bg right:40% contain](assets/infographics/ml-linear-regression_run_20260219_095044_81b289.png)
 
 ---
 
-# 12 — Unsupervised Learning — exemples business
+# 13 — Deep Learning : les Neural Networks
 
-L'Unsupervised Learning découvre des *patterns cachés* dans les données — sans étiquettes, sans supervision humaine.
+Un réseau de neurones apprend des *représentations hiérarchiques* des données :
 
-| Données brutes | Pattern découvert | Application métier |
-|---|---|---|
-| Historique d'achats | Groupes de clients similaires | Segmentation marketing |
-| Avis produits | Thèmes récurrents de plaintes | Amélioration produit |
-| Messages de forums | Sujets de discussion émergents | Topic Modeling |
-| Historique de visionnage | Profils de goûts similaires | Recommandation (Netflix, Spotify) |
+- **Input Layer** — reçoit les données brutes (pixels, mots, nombres)
+- **Hidden Layers** — extrait des features de plus en plus abstraites
+- **Output Layer** — produit la prédiction finale
 
-> *Pour un entrepreneur* : l'Unsupervised Learning révèle ce que vos clients ne vous disent pas explicitement — leurs comportements naturels et leurs regroupements.
+*Démo interactive* : [TensorFlow Playground](https://playground.tensorflow.org) — visualisez comment un réseau apprend en temps réel.
 
-![bg right:45% contain](assets/infographics/unsupervised-learning-patterns_run_20260217_010844_c89082.png)
+> *Business framing* : plus on ajoute de couches (= "deep"), plus le réseau peut capturer des patterns complexes. C'est ce qui permet la reconnaissance d'images, la traduction, la génération de texte.
+
+---
+
+# 14 — Generative AI : les Transformers
+
+L'architecture qui a tout changé — le *Self-Attention* permet au modèle de pondérer l'importance de chaque mot par rapport à tous les autres.
+
+*Démos interactives* :
+- [Transformer Explainer](https://poloclub.github.io/transformer-explainer/) — visualisation pas-à-pas
+- [LLM Visualization](https://bbycroft.net/llm) — architecture 3D d'un LLM
+- [BertViz](https://colab.research.google.com/drive/1hXIQ77A4TYS4y3UthWF-Ci7V7vVUoxmQ) — visualiser les attention heads
+
+> Les Transformers (2017) sont la brique fondamentale de *tous* les LLMs modernes : GPT, Claude, Mistral, Llama, Gemini.
+
+<small>Sources : [1] [Vaswani et al. 2017](https://arxiv.org/abs/1706.03762)</small>
+
+---
+
+<!-- _class: section -->
+
+# Par paradigme — comment l'IA apprend
+
+## How AI Learns
+
+---
+
+# 15 — Vue d'ensemble des paradigmes d'apprentissage
+
+| Paradigme | Données | Principe | Cas d'usage |
+|---|---|---|---|
+| **Supervised Learning** | Étiquetées (input → output) | Un prof corrige des copies | Spam, diagnostic, prédiction prix |
+| **Unsupervised Learning** | Brutes, sans étiquettes | Un explorateur classe ses découvertes | Segmentation clients, anomalies |
+| **Self-Supervised Learning** | Brutes, auto-générées | Apprend seul en masquant des parties | LLMs, BERT, Diffusion Models |
+| **Reinforcement Learning** | Environnement + récompense | Essai-erreur, comme un jeu vidéo | AlphaGo, robotique, RLHF |
+
+![bg right:40% contain](assets/A/unsupervise-supervise-reinforcement.png)
+
+---
+
+<!-- _class: cols -->
+
+# 16 — Supervised Learning
+
+<div class="left">
+
+Le paradigme le plus déployé en production [1] :
+
+- Le modèle apprend à partir d'**exemples étiquetés** (input A → output B)
+- Algorithmes classiques : Linear Regression, Random Forest, KNN
+- Fonctionne bien avec des données structurées (tableaux, CSV)
+
+| Input (A) | Output (B) |
+|---|---|
+| Email | Spam ? (0/1) |
+| Photo produit | Défaut ? (0/1) |
+| Profil client | Score de crédit |
+
+</div>
+<div class="right">
+
+![](assets/random_forest.png)
+![](assets/KNN_decision_surface_animation.gif)
 
 <small>Sources : [1] [McKinsey State of AI 2024](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-2024)</small>
 
+</div>
+
 ---
 
-# 13 — Reinforcement Learning — exemples business
+# 17 — Unsupervised Learning : K-Means
 
-L'agent apprend par *essai-erreur* dans un environnement simulé, guidé par un *signal de récompense*.
+L'algorithme le plus intuitif — regrouper des données en *clusters* sans supervision :
 
-| Environnement simulé | Action de l'agent | Application métier |
+1. **Initialiser** — placer K centres aléatoirement
+2. **Assigner** — chaque point rejoint le centre le plus proche
+3. **Recalculer** — déplacer chaque centre au barycentre de son cluster
+4. **Répéter** — jusqu'à stabilisation
+
+*Cas business* :
+- Segmentation clients (groupes de comportement d'achat similaire)
+- Détection d'anomalies (transactions frauduleuses = points isolés)
+- Topic modeling (regrouper des avis produits par thème)
+
+> *Pour un entrepreneur* : le K-Means révèle des segments de marché que vos clients ne vous décrivent pas explicitement.
+
+![bg right:40% contain](assets/A/K_means_Clustering.gif)
+
+---
+
+# 18 — Self-Supervised Learning : le secret de la GenAI
+
+Le paradigme qui a rendu la Generative AI possible — apprendre *sans données étiquetées* :
+
+| Modalité | Méthode | Modèles |
 |---|---|---|
-| Simulateur de conduite | Accélérer, freiner, tourner | Conduite autonome |
-| Simulateur physique | Saisir, marcher, assembler | Robotique industrielle |
-| Flux d'utilisateurs | Recommander un article | Recommandation de contenu |
-| Marché boursier | Acheter, vendre, attendre | Trading algorithmique |
+| **Texte** | Prédire le mot suivant / masqué | GPT, BERT, Claude, Mistral |
+| **Image** | Retirer le bruit d'une image bruitée | Stable Diffusion, DALL-E, Flux |
 
-> *Jalon historique* : en 2016, AlphaGo (DeepMind) a battu le champion du monde de Go — un jeu avec plus de positions possibles que d'atomes dans l'univers [1].
+*Pourquoi c'est révolutionnaire* :
+- Pas besoin d'humains pour étiqueter les données
+- S'entraîne sur *tout Internet* — des trillions de tokens
+- Plus de données = meilleur modèle (loi d'échelle)
+
+![bg right:40% contain](assets/A/diffusion_model.gif)
+
+---
+
+# 19 — Reinforcement Learning
+
+L'agent apprend par *essai-erreur*, guidé par un signal de récompense :
+
+| Environnement | Agent | Application |
+|---|---|---|
+| Jeu de Go | AlphaGo (DeepMind) [1] | Bat le champion du monde (2016) |
+| Échecs | AlphaZero | Réinvente les ouvertures en 4h |
+| Marchés financiers | Trading agents | Optimisation de portefeuille |
+| Conversations humaines | ChatGPT, Claude | RLHF aligne le modèle sur les préférences humaines |
+
+> Le RLHF (Reinforcement Learning from Human Feedback) est l'étape qui transforme un LLM brut en assistant utile et sûr.
 
 ![bg right:45% contain](assets/infographics/reinforcement-learning-cycle_run_20260217_010848_d4776e.png)
 
@@ -238,322 +383,190 @@ L'agent apprend par *essai-erreur* dans un environnement simulé, guidé par un 
 
 ---
 
-# 14 — Les jalons de l'IA : du Deep Learning aux Transformers
+<!-- _class: section -->
+
+# Par tâche — que fait l'IA concrètement ?
+
+## What Does AI Actually Do?
+
+---
+
+<!-- _class: cols -->
+
+# 20 — Classification & Regression
+
+<div class="left">
+
+### Classification — attribuer une catégorie
+
+- Email → spam ou non-spam
+- Image → chat, chien, voiture
+- Transaction → frauduleuse ou légitime
+- CV → shortlist ou rejet
+
+> La sortie est une *catégorie discrète*.
+
+</div>
+<div class="right">
+
+### Regression — prédire une valeur
+
+- Surface → prix immobilier (€)
+- Budget pub → chiffre d'affaires (€)
+- Données patient → risque (0-100%)
+- Historique → demande future (unités)
+
+> La sortie est une *valeur continue*.
+
+</div>
+
+---
+
+# 21 — Object Detection & Segmentation
+
+Des tâches de vision qui vont au-delà de la simple Classification :
+
+| Tâche | Ce qu'elle fait | Exemple |
+|---|---|---|
+| **Image Classification** | Une étiquette par image | "C'est un chat" |
+| **Object Detection** | Localise chaque objet (bounding box) | "Chat à (x,y), chien à (x,y)" |
+| **Semantic Segmentation** | Colore chaque pixel par catégorie | Route vs trottoir vs piéton |
+| **Instance Segmentation** | Sépare chaque objet individuel | "Piéton 1, Piéton 2, Piéton 3" |
+
+*Outils clés* : YOLO (détection temps réel) [1], Segment Anything (Meta) [2]
+
+> Ces tâches sont au cœur de la conduite autonome, du contrôle qualité industriel et de l'imagerie médicale.
+
+![bg right:45% contain](assets/object-detection.png)
+
+<small>Sources : [1] [Ultralytics YOLO](https://ultralytics.com/) · [2] [Meta SAM](https://segment-anything.com/)</small>
+
+---
+
+# 22 — Génération de texte : le terrain de jeu des LLMs
+
+L'architecture Transformer alimente *toutes* ces tâches de génération :
+
+| Tâche | Input | Output |
+|---|---|---|
+| **Traduction** | Texte en français | Texte en anglais |
+| **Résumé** | Document de 50 pages | 5 bullet points |
+| **Question-Answering** | Question + contexte | Réponse précise |
+| **Génération de code** | Description en langage naturel | Code fonctionnel |
+| **Analyse de sentiment** | Avis client | Positif / Négatif / Neutre |
+
+> Un même modèle Transformer peut accomplir toutes ces tâches — c'est la puissance du *Transfer Learning* et du *Self-Supervised Pretraining*.
+
+---
+
+# 23 — HuggingFace Tasks : votre vocabulaire de recherche
+
+Ces noms de tâches sont votre *vocabulaire* pour chercher des modèles sur HuggingFace :
+
+![bg right:50% contain](assets/hf_tasks.png)
+
+**Lien** : [huggingface.co/models](https://huggingface.co/models)
+
+| Domaine | Tâches clés |
+|---|---|
+| **NLP** | Text Classification, Summarization, Translation, Question Answering |
+| **Vision** | Image Classification, Object Detection, Image Segmentation |
+| **Audio** | Speech Recognition, Text-to-Speech, Audio Classification |
+| **Multimodal** | Image-to-Text, Visual Question Answering |
+
+> Maîtrisez ces noms de tâches en anglais — c'est le langage commun de l'écosystème IA open source.
+
+---
+
+<!-- _class: section -->
+
+# Chronologie de l'IA
+
+## From Linear Regression to Autonomous Agents
+
+---
+
+# 24 — Timeline Machine Learning
+
+Les jalons du ML classique — des algorithmes qui restent en production aujourd'hui :
 
 | Année | Jalon | Impact |
 |---|---|---|
-| 1986 | Hinton : Backpropagation [1] | Rend l'entraînement de réseaux profonds possible |
-| 1998 | LeCun : LeNet / MNIST [2] | Première reconnaissance d'écriture industrielle |
+| 1805 | Linear Regression (Legendre) | Le premier algorithme de prédiction |
+| 1951 | KNN (Fix & Hodges) | Classification par voisinage |
+| 1958 | Logistic Regression (Cox) | Classification binaire — toujours utilisée |
+| 1963/1995 | SVM (Vapnik) | Classification haute dimension |
+| 2001 | Random Forest (Breiman) | Ensembles d'arbres de décision |
+| 2014 | XGBoost (Chen & Guestrin) [1] | Champion des compétitions Kaggle |
+
+> Ces algorithmes ne font pas la une, mais ils sont derrière la détection de fraude, le scoring crédit, et la recommandation produit.
+
+![bg right:40% contain](assets/infographics/timeline-ml_run_20260219_095936_b48914.png)
+
+<small>Sources : [1] [XGBoost (arXiv)](https://arxiv.org/abs/1603.02754)</small>
+
+---
+
+# 25 — Timeline Deep Learning
+
+La convergence *GPU + Data + Algorithmes* déclenche une accélération sans précédent :
+
+| Année | Jalon | Impact |
+|---|---|---|
+| 1986 | Backpropagation (Hinton) [1] | Rend l'entraînement de réseaux profonds possible |
+| 1998 | LeNet / MNIST (LeCun) [2] | Première reconnaissance d'écriture industrielle |
 | 2012 | AlexNet + ImageNet [3] | Erreur divisée par 2 — lance l'ère du Deep Learning |
-| 2016 | Google Neural Machine Translation [4] | Traduction quasi-humaine |
-| 2017 | "Attention Is All You Need" [5] | Naissance des Transformers |
+| 2017 | "Attention Is All You Need" [4] | Naissance des Transformers |
 
 > Chaque percée repose sur la précédente : sans la Backpropagation de 1986, pas d'AlexNet en 2012 ; sans AlexNet, pas de Transformers en 2017.
 
-<small>Sources : [1] [Nature](https://www.nature.com/articles/323533a0) · [2] [IEEE](https://ieeexplore.ieee.org/document/726791) · [3] [NeurIPS](https://papers.nips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html) · [4] [arXiv](https://arxiv.org/abs/1609.08144) · [5] [arXiv](https://arxiv.org/abs/1706.03762)</small>
+![bg right:40% contain](assets/infographics/timeline-dl_run_20260219_095938_43643a.png)
+
+<small>Sources : [1] [Nature](https://www.nature.com/articles/323533a0) · [2] [IEEE](https://ieeexplore.ieee.org/document/726791) · [3] [NeurIPS](https://papers.nips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html) · [4] [arXiv](https://arxiv.org/abs/1706.03762)</small>
 
 ---
 
-# 15 — De BERT à Claude Code : l'accélération
+# 26 — Timeline Generative AI : l'accélération
 
 | Année | Jalon | Impact |
 |---|---|---|
-| 2018 | BERT (Google) [1] | Le Pre-Training bidirectionnel révolutionne le NLP |
-| 2019 | BERT déployé sur Google Search [2] | L'IA touche des milliards de requêtes quotidiennes |
+| 2018 | BERT (Google) [1] | Pre-Training bidirectionnel révolutionne le NLP |
+| 2019 | BERT déployé sur Google Search [2] | L'IA touche des milliards de requêtes |
 | 2022 | ChatGPT (OpenAI) [3] | 100 millions d'utilisateurs en 2 mois |
-| 2025 | DeepSeek-R1 [4] | Raisonnement open source rivalisant avec les modèles fermés |
-| 2025 | Claude Code (Anthropic) [5] | Agent de code autonome |
+| 2023 | DALL-E 3, GPT-4V | L'IA devient multimodale |
+| 2024 | O1 (OpenAI) | Premier Reasoning Model grand public |
+| 2025 | DeepSeek-R1 [4], Claude Code [5] | Raisonnement open source + agents autonomes |
+| 2026 | OpenClaw [6] | Agent autonome viral — 150K ⭐ GitHub, créateur recruté par OpenAI |
 
-> En 7 ans, l'IA est passée d'une avancée académique (BERT) à des outils grand public (ChatGPT) puis à des agents autonomes (Claude Code). Le rythme *s'accélère*.
+> En 8 ans, l'IA est passée d'une avancée académique (BERT) à des agents autonomes (OpenClaw). Le rythme *s'accélère*.
 
-<small>Sources : [1] [Google AI Blog](https://ai.googleblog.com/2018/11/open-sourcing-bert-state-of-art-pre.html) · [2] [Google Blog](https://blog.google/products/search/search-language-understanding-bert/) · [3] [Reuters](https://www.reuters.com/technology/chatgpt-sets-record-fastest-growing-user-base-analyst-note-2023-02-01/) · [4] [GitHub](https://github.com/deepseek-ai/DeepSeek-R1) · [5] [Anthropic](https://docs.anthropic.com/en/docs/claude-code/overview)</small>
+![bg right:40% contain](assets/infographics/timeline-genai_run_20260219_095942_450ee6.png)
 
----
-
-# 16 — La preuve par les données
-
-![bg right:45% contain vertical](assets/A/epoch-ai-dataset_size.png)
-![bg contain](assets/A/METR-task-len-horizon.png)
-
-- La taille des datasets d'entraînement croît de manière exponentielle [1]
-- Les tâches que l'IA peut accomplir de manière autonome s'allongent rapidement [2]
-
-> Ces deux courbes expliquent pourquoi chaque trimestre apporte des capacités IA que personne n'anticipait un an plus tôt.
-
-<small>Sources : [1] [EpochAI](https://epoch.ai/data-insights/dataset-size-trend) · [2] [METR](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/)</small>
-
----
-
-# 17 — Comment fonctionnent les LLMs
-
-Les LLMs utilisent le Supervised Learning pour *prédire le mot suivant*, mot par mot :
-
-| Input (A) | Output (B) |
-|---|---|
-| My favorite food is a | *bagel* |
-| My favorite food is a bagel | *with* |
-| My favorite food is a bagel with | *cream* |
-| My favorite food is a bagel with cream | *cheese* |
-
-> Un LLM entraîné sur des centaines de milliards de mots apprend les patterns du langage et devient capable de générer du texte cohérent et pertinent.
-
-![bg right:45% contain](assets/A/lllm-gen-example.png)
-
----
-
-# 18 — Les LLMs comme partenaire de réflexion
-
-Un LLM n'est pas un moteur de recherche amélioré — c'est un *partenaire de réflexion* :
-
-| Tâche | Web Search | LLM |
-|---|---|---|
-| Résumer un article de 20 pages | Impossible | Synthèse en 5 bullet points |
-| Analyser un business plan | Cherche des templates | Identifie forces et faiblesses |
-| Traduire un contrat juridique | Traduction littérale | Adaptation du registre et du contexte |
-
-*Exemples en production* : Klarna a traité *2,3 millions de conversations* via son assistant IA dès le premier mois [1]. Notion AI résume et organise les documents de travail [2].
-
-*Question pour la classe* : Pour quelle tâche hebdomadaire utilisez-vous déjà un LLM ?
-
-<small>Sources : [1] [Klarna](https://www.klarna.com/international/press/klarna-ai-assistant-handles-two-thirds-of-customer-service-chats-in-its-first-month/) · [2] [Notion](https://www.notion.so/product/ai)</small>
+<small>Sources : [1] [Google AI Blog](https://ai.googleblog.com/2018/11/open-sourcing-bert-state-of-art-pre.html) · [2] [Google Blog](https://blog.google/products/search/search-language-understanding-bert/) · [3] [Reuters](https://www.reuters.com/technology/chatgpt-sets-record-fastest-growing-user-base-analyst-note-2023-02-01/) · [4] [GitHub DeepSeek-R1](https://github.com/deepseek-ai/DeepSeek-R1) · [5] [Anthropic](https://docs.anthropic.com/en/docs/claude-code/overview) · [6] [OpenClaw](https://openclaw.ai/)</small>
 
 ---
 
 <!-- _class: section -->
 
-# Applications GenAI : Writing, Reading, Chatting
+# Points clés à retenir
 
-## The Three Families of LLM Tasks
-
----
-
-# 19 — Les trois familles de tâches LLM
-
-| Catégorie | Exemples | Type d'app |
-|---|---|---|
-| *Writing* | Brainstorming noms de produits, communiqués de presse, traduction | Web + App |
-| *Reading* | Classification d'emails, résumé de conversations, analyse de sentiment | Surtout App |
-| *Chatting* | Service client bot, coaching, FAQ interne | Web + App |
-
-*Deux modes d'utilisation* :
-- *Web-based* : ChatGPT, Claude, Le Chat — interaction directe
-- *Software application* : le LLM est intégré dans un produit (email routing, analyse automatisée)
-
-![bg right:45% contain](assets/ng01/img-026.png)
+## Key Takeaways
 
 ---
 
-# 20 — Coder avec l'IA : le paysage des outils
+# 27 — Récapitulatif Session 1A
 
-*76% des développeurs* utilisent ou prévoient d'utiliser des outils de code IA [1].
+### La Generative AI en contexte
+- La GenAI produit du contenu (texte, image, audio, vidéo, code) — mais le ML traditionnel représente *~70% de la valeur IA totale*
+- L'IA classique (recherche web, détection de fraude, recommandation) reste le moteur de revenus
 
-| Outil | Type | Pour qui ? |
-|---|---|---|
-| Bolt.new [2] / Lovable [3] | No-Code AI | Non-techniques, prototypage rapide |
-| n8n [4] / Make | Low-Code | Automatisation de workflows |
-| GitHub Copilot [5] | Assisted Code | Développeurs, autocomplétion |
-| Cursor | Assisted Code | Développeurs, édition contextuelle |
-| Claude Code [6] | Autonomous Code | Développeurs, agent autonome |
+### La taxonomie de l'IA
+- **Par technique** : Statistics → ML → Deep Learning → GenAI (chaque couche inclut les précédentes)
+- **Par paradigme** : Supervised, Unsupervised, Self-Supervised, Reinforcement Learning
+- **Par tâche** : Classification, Regression, Object Detection, Segmentation, Génération
 
-> *Pour les entrepreneurs* : vous n'avez plus besoin de savoir coder pour construire un MVP. Les outils No-Code IA produisent des applications complètes à partir d'un prompt.
+### Le vocabulaire HuggingFace
+- Les noms de tâches en anglais sont votre clé pour chercher des modèles open source
 
-<small>Sources : [1] [Stack Overflow 2024](https://survey.stackoverflow.co/2024/ai) · [2] [Bolt.new](https://bolt.new/) · [3] [Lovable](https://lovable.dev/) · [4] [n8n](https://n8n.io/) · [5] [GitHub Copilot](https://github.com/features/copilot) · [6] [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview)</small>
-
----
-
-# 21 — Writing : brainstorming et rédaction assistée
-
-Les LLMs excellent pour le *brainstorming* — tâche à faible risque et forte valeur créative :
-
-*Exemples pour entrepreneurs* :
-- "Propose 5 noms créatifs pour une marque de cookies au beurre de cacahuète"
-- "Donne 5 idées pour augmenter les ventes en Q4"
-- "Suggère 3 angles marketing pour cibler les étudiants"
-
-*Rédaction assistée* — plus vous donnez de *contexte*, meilleur est le résultat :
-- Prompt vague → résultat générique (texte rempli de [placeholders])
-- Prompt détaillé avec contexte → résultat personnalisé et exploitable
-
-> *Astuce* : ne prenez jamais la première réponse. Itérez, combinez, affinez.
-
----
-
-# 22 — Reading : résumer et classifier
-
-Un des cas d'usage les plus puissants pour les entreprises :
-
-*Résumé* :
-- Synthèse de rapports de 50+ pages en bullet points
-- Traitement de 100 feedbacks clients en 5 minutes au lieu de 2 heures
-
-*Classification automatique* :
-- Routage d'emails vers le bon département
-- Analyse de sentiment (avis positifs/négatifs)
-- Veille e-réputation automatisée
-
-> *Clé du succès* : un bon prompt de classification a 3 éléments — la *tâche*, les *choix possibles*, et les *données* à analyser.
-
-![bg right:45% contain](assets/ng01/img-024.png)
-
----
-
-# 23 — Chatting : du bot interne au service client
-
-*BettaBurgers* — un chatbot de prise de commande sans friction, sans attente téléphonique.
-
-*Le spectre de déploiement* :
-
-| Niveau | Description | Risque |
-|---|---|---|
-| *Humains seuls* | Agents humains uniquement | Zéro risque IA |
-| *Bot assiste l'humain* | Le bot suggère, l'humain décide | Faible |
-| *Bot trie, humain traite* | Le bot oriente les demandes | Moyen |
-| *Bot seul* | Le bot gère tout sans humain | Élevé |
-
-> *Conseil* : commencer par un chatbot *interne* → ajouter un *Human-in-the-Loop* → puis ouvrir au client final.
-
----
-
-<!-- _class: section -->
-
-# Génération d'images par IA
-
-## Image Generation with Diffusion Models
-
----
-
-# 24 — La génération d'images par IA
-
-Les modèles de génération d'images créent des visuels à partir de *descriptions textuelles* :
-
-*Outils majeurs en 2026* :
-- *Midjourney* [1] — qualité artistique, très populaire
-- *DALL-E 3* (OpenAI) [2] — intégré à ChatGPT
-- *Flux* (Black Forest Labs) [3] — open source, haute qualité
-- *Stable Diffusion* [4] — open source, très personnalisable
-
-*Pour les entrepreneurs* :
-- Prototypage visuel rapide et quasi gratuit
-- A/B testing de visuels marketing
-- Attention aux *droits d'auteur* — sujet juridique en évolution
-
-![bg right:40% contain](assets/ng01/img-028.png)
-![bg contain](assets/ng01/img-030.png)
-![bg contain](assets/ng01/img-029.png)
-
-<small>Sources : [1] [Midjourney](https://www.midjourney.com/) · [2] [OpenAI DALL-E](https://openai.com/dall-e-3) · [3] [Black Forest Labs](https://blackforestlabs.ai/) · [4] [Stability AI](https://stability.ai/)</small>
-
----
-
-# 25 — Comment ça marche : les Diffusion Models
-
-Le principe est élégant — on entraîne un modèle à *enlever du bruit* d'une image :
-
-![bg right:40% contain](assets/A/diffusion_model.gif)
-
-*Phase d'entraînement* :
-1. Prendre une image nette (ex : une pomme)
-2. Ajouter du bruit progressivement
-3. Entraîner le modèle : image bruitée → image moins bruitée
-
-*Phase de génération* :
-1. Partir de *bruit pur* (image aléatoire)
-2. Appliquer le modèle ~100 fois de suite
-3. L'image émerge progressivement du bruit
-
-> C'est comme un sculpteur qui retire la pierre pour révéler la statue — sauf que le sculpteur est un réseau de neurones.
-
----
-
-# 26 — Du No-Code au Full-Code : le spectre IA
-
-| Niveau | Outils | Compétences requises | Délai MVP |
-|---|---|---|---|
-| *No-Code* | Bolt.new, Lovable, v0 | Vision produit, bon prompt | Heures |
-| *Low-Code* | n8n, Make, Zapier | Logique métier, APIs | Jours |
-| *Assisted Code* | Copilot, Cursor, Windsurf | Bases de programmation | Jours à semaines |
-| *Autonomous Code* | Claude Code, Devin | Architecture, code review | Minutes par feature |
-
-> En 2026, la question n'est plus *"savez-vous coder ?"* mais *"à quel niveau du spectre voulez-vous intervenir ?"*
-
-*Question pour la classe* : Pour votre projet de chatbot, à quel niveau du spectre allez-vous vous positionner ?
-
-![bg right:45% contain](assets/infographics/ai-coding-spectrum_run_20260217_010852_676799.png)
-
----
-
-<!-- _class: section -->
-
-# Ce que l'IA sait et ne sait pas faire
-
-## Capabilities and Limitations
-
----
-
-# 27 — Le test du "fresh college grad"
-
-Comment évaluer si un LLM peut réaliser une tâche ? Utilisez cette heuristique :
-
-> *Un jeune diplômé compétent pourrait-il suivre les instructions du prompt pour accomplir la tâche ?*
-
-- Classifier un email comme réclamation ? *Oui* → le LLM peut le faire
-- Rédiger un communiqué de presse *sans aucune info* ? *Difficilement* → résultat générique
-- Rédiger un communiqué *avec le contexte* ? *Oui* → bon travail
-
-*Limites de l'analogie* — imaginez un diplômé *sans aucune ressource externe* :
-- Pas d'accès Internet, pas de formation spécifique, pas de mémoire des tâches précédentes
-
-> C'est l'heuristique la plus utile du cours. Gardez-la en tête pour évaluer chaque cas d'usage.
-
----
-
-# 28 — Hallucinations et Knowledge Cutoffs
-
-*Hallucinations* — le LLM *invente des informations avec un ton très confiant* :
-- Un avocat américain a soumis un mémoire juridique contenant des *affaires inventées* par ChatGPT [1]
-- Règle d'or : ne jamais publier un contenu IA sans *vérification humaine*
-
-*Knowledge Cutoffs* — l'IA vit dans le passé :
-- Les connaissances sont *figées à la date d'entraînement*
-- Les données de la semaine dernière restent inaccessibles (sauf accès web)
-
-![bg right:45% contain](assets/ng01/img-022.png)
-
-*Question pour la classe* : Quelles informations de votre entreprise ne devriez-vous JAMAIS mettre dans un prompt ChatGPT ?
-
-<small>Sources : [1] [NYT](https://www.nytimes.com/2023/05/27/nyregion/avianca-chatgpt-fake-citations.html)</small>
-
----
-
-# 29 — Récapitulatif — ce que l'IA sait et ne sait pas faire
-
-| L'IA *sait* faire | L'IA *ne sait pas* (encore) faire |
-|---|---|
-| Résumer des documents | Raisonner de manière fiable sur des sujets complexes |
-| Classifier du texte (sentiment, catégorie) | Accéder à des données en temps réel (sans outils) |
-| Traduire et adapter le ton | Garantir la véracité de ses réponses |
-| Brainstormer et générer du contenu | Comprendre le contexte spécifique de votre entreprise |
-| Générer des images à partir de texte | Travailler sur des données structurées/tabulaires sans outils |
-| Corriger et réécrire | Remplacer le jugement humain sur des décisions critiques |
-
-> Testez avec l'heuristique du *fresh college grad* : si un jeune diplômé pourrait le faire avec les instructions du prompt, le LLM peut probablement le faire aussi.
-
----
-
-# 30 — Points clés à retenir
-
-*Comprendre* :
-- La Generative AI produit du contenu (texte, image, audio, vidéo) à partir de prompts
-- Les LLMs fonctionnent par *prédiction du mot suivant* à très grande échelle
-- L'IA a *40 ans d'histoire* — chaque percée repose sur la précédente
-
-*Appliquer* :
-- Trois familles de tâches : *Writing*, *Reading*, *Chatting*
-- Les outils de code IA rendent le *prototypage accessible* à tous
-- Déployez progressivement : interne → human-in-the-loop → client final
-
-*Rester vigilant* :
-- Les *Hallucinations* sont un risque réel — toujours vérifier
-- Les *biais* existent — tester avant de déployer
-
-> *Suite* : Session 1B — L'IA au-delà des LLMs
+### Les timelines
+- ML (1805–2014) → Deep Learning (1986–2017) → GenAI (2018–2026) : accélération exponentielle

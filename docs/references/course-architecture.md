@@ -30,16 +30,16 @@
 
 | Bloc | Contenu | Fichier |
 |------|---------|---------|
-| **A** | L'IA Générative : ce qu'elle sait faire — GenAI intro, capabilities LLM (écriture/lecture/chat), génération d'image, limites et hallucinations | `slides/session-01/A-genai-fondamentaux.md` (30 slides) |
-| **B** | L'IA au-delà des LLMs — Prompting, taxonomie IA, histoire (1956–2026), architectures (CNN, RNN, GAN, Transformer), reasoning models, éthique intro | `slides/session-01/B-au-dela-des-llms.md` (19 slides) |
+| **A** | L'IA Générative : ce qu'elle sait faire — GenAI intro, capabilities, taxonomie IA (techniques, paradigmes, tâches), vocabulaire HuggingFace, timelines ML/DL/GenAI | `slides/session-01/A-genai-fondamentaux.md` (27 slides) |
+| **B** | Les LLMs : comprendre et utiliser — Impact, fonctionnement (next-word prediction), glossaire (Tokens, Context Window, MoE), pipeline d'entraînement (Pretraining, Instruct, Thinking, Fine-tuning), accès (Web, API, Open-weights, licences), taille et performance | `slides/session-01/B-llms.md` (20 slides) |
 | **C** | Votre premier projet IA — Toolbox (JSON, API, Webhooks, HuggingFace, n8n), démo live Sentiment Analysis en 3 nodes, lancement projet de groupe | `slides/session-01/C-premier-projet-ia.md` (23 slides) |
 
 ### Séance 2 — Construire avec l'IA
 
 | Bloc | Contenu | Fichier |
 |------|---------|---------|
-| **A** | Du Prompt au Produit — 3 catégories d'apps IA, cycle de développement prompt-based, tokens, coûts, choix de modèle | `slides/session-02/A-prompt-au-produit.md` (19 slides) |
-| **B** | L'Ingénierie IA — Training pipeline, RAG pipeline, Fine-tuning (LoRA, QLoRA, distillation), Agentic AI (ReAct, Tool Use, MCP), matrice RAG vs Fine-tuning | `slides/session-02/B-ingenierie-ia.md` (21 slides) |
+| **A** | Du Prompt au Produit — 4 catégories d'apps IA (Writing/Reading/Chatting/Coding), lifecycle, coûts des APIs | `slides/session-02/A-prompt-au-produit.md` (18 slides) |
+| **B** | L'Ingénierie IA — RAG pipeline (5 étapes), hybrid search, RAG vs Fine-tuning, Agentic AI (ReAct, Tool Use, MCP) | `slides/session-02/B-ingenierie-ia.md` (17 slides) |
 | **C** | N8N #2 — workflow avec modèle open-source HuggingFace | *(design TBD)* |
 
 ### Séance 3 — Cadrer un projet IA
@@ -79,16 +79,19 @@
 
 | Fichier | Slides | Statut |
 |---------|--------|--------|
-| `session-01/A-genai-fondamentaux.md` | 30 | ✅ Terminé |
-| `session-01/B-au-dela-des-llms.md` | 19 | ✅ Terminé |
+| `session-01/A-genai-fondamentaux.md` | 27 | ✅ Terminé |
+| `session-01/B-llms.md` | 20 | ✅ Terminé |
 | `session-01/C-premier-projet-ia.md` | 23 | ✅ Terminé |
-| `session-02/A-prompt-au-produit.md` | 19 | ✅ Terminé |
-| `session-02/B-ingenierie-ia.md` | 21 | ✅ Terminé |
+| `session-02/A-prompt-au-produit.md` | 18 | ✅ Terminé |
+| `session-02/B-ingenierie-ia.md` | 17 | ✅ Terminé |
 | `session-03/A-evaluer-solution-ia.md` | 18 | ✅ Terminé |
 | `session-03/B-methodologie-projet.md` | 17 | ✅ Terminé |
 | `session-04/A-ecosysteme-ia.md` | 18 | ✅ Terminé |
 | `session-04/B-business-models.md` | 17 | ✅ Terminé |
 | `session-05/A-regulation-ethique.md` | 23 | ✅ Terminé |
+| `extra-decks/architectures.md` | 4 | ✅ Extra |
+| `extra-decks/D-biais-ethique.md` | 3 | ✅ Extra |
+| `session-02/B-au-dela-des-llms.md` | 23 | ✅ Archive (ex-S01-B) |
 
 ### QCMs
 

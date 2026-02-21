@@ -5,7 +5,7 @@ paginate: true
 header: "Deep Tech & ML (UE3) — Session 2 · M2 IMT&E · Paris 1 Panthéon-Sorbonne"
 footer: "Sources multiples · DeepLearning.AI CC BY-SA 2.0 · Données publiques"
 ---
-<!-- ABOUTME: L'ingénierie IA — RAG, embeddings, Fine-tuning, agents, pour comprendre les briques techniques. -->
+<!-- ABOUTME: L'ingénierie IA — RAG pipeline complet, embeddings, Fine-tuning, LLM generations, agents. -->
 <!-- ABOUTME: Cadré pour entrepreneurs M2 : choisir entre RAG, Fine-tuning et agents selon son projet. -->
 
 <!-- _class: title -->
@@ -41,94 +41,118 @@ Un LLM généraliste ne connaît pas **vos données spécifiques** :
 
 **Avec RAG** : "Oui, les employés peuvent se garer aux niveaux 1 et 2. Badge à l'accueil."
 
-> Le RAG permet à un LLM de répondre sur **vos données** sans avoir besoin de le ré-entraîner. Le marché RAG atteint **$1,85 Mds** en 2025 [1].
+> Le RAG permet à un LLM de répondre sur **vos données** sans avoir besoin de le ré-entraîner. Le marché RAG atteint **$1,9 Mds** en 2025, avec **86%** des organisations qui l'adoptent [1][2].
 
-<small>Sources : [1] [Precedence Research](https://www.precedenceresearch.com/)</small>
+<small>Sources : [1] [Precedence Research](https://www.precedenceresearch.com/) · [2] [K2View](https://www.k2view.com/)</small>
+
+---
+
+# 02 — Le RAG Pipeline en 5 étapes
+
+Le RAG est un pipeline de bout en bout — chaque étape compte :
+
+| Étape | Ce qu'elle fait | Outil typique |
+|---|---|---|
+| **1. Chunking** | Découper les documents en morceaux (256-1024 tokens) | LangChain, LlamaIndex |
+| **2. Embedding** | Convertir chaque chunk en vecteur numérique | OpenAI, Jina, BGE-M3 |
+| **3. Indexation** | Stocker les vecteurs dans une base vectorielle | Pinecone, Qdrant, pgvector |
+| **4. Retrieval** | Chercher les chunks les plus pertinents pour la question | Hybrid search (dense + sparse) |
+| **5. Generation** | Le LLM génère sa réponse à partir des chunks récupérés | Claude, GPT-4o, Mistral |
+
+> Le RAG réduit les hallucinations de **70-90%** par rapport à un LLM seul [1]. La qualité du Chunking impacte plus que le choix du modèle d'embedding [2].
+
+![bg right:40% contain](assets/infographics/rag-pipeline_run_20260219_100700_b17371.png)
+
+<small>Sources : [1] [Données agrégées — recherche interne](docs/research/rag-ecosystem/report.md) · [2] [Anthropic](https://www.anthropic.com/news/contextual-retrieval)</small>
 
 ---
 
 <!-- _class: cols -->
 
-# 02 — RAG : comment ça marche
+# 03 — Le moteur de recherche sémantique
 
 <div class="left">
 
-### Étape 1 : Retrieval
-Quand l'utilisateur pose une question, le système **cherche les documents pertinents** dans votre base de connaissances.
+### Recherche par mots-clés (BM25)
 
-### Étape 2 : Augmentation
-Les extraits trouvés sont **injectés dans le prompt** du LLM comme contexte additionnel.
+- Compare les **mots exacts** entre la requête et les documents
+- Rapide : 5-15ms, CPU uniquement
+- Excellent pour les termes précis (codes produit, noms propres)
+- **Faiblesse** : ne comprend pas les synonymes ou paraphrases
 
 </div>
 <div class="right">
 
-### Étape 3 : Generation
-Le LLM génère sa réponse en s'appuyant sur **le contexte fourni** — pas uniquement sur son entraînement initial.
+### Recherche sémantique (Embeddings)
 
-> **R**etrieval **A**ugmented **G**eneration = on *augmente* la génération avec de la *recherche*.
+- Compare le **sens** des textes via des vecteurs
+- Plus lent : ~45ms, nécessite GPU ou API
+- Excellent pour les questions en langage naturel
+- **Faiblesse** : peut manquer des termes exacts ou rares
 
 </div>
 
+> **La meilleure approche : les deux combinés** (Hybrid Search). Le gain : **+15-30% de rappel** vs chaque méthode seule [1].
+
+<small>Sources : [1] [Anthropic — Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval)</small>
+
 ---
 
-# 03 — La similarité : pourquoi le RAG fonctionne
+# 04 — Embeddings : transformer les mots en coordonnées
+
+Un **Embedding** convertit du texte en coordonnées dans un espace à haute dimension — comme un GPS pour le sens :
+
+- "Chat mignon" → [0.23, -0.45, 0.12, ..., 0.78] (1 024 dimensions)
+- Les textes sémantiquement proches ont des coordonnées proches
+- "Roi" et "Monarque" sont voisins ; "Roi" et "Réfrigérateur" sont éloignés
+
+| Modèle | Éditeur | Prix/M tokens |
+|---|---|---|
+| **text-embedding-3-large** | OpenAI | $0,13 [1] |
+| **Embed v4** | Cohere | $0,12 [2] |
+| **jina-embeddings-v3** | Jina AI (Berlin) | $0,02 [3] |
+| **BGE-M3** | BAAI | Gratuit (OSS) |
+
+<small>Sources : [1] [OpenAI Pricing](https://openai.com/api/pricing/) · [2] [Cohere Pricing](https://cohere.com/pricing) · [3] [Jina AI](https://jina.ai/embeddings/)</small>
+
+---
+
+# 05 — La similarité vectorielle : Cosine Similarity
 
 Comment le système sait-il quels documents sont "pertinents" pour une question ?
 
-| Métrique | Principe | Cas d'usage |
-|---|---|---|
-| **Cosine Similarity** | Compare la **direction** de deux vecteurs, pas leur magnitude | Recherche sémantique, RAG |
-| **Euclidean Distance** | Distance "en ligne droite" entre deux points | Peu de variables, valeurs comparables |
-| **Manhattan Distance** | Somme des écarts absolus | Données hétérogènes, grande dimension |
+La **Cosine Similarity** mesure l'angle entre deux vecteurs — pas leur magnitude :
 
-- La Cosine Similarity mesure un angle entre -1 (opposés) et +1 (identiques)
-- C'est la métrique au coeur des moteurs de recherche sémantique et des systèmes RAG
+- Score de **+1** = textes de sens identique
+- Score de **0** = aucun rapport
+- Score de **-1** = sens opposé
 
-> Le choix de la métrique de similarité est un **choix business** : il définit ce que "pertinent" signifie pour votre produit.
+> C'est la métrique au cœur de tous les moteurs de recherche sémantique et des systèmes RAG. C'est aussi un *choix business* : il définit ce que "pertinent" signifie pour votre produit.
 
----
+*Astuce* : ajoutez un **Reranker** après la recherche initiale pour re-scorer les résultats — **+20-35% de précision** pour 50-500ms de latence supplémentaire [1].
 
-# 04 — Embeddings : transformer les mots en vecteurs
-
-Un **Embedding** convertit du texte en un vecteur numérique de grande dimension :
-
-- "Chat mignon" → [0.23, -0.45, 0.12, ..., 0.78] (1 024 dimensions)
-- Les textes sémantiquement proches ont des vecteurs proches
-
-| Modèle | Éditeur | Dimensions | Prix/M tokens |
-|---|---|---|---|
-| **text-embedding-3-large** | OpenAI | 3 072 | $0,13 [2] |
-| **Embed v4** | Cohere | 1 024 | $0,12 [3] |
-| **jina-embeddings-v3** | Jina AI (Berlin) | 1 024 | $0,02 [4] |
-| **BGE-M3** | BAAI | 1 024 | Gratuit (OSS) |
-
-> La qualité du **Chunking** (découpage des documents) impacte plus que le choix du modèle d'embedding [1].
-
-<small>Sources : [1] [Anthropic](https://www.anthropic.com/news/contextual-retrieval) · [2] [OpenAI Pricing](https://openai.com/api/pricing/) · [3] [Cohere Pricing](https://cohere.com/pricing) · [4] [Jina AI](https://jina.ai/embeddings/)</small>
+<small>Sources : [1] [Données agrégées — recherche interne](docs/research/rag-ecosystem/report.md)</small>
 
 ---
 
-# 05 — Vector Databases : stocker et chercher les vecteurs
+# 06 — Vector Databases : stocker et chercher les vecteurs
 
 Les vecteurs sont stockés dans des **bases vectorielles** optimisées pour la recherche par similarité :
 
-| Base | Type | Différenciateur | Origine |
-|---|---|---|---|
-| **Pinecone** | Managed | Leader serverless, free tier | USA |
-| **Qdrant** | OSS + Cloud | Rust-native, performant | Berlin |
-| **Weaviate** | OSS + Cloud | Hybrid Search natif | Amsterdam |
-| **pgvector** | Extension PG | Gratuit, 0 vendor lock-in | OSS |
+| Base | Type | Différenciateur |
+|---|---|---|
+| **Chroma** | OSS (Apache 2.0) | Le plus simple — "le SQLite des vecteurs", parfait pour démarrer |
+| **Qdrant** | OSS (Apache 2.0) | Rust-native, performant, EU-based (Berlin) — RGPD friendly |
+| **Pinecone** | Managed (SaaS) | Zéro ops, serverless, leader du marché managed |
+| **pgvector** | Extension PostgreSQL | Gratuit, 0 vendor lock-in, s'ajoute à votre base existante |
 
-- **pgvector** : la meilleure option pour démarrer (gratuit, pas de vendor lock-in)
-- **Pinecone** : le plus rapide à déployer (managed, serverless)
+> **Pour démarrer** : Chroma (prototypage) ou pgvector (si vous avez déjà PostgreSQL). Pour scaler : Qdrant (contrôle) ou Pinecone (simplicité).
 
-> **Règle d'or** : Managed pour la vitesse. Open-source pour le contrôle et les coûts à l'échelle.
-
-<small>Sources : [GitHub](https://github.com/) · [Pinecone](https://www.pinecone.io/) · [Qdrant](https://qdrant.tech/)</small>
+![bg right:35% contain](assets/vecotr-database.png)
 
 ---
 
-# 06 — RAG en pratique : l'exemple du chatbot RH
+# 07 — RAG en pratique : l'exemple du chatbot RH
 
 **Question utilisateur** : "Y a-t-il un parking pour les employés ?"
 
@@ -148,7 +172,7 @@ Question : Y a-t-il un parking pour les employés ?
 
 ---
 
-# 07 — Applications du RAG
+# 08 — Applications du RAG
 
 Le RAG est partout en 2025-2026 — **86%** des organisations augmentent leurs LLMs avec du RAG [1] :
 
@@ -166,132 +190,33 @@ Le RAG est partout en 2025-2026 — **86%** des organisations augmentent leurs L
 
 ---
 
-# 08 — Le LLM comme moteur de raisonnement
+# 09 — Le LLM comme moteur de traitement
 
-**Changement de mental model** — Ne pensez plus au LLM comme une source d'information, mais comme un **moteur de raisonnement** :
+**Changement de mental model** — Ne pensez plus au LLM comme une source d'information, mais comme un **consultant spécialisé** :
 
-- Les LLMs ont des connaissances générales, mais pas tout
-- En leur fournissant du **contexte pertinent** via le prompt, on leur demande de *lire et traiter* l'information
-- Le LLM raisonne sur l'information fournie plutôt que de puiser dans sa mémoire
+- Vous lui confiez un **dossier client** (le contexte RAG)
+- Il *analyse et synthétise* l'information que vous lui fournissez
+- Sa valeur = raisonnement + synthèse, pas sa mémoire brute
 
 **Implication pour les entrepreneurs** :
 - Votre avantage compétitif n'est pas le modèle (accessible à tous)
 - C'est **vos données propriétaires** + la qualité de votre pipeline RAG
 
-> "Le LLM est le cerveau. Le RAG est la bibliothèque. Votre valeur, c'est d'avoir la meilleure bibliothèque."
+> "Le LLM est le consultant. Le RAG est le dossier client. Votre valeur, c'est d'avoir le meilleur dossier."
 
 ---
 
 <!-- _class: section -->
 
-# Fine-tuning
+# Fine-tuning et RAG
 
-## Quand le RAG ne suffit plus
-
----
-
-# 09 — Du texte brut au chatbot : le pipeline d'entraînement
-
-Avant de parler Fine-tuning, il faut comprendre comment un LLM devient un chatbot utile :
-
-| Étape | Ce qu'il apprend | Données | Résultat |
-|-------|-----------------|---------|----------|
-| **Pretraining** | Le langage, les faits, le raisonnement | Trillions de tokens (internet) | Modèle de base (GPT-4 base) |
-| **SFT** (Instruction Tuning) | Suivre des instructions, converser | Milliers de paires (instruction, réponse) | Modèle instruct (GPT-4-turbo) |
-| **RLHF / DPO** (Alignment) | Être utile, honnête, inoffensif | Préférences humaines (A vs B) | Chatbot aligné (ChatGPT, Claude) |
-| **Reasoning Training** | Réfléchir avant de répondre | Chain-of-Thought, preuves | Reasoning model (o3, DeepSeek-R1) |
-
-> Chaque étape **ajoute une couche de capacité** sur la précédente. Le Fine-tuning que vous ferez en tant qu'entrepreneur s'appuie sur un modèle qui a déjà traversé ces 3-4 étapes.
-
-![bg right:40% contain](assets/infographics/training-pipeline_run_20260217_012323_723979.png)
+## Quand choisir quoi
 
 ---
 
 <!-- _class: cols -->
 
-# 10 — Fine-tuning : de quoi parle-t-on ?
-
-<div class="left">
-
-Le **Fine-tuning** consiste à ré-entraîner un modèle existant sur vos propres données :
-
-| | Pretraining | Fine-tuning |
-|---|---|---|
-| **Données** | Milliards de mots | Milliers d'exemples |
-| **Objectif** | Apprendre le langage | Adapter à une tâche |
-| **Coût** | Millions $ | Centaines $ |
-
-</div>
-<div class="right">
-
-**Quand fine-tuner ?**
-- Le modèle a besoin d'un **style** spécifique
-- Le jargon est trop technique (médical, juridique)
-- Le RAG ne capture pas le **format** attendu
-
-> Analogie : le musicien connaît la musique mais apprend un nouveau style.
-
-</div>
-
----
-
-# 11 — L'escalade de personnalisation
-
-L'ordre de complexité et de coût croissants est clair [1] :
-
-| Étape | Coût | Délai | Quand l'utiliser |
-|---|---|---|---|
-| **Prompt Engineering** | $0 | Heures | **80% des cas** — toujours commencer ici |
-| **RAG** | $70-1 000/mois | Heures-jours | Données fraîches, sources vérifiables |
-| **Fine-tuning (LoRA)** | $5-50/run | Jours | Style, format, tâche spécifique |
-| **Pretraining** | $1M+ | Mois | Domaine ultra-spécialisé (rare) |
-
-> **80% des besoins** se résolvent avec du Prompt Engineering + RAG. Ne fine-tuner que si le gain justifie le coût.
-
-<small>Sources : [1] [Meta AI](https://ai.meta.com/blog/when-to-fine-tune-llms-vs-other-techniques/)</small>
-
----
-
-# 12 — LoRA : la démocratisation du Fine-tuning
-
-**LoRA** (Low-Rank Adaptation) entraîne de petites matrices au lieu du modèle entier [1] :
-
-- Entraîne **0,1-1%** des paramètres → **90-95%** de la qualité totale
-- Un adapter LoRA pèse **10-100 Mo** (vs 14+ Go pour un modèle complet)
-- **QLoRA** ajoute la quantification 4-bit → un modèle 7B tourne sur **8 Go de VRAM** [2]
-
-| Config | VRAM requise | Coût | Hardware minimum |
-|---|---|---|---|
-| 7B LoRA | ~16-24 GB | $5-15 | RTX 4090 |
-| 7B QLoRA | ~8-10 GB | **$0-5** | **Google Colab T4 gratuit** |
-
-> Le rapport qualité/prix de QLoRA a **démocratisé** le Fine-tuning pour les startups.
-
-<small>Sources : [1] [Hu et al. ICLR 2022](https://arxiv.org/abs/2106.09685) · [2] [Dettmers et al. NeurIPS 2023](https://arxiv.org/abs/2305.14314)</small>
-
----
-
-# 13 — Distillation : un grand modèle entraîne un petit
-
-Le principe de **Distillation** :
-- Un **grand modèle** (100B+ paramètres) sait bien faire une tâche
-- On utilise ses réponses comme données d'entraînement pour un **petit modèle** (1B paramètres)
-- Le petit modèle apprend à imiter le grand sur cette tâche spécifique
-
-**Pourquoi c'est utile** :
-- **Coût divisé par 10-100x** en production
-- **Latence réduite** — réponses plus rapides
-- **Déploiement on-device** — mobile, laptop, edge
-
-> Avec 500-1 000 exemples, un petit modèle fine-tuned peut égaler un grand modèle sur une tâche ciblée. DeepSeek-R1 distillé sur Qwen-7B atteint **55,5%** sur AIME 2024 [1].
-
-<small>Sources : [1] [DeepSeek](https://arxiv.org/abs/2501.12948)</small>
-
----
-
-<!-- _class: cols -->
-
-# 14 — RAG vs Fine-tuning : comment choisir ?
+# 10 — RAG vs Fine-tuning : comment choisir ?
 
 <div class="left">
 
@@ -326,7 +251,7 @@ Le principe de **Distillation** :
 
 ---
 
-# 15 — Qu'est-ce qu'un Agent ?
+# 11 — Qu'est-ce qu'un Agent ?
 
 Un **Agent** est un LLM qui enchaîne plusieurs actions de manière autonome.
 
@@ -337,13 +262,13 @@ Le pattern dominant est **ReAct** (Reasoning + Acting) [1] :
 
 > L'agent **décide lui-même** quelles actions exécuter et dans quel ordre. C'est un bond par rapport au simple chat.
 
-![bg right:50%](assets/infographics/agent-react_run_20260216_171318_224f91.png)
+![bg right:50% contain](assets/infographics/agent-react_run_20260216_171318_224f91.png)
 
 <small>Sources : [1] [Princeton/Google Research](https://arxiv.org/abs/2210.03629)</small>
 
 ---
 
-# 16 — Tool Use : donner des capacités au LLM
+# 12 — Tool Use : donner des capacités au LLM
 
 Les LLMs ont des limites intrinsèques. Le **Tool Use** les compense :
 
@@ -354,11 +279,11 @@ Les LLMs ont des limites intrinsèques. Le **Tool Use** les compense :
 
 Le LLM génère un **appel de fonction**, le système exécute et renvoie le résultat, puis le LLM formule la réponse finale.
 
-![bg right:50%](assets/infographics/tool-use_run_20260216_171320_c1b044.png)
+![bg right:50% contain](assets/infographics/tool-use_run_20260216_171320_c1b044.png)
 
 ---
 
-# 17 — Les agents en 2026 : marché et écosystème
+# 13 — Les agents en 2026 : marché et écosystème
 
 Le marché agentic AI atteint **$7 Mds** en 2025, projeté **$139-260 Mds** en 2034 [1].
 
@@ -375,7 +300,7 @@ Le marché agentic AI atteint **$7 Mds** en 2025, projeté **$139-260 Mds** en 2
 
 ---
 
-# 18 — Agents : attention aux limites
+# 14 — Agents : attention aux limites
 
 Les Agents sont prometteurs mais présentent des défis en 2026 :
 
@@ -400,7 +325,7 @@ Les Agents sont prometteurs mais présentent des défis en 2026 :
 
 ---
 
-# 19 — La boîte à outils de l'entrepreneur IA
+# 15 — La boîte à outils de l'entrepreneur IA
 
 | Besoin | Outil | Effort | Coût |
 |---|---|---|---|
@@ -414,21 +339,21 @@ Les Agents sont prometteurs mais présentent des défis en 2026 :
 
 ---
 
-# 20 — Key Takeaways
+# 16 — Key Takeaways
 
 1. **Le RAG est le standard** — 86% des organisations l'utilisent, c'est souvent votre premier investissement après le Prompting
 
-2. **Embeddings + Vector DB = le pipeline** — transformer vos documents en vecteurs et les chercher par similarité
+2. **Hybrid Search + Reranking** — combine mots-clés et sémantique pour +15-30% de rappel, le Reranking ajoute +20-35% de précision
 
-3. **Fine-tuning quand le RAG ne suffit pas** — style, format, jargon. QLoRA rend le Fine-tuning gratuit pour prototyper
+3. **RAG vs Fine-tuning** — RAG pour données fraîches et traçables, Fine-tuning pour le style et le format. Les deux combinés : +10-20% d'accuracy
 
-4. **RAG + Fine-tuning sont complémentaires** — +10-20% d'accuracy en les combinant
+4. **Les agents sont la prochaine frontière** — $7 Mds de marché, mais 40% de taux d'échec. Commencer simple.
 
-5. **Les agents sont la prochaine frontière** — $7 Mds de marché, mais 40% de taux d'échec. Commencer simple.
+5. **L'ordre de priorité** — Prompting → RAG → Tool Use → Fine-tuning → Agents
 
 ---
 
-# 21 — Pour la prochaine séance
+# 17 — Pour la prochaine séance
 
 **À explorer avant la séance 3** :
 

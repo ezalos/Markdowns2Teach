@@ -54,7 +54,7 @@ html-inline: html ## Inject image preloader script into HTML slides
 	@python3 scripts/inline-images.py $(HTML_DIR)
 
 serve: html-inline ## Serve HTML slides with image preloader on port 3901
-	npx -y serve $(HTML_DIR) -l 3901 --cors --no-etag
+	npx -y serve $(HTML_DIR) -l tcp://0.0.0.0:3901 --cors --no-etag
 
 sync: ## Sync PPTX files to Google Drive via rclone
 	rclone sync $(PPTX_DIR)/ $(GDRIVE_REMOTE) --progress
