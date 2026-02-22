@@ -148,15 +148,15 @@ La Generative AI fait les gros titres — mais le Machine Learning traditionnel 
 
 | | ML traditionnel | Generative AI |
 |---|---|---|
-| **Valeur potentielle** | $11 – 17,7 trillions/an [1] | + $2,6 – 4,4 trillions/an [1] |
-| **Part du total** | ~70-80% | ~20-30% |
-| **Déploiement** | 71% des entreprises [2] | 29% comme type le plus fréquent [3] |
+| **Dépenses 2025** | ~$94 Mds [1] | ~$38 Mds [2] |
+| **Valeur potentielle** | $11 – 17,7 T/an (McKinsey 2023) [3] | + $2,6 – 4,4 T/an [3] |
+| **Déploiement** | 71% des entreprises [4] | 29% comme type le + fréquent [5] |
 | **Maturité** | Prouvé depuis 15 ans | En phase d'adoption rapide |
-| **Cas typiques** | Prédiction, optimisation, détection | Génération de contenu, raisonnement |
+| **Cas typiques** | Prédiction, optimisation | Génération, raisonnement |
 
 > *Pour un entrepreneur* : connaître les deux mondes est un avantage compétitif. La GenAI fait le buzz, le ML classique fait le chiffre d'affaires.
 
-<small>Sources : [1] [McKinsey](https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier) · [2] [McKinsey State of AI 2025](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai) · [3] [Gartner](https://www.gartner.com/en/newsroom/press-releases/2024-05-07-gartner-survey-finds-generative-ai-is-now-the-most-frequently-deployed-ai-solution-in-organizations)</small>
+<small>Sources : [1] [Precedence Research ML](https://www.precedenceresearch.com/machine-learning-market) · [2] [Precedence Research GenAI](https://www.precedenceresearch.com/generative-ai-market) · [3] [McKinsey](https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier) · [4] [McKinsey State of AI 2025](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai) · [5] [Gartner](https://www.gartner.com/en/newsroom/press-releases/2024-05-07-gartner-survey-finds-generative-ai-is-now-the-most-frequently-deployed-ai-solution-in-organizations)</small>
 
 ---
 
@@ -219,7 +219,7 @@ L'outil statistique le plus accessible — et le plus utilisé par les startups 
 | **Conversions** | 230 (2,3%) | 310 (3,1%) |
 | **p-value** | — | 0,0005 (significatif) |
 
-> Pas besoin de modèle ML — une simple comparaison statistique suffit pour prendre des décisions business basées sur des données.
+> **Ce n'est pas de l'IA.** L'A/B Testing est un outil statistique pur — pas de modèle, pas d'apprentissage. Et c'est souvent l'outil le plus adapté pour des décisions business simples.
 
 *Question pour la classe* : Quelle variable de votre projet pourriez-vous tester avec un A/B test cette semaine ?
 
@@ -227,7 +227,45 @@ L'outil statistique le plus accessible — et le plus utilisé par les startups 
 
 ---
 
-# 12 — Machine Learning : la Linear Regression
+# 12 — Machine Learning : définition
+
+D'après Chip Huyen, le ML est une approche qui réunit **5 conditions** [1] :
+
+| # | Condition | Signification |
+|---|---|---|
+| 1 | **Learn** | Le système a la capacité d'apprendre par lui-même |
+| 2 | **Complex Patterns** | Les patterns sont trop complexes pour être codés à la main |
+| 3 | **Existing Data** | Des données existent ou peuvent être collectées |
+| 4 | **Predictions** | Le problème est formulable comme une prédiction |
+| 5 | **Unseen Data** | Les patterns appris se généralisent à de nouvelles données |
+
+> Si l'une de ces 5 conditions manque, le ML n'est probablement pas la bonne solution.
+
+![bg right:40% contain](assets/infographics/ml-definition-checklist_run_20260222_182359_190bac.png)
+
+<small>Sources : [1] [Chip Huyen, *Designing ML Systems*, O'Reilly 2022](https://www.oreilly.com/library/view/designing-machine-learning/9781098107956/)</small>
+
+---
+
+# 13 — Machine Learning : cas d'usage business
+
+Les cas les plus déployés en production — souvent invisibles pour l'utilisateur :
+
+| Cas d'usage | Secteur | Exemple |
+|---|---|---|
+| **Recommandation** | E-commerce, streaming | Amazon, Netflix, Spotify |
+| **Détection de fraude** | Banques, paiements | Visa, Mastercard en temps réel |
+| **Scoring risque** | Assurance, crédit | Décisions en millisecondes |
+| **Prédiction de churn** | SaaS, télécoms | Rétention client proactive |
+| **Diagnostic** | Santé, industrie | Dépistage, maintenance prédictive |
+
+> Ces systèmes ML "traditionnels" génèrent ~75% de la valeur IA totale [1].
+
+<small>Sources : [1] [McKinsey](https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier)</small>
+
+---
+
+# 14 — Machine Learning : la Linear Regression
 
 L'algorithme ML le plus simple — tracer une droite à travers des données :
 
@@ -246,30 +284,64 @@ L'algorithme ML le plus simple — tracer une droite à travers des données :
 
 ---
 
-# 13 — Deep Learning : les Neural Networks
+# 15 — Deep Learning : pourquoi et comment
 
-Un réseau de neurones apprend des *représentations hiérarchiques* des données :
+**Pourquoi** : quand les patterns sont trop complexes pour des features manuelles (images, audio, texte).
+
+**Comment** : empiler des couches de "neurones artificiels" (perceptrons) :
 
 - **Input Layer** — reçoit les données brutes (pixels, mots, nombres)
 - **Hidden Layers** — extrait des features de plus en plus abstraites
 - **Output Layer** — produit la prédiction finale
 
-*Démo interactive* : [TensorFlow Playground](https://playground.tensorflow.org) — visualisez comment un réseau apprend en temps réel.
+> Plus on ajoute de couches (= "deep"), plus le réseau capture des patterns complexes. C'est ce qui a permis la reconnaissance d'images, la traduction et la GenAI.
 
-> *Business framing* : plus on ajoute de couches (= "deep"), plus le réseau peut capturer des patterns complexes. C'est ce qui permet la reconnaissance d'images, la traduction, la génération de texte.
+![bg right:40% contain](assets/infographics/dl-convergence_run_20260216_171308_a41957.png)
 
 ---
 
-# 14 — Generative AI : les Transformers
+# 16 — Deep Learning : TensorFlow Playground
 
-L'architecture qui a tout changé — le *Self-Attention* permet au modèle de pondérer l'importance de chaque mot par rapport à tous les autres.
+*Démo interactive* : [playground.tensorflow.org](https://playground.tensorflow.org)
+
+Essayez ces 3 expériences :
+
+1. **Changez le nombre de couches** — observez comment des patterns plus complexes sont capturés
+2. **Ajoutez des neurones** — le réseau apprend plus de détails
+3. **Modifiez le learning rate** — trop haut = instable, trop bas = lent
+
+> Aucun code nécessaire — glissez et observez le réseau apprendre en temps réel.
+
+---
+
+# 17 — GenAI : le Bottleneck Problem
+
+Avant les Transformers, les modèles utilisaient un **Encoder-Decoder** :
+
+- L'**Encoder** compresse toute l'entrée en un seul vecteur de taille fixe
+- Le **Decoder** doit reconstruire la sortie à partir de ce vecteur unique
+
+*Le problème* : c'est comme résumer un film de 3h en une seule phrase — on perd forcément de l'information.
+
+> Plus la séquence d'entrée est longue, plus l'information est compressée et dégradée. C'est le **bottleneck** que l'Attention résout.
+
+![bg right:45% contain](assets/infographics/encoder-decoder_run_20260216_171310_3b56bd.png)
+
+---
+
+# 18 — GenAI : les Transformers et l'Attention
+
+L'architecture qui a tout changé (Vaswani et al. 2017) [1] — le **Self-Attention** permet au modèle de pondérer chaque mot par rapport à *tous les autres*.
+
+**Analogie de la bibliothèque** :
+- **Query** = votre question ("Qui a écrit Hamlet ?")
+- **Key** = l'étiquette de chaque livre ("Théâtre", "Shakespeare"...)
+- **Value** = le contenu du livre correspondant
 
 *Démos interactives* :
-- [Transformer Explainer](https://poloclub.github.io/transformer-explainer/) — visualisation pas-à-pas
-- [LLM Visualization](https://bbycroft.net/llm) — architecture 3D d'un LLM
-- [BertViz](https://colab.research.google.com/drive/1hXIQ77A4TYS4y3UthWF-Ci7V7vVUoxmQ) — visualiser les attention heads
+- [Transformer Explainer](https://poloclub.github.io/transformer-explainer/) · [LLM Visualization](https://bbycroft.net/llm) · [BertViz](https://colab.research.google.com/drive/1hXIQ77A4TYS4y3UthWF-Ci7V7vVUoxmQ)
 
-> Les Transformers (2017) sont la brique fondamentale de *tous* les LLMs modernes : GPT, Claude, Mistral, Llama, Gemini.
+![bg right:40% contain](assets/A/transformer-architecture.png)
 
 <small>Sources : [1] [Vaswani et al. 2017](https://arxiv.org/abs/1706.03762)</small>
 
@@ -283,30 +355,29 @@ L'architecture qui a tout changé — le *Self-Attention* permet au modèle de p
 
 ---
 
-# 15 — Vue d'ensemble des paradigmes d'apprentissage
+# 19 — Les trois paradigmes d'apprentissage
 
-| Paradigme | Données | Principe | Cas d'usage |
-|---|---|---|---|
-| **Supervised Learning** | Étiquetées (input → output) | Un prof corrige des copies | Spam, diagnostic, prédiction prix |
-| **Unsupervised Learning** | Brutes, sans étiquettes | Un explorateur classe ses découvertes | Segmentation clients, anomalies |
-| **Self-Supervised Learning** | Brutes, auto-générées | Apprend seul en masquant des parties | LLMs, BERT, Diffusion Models |
-| **Reinforcement Learning** | Environnement + récompense | Essai-erreur, comme un jeu vidéo | AlphaGo, robotique, RLHF |
+| Paradigme | En une phrase |
+|---|---|
+| **Supervised Learning** | Un prof corrige des copies |
+| **Unsupervised Learning** | Un explorateur classe ses découvertes |
+| **Reinforcement Learning** | Essai-erreur, comme un jeu vidéo |
+
+> Le **Self-Supervised Learning** (LLMs, Diffusion Models) est un cas particulier présenté en slide 26.
+
+*Question pour la classe* : Pour votre projet de groupe, quel paradigme vous semble le plus adapté — et pourquoi ?
 
 ![bg right:40% contain](assets/A/unsupervise-supervise-reinforcement.png)
 
 ---
 
-<!-- _class: cols -->
+# 20 — Supervised Learning : définition
 
-# 16 — Supervised Learning
+Le paradigme le plus déployé en production [1] — le modèle apprend à partir d'**exemples étiquetés** :
 
-<div class="left">
-
-Le paradigme le plus déployé en production [1] :
-
-- Le modèle apprend à partir d'**exemples étiquetés** (input A → output B)
-- Algorithmes classiques : Linear Regression, Random Forest, KNN
-- Fonctionne bien avec des données structurées (tableaux, CSV)
+- On donne au modèle des paires **(Input A → Output B)**
+- Il apprend la règle qui relie A à B
+- Il peut ensuite prédire B pour de nouveaux A
 
 | Input (A) | Output (B) |
 |---|---|
@@ -314,19 +385,77 @@ Le paradigme le plus déployé en production [1] :
 | Photo produit | Défaut ? (0/1) |
 | Profil client | Score de crédit |
 
-</div>
-<div class="right">
-
-![](assets/random_forest.png)
-![](assets/KNN_decision_surface_animation.gif)
+> C'est l'équivalent d'un étudiant qui apprend avec un corrigé : il voit les bonnes réponses, et apprend à les reproduire.
 
 <small>Sources : [1] [McKinsey State of AI 2024](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-2024)</small>
 
-</div>
+---
+
+# 21 — Supervised Learning : cas d'usage
+
+| Cas d'usage | Input (A) | Output (B) |
+|---|---|---|
+| **Détection de spam** | Texte d'email | Spam / Pas spam |
+| **Diagnostic médical** | Image radiologie | Pathologie / Normal |
+| **Scoring crédit** | Profil financier | Score de risque (0-100) |
+| **Recommandation** | Historique d'achat | Produit suivant probable |
+| **Maintenance prédictive** | Données capteurs | Panne dans X jours |
+
+> *Algorithmes classiques* : Linear Regression, Random Forest, KNN, Gradient Boosting (XGBoost).
 
 ---
 
-# 17 — Unsupervised Learning : K-Means
+# 22 — Supervised Learning : Random Forest
+
+Un ensemble d'**arbres de décision** qui "votent" pour la prédiction finale :
+
+- Chaque arbre voit un *échantillon différent* des données
+- Chaque arbre pose des questions binaires (oui/non) sur les features
+- La prédiction finale = **le vote majoritaire** des arbres
+
+*Avantages business* :
+- Interprétable : on peut expliquer chaque décision
+- Robuste : résiste bien au bruit dans les données
+- Rapide à entraîner — idéal pour un premier prototype
+
+![bg right:45% contain](assets/random_forest.png)
+
+---
+
+# 23 — Supervised Learning : KNN
+
+**K-Nearest Neighbors** — l'algorithme le plus intuitif du ML :
+
+- Pour classer un nouveau point, on regarde ses **K voisins les plus proches**
+- La catégorie majoritaire parmi les voisins = la prédiction
+
+*Avantages* : aucun entraînement, simple à comprendre
+*Limites* : lent sur de gros datasets, sensible aux dimensions
+
+> *Analogie* : pour deviner si un restaurant est bon, demandez l'avis des 5 personnes les plus proches.
+
+![bg right:45% contain](assets/KNN_decision_surface_animation.gif)
+
+---
+
+# 24 — Unsupervised Learning : définition
+
+Le modèle découvre des **structures cachées** dans des données *sans étiquettes* :
+
+- Pas de "bonnes réponses" fournies — le modèle explore seul
+- Il identifie des groupes, des anomalies, des patterns latents
+
+| Technique | Ce qu'elle fait | Exemple |
+|---|---|---|
+| **Clustering** | Regrouper des données similaires | Segmentation clients |
+| **Détection d'anomalies** | Identifier les points atypiques | Fraude, panne |
+| **Réduction de dimensions** | Simplifier des données complexes | Visualisation |
+
+> *Analogie* : un explorateur qui arrive sur une île inconnue et classe les espèces qu'il découvre — sans guide.
+
+---
+
+# 25 — Unsupervised Learning : K-Means
 
 L'algorithme le plus intuitif — regrouper des données en *clusters* sans supervision :
 
@@ -346,7 +475,7 @@ L'algorithme le plus intuitif — regrouper des données en *clusters* sans supe
 
 ---
 
-# 18 — Self-Supervised Learning : le secret de la GenAI
+# 26 — Self-Supervised Learning : le secret de la GenAI
 
 Le paradigme qui a rendu la Generative AI possible — apprendre *sans données étiquetées* :
 
@@ -364,7 +493,7 @@ Le paradigme qui a rendu la Generative AI possible — apprendre *sans données 
 
 ---
 
-# 19 — Reinforcement Learning
+# 27 — Reinforcement Learning
 
 L'agent apprend par *essai-erreur*, guidé par un signal de récompense :
 
@@ -391,38 +520,56 @@ L'agent apprend par *essai-erreur*, guidé par un signal de récompense :
 
 ---
 
-<!-- _class: cols -->
+# 28 — Pourquoi le vocabulaire des tâches compte
 
-# 20 — Classification & Regression
+Connaître les **noms des tâches** en anglais vous permet de :
 
-<div class="left">
+1. **Expliquer** ce que vous voulez construire — "Je cherche un modèle de *Text Classification*"
+2. **Chercher** efficacement sur HuggingFace, Papers With Code, GitHub
 
-### Classification — attribuer une catégorie
+> Les tâches sont la langue commune entre business et technique. Dire "Classification" plutôt que "trier des trucs" montre que vous parlez le langage de l'écosystème.
 
-- Email → spam ou non-spam
-- Image → chat, chien, voiture
-- Transaction → frauduleuse ou légitime
-- CV → shortlist ou rejet
-
-> La sortie est une *catégorie discrète*.
-
-</div>
-<div class="right">
-
-### Regression — prédire une valeur
-
-- Surface → prix immobilier (€)
-- Budget pub → chiffre d'affaires (€)
-- Données patient → risque (0-100%)
-- Historique → demande future (unités)
-
-> La sortie est une *valeur continue*.
-
-</div>
+Les slides suivantes présentent les tâches fondamentales : **Classification**, **Regression**, **Object Detection**, **Segmentation**, **Génération de texte**.
 
 ---
 
-# 21 — Object Detection & Segmentation
+# 29 — Classification
+
+Attribuer une **catégorie discrète** à une entrée :
+
+| Input | Output | Application |
+|---|---|---|
+| Email | Spam / Pas spam | Filtrage Gmail |
+| Image | Chat / Chien / Voiture | Reconnaissance visuelle |
+| Transaction | Frauduleuse / Légitime | Sécurité bancaire |
+| CV | Shortlist / Rejet | Recrutement |
+| Avis client | Positif / Négatif / Neutre | Analyse de sentiment |
+
+> La sortie est toujours une *catégorie parmi un ensemble fini*. Binaire (oui/non) ou multi-classes (A, B, C...).
+
+![bg right:40% contain](assets/infographics/classification-task_run_20260222_182359_2508a6.png)
+
+---
+
+# 30 — Regression
+
+Prédire une **valeur continue** (un nombre) :
+
+| Input | Output | Application |
+|---|---|---|
+| Surface, quartier | Prix immobilier (€) | Estimation bien |
+| Budget pub | Chiffre d'affaires (€) | Planification marketing |
+| Données patient | Risque (0-100%) | Diagnostic médical |
+| Historique ventes | Demande future (unités) | Gestion de stock |
+| Données capteurs | Durée de vie restante (jours) | Maintenance prédictive |
+
+> La sortie est un *nombre sur un continuum*, pas une catégorie. La Linear Regression (slide 14) en est l'exemple le plus simple.
+
+![bg right:40% contain](assets/infographics/regression-task_run_20260222_182706_946870.png)
+
+---
+
+# 31 — Object Detection & Segmentation
 
 Des tâches de vision qui vont au-delà de la simple Classification :
 
@@ -443,7 +590,7 @@ Des tâches de vision qui vont au-delà de la simple Classification :
 
 ---
 
-# 22 — Génération de texte : le terrain de jeu des LLMs
+# 32 — Génération de texte : le terrain de jeu des LLMs
 
 L'architecture Transformer alimente *toutes* ces tâches de génération :
 
@@ -459,7 +606,7 @@ L'architecture Transformer alimente *toutes* ces tâches de génération :
 
 ---
 
-# 23 — HuggingFace Tasks : votre vocabulaire de recherche
+# 33 — HuggingFace Tasks : votre vocabulaire de recherche
 
 Ces noms de tâches sont votre *vocabulaire* pour chercher des modèles sur HuggingFace :
 
@@ -487,30 +634,25 @@ Ces noms de tâches sont votre *vocabulaire* pour chercher des modèles sur Hugg
 
 ---
 
-# 24 — Timeline Machine Learning
+# 34 — Timeline Machine Learning
 
-Les jalons du ML classique — des algorithmes qui restent en production aujourd'hui :
+![w:500 center](assets/infographics/timeline-ml_run_20260219_095936_b48914.png)
 
 | Année | Jalon | Impact |
 |---|---|---|
 | 1805 | Linear Regression (Legendre) | Le premier algorithme de prédiction |
 | 1951 | KNN (Fix & Hodges) | Classification par voisinage |
 | 1958 | Logistic Regression (Cox) | Classification binaire — toujours utilisée |
-| 1963/1995 | SVM (Vapnik) | Classification haute dimension |
 | 2001 | Random Forest (Breiman) | Ensembles d'arbres de décision |
 | 2014 | XGBoost (Chen & Guestrin) [1] | Champion des compétitions Kaggle |
-
-> Ces algorithmes ne font pas la une, mais ils sont derrière la détection de fraude, le scoring crédit, et la recommandation produit.
-
-![bg right:40% contain](assets/infographics/timeline-ml_run_20260219_095936_b48914.png)
 
 <small>Sources : [1] [XGBoost (arXiv)](https://arxiv.org/abs/1603.02754)</small>
 
 ---
 
-# 25 — Timeline Deep Learning
+# 35 — Timeline Deep Learning
 
-La convergence *GPU + Data + Algorithmes* déclenche une accélération sans précédent :
+![w:500 center](assets/infographics/timeline-dl_run_20260219_095938_43643a.png)
 
 | Année | Jalon | Impact |
 |---|---|---|
@@ -519,31 +661,23 @@ La convergence *GPU + Data + Algorithmes* déclenche une accélération sans pr�
 | 2012 | AlexNet + ImageNet [3] | Erreur divisée par 2 — lance l'ère du Deep Learning |
 | 2017 | "Attention Is All You Need" [4] | Naissance des Transformers |
 
-> Chaque percée repose sur la précédente : sans la Backpropagation de 1986, pas d'AlexNet en 2012 ; sans AlexNet, pas de Transformers en 2017.
-
-![bg right:40% contain](assets/infographics/timeline-dl_run_20260219_095938_43643a.png)
-
 <small>Sources : [1] [Nature](https://www.nature.com/articles/323533a0) · [2] [IEEE](https://ieeexplore.ieee.org/document/726791) · [3] [NeurIPS](https://papers.nips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html) · [4] [arXiv](https://arxiv.org/abs/1706.03762)</small>
 
 ---
 
-# 26 — Timeline Generative AI : l'accélération
+# 36 — Timeline Generative AI : l'accélération
+
+![w:500 center](assets/infographics/timeline-genai_run_20260219_095942_450ee6.png)
 
 | Année | Jalon | Impact |
 |---|---|---|
 | 2018 | BERT (Google) [1] | Pre-Training bidirectionnel révolutionne le NLP |
-| 2019 | BERT déployé sur Google Search [2] | L'IA touche des milliards de requêtes |
-| 2022 | ChatGPT (OpenAI) [3] | 100 millions d'utilisateurs en 2 mois |
-| 2023 | DALL-E 3, GPT-4V | L'IA devient multimodale |
+| 2022 | ChatGPT (OpenAI) [2] | 100 millions d'utilisateurs en 2 mois |
 | 2024 | O1 (OpenAI) | Premier Reasoning Model grand public |
-| 2025 | DeepSeek-R1 [4], Claude Code [5] | Raisonnement open source + agents autonomes |
-| 2026 | OpenClaw [6] | Agent autonome viral — 150K ⭐ GitHub, créateur recruté par OpenAI |
+| 2025 | DeepSeek-R1 [3], Claude Code [4] | Raisonnement open source + agents autonomes |
+| 2026 | OpenClaw [5] | Agent autonome viral — 150K ⭐ GitHub |
 
-> En 8 ans, l'IA est passée d'une avancée académique (BERT) à des agents autonomes (OpenClaw). Le rythme *s'accélère*.
-
-![bg right:40% contain](assets/infographics/timeline-genai_run_20260219_095942_450ee6.png)
-
-<small>Sources : [1] [Google AI Blog](https://ai.googleblog.com/2018/11/open-sourcing-bert-state-of-art-pre.html) · [2] [Google Blog](https://blog.google/products/search/search-language-understanding-bert/) · [3] [Reuters](https://www.reuters.com/technology/chatgpt-sets-record-fastest-growing-user-base-analyst-note-2023-02-01/) · [4] [GitHub DeepSeek-R1](https://github.com/deepseek-ai/DeepSeek-R1) · [5] [Anthropic](https://docs.anthropic.com/en/docs/claude-code/overview) · [6] [OpenClaw](https://openclaw.ai/)</small>
+<small>Sources : [1] [Google AI Blog](https://ai.googleblog.com/2018/11/open-sourcing-bert-state-of-art-pre.html) · [2] [Reuters](https://www.reuters.com/technology/chatgpt-sets-record-fastest-growing-user-base-analyst-note-2023-02-01/) · [3] [GitHub DeepSeek-R1](https://github.com/deepseek-ai/DeepSeek-R1) · [4] [Anthropic](https://docs.anthropic.com/en/docs/claude-code/overview) · [5] [OpenClaw](https://openclaw.ai/)</small>
 
 ---
 
@@ -555,19 +689,21 @@ La convergence *GPU + Data + Algorithmes* déclenche une accélération sans pr�
 
 ---
 
-# 27 — Récapitulatif Session 1A
+# 37 — Récapitulatif Session 1A
 
 ### La Generative AI en contexte
-- La GenAI produit du contenu (texte, image, audio, vidéo, code) — mais le ML traditionnel représente *~70% de la valeur IA totale*
-- L'IA classique (recherche web, détection de fraude, recommandation) reste le moteur de revenus
+- La GenAI produit du contenu — mais le ML traditionnel représente *la majorité de la valeur IA totale*
 
 ### La taxonomie de l'IA
 - **Par technique** : Statistics → ML → Deep Learning → GenAI (chaque couche inclut les précédentes)
 - **Par paradigme** : Supervised, Unsupervised, Self-Supervised, Reinforcement Learning
 - **Par tâche** : Classification, Regression, Object Detection, Segmentation, Génération
 
-### Le vocabulaire HuggingFace
-- Les noms de tâches en anglais sont votre clé pour chercher des modèles open source
+### Ce qui fait du ML du ML (Chip Huyen)
+- 5 conditions : Learn, Complex Patterns, Existing Data, Predictions, Unseen Data
+
+### Le vocabulaire des tâches
+- Les noms de tâches en anglais sont votre clé pour chercher des modèles sur HuggingFace
 
 ### Les timelines
 - ML (1805–2014) → Deep Learning (1986–2017) → GenAI (2018–2026) : accélération exponentielle

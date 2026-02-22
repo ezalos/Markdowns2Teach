@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Slide decks for the **"Deep Tech & Machine Learning" (UE3)** course, M2 IMT&E at Paris 1 Panthéon-Sorbonne (5 sessions x 3h, Mon 17h30–20h30, ~15–20 students).
+Slide decks for the **"Deep Tech & Machine Learning" (UE3)** course, M2 IMT&E at Paris 1 Panthéon-Sorbonne (5 sessions x 3h, Mon 17h30–20h30, ~28 inscrits, 15–20 présents, 7 équipes de 4).
 
 Target audience: business school students (mostly non-engineers), entrepreneurially-minded, heavy LLM users, curious about the latest AI products. Some have coded a bit but get lost in deep technical detail.
 
@@ -24,7 +24,7 @@ Target audience: business school students (mostly non-engineers), entrepreneuria
 | 2 | Construire avec l'IA | Du Prompt au Produit | L'Ingénierie IA |
 | 3 | Cadrer un projet IA | Évaluer une solution IA | Méthodologie projet IA |
 | 4 | Le business de l'IA | L'écosystème IA | Business Models & Cas Réels |
-| 5 | Éthique, gouvernance & clôture | Régulation & IA responsable | *(presentations + QCM)* |
+| 5 | Éthique, gouvernance & clôture | Régulation & IA responsable | B: Présentations finales (live) · C: QCM & clôture |
 
 Each 3h session follows: **Deck A** (45 min) → break → **Deck B** (45 min) → break → **Block C** (practice/QCM/speaker, 45 min).
 
@@ -65,12 +65,10 @@ Markdowns2Teach/
 │   ├── references/                  # Formalized course references
 │   │   ├── course-identity.md       # Course identity and student profile
 │   │   ├── course-architecture.md   # Session calendar and topics
-│   │   ├── deck-guidelines.md       # How to build a slide deck
-│   │   ├── source-guidelines.md     # Source selection and citation
-│   │   ├── research-to-slides-template.md  # Conversion checklist
-│   │   ├── convert-research-to-slides.prompt.md  # Standalone conversion prompt
-│   │   ├── citation-remediation.md  # Citation audit plan
-│   │   └── paperbanana-guide.md    # PaperBanana infographic generation guide
+│   │   ├── slide-creation-standards.md  # Single source of truth for all slide-building rules
+│   │   ├── workflow-new-slides.md   # Workflows: create slides from scratch or from research
+│   │   ├── workflow-citation-audit.md   # Citation audit backlog and remediation process
+│   │   └── student-group-project.md # Student classification project brief
 │   ├── plans/                       # One-shot roadmaps
 │   │   ├── andrew-ng-conversion-roadmap.md
 │   │   ├── 2026_02_07-convert_references.md
@@ -91,7 +89,7 @@ Markdowns2Teach/
 **Naming conventions:**
 - Session directories: `session-XX/` (XX = 01–05)
 - Deck files: `A-slug.md`, `B-slug.md` — letter prefix provides ordering within session
-- Session 5 has only deck A (deck B is live presentations)
+- Session 5 has only deck A (Block B is live presentations, Block C is QCM + closing)
 - Assets: `assets/` per session, with source-prefix subdirs (`ng01/`, `ng02/`, `ng03/`)
 - English names for files/dirs
 - Original topic-based decks archived at `docs/archive/slides-v1/`
@@ -110,7 +108,13 @@ footer: "Sources multiples · DeepLearning.AI CC BY-SA 2.0"
 ---
 ```
 
-The header includes the session number. The footer lists source attributions — use the multi-source format when a deck draws from several sources, or the Andrew Ng specific attribution when it's primarily his material.
+The header includes the session number. The footer lists source attributions:
+
+| Case | Footer |
+|------|--------|
+| Multi-source (research + Andrew Ng) | `"Sources multiples · DeepLearning.AI CC BY-SA 2.0"` |
+| Primarily Andrew Ng | `"Adapté de Generative AI for Everyone par Andrew Ng · DeepLearning.AI · CC BY-SA 2.0"` |
+| Original research only | `"Recherche [Topic] 2024–2026 · Données publiques"` |
 
 ### File header comments
 
@@ -156,7 +160,7 @@ Every data claim must be sourced. Use the following format on all research-backe
 - Authority shorthand as display text (e.g., "Stanford HAI", "Gartner"), full URL as href
 - Separator between citations: ` · ` (middle dot)
 - The sources line costs ~1 content line — budget **~13 effective content lines** per slide (threshold remains 15)
-- Cols slides: budget **~8-9 lines** of actual content per column + 1 source line
+- Cols slides: 15 linter lines = 1 title + 4 div tags + **~9 lines of actual content** split across 2 columns + 1 source line
 - Discussion slides and section dividers may omit citations if no data claims are made
 - **Source priority**: when sources conflict, prefer the most recent data from the most reputable source (company IR > Bloomberg/CNBC > TechCrunch > Crunchbase)
 - If a source contradicts the number in the slide, update the slide number to match the best source
@@ -186,13 +190,14 @@ make clean      # Remove dist/
   - Footer: `Adapté de *Generative AI for Everyone* par Andrew Ng · DeepLearning.AI · CC BY-SA 2.0`
 - **Kevin Vu / Dauphine**: archived materials, attribution TBD
 - **Research decks**: original content based on cited sources (URLs in slide `<small>` tags)
+  - Footer: `Recherche [Topic] 2024–2026 · Données publiques`
 - **Multi-source decks**: use `Sources multiples · DeepLearning.AI CC BY-SA 2.0` when combining Andrew Ng + research content
 
 ## Slide Decks
 
 | Path | Title | Slides |
 |------|-------|--------|
-| `slides/session-01/A-genai-fondamentaux.md` | L'IA Générative : ce qu'elle sait faire | 27 |
+| `slides/session-01/A-genai-fondamentaux.md` | L'IA Générative : ce qu'elle sait faire | 37 |
 | `slides/session-01/B-llms.md` | Les LLMs : comprendre et utiliser | 20 |
 | `slides/session-01/C-premier-projet-ia.md` | Votre premier projet IA | 23 |
 | `slides/session-02/A-prompt-au-produit.md` | Du Prompt au Produit | 18 |
@@ -219,4 +224,4 @@ make clean      # Remove dist/
 | `docs/research/` | Research pipeline outputs (13 topics, reports + raw data) |
 | `docs/notes/Outline - 2026 M2 - ML & DeepTech.md` | Course plan, themes, and session structure |
 | `docs/notes/Meeting Notes - Kevin Vu M2 Sorbonne.md` | Notes from meeting with previous teacher |
-| `docs/references/` | Formalized course references (identity, architecture, guidelines) |
+| `docs/references/` | Formalized course references (identity, architecture, standards, workflows) |
