@@ -56,40 +56,51 @@ footer: ""
 
 # 03 — Plan du cours
 
-| Session | Thème | Vous saurez… |
-|---|---|---|
-| **1** | Les types d'IA | Ce que l'IA sait et ne sait pas faire |
-| **2** | Les LLMs | Comment fonctionne un LLM et comment l'utiliser |
-| **3** | Évaluer l'IA | Évaluer, choisir et piloter une solution IA |
-| **4** | RAG & Agents | Comment construire des systèmes IA complexes |
-| **5** | Le business de l'IA | Qui gagne de l'argent, comment, et pourquoi |
+| Thème | Vous saurez… |
+|---|---|
+| Les types d'IA | Ce que l'IA sait et ne sait pas faire |
+| Les LLMs | Comment fonctionne un LLM et comment l'utiliser |
+| Du prompt au produit | Comment on passe d'un prompt à un produit |
+| Évaluer l'IA | Évaluer, choisir et piloter une solution IA |
+| RAG & Agents | Comment construire des systèmes IA complexes |
+| Le business de l'IA | Qui gagne de l'argent, comment, et pourquoi |
+| Éthique & gouvernance | Les règles du jeu et vos présentations finales |
 
 > Chaque session inclut un **atelier pratique** (projet de groupe).
 
 ---
 
-# 04 — Format des sessions
+# 04 — Dates des sessions
+
+| Session | Date | Horaire | Lieu |
+|---|---|---|---|
+| **1** | Lundi 23 février | 17h30–20h30 | Paris 1 — 14 rue Cujas |
+| **2** | Lundi 9 mars | 17h30–20h30 | Paris 1 — 14 rue Cujas |
+| **3** | Lundi 16 mars | 17h30–20h30 | Paris 1 — 14 rue Cujas |
+| **4** | Lundi 23 mars | **18h00–21h00** | **École 42 — 96 Bd Bessières** |
+| **5** | Lundi 30 mars | 17h30–20h30 | Paris 1 — 14 rue Cujas |
+
+**⚠️ Session 4** : pour accueillir un intervenant en fauteuil roulant, le cours a lieu à l'**École 42** (96 Bd Bessières, 75017). Depuis le 14 rue Cujas : **~35 min** (RER B + métro 14, ou métro 4 + 14). Le cours démarre **30 min plus tard** (18h) pour que tout le monde ait le temps d'arriver.
+
+---
+
+# 05 — Format des sessions
 
 Chaque session de 3h suit le même rythme :
 
-| Bloc | Durée | Format |
-|---|---|---|
-| **Deck A** | 45 min | Cours + discussion |
-| *Pause* | 15 min | |
-| **Deck B** | 45 min | Cours + discussion |
-| *Pause* | 15 min | |
-| **Bloc C** | 45 min | Pratique ou intervenant |
-
-**Bloc C** par session :
-- **S1–S3** : Ateliers n8n + HuggingFace (projet de groupe)
-- **S4** : Intervenants externes (Mistral AI, startup IA)
-- **S5** : Présentations finales + QCM
+| Bloc | Durée |
+|---|---|
+| **Deck A** — Cours + discussion | 45 min |
+| *Pause* | 15 min |
+| **Deck B** — Cours + discussion | 45 min |
+| *Pause* | 15 min |
+| **Bloc C** — Pratique ou intervenant | 45 min |
 
 > Les questions sont bienvenues *à tout moment*. N'attendez pas la fin.
 
 ---
 
-# 05 — Évaluation
+# 06 — Évaluation
 
 | Composante | Poids | Format |
 |---|---|---|
@@ -101,7 +112,7 @@ Chaque session de 3h suit le même rythme :
 
 ---
 
-# 06 — QCM — Comment ça marche
+# 07 — QCM — Comment ça marche
 
 - Un **QCM unique** en Session 5, couvrant l'ensemble du cours
 - Questions à choix multiples sur les 5 sessions
@@ -114,26 +125,21 @@ Chaque session de 3h suit le même rythme :
 
 ---
 
-# 07 — Projet de groupe
+# 08 — Projet de groupe
 
-**Équipes** : 7 groupes de 4 étudiants
+**7 équipes de 4** · Présentations en Session 5 (4 min par groupe)
 
-**Sujet** : Construire un système de **classification IA** avec HuggingFace + n8n
+**Sujet** : Construire un système de **classification IA** avec HuggingFace ou un LLM, automatisé via n8n
 
-**3 livrables** : workflow n8n (JSON) + jeu de test (20+ cas) + présentation (5 min en S5)
+**Livrables** : workflow n8n fonctionnel + interface accessible en ligne + dataset de test (20+ cas) + évaluation de 2+ modèles comparés
 
-*Critères d'évaluation* :
-- Choix du modèle et justification (25%)
-- Qualité de l'évaluation (25%)
-- Honnêteté de l'analyse (20%)
-- Déploiement fonctionnel (15%)
-- Présentation (15%)
+*L'essentiel* : la démo marche en live, le dataset est solide, et vous avez un regard critique sur les résultats.
 
 > Tous les détails dans le **Bloc C** — après la pause !
 
 ---
 
-# 08 — Règles du jeu
+# 09 — Règles du jeu
 
 *Ce que j'attends de vous* :
 - **Poser des questions** — il n'y a pas de question bête

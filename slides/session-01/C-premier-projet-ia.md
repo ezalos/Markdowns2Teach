@@ -402,27 +402,16 @@ Et aussi : détection de spam email, screening de CV, veille réseaux sociaux...
 **Exigences**
 
 - **20 exemples minimum**
-- Du **facile au difficile** : cas évidents + cas limites (ambiguïté, sarcasme, multilingue...)
-- **Proche de la production** : vos exemples doivent ressembler aux données réelles
-- **Équilibré** : nombre comparable par catégorie
+- Du **facile au difficile** : cas évidents + cas limites
+- **Proche de la prod** : données réalistes
+- **Équilibré** : ~même nombre par catégorie
 
 </div>
 <div class="right">
 
-**Exemple de structure**
+**Exemple** : `[{"input": "...", "expected": "POSITIF"}, ...]`
 
-```json
-[
-  {"input": "Super produit !",
-   "expected": "POSITIF"},
-  {"input": "Bof, sans plus",
-   "expected": "NEUTRE"},
-  {"input": "Horrible, à fuir",
-   "expected": "NEGATIF"}
-]
-```
-
-Voir `TEACHER_EXAMPLE-Eval-*` sur n8n pour le format complet et le calcul du score.
+Voir `TEACHER_EXAMPLE-Eval-*` sur n8n pour le format complet et le calcul automatique du score.
 
 </div>
 
@@ -466,13 +455,10 @@ Pour chaque modèle, relevez le **score sur votre dataset** et documentez :
 **Poids modéré**
 
 - Présentation + démo tient en 4 min
-- Le produit est expliqué clairement
+- Produit expliqué clairement
 - Choix du modèle justifié
 
-**Poids faible**
-
-- Esthétique de l'interface
-- Mise en forme de la présentation
+**Poids faible** : esthétique, mise en forme
 
 </div>
 
