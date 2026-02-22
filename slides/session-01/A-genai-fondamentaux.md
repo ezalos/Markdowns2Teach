@@ -296,7 +296,7 @@ L'algorithme ML le plus simple — tracer une droite à travers des données :
 
 > Plus on ajoute de couches (= "deep"), plus le réseau capture des patterns complexes. C'est ce qui a permis la reconnaissance d'images, la traduction et la GenAI.
 
-![bg right:40% contain](assets/infographics/dl-convergence_run_20260216_171308_a41957.png)
+![bg right:40% contain](assets/mlp-diagram-full.png)
 
 ---
 
@@ -405,20 +405,22 @@ Le paradigme le plus déployé en production [1] — le modèle apprend à parti
 
 ---
 
-# 22 — Supervised Learning : Random Forest
+# 22 — Supervised Learning : Decision Tree
 
-Un ensemble d'**arbres de décision** qui "votent" pour la prédiction finale :
+Un **arbre de décision** — un enchaînement de questions binaires (if/else) :
 
-- Chaque arbre voit un *échantillon différent* des données
-- Chaque arbre pose des questions binaires (oui/non) sur les features
-- La prédiction finale = **le vote majoritaire** des arbres
+- Chaque **nœud** pose une question oui/non sur une feature
+- Chaque **branche** suit la réponse (oui → gauche, non → droite)
+- Chaque **feuille** donne la prédiction finale
+
+> Un Decision Tree, c'est un *if/else sur stéroïdes* — le modèle apprend automatiquement quelles questions poser et dans quel ordre.
 
 *Avantages business* :
-- Interprétable : on peut expliquer chaque décision
-- Robuste : résiste bien au bruit dans les données
+- **Interprétable** : on peut tracer chaque décision du début à la fin
+- Fonctionne sur les **données tabulaires** (le format le plus courant en entreprise)
 - Rapide à entraîner — idéal pour un premier prototype
 
-![bg right:45% contain](assets/random_forest.png)
+![bg right:45% contain](assets/decision-tree-diagram.png)
 
 ---
 

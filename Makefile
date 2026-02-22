@@ -11,7 +11,10 @@ GDRIVE_REMOTE := gdrive:Travail/Formations/Sorbonne/AutoDecks
 # Find all .md files under slides/
 SLIDE_FILES := $(shell find $(SLIDES_DIR) -name '*.md' -type f)
 
-.PHONY: all preview build pptx html html-inline index check check-citations dedup clean sync serve help
+GUIDE_DIR := $(DIST_DIR)/guide
+PANDOC := $(shell command -v pandoc 2>/dev/null || echo "$(HOME)/.local/bin/pandoc")
+
+.PHONY: all preview build pptx html html-inline index check check-citations dedup clean sync serve guide help
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
@@ -69,6 +72,15 @@ dedup: ## Remove duplicate images from all asset directories
 	@for d in $$(find $(SLIDES_DIR) -type d -name assets); do \
 		python3 scripts/dedup-images.py "$$d"; \
 	done
+
+guide: ## Build student guide as DOCX → dist/guide/
+	@bash scripts/install-pandoc.sh
+	@mkdir -p $(GUIDE_DIR)
+	$(PANDOC) docs/references/n8n-student-guide.md \
+		-o $(GUIDE_DIR)/n8n-student-guide.docx \
+		--metadata title="Guide n8n — Projet de Classification IA" \
+		--metadata lang=fr
+	@echo "  GUIDE: $(GUIDE_DIR)/n8n-student-guide.docx"
 
 $(HTML_DIR):
 	mkdir -p $(HTML_DIR)

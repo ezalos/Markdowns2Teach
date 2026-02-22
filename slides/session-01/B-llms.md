@@ -3,7 +3,7 @@ marp: true
 theme: sorbonne
 paginate: true
 header: "Deep Tech & ML (UE3) — Session 1 · M2 IMT&E · Paris 1 Panthéon-Sorbonne"
-footer: "Sources multiples · Données publiques"
+footer: "Sources multiples · DeepLearning.AI CC BY-SA 2.0"
 ---
 
 <!-- ABOUTME: Comprendre les LLMs — impact, mécanique, glossaire (Tokens, Context Window, MoE), pipeline d'entraînement, accès et taille des modèles. -->
@@ -30,17 +30,17 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 
 ---
 
-# 01 — La preuve par les données
+# 01 — Benchmarks : progrès réels, plafonds visibles
 
-![bg right:45% contain vertical](assets/A/epoch-ai-dataset_size.png)
-![bg contain](assets/A/METR-task-len-horizon.png)
+![bg right:50% contain](assets/epoch_ai_llm_saturation_benchmarks.jpeg)
 
-- La taille des datasets d'entraînement croît de manière exponentielle [1]
-- Les tâches que l'IA peut accomplir de manière autonome s'allongent rapidement [2]
+- MMLU (connaissances générales) : **saturé à 90%+** — les LLMs rattrapent les experts humains [1]
+- Nouveaux benchmarks plus durs : Humanity's Last Exam **8,8%**, FrontierMath **2%** [2]
+- Efficience : de **540B params** à **3,8B** pour atteindre 60% au MMLU — réduction de **142x** [1]
 
-> Ces deux courbes expliquent pourquoi chaque trimestre apporte des capacités IA que personne n'anticipait un an plus tôt.
+> Les benchmarks faciles saturent, mais les problèmes réellement difficiles restent hors de portée. La course n'est pas terminée.
 
-<small>Sources : [1] [EpochAI](https://epoch.ai/data-insights/dataset-size-trend) · [2] [METR](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/)</small>
+<small>Sources : [1] [Epoch AI](https://epoch.ai/trends) · [2] [Stanford HAI AI Index 2025](https://aiindex.stanford.edu/report/)</small>
 
 ---
 
@@ -73,18 +73,15 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 
 # 03 — Le mécanisme fondamental
 
-Les LLMs utilisent le Self-Supervised Learning pour *prédire le mot suivant*, mot par mot :
+![bg right:50% contain](assets/infographics/next-word-prediction.png)
 
-| Input (A) | Output (B) |
-|---|---|
-| My favorite food is a | *bagel* |
-| My favorite food is a bagel | *with* |
-| My favorite food is a bagel with | *cream* |
-| My favorite food is a bagel with cream | *cheese* |
+Le LLM utilise le **Self-Supervised Learning** pour prédire le token suivant :
 
-> Un LLM entraîné sur des centaines de milliards de mots apprend les patterns du langage et devient capable de générer du texte cohérent et pertinent.
+- **Input** : la séquence complète jusqu'ici → le modèle produit une distribution de probabilités
+- **Sampling** : un token est sélectionné (ex : "love") et ajouté à la séquence
+- **Boucle** : le processus se répète jusqu'au token de fin `<eos>`
 
-![bg right:45% contain](assets/A/lllm-gen-example.png)
+> Chaque token dépend de *tous* les tokens précédents — c'est pourquoi la génération est séquentielle, et les réponses longues coûtent plus cher.
 
 ---
 
@@ -98,12 +95,13 @@ Les LLMs utilisent le Self-Supervised Learning pour *prédire le mot suivant*, m
 
 # 04 — Tokens : le vocabulaire des LLMs
 
+![bg right:40% contain](assets/tokens-billing.jpg)
+
 Les LLMs ne raisonnent pas en mots mais en **Tokens** — des fragments de mots.
 
+[Tokenizer demo](https://platform.openai.com/tokenizer)
+
 **Règle approximative** : 1 Token ≈ 3/4 d'un mot (en anglais)
-- "the" → 1 token
-- "programming" → 2 tokens
-- "tonkotsu" → 4 tokens
 
 | Modèle | Taille du vocabulaire | Particularité |
 |---|---|---|
@@ -119,16 +117,13 @@ Les LLMs ne raisonnent pas en mots mais en **Tokens** — des fragments de mots.
 
 # 05 — Context Window : la mémoire de conversation
 
+![bg right:45% contain](assets/context-window.svg)
+
 La **Context Window** est la mémoire de travail du LLM — tout ce qu'il peut "voir" pour générer sa réponse.
 
-**Comment ça fonctionne** :
 - Input + Output partagent la même fenêtre (ex : 200K tokens pour Claude)
-- À chaque tour de conversation, le contexte *s'accumule*
-- Le contexte croît linéairement — rien n'est supprimé silencieusement
-
-**Les Thinking Tokens** (Reasoning Models) :
-- Comptent dans le contexte *pendant* le tour où ils sont générés
-- Sont *automatiquement retirés* du contexte pour les tours suivants [1]
+- Le contexte *s'accumule* à chaque tour — rien n'est supprimé silencieusement
+- Les **Thinking Tokens** comptent pendant la génération, puis sont retirés [1]
 
 > La Context Window limite la longueur des conversations et la taille des documents analysables. Les APIs facturent **par Token** (input + output).
 
@@ -136,11 +131,45 @@ La **Context Window** est la mémoire de travail du LLM — tout ce qu'il peut "
 
 ---
 
-<!-- _class: cols -->
+# 06 — Context Window : une croissance exponentielle
 
-# 06 — Mixture of Experts (MoE) : l'architecture qui change tout
+![bg right:50% contain](assets/context-window-growth.png)
 
-<div class="left">
+| Modèle | Année | Context Window |
+|--------|-------|---------------|
+| GPT-2 | 2019 | 1K tokens |
+| GPT-4 | 2023 | 128K tokens |
+| Claude 3.5 | 2024 | 200K tokens |
+| Gemini 1.5 | 2024 | 2M tokens |
+| Llama 4 Scout | 2025 | **10M tokens** |
+
+Depuis mi-2023, la context window des meilleurs modèles croît d'environ **~30x par an** [1].
+
+> 10M tokens ≈ 15 000 pages. On passe de "résumer un email" à "analyser une base documentaire entière".
+
+<small>Sources : [1] [Epoch AI](https://epoch.ai/data-insights/context-windows)</small>
+
+---
+
+# 07 — Sampling : Temperature, Top-k, Top-p
+
+![bg right:45% contain](assets/infographics/sampling-parameters.png)
+
+Quand le LLM génère un token, il produit une distribution de probabilités. Trois paramètres contrôlent comment le token est *échantillonné* :
+
+| Paramètre | Ce qu'il fait | Valeurs typiques |
+|-----------|--------------|-----------------|
+| **Temperature** | Aplatit ou accentue la distribution | 0.0–2.0 |
+| **Top-k** | Garde seulement les *k* tokens les plus probables | 10–100 |
+| **Top-p** (nucleus) | Garde les tokens dont la probabilité cumulée ≤ *p* | 0.7–0.95 |
+
+> **Temperature basse** (0.1) = réponses déterministes et sûres. **Temperature haute** (1.5) = créatif mais risqué. Top-k et Top-p filtrent les tokens improbables pour éviter les absurdités.
+
+---
+
+# 08 — Mixture of Experts (MoE) : l'architecture qui change tout
+
+![bg right:45% contain](assets/infographics/dense-vs-moe.png)
 
 Un modèle MoE contient *plusieurs sous-réseaux spécialisés* (experts). Un **Router** sélectionne les experts pertinents pour chaque token.
 
@@ -148,21 +177,13 @@ Un modèle MoE contient *plusieurs sous-réseaux spécialisés* (experts). Un **
 - Mais n'*active* qu'une fraction par token (active params)
 - *Résultat* : performance d'un gros modèle, vitesse d'un petit
 
-> Analogie : un hôpital avec 8 spécialistes. Le triage (router) envoie chaque patient aux 2 spécialistes pertinents.
-
-</div>
-<div class="right">
-
 | Modèle | Total | Actifs/token |
 |--------|-------|-------------|
 | Mixtral 8x7B 🇫🇷 | 46,7B | 12,9B |
 | DeepSeek-V3 🇨🇳 | 671B | 37B |
 | Qwen3 235B 🇨🇳 | 235B | 22B |
-| Llama 4 Maverick 🇺🇸 | 400B | 17B |
 
-<small>Sources : [1] [Mixtral](https://arxiv.org/abs/2401.04088) · [2] [DeepSeek-V3](https://arxiv.org/abs/2412.19437) · [3] [Llama 4](https://ai.meta.com/blog/llama-4-multimodal-intelligence/)</small>
-
-</div>
+<small>Sources : [1] [Mixtral](https://arxiv.org/abs/2401.04088) · [2] [DeepSeek-V3](https://arxiv.org/abs/2412.19437) · [3] [Qwen3](https://arxiv.org/abs/2505.09388)</small>
 
 ---
 
@@ -174,22 +195,24 @@ Un modèle MoE contient *plusieurs sous-réseaux spécialisés* (experts). Un **
 
 ---
 
-# 07 — Vue d'ensemble du pipeline
-
-| Étape | Ce qu'il apprend | Données | Résultat |
-|-------|-----------------|---------|----------|
-| **Pretraining** | Le langage, les faits, le raisonnement | Trillions de tokens (internet) | Base Model |
-| **SFT** (Instruct) | Suivre des instructions, converser | Milliers de paires (instruction, réponse) | Instruct Model |
-| **RLHF / DPO** | Être utile, honnête, inoffensif | Préférences humaines (A vs B) | Chatbot aligné |
-| **Reasoning Training** | Réfléchir avant de répondre | Chain-of-Thought, preuves | Thinking Model |
-
-> Chaque étape **ajoute une couche de capacité** sur la précédente. Le Fine-tuning que vous ferez en tant qu'entrepreneur s'appuie sur un modèle qui a déjà traversé ces étapes.
+# 09 — Vue d'ensemble du pipeline
 
 ![bg right:40% contain](assets/infographics/training-pipeline_run_20260217_012323_723979.png)
 
+| Étape | Ce qu'il apprend | Volume de données | Résultat |
+|-------|-----------------|-------------------|----------|
+| **Pretraining** | Le langage, les faits | ~15T tokens [1] | Base Model |
+| **SFT** (Instruct) | Suivre des instructions | ~25K–1M exemples [2] | Instruct Model |
+| **RLHF / DPO** | Être utile et honnête | ~100K–1M paires [3] | Chatbot aligné |
+| **Reasoning** | Réfléchir avant de répondre | ~5K seeds → 800K [4] | Thinking Model |
+
+> Chaque étape **ajoute une couche de capacité** sur la précédente — mais avec *exponentiellement moins de données*.
+
+<small>Sources : [1] [Meta Llama 3](https://ai.meta.com/blog/meta-llama-3/) · [2] [RLHF Book](https://arxiv.org/abs/2504.12501) · [3] [Anthropic hh-rlhf](https://huggingface.co/datasets/Anthropic/hh-rlhf) + Tulu 3 · [4] [DeepSeek-R1](https://arxiv.org/abs/2501.12948)</small>
+
 ---
 
-# 08 — Les trois générations de LLMs
+# 10 — Les trois générations de LLMs
 
 | Génération | Entraînement | Cas d'usage | Exemples |
 |---|---|---|---|
@@ -197,11 +220,11 @@ Un modèle MoE contient *plusieurs sous-réseaux spécialisés* (experts). Un **
 | **Instruct Model** | + SFT + RLHF | Chatbot, assistant | ChatGPT, Claude, Mistral |
 | **Thinking Model** | + Reasoning Training | Maths, code, raisonnement | o3, DeepSeek-R1 |
 
-> Comprendre ces 3 générations aide à choisir le bon modèle : un Base Model pour l'Embedding, un Instruct pour le chatbot, un Thinking pour l'analyse complexe.
+> La disponibilité de modèles open-weights à toutes les tailles permet de choisir le bon rapport qualité/coût pour chaque usage. Voir la [Qwen3 Collection](https://huggingface.co/collections/Qwen/qwen3) sur HuggingFace.
 
 ---
 
-# 09 — Thinking Models : penser avant de répondre
+# 11 — Thinking Models : penser avant de répondre
 
 *Ce que font les Reasoning Models différemment* :
 
@@ -224,11 +247,9 @@ Un modèle MoE contient *plusieurs sous-réseaux spécialisés* (experts). Un **
 
 <!-- _class: cols -->
 
-# 10 — Fine-tuning : adapter un modèle à vos besoins
+# 12 — Fine-tuning : adapter un modèle à vos besoins
 
 <div class="left">
-
-Le **Fine-tuning** consiste à ré-entraîner un modèle existant sur vos propres données :
 
 | | Pretraining | Fine-tuning |
 |---|---|---|
@@ -236,26 +257,17 @@ Le **Fine-tuning** consiste à ré-entraîner un modèle existant sur vos propre
 | **Objectif** | Apprendre le langage | Adapter à une tâche |
 | **Coût** | Millions $ | Centaines $ |
 
-**Quand fine-tuner ?**
-- Le modèle a besoin d'un **style** spécifique
-- Le jargon est trop technique (médical, juridique)
-- Le RAG ne capture pas le **format** attendu
+**Quand ?** Style spécifique, jargon technique, ou format que le RAG ne capture pas
 
 </div>
 <div class="right">
 
-**LoRA** — entraîner 0,1-1% des paramètres pour 90-95% de la qualité [1]
+**LoRA** — 0,1-1% des params, 90-95% qualité [1]
+- 7B LoRA : ~16-24 GB ($5-15) · QLoRA : ~8-10 GB (**$0-5**)
 
-| Config | vRAM | Coût |
-|---|---|---|
-| 7B LoRA | ~16-24 GB | $5-15 |
-| 7B QLoRA | ~8-10 GB | **$0-5** |
+**Distillation** — DeepSeek-R1 sur Qwen-7B : **55,5%** AIME [2]. Coût ÷10-100x.
 
-**Distillation** — un grand modèle entraîne un petit :
-- DeepSeek-R1 distillé sur Qwen-7B : **55,5%** sur AIME 2024 [2]
-- Coût divisé par 10-100x en production
-
-<small>Sources : [1] [Hu et al. ICLR 2022](https://arxiv.org/abs/2106.09685) · [2] [DeepSeek](https://arxiv.org/abs/2501.12948)</small>
+<small>Sources : [1] [Hu et al.](https://arxiv.org/abs/2106.09685) · [2] [DeepSeek](https://arxiv.org/abs/2501.12948)</small>
 
 </div>
 
@@ -269,7 +281,7 @@ Le **Fine-tuning** consiste à ré-entraîner un modèle existant sur vos propre
 
 ---
 
-# 11 — Interface web : le plus simple
+# 13 — Interface web : le plus simple
 
 Les chatbots grand public — aucune compétence technique requise :
 
@@ -285,7 +297,7 @@ Les chatbots grand public — aucune compétence technique requise :
 
 ---
 
-# 12 — Accès API : intégrer un LLM dans votre produit
+# 14 — Accès API : intégrer un LLM dans votre produit
 
 Les APIs permettent d'appeler un LLM *depuis votre code* — la base de tout produit IA :
 
@@ -305,29 +317,16 @@ Les APIs permettent d'appeler un LLM *depuis votre code* — la base de tout pro
 
 <!-- _class: cols -->
 
-# 13 — Open-Weights : télécharger et exécuter en local
+# 15 — Open-Weights : télécharger et exécuter en local
 
 <div class="left">
 
-**HuggingFace** — la plateforme de référence :
-- **+1 million** de modèles disponibles [1]
-- Téléchargement gratuit (la plupart)
-- Formats : SafeTensors, GGUF (quantifié)
-
-**Ollama** — exécuter un LLM en une commande :
-```
-ollama run llama3.1:8b
-```
-
-**Avantages du local** :
-- Données restent sur votre machine (RGPD)
-- Pas de coût API récurrent
-- Fonctionne hors ligne
+**HuggingFace** — +1M modèles gratuits [1]
+**Ollama** — `ollama run llama3.1:8b`
+RGPD (données locales), pas de coût API, hors ligne
 
 </div>
 <div class="right">
-
-### Modèles open-weights à connaître
 
 | Modèle | Taille | Force clé |
 |--------|--------|-----------|
@@ -335,7 +334,6 @@ ollama run llama3.1:8b
 | Mistral Large 3 🇫🇷 | 123B | Souveraineté EU |
 | Qwen 3 🇨🇳 | 0,6-235B | 119 langues |
 | DeepSeek-R1 🇨🇳 | 671B MoE | Reasoning SOTA |
-| Gemma 3 | 1-27B | On-device Google |
 
 <small>Sources : [1] [HuggingFace](https://huggingface.co/models)</small>
 
@@ -343,17 +341,16 @@ ollama run llama3.1:8b
 
 ---
 
-# 14 — Licences : ce que vous pouvez (et ne pouvez pas) faire
+# 16 — Licences : ce que vous pouvez (et ne pouvez pas) faire
 
 | Licence | Modèles | Usage commercial | Restrictions |
 |---------|---------|-----------------|-------------|
-| **Apache 2.0** | Mistral, DBRX | ✅ Libre | Aucune |
-| **MIT** | Qwen 3 | ✅ Libre | Aucune |
+| **Apache 2.0** | Mistral, Qwen 3, DBRX | ✅ Libre | Aucune |
 | **Llama License** | Llama 3-4 | ✅ Sous conditions | >700M utilisateurs → licence spéciale |
 | **DeepSeek License** | DeepSeek-R1, V3 | ✅ Sous conditions | Pas de modèles concurrents |
 | **Propriétaire** | GPT-4, Claude | ❌ API uniquement | Pas de téléchargement |
 
-> *Pour les entrepreneurs* : Apache 2.0 et MIT offrent la liberté maximale. Vérifiez toujours la licence *avant* de construire votre produit dessus.
+> *Pour les entrepreneurs* : Apache 2.0 offre la liberté maximale. Vérifiez toujours la licence *avant* de construire votre produit dessus.
 
 ---
 
@@ -365,29 +362,28 @@ ollama run llama3.1:8b
 
 ---
 
-<!-- _class: cols -->
+# 17 — Quantization : comprimer un modèle sans (trop) perdre
 
-# 15 — Paramètres → vRAM → Hardware
+Chaque paramètre est un nombre à virgule flottante. La **Quantization** réduit sa précision pour consommer moins de mémoire :
 
-<div class="left">
+| Précision | Octets/param | 7B modèle | Impact qualité |
+|-----------|-------------|-----------|----------------|
+| FP32 | 4 | 28 GB | Référence |
+| FP16 | 2 | 14 GB | ~0% |
+| INT8 | 1 | 7 GB | <1% (MMLU) |
+| **INT4** | 0,5 | **3,5 GB** | 1-4% MMLU, **5-15% raisonnement** [1][2] |
 
-Chaque paramètre occupe de la mémoire :
+> La perte dépend du *modèle* et de la *méthode*. Grands modèles (70B+) : ~1-2% MMLU avec AWQ/GPTQ. Petits modèles (7B) : jusqu'à **5-53% de perte sur le raisonnement** (GSM8K). Méthode : AWQ > GPTQ >> BNB-NF4. Tailles réelles : [Qwen3 Collection](https://huggingface.co/collections/Qwen/qwen3).
 
-| Précision | Octets/param | 7B modèle |
-|-----------|-------------|-----------|
-| FP16 | 2 | 14 GB |
-| INT8 | 1 | 7 GB |
-| **INT4** | 0,5 | **3,5 GB** |
+<small>Sources : [1] [Kurtic et al. 2024](https://arxiv.org/abs/2411.02355) · [2] [IJCAI 2025](https://arxiv.org/abs/2409.11055)</small>
 
-**La formule** :
-`vRAM (GB) = Params (B) × Octets/param`
+---
 
-> La **Quantization** (réduire la précision) permet de faire tourner des modèles beaucoup plus gros sur du matériel limité — avec une perte de qualité minime.
+# 18 — Paramètres → vRAM → Hardware
 
-</div>
-<div class="right">
+Les LLMs tournent sur **GPU**. La **vRAM** (mémoire GPU) est la contrainte principale : si le modèle dépasse votre vRAM, il ne tient pas.
 
-### Quel hardware pour quel modèle ?
+**La formule** : `vRAM (GB) = Params (B) × Octets/param`
 
 | Hardware | vRAM | Modèle max (Q4) |
 |----------|------|-----------------|
@@ -397,13 +393,13 @@ Chaque paramètre occupe de la mémoire :
 | MacBook M4 Max | 128 GB | 70B |
 | H100 (cloud) | 80 GB | 70B FP16 |
 
-<small>Sources : [1] [IntuitionLabs](https://intuitionlabs.ai/articles/local-llm-deployment-24gb-gpu-optimization)</small>
+> *Exemple* : Qwen3-32B en INT4 = 32 × 0,5 = **16 GB** — ça tient sur un MacBook M4 Pro.
 
-</div>
+<small>Sources : [1] [IntuitionLabs](https://intuitionlabs.ai/articles/local-llm-deployment-24gb-gpu-optimization)</small>
 
 ---
 
-# 16 — Le paradoxe MoE : rapide mais gourmand en mémoire
+# 19 — Le paradoxe MoE : rapide mais gourmand en mémoire
 
 Le MoE découple la *vitesse* de la *mémoire* :
 
@@ -423,62 +419,70 @@ Le MoE découple la *vitesse* de la *mémoire* :
 
 ---
 
-# 17 — Plus gros = plus intelligent ?
+# 20 — Plus gros = plus intelligent ?
+
+![bg right:45% contain](assets/mmlu-params-graph.svg)
 
 Les benchmarks montrent des *rendements décroissants* :
 
-| Modèle | Params | MMLU | MATH |
-|--------|--------|------|------|
-| Llama 3.1 8B | 8B | 69,4% | — |
-| Llama 3.1 70B | 70B | 84,0% | — |
-| Llama 3.1 405B | 405B | 87,7% | 73,8% |
+| Modèle | Params | MMLU |
+|--------|--------|------|
+| Qwen3-0.6B | 0,6B | 52,8% |
+| Qwen3-4B | 4B | 73,0% |
+| Qwen3-8B | 8B | 76,9% |
+| Qwen3-32B | 32B | **83,6%** |
+| Qwen3-235B MoE | 235B | 87,8% |
 
-- De 8B à 70B (×8,75 params) : **+14,6 points** MMLU
-- De 70B à 405B (×5,8 params) : **+3,7 points** seulement
+De 0,6B à 32B (×53 params) : **+30,8 pts**. De 32B à 235B (×7 params) : **+4,2 pts** seulement [1].
 
-> **50x plus de paramètres** pour **+18 points** de MMLU. La courbe de performance *s'aplatit*. C'est la loi des rendements décroissants.
+> La courbe *s'aplatit*. Mieux vaut un petit modèle bien entraîné qu'un géant coûteux.
 
-<small>Sources : [1] [Meta Llama 3.1](https://arxiv.org/abs/2407.21783)</small>
+<small>Sources : [1] [Qwen3 Technical Report](https://arxiv.org/abs/2505.09388)</small>
 
 ---
 
 <!-- _class: cols -->
 
-# 18 — Le bon modèle pour la bonne tâche
+# 21 — Le bon modèle pour la bonne tâche
 
 <div class="left">
 
-### Coût API (par 1M tokens output)
-
-| Modèle | Taille | Prix |
-|--------|--------|------|
-| Llama 3.1 8B | 8B | $0,06 |
-| GPT-4o mini | ~Small | $0,60 |
-| Mistral Large 3 | 123B | $6,00 |
-| GPT-4o | ~Large | $10,00 |
-| Claude Opus 4.6 | ~XL | $75,00 |
-
-**Écart** : 1 250x entre le moins cher et le plus cher.
+| Modèle | Input / 1M | Output / 1M |
+|--------|-----------|-------------|
+| Qwen3 30B MoE | $0,06 | $0,22 |
+| GPT-4o mini | $0,15 | $0,60 |
+| Claude Sonnet 4.5 | $3,00 | $15,00 |
+| Claude Opus 4.6 | $15,00 | $75,00 |
 
 </div>
 <div class="right">
 
-### Recommandation par use case
+Support → Mistral Small · Analyse → o3 / Opus · Code → Claude / Devstral
 
-| Use case | Modèle | Pourquoi |
-|----------|--------|----------|
-| Support client | Mistral Small 3 (24B) | Rapide, multilingue, Apache 2.0 |
-| Analyse complexe | o3 / Claude Opus | Reasoning avancé |
-| App mobile offline | Gemma 3 / Phi-4 | On-device, pas de cloud |
-| Génération de code | Claude Opus / Devstral | SWE-bench SOTA |
+> **1 250x** d'écart entre le moins cher et le plus cher.
 
 </div>
 
-> *Règle d'or* : ne pas utiliser GPT-4 pour classifier du sentiment quand GPT-4o-mini fait le travail — c'est **16x moins cher**.
+---
+
+# 22 — Exercice : estimer le coût d'un produit IA
+
+**Scénario** : un chatbot de support client, 1 000 conversations/jour.
+
+**Hypothèses** :
+- Conversation moyenne : ~500 mots input + ~300 mots output
+- ~670 tokens input + ~400 tokens output par conversation
+
+**Avec GPT-4o mini** :
+- Input : 670K tokens/jour × $0,15/1M = **$0,10/jour**
+- Output : 400K tokens/jour × $0,60/1M = **$0,24/jour**
+- **Total : ~$0,34/jour soit ~$10/mois**
+
+> Pour 1 000 conversations par jour, le coût IA est de **$10/mois**. Comparez avec le coût d'un agent humain (~$3 000/mois).
 
 ---
 
-# 19 — David bat Goliath : les petits modèles qui surprennent
+# 23 — David bat Goliath : les petits modèles qui surprennent
 
 | Modèle | Params | Performance | Comparé à |
 |--------|--------|-------------|-----------|
@@ -495,30 +499,135 @@ Les benchmarks montrent des *rendements décroissants* :
 
 <!-- _class: section -->
 
+# Limites et frontières des LLMs
+
+## Ce que les LLMs ne savent pas (encore) faire
+
+---
+
+# 24 — Hallucinations et Knowledge Cutoffs
+
+![bg right:45% contain](assets/ng01/img-022.png)
+
+*Hallucinations* — le LLM *invente des informations avec un ton très confiant* :
+- Un avocat américain a soumis un mémoire juridique contenant des *affaires inventées* par ChatGPT [1]
+- Règle d'or : ne jamais publier un contenu IA sans *vérification humaine*
+
+*Knowledge Cutoffs* — l'IA vit dans le passé :
+- Les connaissances sont *figées à la date d'entraînement*
+- Les données de la semaine dernière restent inaccessibles (sauf accès web)
+
+*Question pour la classe* : Quelles informations de votre entreprise ne devriez-vous JAMAIS mettre dans un prompt ?
+
+<small>Sources : [1] [NYT](https://www.nytimes.com/2023/05/27/nyregion/avianca-chatgpt-fake-citations.html)</small>
+
+---
+
+# 25 — Structured Output : quand le texte libre ne suffit pas
+
+Le problème : les LLMs produisent du texte libre, mais les systèmes attendent des **données structurées**.
+
+| Méthode | Comment ça marche | Fiabilité |
+|---------|-------------------|-----------|
+| **JSON Mode** | Le modèle est contraint de produire du JSON valide | Moyenne |
+| **Schema Enforcement** | On fournit un schéma JSON que la sortie doit respecter | Haute |
+| **Function Calling** | Le modèle "appelle" une fonction avec des paramètres typés | Haute |
+| **Constrained Decoding** | Le vocabulaire est restreint token par token pendant la génération | Très haute |
+
+> **Indispensable** pour les intégrations API, l'extraction de données, et le Tool Calling des agents IA.
+
+<small>Sources : [1] [OpenAI Structured Outputs](https://platform.openai.com/docs/guides/structured-outputs)</small>
+
+---
+
+<!-- _class: cols -->
+
+# 26 — Structured Output : Classifier & Extraction
+
+<div class="left">
+
+**Classifier** — routage de tickets
+
+![w:100%](assets/infographics/structured-output-classifier.png)
+
+</div>
+<div class="right">
+
+**Data Extraction** — texte → base de données
+
+![w:100%](assets/infographics/structured-output-extraction.png)
+
+</div>
+
+---
+
+# 27 — Structured Output : Tool Calling & n8n
+
+Le LLM "appelle" un outil en produisant un JSON correspondant à un schéma de fonction :
+
+```
+User : "Planifie une réunion avec Alice et Bob demain à 14h"
+```
+
+```json
+{ "function": "create_event",
+  "params": { "date": "2026-02-23T14:00",
+    "participants": ["alice@co.com", "bob@co.com"],
+    "topic": "Budget Q3" } }
+```
+
+> Le LLM remplit le JSON d'input d'un node **n8n** — c'est la base du **Tool Calling** et des **agents IA**. Il ne clique pas sur un bouton : il produit un JSON qu'un orchestrateur exécute.
+
+---
+
+# 28 — LLMs multimodaux
+
+Les LLMs récents ne se limitent plus au texte — ils comprennent et génèrent plusieurs **modalités** :
+
+| Modalité | Capacités | Modèles clés |
+|----------|-----------|--------------|
+| **Vision** 🖼️ | Analyser images, OCR, décrire des visuels | GPT-4o, Claude, Gemini, Qwen-VL |
+| **Audio** 🎙️ | Transcrire, traduire, converser en vocal | GPT-4o, Gemini, Whisper |
+| **Vidéo** 🎬 | Résumer, analyser des séquences vidéo | Gemini 2.5, GPT-4o |
+| **Code** 💻 | Écrire, débugger, exécuter du code | Claude, Codestral, Qwen-Coder |
+
+> La tendance 2025 : un seul modèle qui voit, entend, lit et code. L'interface devient naturelle — vous montrez, vous parlez, l'IA comprend.
+
+---
+
+# 29 — Multimodalité : cas d'usage business
+
+| Cas d'usage | Modalité | Exemple concret |
+|-------------|----------|-----------------|
+| Analyse de documents | Vision + Texte | Extraire les données d'une facture photographiée |
+| Service vocal | Audio + Texte | Chatbot téléphonique avec transcription temps réel |
+| Contrôle qualité | Vision | Détecter des défauts sur une ligne de production |
+| Compte-rendu de réunion | Audio | Résumé + action items à partir d'un enregistrement |
+| Génération marketing | Texte + Image | Créer des visuels et copy adaptés par segment |
+
+*Question pour la classe* : Quel processus de votre projet pourrait bénéficier d'un LLM multimodal ?
+
+---
+
+<!-- _class: section -->
+
 # Récapitulatif
 
 ## Key Takeaways
 
 ---
 
-# 20 — Points clés à retenir
+# 30 — Points clés à retenir
 
-### Les LLMs en pratique
-- Les LLMs prédisent le *mot suivant* — entraînés sur des trillions de tokens
-- Quatre familles d'applications : *Writing, Reading, Chatting, Coding*
-
-### Le vocabulaire technique
-- **Token** : unité de base des LLMs (~¾ d'un mot anglais)
-- **Context Window** : mémoire de travail, partagée entre input et output
-- **MoE** : architecture à experts qui découple capacité et coût d'inference
-
-### Le pipeline d'entraînement
-- Pretraining → Instruct (SFT+RLHF) → Thinking → Fine-tuning
-- Trois générations : Base Model, Instruct Model, Thinking Model
-
-### Taille et accès
-- Plus gros ≠ toujours meilleur — rendements décroissants
-- Le bon modèle pour la bonne tâche > le plus gros modèle pour tout
-- Accès : web (gratuit), API (pay-per-token), open-weights (local)
+- **Impact** — Les benchmarks faciles saturent (MMLU 90%+), mais les problèmes durs restent ouverts
+- **Mécanisme** — Next-token prediction : le LLM prédit un token à la fois, séquentiellement
+- **Tokens & Context** — 1 token ≈ ¾ mot (EN). La context window croît de ~30x/an
+- **Sampling** — Temperature, Top-k, Top-p contrôlent la créativité de la génération
+- **MoE** — Architecture qui découple capacité (total params) et coût d'inference (active params)
+- **Pipeline** — Pretraining (15T tokens) → SFT → RLHF → Reasoning
+- **Quantization** — INT4 réduit la mémoire de 8x, mais attention au raisonnement sur petits modèles
+- **Accès** — Web (gratuit), API (pay-per-token), open-weights (local/RGPD)
+- **Taille** — Plus gros ≠ toujours meilleur. Le bon modèle pour la bonne tâche
+- **Structured Output** — JSON, Function Calling, Tool Calling : la base des agents IA
 
 > *Prochaine session* : passer de l'utilisation à la *construction* de projets IA.

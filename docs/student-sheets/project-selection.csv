@@ -1,0 +1,12 @@
+Titre du projet,Description du projet,Groupe
+Analyse de sentiment,"Classifier automatiquement des avis clients (positif / négatif / neutre) pour un site e-commerce",
+Modération de contenu,"Détecter les messages inappropriés ou toxiques dans un espace de commentaires",
+Catégorisation produit,"Trier des descriptions de produits dans les bonnes catégories d'un catalogue en ligne",
+Classification de genre audio,"Identifier le type de contenu audio (musique / parole / ambiance / bruit)",
+Détection de maladie des plantes,"Classifier des photos de feuilles pour identifier si une plante est saine ou malade",
+Routage support client,"Comprendre l'intention d'un message client pour le diriger vers le bon service",
+Détection de discours haineux,"Repérer les messages à caractère haineux ou discriminatoire dans du texte",
+Détection de spam email,"Distinguer les emails légitimes des spams et les classer par type",
+Screening de CV,"Évaluer la compatibilité entre un CV et une offre d'emploi",
+Veille réseaux sociaux,"Analyser le ton des mentions d'une marque sur les réseaux sociaux",
+[Projet libre],"Les groupes peuvent proposer leur propre projet (validation par l'enseignant)",

@@ -156,7 +156,7 @@ Chaque node fait *une seule chose* :
 - **HTTP Request** — appelle une API
 - **Set** — transforme les données
 
-Notre instance : `http://77.134.130.112:1111`
+Notre instance : `https://7b97-77-134-130-112.ngrok-free.app`
 
 > Pas de code, pas d'installation. Vous configurez visuellement, vous testez en un clic.
 
@@ -219,7 +219,7 @@ Formate le résultat en texte lisible
 
 # 07 — Étape 1 : créer le workflow
 
-1. Ouvrez `http://77.134.130.112:1111` dans votre navigateur
+1. Ouvrez `https://7b97-77-134-130-112.ngrok-free.app` dans votre navigateur
 2. Connectez-vous (identifiants fournis)
 3. Cliquez sur **"Create new workflow"**
 4. Nommez-le : `Sentiment - Equipe X`
@@ -363,142 +363,193 @@ En 10 minutes, sans une seule ligne de code :
 
 # 13 — Le projet en une slide
 
-**7 équipes de 4 étudiants** · 5 semaines (S1 → S5)
+**7 équipes de 4 étudiants** · 5 semaines (S1 à S5) · **Présentation : 4 min**
 
 | Livrable | Description |
 |----------|-------------|
 | **Workflow n8n** | Système de classification fonctionnel |
-| **Interface publique** | Accessible en ligne : site web (Lovable, bolt.new) ou bot Telegram |
-| **Modèle OpenRouter** | Intégrer un modèle free-tier via OpenRouter pour formuler la réponse finale |
-| **Jeu de test** | 20+ cas de test en JSON avec résultats attendus |
-| **Présentation** | 5 min en Session 5 : démo live + analyse des résultats |
+| **Interface publique** | Accessible en ligne (chat n8n, site web, ou bot Telegram) |
+| **Dataset de test** | 20+ exemples, du facile au difficile, proches des données réelles |
+| **Évaluation** | Au moins 2 modèles testés, résultats comparés, choix justifié |
+| **Présentation** | 4 min en Session 5 : démo live + analyse des résultats |
 
-> Votre projet doit être **accessible publiquement** — l'enseignant testera chaque projet en live. Pas de démo locale : un vrai lien, un vrai bot.
+Deux approches : **modèle HuggingFace** (Inference API) ou **LLM via OpenRouter** (Structured Outputs). Voir les exemples `TEACHER_EXAMPLE-Prod-*` sur n8n.
 
 ---
 
 # 14 — Exemples de projets
 
-| # | Projet | Modèle HuggingFace | Cas d'usage |
-|---|--------|-------------------|-------------|
-| 1 | Sentiment Analysis | `distilbert-sst-2` | Avis clients e-commerce |
-| 2 | Content Moderation | `toxic-bert` | Modération de commentaires |
-| 3 | Product Category | `bart-large-mnli` | Catégorisation produits (zero-shot) |
-| 6 | Intent Classification | `bart-large-mnli` | Routage support client |
-| 8 | Email Spam | `roberta-spam` | Filtrage d'emails |
+| # | Projet | Cas d'usage |
+|---|--------|-------------|
+| 1 | Analyse de sentiment | Avis clients e-commerce (positif/négatif/neutre) |
+| 2 | Modération de contenu | Détection de messages toxiques |
+| 3 | Catégorisation produit | Trier des produits dans un catalogue |
+| 4 | Classification audio | Identifier le type de contenu audio |
+| 5 | Détection maladie plantes | Classifier des photos de feuilles |
+| 6 | Routage support client | Diriger les demandes vers le bon service |
+| 7 | Détection discours haineux | Repérer les messages discriminatoires |
 
-**10 projets pré-construits** avec workflow n8n fourni — ou proposez le vôtre !
-
-> Chaque projet a un workflow n8n prêt à l'emploi. Vous pouvez l'importer et le modifier.
+Et aussi : détection de spam email, screening de CV, veille réseaux sociaux... ou **proposez le vôtre** !
 
 ---
 
 <!-- _class: cols -->
 
-# 15 — Format du jeu de test
+# 15 — Votre dataset de test
 
 <div class="left">
 
-```json
-{
-  "project": "Sentiment -
-    Avis Clients",
-  "team": "Équipe 3",
-  "model": "distilbert-sst-2",
-  "test_cases": [
-    {
-      "id": 1,
-      "input": "This product
-        is excellent!",
-      "expected_label":
-        "POSITIVE",
-      "category":
-        "clear_positive",
-      "language": "en"
-    }
-  ]
-}
-```
+**Exigences**
+
+- **20 exemples minimum**
+- Du **facile au difficile** : cas évidents + cas limites (ambiguïté, sarcasme, multilingue...)
+- **Proche de la production** : vos exemples doivent ressembler aux données réelles
+- **Équilibré** : nombre comparable par catégorie
 
 </div>
 <div class="right">
 
-**Pourquoi un jeu de test ?**
+**Exemple de structure**
 
-- Mesurer la **précision** du modèle
-- Identifier les **cas limites** (sarcasme, langues, ambiguïté)
-- Documenter les **échecs** honnêtement
+```json
+[
+  {"input": "Super produit !",
+   "expected": "POSITIF"},
+  {"input": "Bof, sans plus",
+   "expected": "NEUTRE"},
+  {"input": "Horrible, à fuir",
+   "expected": "NEGATIF"}
+]
+```
 
-**Minimum 20 cas**, au moins 5 catégories :
-- `clear_positive` / `clear_negative`
-- `ambiguous`
-- `sarcasm`
-- `non_english`
-
-> Un bon jeu de test vaut plus qu'un bon modèle. C'est lui qui révèle les vraies limites.
+Voir `TEACHER_EXAMPLE-Eval-*` sur n8n pour le format complet et le calcul du score.
 
 </div>
 
 ---
 
-# 16 — Critères d'évaluation
+# 16 — Comparer les modèles
 
-| Critère | Poids | Ce qu'on évalue |
-|---------|-------|-----------------|
-| **Choix du modèle** | 25% | Justification du modèle vs alternatives |
-| **Évaluation** | 25% | Qualité du jeu de test et des métriques |
-| **Honnêteté** | 20% | Analyse franche des limites et erreurs |
-| **Déploiement** | 15% | Le workflow fonctionne et est accessible |
-| **Présentation** | 15% | Clarté, structure, réponse aux questions |
+Vous devez **tester au moins 2 modèles différents** sur votre dataset :
 
-> **L'honnêteté compte autant que la performance.** Un modèle à 70% de précision bien analysé vaut mieux qu'un modèle à 95% sans recul critique.
+| Approche | Exemple |
+|----------|---------|
+| **Modèle HuggingFace** | Modèle spécialisé via Inference API |
+| **LLM via OpenRouter** | LLM avec Structured Outputs |
+| **Variantes** | Deux modèles HF, ou deux LLMs, ou un mix |
+
+Pour chaque modèle, relevez le **score sur votre dataset** et documentez :
+- Où le modèle réussit bien, où il échoue
+- Pourquoi vous choisissez le modèle final
+- Ce qui pourrait être amélioré
+
+> Un modèle à 70% bien analysé vaut mieux qu'un modèle à 95% sans recul critique.
 
 ---
 
-# 17 — Planning et prochaines étapes
+<!-- _class: cols -->
+
+# 17 — Évaluation : ce qui compte
+
+<div class="left">
+
+**Poids fort (la majorité des points)**
+
+- La démo fonctionne en live
+- Je peux interagir avec votre système en moins d'une minute
+- Qualité du dataset et des tests
+- Au moins 2 modèles comparés
+
+</div>
+<div class="right">
+
+**Poids modéré**
+
+- Présentation + démo tient en 4 min
+- Le produit est expliqué clairement
+- Choix du modèle justifié
+
+**Poids faible**
+
+- Esthétique de l'interface
+- Mise en forme de la présentation
+
+</div>
+
+---
+
+# 18 — Bonus possibles
+
+Jusqu'à **2 bonus** parmi les suivants :
+
+| Bonus | Description |
+|-------|-------------|
+| **Tests extensifs** | Comparaison détaillée de 10+ modèles avec rapport clair |
+| **Interface web** | Un site (Lovable, bolt.new...) avec lequel je peux interagir |
+| **Inputs complexes** | Traiter des images, vidéos, ou fichiers audio |
+| **Base de données** | Système avec mémoire, corpus de données (type RAG) |
+
+> Les bonus récompensent l'exploration et l'ambition. Mais un projet simple qui fonctionne bien vaut mieux qu'un projet ambitieux qui plante en démo.
+
+---
+
+# 19 — Coûts : tout est gratuit
+
+**Vous ne devez rien dépenser pour ce projet.**
+
+| Plateforme | Free Tier |
+|------------|-----------|
+| **HuggingFace** | Crédits mensuels inclus pour les modèles de classification (CPU) |
+| **OpenRouter** | 200 requêtes/jour sur les modèles gratuits (suffixe `:free`) |
+| **n8n** | Instance partagée fournie par l'enseignant |
+
+> Avec 20 cas de test, une évaluation = 20 requêtes. Le free tier est largement suffisant pour développer, tester et évaluer.
+
+---
+
+# 20 — Apprendre à apprendre
+
+Ce cours ne couvre **pas tout** ce dont vous aurez besoin — et c'est volontaire.
+
+**Apprendre un outil spécifique < Apprendre à apprendre**
+
+- Le guide n8n est volontairement minimal : cherchez en groupe comment faire ce que vous avez en tête
+- Utilisez l'IA pour construire (ChatGPT, Claude, etc.) — mais vous êtes **responsables** de la qualité et devez **comprendre** ce qui est produit
+- Dans la vraie vie professionnelle, personne ne vous donnera un tutoriel complet pour chaque outil
+
+> La compétence la plus précieuse n'est pas de maîtriser n8n. C'est de savoir se débrouiller face à un outil nouveau, en équipe, avec les ressources disponibles.
+
+---
+
+# 21 — Planning et prochaines étapes
 
 | Session | Étape | Objectif |
 |---------|-------|----------|
-| **S1** (aujourd'hui) | Lancement | Former les équipes, choisir le projet |
+| **S1** (aujourd'hui) | Lancement | Former les équipes, découvrir n8n |
 | **S2** | Construction | Workflow complet + intro évaluation IA |
-| **S3** | Évaluation | Jeu de test finalisé + analyse des résultats |
-| **S4** | **Soumission** | Affiner le workflow, **soumettre le projet final** |
-| **S5** | **Revue collective** | Présentations 5 min + on parcourt les projets ensemble |
+| **S3** | Évaluation | Dataset finalisé + analyse des résultats |
+| **S4** | Soumission | Affiner, **soumettre le projet final** |
+| **S5** | **Présentations** | 4 min par groupe + on parcourt les projets ensemble |
 
-**Pour la prochaine session** :
-- ✅ Former votre équipe de 4
-- ✅ Créer un compte HuggingFace (un par équipe suffit)
-- ✅ Choisir votre projet sur le Google Sheet
+**Avant de partir aujourd'hui** : formez votre équipe de 4 sur le Google Sheet
 
----
-
-# 18 — Récapitulatif
-
-**Ce qu'on a vu aujourd'hui** :
-
-| Concept | En une phrase |
-|---------|---------------|
-| **JSON** | Le format universel d'échange entre logiciels |
-| **API** | Un service distant qu'on appelle par URL |
-| **HuggingFace** | 1M+ modèles IA accessibles via Inference API |
-| **n8n** | Automatisation visuelle : des nodes, des flèches, zéro code |
-
-**Ce qu'on a construit** : un système de Sentiment Analysis en 3 nodes
-
-**Ce qui vient** : votre propre projet de classification, de l'idée au déploiement
+**Avant vendredi 6 mars** : choisissez et décrivez votre projet sur le Google Sheet
 
 ---
 
-# 19 — Inscrivez votre équipe !
+# 22 — Inscrivez votre équipe !
 
-**Google Sheet** : *(lien à projeter en cours)*
+**Google Sheet** : *(lien projeté en cours)*
 
 <!-- TODO: Louis — insérer le lien Google Sheet et le QR code -->
 
-**Règles** :
-- **4 personnes** par équipe (7 équipes max)
-- **Pas de doublons** — un projet par équipe, premier arrivé premier servi
-- Vous pouvez choisir parmi les 10 projets pré-construits **ou** proposer le vôtre
+**Aujourd'hui** :
+- Formez votre équipe de **4 personnes** (7 équipes max)
+- Inscrivez les noms sur le **Sheet 1** (Groupes)
+
+**Avant vendredi 6 mars** :
+- Choisissez votre projet sur le **Sheet 2** (Projets)
+- Remplissez le titre et la description — premier arrivé, premier servi
 - Les projets personnalisés doivent être validés par l'enseignant
 
-> Formez vos équipes et inscrivez-vous *avant de partir*. En Session 2, on construit !
+> Le guide technique complet vous sera envoyé par email. En Session 2, on construit !

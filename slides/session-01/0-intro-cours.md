@@ -43,9 +43,9 @@ footer: ""
 
 | Ce que ce cours est | Ce que ce cours n'est pas |
 |---|---|
-| Comprendre les capacités de l'IA | Un cours de Data Science |
-| Cadrer et piloter un projet IA | Apprendre à coder des modèles |
-| Identifier les opportunités business | Un catalogue d'outils |
+| Vous donner de **bons fondamentaux en IA** | Un cours de Data Science |
+| Apprendre à **choisir et utiliser** les systèmes IA pour entreprendre | Apprendre à coder des modèles |
+| Cadrer et piloter un projet IA | Un catalogue d'outils |
 | Développer un regard critique | Une formation ChatGPT |
 
 **5 sessions × 3h** · Du 23 février au 30 mars 2026 · Lundi 17h30–20h30
@@ -56,13 +56,15 @@ footer: ""
 
 # 03 — Plan du cours
 
-| Session | Date | Thème | Vous saurez… |
-|---|---|---|---|
-| **1** | 23 fév. | Comprendre l'IA en 2026 | Ce que l'IA sait et ne sait pas faire |
-| **2** | 9 mars | Construire avec l'IA | Comment on passe d'un prompt à un produit |
-| **3** | 16 mars | Cadrer un projet IA | Évaluer, choisir et piloter une solution IA |
-| **4** | 23 mars | Le business de l'IA | Qui gagne de l'argent, comment, et pourquoi |
-| **5** | 30 mars | Éthique & clôture | Les règles du jeu et vos présentations finales |
+| Session | Thème | Vous saurez… |
+|---|---|---|
+| **1** | Les types d'IA | Ce que l'IA sait et ne sait pas faire |
+| **2** | Les LLMs | Comment fonctionne un LLM et comment l'utiliser |
+| **3** | Évaluer l'IA | Évaluer, choisir et piloter une solution IA |
+| **4** | RAG & Agents | Comment construire des systèmes IA complexes |
+| **5** | Le business de l'IA | Qui gagne de l'argent, comment, et pourquoi |
+
+> Chaque session inclut un **atelier pratique** (projet de groupe).
 
 ---
 
