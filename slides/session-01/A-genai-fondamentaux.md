@@ -437,7 +437,7 @@ Des tâches de vision qui vont au-delà de la simple Classification :
 
 > Ces tâches sont au cœur de la conduite autonome, du contrôle qualité industriel et de l'imagerie médicale.
 
-![bg right:45% contain](assets/object-detection.png)
+![bg right:45% contain](assets/tasks_cv.webp)
 
 <small>Sources : [1] [Ultralytics YOLO](https://ultralytics.com/) · [2] [Meta SAM](https://segment-anything.com/)</small>
 
@@ -463,7 +463,8 @@ L'architecture Transformer alimente *toutes* ces tâches de génération :
 
 Ces noms de tâches sont votre *vocabulaire* pour chercher des modèles sur HuggingFace :
 
-![bg right:50% contain](assets/hf_tasks.png)
+![bg right:50% contain](assets/hf_tasks_1.png)
+![bg right:50% contain](assets/hf_tasks_2.png)
 
 **Lien** : [huggingface.co/models](https://huggingface.co/models)
 
