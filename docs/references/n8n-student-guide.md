@@ -11,16 +11,18 @@
 
 ## Convention de nommage
 
-Préfixez **tous** vos workflows avec votre numéro de groupe :
+Préfixez **tous** vos workflows avec votre numéro de groupe et le type :
 
 ```
-G01 — Sentiment Analysis
-G03 — Telegram Bot Classification
+GXX — Prod — Sentiment Analysis     (workflow principal)
+GXX — Eval — Sentiment Analysis     (workflow d'évaluation)
+GXX — TEST — mon expérience         (brouillons/tests)
 ```
 
-- Format : `GXX — Description` (XX = 01–10, tiret cadratin)
+- Format : `GXX — Type — Description` (XX = 01–10, tiret cadratin)
+- Types : `Prod` (workflow final), `Eval` (évaluation), `TEST` (brouillons)
 - **Ne modifiez ni ne supprimez jamais** les workflows d'un autre groupe
-- Pour un workflow de test : `GXX — TEST — description`
+- Les workflows `TEACHER_EXAMPLE-*` sont des exemples pré-chargés — consultez-les mais ne les modifiez pas
 
 ## Gérer vos Credentials (clés API)
 
@@ -73,15 +75,18 @@ Votre workflow de classification devrait suivre ce schéma :
 
 ## Évaluer votre modèle
 
-Des workflows d'évaluation sont pré-chargés dans n8n pour tester la précision de votre modèle sur un jeu de données de test.
+Deux workflows d'évaluation sont pré-chargés comme exemples dans n8n :
+
+- `TEACHER_EXAMPLE-Eval-HuggingFace` — évalue un modèle HuggingFace (DistilBERT)
+- `TEACHER_EXAMPLE-Eval-OpenRouter` — évalue un modèle via OpenRouter (LLM)
 
 ### Comment ça marche
 
-Le workflow d'évaluation envoie 20 cas de test à l'API HuggingFace, compare les résultats attendus avec les prédictions du modèle, et calcule un score de précision (accuracy).
+Le workflow d'évaluation envoie 20 cas de test à l'API, compare les résultats attendus avec les prédictions du modèle, et calcule un score de précision (accuracy).
 
 ### Lancer une évaluation
 
-1. Ouvrez le workflow `Eval XX — Description` correspondant à votre projet
+1. Ouvrez un workflow `TEACHER_EXAMPLE-Eval-*` pour voir la structure
 2. Cliquez **Execute Workflow** (le bouton ▶ en haut)
 3. Cliquez sur le nœud **Compute Score** pour voir le résultat
 4. Le résultat affiche : `total`, `pass`, `fail`, `accuracy`, et un tableau `details` avec le détail par item
@@ -100,7 +105,7 @@ Le workflow d'évaluation envoie 20 cas de test à l'API HuggingFace, compare le
    ];
    return dataset.map(item => ({json: item}));
    ```
-5. Si vous avez changé de modèle : mettez à jour l'URL dans le nœud **Call HuggingFace**
+5. Si vous avez changé de modèle : mettez à jour l'URL dans le nœud HTTP Request (Call HuggingFace ou Call OpenRouter)
 6. Pour les projets zero-shot : mettez à jour les `candidate_labels` dans le body JSON
 7. Cliquez **Execute Workflow** → lisez le score dans **Compute Score**
 

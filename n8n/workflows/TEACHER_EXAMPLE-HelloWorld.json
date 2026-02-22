@@ -1,0 +1,121 @@
+{
+  "name": "TEACHER_EXAMPLE-HelloWorld",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {
+          "responseMessage": "Type something! Try saying 'hello'."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        0,
+        300
+      ],
+      "id": "1c8bba20-d79c-4c7a-b906-b55ac8710bb4",
+      "name": "When chat message received",
+      "webhookId": "91932323-735c-4d24-b8ba-7168301f96c0"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "6ea80926-c604-49e1-951d-d0427a490ef3",
+              "leftValue": "={{ $json.chatInput.toLowerCase() }}",
+              "rightValue": "hello",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        }
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        220,
+        300
+      ],
+      "id": "906e1594-9580-4a08-90da-f6148fcd4640",
+      "name": "Contains Hello?"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{ JSON.stringify({ output: \"Hello World! \ud83d\udc4b\" }) }}"
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        440,
+        200
+      ],
+      "id": "d835637a-a38c-4886-a705-79a50dc803b5",
+      "name": "Hello Response"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{ JSON.stringify({ output: \"I only understand 'hello' \u2014 try again!\" }) }}"
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        440,
+        400
+      ],
+      "id": "16dacbc1-b5bd-4ed6-871b-79185dfc825b",
+      "name": "Default Response"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Contains Hello?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Contains Hello?": {
+      "main": [
+        [
+          {
+            "node": "Hello Response",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Default Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "tags": []
+}

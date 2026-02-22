@@ -1,0 +1,274 @@
+{
+  "name": "TEACHER_EXAMPLE-Prod-OpenRouter",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "8e9b7a3e-f1ad-4dca-8c2f-d237ea1c1f48",
+      "name": "When chat message received",
+      "webhookId": "b87ce765-fec2-4c09-b508-465114223046"
+    },
+    {
+      "parameters": {
+        "prompt": "={{ 'Classify the sentiment of the following text as POSITIVE or NEGATIVE. Return JSON with fields: label (string, must be POSITIVE or NEGATIVE) and confidence (number 0-1).\\n\\nText: ' + $json.chatInput }}",
+        "hasOutputParser": true
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.4,
+      "position": [
+        220,
+        0
+      ],
+      "id": "3de38cfe-383c-4e0c-8b8e-908a22467fbc",
+      "name": "Classify Sentiment"
+    },
+    {
+      "parameters": {
+        "model": "mistralai/mistral-small-3.1-24b-instruct:free",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        140,
+        220
+      ],
+      "id": "79c7f482-48ef-4632-b102-56fcd4bb0f04",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "PLACEHOLDER",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\"type\": \"object\", \"properties\": {\"label\": {\"type\": \"string\", \"description\": \"Sentiment label: POSITIVE or NEGATIVE\"}, \"confidence\": {\"type\": \"number\", \"description\": \"Confidence score between 0 and 1\"}}, \"required\": [\"label\", \"confidence\"]}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        300,
+        220
+      ],
+      "id": "758d0e97-0bc9-4e25-bbb6-6b87ca5003b5",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        500
+      ],
+      "id": "d38ce7d3-ed0b-4592-80bf-5c10359ec6db",
+      "name": "Telegram Trigger",
+      "webhookId": "e6285252-b39c-4cdf-b79e-3dc6ac19a829",
+      "credentials": {
+        "telegramApi": {
+          "id": "PLACEHOLDER",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "prompt": "={{ 'Classify the sentiment of the following text as POSITIVE or NEGATIVE. Return JSON with fields: label (string, must be POSITIVE or NEGATIVE) and confidence (number 0-1).\\n\\nText: ' + $json.message.text }}",
+        "hasOutputParser": true
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.4,
+      "position": [
+        220,
+        500
+      ],
+      "id": "9929be8f-02de-4e9b-9b01-05b12536b630",
+      "name": "Classify Sentiment (Telegram)"
+    },
+    {
+      "parameters": {
+        "model": "mistralai/mistral-small-3.1-24b-instruct:free",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        140,
+        720
+      ],
+      "id": "7f6dfea7-3901-4acc-859d-53d18d179e94",
+      "name": "OpenRouter Chat Model TG",
+      "credentials": {
+        "openRouterApi": {
+          "id": "PLACEHOLDER",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\"type\": \"object\", \"properties\": {\"label\": {\"type\": \"string\", \"description\": \"Sentiment label: POSITIVE or NEGATIVE\"}, \"confidence\": {\"type\": \"number\", \"description\": \"Confidence score between 0 and 1\"}}, \"required\": [\"label\", \"confidence\"]}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        300,
+        720
+      ],
+      "id": "f6ff26dd-a20d-42a6-8833-3e1a4a6ef218",
+      "name": "Structured Output Parser TG"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{ (() => {\n  const parsed = typeof $json.output === 'string' ? JSON.parse($json.output) : $json.output;\n  const label = parsed.label || 'UNKNOWN';\n  const confidence = parsed.confidence !== undefined\n    ? (parsed.confidence * 100).toFixed(1) + '%'\n    : 'N/A';\n  return JSON.stringify({ output: `${label} (${confidence})` });\n})() }}"
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        440,
+        500
+      ],
+      "id": "ca57c04b-5b3f-4bca-bc7c-e925f3f58afb",
+      "name": "Format for Telegram"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        660,
+        500
+      ],
+      "id": "2e7329e7-86e0-47ef-afae-0ad49bbfeed6",
+      "name": "Send a text message",
+      "webhookId": "b2ea8f20-494b-4d03-84c4-9f8c41accfc2",
+      "credentials": {
+        "telegramApi": {
+          "id": "PLACEHOLDER",
+          "name": "Telegram account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Classify Sentiment",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Classify Sentiment",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Classify Sentiment",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Classify Sentiment (Telegram)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Classify Sentiment (Telegram)": {
+      "main": [
+        [
+          {
+            "node": "Format for Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model TG": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Classify Sentiment (Telegram)",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser TG": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Classify Sentiment (Telegram)",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format for Telegram": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "tags": []
+}

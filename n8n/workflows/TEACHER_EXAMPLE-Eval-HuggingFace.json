@@ -1,0 +1,151 @@
+{
+  "name": "TEACHER_EXAMPLE-Eval-HuggingFace",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        300
+      ],
+      "id": "9e405b9a-3f52-4c9b-b185-c741f72d878f",
+      "name": "Manual Trigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "const dataset = [\n  {\n    \"input\": \"Absolutely love this product, best purchase I've made all year!\",\n    \"expected\": \"POSITIVE\"\n  },\n  {\n    \"input\": \"Fast shipping and the quality exceeded my expectations.\",\n    \"expected\": \"POSITIVE\"\n  },\n  {\n    \"input\": \"My kids are obsessed with this toy, great value for the price.\",\n    \"expected\": \"POSITIVE\"\n  },\n  {\n    \"input\": \"The battery lasts forever and the screen is gorgeous.\",\n    \"expected\": \"POSITIVE\"\n  },\n  {\n    \"input\": \"Customer service was super helpful when I had a question.\",\n    \"expected\": \"POSITIVE\"\n  },\n  {\n    \"input\": \"Surprisingly good for the price, would buy again.\",\n    \"expected\": \"POSITIVE\"\n  },\n  {\n    \"input\": \"Perfect fit and very comfortable, exactly as described.\",\n    \"expected\": \"POSITIVE\"\n  },\n  {\n    \"input\": \"This cookbook has become my go-to, every recipe turns out great.\",\n    \"expected\": \"POSITIVE\"\n  },\n  {\n    \"input\": \"Easy to set up and works right out of the box.\",\n    \"expected\": \"POSITIVE\"\n  },\n  {\n    \"input\": \"Bought this as a gift and they absolutely loved it.\",\n    \"expected\": \"POSITIVE\"\n  },\n  {\n    \"input\": \"Broke after two days, complete waste of money.\",\n    \"expected\": \"NEGATIVE\"\n  },\n  {\n    \"input\": \"The instructions were impossible to follow and pieces were missing.\",\n    \"expected\": \"NEGATIVE\"\n  },\n  {\n    \"input\": \"Terrible quality, the stitching came apart on the first wash.\",\n    \"expected\": \"NEGATIVE\"\n  },\n  {\n    \"input\": \"Ordered a medium but it fits like an extra small.\",\n    \"expected\": \"NEGATIVE\"\n  },\n  {\n    \"input\": \"The app crashes constantly and support never responds.\",\n    \"expected\": \"NEGATIVE\"\n  },\n  {\n    \"input\": \"Looks nothing like the photos, very misleading listing.\",\n    \"expected\": \"NEGATIVE\"\n  },\n  {\n    \"input\": \"Arrived damaged and the return process was a nightmare.\",\n    \"expected\": \"NEGATIVE\"\n  },\n  {\n    \"input\": \"Way too loud and the build quality feels cheap.\",\n    \"expected\": \"NEGATIVE\"\n  },\n  {\n    \"input\": \"Stopped working after a week and no warranty support.\",\n    \"expected\": \"NEGATIVE\"\n  },\n  {\n    \"input\": \"Paid premium price for something that feels like a dollar store item.\",\n    \"expected\": \"NEGATIVE\"\n  }\n];\n\nreturn dataset.map(item => ({json: item}));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        220,
+        300
+      ],
+      "id": "80268058-0ca2-4e11-840e-7dec83e1e898",
+      "name": "Load Dataset"
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        440,
+        300
+      ],
+      "id": "5b53b782-d6aa-439f-bed7-7c3bf40cb592",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://router.huggingface.co/hf-inference/models/distilbert/distilbert-base-uncased-finetuned-sst-2-english",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ inputs: $json.input }) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        660,
+        460
+      ],
+      "id": "031cfb94-5d1d-4dee-8174-5b79861b7f4e",
+      "name": "Call HuggingFace",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "PLACEHOLDER",
+          "name": "Bearer Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const dataset = $(\"Load Dataset\").all();\nconst responses = $input.all();\n\nconst details = [];\nlet pass = 0;\nlet fail = 0;\n\nfor (let i = 0; i < dataset.length; i++) {\n  const expected = dataset[i].json.expected;\n  const input = dataset[i].json.input;\n  const response = responses[i].json;\n\n  // HF classification: response is [[{label, score}, ...]] or [{label, score}, ...]\n  const results = Array.isArray(response[0]) ? response[0] : response;\n  const predicted = results[0].label;\n\n  const status = (predicted.toLowerCase() === expected.toLowerCase()) ? \"PASS\" : \"FAIL\";\n  if (status === \"PASS\") pass++; else fail++;\n\n  details.push({input: input.substring(0, 60), expected, predicted, status});\n}\n\nconst total = dataset.length;\nconst accuracy = ((pass / total) * 100).toFixed(1) + \"%\";\n\nreturn [{json: {total, pass, fail, accuracy, details}}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        140
+      ],
+      "id": "bd019e7f-e853-445b-aed4-2c12fa8b9272",
+      "name": "Compute Score"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Load Dataset",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Load Dataset": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "Compute Score",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Call HuggingFace",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call HuggingFace": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "tags": []
+}
