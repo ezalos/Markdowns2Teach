@@ -128,7 +128,11 @@ for f in "$WORKFLOW_DIR"/*.json; do
 done
 
 echo ""
-echo "Done: $SUCCESS imported, $FAIL failed (out of $(ls "$WORKFLOW_DIR"/*.json | wc -l) total)"
+TOTAL=$(ls "$WORKFLOW_DIR"/*.json | wc -l)
+EVAL=$(ls "$WORKFLOW_DIR"/eval-*.json 2>/dev/null | wc -l)
+STUDENT=$((TOTAL - EVAL))
+echo "Done: $SUCCESS imported, $FAIL failed (out of $TOTAL total: $STUDENT student + $EVAL eval)"
 echo ""
-echo "NOTE: All workflows are imported as INACTIVE."
+echo "NOTE: Student workflows are imported as INACTIVE."
 echo "Activate only one at a time in the n8n UI (Telegram webhook limitation)."
+echo "Eval workflows can be run manually (Manual Trigger) without activation."

@@ -1,0 +1,151 @@
+{
+  "name": "Eval 03 \u2014 Product Category",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        300
+      ],
+      "id": "c73229b4-ddf8-40f3-8934-868df4ef926b",
+      "name": "Manual Trigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "const dataset = [\n  {\n    \"input\": \"Wireless Bluetooth noise-cancelling headphones with 30h battery\",\n    \"expected\": \"electronics\"\n  },\n  {\n    \"input\": \"USB-C fast charger 65W for laptops and phones\",\n    \"expected\": \"electronics\"\n  },\n  {\n    \"input\": \"4K webcam with built-in microphone for video calls\",\n    \"expected\": \"electronics\"\n  },\n  {\n    \"input\": \"Portable SSD 1TB external hard drive\",\n    \"expected\": \"electronics\"\n  },\n  {\n    \"input\": \"Smart LED desk lamp with adjustable brightness\",\n    \"expected\": \"electronics\"\n  },\n  {\n    \"input\": \"Men's slim fit cotton Oxford button-down shirt\",\n    \"expected\": \"clothing\"\n  },\n  {\n    \"input\": \"Women's waterproof winter parka with faux fur hood\",\n    \"expected\": \"clothing\"\n  },\n  {\n    \"input\": \"Casual linen trousers for summer\",\n    \"expected\": \"clothing\"\n  },\n  {\n    \"input\": \"Merino wool crew neck sweater\",\n    \"expected\": \"clothing\"\n  },\n  {\n    \"input\": \"Leather belt with brushed nickel buckle\",\n    \"expected\": \"clothing\"\n  },\n  {\n    \"input\": \"Stainless steel French press coffee maker 1 litre\",\n    \"expected\": \"home\"\n  },\n  {\n    \"input\": \"Memory foam bed pillow set of 2\",\n    \"expected\": \"home\"\n  },\n  {\n    \"input\": \"Non-stick ceramic frying pan 28cm\",\n    \"expected\": \"home\"\n  },\n  {\n    \"input\": \"Bamboo bathroom organizer shelf unit\",\n    \"expected\": \"home\"\n  },\n  {\n    \"input\": \"Scented soy candle lavender 200g\",\n    \"expected\": \"home\"\n  },\n  {\n    \"input\": \"Yoga mat extra thick 6mm with carrying strap\",\n    \"expected\": \"sports\"\n  },\n  {\n    \"input\": \"Adjustable dumbbells set 2-20kg per hand\",\n    \"expected\": \"sports\"\n  },\n  {\n    \"input\": \"Cycling gloves with gel padding and breathable mesh\",\n    \"expected\": \"sports\"\n  },\n  {\n    \"input\": \"Insulated water bottle 750ml for hiking\",\n    \"expected\": \"sports\"\n  },\n  {\n    \"input\": \"Resistance bands set of 5 with different strengths\",\n    \"expected\": \"sports\"\n  }\n];\n\nreturn dataset.map(item => ({json: item}));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        220,
+        300
+      ],
+      "id": "d57dc526-9986-424d-bd7e-d9ca72fc986e",
+      "name": "Load Dataset"
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        440,
+        300
+      ],
+      "id": "93927d13-a941-43ed-a286-422312731ae4",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://router.huggingface.co/hf-inference/models/facebook/bart-large-mnli",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ inputs: $json.input, parameters: { candidate_labels: [\"electronics\", \"clothing\", \"home\", \"sports\"] } }) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        660,
+        460
+      ],
+      "id": "ae8f6038-3d94-4811-8804-e5d888980e32",
+      "name": "Call HuggingFace",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "PLACEHOLDER",
+          "name": "Bearer Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const dataset = $(\"Load Dataset\").all();\nconst responses = $input.all();\n\nconst details = [];\nlet pass = 0;\nlet fail = 0;\n\nfor (let i = 0; i < dataset.length; i++) {\n  const expected = dataset[i].json.expected;\n  const input = dataset[i].json.input;\n  const response = responses[i].json;\n\n  // Template B: response is {labels: [...], scores: [...]}, sorted desc\nconst predicted = response.labels[0];\n\n  const status = (predicted.toLowerCase() === expected.toLowerCase()) ? \"PASS\" : \"FAIL\";\n  if (status === \"PASS\") pass++; else fail++;\n\n  details.push({input: input.substring(0, 60), expected, predicted, status});\n}\n\nconst total = dataset.length;\nconst accuracy = ((pass / total) * 100).toFixed(1) + \"%\";\n\nreturn [{json: {total, pass, fail, accuracy, details}}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        140
+      ],
+      "id": "133bb072-61bd-4cfb-84cf-229787076ec9",
+      "name": "Compute Score"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Load Dataset",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Load Dataset": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "Compute Score",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Call HuggingFace",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call HuggingFace": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "tags": []
+}
