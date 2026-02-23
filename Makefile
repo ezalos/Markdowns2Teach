@@ -5,6 +5,7 @@ SLIDES_DIR := slides
 DIST_DIR := dist
 HTML_DIR := $(DIST_DIR)/html
 PPTX_DIR := $(DIST_DIR)/pptx
+PDF_FULL_DIR := $(DIST_DIR)/pdf-full
 MARP := marp
 GDRIVE_REMOTE := gdrive:Travail/Formations/Sorbonne/AutoDecks
 
@@ -14,7 +15,7 @@ SLIDE_FILES := $(shell find $(SLIDES_DIR) -name '*.md' -type f)
 GUIDE_DIR := $(DIST_DIR)/guide
 PANDOC := $(shell command -v pandoc 2>/dev/null || echo "$(HOME)/.local/bin/pandoc")
 
-.PHONY: all preview build pptx html html-inline index check check-citations dedup clean sync serve guide help
+.PHONY: all preview build pptx html html-inline index check check-citations dedup clean sync serve guide pdf-full help
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
@@ -74,6 +75,15 @@ dedup: ## Remove duplicate images from all asset directories
 		python3 scripts/dedup-images.py "$$d"; \
 	done
 
+pdf-full: $(PDF_FULL_DIR) ## Build full-content PDFs (no clipping) → dist/pdf-full/
+	@for f in $(SLIDE_FILES); do \
+		slug=$$(dirname $$f | sed 's|^$(SLIDES_DIR)/||'); \
+		outfile="$(PDF_FULL_DIR)/$$slug-$$(basename $$f .md).pdf"; \
+		echo "  PDF:  $$f -> $$outfile"; \
+		$(MARP) --no-stdin --pdf --theme themes/sorbonne-fullpage.css \
+			--theme-set ./themes --allow-local-files "$$f" -o "$$outfile"; \
+	done
+
 guide: ## Build student guide as DOCX → dist/guide/
 	@bash scripts/install-pandoc.sh
 	@mkdir -p $(GUIDE_DIR)
@@ -88,6 +98,9 @@ $(HTML_DIR):
 
 $(PPTX_DIR):
 	mkdir -p $(PPTX_DIR)
+
+$(PDF_FULL_DIR):
+	mkdir -p $(PDF_FULL_DIR)
 
 clean: ## Remove all build artifacts
 	rip $(DIST_DIR) 2>/dev/null || true

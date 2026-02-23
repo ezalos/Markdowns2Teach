@@ -1,0 +1,10 @@
+/* ABOUTME: Full-page variant of the Sorbonne theme for reference/review PDFs. */
+/* ABOUTME: Doubles slide height and removes overflow clipping so all content is visible. */
+
+/* @theme sorbonne-fullpage */
+@import 'sorbonne';
+
+section {
+  height: 1440px;
+  overflow: visible;
+}
