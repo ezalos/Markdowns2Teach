@@ -473,6 +473,7 @@ Jusqu'à **2 bonus** parmi les suivants :
 | **Interface web** | Un site (Lovable, bolt.new...) avec lequel je peux interagir |
 | **Inputs complexes** | Traiter des images, vidéos, ou fichiers audio |
 | **Base de données** | Système avec mémoire, corpus de données (type RAG) |
+| **ML Task** | Choisir une tache de ML qui n'est pas de la classification |
 
 > Les bonus récompensent l'exploration et l'ambition. Mais un projet simple qui fonctionne bien vaut mieux qu'un projet ambitieux qui plante en démo.
 
@@ -538,3 +539,5 @@ Ce cours ne couvre **pas tout** ce dont vous aurez besoin — et c'est volontair
 - Les projets personnalisés doivent être validés par l'enseignant
 
 > Le guide technique complet vous sera envoyé par email. En Session 2, on construit !
+
+- Vous avez jusqu'au vendredi qui precede le dernier cours pour m'envoyer votre workflow n8n et son dataset, et jusqu'au debut du cours pour m'envoyer votre presentation par mail a develle.louis@gmail.com
