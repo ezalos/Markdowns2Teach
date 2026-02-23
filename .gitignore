@@ -26,6 +26,7 @@ docs/sources/
 # Secrets
 .envrc
 n8n/.env
+n8n/group-credentials.csv
 
 # n8n runtime data
 n8n/shared/

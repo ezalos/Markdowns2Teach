@@ -66,7 +66,6 @@ footer: ""
 | Le business de l'IA | Qui gagne de l'argent, comment, et pourquoi |
 | Éthique & gouvernance | Les règles du jeu et vos présentations finales |
 
-> Chaque session inclut un **atelier pratique** (projet de groupe).
 
 ---
 
@@ -80,7 +79,7 @@ footer: ""
 | **4** | Lundi 23 mars | **18h00–21h00** | **École 42 — 96 Bd Bessières** |
 | **5** | Lundi 30 mars | 17h30–20h30 | Paris 1 — 14 rue Cujas |
 
-**⚠️ Session 4** : pour accueillir un intervenant en fauteuil roulant, le cours a lieu à l'**École 42** (96 Bd Bessières, 75017). Depuis le 14 rue Cujas : **~35 min** (RER B + métro 14, ou métro 4 + 14). Le cours démarre **30 min plus tard** (18h) pour que tout le monde ait le temps d'arriver.
+**⚠️ Session 4** : pour accueillir un intervenant en fauteuil roulant, le cours a lieu à l'**École 42** (96 Bd Bessières, 75017). Depuis le 14 rue Cujas : **~30 min** (RER B + métro 14, ou métro 4 + 14). Le cours démarre **30 min plus tard** (18h) pour que tout le monde ait le temps d'arriver.
 
 ---
 
@@ -104,8 +103,8 @@ Chaque session de 3h suit le même rythme :
 
 | Composante | Poids | Format |
 |---|---|---|
-| **QCM final** | 30% | 20 questions, 30 min, en Session 5 |
-| **Projet de groupe** | 50% | Par équipes de 4, présentation en Session 5 |
+| **QCM final** | 40% | 20 questions, 30 min, en Session 5 |
+| **Projet de groupe** | 40% | Par équipes de 4, présentation en Session 5 |
 | **Participation** | 20% | Engagement en cours et en ateliers |
 
 > Détails complets du projet et des critères dans le **Bloc C** de cette session.
@@ -114,7 +113,7 @@ Chaque session de 3h suit le même rythme :
 
 # 07 — QCM — Comment ça marche
 
-- Un **QCM unique** en Session 5, couvrant l'ensemble du cours
+- Un **QCM** en Session 5, couvrant l'ensemble du cours
 - Questions à choix multiples sur les 5 sessions
 - *Objectif* : vérifier la compréhension, pas piéger
 
@@ -147,7 +146,7 @@ Chaque session de 3h suit le même rythme :
 - **Être ponctuel** — on commence à 17h30 précises
 
 *Ce que vous pouvez attendre de moi* :
-- Des cas concrets et récents (2024–2026)
+- Des cas concrets et récents (2023–2026)
 - De l'honnêteté sur ce que l'IA sait et ne sait pas faire
 - De la disponibilité pour vos questions, en cours et par email
 

@@ -150,13 +150,14 @@ La Generative AI fait les gros titres — mais le Machine Learning traditionnel 
 |---|---|---|
 | **Dépenses 2025** | ~$94 Mds [1] | ~$38 Mds [2] |
 | **Valeur potentielle** | $11 – 17,7 T/an (McKinsey 2023) [3] | + $2,6 – 4,4 T/an [3] |
+| **Investissements 2024** | 150 Mds [6] | $30 Mds [6] |
 | **Déploiement** | 71% des entreprises [4] | 29% comme type le + fréquent [5] |
 | **Maturité** | Prouvé depuis 15 ans | En phase d'adoption rapide |
 | **Cas typiques** | Prédiction, optimisation | Génération, raisonnement |
 
 > *Pour un entrepreneur* : connaître les deux mondes est un avantage compétitif. La GenAI fait le buzz, le ML classique fait le chiffre d'affaires.
 
-<small>Sources : [1] [Precedence Research ML](https://www.precedenceresearch.com/machine-learning-market) · [2] [Precedence Research GenAI](https://www.precedenceresearch.com/generative-ai-market) · [3] [McKinsey](https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier) · [4] [McKinsey State of AI 2025](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai) · [5] [Gartner](https://www.gartner.com/en/newsroom/press-releases/2024-05-07-gartner-survey-finds-generative-ai-is-now-the-most-frequently-deployed-ai-solution-in-organizations)</small>
+<small>Sources : [1] [Precedence Research ML](https://www.precedenceresearch.com/machine-learning-market) · [2] [Precedence Research GenAI](https://www.precedenceresearch.com/generative-ai-market) · [3] [McKinsey](https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier) · [4] [McKinsey State of AI 2025](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai) · [5] [Gartner](https://www.gartner.com/en/newsroom/press-releases/2024-05-07-gartner-survey-finds-generative-ai-is-now-the-most-frequently-deployed-ai-solution-in-organizations) [6] [Standford HAI](https://hai.stanford.edu/ai-index/2025-ai-index-report/economy) </small>
 
 ---
 

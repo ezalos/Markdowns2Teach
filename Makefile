@@ -51,6 +51,7 @@ pptx: $(PPTX_DIR) ## Build PPTX presentations → dist/pptx/
 		outfile="$(PPTX_DIR)/$$slug-$$(basename $$f .md).pptx"; \
 		echo "  PPTX: $$f -> $$outfile"; \
 		$(MARP) --pptx-editable "$$f" -o "$$outfile"; \
+		uv run scripts/fix-pptx-margins.py "$$outfile"; \
 	done
 
 html-inline: html ## Inject image preloader script into HTML slides

@@ -222,7 +222,7 @@ Formate le résultat en texte lisible
 1. Ouvrez `https://7b97-77-134-130-112.ngrok-free.app` dans votre navigateur
 2. Connectez-vous (identifiants fournis)
 3. Cliquez sur **"Create new workflow"**
-4. Nommez-le : `Sentiment - Equipe X`
+4. Nommez-le : `GXX — PROD/EVAL/TEST — Title`
 
 Ensuite :
 - Cliquez sur **"+"** pour ajouter un node
@@ -368,7 +368,7 @@ En 10 minutes, sans une seule ligne de code :
 | Livrable | Description |
 |----------|-------------|
 | **Workflow n8n** | Système de classification fonctionnel |
-| **Interface publique** | Accessible en ligne (chat n8n, site web, ou bot Telegram) |
+| **Interface publique** | Accessible en ligne par n'importe qui (site web, bot Telegram, Whatsapp,...) |
 | **Dataset de test** | 20+ exemples, du facile au difficile, proches des données réelles |
 | **Évaluation** | Au moins 2 modèles testés, résultats comparés, choix justifié |
 | **Présentation** | 4 min en Session 5 : démo live + analyse des résultats |
@@ -403,7 +403,7 @@ Et aussi : détection de spam email, screening de CV, veille réseaux sociaux...
 
 - **20 exemples minimum**
 - Du **facile au difficile** : cas évidents + cas limites
-- **Proche de la prod** : données réalistes
+- **Proche d'usages réels** : données réalistes
 - **Équilibré** : ~même nombre par catégorie
 
 </div>
@@ -456,9 +456,8 @@ Pour chaque modèle, relevez le **score sur votre dataset** et documentez :
 
 - Présentation + démo tient en 4 min
 - Produit expliqué clairement
+- Bon choix de metrique d'evaluation
 - Choix du modèle justifié
-
-**Poids faible** : esthétique, mise en forme
 
 </div>
 
