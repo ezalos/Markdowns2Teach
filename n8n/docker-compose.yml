@@ -1,12 +1,10 @@
 # ABOUTME: Docker Compose configuration for n8n workflow automation.
-# ABOUTME: Exposes n8n on port 1111 for the M2 course classification workflow.
+# ABOUTME: Uses Cloudflare Tunnel (cloudflared) to expose n8n at n8n.develle.fr for the M2 course.
 
 services:
   n8n:
     image: docker.n8n.io/n8nio/n8n:2.8.3
     restart: unless-stopped
-    ports:
-      - "1111:5678"
     environment:
       - GENERIC_TIMEZONE=${GENERIC_TIMEZONE}
       - TZ=${GENERIC_TIMEZONE}
@@ -34,6 +32,15 @@ services:
     volumes:
       - n8n_data:/home/node/.n8n
       - ./shared:/files
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    restart: unless-stopped
+    command: tunnel run
+    environment:
+      - TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN}
+    depends_on:
+      - n8n
 
 volumes:
   n8n_data:

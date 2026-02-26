@@ -5,7 +5,7 @@
 
 ## Connexion
 
-- **URL** : `https://7b97-77-134-130-112.ngrok-free.app`
+- **URL** : `https://n8n.develle.fr`
 - **Login** : email et mot de passe partagés (distribués en séance)
 - Tous les groupes partagent la même instance — soyez respectueux
 

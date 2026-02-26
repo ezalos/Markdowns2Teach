@@ -156,7 +156,7 @@ Chaque node fait *une seule chose* :
 - **HTTP Request** — appelle une API
 - **Set** — transforme les données
 
-Notre instance : `https://7b97-77-134-130-112.ngrok-free.app`
+Notre instance : `https://n8n.develle.fr`
 
 > Pas de code, pas d'installation. Vous configurez visuellement, vous testez en un clic.
 
@@ -219,7 +219,7 @@ Formate le résultat en texte lisible
 
 # 07 — Étape 1 : créer le workflow
 
-1. Ouvrez `https://7b97-77-134-130-112.ngrok-free.app` dans votre navigateur
+1. Ouvrez `https://n8n.develle.fr` dans votre navigateur
 2. Connectez-vous (identifiants fournis)
 3. Cliquez sur **"Create new workflow"**
 4. Nommez-le : `GXX — PROD/EVAL/TEST — Title`
