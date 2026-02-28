@@ -26,7 +26,7 @@ all: build ## Build all outputs (HTML + PPTX)
 preview: ## Launch Marp preview server
 	$(MARP) --preview $(SLIDES_DIR)
 
-build: html pptx ## Build both HTML and PPTX
+build: html pptx pdf-full ## Build both HTML and PPTX
 
 html: $(HTML_DIR) ## Build HTML slides → dist/html/
 	@for f in $(SLIDE_FILES); do \
@@ -58,8 +58,8 @@ pptx: $(PPTX_DIR) ## Build PPTX presentations → dist/pptx/
 html-inline: html ## Inject image preloader script into HTML slides
 	@python3 scripts/inline-images.py $(HTML_DIR)
 
-serve: html-inline ## Serve HTML slides with image preloader on port 3901
-	npx -y serve $(HTML_DIR) -l tcp://0.0.0.0:3901 --cors --no-etag
+serve: html-inline ## Serve password-protected HTML slides on port 3901
+	python3 scripts/serve-auth.py $(HTML_DIR) --port 3901
 
 sync: ## Sync PPTX files to Google Drive via rclone
 	rclone sync $(PPTX_DIR)/ $(GDRIVE_REMOTE) --progress
