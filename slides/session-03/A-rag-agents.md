@@ -5,7 +5,7 @@ paginate: true
 header: "Deep Tech & ML (UE3) — Session 3 · M2 IMT&E · Paris 1 Panthéon-Sorbonne"
 footer: "Sources multiples"
 ---
-<!-- ABOUTME: RAG et Agents IA — pipeline RAG complet (chunking, embeddings, vector DB, hybrid search), agents (ReAct, tool use, MCP), synthèse décisionnelle. -->
+<!-- ABOUTME: RAG et Agents IA — pipeline RAG complet (chunking, embeddings, vector DB, hybrid search, reranking), agents (ReAct, tool use, MCP, Skills), synthèse décisionnelle. -->
 <!-- ABOUTME: Session 3A pour étudiants M2 IMT&E Paris 1 : maîtriser les deux piliers de l'ingénierie IA appliquée. -->
 
 <!-- _class: title -->
@@ -142,26 +142,22 @@ Les vecteurs sont stockés dans des **bases vectorielles** optimisées pour la r
 
 <div class="left">
 
-### Recherche par mots-clés (BM25)
-
+**Mots-clés (BM25)** :
 - Compare les **mots exacts** entre requête et documents
-- Rapide : 5–15ms, CPU uniquement
-- Excellent pour les termes précis (codes produit, noms propres)
+- Rapide (5–15ms), excellent pour les termes précis
 - **Faiblesse** : ne comprend pas les synonymes
 
 </div>
 <div class="right">
 
-### Recherche sémantique (Embeddings)
-
+**Sémantique (Embeddings)** :
 - Compare le **sens** des textes via vecteurs
-- Plus lent : ~45ms, nécessite GPU ou API
 - Excellent pour les questions en langage naturel
 - **Faiblesse** : peut manquer des termes exacts
 
 </div>
 
-> **La meilleure approche : les deux combinés** (Hybrid Search). Gain : **+15–30% de rappel** vs chaque méthode seule [1].
+> **Les deux combinés** (Hybrid Search) = **+15–30% de rappel** vs chaque méthode seule [1].
 
 <small>Sources : [1] [Anthropic — Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval)</small>
 
@@ -232,21 +228,63 @@ Le RAG est partout en 2025–2026 — **86%** des organisations augmentent leurs
 | **Données fraîches** | Temps réel | Statique |
 | **Coût initial** | ~$70–1K/mois | $5–50/run |
 | **Traçabilité** | Sources citables | Boîte noire |
-| **Style/format** | Limité | Total contrôle |
 
 </div>
 <div class="right">
 
-**En pratique** :
 - **RAG** pour les données qui changent, quand la traçabilité compte
 - **Fine-tuning** pour le style et les hauts volumes
-- **Les deux combinés** : +10–20% d'accuracy vs séparément [1]
+- **Les deux combinés** : +10–20% d'accuracy [1]
 
 > Le bon choix dépend du volume, de la fraîcheur et du budget — pas de la hype.
 
 </div>
 
 <small>Sources : [1] [RAFT — UC Berkeley](https://arxiv.org/abs/2403.10131)</small>
+
+---
+
+# 12 — RAG avancé : Reranking et Contextual Retrieval
+
+Le RAG basique récupère les top-K documents par similarité. En production, deux techniques changent la donne :
+
+**Reranking** — Un Cross-Encoder re-score les résultats après la recherche initiale :
+- Gain : **+20–35% de précision** pour 50–500ms de latence [1]
+- Outils : Cohere Rerank, Jina Reranker, BGE-Reranker (OSS)
+
+**Contextual Retrieval** (Anthropic) — Ajouter un résumé de contexte à chaque chunk avant l'embedding :
+- Le LLM génère "Ce chunk parle de la politique parking du bâtiment A" → embedé avec le chunk
+- Résultat : **67% de réduction** des échecs de retrieval vs RAG naïf [2]
+
+> Ces deux techniques sont complémentaires et se déploient en quelques heures. C'est le meilleur ratio effort → qualité après le pipeline de base.
+
+<small>Sources : [1] [Données agrégées — recherche interne](docs/research/rag-ecosystem/report.md) · [2] [Anthropic — Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval)</small>
+
+---
+
+<!-- _class: cols -->
+
+# 13 — RAG : les patterns de production
+
+<div class="left">
+
+- **Agentic RAG** — l'agent reformule la query et itère
+- **Self-RAG** — le LLM juge si sa réponse a besoin de plus de contexte
+- **Corrective RAG** — vérifie les documents avant génération
+
+</div>
+<div class="right">
+
+- Chunking adapté au type de contenu
+- Hybrid Search (BM25 + dense) + Reranker
+- Évaluation sur dataset réel (Ragas, TruLens)
+- Monitoring des taux de retrieval
+
+</div>
+
+> Les meilleurs systèmes combinent Hybrid Search + Reranking + boucle agentique → **>90% de pertinence** [1].
+
+<small>Sources : [1] [Données agrégées — recherche interne](docs/research/rag-ecosystem/report.md)</small>
 
 ---
 
@@ -258,7 +296,7 @@ Le RAG est partout en 2025–2026 — **86%** des organisations augmentent leurs
 
 ---
 
-# 12 — Qu'est-ce qu'un Agent ?
+# 14 — Qu'est-ce qu'un Agent ?
 
 Un **Agent** est un LLM qui enchaîne plusieurs actions de manière autonome pour accomplir un objectif.
 
@@ -275,23 +313,20 @@ La différence clé avec un chatbot :
 
 ---
 
-# 13 — La boucle ReAct : Reasoning + Acting
+# 15 — La boucle ReAct : Reasoning + Acting
 
 Le pattern dominant des agents est **ReAct** (Reasoning + Acting) [1] :
 
-**Thought** — Le modèle raisonne sur la tâche
-↓
-**Action** — Il exécute une action (recherche, API, calcul)
-↓
-**Observation** — Il analyse le résultat
-↓
-**Thought** — Il décide : "J'ai assez d'info ?" → sinon, nouvelle action
+**Thought** → Le modèle raisonne sur la tâche
+**Action** → Il exécute une action (recherche, API, calcul)
+**Observation** → Il analyse le résultat
+**Thought** → "J'ai assez d'info ?" → sinon, nouvelle action
 
-**Exemple concret** :
-- *Thought* : "Je dois trouver le chiffre d'affaires 2025 de Mistral AI"
+**Exemple** :
+- *Thought* : "Je dois trouver le CA 2025 de Mistral AI"
 - *Action* : Recherche web → "Mistral AI revenue 2025"
-- *Observation* : "Résultat : Mistral a atteint $300M ARR en 2025"
-- *Thought* : "J'ai la réponse, je peux la synthétiser pour l'utilisateur"
+- *Observation* : "Mistral a atteint $300M ARR en 2025"
+- *Thought* : "J'ai la réponse, je peux synthétiser"
 
 > La puissance de ReAct : le LLM **montre son raisonnement**, ce qui le rend auditable et débugable.
 
@@ -299,7 +334,7 @@ Le pattern dominant des agents est **ReAct** (Reasoning + Acting) [1] :
 
 ---
 
-# 14 — Tool Use : donner des capacités au LLM
+# 16 — Tool Use : donner des capacités au LLM
 
 Les LLMs ont des limites intrinsèques. Le **Tool Use** (ou Function Calling) les compense :
 
@@ -316,86 +351,183 @@ Le LLM génère un **appel de fonction structuré** (JSON), le système exécute
 
 ---
 
-<!-- _class: cols -->
+# 17 — MCP : le protocole universel des agents
 
-# 15 — MCP : Model Context Protocol
+Le **Model Context Protocol** (Anthropic, nov. 2024) standardise la connexion LLM ↔ outils :
 
-<!-- TODO: expand after MCP deep research — ajouter des exemples concrets de serveurs MCP, l'écosystème de connecteurs, et des retours d'expérience de déploiement en entreprise -->
+**Architecture** : Client (l'agent) → Host (l'app) → Server (l'outil), via JSON-RPC 2.0
 
-<div class="left">
+**3 primitives** :
 
-### Le problème
+| Primitive | Rôle | Exemple |
+|---|---|---|
+| **Tools** | Actions que l'agent peut exécuter | `create_issue()`, `send_email()` |
+| **Resources** | Données que l'agent peut lire | Fichiers, bases de données, APIs |
+| **Prompts** | Templates réutilisables | "Analyse ce code et propose des améliorations" |
 
-Chaque outil = une intégration custom :
-- API différente par fournisseur
-- N modèles × M outils = **N×M** connecteurs
-- Maintenance cauchemardesque
+**L'analogie USB-C** : avant, chaque outil avait son connecteur. MCP = **un seul standard** pour tous les agents et tous les outils.
 
-### La solution : MCP
-
-Un **standard ouvert** (Anthropic, nov. 2024) qui définit comment les LLMs se connectent aux outils et aux données.
-
-</div>
-<div class="right">
-
-### L'analogie USB-C
-
-Avant USB-C : chaque appareil avait son câble. Après : un seul standard universel.
-
-MCP = **USB-C pour l'IA** :
-- 1 protocole → tous les outils
-- Un serveur MCP expose des "tools" que tout agent peut appeler
-- Adopté par Claude, Cursor, Windsurf, et un écosystème croissant [1]
-
-</div>
-
-> MCP transforme le marché : construire un outil compatible MCP = être **intégrable par tous les agents** du marché.
+> MCP cumule **97M+ téléchargements SDK/mois** et **10 000+ serveurs** actifs en 2026 [1].
 
 <small>Sources : [1] [Anthropic — MCP](https://www.anthropic.com/news/model-context-protocol)</small>
 
 ---
 
-# 16 — Skills : des capacités composables
+<!-- _class: cols -->
 
-<!-- TODO: expand after Skills research — ajouter des exemples concrets de Skills packagées, la différence avec les simples tools, et comment les entreprises construisent des bibliothèques de Skills internes -->
+# 18 — MCP : l'écosystème en 2026
 
-Une **Skill** empaquète un outil + un prompt + un workflow en une capacité réutilisable :
+<div class="left">
+
+**Adoption** :
+- Claude, ChatGPT, Gemini, Copilot, Cursor
+- Donné à l'**AAIF** (Linux Foundation, déc. 2025) [1]
+- **146 membres** (Anthropic, Google, Microsoft, Block)
+
+</div>
+<div class="right">
+
+**Opportunité business** :
+- 1 serveur MCP → compatible avec **tous** les agents
+- Exemples : Stripe, GitHub, Notion, Slack MCP
+- Coût d'intégration : heures au lieu de semaines
+
+</div>
+
+> Au lieu de construire N connecteurs, vous en construisez **un seul**. Pour une startup, c'est un levier massif.
+
+<small>Sources : [1] [AAIF — Linux Foundation](https://www.linuxfoundation.org/)</small>
+
+---
+
+# 19 — MCP : les risques de sécurité
+
+MCP ouvre des capacités puissantes — mais aussi de nouveaux vecteurs d'attaque :
+
+| Attaque | Mécanisme | Impact |
+|---|---|---|
+| **Tool Poisoning** | Descriptions malveillantes cachées dans les tools | L'agent exécute du code non souhaité [1] |
+| **Rug Pull** | Un serveur MCP met à jour ses tools silencieusement | Comportement de l'agent change sans alerte |
+| **Cross-Server Shadowing** | Un serveur imite les tools d'un autre | L'agent envoie des données au mauvais destinataire |
+
+**Bonnes pratiques** :
+- Auditer chaque serveur MCP comme un fournisseur
+- Épingler les versions des serveurs MCP
+- Limiter les permissions au strict nécessaire (principe du moindre privilège)
+
+> La sécurité MCP est un sujet émergent. Invariant Labs a démontré ces attaques en avril 2025 [1].
+
+<small>Sources : [1] [Invariant Labs — MCP Security](https://invariantlabs.ai/)</small>
+
+---
+
+# 20 — Skills : quand un agent sait faire quelque chose
+
+Un **Tool** connecte l'agent à un service. Une **Skill** lui apprend un **processus complet** :
 
 | Concept | Ce que c'est | Exemple |
 |---|---|---|
-| **Tool** | Une fonction que l'agent peut appeler | `search_web(query)` |
-| **Prompt** | Les instructions pour utiliser le tool | "Cherche 3 sources, vérifie la date" |
-| **Skill** | Tool + Prompt + Logique métier | "Veille concurrentielle" = recherche + filtrage + résumé + alerte |
+| **Tool** | Une fonction atomique | `search_web(query)` |
+| **Skill** | Tool + Prompt + Logique métier | "Veille concurrentielle" = recherche + filtrage + comparaison + alerte |
 
-**Pourquoi ça compte** :
-- Les Tools sont des briques élémentaires — les Skills sont des **processus métier**
-- Une Skill est testable, versionnable, partageable entre agents
-- C'est le passage du "l'agent sait utiliser Google" au "l'agent sait faire une veille marché"
+**Le standard SKILL.md** (Anthropic, oct. 2025 — ouvert déc. 2025 via agentskills.io) [1] :
+- Un dossier contenant un fichier `SKILL.md` avec instructions YAML + markdown
+- Progressive Disclosure : nom/description au démarrage → instructions complètes à l'activation
+- **26+ plateformes** adoptent le standard (Claude Code, Cursor, Windsurf...) [1]
 
-> Pour une startup : construire des Skills propriétaires sur vos processus métier = votre **avantage compétitif** en IA.
+> Tool = connectivité ("*comment* se connecter"). Skill = connaissance procédurale ("*quoi* faire").
+
+<small>Sources : [1] [Anthropic — Skills](https://www.anthropic.com/)</small>
 
 ---
 
-# 17 — Méthodologie : construire un agent qui marche
+<!-- _class: cols -->
 
-<!-- TODO: expand after agent methodology research — ajouter des frameworks formels (LATS, Plan-and-Solve), des métriques de fiabilité, et des retours d'expérience d'échecs en production -->
+# 21 — Skills vs Tools : la bonne abstraction
 
-La règle d'or : **commencer simple, ajouter de la complexité par couches** :
+<div class="left">
 
-| Étape | Ce qu'on fait | Validation |
+- **Tool** : `search_web(query)` → une seule action atomique
+- **Skill** : "Veille concurrentielle" = recherche + filtrage + comparaison + alerte
+- Les Skills sont testables, versionnables, partageables entre agents
+
+</div>
+<div class="right">
+
+- Les Skills invoquent des sub-agents qui chargent d'autres Skills (composition)
+- **26+ plateformes** adoptent le standard SKILL.md
+- Vos Skills propriétaires = votre **avantage compétitif** en IA
+
+</div>
+
+---
+
+# 22 — Construire un agent : la règle d'or
+
+Anthropic "Building Effective Agents" (déc. 2024) — la référence canonique [1] :
+
+**Commencer simple, monter en complexité uniquement si nécessaire** :
+
+| Niveau | Pattern | Quand monter |
 |---|---|---|
-| **1. Single Tool** | Un agent, un outil, une tâche | L'outil s'exécute correctement à 95%+ |
-| **2. Multi-tool** | Ajouter un deuxième outil | L'agent choisit le bon outil au bon moment |
-| **3. Multi-step** | Tâches nécessitant 3–5 étapes | Le taux de complétion reste > 80% |
-| **4. Autonomie** | L'agent gère des cas imprévus | Supervision humaine sur les cas limites |
+| **1. Prompt** | Un prompt bien conçu | Le prompt seul ne suffit plus |
+| **2. Prompt Chain** | Plusieurs appels LLM en séquence | La séquence est trop rigide |
+| **3. Routing** | Le LLM choisit quel prompt exécuter | Il faut interagir avec l'extérieur |
+| **4. Tool Use** | Le LLM appelle des fonctions | La tâche nécessite plusieurs outils/étapes |
+| **5. Agent Loop** | Boucle ReAct autonome | Un seul agent ne suffit pas |
+| **6. Multi-Agent** | Plusieurs agents collaborent | Dernier recours |
 
-> **Rappel critique** : 10 étapes à 95% de précision chacune = **~60% de succès global**. Chaque étape ajoutée **multiplie les risques d'échec**, pas les additionne.
+> La plupart des problèmes business se résolvent **avant** le niveau 5. N'utilisez un agent loop que si les niveaux précédents échouent [1].
 
-**Question** : pour votre projet, quelle serait la tâche la plus simple à déléguer à un agent ?
+<small>Sources : [1] [Anthropic — Building Effective Agents](https://www.anthropic.com/research/building-effective-agents)</small>
 
 ---
 
-# 18 — Les agents en 2026 : marché et écosystème
+# 23 — Le problème des erreurs composées
+
+Pourquoi les agents autonomes échouent souvent ? Les **erreurs se multiplient** à chaque étape :
+
+- 10 étapes × 95% de fiabilité chacune = **60% de succès global** (0,95^10)
+- 20 étapes × 95% = **36%** de succès
+- 50 étapes × 95% = **8%** de succès
+
+**Les solutions** :
+- **Réduire le nombre d'étapes** — simplifier le workflow au maximum
+- **Augmenter la fiabilité par étape** — meilleurs prompts, meilleurs tools, validation
+- **Human-in-the-Loop** — supervision humaine aux points critiques
+
+> Gartner prévoit **40%** des projets agents annulés d'ici 2027 [1]. La fiabilité, pas la sophistication, est le vrai défi.
+
+<small>Sources : [1] [Gartner](https://www.gartner.com/)</small>
+
+---
+
+<!-- _class: cols -->
+
+# 24 — Failure Modes : quand les agents déraillent
+
+<div class="left">
+
+- **Context Drift** — oublie son objectif
+- **Infinite Loop** — boucle sans fin
+- **Wrong Tool** — mauvais outil pour la tâche
+- **Hallucinated Success** — déclare victoire sans vérifier
+
+</div>
+<div class="right">
+
+- **Human-in-the-Loop** aux étapes critiques
+- **Retry + escalade** (3 essais → humain)
+- **Observabilité** — logger chaque étape ReAct
+- **Budget** tokens/étapes = circuit breaker
+
+</div>
+
+> **Question** : quelle tâche simple délégueriez-vous à un agent ? Avec quel circuit breaker ?
+
+---
+
+# 25 — Les agents en 2026 : marché et écosystème
 
 Le marché Agentic AI atteint **$7 Mds** en 2025, projeté **$139–260 Mds** en 2034 [1] :
 
@@ -413,7 +545,7 @@ Le marché Agentic AI atteint **$7 Mds** en 2025, projeté **$139–260 Mds** en
 
 ---
 
-# 19 — Agents : attention aux limites
+# 26 — Agents : attention aux limites
 
 Les agents sont prometteurs mais présentent des défis sérieux en 2026 :
 
@@ -428,7 +560,7 @@ Les agents sont prometteurs mais présentent des défis sérieux en 2026 :
 
 ---
 
-# 20 — Discussion : où les agents créent-ils le plus de valeur ?
+# 27 — Discussion : où les agents créent-ils le plus de valeur ?
 
 Réfléchissez à votre projet d'équipe :
 
@@ -454,7 +586,7 @@ Réfléchissez à votre projet d'équipe :
 
 ---
 
-# 21 — La boîte à outils : Prompting → RAG → Agents → Fine-tuning
+# 28 — La boîte à outils : Prompting → RAG → Agents → Fine-tuning
 
 | Besoin | Outil | Effort | Coût | Quand |
 |---|---|---|---|---|
@@ -468,23 +600,23 @@ Réfléchissez à votre projet d'équipe :
 
 ---
 
-# 22 — Key Takeaways
+# 29 — Key Takeaways
 
 1. **Le RAG est le standard** — 86% des organisations l'utilisent ; c'est votre premier investissement après le Prompting
 
-2. **La qualité du pipeline compte** — Chunking, Hybrid Search et Reranking impactent plus que le choix du modèle
+2. **RAG avancé** — Reranking + Contextual Retrieval réduisent les échecs de retrieval de 67%
 
-3. **RAG vs Fine-tuning** — RAG pour données fraîches et traçables, Fine-tuning pour le style. Combinés : +10–20%
+3. **MCP = USB-C pour l'IA** — un standard qui connecte tout agent à tout outil, 97M+ downloads/mois
 
-4. **Les agents = boucle ReAct** — Reasoning + Acting en autonomie, mais chaque étape multiplie les risques
+4. **Skills = processus métier** — au-delà des outils atomiques, les agents savent exécuter des workflows complets
 
-5. **MCP standardise l'écosystème** — construire compatible MCP = être intégrable par tous les agents
+5. **Erreurs composées** — 10 étapes × 95% = 60% de succès. Toujours commencer simple
 
 6. **Commencer simple** — Prompting → RAG → Tool Use → Agents → Fine-tuning
 
 ---
 
-# 23 — Pour la suite
+# 30 — Pour la suite
 
 **À explorer** :
 

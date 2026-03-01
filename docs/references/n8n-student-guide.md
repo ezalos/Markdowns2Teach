@@ -84,12 +84,12 @@ n8n stocke les credentials de façon chiffrée. Chaque groupe gère les siens.
 
 ### OpenRouter
 
-- **Sans paiement** : 200 requêtes/jour sur les modèles gratuits (suffixe `:free`)
+- **Sans paiement** : 50 requêtes/jour sur les modèles gratuits (suffixe `:free`)
 - **Avec un achat de $10 de crédits** : 1 000 requêtes/jour sur les modèles gratuits
 - 30+ modèles gratuits disponibles, dont `mistralai/mistral-small-3.1-24b-instruct:free`
 - Créez une clé sur [openrouter.ai/keys](https://openrouter.ai/keys)
 
-> Pour le projet, le free tier sans paiement (200 req/jour) est largement suffisant pour développer et tester. Gardez les limites en tête pour l'évaluation : avec 20 cas de test, une évaluation = 20 requêtes.
+> Pour le projet, le free tier sans paiement (50 req/jour) est suffisant pour développer et tester. Gardez les limites en tête pour l'évaluation : avec 20 cas de test, une évaluation = 20 requêtes. Si vous avez besoin de plus de requêtes, un achat de $10 passe la limite à 1 000/jour.
 
 ## Ce que vous pouvez faire
 

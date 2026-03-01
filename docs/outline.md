@@ -56,19 +56,23 @@ Each 3h session follows:
 - Agentic AI: ReAct, Tool Use, MCP protocol
 - RAG vs Fine-tuning decision matrix
 
-**C — N8N #2** *(practice — design TBD)*
-- Workflow with HuggingFace open-source model
+**C — Classification par LLM avec OpenRouter** (`session-02/C-n8n-openrouter.md`, 16 slides)
+- OpenRouter intro (free tier, API key setup)
+- Structured Output in practice (prompt, field ordering, confidence)
+- Demo: n8n workflow Chat Trigger → HTTP Request → Code → Response
+- Hands-on: implement OpenRouter approach for team project
 
 ---
 
 ## Session 3 — Cadrer un projet IA
 
-**A — Évaluer une solution IA** (`session-03/A-evaluer-solution-ia.md`, 18 slides)
-- Metrics: confusion matrix, precision/recall (business framing)
-- Architecture decision matrix
-- Benchmarks, leaderboards, MMLU/HumanEval
-- Build vs Buy analysis
-- No-code AI landscape: Bubble, Make, Zapier, N8N
+**A — RAG & Agents IA** (`session-03/A-rag-agents.md`, 30 slides)
+- RAG pipeline (chunking, embeddings, vector DB, hybrid search, reranking)
+- RAG advanced (Contextual Retrieval, Agentic/Self/Corrective RAG)
+- Agents (ReAct, Tool Use, MCP protocol deep dive, MCP security)
+- Skills (SKILL.md standard, Skills vs Tools)
+- Agent methodology (Anthropic progression, compound errors, failure modes)
+- Toolbox synthesis, key takeaways
 
 **B — Méthodologie projet IA** (`session-03/B-methodologie-projet.md`, 17 slides)
 - CRISP-DM 6 phases, LLMOps 9 phases
@@ -77,7 +81,10 @@ Each 3h session follows:
 - Case studies: Klarna, L'Oréal, Schneider, Doctolib, Alan
 - Failure analysis patterns
 
-**C — TBD** *(project work or exercise)*
+**C — Agents en action** (`session-03/C-demo-agents.md`, 11 slides)
+- Live demo: n8n AI Agent with ReAct loop, Calculator + HTTP tools
+- MCP teaser: Claude Desktop + filesystem MCP
+- Project check-in: team status, presentation prep, checklist
 
 ---
 
@@ -121,6 +128,6 @@ Each 3h session follows:
 
 ## Content Not Yet Designed
 
-- **Practice thread**: N8N workshop progression (Sessions 2C, 3C) — S1-C done
+- **Practice thread**: N8N workshop progression — S1-C done, S2-C done, S3-C done
 - **Prompt engineering competition**: timing, dataset design
 - **Presentation logistics**: 28 students, team composition

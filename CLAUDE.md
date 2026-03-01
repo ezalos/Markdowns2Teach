@@ -213,8 +213,10 @@ make clean      # Remove dist/
 | `slides/session-01/C-premier-projet-ia.md` | Votre premier projet IA | 25 |
 | `slides/session-02/A-llms.md` | Les LLMs : comprendre et utiliser | 40 |
 | `slides/session-02/B-evaluer-ia.md` | Évaluer l'IA | 18 |
-| `slides/session-03/A-rag-agents.md` | RAG & Agents IA | 27 |
+| `slides/session-02/C-n8n-openrouter.md` | Classification par LLM avec OpenRouter | 16 |
+| `slides/session-03/A-rag-agents.md` | RAG & Agents IA | 30 |
 | `slides/session-03/B-methodologie-projet.md` | Méthodologie projet IA | 27 |
+| `slides/session-03/C-demo-agents.md` | Agents en action | 11 |
 | `slides/session-04/A-ecosysteme-ia.md` | L'écosystème IA | 18 |
 | `slides/session-04/B-business-models.md` | Business Models & Cas Réels | 18 |
 | `slides/session-05/A-regulation-ethique.md` | Régulation & IA responsable | 23 |
