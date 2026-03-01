@@ -1,0 +1,29 @@
+Context:
+This diagram illustrates the Tip-Adapter method for a research paper on multi-query embedding search methods for production visual retrieval. The diagram should be clear, academic, and publication-quality. Tip-Adapter is a training-free few-shot adaptation technique for CLIP-style vision-language models. It augments CLIP's zero-shot classification with a non-parametric key-value cache built from a small number of labeled examples, achieving strong few-shot performance without any gradient-based training.
+
+Elements to represent:
+1. Cache construction (Step 1) — The preparation phase shown on the left side. Given N few-shot labeled examples across C classes, construct two matrices. The key matrix F has dimensions N by D (where D is the embedding dimension, e.g., 768 for SigLIP2), with each row being the L2-normalized visual embedding of a labeled example. The value matrix L has dimensions N by C, with each row being the one-hot label vector of the corresponding example. For instance, with 16 examples across 4 classes, F is 16 by 768 and L is 16 by 4. Show labeled images being encoded by the visual encoder into embeddings that populate the rows of F, with their labels populating L.
+2. Query image processing — A new unlabeled image enters the system and is encoded by the visual encoder (same frozen SigLIP2 or CLIP backbone) into a D-dimensional embedding vector. This single embedding is used in two parallel scoring paths.
+3. Zero-shot CLIP path — The first scoring path, shown as the upper branch. The query image embedding is multiplied by the transposed text classifier weight matrix (text embeddings of class names, dimension C by D). This produces logits_clip, a C-dimensional vector of class scores based purely on text-image similarity. This is standard CLIP zero-shot classification with no few-shot examples involved.
+4. Cache lookup path — The second scoring path, shown as the lower branch. The query embedding is multiplied by the transposed key matrix F to produce an N-dimensional vector of similarities to each cached example. These raw similarities are transformed into affinities via an exponential function: affinities equals exp of negative beta times (1 minus similarities), where beta is a sharpness parameter. The affinities are then multiplied by the label matrix L to produce logits_cache, a C-dimensional vector accumulating evidence from similar cached examples weighted by their affinity to the query.
+5. Affinity function detail — A small inset or annotation showing the exponential affinity function. High similarity (close to 1) produces affinity close to 1. Low similarity produces affinity close to 0. The beta parameter controls sharpness: higher beta makes the function more selective (only very similar cached examples contribute). This acts like a soft nearest-neighbor lookup.
+6. Score fusion — The final combination of both paths. The output logits equal logits_clip plus alpha times logits_cache, where alpha is a scalar balancing the contribution of the cache relative to zero-shot CLIP. When alpha equals 0, the system degenerates to standard zero-shot CLIP. When alpha is large, the cache dominates and the system behaves like a pure nearest-neighbor classifier.
+7. Tip-Adapter-F extension — A brief annotation noting the fine-tuned variant. In Tip-Adapter-F, the cached key embeddings in F are made learnable parameters and fine-tuned with a small number of gradient steps (typically 20 epochs). This allows the cache keys to shift in embedding space to better discriminate classes, improving accuracy by 1 to 3 percentage points while still being far cheaper than full fine-tuning.
+
+Hierarchy:
+- Principal: The dual-path architecture with zero-shot CLIP on one branch and cache lookup on the other, converging at the fusion point. The cache construction showing labeled examples becoming key-value pairs should be visually prominent.
+- Secondary: The affinity function transforming similarities into soft weights. The fusion equation with the alpha balancing parameter. The key and value matrices with their dimensions annotated.
+- Optional: Tip-Adapter-F extension note. Beta parameter effect on affinity sharpness. Comparison of accuracy versus number of shots showing Tip-Adapter matching fine-tuned methods without training.
+
+Flow:
+The diagram flows from left to right with a fork-and-merge structure. On the far left, the cache is constructed from labeled few-shot examples (images encoded into F, labels into L). In the center, a query image enters and is encoded, then the path forks: the upper branch computes zero-shot CLIP logits via text classifier multiplication, and the lower branch computes cache logits via key similarity, exponential affinity, and label matrix multiplication. On the right, both sets of logits merge via weighted addition (alpha scaling on the cache logits) to produce the final prediction. Arrows should clearly show the matrix dimensions at each step.
+
+Annotations:
+- Cache matrices: F is N by D (visual embeddings of few-shot examples), L is N by C (one-hot labels)
+- Zero-shot path: logits_clip = query_embedding times text_classifier transposed, dimension C
+- Cache path: similarities = query_embedding times F transposed (dimension N), affinities = exp(-beta * (1 - similarities)), logits_cache = affinities times L (dimension C)
+- Fusion: final_logits = logits_clip + alpha * logits_cache
+- Beta controls affinity sharpness: higher beta means only very similar cached examples contribute
+- Alpha controls cache influence: alpha = 0 recovers pure zero-shot CLIP, large alpha makes it a nearest-neighbor classifier
+- Tip-Adapter-F: make F learnable and fine-tune for approximately 20 epochs for 1 to 3 points improvement
+- Key insight: the cache acts as a non-parametric classifier that complements CLIP's parametric text-based classification

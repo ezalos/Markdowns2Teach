@@ -1,0 +1,28 @@
+Context:
+This diagram illustrates Qdrant's best_score multi-vector scoring strategy for a research paper on multi-query embedding search methods for production visual retrieval. The diagram should be clear, academic, and publication-quality. The best_score strategy is Qdrant's approach to handling queries with multiple positive and negative example vectors simultaneously, designed to avoid the centroid collapse problem that occurs when averaging diverse positive examples into a single query vector.
+
+Elements to represent:
+1. Candidate point — A single database item being evaluated, shown as a prominent point in the center of the diagram. This is a SigLIP2 embedding of an image in the catalog. The scoring process evaluates this candidate against all positive and negative query vectors independently, rather than against a merged centroid.
+2. Multiple positive query vectors — Three to four positive example vectors shown as distinct points in embedding space, each representing a different reference image the user has marked as relevant. Crucially, these may be spread apart (multimodal positives), such as a product photographed from different angles or in different contexts. Dashed lines connect each positive vector to the candidate, labeled with their respective cosine similarity scores.
+3. Multiple negative query vectors — Two to three negative example vectors shown as distinct points, each representing an image the user has marked as irrelevant. These are also connected to the candidate by dashed lines with similarity scores. Negatives might include visually similar but semantically wrong items, like a different brand of handbag or a similar color in a different product category.
+4. Best positive similarity computation — A highlighted arrow or box showing the selection of the maximum similarity between the candidate and any positive vector. This is best_positive equals the maximum of the cosine similarities to all positive examples. If the candidate is very similar to even one positive reference, it gets a high positive score regardless of its distance to other positives.
+5. Best negative similarity computation — A highlighted arrow or box showing the selection of the maximum similarity between the candidate and any negative vector. This is best_negative equals the maximum of the cosine similarities to all negative examples. A single close negative is enough to flag the candidate as potentially irrelevant.
+6. Decision logic — A branching decision node comparing best_positive versus best_negative. If best_positive is greater than best_negative, the candidate receives a positive score equal to sigmoid of best_positive. If best_negative is greater than or equal to best_positive, the candidate receives a negative score equal to negative sigmoid of best_negative. This creates a hard boundary: being closer to any single negative than to any single positive results in elimination.
+7. Sigmoid scoring function — A small inset showing the sigmoid curve mapping raw cosine similarities (range negative one to one) into a zero-to-one score. The sigmoid provides smooth gradation for ranking among accepted candidates while maintaining the hard positive-versus-negative boundary.
+
+Hierarchy:
+- Principal: The candidate point with distance lines radiating to multiple positive and negative vectors, and the max-selection step picking the best positive and best negative similarities. The multimodal nature of the query (multiple separate vectors, not a centroid) should be visually prominent.
+- Secondary: The decision logic comparing best_positive to best_negative, and the sigmoid scoring. The contrast between centroid collapse (a crossed-out averaged vector falling between clusters) and the best_score approach (evaluating against each vector independently).
+- Optional: Sigmoid inset plot. Numerical example with concrete similarity values. Brief note about Qdrant's recommendation API implementing this strategy.
+
+Flow:
+The diagram flows from the periphery inward and then downward. At the top or around the edges, positive vectors (blue) and negative vectors (red) are positioned in the embedding space. The candidate (gray or green) sits in the center. Lines radiate from the candidate to each positive and each negative, labeled with cosine similarity values. Two max-selection boxes on either side extract best_positive (from the blue lines) and best_negative (from the red lines). These two values feed into a comparison node below, which branches into the positive score path (sigmoid of best_positive) or the negative score path (negative sigmoid of best_negative). The final score appears at the bottom.
+
+Annotations:
+- best_positive = max(cos_sim(candidate, p_i) for all positive vectors p_i)
+- best_negative = max(cos_sim(candidate, n_j) for all negative vectors n_j)
+- Score = sigmoid(best_positive) if best_positive > best_negative, else -sigmoid(best_negative)
+- Key advantage: avoids centroid collapse by preserving individual positive vectors. A candidate matching any one positive reference scores well, even if the positives themselves are dissimilar to each other
+- Hard boundary behavior: a candidate that is closer to any single negative than to its closest positive is effectively eliminated with a negative score
+- This approach scales linearly with the number of positive plus negative vectors per candidate evaluation
+- Implemented in Qdrant's recommendation API as the default multi-vector strategy

@@ -1,0 +1,26 @@
+Context:
+This diagram illustrates the Rocchio Relevance Feedback algorithm for a research paper on multi-query embedding search methods for production visual retrieval. The diagram should be clear, academic, and publication-quality. Rocchio is a classic centroid-based approach to query modification, widely used in information retrieval since the 1970s and now applied to dense embedding search over vision-language models.
+
+Elements to represent:
+1. Original query vector (q_original) — A single vector in high-dimensional embedding space, shown as a prominent arrow or point. This is the user's initial search query, either a text embedding or an image embedding produced by SigLIP2 (768 dimensions). It represents the starting point before any feedback is incorporated.
+2. Positive example vectors — A cluster of 3 to 5 vectors grouped relatively close together in embedding space. These are images the user has marked as relevant. They tend to cluster because they share semantic or visual similarity. Each vector is L2-normalized and lies on the unit hypersphere.
+3. Negative example vectors — A scattered set of 2 to 4 vectors spread away from the positive cluster. These are images the user has marked as irrelevant. They are typically more dispersed than positives because irrelevance can manifest in many different directions in the embedding space.
+4. Positive centroid — The mean of all positive example vectors, shown as a computed midpoint of the positive cluster. This centroid represents the "average relevant document" and serves as the attraction target for the modified query.
+5. Negative centroid — The mean of all negative example vectors, shown as a computed midpoint of the scattered negatives. This centroid represents the "average irrelevant document" and serves as the repulsion target.
+6. Modified query vector (q_modified) — The result of the Rocchio formula, shown as a new vector that has shifted away from its original position toward the positive centroid and away from the negative centroid. This is the vector actually used for the next round of nearest-neighbor search.
+7. Formula annotation — The Rocchio update rule: q_modified equals alpha times q_original plus beta times the mean of positive vectors minus gamma times the mean of negative vectors. Typical parameter values are alpha equal to 1.0 (full trust in original query), beta equal to 0.75 (strong pull toward positives), and gamma between 0.15 and 0.25 (moderate push from negatives). After computation, q_modified is L2-normalized back onto the unit hypersphere.
+
+Hierarchy:
+- Principal: The spatial relationship between original query, positive cluster, negative scatter, and modified query. The movement of the query vector should dominate the visual narrative.
+- Secondary: Centroid computation arrows converging from example vectors to their respective centroids. The formula annotation showing alpha, beta, gamma weighting.
+- Optional: Dotted circle or arc indicating the unit hypersphere surface. Dimensional annotation noting 768-dim SigLIP2 space projected to 2D for visualization.
+
+Flow:
+The diagram flows from left to right or top to bottom. Start with the original query vector on the left. In the middle region, show the positive examples clustering above and the negative examples scattered below, with arrows converging to their respective centroids. Then show three weighted arrows from q_original, positive centroid, and negative centroid combining into the modified query on the right. The positive centroid arrow should be thick (beta weight), the original query arrow medium (alpha weight), and the negative centroid arrow thin and dashed pointing away (gamma weight, subtracted). The final modified query appears shifted toward the positive cluster.
+
+Annotations:
+- Formula: q_modified = alpha * q_original + beta * (1/|D_pos|) * sum(d_i for d_i in D_pos) - gamma * (1/|D_neg|) * sum(d_j for d_j in D_neg)
+- Typical values: alpha = 1.0, beta = 0.75, gamma = 0.15 to 0.25
+- All vectors are L2-normalized on the unit hypersphere in 768-dimensional SigLIP2 embedding space
+- Key weakness: Rocchio assumes a unimodal distribution of positive examples. When positives form multiple distinct clusters (e.g., searching for a handbag that appears in both product shots and street style photos), the centroid falls between clusters in a region that may not represent any actual relevant item
+- After modification, the query is re-normalized to unit length for cosine similarity search

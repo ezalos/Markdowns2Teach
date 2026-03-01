@@ -1,0 +1,28 @@
+Context:
+This diagram illustrates the Linear SVM on Frozen Embeddings approach for a research paper on multi-query embedding search methods for production visual retrieval. The diagram should be clear, academic, and publication-quality. This method uses a discriminative classifier rather than a centroid-based approach, finding the optimal decision boundary between relevant and irrelevant examples in the embedding space produced by SigLIP2.
+
+Elements to represent:
+1. Positive example points — A set of 5 to 8 points in embedding space representing images labeled as relevant by the user. These points are shown as filled circles or squares of one color (e.g., blue). They cluster in a region of the 768-dimensional space but may not form a tight ball. Each point is an L2-normalized SigLIP2 embedding lying on the unit hypersphere.
+2. Negative example points — A set of 5 to 8 points representing irrelevant images, shown in a contrasting color (e.g., red). These are more dispersed than positives. Together with the positives, they define the training set for the SVM.
+3. Maximum-margin hyperplane — The central geometric element: a line (in the 2D projection) representing the decision boundary that maximizes the distance between the closest positive and closest negative points. The hyperplane is defined by the equation w dot x plus b equals zero, where w is the normal vector and b is the bias.
+4. Margin bands — Two parallel dashed lines on either side of the hyperplane, at distance 1 over the norm of w. The region between these bands is the margin. A wider margin indicates better generalization. The SVM objective is to maximize this margin while allowing some misclassification via slack variables.
+5. Support vectors — The specific positive and negative points that lie exactly on or within the margin bands. These are highlighted with a circle or ring around them. Only these points determine the hyperplane; all other points could be removed without changing the solution.
+6. Weight vector w — An arrow perpendicular to the hyperplane, pointing from the negative side toward the positive side. This vector is the key insight for retrieval: w acts as a discriminative query embedding (the DQE interpretation). Using w as a search query retrieves items on the positive side of the boundary, effectively encoding what distinguishes relevant from irrelevant items.
+7. Slack variables — Small annotations on one or two misclassified or margin-violating points, showing xi values greater than zero. These represent the soft-margin relaxation controlled by the penalty parameter C.
+8. Comparison callout to Rocchio — A small inset or side annotation contrasting the SVM approach (boundary-based) with Rocchio (centroid-based). The SVM finds where to draw the line; Rocchio finds where the center is.
+
+Hierarchy:
+- Principal: The hyperplane, margin, and the spatial separation of positive versus negative points. The geometric clarity of the maximum-margin concept should dominate.
+- Secondary: Support vectors highlighted, weight vector w shown as the search query direction, slack variables on margin violators.
+- Optional: Comparison callout to Rocchio. Annotation of the decision function f(x) = sign(w dot x + b). Note about soft-margin parameter C controlling the trade-off between margin width and classification accuracy.
+
+Flow:
+The diagram is primarily a spatial layout rather than a sequential flow. The embedding space occupies the central area with positive points on one side and negative points on the other. The hyperplane divides them vertically or diagonally. Margin bands flank the hyperplane. Support vectors are circled. The weight vector w extends perpendicularly from the hyperplane into the positive half-space. A label indicates that w serves as the optimal search query for retrieval. An optional inset at the bottom or side shows the Rocchio centroid approach for contrast: a single centroid point versus the SVM boundary, illustrating why discriminative beats generative when class distributions overlap.
+
+Annotations:
+- Decision function: f(x) = sign(w dot x + b), where w is the learned weight vector and b is the bias term
+- Optimization objective: minimize one-half times the squared norm of w plus C times the sum of slack variables xi_i, subject to y_i times (w dot x_i + b) greater than or equal to 1 minus xi_i
+- The weight vector w can be directly used as a query embedding for nearest-neighbor search (Discriminative Query Expansion)
+- Soft margin parameter C: high C penalizes misclassification heavily (tighter fit), low C allows wider margin with some errors (better generalization)
+- In 768-dimensional SigLIP2 space, even small labeled sets (20 to 50 examples) yield effective linear separability due to high dimensionality
+- Support vectors are the only training points that influence the solution; this sparsity makes SVMs efficient and robust to outliers

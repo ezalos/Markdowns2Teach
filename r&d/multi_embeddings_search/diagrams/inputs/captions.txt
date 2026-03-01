@@ -1,0 +1,10 @@
+01-rocchio: Illustrate how Rocchio relevance feedback modifies a query vector by computing weighted centroids of positive and negative examples in high-dimensional embedding space to shift the search toward relevant items
+02-linear-svm: Visualize how a linear SVM finds the maximum-margin hyperplane separating positive from negative examples in embedding space, with the weight vector serving as an optimal discriminative search query
+03-alpha-qe: Show how alpha-Query Expansion refines a search query by similarity-weighted averaging of top-K neighbors, where the alpha exponent sharpens contributions so irrelevant neighbors self-attenuate
+04-qdrant-best-score: Diagram Qdrant's best_score multi-vector strategy that scores candidates against individual positive and negative examples rather than their centroid, preserving multimodal query intent
+05-rrf: Illustrate Reciprocal Rank Fusion combining ranked results from SigLIP2 semantic and DINOv3 visual models using rank-based scoring that rewards cross-model consensus without requiring score normalization
+06-tip-adapter: Visualize Tip-Adapter's training-free few-shot classification combining CLIP zero-shot text predictions with a key-value cache of labeled examples through exponential similarity weighting
+07-liteembed: Show how LiteEmbed optimizes text embeddings for rare classes by decomposing CLIP's embedding space via PCA into coarse semantics and fine distinctions, then applying dual alignment and separation losses
+08-lattqe: Diagram how LAttQE replaces hand-crafted query expansion weights with learned self-attention, enabling non-monotonic weighting that detects false positives and amplifies consensus among retrieved neighbors
+09-deep-sets: Visualize the Deep Sets theoretical framework decomposing permutation-invariant functions into element-wise transformation, commutative aggregation, and output transformation, showing how all query expansion methods are special cases
+10-active-learning: Illustrate the active learning loop for rare class discovery showing seed gathering, initial search, SVM training, uncertainty-based sampling, and iterative convergence to high-precision classification

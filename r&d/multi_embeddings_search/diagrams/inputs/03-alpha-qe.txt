@@ -1,0 +1,27 @@
+Context:
+This diagram illustrates Alpha-Query Expansion (alphaQE) for a research paper on multi-query embedding search methods for production visual retrieval. The diagram should be clear, academic, and publication-quality. AlphaQE is a pseudo-relevance feedback technique that refines a query by incorporating its nearest neighbors, weighted by a power of their similarity to the original query. The alpha exponent controls how aggressively low-similarity neighbors are downweighted, making the method robust to the choice of K.
+
+Elements to represent:
+1. Original query vector (q) — The initial query embedding, shown as a prominent point or arrow in the embedding space. This is the starting point for retrieval: a SigLIP2 embedding of a text description or reference image, L2-normalized to unit length. The first-pass retrieval uses this vector to find the K nearest neighbors in the database.
+2. Top-K nearest neighbors — A set of K points (typically K equals 5 to 10) arranged at varying distances from the original query. Each neighbor d_i has a cosine similarity score sim(q, d_i) displayed next to it. The neighbors are ordered by similarity: the closest might have similarity 0.95 while the farthest might have 0.4. These are the pseudo-relevant documents assumed to carry useful signal about the query's intent.
+3. Similarity-weighted contributions — Arrows or lines from each neighbor back to the aggregation point, with thickness or opacity proportional to the weight sim(q, d_i) raised to the power alpha. With alpha equals 3, a neighbor at similarity 0.9 contributes a weight of 0.729, while a neighbor at similarity 0.5 contributes only 0.125, which is roughly six times less. This exponential downweighting is the key mechanism that makes alphaQE robust: bad neighbors at the tail of the K-nearest list are effectively silenced without needing to tune K precisely.
+4. Aggregation operation — A summation node or region where the original query and all weighted neighbor contributions combine. The formula is q_expanded equals q plus the sum over i from 1 to K of sim(q, d_i) raised to alpha times d_i. After aggregation, the result is L2-normalized to produce the final expanded query.
+5. Expanded query vector (q_expanded) — The output vector after aggregation and normalization. It should appear shifted from the original query toward the high-similarity neighbors, but only slightly influenced by distant or low-similarity neighbors. This vector replaces the original query for the second-pass retrieval.
+6. Weight decay curve — A small inset plot showing the weight function w equals s raised to alpha for different alpha values (alpha equals 1, 2, 3). As alpha increases, the curve drops off more steeply, concentrating weight on the most similar neighbors. At alpha equals 1 this reduces to standard similarity weighting. At alpha approaching infinity it approaches a hard nearest-neighbor selection.
+7. Database-side Augmentation (DBA) callout — A brief annotation or side panel noting that the same alphaQE formula can be applied offline to every vector in the database, not just the query. Each database vector is expanded using its own K nearest neighbors in the database. This is called Database-side Augmentation and it improves recall at the cost of a one-time preprocessing step.
+
+Hierarchy:
+- Principal: The query, its K neighbors with varying similarities, and the weighted arrows showing how high-similarity neighbors dominate the expansion. The visual contrast between thick arrows (high weight) and thin arrows (low weight) should be immediately apparent.
+- Secondary: The aggregation and normalization step producing the expanded query. The weight decay inset showing the alpha parameter's effect.
+- Optional: DBA callout. Numerical examples of weights at alpha equals 3. Annotation that alphaQE unifies with standard QE when alpha equals 1.
+
+Flow:
+The diagram flows in three stages from left to right. Stage one (left): the original query q is shown with its K nearest neighbors retrieved from the database, each labeled with their cosine similarity score. Stage two (center): weighted contribution arrows flow from the neighbors to a summation node, with arrow thickness encoding the weight sim raised to alpha. The original query also contributes to the sum. Stage three (right): the aggregated vector is L2-normalized to produce q_expanded, which is used for the second retrieval pass. An inset plot in the corner shows the weight decay curve for different alpha values.
+
+Annotations:
+- Formula: q_expanded = L2_normalize(q + sum over i of sim(q, d_i)^alpha times d_i)
+- Typical alpha value: 3 (the original paper's recommendation)
+- Weight examples at alpha = 3: similarity 0.9 gives weight 0.729, similarity 0.7 gives weight 0.343, similarity 0.5 gives weight 0.125, similarity 0.3 gives weight 0.027
+- Key advantage: robust to K because low-similarity neighbors self-attenuate exponentially, unlike uniform averaging where every neighbor contributes equally regardless of relevance
+- DBA (Database-side Augmentation): apply the same expansion formula offline to all database vectors to enrich their representations with neighborhood context
+- AlphaQE with alpha = 1 reduces to standard average query expansion (AQE)
