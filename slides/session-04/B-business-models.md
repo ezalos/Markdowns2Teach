@@ -233,17 +233,33 @@ Pourquoi ça marche :
 | Revenue Tech | **€150 M** CA d'un segment BeautyTech entier |
 | Organisation | 8 000+ experts tech/data, 694 brevets déposés (2024) [1] |
 
-- **Build vs Buy** : L'Oréal a choisi d'**acquérir** l'expertise plutôt que de construire
-- Schneider Electric a fait l'inverse : build in-house → **€700 M** économisés depuis 2019 [2]
-- Renault a partnered avec Google Cloud → **-26%** consommation énergie [3]
+> L'Oréal n'a **pas** construit son IA en interne — ils ont acheté la **meilleure startup** du domaine. L'achat est aussi une stratégie IA légitime.
 
-> Il n'y a pas une bonne réponse — l'approche dépend de votre timing et de vos capacités internes.
-
-<small>Sources : [1] [L'Oréal Annual Report 2024](https://www.loreal-finance.com/en/annual-report-2024/beauty-tech-champion/) · [2] [Schneider](https://www.se.com/) · [3] [Renault](https://www.renaultgroup.com/)</small>
+<small>Sources : [1] [L'Oréal Annual Report 2024](https://www.loreal-finance.com/en/annual-report-2024/beauty-tech-champion/)</small>
 
 ---
 
-# 11 — Cas : La France championne des secteurs régulés
+# 11 — Cas : Schneider Electric — €700M économisés par le Build
+
+- **Build in-house** : a construit ses propres outils IA (maintenance prédictive, optimisation énergie)
+- **€700M** économisés depuis 2019 [1]
+- **7,4M** d'assets connectés via EcoStruxure IoT [2]
+- A commencé par un cas d'usage simple : **maintenance prédictive**
+
+| Critère | Schneider (Build) | L'Oréal (Buy) |
+|---------|-------------------|---------------|
+| Investissement | Élevé (temps + talent) | Élevé (prix d'achat) |
+| Contrôle | Total | Partiel |
+| ROI | €700M sur 5 ans | 3x conversion |
+| Timeline | Lente (années) | Rapide (intégration) |
+
+> **Pas de réponse universelle** au Build vs Buy — ça dépend de vos ressources et de votre timeline.
+
+<small>Sources : [1] [Schneider Electric](https://www.se.com/ww/en/about-us/newsroom/) · [2] [EcoStruxure Platform](https://www.se.com/ww/en/work/campaign/innovation/platform/)</small>
+
+---
+
+# 12 — Cas : La France championne des secteurs régulés
 
 | Entreprise | Secteur | Valorisation | Métrique IA clé [1] |
 |------------|---------|:-----------:|-----------------|
@@ -261,7 +277,7 @@ Pourquoi ça marche :
 
 <!-- _class: cols -->
 
-# 12 — Cas : Cursor — croissance record, rentabilité incertaine
+# 13 — Cas : Cursor — croissance record, rentabilité incertaine
 
 <div class="left">
 
@@ -284,7 +300,7 @@ Pourquoi ça marche :
 
 ---
 
-# 13 — Discussion : Le risque de plateforme
+# 14 — Discussion : Le risque de plateforme
 
 > **Scénario** : OpenAI annonce "ChatGPT Code Editor" — un IDE gratuit intégré à ChatGPT. C'est le cauchemar de Cursor.
 
@@ -298,7 +314,7 @@ Pourquoi ça marche :
 
 ---
 
-# 14 — Quand l'IA dérape : 4 échecs à connaître
+# 15 — Quand l'IA dérape : 4 échecs à connaître
 
 | Cas | Ce qui s'est passé | Conséquence [1] |
 |-----|---------------------|-------------|
@@ -324,7 +340,7 @@ Pourquoi ça marche :
 
 ---
 
-# 15 — Grille de décision pour entrepreneurs
+# 16 — Grille de décision pour entrepreneurs
 
 | Critère | Vertical SaaS | Wrapper | Open-Source | Agents |
 |---------|--------------|---------|-------------|--------|
@@ -340,7 +356,7 @@ Pourquoi ça marche :
 
 ---
 
-# 16 — Les 5 tendances structurantes
+# 17 — Les 5 tendances structurantes
 
 1. **Cost deflation** — le coût d'inférence baisse de **10x/an** ; ce qui coûte $1 aujourd'hui coûtera $0,01 dans 2 ans [1]
 
@@ -356,7 +372,7 @@ Pourquoi ça marche :
 
 ---
 
-# 17 — Key Takeaways
+# 18 — Key Takeaways
 
 1. **Le marché est massif et accélère** — $2 530 Mds de dépenses, 53% du VC mondial, 498 licornes. L'opportunité est réelle.
 
@@ -366,6 +382,6 @@ Pourquoi ça marche :
 
 4. **Les moats se construisent avec les données** — pas avec le modèle. Data flywheel + switching costs + expertise domaine = défense durable.
 
-5. **Apprenez des échecs autant que des succès** — Air Canada (responsabilité), Klarna (qualité), wrappers (85-92% d'échec). Chaque cas raconte une leçon.
+5. **Build vs Buy dépend du contexte** — Schneider (€700M en build), L'Oréal (3x conversion en buy), Klarna (augmentation > remplacement). Chaque contexte a sa stratégie.
 
 > **Prochain cours** : Éthique, gouvernance et présentations finales.

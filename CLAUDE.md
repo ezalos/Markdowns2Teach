@@ -20,9 +20,9 @@ Target audience: business school students (mostly non-engineers), entrepreneuria
 
 | Session | Title | Deck A | Deck B |
 |---------|-------|--------|--------|
-| 1 | Comprendre l'IA en 2026 | L'IA Générative : ce qu'elle sait faire | Les LLMs |
-| 2 | Construire avec l'IA | Du Prompt au Produit | L'Ingénierie IA |
-| 3 | Cadrer un projet IA | Évaluer une solution IA | Méthodologie projet IA |
+| 1 | Comprendre l'IA en 2026 | L'IA Générative : ce qu'elle sait faire | *(pas de Deck B — Bloc C : premier projet IA)* |
+| 2 | Les LLMs : de la théorie à la pratique | Les LLMs : comprendre et utiliser | Évaluer l'IA |
+| 3 | Construire avec l'IA | RAG & Agents IA | Méthodologie projet IA |
 | 4 | Le business de l'IA | L'écosystème IA | Business Models & Cas Réels |
 | 5 | Éthique, gouvernance & clôture | Régulation & IA responsable | B: Présentations finales (live) · C: QCM & clôture |
 
@@ -47,9 +47,19 @@ Markdowns2Teach/
 │   │       ├── ng02/                # Andrew Ng W2 images
 │   │       ├── ng03/                # Andrew Ng W3 images
 │   │       └── infographics/        # PaperBanana-generated diagrams
-│   └── extra-decks/                 # Optional/extracted decks (not in main sessions)
+│   ├── evaluation/                  # Full-length evaluation reference decks
+│   │   ├── A-eval-regression.md     # Regression metrics (27 slides)
+│   │   ├── B-eval-classification.md # Classification metrics (30 slides)
+│   │   ├── C-eval-computer-vision.md # CV metrics (31 slides)
+│   │   └── D-eval-llm.md           # LLM evaluation (45 slides)
+│   └── extra-decks/                 # Archived/optional decks (not in main sessions)
 │       ├── architectures.md         # CNN, RNN, GAN, Transformer deep dive
 │       ├── D-biais-ethique.md       # Bias & ethics intro (teaser for Session 5)
+│       ├── A-prompt-au-produit.md   # Ex-S2-A (absorbed into S3-B)
+│       ├── B-ingenierie-ia.md       # Ex-S2-B (absorbed into S3-A)
+│       ├── B-au-dela-des-llms.md    # Ex-S1-B (prompting cherry-picked → S2-A)
+│       ├── A-evaluer-solution-ia.md # Ex-S3-A (replaced by S2-B)
+│       ├── B-methodologie-projet-v1.md # Ex-S3-B (restructured → S3-B + cases → S4-B)
 │       └── assets/                  # Assets for extra decks
 ├── scripts/
 │   ├── extract-images.sh            # PDF image extraction
@@ -195,21 +205,40 @@ make clean      # Remove dist/
 
 ## Slide Decks
 
+### Active session decks
+
 | Path | Title | Slides |
 |------|-------|--------|
 | `slides/session-01/A-genai-fondamentaux.md` | L'IA Générative : ce qu'elle sait faire | 37 |
-| `slides/session-02/A-llms.md` | Les LLMs : comprendre et utiliser | 30 |
 | `slides/session-01/C-premier-projet-ia.md` | Votre premier projet IA | 25 |
-| `slides/session-02/A-prompt-au-produit.md` | Du Prompt au Produit | 18 |
-| `slides/session-02/B-ingenierie-ia.md` | L'Ingénierie IA | 17 |
-| `slides/session-03/A-evaluer-solution-ia.md` | Évaluer une solution IA | 18 |
-| `slides/session-03/B-methodologie-projet.md` | Méthodologie projet IA | 17 |
+| `slides/session-02/A-llms.md` | Les LLMs : comprendre et utiliser | 40 |
+| `slides/session-02/B-evaluer-ia.md` | Évaluer l'IA | 18 |
+| `slides/session-03/A-rag-agents.md` | RAG & Agents IA | 27 |
+| `slides/session-03/B-methodologie-projet.md` | Méthodologie projet IA | 27 |
 | `slides/session-04/A-ecosysteme-ia.md` | L'écosystème IA | 18 |
-| `slides/session-04/B-business-models.md` | Business Models & Cas Réels | 17 |
+| `slides/session-04/B-business-models.md` | Business Models & Cas Réels | 18 |
 | `slides/session-05/A-regulation-ethique.md` | Régulation & IA responsable | 23 |
+
+### Evaluation reference decks
+
+| Path | Title | Slides |
+|------|-------|--------|
+| `slides/evaluation/A-eval-regression.md` | Évaluation : Regression | 27 |
+| `slides/evaluation/B-eval-classification.md` | Évaluation : Classification | 30 |
+| `slides/evaluation/C-eval-computer-vision.md` | Évaluation : Computer Vision | 31 |
+| `slides/evaluation/D-eval-llm.md` | Évaluation : LLMs | 45 |
+
+### Archived / extra decks
+
+| Path | Title | Slides |
+|------|-------|--------|
 | `slides/extra-decks/architectures.md` | Tour des architectures (CNN, RNN, GAN, Transformer) | 4 |
 | `slides/extra-decks/D-biais-ethique.md` | Biais et éthique : introduction | 3 |
-| `slides/session-02/B-au-dela-des-llms.md` | L'IA au-delà des LLMs *(archive, ex-S01-B)* | 23 |
+| `slides/extra-decks/A-prompt-au-produit.md` | Du Prompt au Produit *(ex-S2-A, absorbed → S3-B)* | 18 |
+| `slides/extra-decks/B-ingenierie-ia.md` | L'Ingénierie IA *(ex-S2-B, absorbed → S3-A)* | 17 |
+| `slides/extra-decks/B-au-dela-des-llms.md` | L'IA au-delà des LLMs *(ex-S1-B, prompting → S2-A)* | 23 |
+| `slides/extra-decks/A-evaluer-solution-ia.md` | Évaluer une solution IA *(ex-S3-A, replaced by S2-B)* | 18 |
+| `slides/extra-decks/B-methodologie-projet-v1.md` | Méthodologie projet IA v1 *(ex-S3-B, restructured)* | 17 |
 
 ## Source Materials
 

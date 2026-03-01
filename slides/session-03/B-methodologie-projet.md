@@ -3,10 +3,10 @@ marp: true
 theme: sorbonne
 paginate: true
 header: "Deep Tech & ML (UE3) — Session 3 · M2 IMT&E · Paris 1 Panthéon-Sorbonne"
-footer: "Sources multiples · DeepLearning.AI CC BY-SA 2.0 · Données publiques"
+footer: "Sources multiples"
 ---
 
-<!-- ABOUTME: Méthodologie projet IA — CRISP-DM, AI Canvas, Open Source vs API, études de cas réelles. -->
+<!-- ABOUTME: Méthodologie projet IA — du prompt-based development au déploiement, CRISP-DM, LLMOps, AI Canvas, MVP, choix de stack. -->
 <!-- ABOUTME: Seconde moitié de la Session 3, cadré pour entrepreneurs M2 non-ingénieurs. -->
 
 <!-- _class: title -->
@@ -14,9 +14,9 @@ footer: "Sources multiples · DeepLearning.AI CC BY-SA 2.0 · Données publiques
 <!-- _header: "" -->
 <!-- _footer: "" -->
 
-# Cadrer un projet IA
+# Méthodologie projet IA
 
-## Session 3B — Méthodologie projet IA
+## Session 3B — Du cadrage au déploiement
 
 M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 
@@ -24,13 +24,141 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 
 <!-- _class: section -->
 
-# CRISP-DM
+# Du Prompt au Produit
 
-## Le standard depuis 25 ans
+## La nouvelle façon de construire
 
 ---
 
-# 01 — CRISP-DM : 6 phases cycliques
+# 01 — La révolution : Prompt-based Development
+
+Avant la Generative AI, construire un classifieur de sentiment nécessitait **6-12 mois** : données labellisées, entraînement, déploiement [1]. Aujourd'hui, le même résultat s'obtient en **quelques lignes** :
+
+```
+prompt = """
+  Classify the following review as positive or negative:
+  The banana pudding was really tasty!
+"""
+response = llm_response(prompt)
+```
+
+**Ce que cela change** :
+- **Coût d'entrée quasi nul** — plus besoin de lever des fonds pour une équipe ML
+- **Time-to-market réduit** — prototyper un produit IA en un week-end
+- **Compétence clé = comprendre le problème** — pas coder un algorithme
+
+<small>Sources : [1] [Andrew Ng, *Generative AI for Everyone*, DeepLearning.AI](https://www.coursera.org/learn/generative-ai-for-everyone)</small>
+
+---
+
+# 02 — Quatre catégories d'applications GenAI
+
+Les applications logicielles utilisant la Generative AI se classent en quatre familles :
+
+| Catégorie | Ce que fait l'IA | Exemple concret |
+|---|---|---|
+| **Writing** | Génère du texte à partir d'instructions | FAQ bot, rédaction automatique |
+| **Reading** | Analyse et classifie du contenu | Sentiment Analysis, extraction de données |
+| **Chatting** | Dialogue interactif avec l'utilisateur | Chatbot de commande, support client |
+| **Coding** | Génère, corrige et optimise du code | Copilot, Cursor, Claude Code |
+
+> Ces quatre catégories se retrouvent dans presque tous les produits IA. Le Coding est devenu une famille à part entière en 2025.
+
+---
+
+# 03 — Le GenAI Lifecycle : Scope → Build → Evaluate → Deploy
+
+Tout projet Generative AI suit un cycle itératif en 4 phases :
+
+1. **Scope** — Définir le projet et ses objectifs
+2. **Build** — Construire le système (prompt, pipeline)
+3. **Evaluate** — Tester en interne, détecter les erreurs
+4. **Deploy** — Mettre en production, surveiller
+
+> Ce n'est **pas un processus linéaire**. Les retours entre étapes sont la norme.
+
+![bg right:50% contain](assets/infographics/genai-lifecycle_run_20260216_171314_f23e16.png)
+
+---
+
+# 04 — Scope — Bien cadrer le projet
+
+Le cadrage est l'étape la plus critique. Un mauvais scope = un projet qui échoue.
+
+**Questions à se poser** :
+- Quel problème business précis résout-on ?
+- Qui est l'utilisateur final ?
+- Comment mesurer le succès ? (métriques claires)
+- Quel niveau de qualité est acceptable ?
+
+**Mesurer le succès** — Définir des KPIs dès le scope :
+- *Précision* : % de réponses correctes (détaillé dans le Deck A avec Precision/Recall)
+- *Satisfaction utilisateur* : NPS, taux de résolution au premier contact
+- *ROI* : coût IA vs coût du processus manuel remplacé
+
+> **Conseil pratique** : commencez par le cas d'usage le plus simple qui apporte de la valeur.
+
+---
+
+# 05 — Build — Un processus empirique
+
+Construire avec la Generative AI est un processus **hautement expérimental** :
+
+- On écrit un prompt, on teste, on corrige, on itère
+- Le cycle **Idea → Prompt → LLM Response** se répète des dizaines de fois
+- Chaque itération prend des minutes (pas des semaines)
+
+**Le prototype initial ne sera pas parfait** — et c'est normal. L'objectif est de progresser rapidement vers une version fonctionnelle.
+
+> Pensez au Lean Startup : Build → Measure → Learn. C'est exactement la même logique appliquée à l'IA.
+
+![bg right:45% contain](assets/ng02/img-011.png)
+
+---
+
+# 06 — Evaluate — Tester avant de déployer
+
+L'évaluation interne permet de **détecter les erreurs avant vos clients** :
+
+- Faire tester le système par votre équipe
+- Créer un jeu de tests représentatifs
+- Identifier les cas limites (Edge Cases)
+- Mesurer la précision sur vos métriques
+
+| Erreur fréquente | Conséquence | Solution |
+|---|---|---|
+| Scope trop large | Projet qui n'aboutit jamais | Cibler une seule tâche précise |
+| Pas d'évaluation | Bugs découverts par les clients | Tester avec des cas réels |
+| Déploiement "big bang" | Crise si le système hallucine | Déployer progressivement |
+
+---
+
+# 07 — Deploy — Mettre en production intelligemment
+
+Le déploiement ne signifie pas "ouvrir à tout le monde d'un coup" :
+
+- **Phase 1** : test interne (votre équipe utilise le système)
+- **Phase 2** : bêta limitée (quelques clients, avec monitoring humain)
+- **Phase 3** : déploiement progressif (scaling avec alertes automatiques)
+
+**Monitoring continu** — Après le déploiement, surveiller :
+- Les réponses incorrectes ou inappropriées
+- La satisfaction utilisateur
+- Les nouveaux cas d'usage imprévus
+
+> Le monitoring peut révéler de nouveaux problèmes, ce qui déclenche un retour aux étapes Build ou Evaluate.
+
+---
+
+<!-- _class: section -->
+
+# Frameworks et outils
+
+## Structurer la démarche projet
+
+---
+
+# 08 — CRISP-DM : 6 phases cycliques
 
 ![bg right:50% contain](assets/infographics/crisp-dm_run_20260216_171255_a6ef8c.png)
 
@@ -51,7 +179,7 @@ Le standard Data Science — **43% d'adoption**, #1 depuis 2002 [1] :
 
 <!-- _class: cols -->
 
-# 02 — CRISP-DM en pratique
+# 09 — CRISP-DM en pratique
 
 <div class="left">
 
@@ -78,7 +206,7 @@ Le standard Data Science — **43% d'adoption**, #1 depuis 2002 [1] :
 
 ---
 
-# 03 — LLMOps : le cycle GenAI
+# 10 — LLMOps : le cycle GenAI
 
 ![bg right:50% contain](assets/infographics/llmops_run_20260216_171257_39e262.png)
 
@@ -99,17 +227,9 @@ CRISP-DM date de 1999. Pour la GenAI, **9 phases** en 3 blocs [1] :
 
 ---
 
-<!-- _class: section -->
-
-# AI Canvas
-
-## Cadrer avant de coder
-
----
-
 <!-- _class: cols -->
 
-# 04 — AI Project Canvas vs ML Canvas
+# 11 — AI Project Canvas vs ML Canvas
 
 <div class="left">
 
@@ -138,7 +258,7 @@ Deux outils visuels one-page pour cadrer un projet IA **avant d'écrire une lign
 
 ---
 
-# 05 — MVP Patterns : valider avant d'investir
+# 12 — MVP Patterns : valider avant d'investir
 
 Avant de construire un modèle, **5 patterns** pour tester la valeur [1] :
 
@@ -156,9 +276,29 @@ Avant de construire un modèle, **5 patterns** pour tester la valeur [1] :
 
 ---
 
-# 06 — Discussion : Canvas en action
+# 13 — The Gmail Story — Le MVP comme méthodologie
 
-> Votre startup fintech (30 personnes, 5M EUR CA, budget IA 150K EUR) a brainstormé **15 use cases**. Apres filtrage, il en reste 7. Budget pour 2-3 maximum.
+<!-- TODO: Louis will present the Gmail story live — prepare slide with key points after discussion -->
+
+Le MVP le plus célèbre de la tech : Gmail a démarré comme **la chose la plus simple possible**.
+
+**Principes du MVP appliqués à l'IA** :
+- Quel est le **minimum** qui prouve la valeur ?
+- Ce "minimum" est souvent bien plus petit que ce qu'on imagine
+- Le feedback utilisateur guide chaque itération suivante
+
+**Questions clés avant de construire** :
+- Pouvez-vous livrer de la valeur en **1 semaine** ?
+- Votre MVP nécessite-t-il vraiment du ML, ou un simple prompt suffit-il ?
+- Quel est le **signal le plus faible** qui valide votre hypothèse ?
+
+> **Lean AI** : ne construisez pas un modèle tant qu'un prompt ne marche pas. Ne faites pas de RAG tant que le prompt seul n'a pas atteint ses limites.
+
+---
+
+# 14 — Discussion : Canvas en action
+
+> Votre startup fintech (30 personnes, 5M EUR CA, budget IA 150K EUR) a brainstormé **15 use cases**. Après filtrage, il en reste 7. Budget pour 2-3 maximum.
 
 | Use case | Impact | Faisabilité | Data | Score |
 |----------|--------|------------|------|-------|
@@ -175,7 +315,7 @@ Avant de construire un modèle, **5 patterns** pour tester la valeur [1] :
 
 <!-- _class: section -->
 
-# Open Source vs API vs Self-hosted
+# Choisir sa stack
 
 ## Le choix stratégique de l'infrastructure
 
@@ -183,7 +323,7 @@ Avant de construire un modèle, **5 patterns** pour tester la valeur [1] :
 
 <!-- _class: cols -->
 
-# 07 — Trois modèles d'accès aux LLMs
+# 15 — Trois modèles d'accès aux LLMs
 
 <div class="left">
 
@@ -211,7 +351,7 @@ Avant de construire un modèle, **5 patterns** pour tester la valeur [1] :
 
 ---
 
-# 08 — Le guide de décision
+# 16 — Le guide de décision
 
 ![bg right:55% contain](assets/infographics/decision-guide_run_20260216_171259_3f18b9.png)
 
@@ -228,7 +368,7 @@ Quatre niveaux d'investissement technique :
 
 ---
 
-# 09 — L'écosystème open-source européen
+# 17 — L'écosystème open-source européen
 
 - **Hugging Face** : Paris, **$4,5 Mds** valorisation, **1M+ modèles**, 400K datasets [1]
 - **Mistral AI** : Paris, **EUR 11,7 Mds** valorisation, seul frontier UE [2]
@@ -241,142 +381,56 @@ Quatre niveaux d'investissement technique :
 
 ---
 
-<!-- _class: section -->
+# 18 — Combien coûte un appel API ?
 
-# Études de cas
+| Modèle | Input (par 1M tokens) | Output (par 1M tokens) | Positionnement |
+|---|---|---|---|
+| GPT-4o | $2,50 | $10,00 | Premium, multimodal [1] |
+| GPT-4o mini | $0,15 | $0,60 | Rapide, économique [1] |
+| Claude 3.5 Sonnet | $3,00 | $15,00 | Raisonnement avancé [2] |
+| Claude 3 Haiku | $0,25 | $1,25 | Rapide, bon marché [2] |
+| Mistral Large | $2,00 | $6,00 | Souveraineté européenne [3] |
+| Mistral Small | $0,10 | $0,30 | Ultra-économique [3] |
 
-## Des entreprises réelles, des leçons concrètes
+> Les prix chutent d'environ **~10x par an** à performance équivalente [4]. Le coût marginal de l'intelligence baisse drastiquement.
 
----
-
-# 10 — Klarna : remplacer puis réembaucher
-
-| Phase | Ce qui s'est passé | Résultat |
-|-------|---------------------|----------|
-| **Jan 2024** | IA remplace **700 agents** support [1] | 2,3M conversations/mois, 11 min --> 2 min |
-| **Mi-2024** | $244M perte --> **$21M profit** | IPO à **$15 Mds** de valorisation [2] |
-| **Fin 2024** | La qualité se dégrade | CEO : "on est allés trop loin" |
-| **2025** | Réembauchage en gig (400 SEK/h) | L'IA augmente, pas remplace |
-
-> **Leçon** : couper les coûts avec l'IA est tentant, mais couper la qualité coûte plus cher. Le modèle gagnant est l'**augmentation** humain + IA, pas le remplacement total.
-
-<small>Sources : [1] [Klarna](https://www.klarna.com/international/press/) · [2] [Bloomberg](https://www.bloomberg.com/)</small>
+<small>Sources : [1] [OpenAI](https://openai.com/api/pricing/) · [2] [Anthropic](https://docs.anthropic.com/en/docs/about-claude/models) · [3] [Mistral AI](https://mistral.ai/pricing) · [4] [a16z](https://a16z.com/llmflation-llm-inference-cost/)</small>
 
 ---
 
-<!-- _class: cols -->
+# 19 — Progression : Prompting → RAG → Fine-tuning
 
-# 11 — L'Oréal : acquérir l'IA plutôt que la construire
+Quand le Prompting seul ne suffit pas, il existe une progression :
 
-<div class="left">
+| Outil | Complexité | Coût | Quand l'utiliser |
+|---|---|---|---|
+| **Prompting** | Faible | Très faible | Toujours commencer ici |
+| **RAG** | Moyenne | Faible | Besoin de connaissances spécifiques |
+| **Fine-tuning** | Élevée | Moyen | Style ou savoir-faire spécialisé |
+| **Pretraining** | Très élevée | Très élevé | Domaine ultra-spécialisé (rare) |
 
-### La stratégie acquisition
+> **Règle d'or** : commencez toujours par le Prompting. Montez en complexité uniquement si nécessaire.
 
-- Acquisition de **ModiFace** (essayage virtuel AR)
-- **3x** conversion e-commerce [1]
-- Intégrée sur tous les sites de la marque
-- IA = avantage concurrentiel dans le retail beauté
-
-</div>
-<div class="right">
-
-### La leçon pour les entrepreneurs
-
-- L'Oréal n'a **pas** construit son IA en interne
-- Ils ont acheté la **meilleure startup** du domaine
-- L'intégration a pris du temps mais le ROI est massif
-- Grand groupe : acquérir est souvent **plus rapide** que construire
-
-> L'achat est aussi une stratégie IA légitime.
-
-</div>
-
-<small>Sources : [1] [L'Oréal](https://www.loreal.com/)</small>
+![bg right:40% contain](assets/infographics/tool-decision_run_20260216_171316_911dd4.png)
 
 ---
 
-# 12 — Schneider Electric : EUR 700M économisés
+# 20 — Cas pratique : BettaBurgers
 
-- **Build in-house** : a construit ses propres outils IA
-- **EUR 700M** économisés depuis 2019 via maintenance prédictive et optimisation énergie [1]
-- **7,4M** d'assets connectés via EcoStruxure IoT [2]
-- A commencé par un cas d'usage simple : **maintenance prédictive**
+**Contexte** : BettaBurgers veut un chatbot pour prendre les commandes en ligne.
 
-### Ce que ça prouve
+**Scope** : le chatbot doit accueillir les clients, prendre leur commande, et confirmer.
 
-| Critère | Schneider | L'Oréal |
-|---------|-----------|---------|
-| Approche | Build in-house | Acquisition |
-| Investissement | Élevé (temps + talent) | Élevé (prix d'achat) |
-| Contrôle | Total | Partiel |
-| ROI | EUR 700M sur 5 ans | 3x conversion |
+**Build** → l'équipe écrit un premier prompt avec le menu et les instructions.
 
-> **Pas de réponse universelle** au Build vs Buy — ça dépend de vos ressources et de votre timeline.
+**Evaluate** → l'équipe teste en interne. Résultat :
+- Le chatbot dit "nous n'avons pas de champignons" alors que c'est faux
+- Il ne connaît pas les calories des produits
+- Il invente des promotions qui n'existent pas
 
-<small>Sources : [1] [Schneider Electric](https://www.se.com/ww/en/about-us/newsroom/) · [2] [EcoStruxure Platform](https://www.se.com/ww/en/work/campaign/innovation/platform/)</small>
+> Ces erreurs sont typiques : le LLM "hallucine" quand il manque d'informations contextuelles. Solution : RAG avec le menu et les fiches produit.
 
----
-
-<!-- _class: cols -->
-
-# 13 — Doctolib et Alan : l'IA dans les secteurs régulés
-
-<div class="left">
-
-### Doctolib
-
-- **EUR 6,5 Mds** de valorisation [1]
-- **1,6M** consultations assistées par IA
-- **80M** utilisateurs en Europe
-- Le médecin reste **toujours** dans la boucle
-
-</div>
-<div class="right">
-
-### Alan
-
-- **$4,5 Mds** de valorisation [2]
-- **EUR 505M ARR**, +48% YoY
-- IA pour traitement des demandes d'assurance
-- Taux de résolution automatique en hausse
-
-</div>
-
-> **Leçon** : dans les secteurs régulés, l'IA **augmente les experts** au lieu de les remplacer. Le Human-In-The-Loop n'est pas un frein — c'est un avantage de confiance.
-
-<small>Sources : [1] [Doctolib](https://about.doctolib.fr/) · [2] [Alan](https://alan.com/)</small>
-
----
-
-# 14 — Les échecs à connaître
-
-| Cas | Année | Erreur | Conséquence |
-|-----|:-----:|--------|-------------|
-| Air Canada | 2024 | Chatbot donne fausse info tarifaire | Condamné : CAD $812 [1] |
-| Grok/xAI | 2025 | 3M deepfakes en 11 jours | Enquête UE, perquisition FR [2] |
-| UnitedHealth | 2023+ | Algo refuse soins, 90% overturned | Class action, 1,1 Mds rejets [3] |
-| Workday | 2025 | 100% rejet candidats 40+ ans | Class action nationale [4] |
-
-> **Règle n.1** : vous êtes responsable de votre IA. "C'est l'algorithme" n'est pas une défense.
-
-<small>Sources : [1] [CRT Canada](https://decisions.civilresolutionbc.ca/) · [2] [EU Commission](https://ec.europa.eu/) · [3] [Reuters](https://www.reuters.com/) · [4] [Law360](https://www.law360.com/)</small>
-
----
-
-# 15 — Discussion : Qui est responsable quand l'IA dérape ?
-
-> Votre **startup** déploie un chatbot client. Il donne une mauvaise info qui coûte EUR 5 000 à un client.
-
-| Cas | Responsable | Précédent |
-|-----|-------------|-----------|
-| Air Canada | **L'entreprise** | Le chatbot est votre agent |
-| Workday | **Le vendor IA** | Le fournisseur aussi est liable |
-| UnitedHealth | **L'assureur** | L'algo ne vous protège pas |
-
-**Questions pour la classe** :
-- Faut-il un **Human-In-The-Loop** pour tout chatbot client ?
-- L'EU AI Act change-t-il la donne pour votre startup ?
-- Qui est responsable si vous utilisez l'API d'OpenAI et que le résultat est faux ?
+![bg right:35% contain](assets/ng02/img-012.png)
 
 ---
 
@@ -388,7 +442,7 @@ Quatre niveaux d'investissement technique :
 
 ---
 
-# 16 — Trois phases, trois sets d'outils
+# 21 — Trois phases, trois sets d'outils
 
 **Phase 1 — Valider une idée** (0-3 mois) :
 - Use Case Prioritization, AI Project Canvas, MVP Prompt Engineering
@@ -407,16 +461,16 @@ Quatre niveaux d'investissement technique :
 
 ---
 
-# 17 — Key Takeaways
+# 22 — Key Takeaways
 
-1. **CRISP-DM reste le standard** — 43% d'adoption, 25 ans de recul. LLMOps ajoute 3 phases pour les projets GenAI.
+1. **Le Prompt-based Development change tout** — de 7 mois à quelques jours. L'IA n'est plus réservée aux grandes entreprises.
 
-2. **Cadrez avant de coder** — 20 min d'AI Canvas économisent des mois. Le ML Canvas traduit la vision business en specs techniques.
+2. **Le Lifecycle est itératif** — Scope → Build → Evaluate → Deploy, avec des retours en arrière constants.
 
-3. **L'Open Source européen est un atout** — Mistral et Hugging Face sont français. Souveraineté + performance + RGPD.
+3. **CRISP-DM reste le standard** — 43% d'adoption, 25 ans de recul. LLMOps ajoute Guardrails et Observability pour la GenAI.
 
-4. **Chaque cas d'usage a sa leçon** — Klarna (ne remplacez pas tout), L'Oréal (achetez si c'est plus rapide), Schneider (construisez si c'est stratégique).
+4. **Cadrez avant de coder** — 20 min d'AI Canvas économisent des mois. Le ML Canvas traduit la vision business en specs techniques.
 
-5. **Vous êtes responsable de votre IA** — Air Canada, Grok, Workday : la justice ne distingue pas l'humain et l'algorithme.
+5. **L'Open Source européen est un atout** — Mistral et Hugging Face sont français. Souveraineté + performance + RGPD.
 
 > **Pour la prochaine séance** : choisissez un use case, remplissez l'AI Canvas, et testez avec un Prompt Engineering MVP.

@@ -1,4 +1,15 @@
 
+# Research TODOs — Course Restructuring (2026-03-01)
+
+These topics need deeper research before their new decks can be finalized:
+
+- [ ] **MCP protocol deep dive** — for S3-A agents section. What MCP is, how it works, the protocol spec, real-world examples
+- [ ] **Skills concept** — for S3-A agents section. What Skills are in agent development, how they compose with MCP
+- [ ] **Agent development methodology** — for S3-A agents section. Best practices, common patterns, failure modes
+- [ ] **RAG expansion** — for S3-A. Hybrid search, advanced chunking strategies, reranking, production patterns
+- [ ] **N8N OpenRouter integration** — for S2-C. Step-by-step structured output generation tutorial
+- [ ] **Agent demo design** — for S3-C. What specific MCP tool / agent workflow to demo live
+
 # Engineering
 
 # Content

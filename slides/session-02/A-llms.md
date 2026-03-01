@@ -780,23 +780,64 @@ Les LLMs récents ne se limitent plus au texte — ils comprennent et génèrent
 
 <!-- _class: section -->
 
+# Bien prompter
+
+## Tips for Prompting
+
+---
+
+# 38 — Les 3 principes du Prompting
+
+| Principe | Description |
+|---|---|
+| *1. Soyez détaillé et spécifique* | Donnez assez de contexte pour que le LLM comprenne exactement ce que vous voulez |
+| *2. Guidez le raisonnement* | Décomposez les tâches complexes en étapes (Chain-of-Thought) |
+| *3. Expérimentez et itérez* | Il n'existe pas de prompt parfait — améliorez par itération |
+
+*Exemple* — Mauvais : *"Aide-moi à écrire un email."*
+Bon : *"Help me write a professional email asking to join the legal docs project. Explain why my LLM prompting experience makes me a strong candidate. One paragraph."*
+
+> Le Prompt Engineering n'est pas un talent mystique. C'est une *compétence itérative* que tout le monde peut développer.
+
+---
+
+# 39 — Chain-of-Thought et itération
+
+*Chain-of-Thought* — décomposer une tâche complexe en *étapes explicites* améliore la qualité :
+
+*"Step 1: Come up with 5 fun words related to cats. Step 2: For each word, create a rhyming toy name. Step 3: Add an emoji."*
+
+| Step 1 | Step 2 | Step 3 |
+|---|---|---|
+| Purr | Purr-Twirl | Purr-Twirl 🐱 |
+| Whisker | Whisker-Whisper | Whisker-Whisper 😺 |
+
+*Itération* — le cycle du Prompt Engineering = le cycle produit :
+1. *Écrivez* un premier prompt (ne réfléchissez pas trop)
+2. *Évaluez* la sortie — qu'est-ce qui manque ?
+3. *Affinez* le prompt (ajoutez du contexte, changez le format)
+4. *Répétez* jusqu'à satisfaction
+
+---
+
+<!-- _class: section -->
+
 # Récapitulatif
 
 ## Key Takeaways
 
 ---
 
-# 38 — Points clés à retenir
+# 40 — Points clés à retenir
 
-- **Impact** — Les benchmarks faciles saturent (MMLU 90%+), mais les problèmes durs restent ouverts
 - **Mécanisme** — Next-token prediction : le LLM prédit un token à la fois, séquentiellement
-- **Coûts d'entraînement** — De $3K (BERT) à $78M+ (GPT-4), mais reproduire coûte 75–165× moins
-- **Inference** — Le coût d'inference chute de ~10–50×/an à capacité fixe (Epoch AI)
-- **MoE** — Architecture qui découple capacité (total params) et coût d'inference (active params)
 - **Pipeline** — Pretraining (15T tokens) → SFT → RLHF → Reasoning
+- **Inference** — Le coût chute de ~10–50×/an à capacité fixe — plus rapide que la loi de Moore
+- **MoE** — Découple capacité (total params) et coût d'inference (active params)
 - **Accès** — Web (gratuit), API (pay-per-token), open-weights (local/RGPD)
 - **Taille** — Plus gros ≠ toujours meilleur. Le bon modèle pour la bonne tâche
-- **Schema Design** — L'ordre des champs JSON = Chain-of-Thought gratuit (+62 pts sur GSM8K)
-- **Confidence** — Ne jamais faire confiance à un score brut — toujours calibrer
+- **Hallucinations** — Le LLM invente avec confiance. Knowledge cutoff = données figées → c'est pourquoi on a besoin du RAG
+- **Structured Output** — L'ordre des champs JSON = Chain-of-Thought gratuit (+62 pts sur GSM8K)
+- **Prompting** — Soyez spécifique, guidez le raisonnement (CoT), itérez
 
-> *Prochaine session* : passer de l'utilisation à la *construction* de projets IA.
+> *Prochaine partie* : comment **évaluer** une solution IA — les métriques qui comptent pour votre business.

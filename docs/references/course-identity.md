@@ -40,14 +40,15 @@
 
 À la fin du cours, les étudiants savent :
 
-1. Identifier des opportunités IA dans des contextes business variés
-2. Utiliser ChatGPT, Claude et des outils no-code de façon professionnelle
-3. Cadrer et évaluer la faisabilité de projets IA (AI Canvas, matrice de faisabilité)
-4. Calculer un ROI et construire un business case IA
-5. Dialoguer avec des équipes data science et ML
-6. Prendre des décisions Build vs Buy informées
-7. Comprendre l'EU AI Act et ses implications de compliance
-8. Piloter un projet IA sans être ingénieur
+1. **Fondations solides** — avoir des modèles mentaux clairs du fonctionnement des systèmes IA (LLMs, Agents, RAG, etc.) pour imaginer ce qu'ils peuvent construire
+2. **Articuler un projet IA** — décrire un projet IA de manière suffisamment précise pour briefer une équipe technique ou pitcher un investisseur
+3. **Comparer et sélectionner** — évaluer 2+ systèmes ML en fonction de leurs propres exigences grâce à des métriques réelles (Confusion Matrix, F1, benchmarks, etc.)
+4. **Vocabulaire pour l'auto-apprentissage** — maîtriser le vocabulaire technique pour poursuivre leurs recherches de manière autonome après le cours
+5. **Compréhension approfondie des briques clés** — LLMs (pipeline d'entraînement, Structured Output, VLM, etc.), Agents (MCP, Skills, méthodologie de développement), RAG
+6. **Méthodologie pratique** — savoir démarrer un projet, appliquer le Pareto effort → résultat, penser MVP (ex : l'histoire de Gmail)
+7. **Construire un produit fonctionnel** — terminer le cours en ayant construit un produit ML fonctionnel avec lequel des utilisateurs peuvent interagir (projet classification n8n)
+8. **Littératie écosystème & business** — comprendre les business models IA, l'écosystème actuel et sa trajectoire
+9. **Conscience éthique & juridique** — connaître les textes fondamentaux (EU AI Act, RGPD), les questions éthiques à se poser pour contribuer à un monde meilleur — sans prétendre à l'exhaustivité juridique
 
 ## Évaluation
 
