@@ -6,7 +6,7 @@ header: "Deep Tech & ML (UE3) — Session 2 · M2 IMT&E · Paris 1 Panthéon-Sor
 footer: "Sources multiples · DeepLearning.AI CC BY-SA 2.0"
 ---
 
-<!-- ABOUTME: Comprendre les LLMs — impact, mécanique, glossaire (Tokens, Context Window, MoE), pipeline d'entraînement, accès et taille des modèles. -->
+<!-- ABOUTME: Comprendre les LLMs — impact, mécanique, glossaire (Tokens, Context Window, MoE), pipeline d'entraînement, coûts (training + inference), accès, taille, structured output avancé (field ordering, confidence). -->
 <!-- ABOUTME: Première moitié de la Session 2, business-framed pour étudiants M2 IMT&E Paris 1 Panthéon-Sorbonne. -->
 
 <!-- _class: title -->
@@ -273,6 +273,51 @@ Un modèle MoE contient *plusieurs sous-réseaux spécialisés* (experts). Un **
 
 ---
 
+# 13 — Le coût d'entraînement : de milliers à milliards
+
+| Modèle | Année | Params | Coût (compute seul) |
+|--------|-------|--------|---------------------|
+| BERT | 2018 | 340M | ~$3 300 |
+| GPT-3 | 2020 | 175B | ~$4,6M |
+| Llama 2 | 2023 | 70B | ~$3M |
+| GPT-4 | 2023 | ~1,8T MoE | **$78M** [1] |
+| Llama 3.1 405B | 2024 | 405B | $60–170M |
+| DeepSeek-V3 🇨🇳 | 2024 | 671B MoE | **$5,6M** [2] |
+
+- Ces chiffres = **compute du run final uniquement**. Le coût total (salaires R&D, expériences ratées, infra) peut être **2–10x** plus élevé [1]
+- DeepSeek-V3 atteint le niveau GPT-4o pour **14x moins cher** — mais sur des H800 à $2/h [2]
+
+<small>Sources : [1] [Epoch AI](https://arxiv.org/abs/2405.21015) · [2] [DeepSeek-V3](https://arxiv.org/abs/2412.19437)</small>
+
+---
+
+<!-- _class: cols -->
+
+# 14 — L'efficience explose : reproduire GPT-2 pour $672
+
+<div class="left">
+
+**Reproduire coûte de moins en moins** :
+- GPT-2 : $50K → **$672** (Karpathy, 2024) [1]
+- BERT : $3 300 → **$20** (MosaicBERT) [2]
+- DeepSeek-R1 RL : **$294K** sur V3 [3]
+
+</div>
+<div class="right">
+
+**Mais le frontier explose** :
+- Coût frontier : **×2 tous les 8 mois** [4]
+- MMLU 60% : 540B → **3,8B** params = 142× [5]
+- Prochaine génération : **$500M–1B+** attendus
+
+</div>
+
+> Deux tendances opposées : les leaders dépensent plus, mais reproduire leur niveau coûte de moins en moins.
+
+<small>Sources : [1] [Karpathy/llm.c](https://github.com/karpathy/llm.c/discussions/677) · [2] [Databricks](https://www.databricks.com/blog/mosaicbert) · [3] [Nature/DeepSeek](https://www.nature.com/articles/s41586-025-09422-z) · [4][5] [Stanford HAI 2025](https://aiindex.stanford.edu/report/)</small>
+
+---
+
 <!-- _class: section -->
 
 # Accéder aux LLMs
@@ -281,7 +326,7 @@ Un modèle MoE contient *plusieurs sous-réseaux spécialisés* (experts). Un **
 
 ---
 
-# 13 — Interface web : le plus simple
+# 15 — Interface web : le plus simple
 
 Les chatbots grand public — aucune compétence technique requise :
 
@@ -297,7 +342,7 @@ Les chatbots grand public — aucune compétence technique requise :
 
 ---
 
-# 14 — Accès API : intégrer un LLM dans votre produit
+# 16 — Accès API : intégrer un LLM dans votre produit
 
 Les APIs permettent d'appeler un LLM *depuis votre code* — la base de tout produit IA :
 
@@ -315,9 +360,47 @@ Les APIs permettent d'appeler un LLM *depuis votre code* — la base de tout pro
 
 ---
 
+# 17 — Le coût d'inference chute de 10x à 900x par an
+
+Epoch AI (avril 2025) a mesuré la chute des prix d'inference **à performance fixe** sur 6 benchmarks [1] :
+
+| Benchmark | Tâche | Chute annuelle |
+|-----------|-------|----------------|
+| MMLU | Connaissances générales | 9–40×/an |
+| GPQA Diamond | Science niveau PhD | 40–900×/an |
+| MATH-500 | Mathématiques | 20–700×/an |
+| Coding | Software engineering | 9–40×/an |
+
+- **Médiane** : ~50×/an (accélère à ~200×/an après janvier 2024) [1]
+- Stanford HAI : GPT-3.5 equivalent **$20 → $0,07** / 1M tokens en 18 mois = **280×** [2]
+
+> C'est plus rapide que la loi de Moore. Le coût marginal de l'intelligence baisse plus vite que n'importe quelle technologie précédente.
+
+<small>Sources : [1] [Epoch AI](https://epoch.ai/data-insights/llm-inference-price-trends) · [2] [Stanford HAI 2025](https://aiindex.stanford.edu/report/)</small>
+
+---
+
+# 18 — Prix API : la trajectoire OpenAI
+
+| Modèle | Date | Input / 1M tokens | MMLU approx |
+|--------|------|--------------------|-------------|
+| GPT-3 Davinci | 2020 | **$60,00** | ~43% |
+| GPT-3.5 Turbo | Mar 2023 | $2,00 | ~70% |
+| GPT-4 | Mar 2023 | $30,00 | ~86% |
+| GPT-4 Turbo | Nov 2023 | $10,00 | ~86% |
+| GPT-4o | Mai 2024 | $2,50 | ~88% |
+| GPT-4o mini | Jul 2024 | **$0,15** | ~82% |
+
+- De GPT-4 ($30) à GPT-4o mini ($0,15) en 16 mois : **200× moins cher** à capacité comparable
+- Les drivers : hardware (~1,3×/an), algorithmes (~3×/an), quantization, open-source [1][2]
+
+<small>Sources : [1] [OpenAI](https://openai.com/api/pricing/) · [2] [Epoch AI](https://epoch.ai/data-insights/llm-inference-price-trends)</small>
+
+---
+
 <!-- _class: cols -->
 
-# 15 — Open-Weights : télécharger et exécuter en local
+# 19 — Open-Weights : télécharger et exécuter en local
 
 <div class="left">
 
@@ -341,7 +424,7 @@ RGPD (données locales), pas de coût API, hors ligne
 
 ---
 
-# 16 — Licences : ce que vous pouvez (et ne pouvez pas) faire
+# 20 — Licences : ce que vous pouvez (et ne pouvez pas) faire
 
 | Licence | Modèles | Usage commercial | Restrictions |
 |---------|---------|-----------------|-------------|
@@ -362,7 +445,7 @@ RGPD (données locales), pas de coût API, hors ligne
 
 ---
 
-# 17 — Quantization : comprimer un modèle sans (trop) perdre
+# 21 — Quantization : comprimer un modèle sans (trop) perdre
 
 Chaque paramètre est un nombre à virgule flottante. La **Quantization** réduit sa précision pour consommer moins de mémoire :
 
@@ -379,7 +462,7 @@ Chaque paramètre est un nombre à virgule flottante. La **Quantization** rédui
 
 ---
 
-# 18 — Paramètres → vRAM → Hardware
+# 22 — Paramètres → vRAM → Hardware
 
 Les LLMs tournent sur **GPU**. La **vRAM** (mémoire GPU) est la contrainte principale : si le modèle dépasse votre vRAM, il ne tient pas.
 
@@ -399,7 +482,7 @@ Les LLMs tournent sur **GPU**. La **vRAM** (mémoire GPU) est la contrainte prin
 
 ---
 
-# 19 — Le paradoxe MoE : rapide mais gourmand en mémoire
+# 23 — Le paradoxe MoE : rapide mais gourmand en mémoire
 
 Le MoE découple la *vitesse* de la *mémoire* :
 
@@ -419,7 +502,7 @@ Le MoE découple la *vitesse* de la *mémoire* :
 
 ---
 
-# 20 — Plus gros = plus intelligent ?
+# 24 — Plus gros = plus intelligent ?
 
 ![bg right:45% contain](assets/mmlu-params-graph.svg)
 
@@ -443,7 +526,7 @@ De 0,6B à 32B (×53 params) : **+30,8 pts**. De 32B à 235B (×7 params) : **+4
 
 <!-- _class: cols -->
 
-# 21 — Le bon modèle pour la bonne tâche
+# 25 — Le bon modèle pour la bonne tâche
 
 <div class="left">
 
@@ -465,7 +548,7 @@ Support → Mistral Small · Analyse → o3 / Opus · Code → Claude / Devstral
 
 ---
 
-# 22 — Exercice : estimer le coût d'un produit IA
+# 26 — Exercice : estimer le coût d'un produit IA
 
 **Scénario** : un chatbot de support client, 1 000 conversations/jour.
 
@@ -482,7 +565,7 @@ Support → Mistral Small · Analyse → o3 / Opus · Code → Claude / Devstral
 
 ---
 
-# 23 — David bat Goliath : les petits modèles qui surprennent
+# 27 — David bat Goliath : les petits modèles qui surprennent
 
 | Modèle | Params | Performance | Comparé à |
 |--------|--------|-------------|-----------|
@@ -505,7 +588,7 @@ Support → Mistral Small · Analyse → o3 / Opus · Code → Claude / Devstral
 
 ---
 
-# 24 — Hallucinations et Knowledge Cutoffs
+# 28 — Hallucinations et Knowledge Cutoffs
 
 ![bg right:45% contain](assets/ng01/img-022.png)
 
@@ -523,7 +606,7 @@ Support → Mistral Small · Analyse → o3 / Opus · Code → Claude / Devstral
 
 ---
 
-# 25 — Structured Output : quand le texte libre ne suffit pas
+# 29 — Structured Output : quand le texte libre ne suffit pas
 
 Le problème : les LLMs produisent du texte libre, mais les systèmes attendent des **données structurées**.
 
@@ -542,7 +625,7 @@ Le problème : les LLMs produisent du texte libre, mais les systèmes attendent 
 
 <!-- _class: cols -->
 
-# 26 — Structured Output : Classifier & Extraction
+# 30 — Structured Output : Classifier & Extraction
 
 <div class="left">
 
@@ -561,7 +644,7 @@ Le problème : les LLMs produisent du texte libre, mais les systèmes attendent 
 
 ---
 
-# 27 — Structured Output : Tool Calling & n8n
+# 31 — Structured Output : Tool Calling & n8n
 
 Le LLM "appelle" un outil en produisant un JSON correspondant à un schéma de fonction :
 
@@ -580,7 +663,93 @@ User : "Planifie une réunion avec Alice et Bob demain à 14h"
 
 ---
 
-# 28 — LLMs multimodaux
+# 32 — Field Ordering : le schéma comme Chain-of-Thought
+
+Les LLMs génèrent token par token, **de gauche à droite**. L'ordre des champs dans le JSON contrôle *quand* le modèle réfléchit :
+
+- `reasoning` **avant** `answer` → le modèle réfléchit *puis* répond
+- `answer` **avant** `reasoning` → le modèle s'engage *puis* rationalise a posteriori
+
+| Ordre des champs | GSM8K (GPT-4o-mini) | Delta |
+|------------------|---------------------|-------|
+| `reasoning` → `answer` | **94,2%** | — |
+| `answer` → `reasoning` | 31,8% | **−62 pts** [1] |
+
+> OpenAI recommande officiellement ce pattern : `steps[]` avant `final_answer` [2]. C'est **gratuit** et le gain est massif.
+
+<small>Sources : [1] [dsdev.in](https://www.dsdev.in/order-of-fields-in-structured-output-can-hurt-llms-output) · [2] [OpenAI Structured Outputs](https://openai.com/index/introducing-structured-outputs-in-the-api/)</small>
+
+---
+
+<!-- _class: cols -->
+
+# 33 — Schema Design : bonnes pratiques
+
+<div class="left">
+
+**Optimal** : `{ reasoning → confidence → answer }`
+- Le **nommage** compte : `answer` > `final_choice` → 4,5% à **95%** [1]
+- `description` = micro-prompts dans le schéma [2]
+
+</div>
+<div class="right">
+
+**Avancé** :
+- Gemini réordonne alphabétiquement — nommer pour forcer l'ordre [3]
+- Tâches complexes : 2 étapes (raisonnement libre → extraction structurée) [4]
+
+</div>
+
+<small>Sources : [1] [Instructor](https://python.useinstructor.com/blog/2024/09/26/bad-schemas-could-break-your-llm-structured-outputs/) · [2] [PARSE](https://arxiv.org/abs/2408.02442) · [3] [Castillo](https://dylancastillo.co/posts/gemini-structured-outputs.html) · [4] [Goldberg](https://gist.github.com/yoavg/5b106275e38f4ccc796bc8ba7919060b)</small>
+
+---
+
+# 34 — Confidence en classification : le piège du score verbalisé
+
+Demander au LLM *"donne ta confiance"* → **le score est hallucié** [1] :
+- Les scores se concentrent entre **80–100%**, multiples de 5 — comme un humain qui parle
+- Le modèle prédit le token *qui ressemble à* un score, pas une probabilité calculée
+
+| Méthode | Erreur calib. brute | Après calibration |
+|---------|---------------------|-------------------|
+| Score verbalisé | 45% | 8% |
+| **Logprobs** | 50% | **5%** |
+| Logistic Regression | 11% | 6% |
+
+> Les **logprobs** (probabilités des tokens) sont sur-confiantes aussi, mais deviennent les meilleures après calibration avec ~200 exemples labellisés [2].
+
+<small>Sources : [1] [Xiong et al. (ICLR 2024)](https://openreview.net/pdf?id=gjeQKFxFpZ) · [2] [Nyckel](https://www.nyckel.com/blog/calibrating-gpt-classifications/)</small>
+
+---
+
+<!-- _class: cols -->
+
+# 35 — Confidence : patterns de production
+
+<div class="left">
+
+**Logprobs** (OpenAI, vLLM) :
+- `exp(logprob)` → probabilité par classe [1]
+- Calibrer avec isotonic regression (~200 exemples)
+
+**Self-Consistency** :
+- N=5–10 échantillons + vote majoritaire [2]
+
+</div>
+<div class="right">
+
+**En pratique** :
+- Logprobs dispo → calibrer (isotonic regression)
+- Pas de logprobs (Claude) → self-consistency [3]
+- Seuil de confiance → items incertains vers humain · Reasoning Models **mieux calibrés** [4]
+
+</div>
+
+<small>Sources : [1] [OpenAI Cookbook](https://developers.openai.com/cookbook/examples/using_logprobs/) · [2] [Wang et al. (ICLR 2023)](https://arxiv.org/abs/2203.11171) · [3] [Taubenfeld et al.](https://arxiv.org/abs/2502.06233) · [4] [OpenReview 2025](https://openreview.net/pdf?id=I0ZI28A9El)</small>
+
+---
+
+# 36 — LLMs multimodaux
 
 Les LLMs récents ne se limitent plus au texte — ils comprennent et génèrent plusieurs **modalités** :
 
@@ -595,7 +764,7 @@ Les LLMs récents ne se limitent plus au texte — ils comprennent et génèrent
 
 ---
 
-# 29 — Multimodalité : cas d'usage business
+# 37 — Multimodalité : cas d'usage business
 
 | Cas d'usage | Modalité | Exemple concret |
 |-------------|----------|-----------------|
@@ -617,17 +786,17 @@ Les LLMs récents ne se limitent plus au texte — ils comprennent et génèrent
 
 ---
 
-# 30 — Points clés à retenir
+# 38 — Points clés à retenir
 
 - **Impact** — Les benchmarks faciles saturent (MMLU 90%+), mais les problèmes durs restent ouverts
 - **Mécanisme** — Next-token prediction : le LLM prédit un token à la fois, séquentiellement
-- **Tokens & Context** — 1 token ≈ ¾ mot (EN). La context window croît de ~30x/an
-- **Sampling** — Temperature, Top-k, Top-p contrôlent la créativité de la génération
+- **Coûts d'entraînement** — De $3K (BERT) à $78M+ (GPT-4), mais reproduire coûte 75–165× moins
+- **Inference** — Le coût d'inference chute de ~10–50×/an à capacité fixe (Epoch AI)
 - **MoE** — Architecture qui découple capacité (total params) et coût d'inference (active params)
 - **Pipeline** — Pretraining (15T tokens) → SFT → RLHF → Reasoning
-- **Quantization** — INT4 réduit la mémoire de 8x, mais attention au raisonnement sur petits modèles
 - **Accès** — Web (gratuit), API (pay-per-token), open-weights (local/RGPD)
 - **Taille** — Plus gros ≠ toujours meilleur. Le bon modèle pour la bonne tâche
-- **Structured Output** — JSON, Function Calling, Tool Calling : la base des agents IA
+- **Schema Design** — L'ordre des champs JSON = Chain-of-Thought gratuit (+62 pts sur GSM8K)
+- **Confidence** — Ne jamais faire confiance à un score brut — toujours calibrer
 
 > *Prochaine session* : passer de l'utilisation à la *construction* de projets IA.
