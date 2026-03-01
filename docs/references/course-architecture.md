@@ -31,7 +31,7 @@
 | Bloc | Contenu | Fichier |
 |------|---------|---------|
 | **A** | L'IA Générative : ce qu'elle sait faire — GenAI intro, capabilities, taxonomie IA (techniques, paradigmes, tâches), vocabulaire HuggingFace, timelines ML/DL/GenAI | `slides/session-01/A-genai-fondamentaux.md` (37 slides) |
-| **B** | Les LLMs : comprendre et utiliser — Impact, fonctionnement (next-word prediction), glossaire (Tokens, Context Window, MoE), pipeline d'entraînement (Pretraining, Instruct, Thinking, Fine-tuning), accès (Web, API, Open-weights, licences), taille et performance | `slides/session-01/B-llms.md` (20 slides) |
+| **B** | Les LLMs : comprendre et utiliser — Impact, fonctionnement (next-word prediction), glossaire (Tokens, Context Window, MoE), pipeline d'entraînement (Pretraining, Instruct, Thinking, Fine-tuning), accès (Web, API, Open-weights, licences), taille et performance | `slides/session-02/A-llms.md` (30 slides) — moved to Session 2A |
 | **C** | Votre premier projet IA — Toolbox (JSON, API, Webhooks, HuggingFace, n8n), démo live Sentiment Analysis en 3 nodes, lancement projet de groupe | `slides/session-01/C-premier-projet-ia.md` (23 slides) |
 
 ### Séance 2 — Construire avec l'IA
@@ -80,7 +80,7 @@
 | Fichier | Slides | Statut |
 |---------|--------|--------|
 | `session-01/A-genai-fondamentaux.md` | 37 | ✅ Terminé |
-| `session-01/B-llms.md` | 20 | ✅ Terminé |
+| `session-02/A-llms.md` | 30 | ✅ Terminé |
 | `session-01/C-premier-projet-ia.md` | 23 | ✅ Terminé |
 | `session-02/A-prompt-au-produit.md` | 18 | ✅ Terminé |
 | `session-02/B-ingenierie-ia.md` | 17 | ✅ Terminé |

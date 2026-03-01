@@ -2,12 +2,12 @@
 marp: true
 theme: sorbonne
 paginate: true
-header: "Deep Tech & ML (UE3) — Session 1 · M2 IMT&E · Paris 1 Panthéon-Sorbonne"
+header: "Deep Tech & ML (UE3) — Session 2 · M2 IMT&E · Paris 1 Panthéon-Sorbonne"
 footer: "Sources multiples · DeepLearning.AI CC BY-SA 2.0"
 ---
 
 <!-- ABOUTME: Comprendre les LLMs — impact, mécanique, glossaire (Tokens, Context Window, MoE), pipeline d'entraînement, accès et taille des modèles. -->
-<!-- ABOUTME: Seconde moitié de la Session 1, business-framed pour étudiants M2 IMT&E Paris 1 Panthéon-Sorbonne. -->
+<!-- ABOUTME: Première moitié de la Session 2, business-framed pour étudiants M2 IMT&E Paris 1 Panthéon-Sorbonne. -->
 
 <!-- _class: title -->
 <!-- _paginate: skip -->
@@ -16,7 +16,7 @@ footer: "Sources multiples · DeepLearning.AI CC BY-SA 2.0"
 
 # Les LLMs
 
-## Session 1B — Comprendre et utiliser les modèles de langage
+## Session 2A — Comprendre et utiliser les modèles de langage
 
 M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 

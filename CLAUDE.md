@@ -198,7 +198,7 @@ make clean      # Remove dist/
 | Path | Title | Slides |
 |------|-------|--------|
 | `slides/session-01/A-genai-fondamentaux.md` | L'IA Générative : ce qu'elle sait faire | 37 |
-| `slides/session-01/B-llms.md` | Les LLMs : comprendre et utiliser | 20 |
+| `slides/session-02/A-llms.md` | Les LLMs : comprendre et utiliser | 30 |
 | `slides/session-01/C-premier-projet-ia.md` | Votre premier projet IA | 25 |
 | `slides/session-02/A-prompt-au-produit.md` | Du Prompt au Produit | 18 |
 | `slides/session-02/B-ingenierie-ia.md` | L'Ingénierie IA | 17 |
