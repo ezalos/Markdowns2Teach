@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "name": "markdowns2teach",
+  "scripts": {
+    "check-overflow": "node scripts/check-overflow-visual.js slides"
+  },
+  "devDependencies": {
+    "puppeteer": "^24.0.0"
+  }
+}

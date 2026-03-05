@@ -562,7 +562,7 @@ Prédire une **valeur continue** (un nombre) :
 |---|---|---|
 | Surface, quartier | Prix immobilier (€) | Estimation bien |
 | Budget pub | Chiffre d'affaires (€) | Planification marketing |
-| Données patient | Risque (0-100%) | Diagnostic médical |
+| Données patient | Durée d'hospitalisation (jours) | Planification hospitalière |
 | Historique ventes | Demande future (unités) | Gestion de stock |
 | Données capteurs | Durée de vie restante (jours) | Maintenance prédictive |
 

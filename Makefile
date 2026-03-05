@@ -64,8 +64,8 @@ serve: html-inline ## Serve password-protected HTML slides on port 3901
 sync: ## Sync PPTX files to Google Drive via rclone
 	rclone sync $(PPTX_DIR)/ $(GDRIVE_REMOTE) --progress
 
-check: ## Warn about slides likely to overflow
-	@bash scripts/check-overflow.sh 15 $(SLIDES_DIR)
+check: ## Detect slides that overflow (pixel-accurate, requires npm install)
+	@node scripts/check-overflow-visual.js $(SLIDES_DIR)
 
 check-citations: ## Warn about data slides missing source citations
 	@bash scripts/check-citations.sh $(SLIDES_DIR)

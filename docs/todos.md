@@ -1,3 +1,8 @@
+Corrections of the course : 
+- slides should fit in screen, MUST FIX, maybe screenshot it ?
+- context window, wrong diagram, and false "noting is deleted"
+- 
+
 
 # Research TODOs — Course Restructuring (2026-03-01)
 

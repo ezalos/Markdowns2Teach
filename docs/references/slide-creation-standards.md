@@ -36,7 +36,7 @@ Pour les ensembles de 2–10 slides (ajout ponctuel à un deck existant), adapte
 
 ## 2. Budget de contenu par slide
 
-Le linter (`make check`) applique un seuil de **15 lignes de contenu** par slide. Il compte les headings, bullets, lignes de tableau, tags `<div>` et la ligne `<small>Sources</small>`.
+Le linter (`make check`) détecte le **overflow pixel-accurate** en rendant les slides via Marp + Puppeteer (headless Chrome) et en comparant `scrollHeight` vs `clientHeight` sur chaque `<section>`. Les budgets ci-dessous restent de bons repères pour l'écriture, mais la vérification définitive est le rendu réel.
 
 | Type de slide | Lignes linter max | Lignes de contenu effectif | Notes |
 |---------------|-------------------|---------------------------|-------|
@@ -362,7 +362,8 @@ Détails d'utilisation de PaperBanana : voir `workflow-new-slides.md` Phase 5.
 ### Checks automatiques
 
 ```bash
-make check            # Linter overflow (seuil 15 lignes)
+npm install           # Installer Puppeteer (une seule fois)
+make check            # Overflow pixel-accurate (Puppeteer + headless Chrome)
 make check-citations  # Toutes les slides de données ont des sources
 make html             # Build propre, pas d'erreurs
 ```
