@@ -47,23 +47,40 @@ Un LLM généraliste ne connaît pas **vos données spécifiques** :
 
 ---
 
+<!-- _class: compact -->
+
 # 02 — Le RAG Pipeline en 5 étapes
 
 Le RAG est un pipeline de bout en bout — chaque étape compte :
 
-| Étape | Ce qu'elle fait | Outil typique |
+| Étape | Action | Outil typique |
 |---|---|---|
-| **1. Chunking** | Découper les documents en morceaux (256-1024 tokens) | LangChain, LlamaIndex |
-| **2. Embedding** | Convertir chaque chunk en vecteur numérique | OpenAI, Jina, BGE-M3 |
-| **3. Indexation** | Stocker les vecteurs dans une base vectorielle | Pinecone, Qdrant, pgvector |
-| **4. Retrieval** | Chercher les chunks les plus pertinents pour la question | Hybrid search (dense + sparse) |
-| **5. Generation** | Le LLM génère sa réponse à partir des chunks récupérés | Claude, GPT-4o, Mistral |
+| **1. Chunking** | Découper les docs (256-1024 tokens) | LangChain, LlamaIndex |
+| **2. Embedding** | Convertir chaque chunk en vecteur | OpenAI, Jina, BGE-M3 |
+| **3. Indexation** | Stocker dans une base vectorielle | Pinecone, Qdrant, pgvector |
+| **4. Retrieval** | Chercher les chunks pertinents | Hybrid search (dense + sparse) |
+| **5. Generation** | Répondre à partir des chunks | Claude, GPT-4o, Mistral |
 
-> Le RAG réduit les hallucinations de **70-90%** par rapport à un LLM seul [1]. La qualité du Chunking impacte plus que le choix du modèle d'embedding [2].
+![bg right:35% contain](assets/infographics/rag-pipeline_run_20260219_100700_b17371.png)
 
-![bg right:40% contain](assets/infographics/rag-pipeline_run_20260219_100700_b17371.png)
+<small>Sources : [1] [Recherche interne](docs/research/rag-ecosystem/report.md) · [2] [Anthropic](https://www.anthropic.com/news/contextual-retrieval)</small>
 
-<small>Sources : [1] [Données agrégées — recherche interne](docs/research/rag-ecosystem/report.md) · [2] [Anthropic](https://www.anthropic.com/news/contextual-retrieval)</small>
+---
+
+<!-- _class: compact -->
+
+# 02b — RAG Pipeline : impact et bonnes pratiques
+
+Le RAG réduit les hallucinations de **70-90%** vs un LLM seul [1].
+
+La qualité du **Chunking** impacte plus que le choix du modèle d'embedding [2] :
+- Chunks trop grands → bruit, contexte dilué
+- Chunks trop petits → perte de contexte
+- Sweet spot : **256-1024 tokens** selon le domaine
+
+> Optimisez le Chunking en priorité — c'est le levier n°1 de qualité d'un pipeline RAG.
+
+<small>Sources : [1] [Recherche interne](docs/research/rag-ecosystem/report.md) · [2] [Anthropic](https://www.anthropic.com/news/contextual-retrieval)</small>
 
 ---
 
@@ -92,19 +109,19 @@ Le RAG est un pipeline de bout en bout — chaque étape compte :
 
 </div>
 
-> **La meilleure approche : les deux combinés** (Hybrid Search). Le gain : **+15-30% de rappel** vs chaque méthode seule [1].
+> **Meilleure approche : Hybrid Search** (les deux combinés) → **+15-30% de rappel** [1]
 
-<small>Sources : [1] [Anthropic — Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval)</small>
+<small>Sources : [1] [Anthropic](https://www.anthropic.com/news/contextual-retrieval)</small>
 
 ---
 
 # 04 — Embeddings : transformer les mots en coordonnées
 
-Un **Embedding** convertit du texte en coordonnées dans un espace à haute dimension — comme un GPS pour le sens :
+Un **Embedding** convertit du texte en coordonnées à haute dimension — un GPS pour le sens :
 
-- "Chat mignon" → [0.23, -0.45, 0.12, ..., 0.78] (1 024 dimensions)
-- Les textes sémantiquement proches ont des coordonnées proches
-- "Roi" et "Monarque" sont voisins ; "Roi" et "Réfrigérateur" sont éloignés
+- "Chat mignon" → [0.23, -0.45, 0.12, …, 0.78] (1 024 dim.)
+- Textes proches en sens = coordonnées proches
+- "Roi" et "Monarque" sont voisins ; "Roi" et "Réfrigérateur" éloignés
 
 | Modèle | Éditeur | Prix/M tokens |
 |---|---|---|
@@ -135,18 +152,20 @@ La **Cosine Similarity** mesure l'angle entre deux vecteurs — pas leur magnitu
 
 ---
 
+<!-- _class: compact -->
+
 # 06 — Vector Databases : stocker et chercher les vecteurs
 
-Les vecteurs sont stockés dans des **bases vectorielles** optimisées pour la recherche par similarité :
+Bases optimisées pour la recherche par similarité :
 
 | Base | Type | Différenciateur |
 |---|---|---|
-| **Chroma** | OSS (Apache 2.0) | Le plus simple — "le SQLite des vecteurs", parfait pour démarrer |
-| **Qdrant** | OSS (Apache 2.0) | Rust-native, performant, EU-based (Berlin) — RGPD friendly |
-| **Pinecone** | Managed (SaaS) | Zéro ops, serverless, leader du marché managed |
-| **pgvector** | Extension PostgreSQL | Gratuit, 0 vendor lock-in, s'ajoute à votre base existante |
+| **Chroma** | OSS | "Le SQLite des vecteurs" — idéal pour démarrer |
+| **Qdrant** | OSS | Rust-native, EU-based (Berlin) — RGPD friendly |
+| **Pinecone** | SaaS | Zéro ops, serverless, leader managed |
+| **pgvector** | Extension PG | Gratuit, 0 vendor lock-in |
 
-> **Pour démarrer** : Chroma (prototypage) ou pgvector (si vous avez déjà PostgreSQL). Pour scaler : Qdrant (contrôle) ou Pinecone (simplicité).
+<!-- Speaker notes: Pour démarrer : Chroma (prototypage) ou pgvector (si vous avez déjà PostgreSQL). Pour scaler : Qdrant (contrôle) ou Pinecone (simplicité). -->
 
 ![bg right:35% contain](assets/vecotr-database.png)
 
@@ -251,35 +270,39 @@ Le RAG est partout en 2025-2026 — **86%** des organisations augmentent leurs L
 
 ---
 
+<!-- _class: compact -->
+
 # 11 — Qu'est-ce qu'un Agent ?
 
 Un **Agent** est un LLM qui enchaîne plusieurs actions de manière autonome.
 
 Le pattern dominant est **ReAct** (Reasoning + Acting) [1] :
 - *Thought* — le modèle raisonne sur la tâche
-- *Action* — il exécute une action (recherche, visite, calcul)
+- *Action* — il exécute (recherche, calcul…)
 - *Observation* — il analyse le résultat et décide la suite
 
-> L'agent **décide lui-même** quelles actions exécuter et dans quel ordre. C'est un bond par rapport au simple chat.
+> L'agent **décide lui-même** quelles actions exécuter et dans quel ordre.
 
-![bg right:50% contain](assets/infographics/agent-react_run_20260216_171318_224f91.png)
+![bg right:38% contain](assets/infographics/agent-react_run_20260216_171318_224f91.png)
 
 <small>Sources : [1] [Princeton/Google Research](https://arxiv.org/abs/2210.03629)</small>
 
 ---
 
+<!-- _class: compact -->
+
 # 12 — Tool Use : donner des capacités au LLM
 
-Les LLMs ont des limites intrinsèques. Le **Tool Use** les compense :
+Le **Tool Use** compense les limites intrinsèques des LLMs :
 
 - *Calcul* → Calculatrice ("100 x 1,05^8 = ?")
 - *Temps réel* → Recherche web ("Cours du Bitcoin ?")
 - *Action* → API externe ("Commande un burger")
 - *Données privées* → Base de données ("Mon solde ?")
 
-Le LLM génère un **appel de fonction**, le système exécute et renvoie le résultat, puis le LLM formule la réponse finale.
+Le LLM génère un **appel de fonction**, le système exécute et renvoie le résultat.
 
-![bg right:50% contain](assets/infographics/tool-use_run_20260216_171320_c1b044.png)
+![bg right:38% contain](assets/infographics/tool-use_run_20260216_171320_c1b044.png)
 
 ---
 
@@ -357,13 +380,13 @@ Les Agents sont prometteurs mais présentent des défis en 2026 :
 
 **À explorer avant la séance 3** :
 
-- Testez un outil de RAG gratuit : uploadez un PDF sur **ChatPDF** ou **Claude** et posez-lui des questions
-- Réfléchissez à votre projet de startup IA : quel problème résolvez-vous et pour qui ?
-- Identifiez si votre projet a besoin de Prompting seul, de RAG, ou de Fine-tuning
+- Testez un outil de RAG gratuit : uploadez un PDF sur **ChatPDF** ou **Claude**
+- Réfléchissez à votre projet startup IA : quel problème et pour qui ?
+- Identifiez si vous avez besoin de Prompting seul, de RAG ou de Fine-tuning
 
 **Prochaine séance : Cadrer et gérer un projet IA**
 - CRISP-DM et AI Canvas
 - Build vs Buy
 - Constituer une équipe IA
 
-> "La meilleure façon de prédire l'avenir, c'est de le construire." Avec la Generative AI, les outils pour construire n'ont jamais été aussi accessibles.
+> "La meilleure façon de prédire l'avenir, c'est de le construire." Les outils n'ont jamais été aussi accessibles.

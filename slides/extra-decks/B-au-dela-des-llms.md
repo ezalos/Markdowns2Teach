@@ -76,22 +76,23 @@ Décomposer une tâche complexe en *étapes explicites* améliore la qualité :
 
 ---
 
+<!-- _class: compact -->
+
 # 04 — Principe 3 : expérimentez et itérez
 
-Il n'existe *pas de prompt parfait universel* — mais un *processus* pour s'améliorer :
+Pas de prompt parfait universel — mais un *processus* pour s'améliorer :
 
 1. *Écrivez* un premier prompt (ne réfléchissez pas trop)
 2. *Évaluez* la sortie — qu'est-ce qui manque ?
-3. *Affinez* le prompt (ajoutez du contexte, changez le format)
+3. *Affinez* (ajoutez du contexte, changez le format)
 4. *Répétez* jusqu'à satisfaction
 
-*Le cycle du Prompt Engineering* = le *cycle produit* des startups :
+Le cycle du Prompt Engineering = le *cycle produit* des startups :
+*Idée → Prompt → Réponse → Évaluation → Nouveau prompt → ...*
 
-*Idée → Prompt → Réponse LLM → Évaluation → Nouveau prompt → ...*
+![bg right:35% contain](assets/infographics/prompt-iteration_run_20260217_012320_e9035e.png)
 
-![bg right:45% contain](assets/infographics/prompt-iteration_run_20260217_012320_e9035e.png)
-
-> Ne sur-réfléchissez pas le premier prompt — *lancez-vous vite* et itérez.
+<!-- Speaker notes: Ne sur-réfléchissez pas le premier prompt — lancez-vous vite et itérez. -->
 
 ---
 
@@ -119,7 +120,7 @@ Il n'existe *pas de prompt parfait universel* — mais un *processus* pour s'am�
 
 # 06 — Comment fonctionnent les LLMs
 
-Les LLMs utilisent le Supervised Learning pour *prédire le mot suivant*, mot par mot :
+Les LLMs utilisent le Supervised Learning pour *prédire le mot suivant* :
 
 | Input (A) | Output (B) |
 |---|---|
@@ -128,9 +129,9 @@ Les LLMs utilisent le Supervised Learning pour *prédire le mot suivant*, mot pa
 | My favorite food is a bagel with | *cream* |
 | My favorite food is a bagel with cream | *cheese* |
 
-> Un LLM entraîné sur des centaines de milliards de mots apprend les patterns du langage et devient capable de générer du texte cohérent et pertinent.
+![bg right:40% contain](assets/A/lllm-gen-example.png)
 
-![bg right:45% contain](assets/A/lllm-gen-example.png)
+<!-- Speaker notes: Entraîné sur des centaines de milliards de mots, un LLM apprend les patterns du langage et génère du texte cohérent. -->
 
 ---
 
@@ -160,19 +161,21 @@ Un LLM n'est pas un moteur de recherche amélioré — c'est un *partenaire de r
 
 ---
 
+<!-- _class: compact -->
+
 # 08 — Les trois familles de tâches LLM
 
-| Catégorie | Exemples | Type d'app |
+| Catégorie | Exemples | Type |
 |---|---|---|
-| *Writing* | Brainstorming noms de produits, communiqués de presse, traduction | Web + App |
-| *Reading* | Classification d'emails, résumé de conversations, analyse de sentiment | Surtout App |
-| *Chatting* | Service client bot, coaching, FAQ interne | Web + App |
+| *Writing* | Brainstorming, communiqués, traduction | Web + App |
+| *Reading* | Classification, résumé, sentiment | Surtout App |
+| *Chatting* | Service client, coaching, FAQ | Web + App |
 
 *Deux modes d'utilisation* :
-- *Web-based* : ChatGPT, Claude, Le Chat — interaction directe
-- *Software application* : le LLM est intégré dans un produit (email routing, analyse automatisée)
+- *Web-based* : ChatGPT, Claude, Le Chat
+- *Software application* : LLM intégré dans un produit (email routing, analyse)
 
-![bg right:45% contain](assets/ng01/img-026.png)
+![bg right:35% contain](assets/ng01/img-026.png)
 
 ---
 
@@ -211,22 +214,22 @@ Les LLMs excellent pour le *brainstorming* — tâche à faible risque et forte 
 
 ---
 
+<!-- _class: compact -->
+
 # 11 — Reading : résumer et classifier
 
-Un des cas d'usage les plus puissants pour les entreprises :
-
 *Résumé* :
-- Synthèse de rapports de 50+ pages en bullet points
-- Traitement de 100 feedbacks clients en 5 minutes au lieu de 2 heures
+- Synthèse de rapports 50+ pages en bullet points
+- 100 feedbacks clients en 5 min au lieu de 2h
 
 *Classification automatique* :
 - Routage d'emails vers le bon département
-- Analyse de sentiment (avis positifs/négatifs)
+- Analyse de sentiment (positif/négatif)
 - Veille e-réputation automatisée
 
-> *Clé du succès* : un bon prompt de classification a 3 éléments — la *tâche*, les *choix possibles*, et les *données* à analyser.
+> *Clé* : un bon prompt de classification = *tâche* + *choix possibles* + *données*.
 
-![bg right:45% contain](assets/ng01/img-024.png)
+![bg right:35% contain](assets/ng01/img-024.png)
 
 ---
 
@@ -255,63 +258,78 @@ Un des cas d'usage les plus puissants pour les entreprises :
 
 ---
 
+<!-- _class: compact -->
+
 # 13 — La génération d'images par IA
 
-Les modèles de génération d'images créent des visuels à partir de *descriptions textuelles* :
+Les modèles créent des visuels à partir de *descriptions textuelles*.
 
 *Outils majeurs en 2026* :
 - *Midjourney* [1] — qualité artistique, très populaire
 - *DALL-E 3* (OpenAI) [2] — intégré à ChatGPT
 - *Flux* (Black Forest Labs) [3] — open source, haute qualité
-- *Stable Diffusion* [4] — open source, très personnalisable
+- *Stable Diffusion* [4] — open source, personnalisable
+
+![bg right:40% contain](assets/ng01/img-028.png)
+![bg contain](assets/ng01/img-030.png)
+
+<small>Sources : [1] [Midjourney](https://www.midjourney.com/) · [2] [OpenAI DALL-E](https://openai.com/dall-e-3) · [3] [Black Forest Labs](https://blackforestlabs.ai/) · [4] [Stability AI](https://stability.ai/)</small>
+
+---
+
+# 13b — La génération d'images (suite)
 
 *Pour les entrepreneurs* :
 - Prototypage visuel rapide et quasi gratuit
 - A/B testing de visuels marketing
 - Attention aux *droits d'auteur* — sujet juridique en évolution
 
-![bg right:40% contain](assets/ng01/img-028.png)
-![bg contain](assets/ng01/img-030.png)
-![bg contain](assets/ng01/img-029.png)
-
-<small>Sources : [1] [Midjourney](https://www.midjourney.com/) · [2] [OpenAI DALL-E](https://openai.com/dall-e-3) · [3] [Black Forest Labs](https://blackforestlabs.ai/) · [4] [Stability AI](https://stability.ai/)</small>
+![bg right:40% contain](assets/ng01/img-029.png)
 
 ---
+
+<!-- _class: compact -->
 
 # 14 — Comment ça marche : les Diffusion Models
 
-Le principe est élégant — on entraîne un modèle à *enlever du bruit* d'une image :
+On entraîne un modèle à *enlever du bruit* d'une image :
 
-![bg right:40% contain](assets/A/diffusion_model.gif)
+![bg right:35% contain](assets/A/diffusion_model.gif)
 
-*Phase d'entraînement* :
+*Entraînement* :
 1. Prendre une image nette (ex : une pomme)
 2. Ajouter du bruit progressivement
-3. Entraîner le modèle : image bruitée → image moins bruitée
+3. Entraîner : image bruitée → image moins bruitée
 
-*Phase de génération* :
+*Génération* :
 1. Partir de *bruit pur* (image aléatoire)
-2. Appliquer le modèle ~100 fois de suite
-3. L'image émerge progressivement du bruit
+2. Appliquer le modèle ~100 fois
+3. L'image émerge progressivement
 
-> C'est comme un sculpteur qui retire la pierre pour révéler la statue — sauf que le sculpteur est un réseau de neurones.
+<!-- Speaker notes: C'est comme un sculpteur qui retire la pierre pour révéler la statue — sauf que le sculpteur est un réseau de neurones. -->
 
 ---
 
+<!-- _class: compact -->
+
 # 15 — Du No-Code au Full-Code : le spectre IA
 
-| Niveau | Outils | Compétences requises | Délai MVP |
+| Niveau | Outils | Compétences | Délai MVP |
 |---|---|---|---|
-| *No-Code* | Bolt.new, Lovable, v0 | Vision produit, bon prompt | Heures |
+| *No-Code* | Bolt.new, Lovable, v0 | Vision produit, prompt | Heures |
 | *Low-Code* | n8n, Make, Zapier | Logique métier, APIs | Jours |
-| *Assisted Code* | Copilot, Cursor, Windsurf | Bases de programmation | Jours à semaines |
-| *Autonomous Code* | Claude Code, Devin | Architecture, code review | Minutes par feature |
+| *Assisted Code* | Copilot, Cursor | Bases de programmation | Semaines |
+| *Autonomous Code* | Claude Code, Devin | Architecture, review | Minutes/feature |
+
+![bg right:35% contain](assets/infographics/ai-coding-spectrum_run_20260217_010852_676799.png)
+
+---
+
+# 15b — Le spectre IA (suite)
 
 > En 2026, la question n'est plus *"savez-vous coder ?"* mais *"à quel niveau du spectre voulez-vous intervenir ?"*
 
 *Question pour la classe* : Pour votre projet de chatbot, à quel niveau du spectre allez-vous vous positionner ?
-
-![bg right:45% contain](assets/infographics/ai-coding-spectrum_run_20260217_010852_676799.png)
 
 ---
 
@@ -340,21 +358,27 @@ Comment évaluer si un LLM peut réaliser une tâche ? Utilisez cette heuristiqu
 
 ---
 
+<!-- _class: compact -->
+
 # 17 — Hallucinations et Knowledge Cutoffs
 
-*Hallucinations* — le LLM *invente des informations avec un ton très confiant* :
-- Un avocat américain a soumis un mémoire juridique contenant des *affaires inventées* par ChatGPT [1]
-- Règle d'or : ne jamais publier un contenu IA sans *vérification humaine*
+*Hallucinations* — le LLM *invente des informations avec un ton confiant* :
+- Un avocat a soumis un mémoire contenant des *affaires inventées* par ChatGPT [1]
+- Règle d'or : jamais de contenu IA sans *vérification humaine*
 
 *Knowledge Cutoffs* — l'IA vit dans le passé :
-- Les connaissances sont *figées à la date d'entraînement*
-- Les données de la semaine dernière restent inaccessibles (sauf accès web)
+- Connaissances *figées à la date d'entraînement*
+- Données récentes inaccessibles (sauf accès web)
 
-![bg right:45% contain](assets/ng01/img-022.png)
-
-*Question pour la classe* : Quelles informations de votre entreprise ne devriez-vous JAMAIS mettre dans un prompt ChatGPT ?
+![bg right:35% contain](assets/ng01/img-022.png)
 
 <small>Sources : [1] [NYT](https://www.nytimes.com/2023/05/27/nyregion/avianca-chatgpt-fake-citations.html)</small>
+
+---
+
+# 17b — Hallucinations (suite)
+
+*Question pour la classe* : Quelles informations de votre entreprise ne devriez-vous JAMAIS mettre dans un prompt ChatGPT ?
 
 ---
 
@@ -381,29 +405,36 @@ Comment évaluer si un LLM peut réaliser une tâche ? Utilisez cette heuristiqu
 
 ---
 
+<!-- _class: compact -->
+
 # 19 — Trois disruptions simultanées
 
 Trois disruptions transforment le paysage IA en 2025 :
 
-1. *Des modèles qui "réfléchissent"* — les Reasoning Models décomposent un problème en étapes avant de répondre, atteignant *96,7%* sur des olympiades de mathématiques [1]
-2. *Un effondrement des coûts* — le coût d'inference a été divisé par *280* en 2 ans [2]
-3. *L'IA dans la poche* — Apple Intelligence embarque un modèle 3B directement sur iPhone, sans cloud [3]
+1. *Reasoning Models* — décomposent un problème en étapes, *96,7%* aux olympiades de maths [1]
+2. *Effondrement des coûts* — coût d'inference divisé par *280* en 2 ans [2]
+3. *L'IA dans la poche* — Apple Intelligence : modèle 3B sur iPhone, sans cloud [3]
 
-> En tant qu'entrepreneur, comprendre ce paysage = savoir *quel modèle utiliser, quand, et à quel prix*.
-
-![bg right:45% contain](assets/B/cheapest_llm_MMLU.png)
+![bg right:35% contain](assets/B/cheapest_llm_MMLU.png)
 
 <small>Sources : [1] [OpenAI](https://openai.com/index/introducing-o3-and-o4-mini/) · [2] [Stanford HAI](https://hai.stanford.edu/ai-index/2025-ai-index-report) · [3] [Apple ML Research](https://machinelearning.apple.com/research/introducing-apple-foundation-models)</small>
 
 ---
 
+# 19b — Trois disruptions (suite)
+
+> En tant qu'entrepreneur, comprendre ce paysage = savoir *quel modèle utiliser, quand, et à quel prix*.
+
+---
+
+<!-- _class: compact -->
+
 # 20 — Chain-of-Thought : penser avant de répondre
 
 *Ce que font les Reasoning Models différemment* :
-
-- *Extended Thinking* — le modèle génère une chaîne de raisonnement *avant* de répondre
-- *Token budget* — plus on alloue de "thinking tokens", meilleure est la réponse (mais plus cher)
-- *Vérification interne* — le modèle vérifie ses propres étapes, réduisant les hallucinations
+- *Extended Thinking* — chaîne de raisonnement *avant* de répondre
+- *Token budget* — plus de "thinking tokens" = meilleure réponse (mais plus cher)
+- *Vérification interne* — le modèle vérifie ses étapes, réduisant les hallucinations
 
 | Modèle | AIME 2024 (maths) | Prix input / 1M tokens |
 |--------|-----------|-----------------|
@@ -417,19 +448,19 @@ Trois disruptions transforment le paysage IA en 2025 :
 
 ---
 
-<!-- _class: cols -->
+<!-- _class: cols compact -->
 
 # 21 — Small Language Models : l'IA dans la poche
 
 <div class="left">
 
-### 5 avantages pour startups
+### 5 avantages startups
 
-1. *10-30x moins cher* — Phi-4 à $0,07/1M vs GPT-4o à $2,50/1M [1]
-2. *On-device* — pas de cloud, pas de latence
-3. *< 2s de latence* — seuil TTFT standard [3]
-4. *Données locales = RGPD friendly* [2]
-5. *Fine-tuning abordable* — $50-500 via LoRA [4]
+1. *10-30x moins cher* [1]
+2. *On-device* — pas de cloud
+3. *< 2s de latence* [3]
+4. *RGPD friendly* — données locales [2]
+5. *Fine-tuning $50-500* via LoRA [4]
 
 </div>
 <div class="right">
@@ -439,13 +470,13 @@ Trois disruptions transforment le paysage IA en 2025 :
 | Modèle | Params | Force clé |
 |--------|--------|-----------|
 | Phi-4 | 14B | Math rivale 70B |
-| Mistral Small 3 🇫🇷 | 24B | 27 langues |
+| Mistral Small 3 | 24B | 27 langues |
 | Gemma 3 | 1-27B | On-device |
-| SmolLM2 🇫🇷 | 1,7B | Raspberry Pi |
+| SmolLM2 | 1,7B | Raspberry Pi |
 
 </div>
 
-> Les SLMs ne remplacent pas les Frontier Models — ils les *complètent* pour les tâches simples et sensibles.
+> Les SLMs *complètent* les Frontier Models pour les tâches simples et sensibles.
 
 <small>Sources : [1] [Microsoft](https://azure.microsoft.com/en-us/blog/introducing-phi-4-microsoft-s-newest-small-language-model/) · [2] [Stanford HAI](https://hai.stanford.edu/ai-index/2025-ai-index-report) · [3] [MLCommons](https://mlcommons.org/2025/09/small-llm-inference-5-1/) · [4] [Stratagem Systems](https://www.stratagem-systems.com/blog/lora-fine-tuning-cost-analysis-2026)</small>
 
@@ -475,21 +506,21 @@ Trois disruptions transforment le paysage IA en 2025 :
 
 ---
 
+<!-- _class: compact -->
+
 # 23 — Points clés à retenir
 
 ### L'IA Générative (Session 1A)
-- La GenAI produit du contenu — mais le ML traditionnel représente *~70% de la valeur IA totale*
-- Trois axes pour classifier l'IA : *technique, paradigme, tâche*
-- Les Transformers (2017) sont la brique fondamentale de tous les LLMs modernes
+- GenAI produit du contenu — mais le ML traditionnel = *~70% de la valeur IA*
+- Trois axes : *technique, paradigme, tâche*
+- Les Transformers (2017) : brique fondamentale des LLMs
 
 ### L'IA en pratique (Session 1B)
 - *Prompt Engineering* : détail + Chain-of-Thought + itération
-- Trois familles d'applications : *Writing, Reading, Chatting* + Coding
-- Le test du *fresh college grad* pour évaluer chaque cas d'usage
-- *Hallucinations* et *Knowledge Cutoffs* sont des risques réels
+- Trois familles : *Writing, Reading, Chatting* + Coding
+- Test du *fresh college grad* pour évaluer chaque use case
+- *Hallucinations* et *Knowledge Cutoffs* = risques réels
 
 ### Les modèles de demain
 - *Reasoning Models* : penser avant de répondre (o3, DeepSeek-R1)
-- *Small Language Models* : le bon modèle pour la bonne tâche, au bon prix
-
-> *Prochaine session* : passer de l'utilisation à la *construction* de projets IA.
+- *Small Language Models* : bon modèle, bonne tâche, bon prix

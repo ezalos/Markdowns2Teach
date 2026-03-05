@@ -91,7 +91,7 @@ Un modèle de Classification binaire se trompe de **deux manières** :
 
 ---
 
-<!-- _class: cols -->
+<!-- _class: cols compact -->
 
 # 04 — Quel KPI choisir ? Ça dépend de votre business
 
@@ -100,24 +100,24 @@ Un modèle de Classification binaire se trompe de **deux manières** :
 ### Priorisez la Precision quand...
 
 - Les fausses alertes coûtent cher
-- Ex : email marketing (trop de spam = désabonnement)
-- Ex : recommandation produit (suggestion absurde = perte de crédibilité)
+- Ex : email marketing (spam = désabonnement)
+- Ex : recommandation (suggestion absurde)
 
 ### Priorisez le Recall quand...
 
 - Les cas manqués sont critiques
-- Ex : détection de fraude (FN = perte financière)
+- Ex : fraude (FN = perte financière)
 - Ex : diagnostic médical (FN = risque vital)
 
 </div>
 <div class="right">
 
-| Secteur | KPI prioritaire | Pourquoi |
+| Secteur | KPI | Pourquoi |
 |---|---|---|
-| Fraude bancaire | **Recall** | Manquer une fraude coûte cher |
-| Spam email | **Precision** | Bloquer un vrai mail = perte client |
-| Diagnostic cancer | **Recall** | Manquer un cas = risque vital |
-| Chatbot urgences | **Recall** | Ignorer une urgence est grave |
+| Fraude bancaire | **Recall** | Manquer = coûteux |
+| Spam email | **Precision** | Bloquer = perte client |
+| Diagnostic cancer | **Recall** | Manquer = risque vital |
+| Chatbot urgences | **Recall** | Ignorer = grave |
 
 </div>
 
@@ -216,21 +216,20 @@ Vous n'avez pas besoin de choisir l'architecture vous-même. Mais comprendre les
 
 ---
 
+<!-- _class: compact -->
+
 # 09 — Transfer Learning : la stratégie startup
 
-### Le principe
-
-- Un modèle entraîné sur des millions d'images sait déjà "voir"
-- Vous n'avez pas besoin de repartir de zéro
+- Un modèle entraîné sur des millions d'images sait déjà "voir" — pas besoin de repartir de zéro
 - Il suffit d'**ajuster les dernières couches** à votre problème spécifique
 
 | Étape | Action | Coût |
 |---|---|---|
 | **Modèle de base** | ResNet pré-entraîné sur ImageNet | Gratuit (open source) |
-| **Fine-tuning** | Réentraîner sur 500 images de vos produits | Quelques heures de GPU |
+| **Fine-tuning** | Réentraîner sur 500 images de vos produits | Quelques heures GPU |
 | **Déploiement** | API pour classifier vos images | Quelques EUR/mois |
 
-> **90%** des applications business en 2026 utilisent des modèles pré-entraînés ajustés, pas des modèles construits de zéro [1].
+> **90%** des apps business en 2026 utilisent des modèles pré-entraînés ajustés [1].
 
 <small>Sources : [1] [Gartner](https://www.gartner.com/en/articles/what-s-new-in-artificial-intelligence-from-the-2023-gartner-hype-cycle)</small>
 
@@ -276,9 +275,9 @@ Vous n'avez pas besoin de choisir l'architecture vous-même. Mais comprendre les
 
 ---
 
-# 12 — Comment lire un benchmark IA
+<!-- _class: compact -->
 
-Les benchmarks sont partout en 2026 — mais tous ne se valent pas :
+# 12 — Comment lire un benchmark IA
 
 | Benchmark | Ce qu'il mesure | Fiabilité |
 |---|---|---|
@@ -287,10 +286,10 @@ Les benchmarks sont partout en 2026 — mais tous ne se valent pas :
 | **MT-Bench** | Qualité conversationnelle | Évaluée par GPT-4 |
 | **Arena Elo** (LMSYS) | Préférence humaine | Meilleur indicateur [1] |
 
-- Les modèles sont optimisés **pour** les benchmarks — attention au "teaching to the test"
+- Modèles optimisés **pour** les benchmarks — attention au "teaching to the test"
 - Un modèle #1 sur MMLU peut être médiocre sur **votre** tâche spécifique
 
-> **Conseil** : testez toujours sur **vos propres données** avant d'acheter. Les benchmarks publics sont un point de départ, pas une garantie.
+> Testez toujours sur **vos propres données** avant d'acheter.
 
 <small>Sources : [1] [LMSYS Chatbot Arena](https://chat.lmsys.org/)</small>
 
@@ -339,30 +338,30 @@ Les benchmarks sont partout en 2026 — mais tous ne se valent pas :
 
 ---
 
-<!-- _class: cols -->
+<!-- _class: cols compact -->
 
 # 15 — Combien ça coûte vraiment ?
 
 <div class="left">
 
-| Approche | Coût initial | Coût mensuel |
-|----------|-------------|-------------|
-| **API GPT-4o** | ~0 EUR | $2,50-$10/M tokens [3] |
-| **API DeepSeek** | ~0 EUR | $0,28-$0,42/M tokens [4] |
-| **RAG** | 5-15K EUR | 50-8 000 EUR/mois [1] |
-| **Fine-tune QLoRA** | 100-5 000 EUR | ~500 EUR/mois [1] |
-| **Build from scratch** | >1M EUR | >10K EUR/mois [1] |
+| Approche | Initial | Mensuel |
+|----------|---------|---------|
+| **API GPT-4o** | ~0 € | $2,50-$10/M [3] |
+| **API DeepSeek** | ~0 € | $0,28-$0,42/M [4] |
+| **RAG** | 5-15K € | 50-8K €/mois [1] |
+| **Fine-tune QLoRA** | 100-5K € | ~500 €/mois [1] |
+| **Build scratch** | >1M € | >10K €/mois [1] |
 
 </div>
 <div class="right">
 
 ### Règles pratiques
 
-- Si coûts API > **15K EUR/mois** : évaluez le self-hosting Mistral ou Llama [1]
-- Les abonnements/licences = **< 40%** des dépenses réelles [2]
-- La majorité des surcoûts imprévus viennent de l'infra et du talent [2]
+- API > **15K €/mois** → évaluez self-hosting [1]
+- Licences = **< 40%** des dépenses réelles [2]
+- Surcoûts : infra et talent [2]
 
-> Budgétez l'iceberg : Data Preparation, intégration, et Change Management sont les vrais postes.
+> Budgétez l'iceberg : Data Prep, intégration, Change Management.
 
 </div>
 
@@ -394,7 +393,7 @@ Les benchmarks sont partout en 2026 — mais tous ne se valent pas :
 
 ---
 
-<!-- _class: cols -->
+<!-- _class: cols compact -->
 
 # 17 — No-code IA : 25 outils, 7 familles
 
@@ -402,7 +401,7 @@ Les benchmarks sont partout en 2026 — mais tous ne se valent pas :
 
 | Famille | Exemples | UE ? |
 |---------|----------|:----:|
-| Chatbot | GPT Builder, Mistral, Voiceflow | Mistral |
+| Chatbot | GPT Builder, Mistral | Mistral |
 | Automatisation | Zapier, Make, n8n | n8n, Make |
 | Contenu | Canva, Gamma, Runway | — |
 | Vibe Coding | Bolt.new, Lovable, Replit | Lovable |
@@ -414,12 +413,10 @@ Les benchmarks sont partout en 2026 — mais tous ne se valent pas :
 
 ### Chiffres clés
 
-- Marché low-code/no-code : **$65 Mds** (2024) [1]
-- Bolt.new : de **$0 à $40M ARR** en 5 mois [2]
-- Cursor : **$1 Mds ARR**, SaaS le plus rapide de l'histoire [3]
-- **58%** des utilisateurs Replit ne sont **pas** développeurs [4]
-
-> Tous ces outils ont un **free tier suffisant** pour démarrer.
+- Marché no-code : **$65 Mds** (2024) [1]
+- Bolt.new : **$0 → $40M ARR** en 5 mois [2]
+- Cursor : **$1 Mds ARR**, SaaS le plus rapide [3]
+- **58%** des utilisateurs Replit ne codent pas [4]
 
 </div>
 

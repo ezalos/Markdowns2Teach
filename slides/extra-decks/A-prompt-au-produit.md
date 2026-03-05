@@ -44,21 +44,38 @@ Les applications logicielles utilisant la Generative AI se classent en quatre fa
 
 ---
 
+<!-- _class: compact -->
+
 # 02 — L'ancienne approche : Supervised Learning
 
 Pour construire un classifieur de sentiment, il fallait :
 
 1. **Collecter des données labellisées** — des milliers d'exemples annotés
-2. **Entraîner un modèle** — écrire du code spécialisé (LSTM, Transformers...)
+2. **Entraîner un modèle** — code spécialisé (LSTM, Transformers...)
 3. **Déployer le modèle** — infrastructure serveur, monitoring
 
-**Durée typique** : ~6–12 mois (1 mois données + 3 mois entraînement + 3 mois déploiement) [1]
+**Durée typique** : ~6–12 mois [1]
 
-> Ce processus nécessitait une équipe d'ingénieurs ML et un budget significatif. Et le déploiement n'est que le début : la "hidden technical debt" [2] — maintenance, monitoring, data pipelines — représente la majorité du travail.
+![bg right:40% contain](assets/hidden-technical-debt.png)
 
-![bg right:45% contain](assets/hidden-technical-debt.png)
+<small>Sources : [1] [Andrew Ng, DeepLearning.AI](https://www.coursera.org/learn/generative-ai-for-everyone) · [2] [Sculley et al. NeurIPS 2015](https://proceedings.neurips.cc/paper_files/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf)</small>
 
-<small>Sources : [1] [Andrew Ng, *Generative AI for Everyone*, DeepLearning.AI](https://www.coursera.org/learn/generative-ai-for-everyone) · [2] [Sculley et al. NeurIPS 2015](https://proceedings.neurips.cc/paper_files/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf)</small>
+---
+
+<!-- _class: compact -->
+
+# 02b — La "Hidden Technical Debt" du ML
+
+Le déploiement n'est que le début : la "hidden technical debt" [2] — maintenance, monitoring, data pipelines — représente la majorité du travail.
+
+- Équipe d'ingénieurs ML + budget significatif requis
+- 1 mois données + 3 mois entraînement + 3 mois déploiement
+
+<!-- Speaker notes: Ce processus nécessitait une équipe d'ingénieurs ML et un budget significatif. Et le déploiement n'est que le début. -->
+
+![bg right:40% contain](assets/hidden-technical-debt.png)
+
+<small>Sources : [1] [Andrew Ng, DeepLearning.AI](https://www.coursera.org/learn/generative-ai-for-everyone) · [2] [Sculley et al. NeurIPS 2015](https://proceedings.neurips.cc/paper_files/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf)</small>
 
 ---
 
@@ -141,6 +158,8 @@ Le Prompt-based Development transforme l'équation économique :
 
 ---
 
+<!-- _class: compact -->
+
 # 06 — Les quatre étapes du Lifecycle
 
 Tout projet Generative AI suit un cycle itératif en 4 phases :
@@ -150,11 +169,13 @@ Tout projet Generative AI suit un cycle itératif en 4 phases :
 3. **Evaluate** — Tester en interne, détecter les erreurs
 4. **Deploy** — Mettre en production, surveiller
 
-> Ce n'est **pas un processus linéaire**. Les retours entre étapes sont la norme.
+<!-- Speaker notes: Ce n'est pas un processus linéaire. Les retours entre étapes sont la norme. -->
 
 ![bg right:50% contain](assets/infographics/genai-lifecycle_run_20260216_171314_f23e16.png)
 
 ---
+
+<!-- _class: compact -->
 
 # 07 — Scope — Bien cadrer le projet
 
@@ -167,27 +188,29 @@ Le cadrage est l'étape la plus critique. Un mauvais scope = un projet qui écho
 - Quel niveau de qualité est acceptable ?
 
 **Mesurer le succès** — Définir des KPIs dès le scope :
-- *Précision* : % de réponses correctes (détaillé en Session 3 avec Precision/Recall)
-- *Satisfaction utilisateur* : NPS, taux de résolution au premier contact
+- *Précision* : % de réponses correctes (Session 3 : Precision/Recall)
+- *Satisfaction utilisateur* : NPS, taux de résolution 1er contact
 - *ROI* : coût IA vs coût du processus manuel remplacé
 
-> **Conseil pratique** : commencez par le cas d'usage le plus simple qui apporte de la valeur. Vous pourrez toujours élargir ensuite.
+<!-- Speaker notes: Conseil pratique : commencez par le cas d'usage le plus simple qui apporte de la valeur. Vous pourrez toujours élargir ensuite. -->
 
 ---
 
+<!-- _class: compact -->
+
 # 08 — Build — Un processus empirique
 
-Construire avec la Generative AI est un processus **hautement expérimental** :
+Construire avec la GenAI est **hautement expérimental** :
 
-- On écrit un prompt, on teste, on corrige, on itère
-- Le cycle **Idea → Prompt → LLM Response** se répète des dizaines de fois
-- Chaque itération prend des minutes (pas des semaines)
+- Écrire un prompt, tester, corriger, itérer
+- Cycle **Idea → Prompt → LLM Response** répété des dizaines de fois
+- Chaque itération : minutes (pas des semaines)
 
-**Le prototype initial ne sera pas parfait** — et c'est normal. L'objectif est de progresser rapidement vers une version fonctionnelle.
+**Le prototype initial ne sera pas parfait** — l'objectif est de progresser vite vers une version fonctionnelle.
 
-> Pensez au Lean Startup : Build → Measure → Learn. C'est exactement la même logique appliquée à l'IA.
+> Lean Startup appliqué à l'IA : Build → Measure → Learn.
 
-![bg right:45% contain](assets/ng02/img-011.png)
+![bg right:35% contain](assets/ng02/img-011.png)
 
 ---
 
@@ -223,22 +246,22 @@ Le déploiement ne signifie pas "ouvrir à tout le monde d'un coup" :
 
 ---
 
+<!-- _class: compact -->
+
 # 11 — Cas pratique : BettaBurgers
 
-**Contexte** : BettaBurgers veut un chatbot pour prendre les commandes en ligne.
+**Contexte** : BettaBurgers veut un chatbot de commande en ligne.
 
-**Scope** : le chatbot doit accueillir les clients, prendre leur commande, et confirmer.
+- **Scope** : accueillir, prendre la commande, confirmer
+- **Build** : prompt avec le menu et les instructions
+- **Evaluate** — résultat des tests internes :
+  - Dit "pas de champignons" alors que c'est faux
+  - Ne connaît pas les calories des produits
+  - Invente des promotions inexistantes
 
-**Build** → l'équipe écrit un premier prompt avec le menu et les instructions.
+> Erreurs typiques : le LLM "hallucine" sans contexte suffisant.
 
-**Evaluate** → l'équipe teste en interne. Résultat :
-- Le chatbot dit "nous n'avons pas de champignons" alors que c'est faux
-- Il ne connaît pas les calories des produits
-- Il invente des promotions qui n'existent pas
-
-> Ces erreurs sont typiques : le LLM "hallucine" quand il manque d'informations contextuelles.
-
-![bg right:40% contain](assets/ng02/img-012.png)
+![bg right:35% contain](assets/ng02/img-012.png)
 
 ---
 
@@ -327,14 +350,18 @@ L'arbre de décision suit une logique d'escalade progressive :
 
 - *Prompting* → premier réflexe, toujours commencer ici
 - *RAG* → si le modèle manque de contexte spécifique
-- *Fine-tuning* → si le modèle a besoin d'un style ou format précis
+- *Fine-tuning* → style ou format précis requis
 - *Pretraining* → domaine ultra-spécialisé (rare)
 
 > **90%** des projets GenAI en startup se résolvent avec Prompting + RAG [1].
 
-![bg right:55% contain](assets/infographics/tool-decision_run_20260216_171316_911dd4.png)
-
 <small>Sources : [1] Adapté de *Generative AI for Everyone* par Andrew Ng · [DeepLearning.AI](https://www.coursera.org/learn/generative-ai-for-everyone) · CC BY-SA 2.0</small>
+
+---
+
+# 16b — Guide de décision (suite)
+
+![bg contain 85%](assets/infographics/tool-decision_run_20260216_171316_911dd4.png)
 
 ---
 

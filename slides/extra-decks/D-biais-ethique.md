@@ -30,21 +30,21 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 
 ---
 
+<!-- _class: compact -->
+
 # 01 — Biais et toxicité dans les LLMs
 
-Les LLMs *reflètent les biais* présents dans leurs données d'entraînement :
+Les LLMs *reflètent les biais* de leurs données d'entraînement :
 
-*Exemple de biais de genre* :
-- "The surgeon walked to the parking lot and took out *his* car keys."
-- "The nurse walked to the parking lot and took out *her* phone."
+*Biais de genre* : "The surgeon… took out *his* keys." / "The nurse… took out *her* phone."
 
 | Enjeu | Question clé | Exemple |
 |---|---|---|
-| *Fairness* | Les données sont-elles représentatives ? | Biais de genre dans le recrutement |
-| *Vie privée* | Quelles données collecte-t-on ? | RGPD et droit à l'oubli |
-| *Contrôle* | Qui est responsable des décisions ? | Le chatbot Tay de Microsoft (2016) [1] |
+| *Fairness* | Données représentatives ? | Biais de genre au recrutement |
+| *Vie privée* | Quelles données collectées ? | RGPD et droit à l'oubli |
+| *Contrôle* | Qui est responsable ? | Chatbot Tay de Microsoft [1] |
 
-> *Pour les entrepreneurs* : l'éthique n'est pas un frein — c'est un *avantage compétitif*. Les entreprises qui intègrent la responsabilité IA dès le départ sont mieux positionnées face au EU AI Act.
+> L'éthique n'est pas un frein — c'est un *avantage compétitif* face au EU AI Act.
 
 <small>Sources : [1] [The Verge](https://www.theverge.com/2016/3/24/11297050/microsoft-tay-ai-chatbot-racist)</small>
 

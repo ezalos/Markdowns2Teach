@@ -30,22 +30,24 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 
 ---
 
+<!-- _class: compact -->
+
 # 01 — CRISP-DM : 6 phases cycliques
 
-![bg right:50% contain](assets/infographics/crisp-dm_run_20260216_171255_a6ef8c.png)
+![bg right:40% contain](assets/infographics/crisp-dm_run_20260216_171255_a6ef8c.png)
 
 Le standard Data Science — **43% d'adoption**, #1 depuis 2002 [1] :
 
 1. **Business Understanding** — problème + critères de succès
 2. **Data Understanding** — explorer, évaluer la qualité
-3. **Data Preparation** — **50-70% de l'effort** total [2]
+3. **Data Preparation** — **50-70% de l'effort** [2]
 4. **Modeling** — entraîner, comparer, tuner
 5. **Evaluation** — valider vs critères business
 6. **Deployment** — production + monitoring
 
-> Né d'un programme européen (EU ESPRIT, 1996-1999). Jamais mis à jour — toujours dominant.
-
 <small>Sources : [1] [DataScience-PM](https://www.datascience-pm.com/crisp-dm-2/) · [2] [IBM SPSS Modeler CRISP-DM Guide](https://www.ibm.com/docs/en/spss-modeler/18.5.0?topic=dm-data-preparation)</small>
+
+<!-- Speaker notes: Né d'un programme européen (EU ESPRIT, 1996-1999). Jamais mis à jour — toujours dominant. -->
 
 ---
 
@@ -78,22 +80,21 @@ Le standard Data Science — **43% d'adoption**, #1 depuis 2002 [1] :
 
 ---
 
+<!-- _class: compact -->
+
 # 03 — LLMOps : le cycle GenAI
 
-![bg right:50% contain](assets/infographics/llmops_run_20260216_171257_39e262.png)
+![bg right:40% contain](assets/infographics/llmops_run_20260216_171257_39e262.png)
 
 CRISP-DM date de 1999. Pour la GenAI, **9 phases** en 3 blocs [1] :
 
-**Define** — cadrer le projet
-- Problem Definition, Model Selection, Data Preparation
+**Define** — Problem Definition, Model Selection, Data Preparation
 
-**Build** — construire la solution
-- Prompt Engineering, Evaluation (Evals), Guardrails [2]
+**Build** — Prompt Engineering, Evals, Guardrails [2]
 
-**Operate** — maintenir en production
-- Deployment, Observability, Feedback Loops
+**Operate** — Deployment, Observability, Feedback Loops
 
-> Différence clé vs CRISP-DM : **Guardrails** et **Observability** sont des phases à part entière, pas des options.
+> Différence clé : **Guardrails** et **Observability** sont des phases à part entière.
 
 <small>Sources : [1] [DataScience-PM](https://www.datascience-pm.com/the-genai-life-cycle/) · [2] [NVIDIA](https://developer.nvidia.com/blog/mastering-llm-techniques-llmops/)</small>
 
@@ -211,18 +212,20 @@ Avant de construire un modèle, **5 patterns** pour tester la valeur [1] :
 
 ---
 
+<!-- _class: compact -->
+
 # 08 — Le guide de décision
 
-![bg right:55% contain](assets/infographics/decision-guide_run_20260216_171259_3f18b9.png)
+![bg right:40% contain](assets/infographics/decision-guide_run_20260216_171259_3f18b9.png)
 
 Quatre niveaux d'investissement technique :
 
-- **Prompting** — premier réflexe, suffisant pour beaucoup de cas
-- **RAG** — le modèle manque de contexte spécifique à votre domaine
-- **Fine-tuning** — besoin d'un style ou savoir-faire particulier
-- **Pretraining** — domaine totalement unique (rare et coûteux)
+- **Prompting** — suffisant pour beaucoup de cas
+- **RAG** — contexte spécifique à votre domaine
+- **Fine-tuning** — style ou savoir-faire particulier
+- **Pretraining** — domaine unique (rare et coûteux)
 
-> **90%** des projets GenAI en startup se résolvent avec Prompting + RAG [1].
+> **90%** des projets GenAI se résolvent avec Prompting + RAG [1].
 
 <small>Sources : [1] Adapté de *Generative AI for Everyone* par Andrew Ng · DeepLearning.AI · CC BY-SA 2.0</small>
 
@@ -295,14 +298,13 @@ Quatre niveaux d'investissement technique :
 
 ---
 
+<!-- _class: compact -->
+
 # 12 — Schneider Electric : EUR 700M économisés
 
-- **Build in-house** : a construit ses propres outils IA
-- **EUR 700M** économisés depuis 2019 via maintenance prédictive et optimisation énergie [1]
+- **Build in-house** : ses propres outils IA
+- **EUR 700M** économisés depuis 2019 (maintenance prédictive + énergie) [1]
 - **7,4M** d'assets connectés via EcoStruxure IoT [2]
-- A commencé par un cas d'usage simple : **maintenance prédictive**
-
-### Ce que ça prouve
 
 | Critère | Schneider | L'Oréal |
 |---------|-----------|---------|
@@ -311,7 +313,7 @@ Quatre niveaux d'investissement technique :
 | Contrôle | Total | Partiel |
 | ROI | EUR 700M sur 5 ans | 3x conversion |
 
-> **Pas de réponse universelle** au Build vs Buy — ça dépend de vos ressources et de votre timeline.
+> **Pas de réponse universelle** au Build vs Buy — ça dépend de vos ressources et timeline.
 
 <small>Sources : [1] [Schneider Electric](https://www.se.com/ww/en/about-us/newsroom/) · [2] [EcoStruxure Platform](https://www.se.com/ww/en/work/campaign/innovation/platform/)</small>
 
@@ -365,18 +367,15 @@ Quatre niveaux d'investissement technique :
 
 # 15 — Discussion : Qui est responsable quand l'IA dérape ?
 
-> Votre **startup** déploie un chatbot client. Il donne une mauvaise info qui coûte EUR 5 000 à un client.
+> Votre startup déploie un chatbot. Mauvaise info → 5 000 € de perte client.
 
 | Cas | Responsable | Précédent |
 |-----|-------------|-----------|
 | Air Canada | **L'entreprise** | Le chatbot est votre agent |
-| Workday | **Le vendor IA** | Le fournisseur aussi est liable |
+| Workday | **Le vendor IA** | Le fournisseur est liable |
 | UnitedHealth | **L'assureur** | L'algo ne vous protège pas |
 
-**Questions pour la classe** :
-- Faut-il un **Human-In-The-Loop** pour tout chatbot client ?
-- L'EU AI Act change-t-il la donne pour votre startup ?
-- Qui est responsable si vous utilisez l'API d'OpenAI et que le résultat est faux ?
+**Questions** : HITL obligatoire ? EU AI Act change la donne ? Qui paie si l'API hallucine ?
 
 ---
 
@@ -390,18 +389,16 @@ Quatre niveaux d'investissement technique :
 
 # 16 — Trois phases, trois sets d'outils
 
-**Phase 1 — Valider une idée** (0-3 mois) :
-- Use Case Prioritization, AI Project Canvas, MVP Prompt Engineering
-- Budget : ~10-30K EUR, 1-2 personnes, livrable en 1-4 semaines [1]
+**Phase 1 — Valider** (0-3 mois) :
+- AI Canvas, MVP Prompt Engineering — ~10-30K EUR [1]
 
-**Phase 2 — Construire un produit** (3-12 mois) :
-- ML Canvas, Build vs Buy, CRISP-DM ou LLMOps, ROI Framework
-- Budget : 50-150K EUR, 3-5 personnes, cycles de 2-4 semaines [1]
+**Phase 2 — Construire** (3-12 mois) :
+- ML Canvas, Build vs Buy, CRISP-DM/LLMOps — 50-150K EUR [1]
 
 **Phase 3 — Scaler** (12+ mois) :
-- Data Flywheel, FinOps, ISO 42001 / EU AI Act compliance
+- Data Flywheel, FinOps, ISO 42001 / EU AI Act
 
-> **Commencez toujours par la Phase 1** — même si vous pensez connaître la réponse.
+<!-- Speaker notes: Commencez toujours par la Phase 1 — même si vous pensez connaître la réponse. -->
 
 <small>Sources : [1] [Azilen — AI Development Cost 2025](https://www.azilen.com/blog/ai-development-cost/)</small>
 
@@ -409,14 +406,14 @@ Quatre niveaux d'investissement technique :
 
 # 17 — Key Takeaways
 
-1. **CRISP-DM reste le standard** — 43% d'adoption, 25 ans de recul. LLMOps ajoute 3 phases pour les projets GenAI.
+1. **CRISP-DM reste le standard** — 43% d'adoption, 25 ans de recul. LLMOps ajoute Guardrails + Observability.
 
-2. **Cadrez avant de coder** — 20 min d'AI Canvas économisent des mois. Le ML Canvas traduit la vision business en specs techniques.
+2. **Cadrez avant de coder** — 20 min d'AI Canvas économisent des mois.
 
-3. **L'Open Source européen est un atout** — Mistral et Hugging Face sont français. Souveraineté + performance + RGPD.
+3. **L'Open Source européen est un atout** — Mistral et HF sont français. Souveraineté + RGPD.
 
-4. **Chaque cas d'usage a sa leçon** — Klarna (ne remplacez pas tout), L'Oréal (achetez si c'est plus rapide), Schneider (construisez si c'est stratégique).
+4. **Chaque cas a sa leçon** — Klarna (ne remplacez pas tout), L'Oréal (achetez), Schneider (construisez).
 
-5. **Vous êtes responsable de votre IA** — Air Canada, Grok, Workday : la justice ne distingue pas l'humain et l'algorithme.
+5. **Vous êtes responsable de votre IA** — la justice ne distingue pas l'humain et l'algorithme.
 
-> **Pour la prochaine séance** : choisissez un use case, remplissez l'AI Canvas, et testez avec un Prompt Engineering MVP.
+> **Prochaine séance** : choisissez un use case, remplissez l'AI Canvas, testez avec un MVP.

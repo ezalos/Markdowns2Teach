@@ -30,19 +30,21 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 
 ---
 
+<!-- _class: compact -->
+
 # 01 — Quelle architecture pour quel problème ?
 
-Cinq familles d'architectures, chacune optimisée pour un type de données :
+Cinq familles, chacune optimisée pour un type de données :
 
-- *CNN* — images et vidéo (détection de patterns visuels)
+- *CNN* — images et vidéo (patterns visuels)
 - *RNN / LSTM* — séquences et texte (mémoire temporelle)
-- *GAN* — génération (compétition générateur vs discriminateur)
+- *GAN* — génération (générateur vs discriminateur)
 - *Encoder/Decoder* — multi-modal (traduction, sous-titrage)
-- *Transformer* — texte, code, multi-modal (base de GPT, Claude, Mistral)
+- *Transformer* — texte, code, multi-modal (GPT, Claude, Mistral)
 
-> *Pour un entrepreneur* : comprendre les forces de chaque architecture aide à *évaluer les solutions proposées*.
+![bg right:40% contain](assets/infographics/architectures_run_20260216_171312_60551f.png)
 
-![bg right:55% contain](assets/infographics/architectures_run_20260216_171312_60551f.png)
+<!-- Speaker notes: Pour un entrepreneur : comprendre les forces de chaque architecture aide à évaluer les solutions proposées. -->
 
 ---
 
@@ -112,14 +114,16 @@ Cinq familles d'architectures, chacune optimisée pour un type de données :
 
 ---
 
+<!-- _class: compact -->
+
 # 04 — Encoder/Decoder et Transformer : la brique fondamentale
 
-*L'architecture à deux étapes* :
-1. *Encoder* : compresse l'information en une représentation dense (« le sens »)
+*Architecture à deux étapes* :
+1. *Encoder* : compresse l'information en représentation dense
 2. *Decoder* : reconstruit une sortie à partir de cette représentation
 
 *Exemples* : traduction (texte → texte), sous-titrage (image → texte), DALL-E (texte → image), Whisper (audio → texte)
 
-> L'architecture Encoder/Decoder est la *brique fondamentale* derrière les LLMs que vous utilisez quotidiennement (ChatGPT, Claude, Mistral Le Chat).
+> La brique fondamentale derrière ChatGPT, Claude, Mistral Le Chat.
 
-![bg right:50% contain](assets/infographics/encoder-decoder_run_20260216_171310_3b56bd.png)
+![bg right:40% contain](assets/infographics/encoder-decoder_run_20260216_171310_3b56bd.png)
