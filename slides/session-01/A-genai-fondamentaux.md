@@ -30,17 +30,19 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 
 ---
 
+<!-- _class: compact -->
+
 # 01 — L'essor de la Generative AI
 
-- *$2,6 – 4,4 trillions* de valeur annuelle potentielle [1]
+- *$2,6 – 4,4 T* de valeur annuelle potentielle [1]
 - *+15% du PIB mondial* d'ici 2035 [2]
-- *66% des jobs aux US* veront leurs taches quotidiennes transformees par l'IA [3]
+- *66% des jobs US* transformés par l'IA [3]
 
-> Après le lancement de ChatGPT (nov. 2022), les mentions d'"IA" dans les *earnings calls* du S&P 500 ont explosé.
+![bg right:35% contain](assets/A/01-number-of-sp500-earnings-calls-citing-AI-10-year.webp) [4]
 
-![bg right:45% contain](assets/A/01-number-of-sp500-earnings-calls-citing-AI-10-year.webp) [4]
+*Question* : si le coût de l'intelligence machine tend vers zéro, quel service trop coûteux à automatiser devient une opportunité ?
 
-*Question pour la classe* : Si le coût de l'intelligence machine tend vers zéro, quel service aujourd'hui trop coûteux pour être automatisé devient une opportunité de startup demain ?
+<!-- Speaker notes: Après le lancement de ChatGPT (nov. 2022), les mentions d'"IA" dans les earnings calls du S&P 500 ont explosé. -->
 
 <small>Sources : [1] [McKinsey](https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier) [2] [PWC](https://www.pwc.com/gx/en/news-room/press-releases/2025/ai-adoption-could-boost-global-gdp-by-an-additional-15-percentage.html) [3] [EY](https://www.ey.com/en_gl/insights/ai/how-gen-ai-will-impact-the-labor-market) [4] [Factset](https://insight.factset.com/highest-number-of-sp-500-earnings-calls-citing-ai-over-the-past-10-years-1)</small>
 
@@ -55,19 +57,21 @@ Des systèmes d'intelligence artificielle capables de *produire du contenu de ha
 
 ---
 
+<!-- _class: compact -->
+
 # 03 — La Generative AI, aussi un outil de développement
 
-Au-delà des chatbots grand public, la Generative AI est un *developer tool* puissant :
+Au-delà des chatbots, la GenAI est un *developer tool* puissant :
 
 - Génération de code et debugging
 - Automatisation de pipelines de données
 - Prototypage rapide d'applications
 
-*Pour les entrepreneurs* : même sans équipe technique, les LLMs permettent de construire des *MVPs fonctionnels* en quelques jours.
+*Pour les entrepreneurs* : même sans équipe technique, les LLMs permettent de construire des *MVPs fonctionnels* en quelques jours. [1][2]
 
-> En 2025, des startups comme Bolt.new et Lovable permettent de coder des apps entières via prompt. [1][2]
+![bg right:40% contain](assets/A/03-googlecolab-generation.png)
 
-![bg right:45% contain](assets/A/03-googlecolab-generation.png)
+<!-- Speaker notes: En 2025, des startups comme Bolt.new et Lovable permettent de coder des apps entières via prompt. -->
 
 <small>Sources : [1] [Bolt.new](https://bolt.new/) · [2] [Lovable](https://lovable.dev/)</small>
 
@@ -142,24 +146,26 @@ La Generative AI ne se limite pas au texte :
 
 ---
 
-# 08 — L'IA traditionnelle reste la majorité de la valeur
+<!-- _class: compact compact-table -->
 
-La Generative AI fait les gros titres — mais le Machine Learning traditionnel crée *plus de valeur économique* :
+# 08 — L'IA traditionnelle reste la majorité de la valeur
 
 | | ML traditionnel | Generative AI |
 |---|---|---|
 | **Dépenses 2025** | ~$94 Mds [1] | ~$38 Mds [2] |
-| **Valeur potentielle** | $11 – 17,7 T/an (McKinsey 2023) [3] | + $2,6 – 4,4 T/an [3] |
-| **Investissements 2024** | 150 Mds [6] | $30 Mds [6] |
-| **Déploiement** | 71% des entreprises [4] | 29% comme type le + fréquent [5] |
-| **Maturité** | Prouvé depuis 15 ans | En phase d'adoption rapide |
+| **Valeur potentielle** | $11–17,7 T/an [3] | +$2,6–4,4 T/an [3] |
+| **Investissements 2024** | $150 Mds [6] | $30 Mds [6] |
+| **Déploiement** | 71% des entreprises [4] | 29% type le + fréquent [5] |
+| **Maturité** | Prouvé depuis 15 ans | Adoption rapide |
 | **Cas typiques** | Prédiction, optimisation | Génération, raisonnement |
 
-> *Pour un entrepreneur* : connaître les deux mondes est un avantage compétitif. La GenAI fait le buzz, le ML classique fait le chiffre d'affaires.
+> La GenAI fait le buzz, le ML classique fait le chiffre d'affaires — connaître les deux = avantage compétitif.
 
 <small>Sources : [1] [Precedence Research ML](https://www.precedenceresearch.com/machine-learning-market) · [2] [Precedence Research GenAI](https://www.precedenceresearch.com/generative-ai-market) · [3] [McKinsey](https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier) · [4] [McKinsey State of AI 2025](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai) · [5] [Gartner](https://www.gartner.com/en/newsroom/press-releases/2024-05-07-gartner-survey-finds-generative-ai-is-now-the-most-frequently-deployed-ai-solution-in-organizations) [6] [Standford HAI](https://hai.stanford.edu/ai-index/2025-ai-index-report/economy) </small>
 
 ---
+
+<!-- _class: compact -->
 
 # 09 — Les multiples facettes de l'IA
 
@@ -167,7 +173,7 @@ L'IA se classe selon trois axes complémentaires :
 
 | Axe | Question | Exemples |
 |---|---|---|
-| **Par technique** | *Comment* est construit le modèle ? | Statistics, ML, Deep Learning, GenAI |
+| **Par technique** | *Comment* est construit le modèle ? | Statistics, ML, DL, GenAI |
 | **Par paradigme** | *Comment* le modèle apprend-il ? | Supervised, Unsupervised, RL, Self-Supervised |
 | **Par tâche** | *Que fait* le modèle ? | Classification, détection, génération |
 
@@ -185,20 +191,20 @@ L'IA se classe selon trois axes complémentaires :
 
 ---
 
-<!-- _class: cols -->
+<!-- _class: cols compact -->
 
 # 10 — Vue d'ensemble : Stats → ML → DL → GenAI
 
 <div class="left">
 
-Chaque couche ajoute de la complexité et de la capacité :
+Chaque couche ajoute complexité et capacité :
 
-- **Statistics** — analyser et quantifier des données
-- **Machine Learning** — apprendre des patterns à partir de données
-- **Deep Learning** — réseaux de neurones profonds, données massives
+- **Statistics** — analyser et quantifier
+- **Machine Learning** — apprendre des patterns
+- **Deep Learning** — réseaux de neurones profonds
 - **Generative AI** — créer du contenu original
 
-> Chaque couche *inclut* les précédentes : la GenAI repose sur le Deep Learning, qui repose sur le ML, qui repose sur les statistiques.
+> Chaque couche *inclut* les précédentes : GenAI repose sur DL, qui repose sur ML, qui repose sur les stats.
 
 </div>
 <div class="right">
@@ -209,9 +215,9 @@ Chaque couche ajoute de la complexité et de la capacité :
 
 ---
 
-# 11 — Statistics : l'A/B Testing
+<!-- _class: compact -->
 
-L'outil statistique le plus accessible — et le plus utilisé par les startups :
+# 11 — Statistics : l'A/B Testing
 
 | | Version A | Version B |
 |---|---|---|
@@ -220,29 +226,31 @@ L'outil statistique le plus accessible — et le plus utilisé par les startups 
 | **Conversions** | 230 (2,3%) | 310 (3,1%) |
 | **p-value** | — | 0,0005 (significatif) |
 
-> **Ce n'est pas de l'IA.** L'A/B Testing est un outil statistique pur — pas de modèle, pas d'apprentissage. Et c'est souvent l'outil le plus adapté pour des décisions business simples.
+> **Ce n'est pas de l'IA.** L'A/B Testing = outil statistique pur — pas de modèle, pas d'apprentissage. Souvent le plus adapté pour des décisions business simples.
 
-*Question pour la classe* : Quelle variable de votre projet pourriez-vous tester avec un A/B test cette semaine ?
+*Question* : Quelle variable de votre projet tester avec un A/B test ?
 
-![bg right:40% contain](assets/A/stats-ab-test.png)
+![bg right:35% contain](assets/A/stats-ab-test.png)
 
 ---
 
+<!-- _class: compact compact-table -->
+
 # 12 — Machine Learning : définition
 
-D'après Chip Huyen, le ML est une approche qui réunit **5 conditions** [1] :
+D'après Chip Huyen, le ML réunit **5 conditions** [1] :
 
 | # | Condition | Signification |
 |---|---|---|
-| 1 | **Learn** | Le système a la capacité d'apprendre par lui-même |
-| 2 | **Complex Patterns** | Les patterns sont trop complexes pour être codés à la main |
-| 3 | **Existing Data** | Des données existent ou peuvent être collectées |
-| 4 | **Predictions** | Le problème est formulable comme une prédiction |
-| 5 | **Unseen Data** | Les patterns appris se généralisent à de nouvelles données |
+| 1 | **Learn** | Le système apprend par lui-même |
+| 2 | **Complex Patterns** | Patterns trop complexes pour du code manuel |
+| 3 | **Existing Data** | Des données existent ou sont collectables |
+| 4 | **Predictions** | Problème formulable comme prédiction |
+| 5 | **Unseen Data** | Les patterns se généralisent |
 
-> Si l'une de ces 5 conditions manque, le ML n'est probablement pas la bonne solution.
+![bg right:35% contain](assets/infographics/ml-definition-checklist_run_20260222_182359_190bac.png)
 
-![bg right:40% contain](assets/infographics/ml-definition-checklist_run_20260222_182359_190bac.png)
+<!-- Speaker notes: Si l'une de ces 5 conditions manque, le ML n'est probablement pas la bonne solution. -->
 
 <small>Sources : [1] [Chip Huyen, *Designing ML Systems*, O'Reilly 2022](https://www.oreilly.com/library/view/designing-machine-learning/9781098107956/)</small>
 
@@ -266,38 +274,41 @@ Les cas les plus déployés en production — souvent invisibles pour l'utilisat
 
 ---
 
+<!-- _class: compact -->
+
 # 14 — Machine Learning : la Linear Regression
 
 L'algorithme ML le plus simple — tracer une droite à travers des données :
 
-- **Input** : budget marketing mensuel (€)
-- **Output** : chiffre d'affaires prédit (€)
-- Le modèle apprend la relation `CA = a × Budget + b`
+- **Input** : budget marketing (€) · **Output** : CA prédit (€)
+- Le modèle apprend `CA = a × Budget + b`
 
 *Exemples business* :
-- Prédire le prix d'un bien immobilier à partir de sa surface
-- Estimer les revenus en fonction des dépenses publicitaires
-- Prévoir la demande d'un produit
+- Prix immobilier à partir de la surface
+- Revenus en fonction des dépenses pub
+- Prévision de la demande produit
 
-> La Linear Regression est le "Hello World" du Machine Learning. Simple, interprétable, et souvent suffisante.
+> Le "Hello World" du ML — simple, interprétable, souvent suffisant.
 
-![bg right:40% contain](assets/infographics/ml-linear-regression_run_20260219_095044_81b289.png)
+![bg right:35% contain](assets/infographics/ml-linear-regression_run_20260219_095044_81b289.png)
 
 ---
 
+<!-- _class: compact -->
+
 # 15 — Deep Learning : pourquoi et comment
 
-**Pourquoi** : quand les patterns sont trop complexes pour des features manuelles (images, audio, texte).
+**Pourquoi** : patterns trop complexes pour des features manuelles (images, audio, texte).
 
-**Comment** : empiler des couches de "neurones artificiels" (perceptrons) :
+**Comment** : empiler des couches de "neurones artificiels" :
 
-- **Input Layer** — reçoit les données brutes (pixels, mots, nombres)
-- **Hidden Layers** — extrait des features de plus en plus abstraites
-- **Output Layer** — produit la prédiction finale
+- **Input Layer** — données brutes (pixels, mots, nombres)
+- **Hidden Layers** — features de plus en plus abstraites
+- **Output Layer** — prédiction finale
 
-> Plus on ajoute de couches (= "deep"), plus le réseau capture des patterns complexes. C'est ce qui a permis la reconnaissance d'images, la traduction et la GenAI.
+> Plus de couches = patterns plus complexes — reconnaissance d'images, traduction, GenAI.
 
-![bg right:40% contain](assets/mlp-diagram-full.png)
+![bg right:35% contain](assets/mlp-diagram-full.png)
 
 ---
 
@@ -315,34 +326,37 @@ Essayez ces 3 expériences :
 
 ---
 
+<!-- _class: compact -->
+
 # 17 — GenAI : le Bottleneck Problem
 
 Avant les Transformers, les modèles utilisaient un **Encoder-Decoder** :
 
-- L'**Encoder** compresse toute l'entrée en un seul vecteur de taille fixe
-- Le **Decoder** doit reconstruire la sortie à partir de ce vecteur unique
+- L'**Encoder** compresse l'entrée en un vecteur de taille fixe
+- Le **Decoder** reconstruit la sortie à partir de ce vecteur unique
 
-*Le problème* : c'est comme résumer un film de 3h en une seule phrase — on perd forcément de l'information.
+*Le problème* : résumer un film de 3h en une phrase — on perd de l'information.
 
-> Plus la séquence d'entrée est longue, plus l'information est compressée et dégradée. C'est le **bottleneck** que l'Attention résout.
+> Plus la séquence est longue, plus l'info est compressée et dégradée. C'est le **bottleneck** que l'Attention résout.
 
-![bg right:45% contain](assets/infographics/encoder-decoder_run_20260216_171310_3b56bd.png)
+![bg right:40% contain](assets/infographics/encoder-decoder_run_20260216_171310_3b56bd.png)
 
 ---
 
+<!-- _class: compact -->
+
 # 18 — GenAI : les Transformers et l'Attention
 
-L'architecture qui a tout changé (Vaswani et al. 2017) [1] — le **Self-Attention** permet au modèle de pondérer chaque mot par rapport à *tous les autres*.
+L'architecture qui a tout changé (Vaswani et al. 2017) [1] — le **Self-Attention** pondère chaque mot par rapport à *tous les autres*.
 
 **Analogie de la bibliothèque** :
 - **Query** = votre question ("Qui a écrit Hamlet ?")
 - **Key** = l'étiquette de chaque livre ("Théâtre", "Shakespeare"...)
 - **Value** = le contenu du livre correspondant
 
-*Démos interactives* :
-- [Transformer Explainer](https://poloclub.github.io/transformer-explainer/) · [LLM Visualization](https://bbycroft.net/llm) · [BertViz](https://colab.research.google.com/drive/1hXIQ77A4TYS4y3UthWF-Ci7V7vVUoxmQ)
+*Démos* : [Transformer Explainer](https://poloclub.github.io/transformer-explainer/) · [LLM Viz](https://bbycroft.net/llm) · [BertViz](https://colab.research.google.com/drive/1hXIQ77A4TYS4y3UthWF-Ci7V7vVUoxmQ)
 
-![bg right:40% contain](assets/A/transformer-architecture.png)
+![bg right:35% contain](assets/A/transformer-architecture.png)
 
 <small>Sources : [1] [Vaswani et al. 2017](https://arxiv.org/abs/1706.03762)</small>
 
@@ -356,6 +370,8 @@ L'architecture qui a tout changé (Vaswani et al. 2017) [1] — le **Self-Attent
 
 ---
 
+<!-- _class: compact -->
+
 # 19 — Les trois paradigmes d'apprentissage
 
 | Paradigme | En une phrase |
@@ -366,19 +382,21 @@ L'architecture qui a tout changé (Vaswani et al. 2017) [1] — le **Self-Attent
 
 > Le **Self-Supervised Learning** (LLMs, Diffusion Models) est un cas particulier présenté en slide 26.
 
-*Question pour la classe* : Pour votre projet de groupe, quel paradigme vous semble le plus adapté — et pourquoi ?
+*Question* : pour votre projet de groupe, quel paradigme vous semble le plus adapté ?
 
 ![bg right:40% contain](assets/A/unsupervise-supervise-reinforcement.png)
 
 ---
 
+<!-- _class: compact -->
+
 # 20 — Supervised Learning : définition
 
-Le paradigme le plus déployé en production [1] — le modèle apprend à partir d'**exemples étiquetés** :
+Le paradigme le plus déployé en production [1] — apprend à partir d'**exemples étiquetés** :
 
-- On donne au modèle des paires **(Input A → Output B)**
-- Il apprend la règle qui relie A à B
-- Il peut ensuite prédire B pour de nouveaux A
+- Paires **(Input A → Output B)**
+- Le modèle apprend la règle A → B
+- Il prédit B pour de nouveaux A
 
 | Input (A) | Output (B) |
 |---|---|
@@ -386,7 +404,7 @@ Le paradigme le plus déployé en production [1] — le modèle apprend à parti
 | Photo produit | Défaut ? (0/1) |
 | Profil client | Score de crédit |
 
-> C'est l'équivalent d'un étudiant qui apprend avec un corrigé : il voit les bonnes réponses, et apprend à les reproduire.
+> Comme un étudiant qui apprend avec un corrigé : il voit les bonnes réponses et apprend à les reproduire.
 
 <small>Sources : [1] [McKinsey State of AI 2024](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-2024)</small>
 
@@ -406,22 +424,23 @@ Le paradigme le plus déployé en production [1] — le modèle apprend à parti
 
 ---
 
+<!-- _class: compact -->
+
 # 22 — Supervised Learning : Decision Tree
 
-Un **arbre de décision** — un enchaînement de questions binaires (if/else) :
+Un **arbre de décision** — des questions binaires (if/else) enchaînées :
 
-- Chaque **nœud** pose une question oui/non sur une feature
-- Chaque **branche** suit la réponse (oui → gauche, non → droite)
+- Chaque **nœud** pose une question oui/non
+- Chaque **branche** suit la réponse
 - Chaque **feuille** donne la prédiction finale
 
-> Un Decision Tree, c'est un *if/else sur stéroïdes* — le modèle apprend automatiquement quelles questions poser et dans quel ordre.
-
 *Avantages business* :
-- **Interprétable** : on peut tracer chaque décision du début à la fin
-- Fonctionne sur les **données tabulaires** (le format le plus courant en entreprise)
-- Rapide à entraîner — idéal pour un premier prototype
+- **Interprétable** : chaque décision est traçable
+- Fonctionne sur **données tabulaires** (format le plus courant)
 
-![bg right:45% contain](assets/decision-tree-diagram.png)
+![bg right:35% contain](assets/decision-tree-diagram.png)
+
+<!-- Speaker notes: Un Decision Tree, c'est un if/else sur stéroïdes — le modèle apprend automatiquement quelles questions poser et dans quel ordre. Rapide à entraîner — idéal pour un premier prototype. -->
 
 ---
 
@@ -429,13 +448,12 @@ Un **arbre de décision** — un enchaînement de questions binaires (if/else) :
 
 **K-Nearest Neighbors** — l'algorithme le plus intuitif du ML :
 
-- Pour classer un nouveau point, on regarde ses **K voisins les plus proches**
-- La catégorie majoritaire parmi les voisins = la prédiction
+- Pour classer un point, regarder ses **K voisins les plus proches**
+- Catégorie majoritaire = prédiction
 
-*Avantages* : aucun entraînement, simple à comprendre
-*Limites* : lent sur de gros datasets, sensible aux dimensions
+*Avantages* : aucun entraînement, simple · *Limites* : lent sur gros datasets
 
-> *Analogie* : pour deviner si un restaurant est bon, demandez l'avis des 5 personnes les plus proches.
+> *Analogie* : deviner si un restaurant est bon en demandant aux 5 personnes les plus proches.
 
 ![bg right:45% contain](assets/KNN_decision_surface_animation.gif)
 
@@ -458,29 +476,41 @@ Le modèle découvre des **structures cachées** dans des données *sans étique
 
 ---
 
+<!-- _class: compact -->
+
 # 25 — Unsupervised Learning : K-Means
 
-L'algorithme le plus intuitif — regrouper des données en *clusters* sans supervision :
+Regrouper des données en *clusters* sans supervision :
 
 1. **Initialiser** — placer K centres aléatoirement
 2. **Assigner** — chaque point rejoint le centre le plus proche
-3. **Recalculer** — déplacer chaque centre au barycentre de son cluster
+3. **Recalculer** — déplacer chaque centre au barycentre
 4. **Répéter** — jusqu'à stabilisation
+
+![bg right:35% contain](assets/A/K_means_Clustering.gif)
+
+<!-- Speaker notes: Pour un entrepreneur, le K-Means révèle des segments de marché que vos clients ne vous décrivent pas explicitement. -->
+
+---
+
+<!-- _class: compact -->
+
+# 25b — K-Means : cas business
 
 *Cas business* :
 - Segmentation clients (groupes de comportement d'achat similaire)
 - Détection d'anomalies (transactions frauduleuses = points isolés)
 - Topic modeling (regrouper des avis produits par thème)
 
-> *Pour un entrepreneur* : le K-Means révèle des segments de marché que vos clients ne vous décrivent pas explicitement.
-
-![bg right:40% contain](assets/A/K_means_Clustering.gif)
+> Le K-Means révèle des segments de marché que vos clients ne décrivent pas explicitement.
 
 ---
 
+<!-- _class: compact -->
+
 # 26 — Self-Supervised Learning : le secret de la GenAI
 
-Le paradigme qui a rendu la Generative AI possible — apprendre *sans données étiquetées* :
+Le paradigme qui a rendu la GenAI possible — apprendre *sans données étiquetées* :
 
 | Modalité | Méthode | Modèles |
 |---|---|---|
@@ -488,28 +518,30 @@ Le paradigme qui a rendu la Generative AI possible — apprendre *sans données 
 | **Image** | Retirer le bruit d'une image bruitée | Stable Diffusion, DALL-E, Flux |
 
 *Pourquoi c'est révolutionnaire* :
-- Pas besoin d'humains pour étiqueter les données
-- S'entraîne sur *tout Internet* — des trillions de tokens
-- Plus de données = meilleur modèle (loi d'échelle)
+- Pas besoin d'humains pour étiqueter
+- S'entraîne sur *tout Internet* — trillions de tokens
+- Plus de données = meilleur modèle (scaling law)
 
-![bg right:40% contain](assets/A/diffusion_model.gif)
+![bg right:35% contain](assets/A/diffusion_model.gif)
 
 ---
 
+<!-- _class: compact compact-table -->
+
 # 27 — Reinforcement Learning
 
-L'agent apprend par *essai-erreur*, guidé par un signal de récompense :
+L'agent apprend par *essai-erreur*, guidé par une récompense :
 
 | Environnement | Agent | Application |
 |---|---|---|
-| Jeu de Go | AlphaGo (DeepMind) [1] | Bat le champion du monde (2016) |
+| Jeu de Go | AlphaGo [1] | Bat le champion du monde (2016) |
 | Échecs | AlphaZero | Réinvente les ouvertures en 4h |
-| Marchés financiers | Trading agents | Optimisation de portefeuille |
-| Conversations humaines | ChatGPT, Claude | RLHF aligne le modèle sur les préférences humaines |
+| Marchés | Trading agents | Optimisation de portefeuille |
+| Conversations | ChatGPT, Claude | RLHF : aligner sur les préférences humaines |
 
-> Le RLHF (Reinforcement Learning from Human Feedback) est l'étape qui transforme un LLM brut en assistant utile et sûr.
+![bg right:35% contain](assets/infographics/reinforcement-learning-cycle_run_20260217_010848_d4776e.png)
 
-![bg right:45% contain](assets/infographics/reinforcement-learning-cycle_run_20260217_010848_d4776e.png)
+<!-- Speaker notes: Le RLHF (Reinforcement Learning from Human Feedback) est l'étape qui transforme un LLM brut en assistant utile et sûr. -->
 
 <small>Sources : [1] [DeepMind](https://deepmind.google/research/breakthroughs/alphago/)</small>
 
@@ -536,6 +568,8 @@ Les slides suivantes présentent les tâches fondamentales : **Classification**,
 
 ---
 
+<!-- _class: compact -->
+
 # 29 — Classification
 
 Attribuer une **catégorie discrète** à une entrée :
@@ -548,11 +582,13 @@ Attribuer une **catégorie discrète** à une entrée :
 | CV | Shortlist / Rejet | Recrutement |
 | Avis client | Positif / Négatif / Neutre | Analyse de sentiment |
 
-> La sortie est toujours une *catégorie parmi un ensemble fini*. Binaire (oui/non) ou multi-classes (A, B, C...).
+> Sortie = *catégorie parmi un ensemble fini*. Binaire (oui/non) ou multi-classes (A, B, C...).
 
 ![bg right:40% contain](assets/infographics/classification-task_run_20260222_182359_2508a6.png)
 
 ---
+
+<!-- _class: compact compact-table -->
 
 # 30 — Regression
 
@@ -560,15 +596,15 @@ Prédire une **valeur continue** (un nombre) :
 
 | Input | Output | Application |
 |---|---|---|
-| Surface, quartier | Prix immobilier (€) | Estimation bien |
-| Budget pub | Chiffre d'affaires (€) | Planification marketing |
-| Données patient | Durée d'hospitalisation (jours) | Planification hospitalière |
-| Historique ventes | Demande future (unités) | Gestion de stock |
-| Données capteurs | Durée de vie restante (jours) | Maintenance prédictive |
+| Surface, quartier | Prix (€) | Estimation immobilière |
+| Budget pub | CA (€) | Planification marketing |
+| Données patient | Durée hospi. (jours) | Planification hospitalière |
+| Historique ventes | Demande (unités) | Gestion de stock |
+| Données capteurs | Vie restante (jours) | Maintenance prédictive |
 
-> La sortie est un *nombre sur un continuum*, pas une catégorie. La Linear Regression (slide 14) en est l'exemple le plus simple.
+> Sortie = *nombre sur un continuum*. La Linear Regression (slide 14) en est l'exemple le plus simple.
 
-![bg right:40% contain](assets/infographics/regression-task_run_20260222_182706_946870.png)
+![bg right:35% contain](assets/infographics/regression-task_run_20260222_182706_946870.png)
 
 ---
 
@@ -705,21 +741,29 @@ Ces noms de tâches sont votre *vocabulaire* pour chercher des modèles sur Hugg
 
 ---
 
+<!-- _class: compact -->
+
 # 37 — Récapitulatif Session 1A
 
 ### La Generative AI en contexte
-- La GenAI produit du contenu — mais le ML traditionnel représente *la majorité de la valeur IA totale*
+- GenAI produit du contenu — mais le ML traditionnel = *majorité de la valeur IA*
 
 ### La taxonomie de l'IA
-- **Par technique** : Statistics → ML → Deep Learning → GenAI (chaque couche inclut les précédentes)
-- **Par paradigme** : Supervised, Unsupervised, Self-Supervised, Reinforcement Learning
-- **Par tâche** : Classification, Regression, Object Detection, Segmentation, Génération
+- **Par technique** : Statistics → ML → Deep Learning → GenAI
+- **Par paradigme** : Supervised, Unsupervised, Self-Supervised, RL
+- **Par tâche** : Classification, Regression, Detection, Segmentation, Génération
+
+---
+
+<!-- _class: compact -->
+
+# 37b — Récapitulatif Session 1A (suite)
 
 ### Ce qui fait du ML du ML (Chip Huyen)
 - 5 conditions : Learn, Complex Patterns, Existing Data, Predictions, Unseen Data
 
 ### Le vocabulaire des tâches
-- Les noms de tâches en anglais sont votre clé pour chercher des modèles sur HuggingFace
+- Les noms de tâches en anglais = votre clé pour chercher des modèles sur HuggingFace
 
 ### Les timelines
 - ML (1805–2014) → Deep Learning (1986–2017) → GenAI (2018–2026) : accélération exponentielle

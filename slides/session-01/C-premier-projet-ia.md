@@ -87,7 +87,7 @@ Vous envoyez du texte, l'API renvoie une classification.
 
 ---
 
-<!-- _class: cols -->
+<!-- _class: cols compact -->
 
 # 03 — Webhook : quand le service vous rappelle
 
@@ -96,11 +96,9 @@ Vous envoyez du texte, l'API renvoie une classification.
 **API vs Webhook**
 
 - **API** = *vous* appelez le service
-  → "Serveur, apportez-moi le plat"
 - **Webhook** = *le service* vous appelle
-  → "Votre commande est prête !"
 
-Un Webhook est une **URL que vous exposez**. Quand un événement se produit (message Telegram, paiement Stripe, push GitHub), le service envoie une requête HTTP à votre URL.
+URL que vous exposez : un événement (message Telegram, paiement Stripe, push GitHub) déclenche une requête HTTP vers votre URL.
 
 </div>
 <div class="right">
@@ -111,18 +109,17 @@ Un Webhook est une **URL que vous exposez**. Quand un événement se produit (me
 Telegram → message envoyé
         ↓
 POST votre-webhook-n8n.com
-  { "text": "Bonjour !" }
         ↓
 n8n déclenche le workflow
 ```
 
 - **Chat Trigger** = webhook intégré (chat n8n)
-- **Webhook node** = URL publique pour services externes
-- **Telegram Trigger** = webhook pré-configuré pour Telegram
+- **Webhook node** = URL publique (services externes)
+- **Telegram Trigger** = webhook pré-configuré
 
 </div>
 
-> Les Webhooks sont le pont entre les services externes et vos workflows. Sans eux, il faudrait *vérifier en boucle* si quelque chose s'est passé (polling).
+> Sans Webhooks, il faudrait *vérifier en boucle* si quelque chose s'est passé (polling).
 
 ---
 
@@ -147,7 +144,7 @@ La plus grande plateforme de modèles IA open-source : **1 M+ modèles** disponi
 
 # 05 — n8n : automatiser sans coder
 
-![bg right:50% contain](assets/C/n8n-workflow-3nodes.png)
+![bg right:35% contain](assets/C/n8n-workflow-3nodes.png)
 
 **n8n** = Workflow Automation : des **nodes** connectés par des flèches [1]
 
@@ -158,7 +155,7 @@ Chaque node fait *une seule chose* :
 
 Notre instance : `https://n8n.develle.fr`
 
-> Pas de code, pas d'installation. Vous configurez visuellement, vous testez en un clic.
+> Pas de code, pas d'installation. Configurez visuellement, testez en un clic.
 
 <small>Sources : [1] [n8n](https://n8n.io/)</small>
 
@@ -266,7 +263,7 @@ Ajoutez un node **HTTP Request** et configurez-le :
 
 ---
 
-<!-- _class: cols -->
+<!-- _class: cols compact -->
 
 # 10 — Étape 4 : formater la réponse
 
@@ -417,9 +414,11 @@ Voir `TEACHER_EXAMPLE-Eval-*` sur n8n pour le format complet et le calcul automa
 
 ---
 
+<!-- _class: compact -->
+
 # 16 — Comparer les modèles
 
-Vous devez **tester au moins 2 modèles différents** sur votre dataset :
+**Testez au moins 2 modèles** sur votre dataset :
 
 | Approche | Exemple |
 |----------|---------|
@@ -427,12 +426,12 @@ Vous devez **tester au moins 2 modèles différents** sur votre dataset :
 | **LLM via OpenRouter** | LLM avec Structured Outputs |
 | **Variantes** | Deux modèles HF, ou deux LLMs, ou un mix |
 
-Pour chaque modèle, relevez le **score sur votre dataset** et documentez :
-- Où le modèle réussit bien, où il échoue
+Pour chaque modèle, relevez le **score** et documentez :
+- Où le modèle réussit, où il échoue
 - Pourquoi vous choisissez le modèle final
 - Ce qui pourrait être amélioré
 
-> Un modèle à 70% bien analysé vaut mieux qu'un modèle à 95% sans recul critique.
+> Un modèle à 70% bien analysé vaut mieux qu'un à 95% sans recul critique.
 
 ---
 
@@ -523,6 +522,8 @@ Ce cours ne couvre **pas tout** ce dont vous aurez besoin — et c'est volontair
 
 ---
 
+<!-- _class: compact -->
+
 # 22 — Inscrivez votre équipe !
 
 **Google Sheet** : *(lien projeté en cours)*
@@ -535,9 +536,9 @@ Ce cours ne couvre **pas tout** ce dont vous aurez besoin — et c'est volontair
 
 **Avant vendredi 6 mars** :
 - Choisissez votre projet sur le **Sheet 2** (Projets)
-- Remplissez le titre et la description — premier arrivé, premier servi
-- Les projets personnalisés doivent être validés par l'enseignant
+- Titre + description — premier arrivé, premier servi
+- Projets personnalisés : validation par l'enseignant
 
-> Le guide technique complet vous sera envoyé par email. En Session 2, on construit !
+> Guide technique envoyé par email. En Session 2, on construit !
 
-- Vous avez jusqu'au vendredi qui precede le dernier cours pour m'envoyer votre workflow n8n et son dataset, et jusqu'au debut du cours pour m'envoyer votre presentation par mail a develle.louis@gmail.com
+- Envoyez workflow n8n + dataset le vendredi avant le dernier cours, et la présentation avant le début du cours à develle.louis@gmail.com
