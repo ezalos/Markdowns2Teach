@@ -106,11 +106,11 @@ Les hyperscalers investissent massivement dans l'infra IA :
 
 ---
 
-<!-- _class: compact -->
+<!-- _class: img-right -->
 
 # 04 — Vue d'ensemble : les 9 couches du stack IA
 
-![bg right:40% contain](assets/infographics/ai-stack-9_run_20260216_171301_8858a8.png)
+![bg right:55% contain](assets/infographics/ai-stack-9_run_20260216_171301_8858a8.png)
 
 **9 couches** structurent l'écosystème :
 

@@ -141,6 +141,7 @@ Every `.md` slide file must start (after front matter) with two ABOUTME comments
 - First slide should use `<!-- _class: title -->` with `<!-- _paginate: skip -->`
 - Section dividers use `<!-- _class: section -->`
 - Two-column layouts use `<!-- _class: cols -->` with `<div class="left">` / `<div class="right">`
+- Image-heavy slides use `<!-- _class: img-right -->` with `![bg right:55% contain]` (compressed 20px text, large image)
 
 ### Slide numbering
 
@@ -170,6 +171,7 @@ Every data claim must be sourced. Use the following format on all research-backe
 - Authority shorthand as display text (e.g., "Stanford HAI", "Gartner"), full URL as href
 - Separator between citations: ` · ` (middle dot)
 - The sources line costs ~1 content line — budget **~13 effective content lines** per slide (threshold remains 15)
+- `img-right` slides (`bg right:55%`): budget **~6–8 bullets + sources** (image is main content, text = annotations)
 - Cols slides: 15 linter lines = 1 title + 4 div tags + **~9 lines of actual content** split across 2 columns + 1 source line
 - Discussion slides and section dividers may omit citations if no data claims are made
 - **Source priority**: when sources conflict, prefer the most recent data from the most reputable source (company IR > Bloomberg/CNBC > TechCrunch > Crunchbase)

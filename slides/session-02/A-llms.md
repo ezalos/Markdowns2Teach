@@ -30,11 +30,11 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 
 ---
 
-<!-- _class: compact -->
+<!-- _class: img-right -->
 
 # 01 — Benchmarks : progrès réels, plafonds visibles
 
-![bg right:40% contain](assets/epoch_ai_llm_saturation_benchmarks.jpeg)
+![bg right:55% contain](assets/epoch_ai_llm_saturation_benchmarks.jpeg)
 
 - MMLU (connaissances générales) : **saturé à 90%+** — les LLMs rattrapent les experts humains [1]
 - Nouveaux benchmarks plus durs : Humanity's Last Exam **8,8%**, FrontierMath **2%** [2]
@@ -46,7 +46,7 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 
 ---
 
-<!-- _class: compact compact-table -->
+<!-- _class: img-right compact-table -->
 
 # 02 — Ce que les LLMs permettent
 
@@ -61,7 +61,7 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 - *Web-based* : ChatGPT, Claude, Le Chat — interaction directe
 - *Software app* : LLM intégré dans un produit (email routing, analyse)
 
-![bg right:40% contain](assets/ng01/img-026.png)
+![bg right:55% contain](assets/ng01/img-026.png)
 
 <small>Sources : [1] [Stack Overflow 2024](https://survey.stackoverflow.co/2024/ai)</small>
 
@@ -75,11 +75,11 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 
 ---
 
-<!-- _class: compact -->
+<!-- _class: img-right -->
 
 # 03 — Le mécanisme fondamental
 
-![bg right:40% contain](assets/infographics/next-word-prediction.png)
+![bg right:55% contain](assets/infographics/next-word-prediction.png)
 
 Le LLM utilise le **Self-Supervised Learning** pour prédire le token suivant :
 
@@ -99,9 +99,11 @@ Le LLM utilise le **Self-Supervised Learning** pour prédire le token suivant :
 
 ---
 
+<!-- _class: img-right -->
+
 # 04 — Tokens : le vocabulaire des LLMs
 
-![bg right:40% contain](assets/tokens-billing.jpg)
+![bg right:55% contain](assets/tokens-billing.jpg)
 
 Les LLMs ne raisonnent pas en mots mais en **Tokens** — des fragments de mots.
 
@@ -128,9 +130,11 @@ Les LLMs ne raisonnent pas en mots mais en **Tokens** — des fragments de mots.
 
 ---
 
+<!-- _class: img-right -->
+
 # 05 — Context Window : la mémoire de conversation
 
-![bg right:40% contain](assets/context-window.svg)
+![bg right:55% contain](assets/context-window.svg)
 
 La **Context Window** = mémoire de travail du LLM, tout ce qu'il "voit" pour répondre.
 
@@ -148,11 +152,11 @@ La Context Window limite la longueur des conversations et la taille des document
 
 ---
 
-<!-- _class: compact -->
+<!-- _class: img-right -->
 
 # 06 — Context Window : une croissance exponentielle
 
-![bg right:40% contain](assets/context-window-growth.png)
+![bg right:55% contain](assets/context-window-growth.png)
 
 | Modèle | Année | Context Window |
 |--------|-------|---------------|
@@ -170,11 +174,11 @@ Depuis mi-2023, la context window croît d'environ **~30x par an** [1].
 
 ---
 
-<!-- _class: compact compact-table -->
+<!-- _class: img-right compact-table -->
 
 # 07 — Sampling : Temperature, Top-k, Top-p
 
-![bg right:35% contain](assets/infographics/sampling-parameters.png)
+![bg right:55% contain](assets/infographics/sampling-parameters.png)
 
 Le LLM produit une distribution de probabilités. Trois paramètres contrôlent l'*échantillonnage* :
 
@@ -188,17 +192,17 @@ Le LLM produit une distribution de probabilités. Trois paramètres contrôlent 
 
 ---
 
-<!-- _class: compact -->
+<!-- _class: img-right -->
 
 # 08 — Mixture of Experts (MoE) : l'architecture qui change tout
 
-![bg right:35% contain](assets/infographics/dense-vs-moe.png)
+![bg right:55% contain](assets/infographics/dense-vs-moe.png)
 
-Un modèle MoE contient *plusieurs sous-réseaux spécialisés* (experts). Un **Router** sélectionne les experts pertinents pour chaque token.
+**Plusieurs sous-réseaux** (experts) dans un modèle. Un **Router** active les experts pertinents par token.
 
-- Le modèle a la *capacité* de tous les experts (total params)
-- Mais n'*active* qu'une fraction par token (active params)
-- *Résultat* : performance d'un gros modèle, vitesse d'un petit
+- *Capacité* de tous les experts (total params)
+- N'*active* qu'une fraction par token (active params)
+- Performance d'un gros modèle, vitesse d'un petit
 
 | Modèle | Total | Actifs/token |
 |--------|-------|-------------|
@@ -218,11 +222,11 @@ Un modèle MoE contient *plusieurs sous-réseaux spécialisés* (experts). Un **
 
 ---
 
-<!-- _class: compact compact-table -->
+<!-- _class: img-right compact-table -->
 
 # 09 — Vue d'ensemble du pipeline
 
-![bg right:40% contain](assets/infographics/training-pipeline_run_20260217_012323_723979.png)
+![bg right:55% contain](assets/infographics/training-pipeline_run_20260217_012323_723979.png)
 
 | Étape | Ce qu'il apprend | Données | Résultat |
 |-------|-----------------|---------|----------|
@@ -249,7 +253,7 @@ Un modèle MoE contient *plusieurs sous-réseaux spécialisés* (experts). Un **
 
 ---
 
-<!-- _class: compact compact-table -->
+<!-- _class: img-right compact-table -->
 
 # 11 — Thinking Models : penser avant de répondre
 
@@ -264,7 +268,7 @@ Un modèle MoE contient *plusieurs sous-réseaux spécialisés* (experts). Un **
 | o3 | 91,6% | $2,00 [1] |
 | o4-mini | 93,4% | $1,10 [1] |
 
-![bg right:35% contain](assets/B/thinking-models-substack.png)
+![bg right:55% contain](assets/B/thinking-models-substack.png)
 
 <small>Sources : [1] [OpenAI](https://openai.com/index/introducing-o3-and-o4-mini/) · [2] [DeepSeek](https://arxiv.org/abs/2501.12948)</small>
 
@@ -531,11 +535,11 @@ Les LLMs tournent sur **GPU**. La **vRAM** est la contrainte principale.
 
 ---
 
-<!-- _class: compact compact-table -->
+<!-- _class: img-right compact-table -->
 
 # 24 — Plus gros = plus intelligent ?
 
-![bg right:35% contain](assets/mmlu-params-graph.svg)
+![bg right:55% contain](assets/mmlu-params-graph.svg)
 
 Les benchmarks montrent des *rendements décroissants* :
 
@@ -619,11 +623,11 @@ Support → Mistral Small · Analyse → o3 / Opus · Code → Claude / Devstral
 
 ---
 
-<!-- _class: compact -->
+<!-- _class: img-right -->
 
 # 28 — Hallucinations et Knowledge Cutoffs
 
-![bg right:35% contain](assets/ng01/img-022.png)
+![bg right:55% contain](assets/ng01/img-022.png)
 
 *Hallucinations* — le LLM *invente avec un ton très confiant* :
 - Un avocat a soumis des *affaires juridiques inventées* par ChatGPT [1]

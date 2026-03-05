@@ -18,7 +18,7 @@ Overflow 30-80px (1-2 lines)?
 Overflow 80-200px (2-5 lines)?
   → Technique D: Switch to cols layout (split content into two columns)
   → Technique E: Add `compact-table` for table-heavy slides
-  → Technique F: Reduce image from bg right:50% to bg right:35-40%
+  → Technique F: Use `img-right` class (keep image at bg right:55%)
 
 Overflow > 200px (5+ lines)?
   → Technique G: Split into 2 slides (same section, "XXa" and "XXb")
@@ -221,24 +221,17 @@ Column header "Volume de données" → "Données" and cell values tightened (e.g
 
 ---
 
-### Technique F — Reduce image width
+### Technique F — Use `img-right` class
 
-**When to use**: Overflow 80-250px. Slide uses `bg right:45-50%` with text + table or 4+ bullets.
+**When to use**: Overflow 80-250px. Slide uses `bg right:` with text + table or 4+ bullets.
 
-**Effect**: `bg right:50%` → `bg right:35%` gives ~15% more width for text, reducing line wrapping significantly.
+**Effect**: `img-right` compresses text (20px font, 1.35 line-height) so the image can stay large at `bg right:55%`. The image goes from 448px (at 35%) to 704px (+57%).
 
 **Validated on**: S2A slide 08 "MoE : l'architecture qui change tout" — **227px → 0px**
 
-Fix applied: `bg right:45%` → `bg right:35%` + added `compact` class.
+Fix applied: added `img-right` class, kept image at `bg right:55%`.
 
 Before:
-```markdown
-# 08 — Mixture of Experts (MoE) : l'architecture qui change tout
-
-![bg right:45% contain](assets/infographics/dense-vs-moe.png)
-```
-
-After:
 ```markdown
 <!-- _class: compact -->
 
@@ -247,7 +240,16 @@ After:
 ![bg right:35% contain](assets/infographics/dense-vs-moe.png)
 ```
 
-**Tip**: For severe overflows (>200px), combine image reduction with `compact` class.
+After:
+```markdown
+<!-- _class: img-right -->
+
+# 08 — Mixture of Experts (MoE) : l'architecture qui change tout
+
+![bg right:55% contain](assets/infographics/dense-vs-moe.png)
+```
+
+**Tip**: `img-right` supersedes `compact` — don't combine them. For slides with both an image and a table, use `img-right compact-table`.
 
 ---
 
@@ -321,9 +323,11 @@ Marp supports multiple classes: `<!-- _class: compact cols -->`.
 
 | Combination | Effect | Use when |
 |---|---|---|
-| `compact` | Smaller font (21px), tighter spacing | 1-3 extra lines needed |
+| `compact` | Smaller font (21px), tighter spacing | 1-3 extra lines needed (text-only slides) |
+| `img-right` | Compressed text (20px), large image (55%) | Slide with bg right infographic |
+| `img-right compact-table` | Compressed text + dense table | Image slide with table |
 | `compact-table` | Dense table (17px font, 4px padding) | Table has 5+ rows or 4+ cols |
-| `compact compact-table` | Both effects | Dense text + dense table |
+| `compact compact-table` | Both effects | Dense text + dense table (text-only slides) |
 | `cols compact` | Two columns + smaller font | Dense two-column layout |
 | `cols compact compact-table` | All three | Cols with dense table in one side |
 | `cols-60-40` | Asymmetric 60/40 split | One column has more content |
@@ -347,9 +351,9 @@ Key rules derived from cognitive load theory and assertion-evidence slide design
 6. **Blockquote = optional** — if the slide overflows, remove the blockquote first (Technique C)
 7. **Sources line is mandatory** for data slides but counts as 1 visual element
 8. **`bg right` images**: budget text for the remaining width
+   - `bg right:55%` with `img-right` → ~6-8 bullets (recommended for all image slides)
    - `bg right:50%` → ~8-9 lines of text
    - `bg right:40%` → ~11-12 lines of text
-   - `bg right:35%` → ~12-13 lines of text
 
 ---
 
@@ -362,7 +366,7 @@ Key rules derived from cognitive load theory and assertion-evidence slide design
 | C: Move blockquote | S2A "Context Window" | 95px | 0px | Blockquote→bullet + speaker notes, bg 45%→40% |
 | D: cols layout | S1A "Object Detection" | 344px | 0px | cols compact compact-table, bg→inline img |
 | E: `compact-table` | S2A "Vue d'ensemble pipeline" | 168px | 0px | compact compact-table + tighter headers |
-| F: Reduce image | S2A "MoE" | 227px | 0px | compact + bg 45%→35% |
+| F: `img-right` class | S2A "MoE" | 227px | 0px | img-right + bg 55% |
 | G: Split slide | S2A "Tokens" | 286px | 0px+0px | Split into 04 + 04b |
 | H: Extract table | S1A "HuggingFace Tasks" | 310px | 0px+0px | Table → separate 33b slide |
 

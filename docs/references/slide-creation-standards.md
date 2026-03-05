@@ -42,7 +42,7 @@ Le linter (`make check`) détecte le **overflow pixel-accurate** en rendant les 
 |---------------|-------------------|---------------------------|-------|
 | Standard | 15 | **~13** | La ligne `<small>Sources</small>` coûte ~1 ligne |
 | Cols | 15 | **~10 réparties sur 2 colonnes** | 1 titre + 4 tags `<div>` = 5 lignes d'overhead → reste 10 pour le contenu réel (~5 par colonne) |
-| Infographie (`bg right:50%`) | 15 | **~8–9 lignes de texte** | L'image occupe 50% de la slide |
+| Infographie (`bg right:55%` + `img-right`) | 15 | **~6–8 bullets + sources** | Image = contenu principal, texte = annotations |
 
 ### 2.1 Classes de layout disponibles
 
@@ -59,6 +59,8 @@ Le thème `sorbonne.css` fournit des classes combinables pour adapter la densit�
 | `cols-60-40` | 25px | Colonne large + étroite | Un côté a plus de contenu |
 | `cols-40-60` | 25px | Colonne étroite + large | Inverse du précédent |
 | `cols-3` | 25px | ~4 lignes par colonne | Comparaison à 3 voies |
+| `img-right` | 20px | ~6–8 bullets (avec bg right:55%) | Slide avec infographie large, texte compressé |
+| `img-right compact-table` | 20px + 17px table | ~6–8 bullets + tableau dense | Image large + tableau dense |
 | `highlight` | 25px | ~13 lignes | Slide de synthèse ou takeaway clé |
 | `dark` | 25px | ~13 lignes | Rythme visuel, stat marquante |
 
@@ -187,6 +189,8 @@ Bonnes questions de discussion :
 #### Slide avec infographie
 
 ```markdown
+<!-- _class: img-right -->
+
 # XX — Titre de la slide
 
 - Point clé condensé
@@ -194,7 +198,7 @@ Bonnes questions de discussion :
 
 > Callout ou insight
 
-![bg right:50%](assets/infographics/nom-descriptif_run_YYYYMMDD_HHMMSS_hash.png)
+![bg right:55% contain](assets/infographics/nom-descriptif_run_YYYYMMDD_HHMMSS_hash.png)
 
 <small>Sources : [1] [Autorité](https://url)</small>
 ```

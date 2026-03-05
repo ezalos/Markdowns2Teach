@@ -66,7 +66,7 @@ Les applications logicielles utilisant la Generative AI se classent en quatre fa
 
 ---
 
-<!-- _class: compact -->
+<!-- _class: img-right -->
 
 # 03 — Le GenAI Lifecycle : Scope → Build → Evaluate → Deploy
 
@@ -79,7 +79,7 @@ Tout projet GenAI suit un cycle itératif en 4 phases :
 
 > Ce n'est **pas linéaire**. Les retours entre étapes sont la norme.
 
-![bg right:40% contain](assets/infographics/genai-lifecycle_run_20260216_171314_f23e16.png)
+![bg right:55% contain](assets/infographics/genai-lifecycle_run_20260216_171314_f23e16.png)
 
 ---
 
@@ -104,7 +104,7 @@ Le cadrage est l'étape la plus critique. Un mauvais scope = un projet qui écho
 
 ---
 
-<!-- _class: compact -->
+<!-- _class: img-right -->
 
 # 05 — Build — Un processus empirique
 
@@ -118,7 +118,7 @@ Construire avec la GenAI est **hautement expérimental** :
 
 > Lean Startup : Build → Measure → Learn — même logique appliquée à l'IA.
 
-![bg right:35% contain](assets/ng02/img-011.png)
+![bg right:55% contain](assets/ng02/img-011.png)
 
 ---
 
@@ -164,11 +164,11 @@ Le déploiement ne signifie pas "ouvrir à tout le monde d'un coup" :
 
 ---
 
-<!-- _class: compact -->
+<!-- _class: img-right -->
 
 # 08 — CRISP-DM : 6 phases cycliques
 
-![bg right:35% contain](assets/infographics/crisp-dm_run_20260216_171255_a6ef8c.png)
+![bg right:55% contain](assets/infographics/crisp-dm_run_20260216_171255_a6ef8c.png)
 
 Le standard Data Science — **43% d'adoption**, #1 depuis 2002 [1] :
 
@@ -214,11 +214,11 @@ Le standard Data Science — **43% d'adoption**, #1 depuis 2002 [1] :
 
 ---
 
-<!-- _class: compact -->
+<!-- _class: img-right -->
 
 # 10 — LLMOps : le cycle GenAI
 
-![bg right:35% contain](assets/infographics/llmops_run_20260216_171257_39e262.png)
+![bg right:55% contain](assets/infographics/llmops_run_20260216_171257_39e262.png)
 
 CRISP-DM date de 1999. Pour la GenAI, **9 phases** en 3 blocs [1] :
 
@@ -363,11 +363,11 @@ Gmail a démarré comme **la chose la plus simple possible**.
 
 ---
 
-<!-- _class: compact -->
+<!-- _class: img-right -->
 
 # 16 — Le guide de décision
 
-![bg right:35% contain](assets/infographics/decision-guide_run_20260216_171259_3f18b9.png)
+![bg right:55% contain](assets/infographics/decision-guide_run_20260216_171259_3f18b9.png)
 
 Quatre niveaux d'investissement technique :
 
@@ -412,7 +412,7 @@ Quatre niveaux d'investissement technique :
 
 ---
 
-<!-- _class: compact compact-table -->
+<!-- _class: img-right compact-table -->
 
 # 19 — Progression : Prompting → RAG → Fine-tuning
 
@@ -425,11 +425,11 @@ Quatre niveaux d'investissement technique :
 
 > Commencez par le Prompting. Montez en complexité uniquement si nécessaire.
 
-![bg right:35% contain](assets/infographics/tool-decision_run_20260216_171316_911dd4.png)
+![bg right:55% contain](assets/infographics/tool-decision_run_20260216_171316_911dd4.png)
 
 ---
 
-<!-- _class: compact -->
+<!-- _class: img-right -->
 
 # 20 — Cas pratique : BettaBurgers
 
@@ -446,7 +446,7 @@ Quatre niveaux d'investissement technique :
 
 > Erreurs typiques : le LLM "hallucine" sans contexte. Solution : RAG avec le menu et les fiches produit.
 
-![bg right:35% contain](assets/ng02/img-012.png)
+![bg right:55% contain](assets/ng02/img-012.png)
 
 ---
 

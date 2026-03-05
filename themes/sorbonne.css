@@ -23,7 +23,7 @@ section {
   font-size: 25px;
   color: var(--text-dark);
   background-color: var(--bg-white);
-  padding: 60px 70px 50px 70px;
+  padding: 50px 60px 40px 60px;
   line-height: 1.5;
   overflow: hidden;
 }
@@ -34,8 +34,8 @@ section h1 {
   font-weight: 700;
   color: var(--sorbonne-blue);
   border-bottom: 3px solid var(--sorbonne-blue);
-  padding-bottom: 12px;
-  margin-bottom: 30px;
+  padding-bottom: 8px;
+  margin-bottom: 24px;
 }
 
 section h2 {
@@ -240,6 +240,18 @@ section.compact blockquote { font-size: 18px; padding: 8px 16px; margin: 10px 0;
 section.compact-table table { font-size: 17px; }
 section.compact-table table th,
 section.compact-table table td { padding: 4px 10px; }
+
+/* ============================================ */
+/* IMG-RIGHT -- Compressed text for slides with */
+/* a large background image (bg right:55%)      */
+/* Use: <!-- _class: img-right -->              */
+/* Recommended with: ![bg right:55% contain]    */
+/* ============================================ */
+section.img-right { font-size: 20px; line-height: 1.35; }
+section.img-right h1 { font-size: 32px; margin-bottom: 14px; padding-bottom: 6px; }
+section.img-right li { margin-bottom: 3px; }
+section.img-right blockquote { font-size: 16px; padding: 6px 12px; margin: 6px 0; }
+section.img-right small { font-size: 12px; line-height: 1.2; }
 
 /* ============================================ */
 /* ASYMMETRIC TWO-COLUMN LAYOUTS                */

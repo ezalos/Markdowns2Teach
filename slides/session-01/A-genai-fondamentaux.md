@@ -30,7 +30,7 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 
 ---
 
-<!-- _class: compact -->
+<!-- _class: img-right -->
 
 # 01 — L'essor de la Generative AI
 
@@ -38,7 +38,7 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 - *+15% du PIB mondial* d'ici 2035 [2]
 - *66% des jobs US* transformés par l'IA [3]
 
-![bg right:35% contain](assets/A/01-number-of-sp500-earnings-calls-citing-AI-10-year.webp) [4]
+![bg right:55% contain](assets/A/01-number-of-sp500-earnings-calls-citing-AI-10-year.webp) [4]
 
 *Question* : si le coût de l'intelligence machine tend vers zéro, quel service trop coûteux à automatiser devient une opportunité ?
 
@@ -47,6 +47,8 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 <small>Sources : [1] [McKinsey](https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier) [2] [PWC](https://www.pwc.com/gx/en/news-room/press-releases/2025/ai-adoption-could-boost-global-gdp-by-an-additional-15-percentage.html) [3] [EY](https://www.ey.com/en_gl/insights/ai/how-gen-ai-will-impact-the-labor-market) [4] [Factset](https://insight.factset.com/highest-number-of-sp-500-earnings-calls-citing-ai-over-the-past-10-years-1)</small>
 
 ---
+
+<!-- _class: img-right -->
 
 # 02 — Qu'est-ce que la Generative AI ?
 
@@ -57,7 +59,7 @@ Des systèmes d'intelligence artificielle capables de *produire du contenu de ha
 
 ---
 
-<!-- _class: compact -->
+<!-- _class: img-right -->
 
 # 03 — La Generative AI, aussi un outil de développement
 
@@ -69,7 +71,7 @@ Au-delà des chatbots, la GenAI est un *developer tool* puissant :
 
 *Pour les entrepreneurs* : même sans équipe technique, les LLMs permettent de construire des *MVPs fonctionnels* en quelques jours. [1][2]
 
-![bg right:40% contain](assets/A/03-googlecolab-generation.png)
+![bg right:55% contain](assets/A/03-googlecolab-generation.png)
 
 <!-- Speaker notes: En 2025, des startups comme Bolt.new et Lovable permettent de coder des apps entières via prompt. -->
 
@@ -91,6 +93,8 @@ Au-delà des chatbots, la GenAI est un *developer tool* puissant :
 
 ---
 
+<!-- _class: img-right -->
+
 # 05 — Au-delà du texte : images, audio, vidéo
 
 La Generative AI ne se limite pas au texte :
@@ -100,12 +104,14 @@ La Generative AI ne se limite pas au texte :
 *Cas d'usage business* :
 - Créer des visuels marketing sans graphiste
 
-![bg right:45% contain](assets/ng01/img-009.png)
+![bg right:55% contain](assets/ng01/img-009.png)
 ![bg contain](assets/ng01/img-010.png)
 
 <small>Sources : [1] [Midjourney](https://www.midjourney.com/) · [2] [OpenAI DALL-E](https://openai.com/dall-e-3) · [3] [Stability AI](https://stability.ai/) · [4] [Black Forest Labs](https://blackforestlabs.ai/)</small>
 
 ---
+
+<!-- _class: img-right -->
 
 # 06 — Au-delà du texte : audio
 
@@ -113,7 +119,7 @@ La Generative AI ne se limite pas au texte :
 
 - *Audio* : génération de voix (ElevenLabs [1]), musique (Suno [2])
 
-![bg right:50% contain](assets/A/suno.png)
+![bg right:55% contain](assets/A/suno.png)
 [Suno](https://suno.com/s/0wLOtKpawnA132Pz)
 
 *Cas d'usage business* :
@@ -165,7 +171,7 @@ La Generative AI ne se limite pas au texte :
 
 ---
 
-<!-- _class: compact -->
+<!-- _class: img-right -->
 
 # 09 — Les multiples facettes de l'IA
 
@@ -177,9 +183,9 @@ L'IA se classe selon trois axes complémentaires :
 | **Par paradigme** | *Comment* le modèle apprend-il ? | Supervised, Unsupervised, RL, Self-Supervised |
 | **Par tâche** | *Que fait* le modèle ? | Classification, détection, génération |
 
-> Les slides suivantes explorent chaque axe avec des exemples concrets et des démos interactives.
+![bg right:55% contain](assets/infographics/ai-taxonomy-overview_run_20260219_095043_3593d3.png)
 
-![bg right:40% contain](assets/infographics/ai-taxonomy-overview_run_20260219_095043_3593d3.png)
+<!-- Speaker notes: Les slides suivantes explorent chaque axe avec des exemples concrets et des démos interactives. -->
 
 ---
 
@@ -215,7 +221,7 @@ Chaque couche ajoute complexité et capacité :
 
 ---
 
-<!-- _class: compact -->
+<!-- _class: img-right -->
 
 # 11 — Statistics : l'A/B Testing
 
@@ -230,11 +236,11 @@ Chaque couche ajoute complexité et capacité :
 
 *Question* : Quelle variable de votre projet tester avec un A/B test ?
 
-![bg right:35% contain](assets/A/stats-ab-test.png)
+![bg right:55% contain](assets/A/stats-ab-test.png)
 
 ---
 
-<!-- _class: compact compact-table -->
+<!-- _class: img-right compact-table -->
 
 # 12 — Machine Learning : définition
 
@@ -248,7 +254,7 @@ D'après Chip Huyen, le ML réunit **5 conditions** [1] :
 | 4 | **Predictions** | Problème formulable comme prédiction |
 | 5 | **Unseen Data** | Les patterns se généralisent |
 
-![bg right:35% contain](assets/infographics/ml-definition-checklist_run_20260222_182359_190bac.png)
+![bg right:55% contain](assets/infographics/ml-definition-checklist_run_20260222_182359_190bac.png)
 
 <!-- Speaker notes: Si l'une de ces 5 conditions manque, le ML n'est probablement pas la bonne solution. -->
 
@@ -274,7 +280,7 @@ Les cas les plus déployés en production — souvent invisibles pour l'utilisat
 
 ---
 
-<!-- _class: compact -->
+<!-- _class: img-right -->
 
 # 14 — Machine Learning : la Linear Regression
 
@@ -290,11 +296,11 @@ L'algorithme ML le plus simple — tracer une droite à travers des données :
 
 > Le "Hello World" du ML — simple, interprétable, souvent suffisant.
 
-![bg right:35% contain](assets/infographics/ml-linear-regression_run_20260219_095044_81b289.png)
+![bg right:55% contain](assets/infographics/ml-linear-regression_run_20260219_095044_81b289.png)
 
 ---
 
-<!-- _class: compact -->
+<!-- _class: img-right -->
 
 # 15 — Deep Learning : pourquoi et comment
 
@@ -308,7 +314,7 @@ L'algorithme ML le plus simple — tracer une droite à travers des données :
 
 > Plus de couches = patterns plus complexes — reconnaissance d'images, traduction, GenAI.
 
-![bg right:35% contain](assets/mlp-diagram-full.png)
+![bg right:55% contain](assets/mlp-diagram-full.png)
 
 ---
 
@@ -326,7 +332,7 @@ Essayez ces 3 expériences :
 
 ---
 
-<!-- _class: compact -->
+<!-- _class: img-right -->
 
 # 17 — GenAI : le Bottleneck Problem
 
@@ -339,11 +345,11 @@ Avant les Transformers, les modèles utilisaient un **Encoder-Decoder** :
 
 > Plus la séquence est longue, plus l'info est compressée et dégradée. C'est le **bottleneck** que l'Attention résout.
 
-![bg right:40% contain](assets/infographics/encoder-decoder_run_20260216_171310_3b56bd.png)
+![bg right:55% contain](assets/infographics/encoder-decoder_run_20260216_171310_3b56bd.png)
 
 ---
 
-<!-- _class: compact -->
+<!-- _class: img-right -->
 
 # 18 — GenAI : les Transformers et l'Attention
 
@@ -356,7 +362,7 @@ L'architecture qui a tout changé (Vaswani et al. 2017) [1] — le **Self-Attent
 
 *Démos* : [Transformer Explainer](https://poloclub.github.io/transformer-explainer/) · [LLM Viz](https://bbycroft.net/llm) · [BertViz](https://colab.research.google.com/drive/1hXIQ77A4TYS4y3UthWF-Ci7V7vVUoxmQ)
 
-![bg right:35% contain](assets/A/transformer-architecture.png)
+![bg right:55% contain](assets/A/transformer-architecture.png)
 
 <small>Sources : [1] [Vaswani et al. 2017](https://arxiv.org/abs/1706.03762)</small>
 
@@ -370,7 +376,7 @@ L'architecture qui a tout changé (Vaswani et al. 2017) [1] — le **Self-Attent
 
 ---
 
-<!-- _class: compact -->
+<!-- _class: img-right -->
 
 # 19 — Les trois paradigmes d'apprentissage
 
@@ -384,7 +390,7 @@ L'architecture qui a tout changé (Vaswani et al. 2017) [1] — le **Self-Attent
 
 *Question* : pour votre projet de groupe, quel paradigme vous semble le plus adapté ?
 
-![bg right:40% contain](assets/A/unsupervise-supervise-reinforcement.png)
+![bg right:55% contain](assets/A/unsupervise-supervise-reinforcement.png)
 
 ---
 
@@ -424,7 +430,7 @@ Le paradigme le plus déployé en production [1] — apprend à partir d'**exemp
 
 ---
 
-<!-- _class: compact -->
+<!-- _class: img-right -->
 
 # 22 — Supervised Learning : Decision Tree
 
@@ -438,11 +444,13 @@ Un **arbre de décision** — des questions binaires (if/else) enchaînées :
 - **Interprétable** : chaque décision est traçable
 - Fonctionne sur **données tabulaires** (format le plus courant)
 
-![bg right:35% contain](assets/decision-tree-diagram.png)
+![bg right:55% contain](assets/decision-tree-diagram.png)
 
 <!-- Speaker notes: Un Decision Tree, c'est un if/else sur stéroïdes — le modèle apprend automatiquement quelles questions poser et dans quel ordre. Rapide à entraîner — idéal pour un premier prototype. -->
 
 ---
+
+<!-- _class: img-right -->
 
 # 23 — Supervised Learning : KNN
 
@@ -455,7 +463,7 @@ Un **arbre de décision** — des questions binaires (if/else) enchaînées :
 
 > *Analogie* : deviner si un restaurant est bon en demandant aux 5 personnes les plus proches.
 
-![bg right:45% contain](assets/KNN_decision_surface_animation.gif)
+![bg right:55% contain](assets/KNN_decision_surface_animation.gif)
 
 ---
 
@@ -476,7 +484,7 @@ Le modèle découvre des **structures cachées** dans des données *sans étique
 
 ---
 
-<!-- _class: compact -->
+<!-- _class: img-right -->
 
 # 25 — Unsupervised Learning : K-Means
 
@@ -487,7 +495,7 @@ Regrouper des données en *clusters* sans supervision :
 3. **Recalculer** — déplacer chaque centre au barycentre
 4. **Répéter** — jusqu'à stabilisation
 
-![bg right:35% contain](assets/A/K_means_Clustering.gif)
+![bg right:55% contain](assets/A/K_means_Clustering.gif)
 
 <!-- Speaker notes: Pour un entrepreneur, le K-Means révèle des segments de marché que vos clients ne vous décrivent pas explicitement. -->
 
@@ -506,27 +514,26 @@ Regrouper des données en *clusters* sans supervision :
 
 ---
 
-<!-- _class: compact -->
+<!-- _class: img-right -->
 
 # 26 — Self-Supervised Learning : le secret de la GenAI
 
-Le paradigme qui a rendu la GenAI possible — apprendre *sans données étiquetées* :
+Apprendre *sans données étiquetées* :
 
 | Modalité | Méthode | Modèles |
 |---|---|---|
 | **Texte** | Prédire le mot suivant / masqué | GPT, BERT, Claude, Mistral |
 | **Image** | Retirer le bruit d'une image bruitée | Stable Diffusion, DALL-E, Flux |
 
-*Pourquoi c'est révolutionnaire* :
 - Pas besoin d'humains pour étiqueter
 - S'entraîne sur *tout Internet* — trillions de tokens
 - Plus de données = meilleur modèle (scaling law)
 
-![bg right:35% contain](assets/A/diffusion_model.gif)
+![bg right:55% contain](assets/A/diffusion_model.gif)
 
 ---
 
-<!-- _class: compact compact-table -->
+<!-- _class: img-right compact-table -->
 
 # 27 — Reinforcement Learning
 
@@ -539,7 +546,7 @@ L'agent apprend par *essai-erreur*, guidé par une récompense :
 | Marchés | Trading agents | Optimisation de portefeuille |
 | Conversations | ChatGPT, Claude | RLHF : aligner sur les préférences humaines |
 
-![bg right:35% contain](assets/infographics/reinforcement-learning-cycle_run_20260217_010848_d4776e.png)
+![bg right:55% contain](assets/infographics/reinforcement-learning-cycle_run_20260217_010848_d4776e.png)
 
 <!-- Speaker notes: Le RLHF (Reinforcement Learning from Human Feedback) est l'étape qui transforme un LLM brut en assistant utile et sûr. -->
 
@@ -568,7 +575,7 @@ Les slides suivantes présentent les tâches fondamentales : **Classification**,
 
 ---
 
-<!-- _class: compact -->
+<!-- _class: img-right -->
 
 # 29 — Classification
 
@@ -584,11 +591,11 @@ Attribuer une **catégorie discrète** à une entrée :
 
 > Sortie = *catégorie parmi un ensemble fini*. Binaire (oui/non) ou multi-classes (A, B, C...).
 
-![bg right:40% contain](assets/infographics/classification-task_run_20260222_182359_2508a6.png)
+![bg right:55% contain](assets/infographics/classification-task_run_20260222_182359_2508a6.png)
 
 ---
 
-<!-- _class: compact compact-table -->
+<!-- _class: img-right compact-table -->
 
 # 30 — Regression
 
@@ -604,7 +611,7 @@ Prédire une **valeur continue** (un nombre) :
 
 > Sortie = *nombre sur un continuum*. La Linear Regression (slide 14) en est l'exemple le plus simple.
 
-![bg right:35% contain](assets/infographics/regression-task_run_20260222_182706_946870.png)
+![bg right:55% contain](assets/infographics/regression-task_run_20260222_182706_946870.png)
 
 ---
 
@@ -652,12 +659,14 @@ L'architecture Transformer alimente *toutes* ces tâches de génération :
 
 ---
 
+<!-- _class: img-right -->
+
 # 33 — HuggingFace Tasks : votre vocabulaire de recherche
 
 Ces noms de tâches sont votre *vocabulaire* pour chercher des modèles sur HuggingFace :
 
-![bg right:50% contain](assets/hf_tasks_1.png)
-![bg right:50% contain](assets/hf_tasks_2.png)
+![bg right:55% contain](assets/hf_tasks_1.png)
+![bg right:55% contain](assets/hf_tasks_2.png)
 
 **Lien** : [huggingface.co/models](https://huggingface.co/models)
 
