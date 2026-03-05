@@ -84,46 +84,49 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
+<!-- _class: compact -->
+
 # 03 — Perplexity : le modèle hésite-t-il ?
 
-- La Perplexity mesure l'**incertitude** du modèle devant le mot suivant
-- Intuition : "parmi combien de mots le modèle hésite-t-il à chaque pas ?"
-- **Formule simplifiée** : PP(W) = 2^(-1/N × Σ log₂ P(wᵢ))
-- Perplexity de **10** → le modèle hésite entre 10 mots en moyenne
-- Perplexity de **50** → le modèle hésite entre 50 mots (plus incertain)
-- **Plus la Perplexity est basse, mieux c'est** — le modèle est plus "sûr de lui"
-- Utilisée pour comparer des modèles de langue **entre eux** sur un même corpus
+- Mesure l'**incertitude** du modèle devant le mot suivant
+- Intuition : "parmi combien de mots hésite-t-il à chaque pas ?"
+- **Formule** : PP(W) = 2^(−1/N × Σ log₂ P(wᵢ))
+- PP = **10** → hésite entre 10 mots · PP = **50** → 50 mots (plus incertain)
+- **Plus c'est bas, mieux c'est** — le modèle est plus "sûr de lui"
+- Utilisée pour comparer des modèles **entre eux** sur un même corpus
 
 ![bg right:35%](assets/infographics/perplexity-visual_run_20260301_174623_1ebe11.png)
 <!-- PB: Illustration of perplexity as choosing between N doors/words -->
 
 ---
 
+<!-- _class: compact -->
+
 # 04 — Perplexity : les limites
 
-- **Faible Perplexity ≠ bon texte** — un modèle peut être confiant mais **ennuyeux**
-- Répéter "le le le le" → Perplexity très basse, texte inutile
-- Perplexity ne mesure **ni la cohérence, ni la créativité, ni l'utilité**
-- Dépend du **tokenizer** : impossible de comparer GPT et Llama directement
-- En pratique : utile pour le **pré-training**, rarement pour l'évaluation produit
-- Les entreprises préfèrent des métriques orientées **tâche** (BLEU, benchmarks)
+- **Faible Perplexity ≠ bon texte** — confiant mais **ennuyeux** possible
+- "le le le le" → Perplexity très basse, texte inutile
+- Ne mesure **ni la cohérence, ni la créativité, ni l'utilité**
+- Dépend du **tokenizer** : GPT vs Llama incomparables directement
+- Utile pour le **pré-training**, rarement pour l'évaluation produit
 
-> La Perplexity est le "pouls" du modèle : elle dit s'il est vivant, pas s'il est en bonne santé.
+> Le "pouls" du modèle : dit s'il est vivant, pas s'il est en bonne santé.
 
 ![bg right:35%](assets/infographics/perplexity-failure_run_20260301_174625_8f317e.png)
 <!-- PB: Low perplexity but repetitive/boring text vs high perplexity but creative -->
 
 ---
 
+<!-- _class: compact -->
+
 # 05 — BLEU : précision des n-grams
 
-- **BLEU** (Bilingual Evaluation Understudy) — créé en 2002 pour la traduction [1]
-- Compare les **n-grams** (séquences de N mots) entre le texte généré et la référence
-- Mesure la **Precision** : quelle fraction des mots générés apparaît dans la référence ?
-- BLEU-1 = unigrammes, BLEU-4 = séquences de 4 mots (standard)
-- Inclut une **Brevity Penalty** : pénalise les traductions trop courtes
-- Score de **0 à 1** (souvent exprimé en %) — plus c'est haut, mieux c'est
-- Limite : ne capture **pas les synonymes** ni les paraphrases
+- **BLEU** (2002) : compare les **n-grams** générés vs référence [1]
+- Mesure la **Precision** : fraction des mots générés présents dans la référence
+- BLEU-1 = unigrammes · BLEU-4 = séquences de 4 mots (standard)
+- **Brevity Penalty** : pénalise les traductions trop courtes
+- Score **0–1** (souvent en %) — plus c'est haut, mieux c'est
+- Limite : ignore **synonymes** et paraphrases
 
 ![bg right:35%](assets/infographics/bleu-ngram_run_20260301_183046_0888ca.png)
 <!-- PB: N-gram matching between generated and reference sentences -->
@@ -132,15 +135,16 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
+<!-- _class: compact -->
+
 # 06 — ROUGE : le rappel du résumé
 
-- **ROUGE** (Recall-Oriented Understudy for Gisting Evaluation) — conçu pour le résumé [1]
-- Mesure le **Recall** : quelle fraction des mots de la référence est capturée ?
-- **ROUGE-N** : rappel sur les n-grams (ROUGE-1 pour unigrammes, ROUGE-2 pour bigrammes)
-- **ROUGE-L** : plus longue sous-séquence commune (Longest Common Subsequence)
-- ROUGE-L capture l'**ordre des mots** sans exiger des correspondances exactes
+- **ROUGE** (2004) : conçu pour évaluer le résumé automatique [1]
+- Mesure le **Recall** : fraction des mots de la référence capturée
+- **ROUGE-N** : rappel n-grams (ROUGE-1 unigrammes, ROUGE-2 bigrammes)
+- **ROUGE-L** : plus longue sous-séquence commune (LCS) — capture l'ordre
 - Complémentaire à BLEU : BLEU = precision, ROUGE = recall
-- Très utilisé dans l'industrie pour évaluer les **pipelines de résumé automatique**
+- Standard industrie pour les **pipelines de résumé**
 
 ![bg right:35%](assets/infographics/rouge-coverage_run_20260301_183046_8e1288.png)
 <!-- PB: Reference text with highlighted words showing recall coverage -->
@@ -197,15 +201,16 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
+<!-- _class: compact -->
+
 # 09 — BERTScore : la similarité sémantique
 
-- **BERTScore** utilise les **embeddings** d'un modèle BERT pour comparer les textes [1]
-- Au lieu de compter les mots identiques → mesure la **similarité cosinus** entre vecteurs
+- Utilise les **embeddings** BERT pour comparer les textes [1]
+- **Similarité cosinus** entre vecteurs au lieu de compter les mots identiques
 - Détecte les **paraphrases** : "le chat dort" ≈ "le félin sommeille"
-- Produit trois scores : Precision, Recall et F1 (comme les métriques classiques)
-- Avantage clé : **indépendant de la formulation exacte**
-- Utilisé pour évaluer les chatbots, la génération créative, le résumé abstractif
-- Limite : plus lent à calculer, dépend du modèle BERT sous-jacent
+- Produit Precision, Recall et F1 — **indépendant de la formulation exacte**
+- Utilisé pour chatbots, génération créative, résumé abstractif
+- Limite : plus lent, dépend du modèle BERT sous-jacent
 
 ![bg right:35%](assets/infographics/bertscore-embedding_run_20260301_183117_90814c.png)
 <!-- PB: Embedding vectors showing cosine similarity between paraphrased sentences -->
@@ -265,15 +270,16 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
+<!-- _class: compact -->
+
 # 13 — Qu'est-ce qu'un Benchmark ?
 
-- Un benchmark est un **examen standardisé** passé par tous les modèles
-- Analogie : le **BAC** ou un **concours** — même épreuve, correction uniforme
-- Composé de : un **dataset** (questions), un **protocole** (conditions), un **score** (métrique)
-- Permet de **comparer objectivement** des modèles de différents fournisseurs
-- Exemples : MMLU (culture générale), GSM8K (maths), HumanEval (code)
-- **Attention** : un bon score au BAC ne garantit pas le succès professionnel
-- De même : un bon benchmark ne garantit pas la performance sur **votre tâche**
+- **Examen standardisé** passé par tous les modèles
+- Analogie : le **BAC** — même épreuve, correction uniforme
+- Composé de : **dataset** + **protocole** + **score**
+- Compare objectivement des modèles de différents fournisseurs
+- Ex. : MMLU (culture gén.), GSM8K (maths), HumanEval (code)
+- Un bon benchmark ne garantit pas la performance sur **votre tâche**
 
 ![bg right:35%](assets/infographics/benchmark-concept_run_20260301_183117_d8323a.png)
 <!-- PB: Analogy diagram showing BAC exam vs LLM benchmark components -->
@@ -416,11 +422,12 @@ Natalia a vendu 48 barrettes en avril, puis la moitié en mai. Total ?
 
 ---
 
+<!-- _class: compact -->
+
 # 21 — Chatbot Arena : le classement par vote humain
 
-- Principe : deux modèles anonymes répondent → l'utilisateur vote pour le meilleur
-- Système **Elo** (comme aux échecs) : chaque victoire ajuste les scores
-- **Top 5 (fév. 2026)** [1] :
+- Deux modèles anonymes répondent → l'utilisateur vote pour le meilleur
+- Système **Elo** (comme aux échecs) · **Top 5 (fév. 2026)** [1] :
 
 | Rang | Modèle | Elo | Force principale |
 |---|---|---|---|
@@ -494,16 +501,18 @@ Natalia a vendu 48 barrettes en avril, puis la moitié en mai. Total ?
 
 ---
 
+<!-- _class: compact -->
+
 # 25 — Qu'est-ce que le VQA ?
 
 - **VQA** = Visual Question Answering : image + question texte → réponse texte
 - Le modèle doit **comprendre** l'image ET la question pour répondre
 - **Cas d'usage business** :
-  - Extraction automatique de données depuis des **factures PDF**
+  - Extraction de données depuis des **factures PDF**
   - Analyse de **graphiques** dans des rapports financiers
   - Lecture de **panneaux**, **menus**, **étiquettes** dans des photos
   - Assistance visuelle pour personnes **malvoyantes**
-- Nécessite des modèles **multimodaux** (texte + image) : GPT-5, Gemini, Claude
+- Nécessite des modèles **multimodaux** : GPT-5, Gemini, Claude
 
 ![bg right:35%](assets/infographics/vqa-pipeline_run_20260301_183148_f1c158.png)
 <!-- PB: VQA pipeline: image + text question → multimodal model → text answer -->
@@ -642,35 +651,39 @@ Natalia a vendu 48 barrettes en avril, puis la moitié en mai. Total ?
 
 ---
 
+<!-- _class: compact -->
+
 # 33 — Prix vs Score : le scatter plot
 
 - Les modèles les plus chers ne sont **pas toujours** les meilleurs [1]
-- **Best value** : DeepSeek V3.2 — score quality 79/100 à $0,28/M output
-- **Best premium** : Claude Opus 4.6 — score quality 100/100 à $25/M output
-- Le "sweet spot" pour la plupart des apps : **$0,50 – $2,00/M tokens** [2]
-- Gemini 3 Pro : performance frontier à $1,25/$10 — 5x moins cher que Claude Opus
-
-> L'IA la plus chère n'est pas forcément la meilleure pour votre cas d'usage.
+- **Best value** : DeepSeek V3.2 — quality 79/100, $0,28/M output
+- **Best premium** : Claude Opus 4.6 — quality 100/100, $25/M output
+- Sweet spot : **$0,50 – $2,00/M tokens** [2]
+- Gemini 3 Pro : frontier à $1,25/$10 — 5× moins cher qu'Opus
 
 ![bg right:35%](assets/infographics/price_vs_score_scatter.png)
 <!-- PB: Scatter plot of price (x) vs quality score (y) with model labels -->
+
+<!-- Speaker notes: L'IA la plus chère n'est pas forcément la meilleure pour votre cas d'usage. -->
 
 <small>Sources : [1] [CostGoat](https://costgoat.com/compare/llm-api) · [2] [TLDL](https://www.tldl.io/resources/llm-api-pricing-2026)</small>
 
 ---
 
+<!-- _class: compact -->
+
 # 34 — Prix vs Arena Elo
 
-- Le Chatbot Arena Elo reflète la **préférence humaine réelle** [1]
+- Arena Elo reflète la **préférence humaine réelle** [1]
 - Top Elo (1 503) : Claude Opus 4.6 à $5/$25
-- Elo comparable (1 500) : Gemini 3.1 Pro à $2/$12 — **2x moins cher** [2]
-- DeepSeek V3.2 (Elo 1 361) à $0,27/$0,42 — **60x moins cher** que Claude Opus
-- Le coût par point Elo varie de **$0,003 à $0,05** selon le modèle
-
-> La question n'est pas "quel est le meilleur ?" mais "quel est le meilleur **pour mon budget** ?"
+- Elo comparable (1 500) : Gemini 3.1 Pro à $2/$12 — **2× moins cher** [2]
+- DeepSeek V3.2 (Elo 1 361) à $0,27/$0,42 — **60× moins cher** qu'Opus
+- Coût par point Elo : de **$0,003 à $0,05** selon le modèle
 
 ![bg right:35%](assets/infographics/price_vs_elo_scatter.png)
 <!-- PB: Scatter plot of Elo rating (y) vs output price (x) with model bubbles -->
+
+<!-- Speaker notes: La question n'est pas "quel est le meilleur ?" mais "quel est le meilleur pour mon budget ?" -->
 
 <small>Sources : [1] [LM Arena](https://arena.ai/leaderboard) · [2] [Vertu](https://vertu.com/lifestyle/ai-model-leaderboard-2026-intelligence-speed-price-context-a-complete-ranking-guide/)</small>
 
@@ -739,15 +752,16 @@ Natalia a vendu 48 barrettes en avril, puis la moitié en mai. Total ?
 
 ---
 
+<!-- _class: compact -->
+
 # 38 — Contamination : quand le modèle a vu l'examen
 
-- **Contamination** = le modèle a été entraîné sur les données du benchmark [1]
-- Comme un étudiant qui aurait eu le sujet du BAC **avant l'épreuve**
-- Yann LeCun (jan. 2026) : Meta a admis avoir "ajusté" les résultats de Llama 4 [2]
-- Le paper "Leaderboard Illusion" documente des soumissions sélectives par Meta, OpenAI, Google, Amazon [2]
-- Audit SurgeAI : les évaluateurs **désaccordent** sur les résultats revendiqués
-- Les benchmarks **publics** (MMLU, GSM8K) sont les plus vulnérables
-- Solution : benchmarks **dynamiques** avec des questions régulièrement renouvelées
+- **Contamination** = modèle entraîné sur les données du benchmark [1]
+- Analogie : un étudiant avec le sujet du BAC **avant l'épreuve**
+- Meta a admis avoir "ajusté" les résultats de Llama 4 [2]
+- "Leaderboard Illusion" : soumissions sélectives par Meta, OpenAI, Google [2]
+- Benchmarks **publics** (MMLU, GSM8K) sont les plus vulnérables
+- Solution : benchmarks **dynamiques** à questions renouvelées
 
 ![bg right:35%](assets/infographics/contamination-teaching-test_run_20260301_174654_1f9a7c.png)
 <!-- PB: Training data leaking into benchmark test set through a sieve -->
@@ -832,16 +846,15 @@ Natalia a vendu 48 barrettes en avril, puis la moitié en mai. Total ?
 
 ---
 
+<!-- _class: compact -->
+
 # 43 — Framework d'évaluation en 5 questions
 
-1. **Quel type de tâche ?** → Choisir les benchmarks pertinents
-   - Génération de texte → BLEU, ROUGE, BERTScore
-   - Connaissance → MMLU, GPQA Diamond
-   - Code → SWE-bench, LiveCodeBench
+1. **Quelle tâche ?** → Benchmarks pertinents (BLEU, MMLU, SWE-bench…)
 2. **Quel niveau de qualité ?** → Frontier vs mid-tier vs budget
-3. **Quel budget ?** → Modèle routing par criticité
-4. **Quels risques ?** → Contamination, saturation, décalage domaine
-5. **Mes propres données ?** → Golden set + A/B testing en production
+3. **Quel budget ?** → Model routing par criticité
+4. **Quels risques ?** → Contamination, saturation, domain gap
+5. **Mes propres données ?** → Golden set + A/B testing en prod
 
 ![bg right:35%](assets/infographics/llm-decision-flowchart_run_20260301_174657_9c7994.png)
 <!-- PB: Decision tree with 5 questions branching to evaluation strategies -->

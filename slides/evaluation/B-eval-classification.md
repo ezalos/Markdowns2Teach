@@ -215,11 +215,11 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 - **Tension fondamentale** : monter l'un fait baisser l'autre
 - En ajustant le Decision Threshold :
-  - Seuil **bas** (0.2) → + Recall, - Precision (plus d'alertes, plus de faux positifs)
-  - Seuil **haut** (0.8) → + Precision, - Recall (moins d'alertes, plus de cas manqués)
-- C'est une **bascule** (seesaw) — impossible de maximiser les deux
+  - Seuil **bas** (0.2) → + Recall, − Precision
+  - Seuil **haut** (0.8) → + Precision, − Recall
+- **Bascule** (seesaw) — impossible de maximiser les deux
 
-> Le choix du point d'équilibre est une **décision business**, pas technique.
+> Le point d'équilibre est une **décision business**, pas technique.
 
 ![bg right:40%](assets/infographics/precision-recall-tradeoff_run_20260301_174457_f4e6ea.png)
 
@@ -333,16 +333,18 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
+<!-- _class: compact -->
+
 # 19 — MCC : pourquoi les chercheurs le recommandent
 
-- Chicco & Jurman (2020, 2023) démontrent que le MCC devrait remplacer le ROC-AUC comme métrique standard [1]
-- **Avantages** sur les autres métriques :
-  - Pas trompeur sur données déséquilibrées (contrairement à l'Accuracy)
-  - Considère les 4 cases (contrairement à F1 qui ignore les TN)
-  - Corrélation statistique interprétable (comme un coefficient de Pearson)
-- **Limite** : ne dit pas *pourquoi* la classification échoue — combiner avec les 4 rates
+- Chicco & Jurman (2020, 2023) : le MCC devrait remplacer le ROC-AUC [1]
+- **Avantages** :
+  - Fiable sur données déséquilibrées (vs Accuracy)
+  - Utilise les 4 cases (vs F1 qui ignore les TN)
+  - Interprétable comme un coefficient de Pearson
+- **Limite** : ne dit pas *pourquoi* ça échoue — combiner avec les 4 rates
 
-> Quand vous ne pouvez reporter qu'**un seul chiffre** pour un classifieur binaire, choisissez le MCC [1].
+> Un seul chiffre pour un classifieur binaire ? Choisissez le MCC [1].
 
 <small>Sources : [1] [Chicco & Jurman 2023, BioData Mining](https://pmc.ncbi.nlm.nih.gov/articles/PMC9938573/)</small>
 
@@ -352,19 +354,20 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
+<!-- _class: compact -->
+
 # 20 — Log Loss : la qualité de la confiance
 
-- **Définition** : mesure la qualité des **probabilités** prédites, pas juste la classe
+- Mesure la qualité des **probabilités** prédites, pas juste la classe
 - **Formule** : LogLoss = −(1/N) × Σ [yᵢ·log(pᵢ) + (1−yᵢ)·log(1−pᵢ)]
 - Pénalise **exponentiellement** les prédictions confiantes mais fausses
-- Un modèle qui prédit 0.99 pour un cas négatif est **lourdement puni**
 
-| Prédiction | Réalité | Log Loss contribution |
+| Prédiction | Réalité | Log Loss |
 |:---:|:---:|:---:|
 | 0.9 | Positive | **Faible** (bonne confiance) |
 | 0.9 | Negative | **Très élevée** (confiance mal placée) |
 
-> Utile quand vous avez besoin de **probabilités calibrées** (scoring crédit, triage médical).
+> Utile pour les **probabilités calibrées** (scoring crédit, triage médical).
 
 ![bg right:30%](assets/infographics/log-loss-penalty_run_20260301_174504_f6539d.png)
 
@@ -372,11 +375,13 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
+<!-- _class: compact -->
+
 # 21 — Cohen's Kappa : l'accord ajusté par le hasard
 
-- **Définition** : mesure l'accord entre prédictions et réalité, corrigé par le hasard
-- **Formule** : κ = (pₒ − pₑ) / (1 − pₑ) où pₒ = accord observé, pₑ = accord attendu par hasard
-- **Interprétation** (échelle de Landis & Koch) [1] :
+- Accord prédictions vs réalité, **corrigé par le hasard**
+- **Formule** : κ = (pₒ − pₑ) / (1 − pₑ) — pₒ = observé, pₑ = attendu par hasard
+- **Échelle de Landis & Koch** [1] :
 
 | κ | Interprétation |
 |---|---|
@@ -386,7 +391,7 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 | 0.61 – 0.80 | Substantiel |
 | 0.81 – 1.00 | Quasi-parfait |
 
-> Un modèle à 80% d'Accuracy sur un dataset 80/20 a un κ faible — il ne fait guère mieux que le hasard.
+> 80% Accuracy sur un dataset 80/20 → κ faible (guère mieux que le hasard).
 
 <small>Sources : [1] [Landis & Koch 1977, via Wikipedia](https://en.wikipedia.org/wiki/Cohen%27s_kappa)</small>
 
@@ -417,14 +422,12 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 # 23 — ROC Curve et ROC-AUC
 
-- La **ROC Curve** trace le True Positive Rate (Recall) vs le False Positive Rate à chaque seuil
-- L'**AUC** (Area Under Curve) résume en un chiffre de 0 à 1 :
-  - AUC = 0.5 → modèle aléatoire (diagonale)
-  - AUC = 0.8 → bon modèle
-  - AUC = 1.0 → parfait (suspect en pratique)
+- **ROC Curve** : True Positive Rate vs False Positive Rate à chaque seuil
+- L'**AUC** résume en un chiffre de 0 à 1 :
+  - 0.5 → aléatoire · 0.8 → bon · 1.0 → parfait (suspect)
 - **Avantage** : invariant au déséquilibre des classes [1]
 
-> L'AUC mesure la capacité du modèle à **classer** un positif devant un négatif, quel que soit le seuil choisi.
+> L'AUC mesure la capacité à **classer** un positif devant un négatif, quel que soit le seuil.
 
 ![bg right:40%](assets/infographics/roc-curve-construction_run_20260301_174506_1da1f1.png)
 
@@ -434,20 +437,21 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
+<!-- _class: compact -->
+
 # 24 — PR Curve et PR-AUC
 
-- La **PR Curve** trace Precision vs Recall à chaque seuil
-- Le **PR-AUC** est l'aire sous cette courbe
-- Mieux adaptée quand la classe positive est **rare** (fraude, maladie)
-- Raison : la PR Curve se concentre sur la **classe positive** uniquement
+- **PR Curve** : Precision vs Recall à chaque seuil
+- **PR-AUC** = aire sous cette courbe
+- Préférable quand la classe positive est **rare** (fraude, maladie)
 
 | Aspect | ROC-AUC | PR-AUC |
 |---|---|---|
 | Influence des TN | Oui (via FPR) | Non |
 | Sensible à l'imbalance | Moins | Plus |
-| Baseline aléatoire | 0.5 (fixe) | = prévalence de la classe + |
+| Baseline aléatoire | 0.5 (fixe) | = prévalence |
 
-> Si 1% de vos données sont positives, le ROC-AUC peut sembler excellent alors que votre modèle est médiocre sur la classe rare [1].
+> 1% de positifs → le ROC-AUC peut sembler bon alors que le modèle est médiocre sur la classe rare [1].
 
 <small>Sources : [1] [Machine Learning Mastery](https://machinelearningmastery.com/roc-auc-vs-precision-recall-for-imbalanced-data/)</small>
 
@@ -492,6 +496,8 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
+<!-- _class: compact -->
+
 # 26 — Macro, Micro et Weighted Averaging
 
 - En multi-class, chaque classe a sa propre Precision/Recall
@@ -499,13 +505,13 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 | Méthode | Calcul | Traite chaque... |
 |---|---|---|
-| **Macro** | Moyenne des scores par classe | Classe également |
-| **Micro** | TP/FP/FN globaux, puis calcul | Instance également |
-| **Weighted** | Moyenne pondérée par le support | Classe selon sa taille |
+| **Macro** | Moyenne par classe | Classe également |
+| **Micro** | TP/FP/FN globaux | Instance également |
+| **Weighted** | Moyenne pondérée par support | Classe selon sa taille |
 
-- **Macro** : pénalise si le modèle est mauvais sur une classe minoritaire
+- **Macro** : pénalise les faiblesses sur classes minoritaires
 - **Micro** : converge vers l'Accuracy en single-label
-- **Weighted** : reflète la performance "réelle" sur votre distribution
+- **Weighted** : performance "réelle" sur votre distribution
 
 ![bg right:30%](assets/infographics/macro-micro-weighted_run_20260301_174512_750fc7.png)
 
@@ -513,16 +519,18 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
+<!-- _class: compact -->
+
 # 27 — Quand les classes n'ont pas le même coût
 
-- En détection de fraude : manquer une fraude de **50 000 EUR** ≠ manquer un achat de **15 EUR**
-- Les métriques standard traitent chaque erreur de la même manière
+- Manquer une fraude de **50k EUR** ≠ manquer un achat de **15 EUR**
+- Les métriques standard traitent chaque erreur identiquement
 - **Solutions** :
-  - **Macro averaging** : force l'attention sur les classes rares
-  - **Cost-sensitive learning** : pondérer les erreurs par leur coût business
-  - **Class weights** dans sklearn : `class_weight='balanced'`
+  - **Macro averaging** : attention forcée sur classes rares
+  - **Cost-sensitive learning** : pondérer par coût business
+  - **Class weights** sklearn : `class_weight='balanced'`
 
-> Choisissez votre méthode d'averaging en fonction de votre **question business** : toutes les classes comptent-elles autant ?
+> Méthode d'averaging = **décision business** : toutes les classes comptent-elles autant ?
 
 ![bg right:35%](assets/infographics/cost-asymmetry_run_20260301_174516_096e8d.png)
 
@@ -570,14 +578,14 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 # 30 — Key Takeaways
 
-1. **L'Accuracy ment sur les datasets déséquilibrés** — utilisez la Balanced Accuracy ou le MCC pour un diagnostic fiable
+1. **L'Accuracy ment sur datasets déséquilibrés** — préférez Balanced Accuracy ou MCC
 
-2. **Precision vs Recall est un choix business** — le seuil optimal dépend du coût relatif des FP et FN dans votre domaine
+2. **Precision vs Recall = choix business** — le seuil dépend du coût relatif FP vs FN
 
-3. **Le MCC est la métrique la plus complète** pour la classification binaire — c'est la seule qui utilise les 4 quadrants de la Confusion Matrix
+3. **Le MCC est la métrique la plus complète** en binaire — seule à utiliser les 4 quadrants
 
-4. **PR-AUC > ROC-AUC quand la classe positive est rare** — le ROC-AUC peut masquer une performance médiocre sur la classe d'intérêt
+4. **PR-AUC > ROC-AUC si classe positive rare** — le ROC-AUC masque les faiblesses
 
-5. **Ne reportez jamais une seule métrique** — Confusion Matrix + 2-3 scores complémentaires donnent une image fiable
+5. **Jamais une seule métrique** — Confusion Matrix + 2-3 scores complémentaires
 
-> **Pour aller plus loin** : explorez les notebooks `01_thresholding.ipynb` et `02_classification_metrics.ipynb` pour manipuler ces métriques interactivement.
+> **Pour aller plus loin** : notebooks `01_thresholding.ipynb` et `02_classification_metrics.ipynb`.

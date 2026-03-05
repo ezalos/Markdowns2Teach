@@ -48,9 +48,9 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
-# 02 — Taxonomie des métriques de régression
+<!-- _class: compact compact-table -->
 
-- **Trois familles** pour trois besoins différents :
+# 02 — Taxonomie des métriques de régression
 
 | Famille | Métriques | Question clé |
 |---------|-----------|--------------|
@@ -58,11 +58,11 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 | Goodness-of-fit | R², Adjusted R² | Le modèle explique-t-il les données ? |
 | Losses robustes | Huber, Quantile | Comment gérer bruit et incertitude ? |
 
-- Les métriques de **distance** comparent prédiction vs réalité
-- Le **goodness-of-fit** mesure le pouvoir explicatif global
-- Les **losses robustes** combinent les avantages des deux premières familles
+- **Distance** : compare prédiction vs réalité
+- **Goodness-of-fit** : pouvoir explicatif global
+- **Losses robustes** : combinent avantages des deux familles
 
-![bg right:50%](assets/infographics/regression-taxonomy_run_20260301_174302_ecd6e1.png)
+![bg right:35%](assets/infographics/regression-taxonomy_run_20260301_174302_ecd6e1.png)
 
 <!-- PB: Arbre à 3 branches montrant les 3 familles de métriques (Distance, Goodness-of-fit, Losses robustes) avec les métriques listées sous chaque branche et la question clé associée -->
 
@@ -76,18 +76,20 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
+<!-- _class: compact -->
+
 # 03 — MAE : la moyenne des erreurs absolues
 
 - **Mean Absolute Error** = moyenne des écarts absolus
 - Formule : **MAE = (1/n) Σ |yᵢ − ŷᵢ|**
 - Intuition : "en moyenne, le modèle se trompe de X unités"
 - **Même unité** que la variable cible (€, minutes, kg)
-- Traite toutes les erreurs de manière **égale** — petites comme grandes
-- Facile à expliquer à des non-techniques : "nos prédictions sont décalées de €10k en moyenne"
+- Traite toutes les erreurs de manière **égale**
+- Facile à expliquer : "nos prédictions dévient de €10k en moyenne"
 
 > La MAE est la métrique la plus **intuitive** pour communiquer avec des stakeholders.
 
-![bg right:50%](assets/infographics/mae-residuals_run_20260301_174313_779eac.png)
+![bg right:35%](assets/infographics/mae-residuals_run_20260301_174313_779eac.png)
 
 <!-- PB: Visualisation de la MAE : axe avec points réels et prédits, flèches montrant les écarts absolus, puis calcul de la moyenne -->
 
@@ -110,40 +112,41 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
+<!-- _class: compact -->
+
 # 05 — MAE : limitations
 
 - **Cache les catastrophes** parmi les petites erreurs
-  - MAE = 5 min sur 1 000 livraisons, mais un client attend **45 min**
-  - La MAE ne distingue pas 1 000 erreurs de 5 min vs 999 erreurs de 0 min + 1 de 5 000 min
-- **Non différentiable en zéro** — pose des problèmes d'optimisation pour certains algorithmes
+  - MAE = 5 min sur 1 000 livraisons, mais 1 client attend **45 min**
+- **Non différentiable en zéro** — problème d'optimisation
 - **Pas de pondération** — toutes les erreurs comptent pareil
-  - Sous-estimer de €50k sur un bien à €2M est anodin (2,5%)
-  - Sous-estimer de €50k sur un bien à €100k est grave (50%)
-- Pour capter les erreurs catastrophiques → **RMSE** ou **Max Error**
-- Pour une vue en pourcentage → **MAPE**
+  - €50k d'écart sur €2M = anodin (2,5%)
+  - €50k d'écart sur €100k = grave (50%)
+- Erreurs catastrophiques → **RMSE** ou **Max Error**
+- Vue en pourcentage → **MAPE**
 
-![bg right:50%](assets/infographics/mae-limitations_run_20260301_174316_887b6d.png)
+![bg right:35%](assets/infographics/mae-limitations_run_20260301_174316_887b6d.png)
 
 <!-- PB: Exemple visuel : distribution d'erreurs avec MAE identique mais profils très différents — un uniforme, un avec un outlier extrême -->
 
 ---
 
+<!-- _class: compact -->
+
 # 06 — MSE & RMSE : pénaliser les grosses erreurs
 
-- **Mean Squared Error** : MSE = (1/n) Σ (yᵢ − ŷᵢ)²
-- **Root MSE** : RMSE = √MSE — ramène dans les unités de la cible
+- **MSE** = (1/n) Σ (yᵢ − ŷᵢ)² · **RMSE** = √MSE (unités de la cible)
 - Le **carré** amplifie les grosses erreurs :
-  - Erreur de 2 → contribue 4 au MSE
-  - Erreur de 10 → contribue **100** au MSE (25× plus)
-- RMSE est toujours **≥ MAE** — l'écart révèle la présence d'outliers [1]
-- Si RMSE ≈ MAE → les erreurs sont uniformes
-- Si RMSE >> MAE → quelques prédictions sont très mauvaises
+  - Erreur de 2 → contribue 4 · Erreur de 10 → **100** (25×)
+- RMSE toujours **≥ MAE** — l'écart révèle les outliers [1]
+- RMSE ≈ MAE → erreurs uniformes
+- RMSE >> MAE → quelques prédictions très mauvaises
 
-> RMSE est la métrique par défaut dans la majorité des compétitions ML.
+<!-- Speaker notes: RMSE est la métrique par défaut dans la majorité des compétitions ML. -->
 
 <small>Sources : [1] [Vital Flux](https://vitalflux.com/mse-vs-rmse-vs-mae-vs-mape-vs-r-squared-when-to-use/)</small>
 
-![bg right:50%](assets/infographics/mse-rmse-amplification_run_20260301_174319_79f468.png)
+![bg right:35%](assets/infographics/mse-rmse-amplification_run_20260301_174319_79f468.png)
 
 <!-- PB: Schéma montrant comment le carré amplifie les erreurs : barres d'erreur linéaires vs barres d'erreur au carré, avec RMSE = racine -->
 
@@ -165,18 +168,19 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
+<!-- _class: compact -->
+
 # 08 — MSE & RMSE : limitations
 
-- **Sensible aux outliers** — un seul point aberrant peut dominer la métrique
-  - 999 prédictions parfaites + 1 erreur de 1 000 → RMSE ≈ 31,6
-- **MSE** : unité au carré (€², min²) — **pas interprétable** directement
-- **RMSE** : interprétable, mais le carré **masque** la distribution des erreurs
-  - RMSE = 20 peut signifier "tout le monde à 20" ou "la moitié à 0, l'autre à 28"
-- **Non robuste** en présence de bruit dans les données d'entraînement
-- **Gradient** : différentiable partout — avantage pour l'optimisation
-- Pour des données bruitées avec outliers → **Huber Loss**
+- **Sensible aux outliers** — 1 point aberrant domine la métrique
+  - 999 parfaites + 1 erreur de 1 000 → RMSE ≈ 31,6
+- **MSE** : unité au carré (€², min²) — pas interprétable
+- **RMSE** : masque la distribution des erreurs
+  - RMSE = 20 → "tout à 20" ou "moitié à 0, moitié à 28"
+- **Non robuste** face au bruit d'entraînement
+- Données bruitées avec outliers → **Huber Loss**
 
-![bg right:50%](assets/infographics/rmse-outlier-sensitivity_run_20260301_174325_10234b.png)
+![bg right:35%](assets/infographics/rmse-outlier-sensitivity_run_20260301_174325_10234b.png)
 
 <!-- PB: Exemple d'un seul outlier qui fait exploser le RMSE : graphique avant/après avec et sans outlier -->
 
@@ -198,25 +202,34 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
+<!-- _class: compact -->
+
 # 10 — MAPE : limitations critiques
 
 - **Division par zéro** : si yᵢ = 0, MAPE est **indéfinie**
   - Ventes nulles un dimanche, demande nulle en basse saison
 - **Asymétrie** : pénalise davantage les **sur-estimations**
-  - Prédire 150 pour un réel de 100 → erreur 50%
-  - Prédire 50 pour un réel de 100 → erreur 50%
-  - Mais prédire 200 pour un réel de 100 → 100%, tandis que 0 pour 100 → 100%
-  - MAPE ne peut pas dépasser 100% en sous-estimation, mais peut atteindre ∞ en sur-estimation
+  - Prédire 150 pour 100 → 50% · Prédire 50 pour 100 → 50%
+  - Mais prédire 200 pour 100 → 100% · 0 pour 100 → 100%
+  - Sous-estimation plafonnée à 100%, sur-estimation → ∞
+
+![bg right:35%](assets/infographics/mape-division-by-zero_run_20260301_174327_6191b3.png)
+
+<!-- PB: Schéma montrant l'asymétrie du MAPE : sur-estimation vs sous-estimation avec le même écart absolu -->
+
+---
+
+<!-- _class: compact -->
+
+# 10b — MAPE : limitations critiques (suite)
+
 - **Favorise les modèles qui sous-estiment** — biais systématique [1]
-- **Petites valeurs** : une erreur de 1 sur un réel de 2 = MAPE 50%, mais 1 sur 1 000 = 0,1%
+- **Petites valeurs** : erreur de 1 sur réel de 2 = 50%, mais 1 sur 1 000 = 0,1%
+- Le MAPE est **instable** quand les valeurs cibles sont proches de zéro
 
 > Si vos données contiennent des zéros ou de petites valeurs, évitez le MAPE.
 
 <small>Sources : [1] [NVIDIA Developer](https://developer.nvidia.com/blog/a-comprehensive-overview-of-regression-evaluation-metrics/)</small>
-
-![bg right:50%](assets/infographics/mape-division-by-zero_run_20260301_174327_6191b3.png)
-
-<!-- PB: Schéma montrant l'asymétrie du MAPE : sur-estimation vs sous-estimation avec le même écart absolu -->
 
 ---
 
@@ -301,21 +314,21 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
+<!-- _class: compact -->
+
 # 15 — R² : le pourcentage de variance expliquée
 
-- **Coefficient of Determination** : R² = 1 − (SS_res / SS_tot)
-  - SS_res = Σ(yᵢ − ŷᵢ)² — erreur résiduelle
-  - SS_tot = Σ(yᵢ − ȳ)² — variance totale
-- Interprétation : "le modèle explique **X%** de la variance des données"
+- **R²** = 1 − (SS_res / SS_tot)
+  - SS_res = Σ(yᵢ − ŷᵢ)² · SS_tot = Σ(yᵢ − ȳ)²
+- "Le modèle explique **X%** de la variance des données"
 - **Plage** : −∞ à 1
-  - R² = 1 → prédiction parfaite
-  - R² = 0 → le modèle fait aussi bien que la **moyenne**
-  - R² < 0 → le modèle fait **pire** que la moyenne
+  - R² = 1 → parfait · R² = 0 → vaut la moyenne
+  - R² < 0 → **pire** que la moyenne
 - Sans unité — comparable entre datasets
 
-> R² = 0.85 signifie que le modèle capture 85% de la variation des données.
+<!-- Speaker notes: R² = 0.85 signifie que le modèle capture 85% de la variation des données. -->
 
-![bg right:50%](assets/infographics/r-squared-variance_run_20260301_174330_e3e034.png)
+![bg right:35%](assets/infographics/r-squared-variance_run_20260301_174330_e3e034.png)
 
 <!-- PB: Graphique nuage de points avec droite de régression, SS_res (écarts à la droite) vs SS_tot (écarts à la moyenne) -->
 
@@ -338,21 +351,21 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
+<!-- _class: compact -->
+
 # 17 — R² : limitations — quand il ment
 
-- **R² = 0.95 ne garantit rien** — le Anscombe's Quartet le prouve [1]
-  - 4 datasets avec **même R² = 0.67**, mêmes moyennes, même régression
-  - Mais des formes **totalement différentes** : linéaire, courbe, outlier, cluster
+- **Anscombe's Quartet** : 4 datasets, même R² = 0.67, formes très différentes [1]
 - R² **augmente toujours** en ajoutant des variables — même aléatoires
-- **Peut être négatif** — le modèle est pire que prédire la moyenne
-- **Insensible au biais systématique** : un modèle qui prédit toujours +10k a un bon R²
-- Ne détecte pas si le modèle est **approprié** — seulement la variance capturée
+- **Peut être négatif** — pire que la moyenne
+- **Insensible au biais** : prédire toujours +10k → bon R²
+- Ne détecte pas si le modèle est **approprié**
 
-> **Règle d'or** : ne jamais évaluer un modèle sur le seul R². Toujours **visualiser** les résidus.
+<!-- Speaker notes: Règle d'or : ne jamais évaluer un modèle sur le seul R². Toujours visualiser les résidus. -->
 
-<small>Sources : [1] [Anscombe 1973, American Statistician](https://en.wikipedia.org/wiki/Anscombe%27s_quartet)</small>
+<small>Sources : [1] [Anscombe 1973](https://en.wikipedia.org/wiki/Anscombe%27s_quartet)</small>
 
-![bg right:50%](assets/infographics/anscombe-quartet_run_20260301_174352_50a169.png)
+![bg right:35%](assets/infographics/anscombe-quartet_run_20260301_174352_50a169.png)
 
 <!-- PB: Les 4 graphiques du Anscombe's Quartet : même R², même droite, formes visuellement très différentes -->
 
@@ -395,20 +408,20 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
+<!-- _class: compact -->
+
 # 20 — Huber Loss : le meilleur des deux mondes
 
-- **Hybride** MAE + MSE contrôlée par un paramètre **δ** (delta)
-- Si |erreur| ≤ δ → se comporte comme **MSE** (quadratique)
-- Si |erreur| > δ → se comporte comme **MAE** (linéaire) [1]
-- δ petit → très robuste (quasi MAE), δ grand → quasi MSE
-- **Avantage** : différentiable partout (contrairement à MAE en 0)
-  - Permet l'optimisation par gradient descent
+- **Hybride** MAE + MSE contrôlée par un paramètre **δ**
+- |erreur| ≤ δ → **MSE** (quadratique) · |erreur| > δ → **MAE** (linéaire) [1]
+- δ petit → robuste (quasi MAE) · δ grand → quasi MSE
+- **Différentiable partout** — permet le gradient descent
 
-> Huber Loss = "je veux la précision de MSE, mais sans que les outliers ne détruisent mon modèle."
+<!-- Speaker notes: Huber Loss = "je veux la précision de MSE, mais sans que les outliers ne détruisent mon modèle." -->
 
 <small>Sources : [1] [GeeksforGeeks](https://www.geeksforgeeks.org/machine-learning/huber-loss-function-in-machine-learning/)</small>
 
-![bg right:50%](assets/infographics/huber-loss-curve_run_20260301_174352_89b5c0.png)
+![bg right:35%](assets/infographics/huber-loss-curve_run_20260301_174352_89b5c0.png)
 
 <!-- PB: Courbe Huber vs MSE vs MAE : zone quadratique au centre (≤δ), zone linéaire aux extrémités (>δ) -->
 
@@ -431,40 +444,40 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
+<!-- _class: compact -->
+
 # 22 — Quantile Loss : prédire des intervalles
 
-- Au lieu de prédire **un point**, on prédit des **quantiles** de la distribution
-- Quantile Loss pénalise **différemment** selon la direction de l'erreur
-  - Pour le quantile 0.9 : sous-estimer coûte **9×** plus que sur-estimer
-  - Pour le quantile 0.1 : sur-estimer coûte **9×** plus que sous-estimer [1]
-- Résultat : un **intervalle de prédiction** au lieu d'une valeur unique
-  - "La livraison arrivera entre **14h et 16h** (intervalle 80%)"
-- Utilisé par **Amazon** pour optimiser les niveaux de stock [2]
-  - "Avec 95% de confiance, la demande sera ≤ 500 unités"
+- Prédit des **quantiles** au lieu d'un point unique
+- Pénalise **différemment** selon la direction de l'erreur
+  - Quantile 0.9 : sous-estimer coûte **9×** plus [1]
+  - Quantile 0.1 : sur-estimer coûte **9×** plus
+- Résultat : un **intervalle de prédiction**
+  - "Livraison entre **14h et 16h** (intervalle 80%)"
+- **Amazon** : optimisation des niveaux de stock [2]
 
 <small>Sources : [1] [Towards Data Science](https://towardsdatascience.com/quantile-loss-and-quantile-regression-b0689c13f54d/) · [2] [Amazon Science](https://www.amazon.science/blog/improving-forecasting-by-learning-quantile-functions)</small>
 
-![bg right:50%](assets/infographics/quantile-loss-intervals_run_20260301_174352_bd5de3.png)
+![bg right:35%](assets/infographics/quantile-loss-intervals_run_20260301_174352_bd5de3.png)
 
 <!-- PB: Schéma Quantile Loss : courbe asymétrique avec pénalité forte d'un côté, faible de l'autre, pour quantiles 0.1, 0.5, 0.9 -->
 
 ---
 
+<!-- _class: compact -->
+
 # 23 — Quantile Loss : la puissance des intervalles
 
-- **Livraison** : "entre 2h et 4h" est **plus utile** que "3h exactement"
-  - Le client planifie autour de l'intervalle — pas de surprise
-  - SeatGeek utilise le quantile 0.80 pour ses prédictions de livraison [1]
-- **Supply chain** : choisir entre risque de rupture et coût de stockage
-  - Quantile 0.95 → très peu de ruptures, mais stock élevé
-  - Quantile 0.50 → stock minimal, mais 50% de risque de rupture
-- **Énergie** : prévoir la demande maximale pour dimensionner le réseau
-- Le choix du quantile est un **arbitrage business** :
-  - Plus le quantile est élevé → plus on est conservateur → plus ça coûte
+- **Livraison** : "entre 2h et 4h" plus utile que "3h" — SeatGeek utilise q=0.80 [1]
+- **Supply chain** : arbitrage rupture vs stockage
+  - q=0.95 → peu de ruptures, stock élevé
+  - q=0.50 → stock minimal, 50% de risque
+- **Énergie** : demande maximale pour dimensionner le réseau
+- Le choix du quantile est un **arbitrage business** : plus élevé → plus conservateur → plus cher
 
 <small>Sources : [1] [SeatGeek Engineering](https://chairnerd.seatgeek.com/smart-order-tracking/)</small>
 
-![bg right:50%](assets/infographics/quantile-practical_run_20260301_174353_da48e6.png)
+![bg right:35%](assets/infographics/quantile-practical_run_20260301_174353_da48e6.png)
 
 <!-- PB: Comparaison point vs intervalle pour la livraison : "3h" vs "2h-4h" avec distribution de probabilité et quantiles -->
 
@@ -528,22 +541,20 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
+<!-- _class: compact -->
+
 # 26 — Arbre de décision en 4 questions
 
-- **Q1** : Les grosses erreurs sont-elles **catastrophiques** ?
-  - Oui → RMSE, Max Error
-  - Non → MAE
-- **Q2** : Avez-vous besoin d'une métrique en **pourcentage** ?
-  - Oui (et pas de zéros) → MAPE ou SMAPE
-  - Non → rester en unités absolues
-- **Q3** : Vos données sont-elles **bruitées** avec des outliers ?
-  - Oui → Huber Loss, MedAE
-  - Non → MSE/RMSE classique
-- **Q4** : Avez-vous besoin d'un **intervalle** plutôt qu'un point ?
-  - Oui → Quantile Loss
-  - Non → métrique ponctuelle
+- **Q1** : Grosses erreurs **catastrophiques** ?
+  - Oui → RMSE, Max Error · Non → MAE
+- **Q2** : Métrique en **pourcentage** ?
+  - Oui (sans zéros) → MAPE / SMAPE · Non → unités absolues
+- **Q3** : Données **bruitées** / outliers ?
+  - Oui → Huber Loss, MedAE · Non → MSE/RMSE
+- **Q4** : Besoin d'un **intervalle** ?
+  - Oui → Quantile Loss · Non → métrique ponctuelle
 
-![bg right:50%](assets/infographics/regression-decision-tree_run_20260301_174353_fc95d7.png)
+![bg right:35%](assets/infographics/regression-decision-tree_run_20260301_174353_fc95d7.png)
 
 <!-- PB: Arbre de décision à 4 niveaux de questions avec les métriques recommandées à chaque feuille -->
 

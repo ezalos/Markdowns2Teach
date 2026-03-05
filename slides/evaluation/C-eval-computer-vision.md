@@ -65,8 +65,7 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 # 03 — IoU : l'intuition
 
-- Imaginez **deux personnes** qui dessinent un cercle autour du même chat
-- L'IoU mesure à quel point leurs cercles se superposent
+- Deux personnes dessinent un cercle autour du même chat — l'IoU mesure le chevauchement
 
 $$\text{IoU} = \frac{\text{Aire d'intersection}}{\text{Aire d'union}}$$
 
@@ -84,19 +83,20 @@ $$\text{IoU} = \frac{\text{Aire d'intersection}}{\text{Aire d'union}}$$
 
 ---
 
+<!-- _class: compact -->
+
 # 04 — Les limites de l'IoU
 
-- **Problème** : si deux boxes ne se chevauchent pas, IoU = 0 quelle que soit la distance
-- Un box à 1 pixel du target et un box à 1 km → même IoU = 0
-- Le gradient est **nul** → le modèle ne sait pas dans quelle direction corriger
+- Si deux boxes ne se chevauchent pas, IoU = 0 **quelle que soit la distance**
+- Gradient **nul** → le modèle ne sait pas comment corriger
 
 | Variante | Ajout | Avantage |
 |---|---|---|
-| **GIoU** (2019) | Pénalise l'espace vide dans la boîte englobante | Gradient même sans overlap |
-| **DIoU** (2020) | Pénalise la distance entre centres | Convergence 3× plus rapide |
-| **CIoU** (2020) | Ajoute le ratio d'aspect | Meilleure précision finale |
+| **GIoU** (2019) | Pénalise l'espace vide englobant | Gradient même sans overlap |
+| **DIoU** (2020) | Distance entre centres | Convergence 3× plus rapide |
+| **CIoU** (2020) | Ratio d'aspect | Meilleure précision finale |
 
-> En pratique, **CIoU** est le standard dans YOLOv8+ et les DETR modernes [1].
+> **CIoU** est le standard dans YOLOv8+ et DETR modernes [1].
 
 <small>Sources : [1] [LearnOpenCV](https://learnopencv.com/iou-loss-functions-object-detection/)</small>
 
@@ -116,13 +116,13 @@ $$\text{IoU} = \frac{\text{Aire d'intersection}}{\text{Aire d'union}}$$
 
 # 05 — Precision-Recall pour la détection
 
-- Une détection est un **True Positive** si IoU avec le ground truth > seuil (ex: 0.5)
-- Sinon → **False Positive** (le modèle hallucine un objet)
-- Un objet non détecté → **False Negative** (le modèle l'a raté)
-- La **courbe Precision-Recall** trace le compromis à différents seuils de confiance
-- L'**AP** (Average Precision) = aire sous cette courbe
+- **True Positive** : IoU avec le ground truth > seuil (ex: 0.5)
+- **False Positive** : le modèle hallucine un objet
+- **False Negative** : objet non détecté
+- La **courbe PR** trace le compromis à différents seuils de confiance
+- **AP** (Average Precision) = aire sous cette courbe
 
-> Un modèle avec AP élevé est à la fois précis (peu de FP) et complet (peu de FN).
+> AP élevé = à la fois précis (peu de FP) et complet (peu de FN).
 
 ![bg right:40%](assets/infographics/ap-pr-curve_run_20260301_174530_318ee0.png)
 
@@ -292,10 +292,11 @@ $$\text{mIoU} = \frac{1}{C} \sum_{c=1}^{C} \frac{TP_c}{TP_c + FP_c + FN_c}$$
 
 ---
 
+<!-- _class: compact -->
+
 # 14 — Dice Coefficient
 
-- Métrique de référence en **imagerie médicale** (tumeurs, organes)
-- Aussi appelé F1 Score au niveau pixel :
+- Référence en **imagerie médicale** (tumeurs, organes), aussi appelé F1 pixel :
 
 $$\text{Dice} = \frac{2 \times |A \cap B|}{|A| + |B|}$$
 
@@ -303,10 +304,9 @@ $$\text{Dice} = \frac{2 \times |A \cap B|}{|A| + |B|}$$
 
 $$\text{Dice} = \frac{2 \times \text{IoU}}{1 + \text{IoU}}$$
 
-- Dice est toujours ≥ IoU pour la même prédiction
-- Un Dice de **0.85** ≈ IoU de **0.74** — attention aux comparaisons !
+- Dice ≥ IoU pour la même prédiction — un Dice de **0.85** ≈ IoU de **0.74**
 
-> En médecine, on exige typiquement **Dice > 0.90** pour la validation clinique.
+> En médecine, on exige **Dice > 0.90** pour la validation clinique.
 
 ![bg right:35%](assets/infographics/dice-medical_run_20260301_174540_9d068b.png)
 
@@ -377,9 +377,8 @@ $$\text{PQ} = \underbrace{\text{SQ}}_{\text{Segmentation Quality}} \times \under
 | 2021 | Meta Pseudo Labels | 90.2% | Semi-supervised |
 | 2025 | CoCa (2.1B params) | 91.0% | Vision-Language |
 
-- **Top-1** : la classe la plus probable est correcte
-- **Top-5** : la bonne classe est dans les 5 premières prédictions
-- Le challenge ImageNet a été déclaré "résolu" en 2017 [1]
+- **Top-1** : classe la plus probable correcte · **Top-5** : bonne classe dans le top 5
+- Challenge ImageNet déclaré "résolu" en 2017 [1]
 
 <small>Sources : [1] [Articsledge](https://www.articsledge.com/post/image-classification)</small>
 
@@ -426,14 +425,13 @@ $$\text{PQ} = \underbrace{\text{SQ}}_{\text{Segmentation Quality}} \times \under
 
 ---
 
+<!-- _class: compact -->
+
 # 21 — FID : Fréchet Inception Distance
 
-- Comment évaluer une image **générée** ? Il n'y a pas de ground truth pixel-exact
-- **FID** compare les **distributions** d'images réelles vs générées :
-  1. Extraire les features via Inception Network (pré-entraîné)
-  2. Calculer moyenne + covariance pour chaque distribution
-  3. Mesurer la distance de Fréchet entre les deux gaussiennes
-- **FID bas = mieux** (les distributions sont proches)
+- Pas de ground truth pixel-exact → comparer les **distributions** réelles vs générées
+- Pipeline : features Inception → moyenne + covariance → distance de Fréchet
+- **FID bas = mieux** (distributions proches)
 
 | Modèle | FID (COCO-30k) |
 |---|:---:|
@@ -524,9 +522,11 @@ $$\text{PQ} = \underbrace{\text{SQ}}_{\text{Segmentation Quality}} \times \under
 
 ---
 
+<!-- _class: compact -->
+
 # 25 — MOTA, HOTA, IDF1
 
-- Le tracking ajoute une dimension : la **cohérence temporelle** entre frames
+- Le tracking ajoute la **cohérence temporelle** entre frames
 
 | Métrique | Mesure | Formule simplifiée |
 |---|---|---|
@@ -534,10 +534,9 @@ $$\text{PQ} = \underbrace{\text{SQ}}_{\text{Segmentation Quality}} \times \under
 | **IDF1** | Cohérence d'identité | F1 des associations correctes |
 | **HOTA** | Détection × Association | √(DetA × AssA) |
 
-- MOTA est dominé par la **détection** (FP/FN)
-- IDF1 pénalise les **changements d'identité** (personne A devient B)
-- HOTA équilibre les deux — métrique recommandée depuis 2021 [1]
-- SOTA MOT17 : MOTA **81.8%**, HOTA **66.4%** (FastTracker, 2025) [2]
+- MOTA dominé par la détection · IDF1 pénalise les changements d'ID
+- **HOTA** équilibre les deux — recommandée depuis 2021 [1]
+- SOTA MOT17 : MOTA **81.8%**, HOTA **66.4%** (FastTracker) [2]
 
 <small>Sources : [1] [MOTChallenge](https://motchallenge.net/) · [2] [MOT17 Leaderboard](https://motchallenge.net/results/MOT17/)</small>
 
@@ -549,15 +548,15 @@ $$\text{PQ} = \underbrace{\text{SQ}}_{\text{Segmentation Quality}} \times \under
 
 # 26 — Quand le tracking échoue
 
-- **ID Switch** : la personne A passe derrière un pilier, ressort étiquetée B
-- **Occlusion prolongée** : un objet disparaît 2 secondes → le tracker le perd
-- **Foule dense** : 50 piétons qui se croisent → cascades d'ID switches
+- **ID Switch** : personne A passe derrière un pilier, ressort étiquetée B
+- **Occlusion prolongée** : objet disparaît 2 s → tracker le perd
+- **Foule dense** : 50 piétons se croisent → cascades d'ID switches
 
 | Scénario | Métrique impactée | Conséquence business |
 |---|---|---|
 | Supermarché | IDF1 chute | Parcours client mal attribué |
-| Stade de foot | MOTA chute | Comptage de spectateurs faux |
-| Voiture autonome | HOTA chute | Prédiction de trajectoire erronée |
+| Stade de foot | MOTA chute | Comptage spectateurs faux |
+| Voiture autonome | HOTA chute | Prédiction trajectoire erronée |
 
 > Le tracking reste un **problème ouvert** : même le SOTA fait des ID switches.
 
@@ -623,20 +622,22 @@ $$\text{PQ} = \underbrace{\text{SQ}}_{\text{Segmentation Quality}} \times \under
 
 ---
 
+<!-- _class: compact -->
+
 # 29 — Arbre de décision
 
-- **Étape 1** : Quelle est la tâche ?
-  - Détecter des objets → mAP@[.5:.95]
-  - Segmenter une scène → mIoU (sémantique) ou PQ (panoptique)
-  - Classer des images → Top-1 Accuracy + F1 macro
-  - Générer des images → FID + CLIPScore + éval humaine
-  - Suivre des objets → HOTA
-- **Étape 2** : Quel est le contexte métier ?
+- **Étape 1** : Quelle tâche ?
+  - Détection → mAP@[.5:.95]
+  - Segmentation → mIoU (sémantique) ou PQ (panoptique)
+  - Classification → Top-1 Accuracy + F1 macro
+  - Génération → FID + CLIPScore + éval humaine
+  - Tracking → HOTA
+- **Étape 2** : Contexte métier ?
   - Médical → Dice + BF1
   - Petits objets → AP_small
-  - Temps réel → Ajouter la contrainte FPS
+  - Temps réel → ajouter contrainte FPS
 
-![bg right:40%](assets/infographics/cv-decision-tree_run_20260301_174614_ee0075.png)
+![bg right:35%](assets/infographics/cv-decision-tree_run_20260301_174614_ee0075.png)
 
 <!-- PB: Flowchart decision tree: "What is your CV task?" branching into 5 paths (detection, segmentation, classification, generation, tracking), each leading to recommended metrics and benchmark -->
 
