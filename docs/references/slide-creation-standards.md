@@ -44,6 +44,26 @@ Le linter (`make check`) détecte le **overflow pixel-accurate** en rendant les 
 | Cols | 15 | **~10 réparties sur 2 colonnes** | 1 titre + 4 tags `<div>` = 5 lignes d'overhead → reste 10 pour le contenu réel (~5 par colonne) |
 | Infographie (`bg right:50%`) | 15 | **~8–9 lignes de texte** | L'image occupe 50% de la slide |
 
+### 2.1 Classes de layout disponibles
+
+Le thème `sorbonne.css` fournit des classes combinables pour adapter la densité et la disposition des slides. Utiliser `<!-- _class: nom -->` avant le titre de la slide. Les classes se combinent : `<!-- _class: compact cols -->`.
+
+| Classe | Font | Zone de contenu effective | Quand l'utiliser |
+|--------|------|--------------------------|------------------|
+| *(aucune)* | 25px | ~13 lignes | Par défaut |
+| `compact` | 21px | ~16 lignes | 1–3 lignes de trop |
+| `compact-table` | 17px (table) | ~13 lignes + tableau dense | Tableau de 5+ lignes ou 4+ colonnes |
+| `compact compact-table` | 21px + 17px table | ~16 lignes + tableau dense | Texte dense + tableau dense |
+| `cols` | 25px | ~5 lignes par colonne | Deux groupes logiques |
+| `cols compact` | 21px | ~7 lignes par colonne | Deux groupes denses |
+| `cols-60-40` | 25px | Colonne large + étroite | Un côté a plus de contenu |
+| `cols-40-60` | 25px | Colonne étroite + large | Inverse du précédent |
+| `cols-3` | 25px | ~4 lignes par colonne | Comparaison à 3 voies |
+| `highlight` | 25px | ~13 lignes | Slide de synthèse ou takeaway clé |
+| `dark` | 25px | ~13 lignes | Rythme visuel, stat marquante |
+
+Pour la résolution des overflows existants, consulter `overflow-remediation-playbook.md` (arbre de décision, 8 techniques validées).
+
 **Détail du budget cols** :
 
 ```

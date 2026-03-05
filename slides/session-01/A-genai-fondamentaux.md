@@ -572,22 +572,29 @@ Prédire une **valeur continue** (un nombre) :
 
 ---
 
+<!-- _class: cols compact compact-table -->
+
 # 31 — Object Detection & Segmentation
 
-Des tâches de vision qui vont au-delà de la simple Classification :
+<div class="left">
 
-| Tâche | Ce qu'elle fait | Exemple |
-|---|---|---|
-| **Image Classification** | Une étiquette par image | "C'est un chat" |
-| **Object Detection** | Localise chaque objet (bounding box) | "Chat à (x,y), chien à (x,y)" |
-| **Semantic Segmentation** | Colore chaque pixel par catégorie | Route vs trottoir vs piéton |
-| **Instance Segmentation** | Sépare chaque objet individuel | "Piéton 1, Piéton 2, Piéton 3" |
+| Tâche | Ce qu'elle fait |
+|---|---|
+| **Classification** | Une étiquette par image |
+| **Object Detection** | Localise chaque objet (box) |
+| **Semantic Seg.** | Colore chaque pixel par catégorie |
+| **Instance Seg.** | Sépare chaque objet individuel |
 
-*Outils clés* : YOLO (détection temps réel) [1], Segment Anything (Meta) [2]
+*Outils* : YOLO [1], Segment Anything [2]
 
-> Ces tâches sont au cœur de la conduite autonome, du contrôle qualité industriel et de l'imagerie médicale.
+</div>
+<div class="right">
 
-![bg right:45% contain](assets/tasks_cv.webp)
+![w:450](assets/tasks_cv.webp)
+
+> Au cœur de la conduite autonome, du contrôle qualité et de l'imagerie médicale.
+
+</div>
 
 <small>Sources : [1] [Ultralytics YOLO](https://ultralytics.com/) · [2] [Meta SAM](https://segment-anything.com/)</small>
 
@@ -618,14 +625,20 @@ Ces noms de tâches sont votre *vocabulaire* pour chercher des modèles sur Hugg
 
 **Lien** : [huggingface.co/models](https://huggingface.co/models)
 
+> Maîtrisez ces noms de tâches en anglais — c'est le langage commun de l'écosystème IA open source.
+
+---
+
+<!-- _class: compact-table -->
+
+# 33b — HuggingFace Tasks (référence)
+
 | Domaine | Tâches clés |
 |---|---|
 | **NLP** | Text Classification, Summarization, Translation, Question Answering |
 | **Vision** | Image Classification, Object Detection, Image Segmentation |
 | **Audio** | Speech Recognition, Text-to-Speech, Audio Classification |
 | **Multimodal** | Image-to-Text, Visual Question Answering |
-
-> Maîtrisez ces noms de tâches en anglais — c'est le langage commun de l'écosystème IA open source.
 
 ---
 

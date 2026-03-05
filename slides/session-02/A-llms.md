@@ -99,9 +99,15 @@ Le LLM utilise le **Self-Supervised Learning** pour prédire le token suivant :
 
 Les LLMs ne raisonnent pas en mots mais en **Tokens** — des fragments de mots.
 
+**Règle approximative** : 1 Token ≈ 3/4 d'un mot (en anglais)
+
 [Tokenizer demo](https://platform.openai.com/tokenizer)
 
-**Règle approximative** : 1 Token ≈ 3/4 d'un mot (en anglais)
+> En français, le ratio est moins favorable (~1 token ≈ 0,6 mot). Vocabulaire plus large = moins de tokens = *moins cher*.
+
+---
+
+# 04b — Tokens : taille du vocabulaire
 
 | Modèle | Taille du vocabulaire | Particularité |
 |---|---|---|
@@ -109,7 +115,8 @@ Les LLMs ne raisonnent pas en mots mais en **Tokens** — des fragments de mots.
 | Llama 3 | 128 256 tokens | +4x, meilleur multilingue |
 | Qwen 3 | 151 669 tokens [1] | Optimisé CJK + multilingue |
 
-> En français, le ratio est moins favorable (~1 token ≈ 0,6 mot). Un vocabulaire plus large = moins de tokens par mot = *moins cher*.
+- **+4x de vocabulaire** entre Llama 2 et 3 : meilleur encodage multilingue
+- Impact direct : moins de tokens par requête = **coût API réduit**
 
 <small>Sources : [1] [Qwen3 Technical Report](https://arxiv.org/abs/2505.09388)</small>
 
@@ -117,23 +124,29 @@ Les LLMs ne raisonnent pas en mots mais en **Tokens** — des fragments de mots.
 
 # 05 — Context Window : la mémoire de conversation
 
-![bg right:45% contain](assets/context-window.svg)
+![bg right:40% contain](assets/context-window.svg)
 
-La **Context Window** est la mémoire de travail du LLM — tout ce qu'il peut "voir" pour générer sa réponse.
+La **Context Window** = mémoire de travail du LLM, tout ce qu'il "voit" pour répondre.
 
-- Input + Output partagent la même fenêtre (ex : 200K tokens pour Claude)
-- Le contexte *s'accumule* à chaque tour — rien n'est supprimé silencieusement
+- Input + Output partagent la même fenêtre (200K tokens pour Claude)
+- Le contexte *s'accumule* à chaque tour — rien n'est supprimé
 - Les **Thinking Tokens** comptent pendant la génération, puis sont retirés [1]
-
-> La Context Window limite la longueur des conversations et la taille des documents analysables. Les APIs facturent **par Token** (input + output).
+- Facturation **par Token** (input + output)
 
 <small>Sources : [1] [Anthropic](https://docs.anthropic.com/en/docs/build-with-claude/context-windows)</small>
 
+<!--
+Speaker notes:
+La Context Window limite la longueur des conversations et la taille des documents analysables.
+-->
+
 ---
+
+<!-- _class: compact -->
 
 # 06 — Context Window : une croissance exponentielle
 
-![bg right:50% contain](assets/context-window-growth.png)
+![bg right:40% contain](assets/context-window-growth.png)
 
 | Modèle | Année | Context Window |
 |--------|-------|---------------|
@@ -143,9 +156,9 @@ La **Context Window** est la mémoire de travail du LLM — tout ce qu'il peut "
 | Gemini 1.5 | 2024 | 2M tokens |
 | Llama 4 Scout | 2025 | **10M tokens** |
 
-Depuis mi-2023, la context window des meilleurs modèles croît d'environ **~30x par an** [1].
+Depuis mi-2023, la context window croît d'environ **~30x par an** [1].
 
-> 10M tokens ≈ 15 000 pages. On passe de "résumer un email" à "analyser une base documentaire entière".
+> 10M tokens ≈ 15 000 pages — de "résumer un email" à "analyser une base documentaire entière".
 
 <small>Sources : [1] [Epoch AI](https://epoch.ai/data-insights/context-windows)</small>
 
@@ -167,9 +180,11 @@ Quand le LLM génère un token, il produit une distribution de probabilités. Tr
 
 ---
 
+<!-- _class: compact -->
+
 # 08 — Mixture of Experts (MoE) : l'architecture qui change tout
 
-![bg right:45% contain](assets/infographics/dense-vs-moe.png)
+![bg right:35% contain](assets/infographics/dense-vs-moe.png)
 
 Un modèle MoE contient *plusieurs sous-réseaux spécialisés* (experts). Un **Router** sélectionne les experts pertinents pour chaque token.
 
@@ -195,18 +210,20 @@ Un modèle MoE contient *plusieurs sous-réseaux spécialisés* (experts). Un **
 
 ---
 
+<!-- _class: compact compact-table -->
+
 # 09 — Vue d'ensemble du pipeline
 
 ![bg right:40% contain](assets/infographics/training-pipeline_run_20260217_012323_723979.png)
 
-| Étape | Ce qu'il apprend | Volume de données | Résultat |
-|-------|-----------------|-------------------|----------|
-| **Pretraining** | Le langage, les faits | ~15T tokens [1] | Base Model |
-| **SFT** (Instruct) | Suivre des instructions | ~25K–1M exemples [2] | Instruct Model |
+| Étape | Ce qu'il apprend | Données | Résultat |
+|-------|-----------------|---------|----------|
+| **Pretraining** | Langage, faits | ~15T tokens [1] | Base Model |
+| **SFT** (Instruct) | Suivre des instructions | ~25K–1M ex. [2] | Instruct Model |
 | **RLHF / DPO** | Être utile et honnête | ~100K–1M paires [3] | Chatbot aligné |
 | **Reasoning** | Réfléchir avant de répondre | ~5K seeds → 800K [4] | Thinking Model |
 
-> Chaque étape **ajoute une couche de capacité** sur la précédente — mais avec *exponentiellement moins de données*.
+> Chaque étape **ajoute une couche** sur la précédente — avec *exponentiellement moins de données*.
 
 <small>Sources : [1] [Meta Llama 3](https://ai.meta.com/blog/meta-llama-3/) · [2] [RLHF Book](https://arxiv.org/abs/2504.12501) · [3] [Anthropic hh-rlhf](https://huggingface.co/datasets/Anthropic/hh-rlhf) + Tulu 3 · [4] [DeepSeek-R1](https://arxiv.org/abs/2501.12948)</small>
 
@@ -284,8 +301,8 @@ Un modèle MoE contient *plusieurs sous-réseaux spécialisés* (experts). Un **
 | Llama 3.1 405B | 2024 | 405B | $60–170M |
 | DeepSeek-V3 🇨🇳 | 2024 | 671B MoE | **$5,6M** [2] |
 
-- Ces chiffres = **compute du run final uniquement**. Le coût total (salaires R&D, expériences ratées, infra) peut être **2–10x** plus élevé [1]
-- DeepSeek-V3 atteint le niveau GPT-4o pour **14x moins cher** — mais sur des H800 à $2/h [2]
+- Chiffres = **compute du run final** — coût total (R&D, infra) : **2–10x** plus élevé [1]
+- DeepSeek-V3 ≈ GPT-4o pour **14x moins cher** (H800 à $2/h) [2]
 
 <small>Sources : [1] [Epoch AI](https://arxiv.org/abs/2405.21015) · [2] [DeepSeek-V3](https://arxiv.org/abs/2412.19437)</small>
 

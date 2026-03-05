@@ -222,3 +222,65 @@ section.cols .left {
 section.cols .right {
   grid-column: 2;
 }
+
+/* ============================================ */
+/* COMPACT — Reduced font/spacing for dense     */
+/* content slides                               */
+/* Use: <!-- _class: compact -->                */
+/* ============================================ */
+section.compact { font-size: 21px; line-height: 1.4; }
+section.compact h1 { font-size: 35px; margin-bottom: 20px; padding-bottom: 8px; }
+section.compact li { margin-bottom: 4px; }
+section.compact blockquote { font-size: 18px; padding: 8px 16px; margin: 10px 0; }
+
+/* ============================================ */
+/* COMPACT-TABLE — Denser table styling         */
+/* Use: <!-- _class: compact-table -->          */
+/* ============================================ */
+section.compact-table table { font-size: 17px; }
+section.compact-table table th,
+section.compact-table table td { padding: 4px 10px; }
+
+/* ============================================ */
+/* ASYMMETRIC TWO-COLUMN LAYOUTS                */
+/* Use: <!-- _class: cols-60-40 -->             */
+/*   or <!-- _class: cols-40-60 -->             */
+/* ============================================ */
+section.cols-60-40 { display: grid; grid-template-columns: 3fr 2fr; grid-template-rows: auto 1fr; gap: 0 30px; }
+section.cols-60-40 h1 { grid-column: 1 / -1; }
+section.cols-60-40 .left { grid-column: 1; }
+section.cols-60-40 .right { grid-column: 2; }
+
+section.cols-40-60 { display: grid; grid-template-columns: 2fr 3fr; grid-template-rows: auto 1fr; gap: 0 30px; }
+section.cols-40-60 h1 { grid-column: 1 / -1; }
+section.cols-40-60 .left { grid-column: 1; }
+section.cols-40-60 .right { grid-column: 2; }
+
+/* ============================================ */
+/* THREE-COLUMN LAYOUT                          */
+/* Use: <!-- _class: cols-3 -->                 */
+/* ============================================ */
+section.cols-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: auto 1fr; gap: 0 25px; }
+section.cols-3 h1 { grid-column: 1 / -1; }
+section.cols-3 .left { grid-column: 1; }
+section.cols-3 .center { grid-column: 2; }
+section.cols-3 .right { grid-column: 3; }
+
+/* ============================================ */
+/* HIGHLIGHT — Callout/emphasis slide           */
+/* Use: <!-- _class: highlight -->              */
+/* ============================================ */
+section.highlight { background-color: #FFF8F0; border-left: 8px solid var(--accent-orange); padding-left: 80px; }
+section.highlight h1 { border-bottom-color: var(--accent-orange); }
+
+/* ============================================ */
+/* DARK — Dark variant for contrast/impact      */
+/* Use: <!-- _class: dark -->                   */
+/* ============================================ */
+section.dark { background: linear-gradient(135deg, #1A1A2E 0%, #16213E 100%); color: #E8EFF7; }
+section.dark h1 { color: white; border-bottom-color: var(--accent-orange); }
+section.dark h2 { color: rgba(255,255,255,0.85); }
+section.dark strong { color: var(--accent-orange); }
+section.dark table th { background-color: var(--accent-orange); }
+section.dark table tr:nth-child(even) { background-color: rgba(255,255,255,0.05); }
+section.dark table td { border-bottom-color: rgba(255,255,255,0.1); }
