@@ -30,15 +30,17 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 
 ---
 
+<!-- _class: compact -->
+
 # 01 — L'effondrement des coûts : le fait structurant
 
 L'inférence IA connaît une **déflation historique** :
 
-- GPT-3.5 : de $20 à **$0,07** / M tokens en 2 ans = **÷280** [1]
+- GPT-3.5 : $20 → **$0,07** / M tokens en 2 ans = **÷280** [1]
 - Rythme post-2024 : **200x/an** de baisse [1]
-- Efficience algorithmique : doublement tous les **~16 mois** [1]
+- Efficience algorithmique : ×2 tous les **~16 mois** [1]
 
-**Niveaux de prix début 2026** (par million de tokens) :
+**Prix début 2026** (par million de tokens) :
 
 | Tier | Modèle | Prix input/output |
 |------|--------|-------------------|
@@ -60,10 +62,10 @@ L'inférence IA connaît une **déflation historique** :
 | Outcome-based | Émergent | Intercom Fin | $0,99/résolution |
 | Per-action | Émergent | Salesforce | $0,10/action |
 
-- Intercom Fin : **$0,99/résolution** vs $39/seat humain → adoption **+40%** [2]
-- D'ici 2030, **40%+** des dépenses SaaS passeront à l'usage/outcome [1]
+- Intercom Fin : **$0,99/résolution** vs $39/seat → adoption **+40%** [2]
+- D'ici 2030, **40%+** des dépenses SaaS en usage/outcome [1]
 
-> Chaque trimestre, le même output coûte moins cher. Votre pricing doit **anticiper cette déflation**.
+> Le même output coûte moins cher chaque trimestre — **anticipez la déflation**.
 
 <small>Sources : [1] [Gartner](https://www.gartner.com/en/newsroom) · [2] [Intercom](https://www.intercom.com/fin)</small>
 
@@ -93,19 +95,21 @@ L'inférence IA connaît une **déflation historique** :
 
 ---
 
+<!-- _class: compact -->
+
 # 04 — Vue d'ensemble : 7 familles de business models IA
 
 | Pattern | Exemple | Métrique clé [1] |
 |---------|---------|-------------|
-| Vertical AI SaaS | Harvey (legal) | $195 M ARR, $8 Mds val. |
+| Vertical AI SaaS | Harvey (legal) | $195M ARR, $8 Mds val. |
 | AIaaS (plateforme) | Databricks | $4,8 Mds ARR |
-| Wrappers | Jasper, Copy.ai | 85-92% de taux d'échec |
+| Wrappers | Jasper, Copy.ai | 85-92% d'échec |
 | Open-Source | Mistral, Llama | Distribution → conversion |
-| Embedded AI | Microsoft Copilot | +20-37% d'uplift prix |
-| Agents autonomes | Sierra, Salesforce | $7,8 Mds → $50 Mds (2030) |
-| Digital Labor | Klarna AI, Cursor | $3 340 Mds cumulés d'ici 2030 |
+| Embedded AI | MS Copilot | +20-37% uplift prix |
+| Agents autonomes | Sierra, Salesforce | $7,8→$50 Mds (2030) |
+| Digital Labor | Klarna AI, Cursor | $3 340 Mds cum. d'ici 2030 |
 
-> Chaque pattern a un profil risque/rendement distinct. Le choix dépend de votre capital et votre timeline.
+> Chaque pattern a un profil risque/rendement distinct — choix selon capital et timeline.
 
 <small>Sources : [1] [a16z](https://a16z.com/) · [IDC](https://www.idc.com/) · [Gartner](https://www.gartner.com/)</small>
 
@@ -154,11 +158,13 @@ Pourquoi ça marche :
 
 ---
 
+<!-- _class: compact -->
+
 # 07 — Les moats de l'IA : taxonomie
 
 | Moat | Durabilité | Exemple |
 |------|-----------|---------|
-| Data propriétaire | Très forte | Tempus (5M dossiers patients) |
+| Data propriétaire | Très forte | Tempus (5M dossiers) |
 | Network effects | Très forte | Hugging Face (2M+ modèles) |
 | Switching costs | Forte | Cursor (workflows intégrés) |
 | Expertise domaine | Forte | Harvey (legal AI) |
@@ -166,7 +172,7 @@ Pourquoi ça marche :
 | Échelle compute | Moyenne | OpenAI ($57,9 Mds levés) [1] |
 | Marque / confiance | Moyenne | Anthropic ("responsible AI") |
 
-> Les moats les plus durables sont basés sur les **données** et les **effets de réseau**. Le modèle seul n'est plus un moat.
+> Moats les plus durables : **données** + **effets de réseau**. Le modèle seul n'est plus un moat.
 
 <small>Sources : [1] [Tracxn](https://tracxn.com/d/companies/openai/__kElhSG7uVGeFk1i71Co9-nwFtmtyMVT7f-YHMn4TFBg/funding-and-investors) · [a16z](https://a16z.com/data-moats/) · [Bessemer](https://www.bvp.com/)</small>
 
@@ -181,7 +187,7 @@ Pourquoi ça marche :
 - **Cursor** : 1M+ DAU → chaque keystroke alimente le fine-tuning [1]
 - **OpenAI** : 900M WAU, **2,5 Mds+** de prompts/jour [2]
 
-> Les données ne sont un moat que si elles sont **uniques**, **croissantes**, et **intégrées au produit**. Des données génériques ≠ avantage défendable (a16z).
+> Un moat data exige des données **uniques**, **croissantes** et **intégrées au produit**. Données génériques ≠ avantage (a16z).
 
 <small>Sources : [1] [Sacra](https://sacra.com/c/cursor/) · [2] [Sherwood News](https://sherwood.news/)</small>
 
@@ -239,12 +245,13 @@ Pourquoi ça marche :
 
 ---
 
+<!-- _class: compact compact-table -->
+
 # 11 — Cas : Schneider Electric — €700M économisés par le Build
 
-- **Build in-house** : a construit ses propres outils IA (maintenance prédictive, optimisation énergie)
-- **€700M** économisés depuis 2019 [1]
-- **7,4M** d'assets connectés via EcoStruxure IoT [2]
-- A commencé par un cas d'usage simple : **maintenance prédictive**
+- **Build in-house** : outils IA maison (maintenance prédictive, optimisation énergie)
+- **€700M** économisés depuis 2019, **7,4M** d'assets connectés (EcoStruxure IoT) [1][2]
+- Début par un cas simple : **maintenance prédictive**
 
 | Critère | Schneider (Build) | L'Oréal (Buy) |
 |---------|-------------------|---------------|
@@ -253,7 +260,7 @@ Pourquoi ça marche :
 | ROI | €700M sur 5 ans | 3x conversion |
 | Timeline | Lente (années) | Rapide (intégration) |
 
-> **Pas de réponse universelle** au Build vs Buy — ça dépend de vos ressources et de votre timeline.
+> **Pas de réponse universelle** au Build vs Buy — dépend de vos ressources et timeline.
 
 <small>Sources : [1] [Schneider Electric](https://www.se.com/ww/en/about-us/newsroom/) · [2] [EcoStruxure Platform](https://www.se.com/ww/en/work/campaign/innovation/platform/)</small>
 
@@ -281,18 +288,18 @@ Pourquoi ça marche :
 
 <div class="left">
 
-- **$0 → $1 Mds ARR** en 24 mois [1]
+- **$0→$1 Mds ARR** en 24 mois [1]
 - **$29,3 Mds** val., **1M+** DAU [1]
-- 4 fondateurs MIT, ~150 pers., **$0 marketing**
-- Fork VS Code → **0 friction** de migration
+- 4 fondateurs MIT, ~150 pers., $0 marketing
+- Fork VS Code → **0 friction** migration
 
 </div>
 <div class="right">
 
-- **Marge brute négative** : $650 M/an à Anthropic [2]
+- **Marge brute négative** : $650M/an à Anthropic [2]
 - Pas de modèle propre → dépendance fournisseur
-- OpenAI et Anthropic sont ses concurrents directs
-- Leçon : **croissance ≠ rentabilité** en AI-native SaaS
+- OpenAI, Anthropic = concurrents directs
+- Leçon : **croissance ≠ rentabilité** en AI SaaS
 
 </div>
 

@@ -47,21 +47,23 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 
 ---
 
+<!-- _class: compact -->
+
 # 02 — La course aux data centers : $650+ Mds de capex
 
-Les hyperscalers investissent massivement dans l'infrastructure IA :
+Les hyperscalers investissent massivement dans l'infra IA :
 
-| Entreprise | Capex 2026 prévu [1] | Croissance |
-|------------|-----------------|------------|
+| Entreprise | Capex 2026 [1] | Croissance |
+|------------|---------------|------------|
 | Amazon | ~$200 Mds | Agressif |
 | Google | $175-185 Mds | +40% YoY |
 | Microsoft | ~$145 Mds | +57% YoY |
 | Meta | $115-135 Mds | +64% YoY |
 
-- **Cumulé 2025-2027** : $1 150 Mds selon Goldman Sachs [2]
+- **Cumulé 2025-2027** : $1 150 Mds (Goldman Sachs) [2]
 - Amazon prévoit un **FCF négatif de -$17 Mds** en 2026 [1]
 
-> C'est un pari existentiel : ces entreprises brûlent du cash à un rythme historique.
+> Pari existentiel : ces entreprises brûlent du cash à un rythme historique.
 
 <small>Sources : [1] [CNBC](https://www.cnbc.com/2026/02/06/google-microsoft-meta-amazon-ai-cash.html) · [2] Goldman Sachs Research</small>
 
@@ -104,19 +106,21 @@ Les hyperscalers investissent massivement dans l'infrastructure IA :
 
 ---
 
+<!-- _class: compact -->
+
 # 04 — Vue d'ensemble : les 9 couches du stack IA
 
-![bg right:55% contain](assets/infographics/ai-stack-9_run_20260216_171301_8858a8.png)
+![bg right:40% contain](assets/infographics/ai-stack-9_run_20260216_171301_8858a8.png)
 
-De l'énergie aux applications, **9 couches** structurent l'écosystème :
+**9 couches** structurent l'écosystème :
 
-- **0-1 Energy & Hardware** — NVIDIA, TSMC, ASML (capital massif)
-- **2-3 Cloud & Data** — AWS, Azure, Scale AI, Databricks
-- **4-5 Models & Hubs** — OpenAI, Mistral AI, Hugging Face
-- **6-7 APIs & Safety** — OpenRouter, Pinecone, Giskard
-- **8 Applications** — Cursor, Perplexity (pricing power max)
+- **0-1 Energy & Hardware** — NVIDIA, TSMC, ASML
+- **2-3 Cloud & Data** — AWS, Azure, Scale AI
+- **4-5 Models & Hubs** — OpenAI, Mistral, HF
+- **6-7 APIs & Safety** — OpenRouter, Pinecone
+- **8 Applications** — Cursor, Perplexity
 
-> Vers le bas = plus de **capital**, plus de concentration. Vers le haut = plus de **différenciation** possible.
+> Bas = plus de **capital** et concentration. Haut = plus de **différenciation**.
 
 ---
 
@@ -320,15 +324,15 @@ De l'énergie aux applications, **9 couches** structurent l'écosystème :
 
 # 14 — Applications AI-natives — la couche la plus visible
 
-| Entreprise | ARR / Valorisation [1] | Produit |
-|------------|---------------------|---------|
+| Entreprise | ARR / Val. [1] | Produit |
+|------------|----------------|---------|
 | Cursor | $1 Mds+ / $29,3 Mds | Éditeur de code IA (+9 900% YoY) |
 | GitHub Copilot | $2 Mds / Microsoft | Pair-programming IA (77M+ devs) |
-| Perplexity | ~$200 M / $20 Mds | Moteur de recherche IA |
-| Harvey | $195 M / $8 Mds | IA pour juristes |
-| ElevenLabs | $330 M+ / $11 Mds | Synthèse vocale (41% Fortune 500) |
+| Perplexity | ~$200 M / $20 Mds | Recherche IA |
+| Harvey | $195 M / $8 Mds | IA juridique |
+| ElevenLabs | $330 M+ / $11 Mds | Voix IA (41% Fortune 500) |
 
-> La couche application est celle où **le pricing power est le plus fort** ($20-200/mois/user).
+> Pricing power max sur cette couche : **$20-200/mois/user**.
 
 <small>Sources : [1] [CNBC](https://www.cnbc.com/2025/11/13/cursor-ai-startup-funding-round-valuation.html) · [ElevenLabs](https://elevenlabs.io/blog/series-d) · [Bloomberg](https://www.bloomberg.com/)</small>
 
@@ -381,21 +385,23 @@ La France se positionne comme hub IA européen :
 
 ---
 
+<!-- _class: compact -->
+
 # 17 — Discussion : Où se positionner dans le stack ?
 
-> Vous avez **500K€**, une **équipe de 4** personnes techniques, et 18 mois de runway.
+> **500K€**, **4 personnes** techniques, 18 mois de runway.
 
 | Couche | Capital requis | Concurrence | Opportunité |
 |--------|---------------|-------------|-------------|
 | Hardware | >$1 Mds | Extrême | Quasi impossible |
 | Foundation Models | >$100 M | Très forte | Niche (code, médical) |
-| Model Hubs / APIs | $1-10 M | Forte | Orchestration, vertical |
-| Safety / Évaluation | $500K-5 M | Modérée | EU AI Act, compliance |
+| Hubs / APIs | $1-10 M | Forte | Orchestration, vertical |
+| Safety / Éval. | $500K-5 M | Modérée | EU AI Act, compliance |
 | Applications | $200K-5 M | Variable | Vertical + workflow |
 
-**Questions pour la classe** :
-- Quelle couche offre le meilleur ratio impact/capital ?
-- La couche safety est-elle viable avec 4 personnes ? (Giskard l'a fait avec €7,5 M)
+**Questions** :
+- Quel ratio impact/capital est le meilleur ?
+- Safety viable à 4 ? (Giskard : €7,5M levés)
 
 ---
 
