@@ -251,12 +251,13 @@ Trois questions à se poser **avant** de lancer un produit IA :
 
 ---
 
+<!-- _class: compact -->
+
 # 12 — L'IA automatise des tâches, pas des métiers
 
-Le principe fondamental :
-- L'IA **n'automatise pas des jobs**. Elle automatise des **tâches**.
-- La plupart des métiers sont une collection de tâches variées
-- Certaines tâches sont fortement automatisables, d'autres pas du tout
+- L'IA **n'automatise pas des jobs** — elle automatise des **tâches**
+- La plupart des métiers = collection de tâches variées
+- Certaines tâches sont automatisables, d'autres pas du tout
 
 | Tâche (Customer Service) | Potentiel GenAI |
 |---|---|
@@ -277,11 +278,11 @@ Le principe fondamental :
 >
 > — **Curtis Langlotz**, Professor of Radiology, Stanford University
 
-En 2016, Geoffrey Hinton prédisait la fin des radiologues [1]. **8 ans plus tard** : il y en a **plus** (+7% entre 2015-2019), et ils gagnent **mieux** leur vie [2].
+En 2016, Hinton prédisait la fin des radiologues [1]. **8 ans plus tard** : +7%, et ils gagnent **mieux** [2].
 
-Cette citation s'applique à **tous les métiers** :
-- L'IA ne remplacera pas les **avocats**. Mais les avocats qui utilisent l'IA...
-- L'IA ne remplacera pas les **marketeurs**. Mais les marketeurs qui...
+S'applique à **tous les métiers** :
+- L'IA ne remplacera pas les **avocats**. Mais ceux qui utilisent l'IA...
+- L'IA ne remplacera pas les **marketeurs**. Mais ceux qui...
 - L'IA ne remplacera pas les **entrepreneurs**. Mais...
 
 > Le vrai risque n'est pas l'IA. C'est de ne pas l'utiliser.
