@@ -138,6 +138,8 @@ Le nœud **AI Agent** est le cœur : il reçoit la question, consulte ses outils
 
 ---
 
+<!-- _class: compact -->
+
 # 06 — La boucle en action : lire les logs
 
 Quand l'agent s'exécute, n8n affiche **chaque étape** de la boucle ReAct :

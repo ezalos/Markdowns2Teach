@@ -86,11 +86,10 @@ Le Chunking transforme un document de 50 pages en morceaux exploitables par le L
 
 # 04 — Embeddings : transformer les mots en coordonnées
 
-Un **Embedding** convertit du texte en coordonnées dans un espace à haute dimension — comme un GPS pour le sens :
+Un **Embedding** = coordonnées dans un espace à haute dimension — un GPS pour le sens :
 
-- "Chat mignon" → [0.23, -0.45, 0.12, ..., 0.78] (1 024 dimensions)
-- Les textes sémantiquement proches ont des coordonnées proches
-- "Roi" et "Monarque" sont voisins ; "Roi" et "Réfrigérateur" sont éloignés
+- "Chat mignon" → [0.23, -0.45, 0.12, …, 0.78] (1 024 dimensions)
+- Textes proches en sens = coordonnées proches ("Roi" ≈ "Monarque", loin de "Réfrigérateur")
 
 | Modèle | Éditeur | Prix/M tokens |
 |---|---|---|
@@ -244,19 +243,21 @@ Le RAG est partout en 2025–2026 — **86%** des organisations augmentent leurs
 
 ---
 
+<!-- _class: compact -->
+
 # 12 — RAG avancé : Reranking et Contextual Retrieval
 
-Le RAG basique récupère les top-K documents par similarité. En production, deux techniques changent la donne :
+Le RAG basique récupère les top-K par similarité. En production, deux techniques changent la donne :
 
 **Reranking** — Un Cross-Encoder re-score les résultats après la recherche initiale :
 - Gain : **+20–35% de précision** pour 50–500ms de latence [1]
 - Outils : Cohere Rerank, Jina Reranker, BGE-Reranker (OSS)
 
-**Contextual Retrieval** (Anthropic) — Ajouter un résumé de contexte à chaque chunk avant l'embedding :
-- Le LLM génère "Ce chunk parle de la politique parking du bâtiment A" → embedé avec le chunk
+**Contextual Retrieval** (Anthropic) — Résumé de contexte ajouté à chaque chunk avant embedding :
+- Le LLM génère "Ce chunk parle de la politique parking" → embedé avec le chunk
 - Résultat : **67% de réduction** des échecs de retrieval vs RAG naïf [2]
 
-> Ces deux techniques sont complémentaires et se déploient en quelques heures. C'est le meilleur ratio effort → qualité après le pipeline de base.
+> Techniques complémentaires, déployables en quelques heures. Meilleur ratio effort/qualité après le pipeline de base.
 
 <small>Sources : [1] [Données agrégées — recherche interne](docs/research/rag-ecosystem/report.md) · [2] [Anthropic — Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval)</small>
 
@@ -298,9 +299,7 @@ Le RAG basique récupère les top-K documents par similarité. En production, de
 
 # 14 — Qu'est-ce qu'un Agent ?
 
-Un **Agent** est un LLM qui enchaîne plusieurs actions de manière autonome pour accomplir un objectif.
-
-La différence clé avec un chatbot :
+Un **Agent** = un LLM qui enchaîne plusieurs actions de manière autonome pour atteindre un objectif.
 
 | | Chatbot (LLM seul) | Agent |
 |---|---|---|
@@ -351,21 +350,21 @@ Le LLM génère un **appel de fonction structuré** (JSON), le système exécute
 
 ---
 
+<!-- _class: compact -->
+
 # 17 — MCP : le protocole universel des agents
 
 Le **Model Context Protocol** (Anthropic, nov. 2024) standardise la connexion LLM ↔ outils :
 
 **Architecture** : Client (l'agent) → Host (l'app) → Server (l'outil), via JSON-RPC 2.0
 
-**3 primitives** :
-
 | Primitive | Rôle | Exemple |
 |---|---|---|
-| **Tools** | Actions que l'agent peut exécuter | `create_issue()`, `send_email()` |
-| **Resources** | Données que l'agent peut lire | Fichiers, bases de données, APIs |
+| **Tools** | Actions exécutables | `create_issue()`, `send_email()` |
+| **Resources** | Données lisibles | Fichiers, bases de données, APIs |
 | **Prompts** | Templates réutilisables | "Analyse ce code et propose des améliorations" |
 
-**L'analogie USB-C** : avant, chaque outil avait son connecteur. MCP = **un seul standard** pour tous les agents et tous les outils.
+**L'analogie USB-C** : avant, chaque outil avait son connecteur. MCP = **un seul standard** pour tous.
 
 > MCP cumule **97M+ téléchargements SDK/mois** et **10 000+ serveurs** actifs en 2026 [1].
 
@@ -400,26 +399,35 @@ Le **Model Context Protocol** (Anthropic, nov. 2024) standardise la connexion LL
 
 ---
 
+<!-- _class: cols compact -->
+
 # 19 — MCP : les risques de sécurité
 
-MCP ouvre des capacités puissantes — mais aussi de nouveaux vecteurs d'attaque :
+<div class="left">
 
-| Attaque | Mécanisme | Impact |
-|---|---|---|
-| **Tool Poisoning** | Descriptions malveillantes cachées dans les tools | L'agent exécute du code non souhaité [1] |
-| **Rug Pull** | Un serveur MCP met à jour ses tools silencieusement | Comportement de l'agent change sans alerte |
-| **Cross-Server Shadowing** | Un serveur imite les tools d'un autre | L'agent envoie des données au mauvais destinataire |
+| Attaque | Mécanisme |
+|---|---|
+| **Tool Poisoning** | Descriptions malveillantes cachées dans les tools [1] |
+| **Rug Pull** | Serveur MCP met à jour ses tools silencieusement |
+| **Cross-Server Shadowing** | Un serveur imite les tools d'un autre |
+
+</div>
+<div class="right">
 
 **Bonnes pratiques** :
 - Auditer chaque serveur MCP comme un fournisseur
-- Épingler les versions des serveurs MCP
-- Limiter les permissions au strict nécessaire (principe du moindre privilège)
+- Épingler les versions des serveurs
+- Moindre privilège sur les permissions
 
-> La sécurité MCP est un sujet émergent. Invariant Labs a démontré ces attaques en avril 2025 [1].
+</div>
+
+> Sécurité MCP = sujet émergent. Invariant Labs a démontré ces attaques en avril 2025 [1].
 
 <small>Sources : [1] [Invariant Labs — MCP Security](https://invariantlabs.ai/)</small>
 
 ---
+
+<!-- _class: compact -->
 
 # 20 — Skills : quand un agent sait faire quelque chose
 
@@ -427,13 +435,13 @@ Un **Tool** connecte l'agent à un service. Une **Skill** lui apprend un **proce
 
 | Concept | Ce que c'est | Exemple |
 |---|---|---|
-| **Tool** | Une fonction atomique | `search_web(query)` |
+| **Tool** | Fonction atomique | `search_web(query)` |
 | **Skill** | Tool + Prompt + Logique métier | "Veille concurrentielle" = recherche + filtrage + comparaison + alerte |
 
 **Le standard SKILL.md** (Anthropic, oct. 2025 — ouvert déc. 2025 via agentskills.io) [1] :
-- Un dossier contenant un fichier `SKILL.md` avec instructions YAML + markdown
-- Progressive Disclosure : nom/description au démarrage → instructions complètes à l'activation
-- **26+ plateformes** adoptent le standard (Claude Code, Cursor, Windsurf...) [1]
+- Fichier `SKILL.md` avec instructions YAML + markdown
+- Progressive Disclosure : nom/description → instructions complètes à l'activation
+- **26+ plateformes** adoptent le standard (Claude Code, Cursor, Windsurf…) [1]
 
 > Tool = connectivité ("*comment* se connecter"). Skill = connaissance procédurale ("*quoi* faire").
 
@@ -462,20 +470,20 @@ Un **Tool** connecte l'agent à un service. Une **Skill** lui apprend un **proce
 
 ---
 
+<!-- _class: compact -->
+
 # 22 — Construire un agent : la règle d'or
 
-Anthropic "Building Effective Agents" (déc. 2024) — la référence canonique [1] :
-
-**Commencer simple, monter en complexité uniquement si nécessaire** :
+Anthropic "Building Effective Agents" (déc. 2024) [1] — **commencer simple, monter en complexité si nécessaire** :
 
 | Niveau | Pattern | Quand monter |
 |---|---|---|
 | **1. Prompt** | Un prompt bien conçu | Le prompt seul ne suffit plus |
-| **2. Prompt Chain** | Plusieurs appels LLM en séquence | La séquence est trop rigide |
-| **3. Routing** | Le LLM choisit quel prompt exécuter | Il faut interagir avec l'extérieur |
-| **4. Tool Use** | Le LLM appelle des fonctions | La tâche nécessite plusieurs outils/étapes |
+| **2. Prompt Chain** | Appels LLM en séquence | La séquence est trop rigide |
+| **3. Routing** | Le LLM choisit quel prompt | Il faut interagir avec l'extérieur |
+| **4. Tool Use** | Le LLM appelle des fonctions | Tâche multi-outils/étapes |
 | **5. Agent Loop** | Boucle ReAct autonome | Un seul agent ne suffit pas |
-| **6. Multi-Agent** | Plusieurs agents collaborent | Dernier recours |
+| **6. Multi-Agent** | Agents qui collaborent | Dernier recours |
 
 > La plupart des problèmes business se résolvent **avant** le niveau 5. N'utilisez un agent loop que si les niveaux précédents échouent [1].
 
@@ -560,21 +568,21 @@ Les agents sont prometteurs mais présentent des défis sérieux en 2026 :
 
 ---
 
+<!-- _class: compact -->
+
 # 27 — Discussion : où les agents créent-ils le plus de valeur ?
 
-Réfléchissez à votre projet d'équipe :
-
-**Les meilleurs cas d'usage agents** (2026) :
+**Les meilleurs cas d'usage** (2026) :
 - Tâches **répétitives et structurées** (reporting, veille, extraction)
 - Flux internes avec **supervision humaine** facile
-- Processus où le coût de l'erreur est **faible** (brouillon, recherche, triage)
+- Coût de l'erreur **faible** (brouillon, recherche, triage)
 
-**Les pires cas d'usage agents** (aujourd'hui) :
+**Les pires cas d'usage** (aujourd'hui) :
 - Contact client direct sans filet de sécurité
 - Décisions financières ou juridiques autonomes
-- Processus critiques sans possibilité de rollback
+- Processus critiques sans rollback possible
 
-> **Question pour la classe** : quelle tâche répétitive dans votre projet de startup pourrait être déléguée à un agent IA ? Avec quel niveau de supervision humaine ?
+> **Question** : quelle tâche répétitive dans votre projet de startup pourrait être déléguée à un agent ? Avec quel niveau de supervision ?
 
 ---
 
