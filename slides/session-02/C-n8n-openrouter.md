@@ -286,6 +286,8 @@ return [{json: {
 
 ---
 
+<!-- _class: compact -->
+
 # 13 — Tester et itérer
 
 **Workflow de test** :
@@ -293,15 +295,15 @@ return [{json: {
 1. Ouvrez votre workflow dans n8n
 2. Cliquez **Execute Workflow** (bouton play)
 3. Envoyez un message test via le Chat Trigger
-4. Cliquez sur chaque nœud pour voir les données à chaque étape
-5. Vérifiez : le JSON est-il bien parsé ? Le label est-il correct ?
+4. Cliquez sur chaque nœud pour voir les données
+5. Vérifiez : JSON bien parsé ? Label correct ?
 
 **Itérer sur le prompt** :
-- Trop de mauvaises classifications ? → Ajoutez des exemples dans le system prompt
-- Labels incohérents ? → Listez explicitement les labels valides
-- Confidence toujours à 0.95 ? → Ajoutez "Sois calibré, utilise toute l'échelle 0-1"
+- Mauvaises classifications → ajoutez des exemples dans le system prompt
+- Labels incohérents → listez explicitement les labels valides
+- Confidence toujours à 0.95 → ajoutez "Sois calibré, utilise toute l'échelle 0-1"
 
-> Le prompt est votre principal levier de qualité. Modifiez-le, testez, mesurez, répétez.
+> Le prompt est votre principal levier de qualité. Modifiez, testez, mesurez, répétez.
 
 ---
 
