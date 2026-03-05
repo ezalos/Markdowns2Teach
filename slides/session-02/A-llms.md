@@ -30,32 +30,36 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 
 ---
 
+<!-- _class: compact -->
+
 # 01 — Benchmarks : progrès réels, plafonds visibles
 
-![bg right:50% contain](assets/epoch_ai_llm_saturation_benchmarks.jpeg)
+![bg right:40% contain](assets/epoch_ai_llm_saturation_benchmarks.jpeg)
 
 - MMLU (connaissances générales) : **saturé à 90%+** — les LLMs rattrapent les experts humains [1]
 - Nouveaux benchmarks plus durs : Humanity's Last Exam **8,8%**, FrontierMath **2%** [2]
-- Efficience : de **540B params** à **3,8B** pour atteindre 60% au MMLU — réduction de **142x** [1]
+- Efficience : de **540B** à **3,8B** params pour 60% au MMLU — **142x** de réduction [1]
 
-> Les benchmarks faciles saturent, mais les problèmes réellement difficiles restent hors de portée. La course n'est pas terminée.
+> Les benchmarks faciles saturent, mais les problèmes difficiles restent hors de portée.
 
 <small>Sources : [1] [Epoch AI](https://epoch.ai/trends) · [2] [Stanford HAI AI Index 2025](https://aiindex.stanford.edu/report/)</small>
 
 ---
 
+<!-- _class: compact compact-table -->
+
 # 02 — Ce que les LLMs permettent
 
-| Catégorie | Exemples | Type d'app |
+| Catégorie | Exemples | Type |
 |---|---|---|
-| *Writing* | Brainstorming noms de produits, communiqués de presse, traduction | Web + App |
-| *Reading* | Classification d'emails, résumé de conversations, analyse de sentiment | Surtout App |
+| *Writing* | Brainstorming, communiqués, traduction | Web + App |
+| *Reading* | Classification d'emails, résumé, sentiment | Surtout App |
 | *Chatting* | Service client bot, coaching, FAQ interne | Web + App |
-| *Coding* | Copilot, Cursor, Claude Code — 76% des développeurs utilisent des outils IA [1] | Web + App |
+| *Coding* | Copilot, Cursor, Claude Code — 76% des devs utilisent l'IA [1] | Web + App |
 
-*Deux modes d'utilisation* :
+*Deux modes* :
 - *Web-based* : ChatGPT, Claude, Le Chat — interaction directe
-- *Software application* : le LLM est intégré dans un produit (email routing, analyse automatisée)
+- *Software app* : LLM intégré dans un produit (email routing, analyse)
 
 ![bg right:40% contain](assets/ng01/img-026.png)
 
@@ -71,17 +75,19 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 
 ---
 
+<!-- _class: compact -->
+
 # 03 — Le mécanisme fondamental
 
-![bg right:50% contain](assets/infographics/next-word-prediction.png)
+![bg right:40% contain](assets/infographics/next-word-prediction.png)
 
 Le LLM utilise le **Self-Supervised Learning** pour prédire le token suivant :
 
-- **Input** : la séquence complète jusqu'ici → le modèle produit une distribution de probabilités
-- **Sampling** : un token est sélectionné (ex : "love") et ajouté à la séquence
-- **Boucle** : le processus se répète jusqu'au token de fin `<eos>`
+- **Input** : séquence complète → distribution de probabilités
+- **Sampling** : un token est sélectionné (ex : "love") et ajouté
+- **Boucle** : répété jusqu'au token de fin `<eos>`
 
-> Chaque token dépend de *tous* les tokens précédents — c'est pourquoi la génération est séquentielle, et les réponses longues coûtent plus cher.
+> Chaque token dépend de *tous* les précédents — génération séquentielle, réponses longues = plus cher.
 
 ---
 
@@ -164,19 +170,21 @@ Depuis mi-2023, la context window croît d'environ **~30x par an** [1].
 
 ---
 
+<!-- _class: compact compact-table -->
+
 # 07 — Sampling : Temperature, Top-k, Top-p
 
-![bg right:45% contain](assets/infographics/sampling-parameters.png)
+![bg right:35% contain](assets/infographics/sampling-parameters.png)
 
-Quand le LLM génère un token, il produit une distribution de probabilités. Trois paramètres contrôlent comment le token est *échantillonné* :
+Le LLM produit une distribution de probabilités. Trois paramètres contrôlent l'*échantillonnage* :
 
-| Paramètre | Ce qu'il fait | Valeurs typiques |
-|-----------|--------------|-----------------|
+| Paramètre | Ce qu'il fait | Valeurs |
+|-----------|--------------|---------|
 | **Temperature** | Aplatit ou accentue la distribution | 0.0–2.0 |
-| **Top-k** | Garde seulement les *k* tokens les plus probables | 10–100 |
-| **Top-p** (nucleus) | Garde les tokens dont la probabilité cumulée ≤ *p* | 0.7–0.95 |
+| **Top-k** | Garde les *k* tokens les plus probables | 10–100 |
+| **Top-p** (nucleus) | Tokens dont la probabilité cumulée ≤ *p* | 0.7–0.95 |
 
-> **Temperature basse** (0.1) = réponses déterministes et sûres. **Temperature haute** (1.5) = créatif mais risqué. Top-k et Top-p filtrent les tokens improbables pour éviter les absurdités.
+> **T basse** (0.1) = déterministe. **T haute** (1.5) = créatif mais risqué. Top-k/Top-p filtrent les tokens improbables.
 
 ---
 
@@ -241,22 +249,22 @@ Un modèle MoE contient *plusieurs sous-réseaux spécialisés* (experts). Un **
 
 ---
 
+<!-- _class: compact compact-table -->
+
 # 11 — Thinking Models : penser avant de répondre
 
-*Ce que font les Reasoning Models différemment* :
+- *Extended Thinking* — chaîne de raisonnement *avant* la réponse
+- *Token budget* — plus de Thinking Tokens = meilleur résultat (mais plus cher)
+- *Vérification interne* — le modèle vérifie ses étapes, réduit les hallucinations
 
-- *Extended Thinking* — le modèle génère une chaîne de raisonnement *avant* de répondre
-- *Token budget* — plus on alloue de "Thinking Tokens", meilleure est la réponse (mais plus cher)
-- *Vérification interne* — le modèle vérifie ses propres étapes, réduisant les hallucinations
-
-| Modèle | AIME 2024 (maths) | Prix input / 1M tokens |
+| Modèle | AIME 2024 | Prix / 1M tokens |
 |--------|-----------|-----------------|
 | GPT-4o | ~26% | $2,50 [1] |
 | DeepSeek-R1 | 79,8% | $0,55 [2] |
 | o3 | 91,6% | $2,00 [1] |
 | o4-mini | 93,4% | $1,10 [1] |
 
-![bg right:40% contain](assets/B/thinking-models-substack.png)
+![bg right:35% contain](assets/B/thinking-models-substack.png)
 
 <small>Sources : [1] [OpenAI](https://openai.com/index/introducing-o3-and-o4-mini/) · [2] [DeepSeek](https://arxiv.org/abs/2501.12948)</small>
 
@@ -377,9 +385,11 @@ Les APIs permettent d'appeler un LLM *depuis votre code* — la base de tout pro
 
 ---
 
+<!-- _class: compact compact-table -->
+
 # 17 — Le coût d'inference chute de 10x à 900x par an
 
-Epoch AI (avril 2025) a mesuré la chute des prix d'inference **à performance fixe** sur 6 benchmarks [1] :
+Chute des prix d'inference **à performance fixe** sur 6 benchmarks [1] :
 
 | Benchmark | Tâche | Chute annuelle |
 |-----------|-------|----------------|
@@ -388,10 +398,10 @@ Epoch AI (avril 2025) a mesuré la chute des prix d'inference **à performance f
 | MATH-500 | Mathématiques | 20–700×/an |
 | Coding | Software engineering | 9–40×/an |
 
-- **Médiane** : ~50×/an (accélère à ~200×/an après janvier 2024) [1]
-- Stanford HAI : GPT-3.5 equivalent **$20 → $0,07** / 1M tokens en 18 mois = **280×** [2]
+- **Médiane** : ~50×/an (accélère à ~200×/an après jan. 2024) [1]
+- GPT-3.5 equivalent **$20 → $0,07** / 1M tokens en 18 mois = **280×** [2]
 
-> C'est plus rapide que la loi de Moore. Le coût marginal de l'intelligence baisse plus vite que n'importe quelle technologie précédente.
+> Plus rapide que la loi de Moore — le coût marginal de l'intelligence baisse plus vite que toute technologie précédente.
 
 <small>Sources : [1] [Epoch AI](https://epoch.ai/data-insights/llm-inference-price-trends) · [2] [Stanford HAI 2025](https://aiindex.stanford.edu/report/)</small>
 
@@ -462,9 +472,11 @@ RGPD (données locales), pas de coût API, hors ligne
 
 ---
 
+<!-- _class: compact compact-table -->
+
 # 21 — Quantization : comprimer un modèle sans (trop) perdre
 
-Chaque paramètre est un nombre à virgule flottante. La **Quantization** réduit sa précision pour consommer moins de mémoire :
+La **Quantization** réduit la précision des paramètres pour consommer moins de mémoire :
 
 | Précision | Octets/param | 7B modèle | Impact qualité |
 |-----------|-------------|-----------|----------------|
@@ -473,17 +485,19 @@ Chaque paramètre est un nombre à virgule flottante. La **Quantization** rédui
 | INT8 | 1 | 7 GB | <1% (MMLU) |
 | **INT4** | 0,5 | **3,5 GB** | 1-4% MMLU, **5-15% raisonnement** [1][2] |
 
-> La perte dépend du *modèle* et de la *méthode*. Grands modèles (70B+) : ~1-2% MMLU avec AWQ/GPTQ. Petits modèles (7B) : jusqu'à **5-53% de perte sur le raisonnement** (GSM8K). Méthode : AWQ > GPTQ >> BNB-NF4. Tailles réelles : [Qwen3 Collection](https://huggingface.co/collections/Qwen/qwen3).
+> 70B+ : ~1-2% perte MMLU (AWQ/GPTQ). 7B : jusqu'à **5-53% perte raisonnement**. Méthode : AWQ > GPTQ >> BNB-NF4.
 
 <small>Sources : [1] [Kurtic et al. 2024](https://arxiv.org/abs/2411.02355) · [2] [IJCAI 2025](https://arxiv.org/abs/2409.11055)</small>
 
 ---
 
+<!-- _class: compact -->
+
 # 22 — Paramètres → vRAM → Hardware
 
-Les LLMs tournent sur **GPU**. La **vRAM** (mémoire GPU) est la contrainte principale : si le modèle dépasse votre vRAM, il ne tient pas.
+Les LLMs tournent sur **GPU**. La **vRAM** est la contrainte principale.
 
-**La formule** : `vRAM (GB) = Params (B) × Octets/param`
+**Formule** : `vRAM (GB) = Params (B) × Octets/param`
 
 | Hardware | vRAM | Modèle max (Q4) |
 |----------|------|-----------------|
@@ -493,35 +507,35 @@ Les LLMs tournent sur **GPU**. La **vRAM** (mémoire GPU) est la contrainte prin
 | MacBook M4 Max | 128 GB | 70B |
 | H100 (cloud) | 80 GB | 70B FP16 |
 
-> *Exemple* : Qwen3-32B en INT4 = 32 × 0,5 = **16 GB** — ça tient sur un MacBook M4 Pro.
+> Qwen3-32B en INT4 = 32 × 0,5 = **16 GB** — tient sur un MacBook M4 Pro.
 
 <small>Sources : [1] [IntuitionLabs](https://intuitionlabs.ai/articles/local-llm-deployment-24gb-gpu-optimization)</small>
 
 ---
 
-# 23 — Le paradoxe MoE : rapide mais gourmand en mémoire
+<!-- _class: compact compact-table -->
 
-Le MoE découple la *vitesse* de la *mémoire* :
+# 23 — Le paradoxe MoE : rapide mais gourmand en mémoire
 
 | Dimension | Dense 70B (Llama 2) | MoE 671B (DeepSeek-V3) |
 |-----------|---------------------|------------------------|
 | Total params | 70B | 671B |
-| Actifs par token | **70B** (tous) | **37B** (5,5%) |
-| vRAM nécessaire (FP16) | ~140 GB | ~1 342 GB |
-| vRAM nécessaire (INT4) | ~35 GB | ~336 GB |
-| Vitesse d'inference | Baseline | **~2x plus rapide** (à compute égal) |
+| Actifs / token | **70B** (tous) | **37B** (5,5%) |
+| vRAM (FP16) | ~140 GB | ~1 342 GB |
+| vRAM (INT4) | ~35 GB | ~336 GB |
+| Vitesse inference | Baseline | **~2x plus rapide** |
 
-> *Le piège* : même si DeepSeek-V3 n'active que 37B params par token, il faut charger **les 671B** en mémoire. L'inference est rapide, mais le matériel est cher.
-
-*Coût d'entraînement* : DeepSeek-V3 a été entraîné pour ~$5,5M — environ 18x moins cher que GPT-4 (~$100M+) [1].
+> *Le piège* : DeepSeek-V3 n'active que 37B params/token, mais il faut charger **les 671B** en mémoire. Entraîné pour ~$5,5M — 18x moins cher que GPT-4 [1].
 
 <small>Sources : [1] [DeepSeek-V3](https://arxiv.org/abs/2412.19437) · [2] [Interconnects](https://www.interconnects.ai/p/deepseek-v3-and-the-actual-cost-of)</small>
 
 ---
 
+<!-- _class: compact compact-table -->
+
 # 24 — Plus gros = plus intelligent ?
 
-![bg right:45% contain](assets/mmlu-params-graph.svg)
+![bg right:35% contain](assets/mmlu-params-graph.svg)
 
 Les benchmarks montrent des *rendements décroissants* :
 
@@ -533,7 +547,7 @@ Les benchmarks montrent des *rendements décroissants* :
 | Qwen3-32B | 32B | **83,6%** |
 | Qwen3-235B MoE | 235B | 87,8% |
 
-De 0,6B à 32B (×53 params) : **+30,8 pts**. De 32B à 235B (×7 params) : **+4,2 pts** seulement [1].
+0,6B → 32B (×53) : **+30,8 pts**. 32B → 235B (×7) : **+4,2 pts** seulement [1].
 
 > La courbe *s'aplatit*. Mieux vaut un petit modèle bien entraîné qu'un géant coûteux.
 
@@ -605,19 +619,21 @@ Support → Mistral Small · Analyse → o3 / Opus · Code → Claude / Devstral
 
 ---
 
+<!-- _class: compact -->
+
 # 28 — Hallucinations et Knowledge Cutoffs
 
-![bg right:45% contain](assets/ng01/img-022.png)
+![bg right:35% contain](assets/ng01/img-022.png)
 
-*Hallucinations* — le LLM *invente des informations avec un ton très confiant* :
-- Un avocat américain a soumis un mémoire juridique contenant des *affaires inventées* par ChatGPT [1]
-- Règle d'or : ne jamais publier un contenu IA sans *vérification humaine*
+*Hallucinations* — le LLM *invente avec un ton très confiant* :
+- Un avocat a soumis des *affaires juridiques inventées* par ChatGPT [1]
+- Règle d'or : jamais de contenu IA sans *vérification humaine*
 
 *Knowledge Cutoffs* — l'IA vit dans le passé :
-- Les connaissances sont *figées à la date d'entraînement*
-- Les données de la semaine dernière restent inaccessibles (sauf accès web)
+- Connaissances *figées à la date d'entraînement*
+- Données récentes inaccessibles (sauf accès web)
 
-*Question pour la classe* : Quelles informations de votre entreprise ne devriez-vous JAMAIS mettre dans un prompt ?
+*Question* : Quelles infos de votre entreprise ne devriez-vous JAMAIS mettre dans un prompt ?
 
 <small>Sources : [1] [NYT](https://www.nytimes.com/2023/05/27/nyregion/avianca-chatgpt-fake-citations.html)</small>
 
@@ -721,19 +737,21 @@ Les LLMs génèrent token par token, **de gauche à droite**. L'ordre des champs
 
 ---
 
+<!-- _class: compact -->
+
 # 34 — Confidence en classification : le piège du score verbalisé
 
 Demander au LLM *"donne ta confiance"* → **le score est hallucié** [1] :
-- Les scores se concentrent entre **80–100%**, multiples de 5 — comme un humain qui parle
-- Le modèle prédit le token *qui ressemble à* un score, pas une probabilité calculée
+- Scores concentrés entre **80–100%**, multiples de 5
+- Le modèle prédit un token *qui ressemble à* un score, pas une probabilité calculée
 
-| Méthode | Erreur calib. brute | Après calibration |
-|---------|---------------------|-------------------|
+| Méthode | Erreur brute | Après calibration |
+|---------|-------------|-------------------|
 | Score verbalisé | 45% | 8% |
 | **Logprobs** | 50% | **5%** |
 | Logistic Regression | 11% | 6% |
 
-> Les **logprobs** (probabilités des tokens) sont sur-confiantes aussi, mais deviennent les meilleures après calibration avec ~200 exemples labellisés [2].
+> Les **logprobs** sont sur-confiantes aussi, mais deviennent les meilleures après calibration (~200 exemples labellisés) [2].
 
 <small>Sources : [1] [Xiong et al. (ICLR 2024)](https://openreview.net/pdf?id=gjeQKFxFpZ) · [2] [Nyckel](https://www.nyckel.com/blog/calibrating-gpt-classifications/)</small>
 
@@ -820,20 +838,19 @@ Bon : *"Help me write a professional email asking to join the legal docs project
 
 # 39 — Chain-of-Thought et itération
 
-*Chain-of-Thought* — décomposer une tâche complexe en *étapes explicites* améliore la qualité :
+*Chain-of-Thought* — décomposer une tâche en *étapes explicites* améliore la qualité :
 
-*"Step 1: Come up with 5 fun words related to cats. Step 2: For each word, create a rhyming toy name. Step 3: Add an emoji."*
+*"Step 1: 5 fun words about cats. Step 2: Create rhyming toy names. Step 3: Add emoji."*
 
 | Step 1 | Step 2 | Step 3 |
 |---|---|---|
 | Purr | Purr-Twirl | Purr-Twirl 🐱 |
 | Whisker | Whisker-Whisper | Whisker-Whisper 😺 |
 
-*Itération* — le cycle du Prompt Engineering = le cycle produit :
+*Itération* — le cycle du Prompt Engineering :
 1. *Écrivez* un premier prompt (ne réfléchissez pas trop)
 2. *Évaluez* la sortie — qu'est-ce qui manque ?
-3. *Affinez* le prompt (ajoutez du contexte, changez le format)
-4. *Répétez* jusqu'à satisfaction
+3. *Affinez* (contexte, format) · 4. *Répétez*
 
 ---
 
@@ -845,16 +862,18 @@ Bon : *"Help me write a professional email asking to join the legal docs project
 
 ---
 
+<!-- _class: compact -->
+
 # 40 — Points clés à retenir
 
-- **Mécanisme** — Next-token prediction : le LLM prédit un token à la fois, séquentiellement
+- **Mécanisme** — Next-token prediction, séquentiel
 - **Pipeline** — Pretraining (15T tokens) → SFT → RLHF → Reasoning
-- **Inference** — Le coût chute de ~10–50×/an à capacité fixe — plus rapide que la loi de Moore
-- **MoE** — Découple capacité (total params) et coût d'inference (active params)
+- **Inference** — Coût chute de ~10–50×/an — plus rapide que la loi de Moore
+- **MoE** — Découple capacité (total params) et coût (active params)
 - **Accès** — Web (gratuit), API (pay-per-token), open-weights (local/RGPD)
-- **Taille** — Plus gros ≠ toujours meilleur. Le bon modèle pour la bonne tâche
-- **Hallucinations** — Le LLM invente avec confiance. Knowledge cutoff = données figées → c'est pourquoi on a besoin du RAG
-- **Structured Output** — L'ordre des champs JSON = Chain-of-Thought gratuit (+62 pts sur GSM8K)
-- **Prompting** — Soyez spécifique, guidez le raisonnement (CoT), itérez
+- **Taille** — Plus gros ≠ meilleur. Le bon modèle pour la bonne tâche
+- **Hallucinations** — Le LLM invente avec confiance. Cutoff = données figées → besoin du RAG
+- **Structured Output** — Ordre des champs JSON = CoT gratuit (+62 pts GSM8K)
+- **Prompting** — Soyez spécifique, guidez le raisonnement, itérez
 
-> *Prochaine partie* : comment **évaluer** une solution IA — les métriques qui comptent pour votre business.
+> *Prochaine partie* : comment **évaluer** une solution IA — les métriques qui comptent.
