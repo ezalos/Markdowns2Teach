@@ -44,27 +44,39 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 > **Mnémotechnique** : le 2e mot = réponse du modèle, le 1er mot = avait-il raison ?
 
+<small>Source : [stratusdata.io](https://stratusdata.io/gone-fishing-4-metrics-for-evaluating-binary-classifiers/)</small>
+
 ---
 
-# 02 — Accuracy et son piège
+# 02 — Accuracy
 
 - **Accuracy** = (TP + TN) / (TP + TN + FP + FN)
 - Intuition : "sur 100 cas, combien le modèle a-t-il correctement classés ?"
-- **Le piège du 99/1** : dataset avec 99% classe A, 1% classe B
-- Un modèle qui prédit toujours "A" obtient **99% d'Accuracy** mais Recall = 0%
+- La métrique la plus **intuitive** — la première question de tout stakeholder
+- Facile à communiquer : "notre modèle est juste dans 96% des cas"
 
-| Modèle | Accuracy | Recall classe B |
+> Simple, parlante... mais **trompeuse** dans certains cas. Voir la slide suivante.
+
+---
+
+# 03 — Le piège de l'Accuracy
+
+- **Scanner d'aéroport** : détecter 10 bagages suspects sur 10 000
+- Un modèle qui dit "tous les bagages sont OK" → **99,9% d'Accuracy**
+- Mais il a raté **100%** des vrais positifs — Recall = **0%**
+
+| Modèle | Accuracy | Recall |
 |---|---|---|
-| Prédit toujours "A" | 99% | **0%** |
-| Modèle entraîné | 96% | **78%** |
+| Prédit toujours "OK" | 99,9% | **0%** |
+| Modèle entraîné | 97% | **85%** |
 
-> L'Accuracy ment sur les datasets déséquilibrés. Le 2e modèle est bien meilleur.
+> L'Accuracy ment sur les datasets déséquilibrés. Toujours vérifier le Recall sur la classe rare.
 
 ---
 
 <!-- _class: cols -->
 
-# 03 — Precision vs Recall
+# 04 — Precision vs Recall
 
 <div class="left">
 
@@ -89,28 +101,28 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
-# 04 — F1-Score : le compromis en un chiffre
+# 05 — F1-Score : le compromis en un chiffre
+
+![w:500](assets/eval/f1-equation.png)
 
 - **Moyenne harmonique** de Precision et Recall
-- **Formule** : F1 = 2 × (Precision × Recall) / (Precision + Recall)
-- La moyenne harmonique **pénalise les écarts** :
-  - Precision = 90%, Recall = 10% → F1 = **18%** (pas 50%)
-- Le trade-off Precision/Recall est une **bascule** — impossible de maximiser les deux
+- Pénalise les écarts : Precision = 90%, Recall = 10% → F1 = **18%** (pas 50%)
+- Le trade-off est une **bascule** — impossible de maximiser les deux
 - Le choix du point d'équilibre est une **décision business**, pas technique
 
-> Le F1 est votre "note globale" quand Precision et Recall comptent autant.
+> Quand vous hésitez, le F1 est votre **meilleur choix par défaut**.
 
 ---
 
-# 05 — Classification : arbre de décision
+# 06 — Classification : quand choisir quoi
 
-1. **Classes équilibrées ?** → Oui : Accuracy + F1 suffisent
-2. **Classe positive rare (< 10%) ?** → PR-AUC + F2 ou MCC
-3. **Quel type d'erreur coûte le plus ?** → FP : Precision · FN : Recall
-4. **Besoin d'un score unique ?** → MCC (binaire) ou Macro-F1 (multi-class)
-5. **Besoin de probabilités calibrées ?** → Log Loss
+1. **Classes équilibrées ?** → Accuracy + F1 suffisent
+2. **Classe positive rare (< 10%) ?** → F1 ou Recall en priorité
+3. **Quel type d'erreur coûte le plus ?**
+   - FP coûteux → maximiser **Precision**
+   - FN coûteux → maximiser **Recall**
 
-> Ne reportez jamais **une seule métrique**. La Confusion Matrix + 2-3 scores donne une image complète.
+> **En cas de doute** : le F1-Score est le meilleur choix par défaut — une seule métrique claire, facile à optimiser.
 
 ---
 
@@ -124,7 +136,7 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 <!-- _class: cols -->
 
-# 06 — MAE vs RMSE
+# 07 — MAE vs RMSE
 
 <div class="left">
 
@@ -150,72 +162,28 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
-# 07 — R² et arbre de décision régression
-
-- **R²** = 1 − (SS_res / SS_tot) — "le modèle explique **X%** de la variance"
-- Plage : −∞ à 1 (1 = parfait, 0 = aussi bien que la moyenne, < 0 = pire)
-- **Piège** : R² augmente en ajoutant des variables — même aléatoires → utiliser **Adjusted R²** [1]
-- **Arbre de décision** pour choisir la bonne métrique :
-  - Grosses erreurs catastrophiques ? → RMSE · Sinon → MAE
-  - Données bruitées avec outliers ? → Huber Loss
-  - Besoin d'un intervalle ? → Quantile Loss
-
-> R² dit *à quel point* le modèle est bon. MAE/RMSE disent *de combien* il se trompe. Toujours utiliser les deux.
-
-<small>Sources : [1] [Anscombe 1973, American Statistician](https://en.wikipedia.org/wiki/Anscombe%27s_quartet)</small>
-
----
-
 <!-- _class: section -->
 
 # Computer Vision
 
-## IoU, détection et segmentation
+## IoU et détection d'objets
 
 ---
 
-# 08 — IoU et mAP : détecter des objets
+<!-- _class: img-right -->
 
-- **IoU** (Intersection over Union) = chevauchement entre prédiction et réalité (0 → 1)
-- Une détection est un **TP** si IoU > seuil, sinon **FP** ; objet manqué → **FN**
-- **mAP** = moyenne de l'Average Precision sur toutes les classes
+# 08 — IoU : la brique de la Computer Vision
 
-| Variante | Seuil IoU | Usage |
-|---|---|---|
-| AP@50 | 0.5 (tolérant) | Comptage, tri |
-| AP@75 | 0.75 (exigeant) | Robotique, précision spatiale |
-| mAP@[.5:.95] | Moyenne 0.5 à 0.95 | Standard industriel (COCO) |
+- **IoU** (Intersection over Union) = chevauchement prédiction vs réalité
+- Score de 0 (aucun overlap) à 1 (match parfait)
+- Détection = **TP** si IoU > seuil, sinon **FP** ; objet manqué → **FN**
+- **mAP** = Average Precision moyenné sur toutes les classes
+- Standard COCO : mAP@[.5:.95]
 
-> L'IoU est la brique fondamentale de toute la Computer Vision — détection, segmentation et tracking.
+> L'IoU est la brique fondamentale — détection, segmentation et tracking.
 
----
-
-<!-- _class: cols -->
-
-# 09 — Segmentation : mIoU et Dice
-
-<div class="left">
-
-**mIoU** (mean IoU)
-- IoU calculé **par classe**, puis moyenné
-- Chaque classe pèse autant, même les rares
-- Standard pour la Semantic Segmentation
-- SOTA ADE20K : **63,6% mIoU** [1]
-
-</div>
-<div class="right">
-
-**Dice Coefficient**
-- Dice = 2 × |A ∩ B| / (|A| + |B|)
-- Aussi appelé F1 au niveau pixel
-- Référence en **imagerie médicale**
-- Dice > 0.90 exigé pour la validation clinique
-
-</div>
-
-> Pixel Accuracy est trompeuse (95% du fond = 95% Accuracy). mIoU et Dice sont les vraies métriques.
-
-<small>Sources : [1] [arXiv:2505.19795](https://arxiv.org/html/2505.19795v1)</small>
+![bg right:50% contain](assets/eval/iou-illustration.png)
+![bg right:50% contain](assets/eval/iou-birds.jpg)
 
 ---
 
@@ -227,27 +195,30 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
-# 10 — Benchmarks : les examens standardisés des LLMs
+<!-- _class: compact-table -->
 
-- Un benchmark est un **examen standardisé** — même épreuve, correction uniforme
-- **MMLU** : 57 matières, 16 000+ QCM — SOTA : **GPT-5.3 Codex — 93%** [1][2]
-- **GSM8K** : problèmes de maths CM2/collège — saturé à 95%+ [3]
-- **HumanEval** : génération de code Python — saturé à 99% [3]
-- **SWE-bench** : résolution de vrais bugs GitHub — le vrai test code [3]
-- Un bon benchmark ne garantit pas la performance sur **votre tâche**
+# 09 — Benchmarks : les examens standardisés des LLMs
 
-> MMLU est le "BAC des LLMs" — indispensable mais insuffisant seul.
+| Benchmark | Teste | Leader | Score |
+|---|---|---|---|
+| **MMLU-Pro** | 57 matières, QCM avancé | Gemini 3 Pro | **89,8%** |
+| **SWE-bench** | Vrais bugs GitHub | Claude Opus 4.5 | **80,9%** |
+| **ARC-AGI 2** | Raisonnement abstrait | GPT-5.2 | **~54%** |
+| **Humanity's Last Exam** | 2 500 questions experts | Gemini 3.1 Pro | **44,7%** |
 
-<small>Sources : [1] [Hendrycks et al., ICLR 2021](https://arxiv.org/abs/2009.03300) · [2] [LXT.ai](https://www.lxt.ai/blog/llm-benchmarks/) · [3] [Stanford HAI 2025](https://hai.stanford.edu/ai-index/2025-ai-index-report)</small>
+- ARC-AGI 2 : baseline humain = **60%** — les frontier s'en approchent
+- HLE : passé de **<10% à ~45%** en un an — le benchmark le plus discriminant [1]
+
+> MMLU est le "BAC des LLMs" — ARC-AGI 2 et HLE testent ce que MMLU ne mesure pas.
+
+<small>Sources : [1] [Scale AI SEAL](https://scale.com/leaderboard/humanitys_last_exam) · [ARC Prize](https://arcprize.org/leaderboard) · [Epoch AI](https://epoch.ai/benchmarks/swe-bench-verified)</small>
 
 ---
 
-# 11 — Chatbot Arena : le vote humain
+# 10 — Chatbot Arena : le vote humain
 
 - Deux modèles anonymes répondent → l'utilisateur vote pour le meilleur
-- Système **Elo** (comme aux échecs) : chaque victoire ajuste les scores
-- **6M+ votes** en A/B testing aveugle — la référence pour la préférence humaine [1]
-- **Top 3 (fév. 2026)** :
+- Système **Elo** (comme aux échecs) : **6M+ votes** en A/B testing aveugle [1]
 
 | Rang | Modèle | Elo |
 |---|---|---|
@@ -255,13 +226,13 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 | 2 | Gemini 3.1 Pro | 1 500 |
 | 3 | Grok 4.20 | 1 495 |
 
-> Les benchmarks automatiques mesurent la **capacité**. L'Arena mesure la **préférence** humaine.
+> **Bémol** : les grands labos testent des versions privées et reçoivent ~20% du feedback chacun — les modèles open-weights < 30% au total [2]
 
-<small>Sources : [1] [LM Arena](https://arena.ai/leaderboard) (fév. 2026)</small>
+<small>Sources : [1] [LM Arena](https://arena.ai/leaderboard) · [2] [Hackster.io](https://www.hackster.io/news/chatbot-arena-shenanigans-09bd3fa3e6fa)</small>
 
 ---
 
-# 12 — Il n'y a pas de meilleur modèle
+# 11 — Il n'y a pas de meilleur modèle
 
 - Across **20 benchmarks** indépendants, aucun modèle ne domine tout [1]
 - Chaque famille excelle dans un domaine différent :
@@ -281,7 +252,7 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
-# 13 — ECI : l'accélération s'accélère
+# 12 — ECI : l'accélération s'accélère
 
 - L'**Epoch Capabilities Index** agrège **37 benchmarks** en un score unique — un QI pour les modèles [1]
 - Résultat clé : la progression a **doublé** depuis avril 2024
@@ -300,7 +271,7 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
-# 14 — GDPval : de la performance au business
+# 13 — GDPval : de la performance au business
 
 - **1 320 tâches réelles**, 44 métiers, 9 secteurs du PIB américain [1]
 - Modèles frontier : **100× plus rapides** et **100× moins chers** que les experts
@@ -315,11 +286,11 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 > Rapide et pas cher ≠ déployable. Les benchmarks ne prédisent pas le remplacement d'emplois.
 
-<small>Sources : [1] [LM Council — GDPval](https://lmcouncil.ai/benchmarks)</small>
+<small>Sources : [1] [OpenAI — GDPval](https://evals.openai.com/gdpval/leaderboard) · [LM Council](https://lmcouncil.ai/benchmarks)</small>
 
 ---
 
-# 15 — Pricing LLM : 1 000× d'écart
+# 14 — Pricing LLM : 1 000× d'écart
 
 | Modèle | Input/1M | Output/1M | Elo | Tier |
 |---|---|---|---|---|
@@ -337,13 +308,13 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
-# 16 — Key Takeaways
+# 15 — Key Takeaways
 
-1. **Classification** : l'Accuracy ment sur les datasets déséquilibrés — le F1 et la Confusion Matrix sont vos alliés
+1. **Classification** : l'Accuracy ment sur les datasets déséquilibrés — le F1 est votre meilleur choix par défaut
 
-2. **Régression** : MAE pour communiquer, RMSE pour les systèmes critiques, R² pour le pouvoir explicatif — jamais une seule métrique
+2. **Régression** : MAE pour communiquer, RMSE pour les systèmes critiques — toujours les deux ensemble
 
-3. **Computer Vision** : l'IoU est la brique fondamentale ; mIoU et Dice révèlent ce que la Pixel Accuracy masque
+3. **Computer Vision** : l'IoU est la brique fondamentale de la détection et de la segmentation
 
 4. **LLMs** : il n'y a pas de "meilleur modèle" — choisissez par **tâche**, pas par leaderboard
 
