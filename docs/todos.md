@@ -1,7 +1,47 @@
 Corrections of the course : 
-- slides should fit in screen, MUST FIX, maybe screenshot it ?
+- Benchmark satures, but it's possible to see beyon (make new slide after), progress is constant
 - context window, wrong diagram, and false "noting is deleted"
 - 
+
+
+Interesting stuff to use : 
+
+
+LLM : 
+- Training costs https://epoch.ai/blog/how-much-does-it-cost-to-train-frontier-ai-models
+- LLM running out of data : https://epoch.ai/blog/will-we-run-out-of-data-limits-of-llm-scaling-based-on-human-generated-data BUT MUST BE BALNCED BY : https://vintagedata.org/blog/posts/synthetic-pretraining 
+- Open-source is only small lag : https://epoch.ai/blog/open-models-report 
+
+
+Eval : 
+- Great resource : https://lmcouncil.ai/benchmarks
+- https://epoch.ai/benchmarks/eci
+
+
+RAG : 
+- BM25 deepmind : https://arxiv.org/html/2508.21038v1
+- https://jxnl.co/writing/category/rag/#why-cognition-does-not-use-multi-agent-systems 
+- https://jxnl.co/writing/2025/08/28/context-engineering-index/
+
+Engineering / build : 
+- https://huyenchip.com/2025/01/16/ai-engineering-pitfalls.html
+
+
+Ethics : 
+- https://www.darioamodei.com/essay/the-adolescence-of-technology
+- Anthropic critic : https://www.lesswrong.com/posts/5aKRshJzhojqfbRyo/unless-its-governance-changes-anthropic-is-untrustworthy#1__In_private__Dario_frequently_said_he_won_t_push_the_frontier_of_AI_capabilities__later__Anthropic_pushed_the_frontier 
+- https://www.anthropic.com/news/claudes-constitution & https://www.anthropic.com/constitution
+
+
+Agents : 
+- https://arxiv.org/pdf/2601.10825
+
+
+Ecosystem AI, where it's heading : 
+- https://epoch.ai/blog/inference-economics-of-language-models
+- https://epoch.ai/blog/can-ai-scaling-continue-through-2030  
+- https://epoch.ai/blog/what-will-ai-look-like-in-2030
+- https://epoch.ai/blog/what-do-economic-value-benchmarks-tell-us
 
 
 # Research TODOs — Course Restructuring (2026-03-01)

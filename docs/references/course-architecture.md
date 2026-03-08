@@ -38,23 +38,23 @@
 
 | Bloc | Contenu | Fichier |
 |------|---------|---------|
-| **A** | Les LLMs : comprendre et utiliser — Impact, fonctionnement (next-token prediction), glossaire (Tokens, Context Window, Sampling, MoE), pipeline d'entraînement (Pretraining, Instruct, Thinking, Fine-tuning), accès (Web, API, Open-weights), taille et performance, Structured Output, multimodal, hallucinations & knowledge cutoff (bridge → RAG), principes du Prompting | `slides/session-02/A-llms.md` (40 slides) |
-| **B** | Évaluer l'IA — Classification (Confusion Matrix, Accuracy, Precision, Recall, F1), Regression (MAE, RMSE, R²), Computer Vision (IoU, mAP, mIoU, Dice), LLM (benchmarks MMLU/GSM8K/HumanEval, Chatbot Arena, pricing landscape) | `slides/session-02/B-evaluer-ia.md` (18 slides) |
+| **A** | Les LLMs : comprendre et utiliser — Impact, fonctionnement (next-token prediction), glossaire (Tokens, Context Window, Sampling, MoE), pipeline d'entraînement (Pretraining, Instruct, Thinking, Fine-tuning), coûts d'entraînement (2.4x/an, >$1B en 2027, breakdown hardware/staff/énergie), données d'entraînement (mur des 300T tokens, Synthetic Data), accès (Web, API, Open-weights, gap open/closed 12-15 mois), taille et performance, Structured Output, multimodal, hallucinations & knowledge cutoff (bridge → RAG), principes du Prompting | `slides/session-02/A-llms.md` (45 slides) |
+| **B** | Évaluer l'IA — Classification (Confusion Matrix, Accuracy, Precision, Recall, F1), Regression (MAE, RMSE, R²), Computer Vision (IoU, mAP, mIoU, Dice), LLM (benchmarks MMLU/GSM8K/HumanEval, Chatbot Arena, LM Council "pas de meilleur modèle", ECI accélération ×2, GDPval 44 métiers, pricing landscape) | `slides/session-02/B-evaluer-ia.md` (21 slides) |
 | **C** | N8N #2 — connexion OpenRouter + génération Structured Output | *(design TBD)* |
 
 ### Séance 3 — Construire avec l'IA
 
 | Bloc | Contenu | Fichier |
 |------|---------|---------|
-| **A** | RAG & Agents IA — **RAG** : pourquoi (callback hallucinations/cutoff S2), pipeline 5 étapes, chunking, embeddings, vector DBs, hybrid search, applications, RAG vs Fine-tuning. **Agents** : ReAct, Tool Use, MCP protocol, Skills, méthodologie, écosystème 2026 | `slides/session-03/A-rag-agents.md` (27 slides) |
-| **B** | Méthodologie projet IA — Prompt-based dev, 4 catégories d'apps GenAI, lifecycle Scope/Build/Evaluate/Deploy, CRISP-DM, LLMOps, AI Canvas, MVP patterns (Gmail story), choix de stack (API vs Open-weights vs Self-hosted), coûts, progression Prompting→RAG→Fine-tuning | `slides/session-03/B-methodologie-projet.md` (27 slides) |
+| **A** | RAG & Agents IA — **RAG** : pourquoi (callback hallucinations/cutoff S2), pipeline 5 étapes, chunking, embeddings, vector DBs, hybrid search, BM25 DeepMind (preuve mathématique), Context Engineering (jxnl), applications, RAG vs Fine-tuning. **Agents** : ReAct, Tool Use, MCP protocol, Skills, pourquoi pas le Multi-Agent (Cognition/Devin), Reasoning Models comme "équipe interne" (DeepSeek-R1), méthodologie, écosystème 2026 | `slides/session-03/A-rag-agents.md` (34 slides) |
+| **B** | Méthodologie projet IA — Prompt-based dev, 4 catégories d'apps GenAI, lifecycle Scope/Build/Evaluate/Deploy, CRISP-DM, LLMOps, AI Canvas, MVP patterns (Gmail story), 6 pièges de l'AI Engineering (Chip Huyen), choix de stack (API vs Open-weights vs Self-hosted), coûts, progression Prompting→RAG→Fine-tuning | `slides/session-03/B-methodologie-projet.md` (29 slides) |
 | **C** | Démo agents — workflow MCP / agent guidé | *(design TBD)* |
 
 ### Séance 4 — Le business de l'IA
 
 | Bloc | Contenu | Fichier |
 |------|---------|---------|
-| **A** | L'écosystème IA — Chaîne de valeur 9 couches, acteurs clés (NVIDIA, cloud, labs), marché et investissements, positionnement FR/EU, Mistral AI | `slides/session-04/A-ecosysteme-ia.md` (18 slides) |
+| **A** | L'écosystème IA — Chaîne de valeur 9 couches, acteurs clés (NVIDIA, cloud, labs), marché et investissements, positionnement FR/EU, Mistral AI, **L'IA en 2030** (inference economics, scaling compute 5000× GPT-4, énergie comme nouveau pétrole, GDPval/RLI benchmarks économiques) | `slides/session-04/A-ecosysteme-ia.md` (23 slides) |
 | **B** | Business Models & Cas Réels — 7 patterns business, déflation des coûts, moats, data flywheel, cas réels (Klarna, L'Oréal, Schneider Electric, Cursor, failure cases, secteurs régulés), 5 tendances structurelles | `slides/session-04/B-business-models.md` (18 slides) |
 | **C** | Intervenants externes (~1h total) | Voir section ci-dessous |
 
@@ -62,7 +62,7 @@
 
 | Bloc | Contenu | Fichier |
 |------|---------|---------|
-| **A** | Régulation & IA responsable — EU AI Act (4 niveaux de risque, calendrier, coûts), RGPD, biais, copyright, impact environnemental, emploi, IA responsable, veille techno | `slides/session-05/A-regulation-ethique.md` (23 slides) |
+| **A** | Régulation & IA responsable — EU AI Act (4 niveaux de risque, calendrier, coûts), RGPD, biais, copyright, impact environnemental, emploi, IA responsable, **Constitutional AI** (Claude's Constitution 83 pages, hiérarchie Safe>Ethical>Compliant>Helpful, Dario Amodei "adolescence de la technologie", débat gouvernance Anthropic), veille techno | `slides/session-05/A-regulation-ethique.md` (27 slides) |
 | **B** | Présentations finales — 7 équipes × 5 min + feedback (~40 min) | *(live)* |
 | **C** | QCM final & clôture | |
 
@@ -82,13 +82,13 @@
 | `session-01/0-intro-cours.md` | 10 | ✅ Terminé |
 | `session-01/A-genai-fondamentaux.md` | 37 | ✅ Terminé |
 | `session-01/C-premier-projet-ia.md` | 25 | ✅ Terminé |
-| `session-02/A-llms.md` | 40 | ✅ Terminé |
-| `session-02/B-evaluer-ia.md` | 18 | ✅ Terminé |
-| `session-03/A-rag-agents.md` | 27 | ✅ Terminé (MCP/Skills/méthodologie agents = TODO recherche) |
-| `session-03/B-methodologie-projet.md` | 27 | ✅ Terminé (Gmail story = TODO recherche) |
-| `session-04/A-ecosysteme-ia.md` | 18 | ✅ Terminé |
+| `session-02/A-llms.md` | 45 | ✅ Terminé — enrichi coûts entraînement (Epoch AI), données limitées, synthetic data, gap open/closed |
+| `session-02/B-evaluer-ia.md` | 21 | ✅ Terminé — enrichi LM Council, ECI accélération, GDPval |
+| `session-03/A-rag-agents.md` | 34 | ✅ Terminé — enrichi BM25 DeepMind, Context Engineering, Multi-Agent critique, Reasoning Models |
+| `session-03/B-methodologie-projet.md` | 29 | ✅ Terminé — enrichi 6 pièges AI Engineering (Chip Huyen) |
+| `session-04/A-ecosysteme-ia.md` | 23 | ✅ Terminé — enrichi section "L'IA en 2030" (inference, scaling, énergie, benchmarks économiques) |
 | `session-04/B-business-models.md` | 18 | ✅ Terminé |
-| `session-05/A-regulation-ethique.md` | 23 | ✅ Terminé |
+| `session-05/A-regulation-ethique.md` | 27 | ✅ Terminé — enrichi Constitutional AI, Amodei, débat gouvernance Anthropic |
 
 ### Decks de référence (evaluation/)
 

@@ -316,13 +316,102 @@ Les hyperscalers investissent massivement dans l'infra IA :
 
 <!-- _class: section -->
 
+# L'IA en 2030
+
+## Scaling, énergie, valeur économique
+
+---
+
+<!-- _class: img-right -->
+
+# 14 — Inference Economics : le coût qui change tout
+
+![bg right:55% contain](assets/epoch/epoch-inference-econ-01.png)
+
+- Le coût d'inférence baisse de **3x par an** — mais la vitesse plafonne [1]
+- Bottleneck caché : la **latence réseau** (30 μs fixes par échange GPU) [1]
+- En dessous de 10 MB par tensor, la latence domine la bande passante [1]
+- Le **Speculative Decoding** double la vitesse sans surcoût [1]
+
+> Jeter plus de GPUs sur le problème **n'accélère pas linéairement** la réponse. L'architecture réseau compte plus que la puissance brute.
+
+<small>Sources : [1] [Epoch AI — Inference Economics](https://epoch.ai/blog/inference-economics-of-language-models)</small>
+
+---
+
+<!-- _class: img-right -->
+
+# 15 — Scaling compute : peut-on continuer jusqu'en 2030 ?
+
+![bg right:55% contain](assets/epoch/epoch-scaling-2030-summary-slideshow-figure.png)
+
+- Training runs **5 000x plus grands** que GPT-4 d'ici 2030 [1]
+- Équivalent : refaire le saut GPT-2 → GPT-4 **une deuxième fois** [1]
+- Clusters à **$100 Mds+**, consommant des **gigawatts** [2]
+- Croissance actuelle : **~4x par an** en compute d'entraînement [1]
+
+> 4 bottlenecks potentiels : énergie, puces, données, latence. **L'énergie** est la contrainte la plus serrée.
+
+<small>Sources : [1] [Epoch AI — Scaling Through 2030](https://epoch.ai/blog/can-ai-scaling-continue-through-2030) · [2] [Epoch AI — AI in 2030](https://epoch.ai/blog/what-will-ai-look-like-in-2030)</small>
+
+---
+
+# 16 — L'énergie : le nouveau pétrole de l'IA
+
+| Métrique | Aujourd'hui | 2030 (proj.) | Source |
+|----------|------------|--------------|--------|
+| Data centers US (total) | **40 GW** | **90 GW** | [1] |
+| Campus IA unique | 27 MW (Llama 3.1) | **1–5 GW** | [1] |
+| Projet Stargate (MS/OpenAI) | — | **5 GW** | [1] |
+| Amazon (nucléaire) | **960 MW** acquis | En expansion | [1] |
+
+- Meta contracte des **fermes solaires**, Amazon achète des **centrales nucléaires** [1]
+- Le barrage Grand Coulee = **6,8 GW** — un seul campus IA rivalisera [1]
+
+> L'accès à l'énergie devient un **moat stratégique**. Le "nouveau pétrole" n'est plus la data — c'est le watt.
+
+<small>Sources : [1] [Epoch AI — Scaling Through 2030](https://epoch.ai/blog/can-ai-scaling-continue-through-2030)</small>
+
+---
+
+<!-- _class: img-right -->
+
+# 17 — Que vaudra l'IA en 2030 ?
+
+![bg right:55% contain](assets/epoch/epoch-econ-value-01.png)
+
+- **GDPval** : GPT-5.2 Pro résout **74%** des tâches (7h moy.) [1]
+- **RLI** : Claude Opus ne résout que **4%** (tâches de 29h moy.) [1]
+- Software engineering : **20–70%** de gains de productivité dans 6/7 études [2]
+- Mais 1 étude rigoureuse montre un **ralentissement de 20%** [2]
+
+> Le score dépend **de comment on mesure**. Entrepreneurs : méfiez-vous des claims sans méthodologie.
+
+<small>Sources : [1] [Epoch AI — Economic Value Benchmarks](https://epoch.ai/blog/what-do-economic-value-benchmarks-tell-us) · [2] [Epoch AI — AI in 2030](https://epoch.ai/blog/what-will-ai-look-like-in-2030)</small>
+
+---
+
+# 18 — Discussion : En 2030, l'IA sera...
+
+> Les training runs seront **5 000x GPT-4**. Les campus IA consommeront autant qu'une **centrale nucléaire**. Mais les benchmarks économiques disent **4% ou 74%** selon la méthode.
+
+**Faites vos prédictions** :
+
+- L'IA remplacera-t-elle des **métiers entiers** ou transformera-t-elle surtout la **façon de travailler** (délégation + vérification) ?
+- À **$100 Mds** le cluster d'entraînement, combien d'entreprises resteront dans la course frontier ? Quelles conséquences pour la concurrence ?
+- L'énergie (**40 → 90 GW** aux US) : frein écologique ou accélérateur de souveraineté ?
+
+---
+
+<!-- _class: section -->
+
 # Applications & Synthèse
 
 ## Où la valeur rencontre l'utilisateur
 
 ---
 
-# 14 — Applications AI-natives — la couche la plus visible
+# 19 — Applications AI-natives — la couche la plus visible
 
 | Entreprise | ARR / Val. [1] | Produit |
 |------------|----------------|---------|
@@ -340,7 +429,7 @@ Les hyperscalers investissent massivement dans l'infra IA :
 
 <!-- _class: cols -->
 
-# 15 — L'écosystème européen : forces et faiblesses
+# 20 — L'écosystème européen : forces et faiblesses
 
 <div class="left">
 
@@ -370,7 +459,7 @@ Les hyperscalers investissent massivement dans l'infra IA :
 
 ---
 
-# 16 — L'écosystème français en chiffres
+# 21 — L'écosystème français en chiffres
 
 La France se positionne comme hub IA européen :
 
@@ -387,7 +476,7 @@ La France se positionne comme hub IA européen :
 
 <!-- _class: compact -->
 
-# 17 — Discussion : Où se positionner dans le stack ?
+# 22 — Discussion : Où se positionner dans le stack ?
 
 > **500K€**, **4 personnes** techniques, 18 mois de runway.
 
@@ -405,7 +494,7 @@ La France se positionne comme hub IA européen :
 
 ---
 
-# 18 — Key Takeaways
+# 23 — Key Takeaways
 
 1. **La value chain = des dépendances** — votre startup IA dépend de toutes les couches en dessous. Cartographiez vos risques fournisseurs.
 

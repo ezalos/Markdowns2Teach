@@ -393,13 +393,98 @@ Les dommages causés par l'IA sont **concrets et documentés** :
 
 <!-- _class: section -->
 
+# Constitutional AI & gouvernance
+
+## Des principes aux structures
+
+---
+
+# 19 — Claude's Constitution : l'IA guidée par des principes
+
+Anthropic a publié en janvier 2026 une **constitution de 83 pages** qui définit les valeurs de Claude — pas une liste de règles, mais un document de philosophie morale [1].
+
+**Hiérarchie de 4 priorités** (en cas de conflit, l'ordre prime) :
+
+1. **Safe** — ne pas compromettre les mécanismes de contrôle humain
+2. **Ethical** — honnêteté, bonnes valeurs, éviter les nuisances
+3. **Compliant** — suivre les directives spécifiques d'Anthropic
+4. **Helpful** — être utile aux utilisateurs
+
+**Heuristique clé** : *"Comment un employé senior et réfléchi d'Anthropic réagirait-il ?"* [2]
+
+> Publié sous licence **CC0** — n'importe quelle entreprise peut l'adopter ou l'adapter.
+
+<small>Sources : [1] [Anthropic](https://www.anthropic.com/news/claude-new-constitution) · [2] [Anthropic Constitution](https://www.anthropic.com/constitution)</small>
+
+---
+
+# 20 — Dario Amodei : l'adolescence de la technologie
+
+**Métaphore centrale** : l'humanité est un **adolescent technologique** — la puissance d'un adulte, sans la maturité institutionnelle [1].
+
+**5 catégories de risque** :
+- **Autonomy** — l'IA agit de manière désalignée (déception, manipulation)
+- **Destruction** — acteurs malveillants exploitent l'IA (bioweapons)
+- **Prise de pouvoir** — gouvernements ou entreprises monopolisent l'IA
+- **Disruption économique** — **50%** des emplois white-collar d'entrée éliminés sous 1–5 ans
+- **Concentration** — un petit nombre d'entreprises contrôle un pouvoir disproportionné
+
+> *"A country of geniuses in a datacenter"* — les systèmes IA futurs auront la capacité collective d'un État-nation. La gouvernance d'entreprise classique n'est pas conçue pour ça.
+
+<small>Sources : [1] [Dario Amodei](https://www.darioamodei.com/essay/the-adolescence-of-technology)</small>
+
+---
+
+<!-- _class: cols -->
+
+# 21 — Le débat : Anthropic tient-elle ses promesses ?
+
+<div class="left">
+
+**Critiques** [1] :
+- Engagement de pause RSP **retiré silencieusement**
+- Lobbying contre SB-1047
+- Trust (LTBT) potentiellement sans pouvoir réel
+- Clauses de non-dénigrement secrètes
+
+</div>
+<div class="right">
+
+**Défense** :
+- Mission safety **fondatrice** (raison d'être)
+- RSP évolue, pas abandonnée [2]
+- Recherche safety **nécessite** des modèles frontier
+- Gouvernance = expérimentation, pas solution finie
+
+</div>
+
+> **Tension clé** : la structure compte plus que l'intention. Les engagements volontaires résistent-ils à la pression commerciale ?
+
+<small>Sources : [1] [LessWrong / AI Lab Watch](https://www.lesswrong.com/posts/5aKRshJzhojqfbRyo/) · [2] [Anthropic RSP](https://www.anthropic.com/responsible-scaling-policy)</small>
+
+---
+
+# 22 — Discussion : constitution IA — marketing ou engagement ?
+
+> **Scénario** : votre startup IA publie une "constitution IA" inspirée de celle d'Anthropic. Votre investisseur applaudit la transparence. Votre CTO prévient : *"On se lie les mains face à la concurrence."*
+
+**Questions pour la classe** :
+
+- Publier ses principes éthiques est-il un **avantage concurrentiel** (confiance clients, recrutement) ou une **contrainte auto-imposée** ?
+- Anthropic publie en CC0 — pourquoi offrir ses principes aux concurrents ?
+- Si votre concurrent ignore ses propres principes publiés, quel recours avez-vous ?
+
+---
+
+<!-- _class: section -->
+
 # Partie 3 — Clôture & Veille
 
 ## Ressources, récapitulatif, perspectives
 
 ---
 
-# 19 — Votre boîte à outils de veille IA
+# 23 — Votre boîte à outils de veille IA
 
 | Catégorie | Ressource | Pourquoi |
 |-----------|-----------|----------|
@@ -414,7 +499,7 @@ Les dommages causés par l'IA sont **concrets et documentés** :
 
 ---
 
-# 20 — Construire sa routine de veille en 30 min/jour
+# 24 — Construire sa routine de veille en 30 min/jour
 
 | Profil | Newsletter | Podcast | YouTube | Communauté |
 |--------|------------|---------|---------|------------|
@@ -428,7 +513,7 @@ Les dommages causés par l'IA sont **concrets et documentés** :
 
 ---
 
-# 21 — Récapitulatif : ce que nous avons couvert
+# 25 — Récapitulatif : ce que nous avons couvert
 
 | Session | Thème | Compétence clé |
 |:-------:|-------|----------------|
@@ -442,7 +527,7 @@ Les dommages causés par l'IA sont **concrets et documentés** :
 
 ---
 
-# 22 — 5 stratégies pour entrepreneurs face à la régulation
+# 26 — 5 stratégies pour entrepreneurs face à la régulation
 
 1. **Compliance-first comme moat** — être conforme EU AI Act quand les concurrents ne le sont pas verrouille le marché européen (450M consommateurs)
 2. **Sandbox dès le premier jour** — accès gratuit pour startups, safe harbor contre les amendes [1]
@@ -456,7 +541,7 @@ Les dommages causés par l'IA sont **concrets et documentés** :
 
 ---
 
-# 23 — 5 faits à retenir de cette session
+# 27 — 5 faits à retenir de cette session
 
 1. **L'EU AI Act** est la première loi IA complète au monde — amendes : jusqu'à **€35M / 7% CA** [1]
 

@@ -565,3 +565,88 @@ Convertir un topic de recherche complété en un deck Marp pour le cours M2 IMT&
 - [ ] Questions de discussion = scénarios entrepreneuriaux concrets
 - [ ] Chiffres financiers correspondent aux données de report.md
 - [ ] Pas de `###` à l'intérieur des layouts cols
+
+---
+
+## Annexe E : Web Chart Capture
+
+Certaines pages web (Epoch AI, Our World in Data, etc.) contiennent des graphiques interactifs rendus en JavaScript (SVG, Canvas, Plotly). Le script `scripts/capture-charts.js` permet de les capturer en PNG haute résolution.
+
+### Quand utiliser
+
+| Situation | Outil |
+|-----------|-------|
+| Graphique interactif JS (Epoch AI, Plotly, Observable) | `capture-charts.js` |
+| Diagramme conceptuel à créer (taxonomie, pipeline) | PaperBanana (Phase 5) |
+| Image statique dans un PDF | `scripts/extract-images.sh` |
+
+### Usage de base
+
+```bash
+# Lister les graphiques détectés sur une page
+node scripts/capture-charts.js <url> --list
+
+# Capturer tous les graphiques
+node scripts/capture-charts.js <url> \
+  -o slides/session-XX/assets/epoch \
+  -p epoch-training-cost
+
+# Capturer un graphique spécifique par sélecteur CSS
+node scripts/capture-charts.js <url> \
+  -s "#figure-cloud" \
+  -o slides/session-XX/assets/epoch \
+  -p epoch-cloud-cost
+
+# Screenshot pleine page
+node scripts/capture-charts.js <url> --full-page -o /tmp -p page-preview
+```
+
+### Options
+
+| Option | Défaut | Description |
+|--------|--------|-------------|
+| `-o, --output <dir>` | `.` | Répertoire de sortie |
+| `-s, --selector <css>` | auto-detect | Sélecteur CSS (répétable) |
+| `-p, --prefix <name>` | slug URL | Préfixe des fichiers |
+| `--full-page` | — | Screenshot pleine page |
+| `--width <px>` | 1400 | Largeur viewport |
+| `--scale <factor>` | 2 | Device pixel ratio (2 = Retina) |
+| `--wait <ms>` | 2000 | Attente après network idle |
+| `--list` | — | Lister sans capturer |
+
+### Détection automatique
+
+Le script cherche les graphiques dans cet ordre de priorité :
+
+1. `[id^="figure-"]` — convention Epoch AI
+2. `<figure>` contenant `<svg>` ou `<canvas>`
+3. Classes de librairies chart : `.chart`, `.plotly`, `.vega-embed`, `.highcharts-container`, etc.
+4. `<svg>` larges (>300px, hors nav/header/footer)
+5. `<canvas>` larges (>300px)
+
+Les éléments cachés (0×0, dans des onglets) sont marqués `[HIDDEN]` en mode `--list` et ignorés en mode capture.
+
+### Nommage des fichiers
+
+- Avec `--prefix epoch-cost` et élément avec id `figure-cloud` → `epoch-cost-figure-cloud.png`
+- Sans id → `epoch-cost-01.png`, `epoch-cost-02.png`
+- Mode `--full-page` → `epoch-cost-full.png`
+
+### Intégration dans les slides
+
+```bash
+# Capturer dans le bon répertoire d'assets
+node scripts/capture-charts.js <url> \
+  -o slides/session-02/assets/epoch \
+  -p epoch-training-cost
+
+# Référencer dans la slide
+# ![bg right:55% contain](assets/epoch/epoch-training-cost-figure-cloud.png)
+```
+
+### Bonnes pratiques
+
+- Toujours commencer par `--list` pour identifier les graphiques disponibles
+- Le scale factor 2 (défaut) produit des images Retina — adapter si les fichiers sont trop lourds
+- Les banners cookies sont automatiquement supprimés avant capture
+- Les pages sans graphiques JS (images statiques) retournent "No chart elements detected" — utiliser `extract-images.sh` pour les PDF ou un simple téléchargement pour les PNG statiques

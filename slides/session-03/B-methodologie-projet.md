@@ -288,7 +288,40 @@ Avant de construire un modèle, **5 patterns** pour tester la valeur [1] :
 
 <!-- _class: compact -->
 
-# 13 — The Gmail Story — Le MVP comme méthodologie
+# 13 — Les 6 pièges de l'AI Engineering
+
+Chip Huyen identifie **6 erreurs récurrentes** dans les projets GenAI [1] :
+
+1. **Utiliser la GenAI quand ce n'est pas nécessaire** — un algorithme classique suffit souvent (cf. slide précédente)
+2. **Confondre "mauvais produit" et "mauvaise IA"** — Intuit a transformé son chatbot fiscal en ajoutant des questions suggérées, sans toucher au modèle [1]
+3. **Démarrer trop complexe** — vector DB, agents, fine-tuning… avant d'avoir validé qu'un simple prompt ne suffit pas
+4. **Surestimer un succès précoce** — LinkedIn : **1 mois pour 80%**, puis **4 mois supplémentaires** pour dépasser 95% [1]
+5. **Négliger la compliance et la safety** — copyright, vie privée, abus par des acteurs malveillants
+6. **Crowdsourcer les use cases** — sans stratégie, on finit avec "un million de Slack bots" et zéro ROI [1]
+
+> *"It's easy to build a demo, but hard to build a product."* — Chip Huyen
+
+<small>Sources : [1] [Chip Huyen](https://huyenchip.com/2025/01/16/ai-engineering-pitfalls.html)</small>
+
+---
+
+# 14 — Discussion : Avez-vous besoin de GenAI ?
+
+> **Scénario** : votre startup veut ajouter de l'IA à son produit. Un investisseur vous demande : *"Pourquoi de la GenAI et pas une simple regex ou un modèle classique ?"*
+
+**Questions pour la classe** :
+
+- Quand la GenAI est-elle **overkill** ? Citez un cas où une règle simple suffirait
+- Comment savez-vous qu'il faut **monter en complexité** (Prompting → RAG → Fine-tuning) ?
+- Si votre démo fonctionne en 1 mois, combien de temps budgétez-vous pour la production ? (indice : slide 13, piège #4)
+
+> **Rappel** : Google Rule of ML #1 — *"If you can build it without ML, do so first."* Le même principe s'applique à la GenAI.
+
+---
+
+<!-- _class: compact -->
+
+# 15 — The Gmail Story — Le MVP comme méthodologie
 
 <!-- TODO: Louis will present the Gmail story live — prepare slide with key points after discussion -->
 
@@ -308,7 +341,7 @@ Gmail a démarré comme **la chose la plus simple possible**.
 
 ---
 
-# 14 — Discussion : Canvas en action
+# 16 — Discussion : Canvas en action
 
 > Votre startup fintech (30 personnes, 5M EUR CA, budget IA 150K EUR) a brainstormé **15 use cases**. Après filtrage, il en reste 7. Budget pour 2-3 maximum.
 
@@ -335,7 +368,7 @@ Gmail a démarré comme **la chose la plus simple possible**.
 
 <!-- _class: cols -->
 
-# 15 — Trois modèles d'accès aux LLMs
+# 17 — Trois modèles d'accès aux LLMs
 
 <div class="left">
 
@@ -365,7 +398,7 @@ Gmail a démarré comme **la chose la plus simple possible**.
 
 <!-- _class: img-right -->
 
-# 16 — Le guide de décision
+# 18 — Le guide de décision
 
 ![bg right:55% contain](assets/infographics/decision-guide_run_20260216_171259_3f18b9.png)
 
@@ -382,7 +415,7 @@ Quatre niveaux d'investissement technique :
 
 ---
 
-# 17 — L'écosystème open-source européen
+# 19 — L'écosystème open-source européen
 
 - **Hugging Face** : Paris, **$4,5 Mds** valorisation, **1M+ modèles**, 400K datasets [1]
 - **Mistral AI** : Paris, **EUR 11,7 Mds** valorisation, seul frontier UE [2]
@@ -395,7 +428,7 @@ Quatre niveaux d'investissement technique :
 
 ---
 
-# 18 — Combien coûte un appel API ?
+# 20 — Combien coûte un appel API ?
 
 | Modèle | Input (par 1M tokens) | Output (par 1M tokens) | Positionnement |
 |---|---|---|---|
@@ -414,7 +447,7 @@ Quatre niveaux d'investissement technique :
 
 <!-- _class: img-right compact-table -->
 
-# 19 — Progression : Prompting → RAG → Fine-tuning
+# 21 — Progression : Prompting → RAG → Fine-tuning
 
 | Outil | Complexité | Coût | Quand l'utiliser |
 |---|---|---|---|
@@ -431,7 +464,7 @@ Quatre niveaux d'investissement technique :
 
 <!-- _class: img-right -->
 
-# 20 — Cas pratique : BettaBurgers
+# 22 — Cas pratique : BettaBurgers
 
 **Contexte** : BettaBurgers veut un chatbot pour prendre les commandes.
 
@@ -460,7 +493,7 @@ Quatre niveaux d'investissement technique :
 
 <!-- _class: compact -->
 
-# 21 — Trois phases, trois sets d'outils
+# 23 — Trois phases, trois sets d'outils
 
 **Phase 1 — Valider** (0-3 mois) :
 - Use Case Prioritization, AI Project Canvas, MVP Prompt Engineering
@@ -479,7 +512,7 @@ Quatre niveaux d'investissement technique :
 
 ---
 
-# 22 — Key Takeaways
+# 24 — Key Takeaways
 
 1. **Prompt-based Development** — de 7 mois à quelques jours, l'IA accessible à tous
 

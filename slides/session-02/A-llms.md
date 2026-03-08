@@ -313,16 +313,34 @@ Le LLM produit une distribution de probabilités. Trois paramètres contrôlent 
 | Llama 3.1 405B | 2024 | 405B | $60–170M |
 | DeepSeek-V3 🇨🇳 | 2024 | 671B MoE | **$5,6M** [2] |
 
-- Chiffres = **compute du run final** — coût total (R&D, infra) : **2–10x** plus élevé [1]
+- Coûts frontier : croissance de **2,4x par an** depuis 2016, projection **>$1B** d'ici 2027 [3]
 - DeepSeek-V3 ≈ GPT-4o pour **14x moins cher** (H800 à $2/h) [2]
 
-<small>Sources : [1] [Epoch AI](https://arxiv.org/abs/2405.21015) · [2] [DeepSeek-V3](https://arxiv.org/abs/2412.19437)</small>
+<small>Sources : [1] [Epoch AI](https://arxiv.org/abs/2405.21015) · [2] [DeepSeek-V3](https://arxiv.org/abs/2412.19437) · [3] [Epoch AI](https://epoch.ai/blog/how-much-does-it-cost-to-train-frontier-ai-models)</small>
+
+---
+
+<!-- _class: img-right -->
+
+# 14 — Où passe l'argent ? Anatomie du coût d'entraînement
+
+![bg right:55% contain](assets/epoch/epoch-training-cost-figure-cost-breakdown.png)
+
+Répartition du coût de développement (GPT-4 / Gemini Ultra) [1] :
+
+- **Hardware** : 47–67% — GPUs (H100, TPU) = le poste dominant
+- **R&D staff** : 29–49% — chercheurs, ingénieurs ML
+- **Énergie** : seulement **2–6%** — Gemini Ultra : ~35 MW [1]
+
+> Le bottleneck n'est pas l'électricité — c'est le silicium et le talent. Seuls les acteurs les mieux capitalisés peuvent jouer au frontier.
+
+<small>Sources : [1] [Epoch AI](https://epoch.ai/blog/how-much-does-it-cost-to-train-frontier-ai-models)</small>
 
 ---
 
 <!-- _class: cols -->
 
-# 14 — L'efficience explose : reproduire GPT-2 pour $672
+# 15 — L'efficience explose : reproduire GPT-2 pour $672
 
 <div class="left">
 
@@ -349,13 +367,56 @@ Le LLM produit une distribution de probabilités. Trois paramètres contrôlent 
 
 <!-- _class: section -->
 
+# Les données d'entraînement
+
+## Le prochain mur ?
+
+---
+
+<!-- _class: img-right -->
+
+# 16 — Les données d'entraînement : une ressource limitée ?
+
+![bg right:55% contain](assets/epoch/epoch-data-limits-03.png)
+
+Stock de texte public de qualité : **~300 trillion tokens** (90% CI : 100T–1 000T) [1]
+
+- Training compute croît de **4–5x par an** [1]
+- Épuisement estimé (80% CI) : **2026–2032**
+  - Scénario compute-optimal : **2028**
+  - Avec 5x overtraining : dès **2027** [1]
+- Multi-epoch training étend le stock de **2–5x** [1]
+
+> "Five years and four orders of magnitude of compute separate GPT-2 from GPT-4" — le mur des données approche.
+
+<small>Sources : [1] [Epoch AI](https://epoch.ai/blog/will-we-run-out-of-data-limits-of-llm-scaling-based-on-human-generated-data)</small>
+
+---
+
+# 17 — Synthetic Data : la réponse au mur des données
+
+Le Web manque de certaines primitives de raisonnement — aucun scaling ne comble ce gap. La **Synthetic Data** change le paradigme [1] :
+
+- **"Upward training"** : des modèles de **3B–12B** génèrent des données pour entraîner des modèles plus grands [1]
+- **Phi-1.5** (Microsoft) : 1,3B params sur 30B tokens → performance de modèles **10x** plus grands [1]
+- **Seed-Prover** : **230M+** problèmes de géométrie générés en 7 jours [1]
+- Labs en 2025 : Nemotron-3, DeepSeek-Prover-V2, Claude 4, Kimi 2.5 [1]
+
+> On ne scrape plus le Web en espérant — on **conçoit** les données d'entraînement. "Organic data is fundamentally data engineering outsourcing."
+
+<small>Sources : [1] [VintageData](https://vintagedata.org/blog/posts/synthetic-pretraining)</small>
+
+---
+
+<!-- _class: section -->
+
 # Accéder aux LLMs
 
 ## Web, API, Open-Weights
 
 ---
 
-# 15 — Interface web : le plus simple
+# 18 — Interface web : le plus simple
 
 Les chatbots grand public — aucune compétence technique requise :
 
@@ -371,7 +432,7 @@ Les chatbots grand public — aucune compétence technique requise :
 
 ---
 
-# 16 — Accès API : intégrer un LLM dans votre produit
+# 19 — Accès API : intégrer un LLM dans votre produit
 
 Les APIs permettent d'appeler un LLM *depuis votre code* — la base de tout produit IA :
 
@@ -391,7 +452,7 @@ Les APIs permettent d'appeler un LLM *depuis votre code* — la base de tout pro
 
 <!-- _class: compact compact-table -->
 
-# 17 — Le coût d'inference chute de 10x à 900x par an
+# 20 — Le coût d'inference chute de 10x à 900x par an
 
 Chute des prix d'inference **à performance fixe** sur 6 benchmarks [1] :
 
@@ -411,7 +472,7 @@ Chute des prix d'inference **à performance fixe** sur 6 benchmarks [1] :
 
 ---
 
-# 18 — Prix API : la trajectoire OpenAI
+# 21 — Prix API : la trajectoire OpenAI
 
 | Modèle | Date | Input / 1M tokens | MMLU approx |
 |--------|------|--------------------|-------------|
@@ -431,7 +492,7 @@ Chute des prix d'inference **à performance fixe** sur 6 benchmarks [1] :
 
 <!-- _class: cols -->
 
-# 19 — Open-Weights : télécharger et exécuter en local
+# 22 — Open-Weights : télécharger et exécuter en local
 
 <div class="left">
 
@@ -455,7 +516,7 @@ RGPD (données locales), pas de coût API, hors ligne
 
 ---
 
-# 20 — Licences : ce que vous pouvez (et ne pouvez pas) faire
+# 23 — Licences : ce que vous pouvez (et ne pouvez pas) faire
 
 | Licence | Modèles | Usage commercial | Restrictions |
 |---------|---------|-----------------|-------------|
@@ -465,6 +526,25 @@ RGPD (données locales), pas de coût API, hors ligne
 | **Propriétaire** | GPT-4, Claude | ❌ API uniquement | Pas de téléchargement |
 
 > *Pour les entrepreneurs* : Apache 2.0 offre la liberté maximale. Vérifiez toujours la licence *avant* de construire votre produit dessus.
+
+---
+
+<!-- _class: img-right -->
+
+# 24 — Open vs Closed : le gap se réduit
+
+![bg right:55% contain](assets/epoch/epoch-open-models-om-fig-4.png)
+
+Les modèles open-weights rattrapent les modèles propriétaires [1] :
+
+- Retard en compute : **12–15 mois** (90% CI : 6–22 mois)
+- Sur GPQA (science PhD) : seulement **5 mois** de retard [1]
+- **DeepSeek V2** égale PaLM 2 avec **7x moins de compute** [1]
+- Licences restrictives en hausse : de **2%** (2018) à **40%** (2023) [1]
+
+> Les modèles open sont **plus efficients** — le gap est une question d'investissement, pas de capacité technique.
+
+<small>Sources : [1] [Epoch AI](https://epoch.ai/blog/open-models-report)</small>
 
 ---
 
@@ -478,7 +558,7 @@ RGPD (données locales), pas de coût API, hors ligne
 
 <!-- _class: compact compact-table -->
 
-# 21 — Quantization : comprimer un modèle sans (trop) perdre
+# 25 — Quantization : comprimer un modèle sans (trop) perdre
 
 La **Quantization** réduit la précision des paramètres pour consommer moins de mémoire :
 
@@ -497,7 +577,7 @@ La **Quantization** réduit la précision des paramètres pour consommer moins d
 
 <!-- _class: compact -->
 
-# 22 — Paramètres → vRAM → Hardware
+# 26 — Paramètres → vRAM → Hardware
 
 Les LLMs tournent sur **GPU**. La **vRAM** est la contrainte principale.
 
@@ -519,7 +599,7 @@ Les LLMs tournent sur **GPU**. La **vRAM** est la contrainte principale.
 
 <!-- _class: compact compact-table -->
 
-# 23 — Le paradoxe MoE : rapide mais gourmand en mémoire
+# 27 — Le paradoxe MoE : rapide mais gourmand en mémoire
 
 | Dimension | Dense 70B (Llama 2) | MoE 671B (DeepSeek-V3) |
 |-----------|---------------------|------------------------|
@@ -537,7 +617,7 @@ Les LLMs tournent sur **GPU**. La **vRAM** est la contrainte principale.
 
 <!-- _class: img-right compact-table -->
 
-# 24 — Plus gros = plus intelligent ?
+# 28 — Plus gros = plus intelligent ?
 
 ![bg right:55% contain](assets/mmlu-params-graph.svg)
 
@@ -561,7 +641,7 @@ Les benchmarks montrent des *rendements décroissants* :
 
 <!-- _class: cols -->
 
-# 25 — Le bon modèle pour la bonne tâche
+# 29 — Le bon modèle pour la bonne tâche
 
 <div class="left">
 
@@ -583,7 +663,7 @@ Support → Mistral Small · Analyse → o3 / Opus · Code → Claude / Devstral
 
 ---
 
-# 26 — Exercice : estimer le coût d'un produit IA
+# 30 — Exercice : estimer le coût d'un produit IA
 
 **Scénario** : un chatbot de support client, 1 000 conversations/jour.
 
@@ -600,7 +680,7 @@ Support → Mistral Small · Analyse → o3 / Opus · Code → Claude / Devstral
 
 ---
 
-# 27 — David bat Goliath : les petits modèles qui surprennent
+# 31 — David bat Goliath : les petits modèles qui surprennent
 
 | Modèle | Params | Performance | Comparé à |
 |--------|--------|-------------|-----------|
@@ -625,7 +705,7 @@ Support → Mistral Small · Analyse → o3 / Opus · Code → Claude / Devstral
 
 <!-- _class: img-right -->
 
-# 28 — Hallucinations et Knowledge Cutoffs
+# 32 — Hallucinations et Knowledge Cutoffs
 
 ![bg right:55% contain](assets/ng01/img-022.png)
 
@@ -643,7 +723,7 @@ Support → Mistral Small · Analyse → o3 / Opus · Code → Claude / Devstral
 
 ---
 
-# 29 — Structured Output : quand le texte libre ne suffit pas
+# 33 — Structured Output : quand le texte libre ne suffit pas
 
 Le problème : les LLMs produisent du texte libre, mais les systèmes attendent des **données structurées**.
 
@@ -662,7 +742,7 @@ Le problème : les LLMs produisent du texte libre, mais les systèmes attendent 
 
 <!-- _class: cols -->
 
-# 30 — Structured Output : Classifier & Extraction
+# 34 — Structured Output : Classifier & Extraction
 
 <div class="left">
 
@@ -681,7 +761,7 @@ Le problème : les LLMs produisent du texte libre, mais les systèmes attendent 
 
 ---
 
-# 31 — Structured Output : Tool Calling & n8n
+# 35 — Structured Output : Tool Calling & n8n
 
 Le LLM "appelle" un outil en produisant un JSON correspondant à un schéma de fonction :
 
@@ -700,7 +780,7 @@ User : "Planifie une réunion avec Alice et Bob demain à 14h"
 
 ---
 
-# 32 — Field Ordering : le schéma comme Chain-of-Thought
+# 36 — Field Ordering : le schéma comme Chain-of-Thought
 
 Les LLMs génèrent token par token, **de gauche à droite**. L'ordre des champs dans le JSON contrôle *quand* le modèle réfléchit :
 
@@ -720,7 +800,7 @@ Les LLMs génèrent token par token, **de gauche à droite**. L'ordre des champs
 
 <!-- _class: cols -->
 
-# 33 — Schema Design : bonnes pratiques
+# 37 — Schema Design : bonnes pratiques
 
 <div class="left">
 
@@ -743,7 +823,7 @@ Les LLMs génèrent token par token, **de gauche à droite**. L'ordre des champs
 
 <!-- _class: compact -->
 
-# 34 — Confidence en classification : le piège du score verbalisé
+# 38 — Confidence en classification : le piège du score verbalisé
 
 Demander au LLM *"donne ta confiance"* → **le score est hallucié** [1] :
 - Scores concentrés entre **80–100%**, multiples de 5
@@ -763,7 +843,7 @@ Demander au LLM *"donne ta confiance"* → **le score est hallucié** [1] :
 
 <!-- _class: cols -->
 
-# 35 — Confidence : patterns de production
+# 39 — Confidence : patterns de production
 
 <div class="left">
 
@@ -788,7 +868,7 @@ Demander au LLM *"donne ta confiance"* → **le score est hallucié** [1] :
 
 ---
 
-# 36 — LLMs multimodaux
+# 40 — LLMs multimodaux
 
 Les LLMs récents ne se limitent plus au texte — ils comprennent et génèrent plusieurs **modalités** :
 
@@ -803,7 +883,7 @@ Les LLMs récents ne se limitent plus au texte — ils comprennent et génèrent
 
 ---
 
-# 37 — Multimodalité : cas d'usage business
+# 41 — Multimodalité : cas d'usage business
 
 | Cas d'usage | Modalité | Exemple concret |
 |-------------|----------|-----------------|
@@ -825,7 +905,7 @@ Les LLMs récents ne se limitent plus au texte — ils comprennent et génèrent
 
 ---
 
-# 38 — Les 3 principes du Prompting
+# 42 — Les 3 principes du Prompting
 
 | Principe | Description |
 |---|---|
@@ -840,7 +920,7 @@ Bon : *"Help me write a professional email asking to join the legal docs project
 
 ---
 
-# 39 — Chain-of-Thought et itération
+# 43 — Chain-of-Thought et itération
 
 *Chain-of-Thought* — décomposer une tâche en *étapes explicites* améliore la qualité :
 
@@ -868,15 +948,15 @@ Bon : *"Help me write a professional email asking to join the legal docs project
 
 <!-- _class: compact -->
 
-# 40 — Points clés à retenir
+# 44 — Points clés à retenir
 
 - **Mécanisme** — Next-token prediction, séquentiel
 - **Pipeline** — Pretraining (15T tokens) → SFT → RLHF → Reasoning
+- **Coûts** — Training : 2,4x/an, >$1B d'ici 2027. Hardware = 47–67% du coût
+- **Données** — ~300T tokens disponibles, épuisement 2026–2032. Synthetic Data = relais
 - **Inference** — Coût chute de ~10–50×/an — plus rapide que la loi de Moore
-- **MoE** — Découple capacité (total params) et coût (active params)
-- **Accès** — Web (gratuit), API (pay-per-token), open-weights (local/RGPD)
+- **Open-weights** — 12–15 mois de retard, mais 7x plus efficients en compute
 - **Taille** — Plus gros ≠ meilleur. Le bon modèle pour la bonne tâche
-- **Hallucinations** — Le LLM invente avec confiance. Cutoff = données figées → besoin du RAG
 - **Structured Output** — Ordre des champs JSON = CoT gratuit (+62 pts GSM8K)
 - **Prompting** — Soyez spécifique, guidez le raisonnement, itérez
 

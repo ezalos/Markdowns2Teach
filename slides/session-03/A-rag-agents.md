@@ -162,7 +162,29 @@ Les vecteurs sont stockés dans des **bases vectorielles** optimisées pour la r
 
 ---
 
-# 08 — RAG en pratique : chatbot RH
+<!-- _class: compact -->
+
+# 08 — BM25 n'est pas mort : la preuve par DeepMind
+
+Google DeepMind a prouvé mathématiquement que les Dense Embeddings ont une **limite structurelle** [1] :
+
+| Méthode | Recall@2 (LIMIT) |
+|---|---|
+| **BM25** (sparse) | **97,8%** |
+| ColBERT (multi-vector) | 83,5% |
+| E5-Mistral 7B (4 096 dim.) | 29,5% |
+| Gemini Embed (3 072 dim.) | 1,6% |
+
+- Le gap **97,8% vs 29,5%** n'est pas un problème d'entraînement — c'est une **impossibilité mathématique** liée à la compression en vecteurs denses
+- Plus d'entraînement ou plus de dimensions ne comblera pas le fossé
+
+> Le Hybrid Search n'est pas "nice to have" — c'est une **nécessité architecturale** prouvée.
+
+<small>Sources : [1] [Google DeepMind — ICLR 2026](https://arxiv.org/html/2508.21038v1)</small>
+
+---
+
+# 09 — RAG en pratique : chatbot RH
 
 **Question utilisateur** : "Y a-t-il un parking pour les employés ?"
 
@@ -182,7 +204,7 @@ Question : Y a-t-il un parking pour les employés ?
 
 ---
 
-# 09 — Applications du RAG
+# 10 — Applications du RAG
 
 Le RAG est partout en 2025–2026 — **86%** des organisations augmentent leurs LLMs avec du RAG [1] :
 
@@ -200,7 +222,7 @@ Le RAG est partout en 2025–2026 — **86%** des organisations augmentent leurs
 
 ---
 
-# 10 — Le LLM comme moteur de traitement
+# 11 — Le LLM comme moteur de traitement
 
 **Changement de mental model** — Ne pensez plus au LLM comme une source d'information, mais comme un **consultant spécialisé** :
 
@@ -218,7 +240,7 @@ Le RAG est partout en 2025–2026 — **86%** des organisations augmentent leurs
 
 <!-- _class: cols -->
 
-# 11 — RAG vs Fine-tuning : comment choisir ?
+# 12 — RAG vs Fine-tuning : comment choisir ?
 
 <div class="left">
 
@@ -245,7 +267,7 @@ Le RAG est partout en 2025–2026 — **86%** des organisations augmentent leurs
 
 <!-- _class: compact -->
 
-# 12 — RAG avancé : Reranking et Contextual Retrieval
+# 13 — RAG avancé : Reranking et Contextual Retrieval
 
 Le RAG basique récupère les top-K par similarité. En production, deux techniques changent la donne :
 
@@ -265,7 +287,7 @@ Le RAG basique récupère les top-K par similarité. En production, deux techniq
 
 <!-- _class: cols -->
 
-# 13 — RAG : les patterns de production
+# 14 — RAG : les patterns de production
 
 <div class="left">
 
@@ -289,6 +311,22 @@ Le RAG basique récupère les top-K par similarité. En production, deux techniq
 
 ---
 
+# 15 — Context Engineering : au-delà du RAG
+
+Le RAG injecte des documents. Le **Context Engineering** conçoit tout l'environnement informationnel de l'agent [1] :
+
+- **Context Pollution** = ennemi n°1 : les Slash Commands injectent **91% de bruit** dans le contexte vs les Subagents qui renvoient **76% de signal** utile [1]
+- **Context Rot** : la fiabilité se dégrade à mesure que la conversation s'allonge
+- Les meilleurs systèmes isolent le bruit (logs, traces) dans des subagents dédiés
+
+**Le test de réalité pour les entrepreneurs** :
+
+> "Si Claude Code ne peut pas accomplir votre tâche avec des outils parfaits et aucune contrainte d'UI, votre agent de production n'y arrivera pas non plus." — Prototypez avec les outils existants **avant** de construire de l'infrastructure [1].
+
+<small>Sources : [1] [Jason Liu — Context Engineering](https://jxnl.co/writing/2025/08/28/context-engineering-index/)</small>
+
+---
+
 <!-- _class: section -->
 
 # Agents IA
@@ -297,7 +335,7 @@ Le RAG basique récupère les top-K par similarité. En production, deux techniq
 
 ---
 
-# 14 — Qu'est-ce qu'un Agent ?
+# 16 — Qu'est-ce qu'un Agent ?
 
 Un **Agent** = un LLM qui enchaîne plusieurs actions de manière autonome pour atteindre un objectif.
 
@@ -312,7 +350,7 @@ Un **Agent** = un LLM qui enchaîne plusieurs actions de manière autonome pour 
 
 ---
 
-# 15 — La boucle ReAct : Reasoning + Acting
+# 17 — La boucle ReAct : Reasoning + Acting
 
 Le pattern dominant des agents est **ReAct** (Reasoning + Acting) [1] :
 
@@ -333,7 +371,7 @@ Le pattern dominant des agents est **ReAct** (Reasoning + Acting) [1] :
 
 ---
 
-# 16 — Tool Use : donner des capacités au LLM
+# 18 — Tool Use : donner des capacités au LLM
 
 Les LLMs ont des limites intrinsèques. Le **Tool Use** (ou Function Calling) les compense :
 
@@ -352,7 +390,7 @@ Le LLM génère un **appel de fonction structuré** (JSON), le système exécute
 
 <!-- _class: compact -->
 
-# 17 — MCP : le protocole universel des agents
+# 19 — MCP : le protocole universel des agents
 
 Le **Model Context Protocol** (Anthropic, nov. 2024) standardise la connexion LLM ↔ outils :
 
@@ -374,7 +412,7 @@ Le **Model Context Protocol** (Anthropic, nov. 2024) standardise la connexion LL
 
 <!-- _class: cols -->
 
-# 18 — MCP : l'écosystème en 2026
+# 20 — MCP : l'écosystème en 2026
 
 <div class="left">
 
@@ -401,7 +439,7 @@ Le **Model Context Protocol** (Anthropic, nov. 2024) standardise la connexion LL
 
 <!-- _class: cols compact -->
 
-# 19 — MCP : les risques de sécurité
+# 21 — MCP : les risques de sécurité
 
 <div class="left">
 
@@ -429,7 +467,7 @@ Le **Model Context Protocol** (Anthropic, nov. 2024) standardise la connexion LL
 
 <!-- _class: compact -->
 
-# 20 — Skills : quand un agent sait faire quelque chose
+# 22 — Skills : quand un agent sait faire quelque chose
 
 Un **Tool** connecte l'agent à un service. Une **Skill** lui apprend un **processus complet** :
 
@@ -451,7 +489,7 @@ Un **Tool** connecte l'agent à un service. Une **Skill** lui apprend un **proce
 
 <!-- _class: cols -->
 
-# 21 — Skills vs Tools : la bonne abstraction
+# 23 — Skills vs Tools : la bonne abstraction
 
 <div class="left">
 
@@ -472,7 +510,7 @@ Un **Tool** connecte l'agent à un service. Une **Skill** lui apprend un **proce
 
 <!-- _class: compact -->
 
-# 22 — Construire un agent : la règle d'or
+# 24 — Construire un agent : la règle d'or
 
 Anthropic "Building Effective Agents" (déc. 2024) [1] — **commencer simple, monter en complexité si nécessaire** :
 
@@ -491,7 +529,7 @@ Anthropic "Building Effective Agents" (déc. 2024) [1] — **commencer simple, m
 
 ---
 
-# 23 — Le problème des erreurs composées
+# 25 — Le problème des erreurs composées
 
 Pourquoi les agents autonomes échouent souvent ? Les **erreurs se multiplient** à chaque étape :
 
@@ -512,7 +550,7 @@ Pourquoi les agents autonomes échouent souvent ? Les **erreurs se multiplient**
 
 <!-- _class: cols -->
 
-# 24 — Failure Modes : quand les agents déraillent
+# 26 — Failure Modes : quand les agents déraillent
 
 <div class="left">
 
@@ -535,7 +573,39 @@ Pourquoi les agents autonomes échouent souvent ? Les **erreurs se multiplient**
 
 ---
 
-# 25 — Les agents en 2026 : marché et écosystème
+# 27 — Pourquoi pas le Multi-Agent ?
+
+Cognition (Devin) a choisi une architecture **Single-Agent** — pas par simplicité, mais par conviction [1] :
+
+- **Le jeu du téléphone** : chaque agent perd du contexte en le transmettant au suivant. L'info critique disparaît à chaque passage
+- **L'exemple Flappy Bird** : un agent conçoit le décor (tuyaux verts), un autre l'oiseau → composants **incompatibles** car décisions implicites contradictoires
+- **Agents parallèles** = décisions implicites (noms, structures) qui entrent en conflit à l'intégration
+
+**Le pattern qui marche** : des sub-agents **read-only** qui collectent l'info et la distillent pour un agent principal qui garde le monopole de l'écriture [1].
+
+> Pour un entrepreneur : 1 agent bien outillé > N agents mal coordonnés. Commencez par le niveau 4–5 de la slide 24 avant de penser Multi-Agent.
+
+<small>Sources : [1] [Cognition/Devin — via jxnl.co](https://jxnl.co/writing/2025/09/11/why-cognition-does-not-use-multi-agent-systems/)</small>
+
+---
+
+# 28 — Le Reasoning Model : une équipe, pas un solo
+
+Les Reasoning Models (DeepSeek-R1, QwQ) ne pensent pas "plus longtemps" — ils pensent **à plusieurs** [1] :
+
+- Le modèle crée **3 à 7 personas internes** avec des personnalités et expertises différentes qui débattent
+- Activer un seul trait "Wait, let me reconsider..." a **doublé la précision** (27% → 55%) [1]
+- Le RL récompense uniquement la bonne réponse → le débat interne **émerge spontanément**
+
+**Le "Social Scaling"** : la diversité de perspectives pourrait rivaliser avec le Compute Scaling (plus de calcul) comme levier de performance [1].
+
+> **Pour les entrepreneurs** : une équipe diverse > un génie solo — même pour l'IA. Les meilleurs modèles simulent exactement cela en interne.
+
+<small>Sources : [1] [Kim et al. — Reasoning Models Generate Societies of Thought, 2026](https://arxiv.org/abs/2601.10825)</small>
+
+---
+
+# 29 — Les agents en 2026 : marché et écosystème
 
 Le marché Agentic AI atteint **$7 Mds** en 2025, projeté **$139–260 Mds** en 2034 [1] :
 
@@ -553,7 +623,7 @@ Le marché Agentic AI atteint **$7 Mds** en 2025, projeté **$139–260 Mds** en
 
 ---
 
-# 26 — Agents : attention aux limites
+# 30 — Agents : attention aux limites
 
 Les agents sont prometteurs mais présentent des défis sérieux en 2026 :
 
@@ -570,7 +640,7 @@ Les agents sont prometteurs mais présentent des défis sérieux en 2026 :
 
 <!-- _class: compact -->
 
-# 27 — Discussion : où les agents créent-ils le plus de valeur ?
+# 31 — Discussion : où les agents créent-ils le plus de valeur ?
 
 **Les meilleurs cas d'usage** (2026) :
 - Tâches **répétitives et structurées** (reporting, veille, extraction)
@@ -594,7 +664,7 @@ Les agents sont prometteurs mais présentent des défis sérieux en 2026 :
 
 ---
 
-# 28 — La boîte à outils : Prompting → RAG → Agents → Fine-tuning
+# 32 — La boîte à outils : Prompting → RAG → Agents → Fine-tuning
 
 | Besoin | Outil | Effort | Coût | Quand |
 |---|---|---|---|---|
@@ -608,23 +678,23 @@ Les agents sont prometteurs mais présentent des défis sérieux en 2026 :
 
 ---
 
-# 29 — Key Takeaways
+# 33 — Key Takeaways
 
 1. **Le RAG est le standard** — 86% des organisations l'utilisent ; c'est votre premier investissement après le Prompting
 
-2. **RAG avancé** — Reranking + Contextual Retrieval réduisent les échecs de retrieval de 67%
+2. **Hybrid Search = non négociable** — BM25 bat tous les Dense Embeddings (97,8% vs 29,5%), preuve mathématique DeepMind
 
-3. **MCP = USB-C pour l'IA** — un standard qui connecte tout agent à tout outil, 97M+ downloads/mois
+3. **Context Engineering > Prompt Engineering** — concevez l'environnement informationnel, pas juste le prompt
 
-4. **Skills = processus métier** — au-delà des outils atomiques, les agents savent exécuter des workflows complets
+4. **MCP = USB-C pour l'IA** — un standard qui connecte tout agent à tout outil, 97M+ downloads/mois
 
-5. **Erreurs composées** — 10 étapes × 95% = 60% de succès. Toujours commencer simple
+5. **1 agent > N agents** — Cognition/Devin le prouve : le Multi-Agent crée plus de problèmes qu'il n'en résout
 
 6. **Commencer simple** — Prompting → RAG → Tool Use → Agents → Fine-tuning
 
 ---
 
-# 30 — Pour la suite
+# 34 — Pour la suite
 
 **À explorer** :
 

@@ -261,7 +261,65 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
-# 12 — Pricing LLM : 1 000× d'écart
+# 12 — Il n'y a pas de meilleur modèle
+
+- Across **20 benchmarks** indépendants, aucun modèle ne domine tout [1]
+- Chaque famille excelle dans un domaine différent :
+
+| Domaine | Leader | Benchmark |
+|---|---|---|
+| Vision & raisonnement | **Gemini** | HLE, GPQA, GeoBench |
+| Agentic & coding | **Claude** | SWE-bench, METR, WebDev |
+| Maths & optimisation | **GPT** | OTIS AIME, GSO, FrontierMath |
+
+- Les scores sont **évalués par des tiers** (Epoch AI, Scale AI) — pas par les labos eux-mêmes
+- Pour un entrepreneur : le "meilleur modèle" dépend de **votre cas d'usage**
+
+> Ne demandez pas "quel est le meilleur LLM ?" — demandez "quel LLM est le meilleur **pour ma tâche** ?"
+
+<small>Sources : [1] [LM Council](https://lmcouncil.ai/benchmarks)</small>
+
+---
+
+# 13 — ECI : l'accélération s'accélère
+
+- L'**Epoch Capabilities Index** agrège **37 benchmarks** en un score unique — un QI pour les modèles [1]
+- Résultat clé : la progression a **doublé** depuis avril 2024
+
+| Période | Rythme | Facteur |
+|---|---|---|
+| Avant avril 2024 | ~8 points ECI/an | Baseline |
+| Après avril 2024 | ~15 points ECI/an | **~2× plus rapide** |
+
+- Coïncide avec les Reasoning Models (o1, DeepSeek-R1)
+- **Implication business** : des capacités prévues dans 2–3 ans arrivent en 1–1,5 an
+
+> L'IA ne ralentit pas — elle accélère. Le calcul "attendre vs. investir" a changé.
+
+<small>Sources : [1] [Epoch AI — ECI](https://epoch.ai/benchmarks/eci)</small>
+
+---
+
+# 14 — GDPval : de la performance au business
+
+- **1 320 tâches réelles**, 44 métiers, 9 secteurs du PIB américain [1]
+- Modèles frontier : **100× plus rapides** et **100× moins chers** que les experts
+
+| Dimension | IA Frontier | Experts humains |
+|---|---|---|
+| Vitesse | ~100× plus rapide | Baseline |
+| Coût | ~100× moins cher | Baseline |
+| Qualité (win rate) | **35–44%** | 56–65% |
+
+- Le **"production tax"** : égaler l'humain ne suffit pas, il faut le **dépasser** nettement
+
+> Rapide et pas cher ≠ déployable. Les benchmarks ne prédisent pas le remplacement d'emplois.
+
+<small>Sources : [1] [LM Council — GDPval](https://lmcouncil.ai/benchmarks)</small>
+
+---
+
+# 15 — Pricing LLM : 1 000× d'écart
 
 | Modèle | Input/1M | Output/1M | Elo | Tier |
 |---|---|---|---|---|
@@ -279,7 +337,7 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
-# 13 — Key Takeaways
+# 16 — Key Takeaways
 
 1. **Classification** : l'Accuracy ment sur les datasets déséquilibrés — le F1 et la Confusion Matrix sont vos alliés
 
@@ -287,8 +345,10 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 3. **Computer Vision** : l'IoU est la brique fondamentale ; mIoU et Dice révèlent ce que la Pixel Accuracy masque
 
-4. **LLMs** : les benchmarks (MMLU, Arena) sont des indicateurs — le vrai test est sur **vos propres données**
+4. **LLMs** : il n'y a pas de "meilleur modèle" — choisissez par **tâche**, pas par leaderboard
 
-5. **Pricing** : la déflation à 50×/an rend les modèles premium d'hier accessibles — choisissez par **cas d'usage**, pas par leaderboard
+5. **Accélération** : le rythme de progrès a **doublé** — vos plans IA à 3 ans sont déjà obsolètes
+
+6. **Pricing** : la déflation à 50×/an rend les modèles premium d'hier accessibles — commencez maintenant
 
 > **Pour aller plus loin** : les 4 decks de référence complets sont disponibles dans `slides/evaluation/`.
