@@ -58,6 +58,8 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 > Simple, parlante... mais **trompeuse** dans certains cas. Voir la slide suivante.
 
+<small>Source : [stratusdata.io](https://stratusdata.io/gone-fishing-4-metrics-for-evaluating-binary-classifiers/)</small>
+
 ![bg right:45% contain](assets/eval/accuracy.png)
 
 ---
@@ -88,6 +90,8 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 > Le **filet du pêcheur** : quel % de la prise est du thon ?
 
+<small>Source : [stratusdata.io](https://stratusdata.io/gone-fishing-4-metrics-for-evaluating-binary-classifiers/)</small>
+
 ![bg right:45% contain](assets/eval/precision.png)
 
 ---
@@ -102,6 +106,8 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 - Ex. : dépistage cancer, détection de fraude
 
 > Le **scanner médical** : combien de malades repérés ?
+
+<small>Source : [stratusdata.io](https://stratusdata.io/gone-fishing-4-metrics-for-evaluating-binary-classifiers/)</small>
 
 ![bg right:45% contain](assets/eval/recall.png)
 
@@ -152,6 +158,8 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 > "Nos prédictions dévient de €10k en moyenne."
 
+<small>Source : [Medium](https://miro.medium.com/v2/resize:fit:1200/0*s6YGm5hBneEVNc7U.jpg)</small>
+
 ![bg right:45% contain](assets/eval/mae.jpg)
 
 ---
@@ -166,6 +174,8 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 - Si √MSE >> MAE → quelques prédictions catastrophiques
 
 > Détection de prédictions catastrophiques : comparez √MSE et MAE.
+
+<small>Source : [byam.github.io](https://byam.github.io/assets/img/model-eval-val/mean-squared-error.png)</small>
 
 ![bg right:45% contain](assets/eval/mse.png)
 
@@ -191,8 +201,8 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 > L'IoU est la brique fondamentale — détection, segmentation et tracking.
 
-![bg right:50% contain](assets/eval/iou-illustration.png)
-![bg right:50% contain](assets/eval/iou-birds.jpg)
+![bg vertical right:50% contain](assets/eval/iou-illustration.png)
+![bg contain](assets/eval/iou-birds.jpg)
 
 ---
 
