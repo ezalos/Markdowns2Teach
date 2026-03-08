@@ -31,22 +31,23 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
+<!-- _class: img-right -->
+
 # 01 — La Confusion Matrix
 
 - Le modèle produit une **prédiction** (Positive ou Negative)
 - La réalité est le **ground truth** (Positive ou Negative)
-- Le croisement donne **4 cas** :
-
-| | Prédit Positive | Prédit Negative |
-|---|---|---|
-| **Réel Positive** | True Positive (TP) | False Negative (FN) |
-| **Réel Negative** | False Positive (FP) | True Negative (TN) |
+- Le croisement donne **4 cas** : TP, TN, FP, FN
 
 > **Mnémotechnique** : le 2e mot = réponse du modèle, le 1er mot = avait-il raison ?
 
 <small>Source : [stratusdata.io](https://stratusdata.io/gone-fishing-4-metrics-for-evaluating-binary-classifiers/)</small>
 
+![bg right:45% contain](assets/eval/confusion-matrix.png)
+
 ---
+
+<!-- _class: img-right -->
 
 # 02 — Accuracy
 
@@ -56,6 +57,8 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 - Facile à communiquer : "notre modèle est juste dans 96% des cas"
 
 > Simple, parlante... mais **trompeuse** dans certains cas. Voir la slide suivante.
+
+![bg right:45% contain](assets/eval/accuracy.png)
 
 ---
 
@@ -74,34 +77,37 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
-<!-- _class: cols -->
+<!-- _class: img-right -->
 
-# 04 — Precision vs Recall
+# 04 — Precision
 
-<div class="left">
-
-**Precision** = TP / (TP + FP)
+- **Precision** = TP / (TP + FP)
 - "Parmi mes alertes, combien sont vraies ?"
 - Coût FP élevé → maximiser Precision
 - Ex. : filtre anti-spam, justice pénale
 
 > Le **filet du pêcheur** : quel % de la prise est du thon ?
 
-</div>
-<div class="right">
+![bg right:45% contain](assets/eval/precision.png)
 
-**Recall** = TP / (TP + FN)
+---
+
+<!-- _class: img-right -->
+
+# 05 — Recall
+
+- **Recall** = TP / (TP + FN)
 - "Parmi les vrais cas, combien ai-je détectés ?"
 - Coût FN élevé → maximiser Recall
 - Ex. : dépistage cancer, détection de fraude
 
 > Le **scanner médical** : combien de malades repérés ?
 
-</div>
+![bg right:45% contain](assets/eval/recall.png)
 
 ---
 
-# 05 — F1-Score : le compromis en un chiffre
+# 06 — F1-Score : le compromis en un chiffre
 
 ![w:500](assets/eval/f1-equation.png)
 
@@ -114,7 +120,7 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
-# 06 — Classification : quand choisir quoi
+# 07 — Classification : quand choisir quoi
 
 1. **Classes équilibrées ?** → Accuracy + F1 suffisent
 2. **Classe positive rare (< 10%) ?** → F1 ou Recall en priorité
@@ -134,13 +140,11 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
-<!-- _class: cols -->
+<!-- _class: img-right -->
 
-# 07 — MAE vs RMSE
+# 08 — MAE (Mean Absolute Error)
 
-<div class="left">
-
-**MAE** (Mean Absolute Error)
+- **MAE = |y − ŷ|**
 - Moyenne des écarts absolus
 - Même unité que la cible (€, min)
 - **Robuste** aux outliers
@@ -148,17 +152,22 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 > "Nos prédictions dévient de €10k en moyenne."
 
-</div>
-<div class="right">
+![bg right:45% contain](assets/eval/mae.jpg)
 
-**RMSE** (Root Mean Squared Error)
+---
+
+<!-- _class: img-right -->
+
+# 09 — MSE (Mean Squared Error)
+
+- **MSE = (y − ŷ)²**
 - Pénalise les **grosses erreurs** (carré)
-- Erreur de 10 contribue **25×** plus qu'une erreur de 2
-- Si RMSE >> MAE → quelques prédictions catastrophiques
+- Erreur de 10 contribue **100×** plus qu'une erreur de 1
+- Si √MSE >> MAE → quelques prédictions catastrophiques
 
-> Métrique par défaut des compétitions ML.
+> Détection de prédictions catastrophiques : comparez √MSE et MAE.
 
-</div>
+![bg right:45% contain](assets/eval/mse.png)
 
 ---
 
@@ -172,7 +181,7 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 <!-- _class: img-right -->
 
-# 08 — IoU : la brique de la Computer Vision
+# 10 — IoU : la brique de la Computer Vision
 
 - **IoU** (Intersection over Union) = chevauchement prédiction vs réalité
 - Score de 0 (aucun overlap) à 1 (match parfait)
@@ -197,7 +206,7 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 <!-- _class: compact-table -->
 
-# 09 — Benchmarks : les examens standardisés des LLMs
+# 11 — Benchmarks : les examens standardisés des LLMs
 
 | Benchmark | Teste | Leader | Score |
 |---|---|---|---|
@@ -215,7 +224,7 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
-# 10 — Chatbot Arena : le vote humain
+# 12 — Chatbot Arena : le vote humain
 
 - Deux modèles anonymes répondent → l'utilisateur vote pour le meilleur
 - Système **Elo** (comme aux échecs) : **6M+ votes** en A/B testing aveugle [1]
@@ -232,7 +241,7 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
-# 11 — Il n'y a pas de meilleur modèle
+# 13 — Il n'y a pas de meilleur modèle
 
 - Across **20 benchmarks** indépendants, aucun modèle ne domine tout [1]
 - Chaque famille excelle dans un domaine différent :
@@ -252,7 +261,7 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
-# 12 — ECI : l'accélération s'accélère
+# 14 — ECI : l'accélération s'accélère
 
 - L'**Epoch Capabilities Index** agrège **37 benchmarks** en un score unique — un QI pour les modèles [1]
 - Résultat clé : la progression a **doublé** depuis avril 2024
@@ -271,7 +280,7 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
-# 13 — GDPval : de la performance au business
+# 15 — GDPval : de la performance au business
 
 - **1 320 tâches réelles**, 44 métiers, 9 secteurs du PIB américain [1]
 - Modèles frontier : **100× plus rapides** et **100× moins chers** que les experts
@@ -290,7 +299,7 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
-# 14 — Pricing LLM : 1 000× d'écart
+# 16 — Pricing LLM : 1 000× d'écart
 
 | Modèle | Input/1M | Output/1M | Elo | Tier |
 |---|---|---|---|---|
@@ -308,11 +317,11 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne
 
 ---
 
-# 15 — Key Takeaways
+# 17 — Key Takeaways
 
 1. **Classification** : l'Accuracy ment sur les datasets déséquilibrés — le F1 est votre meilleur choix par défaut
 
-2. **Régression** : MAE pour communiquer, RMSE pour les systèmes critiques — toujours les deux ensemble
+2. **Régression** : MAE pour communiquer, MSE pour détecter les prédictions catastrophiques — toujours les deux ensemble
 
 3. **Computer Vision** : l'IoU est la brique fondamentale de la détection et de la segmentation
 

@@ -134,12 +134,12 @@ Les LLMs ne raisonnent pas en mots mais en **Tokens** — des fragments de mots.
 
 # 05 — Context Window : la mémoire de conversation
 
-![bg right:55% contain](assets/context-window.svg)
+![bg right:55% contain](assets/context-window-thinking.svg)
 
 La **Context Window** = mémoire de travail du LLM, tout ce qu'il "voit" pour répondre.
 
 - Input + Output partagent la même fenêtre (200K tokens pour Claude)
-- Le contexte *s'accumule* à chaque tour — rien n'est supprimé
+- Le contexte *s'accumule* à chaque tour — si la fenêtre est pleine, les messages anciens sont tronqués
 - Les **Thinking Tokens** comptent pendant la génération, puis sont retirés [1]
 - Facturation **par Token** (input + output)
 
@@ -196,7 +196,7 @@ Le LLM produit une distribution de probabilités. Trois paramètres contrôlent 
 
 # 08 — Mixture of Experts (MoE) : l'architecture qui change tout
 
-![bg right:55% contain](assets/infographics/dense-vs-moe.png)
+![bg right:55% contain](assets/moe-architecture-linkedin.png)
 
 **Plusieurs sous-réseaux** (experts) dans un modèle. Un **Router** active les experts pertinents par token.
 
@@ -274,31 +274,19 @@ Le LLM produit une distribution de probabilités. Trois paramètres contrôlent 
 
 ---
 
-<!-- _class: cols -->
+<!-- _class: img-right -->
 
 # 12 — Fine-tuning : adapter un modèle à vos besoins
 
-<div class="left">
+![bg right:55% contain](assets/finetuning-diagram.png)
 
-| | Pretraining | Fine-tuning |
-|---|---|---|
-| **Données** | Milliards de mots | Milliers d'exemples |
-| **Objectif** | Apprendre le langage | Adapter à une tâche |
-| **Coût** | Millions $ | Centaines $ |
-
-**Quand ?** Style spécifique, jargon technique, ou format que le RAG ne capture pas
-
-</div>
-<div class="right">
-
-**LoRA** — 0,1-1% des params, 90-95% qualité [1]
-- 7B LoRA : ~16-24 GB ($5-15) · QLoRA : ~8-10 GB (**$0-5**)
-
-**Distillation** — DeepSeek-R1 sur Qwen-7B : **55,5%** AIME [2]. Coût ÷10-100x.
+- **Pretraining** : milliards de mots, apprend le langage (millions $)
+- **Fine-tuning** : milliers d'exemples, adapte à une tâche (centaines $)
+- **Quand ?** Style spécifique, jargon technique, ou format que le RAG ne capture pas
+- **LoRA** — 0,1-1% des params, 90-95% qualité [1]. QLoRA : ~8-10 GB (**$0-5**)
+- **Distillation** — DeepSeek-R1 sur Qwen-7B : **55,5%** AIME [2]. Coût ÷10-100x
 
 <small>Sources : [1] [Hu et al.](https://arxiv.org/abs/2106.09685) · [2] [DeepSeek](https://arxiv.org/abs/2501.12948)</small>
-
-</div>
 
 ---
 
@@ -340,12 +328,12 @@ Répartition du coût de développement (GPT-4 / Gemini Ultra) [1] :
 
 <!-- _class: cols -->
 
-# 15 — L'efficience explose : reproduire GPT-2 pour $672
+# 15 — L'efficience explose : reproduire GPT-2 pour ~$60
 
 <div class="left">
 
 **Reproduire coûte de moins en moins** :
-- GPT-2 : $50K → **$672** (Karpathy, 2024) [1]
+- GPT-2 : $50K → **~$60** (Karpathy, 2025) — 2h sur 8×H100 [1]
 - BERT : $3 300 → **$20** (MosaicBERT) [2]
 - DeepSeek-R1 RL : **$294K** sur V3 [3]
 
@@ -361,7 +349,7 @@ Répartition du coût de développement (GPT-4 / Gemini Ultra) [1] :
 
 > Deux tendances opposées : les leaders dépensent plus, mais reproduire leur niveau coûte de moins en moins.
 
-<small>Sources : [1] [Karpathy/llm.c](https://github.com/karpathy/llm.c/discussions/677) · [2] [Databricks](https://www.databricks.com/blog/mosaicbert) · [3] [Nature/DeepSeek](https://www.nature.com/articles/s41586-025-09422-z) · [4][5] [Stanford HAI 2025](https://aiindex.stanford.edu/report/)</small>
+<small>Sources : [1] [Karpathy](https://x.com/kaboruka/status/1891680241001140367) · [2] [Databricks](https://www.databricks.com/blog/mosaicbert) · [3] [Nature/DeepSeek](https://www.nature.com/articles/s41586-025-09422-z) · [4][5] [Stanford HAI 2025](https://aiindex.stanford.edu/report/)</small>
 
 ---
 
@@ -450,20 +438,15 @@ Les APIs permettent d'appeler un LLM *depuis votre code* — la base de tout pro
 
 ---
 
-<!-- _class: compact compact-table -->
+<!-- _class: img-right -->
 
 # 20 — Le coût d'inference chute de 10x à 900x par an
 
-Chute des prix d'inference **à performance fixe** sur 6 benchmarks [1] :
+![bg right:55% contain](assets/epoch/epoch-inference-price-01.png)
 
-| Benchmark | Tâche | Chute annuelle |
-|-----------|-------|----------------|
-| MMLU | Connaissances générales | 9–40×/an |
-| GPQA Diamond | Science niveau PhD | 40–900×/an |
-| MATH-500 | Mathématiques | 20–700×/an |
-| Coding | Software engineering | 9–40×/an |
-
+- Chute **à performance fixe** sur 6 benchmarks [1]
 - **Médiane** : ~50×/an (accélère à ~200×/an après jan. 2024) [1]
+- GPQA Diamond (PhD) : **40–900×/an** — la plus forte chute
 - GPT-3.5 equivalent **$20 → $0,07** / 1M tokens en 18 mois = **280×** [2]
 
 > Plus rapide que la loi de Moore — le coût marginal de l'intelligence baisse plus vite que toute technologie précédente.
@@ -472,27 +455,9 @@ Chute des prix d'inference **à performance fixe** sur 6 benchmarks [1] :
 
 ---
 
-# 21 — Prix API : la trajectoire OpenAI
-
-| Modèle | Date | Input / 1M tokens | MMLU approx |
-|--------|------|--------------------|-------------|
-| GPT-3 Davinci | 2020 | **$60,00** | ~43% |
-| GPT-3.5 Turbo | Mar 2023 | $2,00 | ~70% |
-| GPT-4 | Mar 2023 | $30,00 | ~86% |
-| GPT-4 Turbo | Nov 2023 | $10,00 | ~86% |
-| GPT-4o | Mai 2024 | $2,50 | ~88% |
-| GPT-4o mini | Jul 2024 | **$0,15** | ~82% |
-
-- De GPT-4 ($30) à GPT-4o mini ($0,15) en 16 mois : **200× moins cher** à capacité comparable
-- Les drivers : hardware (~1,3×/an), algorithmes (~3×/an), quantization, open-source [1][2]
-
-<small>Sources : [1] [OpenAI](https://openai.com/api/pricing/) · [2] [Epoch AI](https://epoch.ai/data-insights/llm-inference-price-trends)</small>
-
----
-
 <!-- _class: cols -->
 
-# 22 — Open-Weights : télécharger et exécuter en local
+# 21 — Open-Weights : télécharger et exécuter en local
 
 <div class="left">
 
@@ -516,7 +481,7 @@ RGPD (données locales), pas de coût API, hors ligne
 
 ---
 
-# 23 — Licences : ce que vous pouvez (et ne pouvez pas) faire
+# 22 — Licences : ce que vous pouvez (et ne pouvez pas) faire
 
 | Licence | Modèles | Usage commercial | Restrictions |
 |---------|---------|-----------------|-------------|
@@ -525,13 +490,13 @@ RGPD (données locales), pas de coût API, hors ligne
 | **DeepSeek License** | DeepSeek-R1, V3 | ✅ Sous conditions | Pas de modèles concurrents |
 | **Propriétaire** | GPT-4, Claude | ❌ API uniquement | Pas de téléchargement |
 
-> *Pour les entrepreneurs* : Apache 2.0 offre la liberté maximale. Vérifiez toujours la licence *avant* de construire votre produit dessus.
+> **Open-weight ≠ open-source** : LLaMA 1 (recherche uniquement) et Gemma (restrictions commerciales) offrent les poids mais *pas* la liberté d'une Apache 2.0. Vérifiez toujours la licence *avant* de construire dessus.
 
 ---
 
 <!-- _class: img-right -->
 
-# 24 — Open vs Closed : le gap se réduit
+# 23 — Open vs Closed : le gap se réduit
 
 ![bg right:55% contain](assets/epoch/epoch-open-models-om-fig-4.png)
 
@@ -556,11 +521,11 @@ Les modèles open-weights rattrapent les modèles propriétaires [1] :
 
 ---
 
-<!-- _class: compact compact-table -->
+<!-- _class: img-right compact-table -->
 
-# 25 — Quantization : comprimer un modèle sans (trop) perdre
+# 24 — Quantization : comprimer un modèle sans (trop) perdre
 
-La **Quantization** réduit la précision des paramètres pour consommer moins de mémoire :
+![bg right:55% contain](assets/quantization-precision.png)
 
 | Précision | Octets/param | 7B modèle | Impact qualité |
 |-----------|-------------|-----------|----------------|
@@ -569,7 +534,7 @@ La **Quantization** réduit la précision des paramètres pour consommer moins d
 | INT8 | 1 | 7 GB | <1% (MMLU) |
 | **INT4** | 0,5 | **3,5 GB** | 1-4% MMLU, **5-15% raisonnement** [1][2] |
 
-> 70B+ : ~1-2% perte MMLU (AWQ/GPTQ). 7B : jusqu'à **5-53% perte raisonnement**. Méthode : AWQ > GPTQ >> BNB-NF4.
+> Méthode : AWQ > GPTQ >> BNB-NF4. 70B+ : ~1-2% perte. 7B : jusqu'à **5-53% perte raisonnement**.
 
 <small>Sources : [1] [Kurtic et al. 2024](https://arxiv.org/abs/2411.02355) · [2] [IJCAI 2025](https://arxiv.org/abs/2409.11055)</small>
 
@@ -577,7 +542,7 @@ La **Quantization** réduit la précision des paramètres pour consommer moins d
 
 <!-- _class: compact -->
 
-# 26 — Paramètres → vRAM → Hardware
+# 25 — Paramètres → vRAM → Hardware
 
 Les LLMs tournent sur **GPU**. La **vRAM** est la contrainte principale.
 
@@ -597,19 +562,20 @@ Les LLMs tournent sur **GPU**. La **vRAM** est la contrainte principale.
 
 ---
 
-<!-- _class: compact compact-table -->
+<!-- _class: img-right compact-table -->
 
-# 27 — Le paradoxe MoE : rapide mais gourmand en mémoire
+# 26 — Le paradoxe MoE : rapide mais gourmand en mémoire
 
-| Dimension | Dense 70B (Llama 2) | MoE 671B (DeepSeek-V3) |
-|-----------|---------------------|------------------------|
+![bg right:55% contain](assets/moe-vram-substack.png)
+
+| Dimension | Dense 70B | MoE 671B |
+|-----------|-----------|----------|
 | Total params | 70B | 671B |
 | Actifs / token | **70B** (tous) | **37B** (5,5%) |
 | vRAM (FP16) | ~140 GB | ~1 342 GB |
 | vRAM (INT4) | ~35 GB | ~336 GB |
-| Vitesse inference | Baseline | **~2x plus rapide** |
 
-> *Le piège* : DeepSeek-V3 n'active que 37B params/token, mais il faut charger **les 671B** en mémoire. Entraîné pour ~$5,5M — 18x moins cher que GPT-4 [1].
+> *Le piège* : DeepSeek-V3 n'active que 37B params/token, mais il faut charger **les 671B** en mémoire.
 
 <small>Sources : [1] [DeepSeek-V3](https://arxiv.org/abs/2412.19437) · [2] [Interconnects](https://www.interconnects.ai/p/deepseek-v3-and-the-actual-cost-of)</small>
 
@@ -617,7 +583,7 @@ Les LLMs tournent sur **GPU**. La **vRAM** est la contrainte principale.
 
 <!-- _class: img-right compact-table -->
 
-# 28 — Plus gros = plus intelligent ?
+# 27 — Plus gros = plus intelligent ?
 
 ![bg right:55% contain](assets/mmlu-params-graph.svg)
 
@@ -641,7 +607,7 @@ Les benchmarks montrent des *rendements décroissants* :
 
 <!-- _class: cols -->
 
-# 29 — Le bon modèle pour la bonne tâche
+# 28 — Le bon modèle pour la bonne tâche
 
 <div class="left">
 
@@ -655,7 +621,9 @@ Les benchmarks montrent des *rendements décroissants* :
 </div>
 <div class="right">
 
-Support → Mistral Small · Analyse → o3 / Opus · Code → Claude / Devstral
+- **Support** → Mistral Small
+- **Analyse** → o3 / Opus
+- **Code** → Claude / Devstral
 
 > **1 250x** d'écart entre le moins cher et le plus cher.
 
@@ -663,13 +631,13 @@ Support → Mistral Small · Analyse → o3 / Opus · Code → Claude / Devstral
 
 ---
 
-# 30 — Exercice : estimer le coût d'un produit IA
+# 29 — Exercice : estimer le coût d'un produit IA
 
 **Scénario** : un chatbot de support client, 1 000 conversations/jour.
 
 **Hypothèses** :
 - Conversation moyenne : ~500 mots input + ~300 mots output
-- ~670 tokens input + ~400 tokens output par conversation
+- ~500 mots input → ~670 tokens (500 × 4/3) + ~400 tokens output
 
 **Avec GPT-4o mini** :
 - Input : 670K tokens/jour × $0,15/1M = **$0,10/jour**
@@ -680,7 +648,7 @@ Support → Mistral Small · Analyse → o3 / Opus · Code → Claude / Devstral
 
 ---
 
-# 31 — David bat Goliath : les petits modèles qui surprennent
+# 30 — David bat Goliath : les petits modèles qui surprennent
 
 | Modèle | Params | Performance | Comparé à |
 |--------|--------|-------------|-----------|
@@ -705,7 +673,7 @@ Support → Mistral Small · Analyse → o3 / Opus · Code → Claude / Devstral
 
 <!-- _class: img-right -->
 
-# 32 — Hallucinations et Knowledge Cutoffs
+# 31 — Hallucinations et Knowledge Cutoffs
 
 ![bg right:55% contain](assets/ng01/img-022.png)
 
@@ -723,26 +691,11 @@ Support → Mistral Small · Analyse → o3 / Opus · Code → Claude / Devstral
 
 ---
 
-# 33 — Structured Output : quand le texte libre ne suffit pas
-
-Le problème : les LLMs produisent du texte libre, mais les systèmes attendent des **données structurées**.
-
-| Méthode | Comment ça marche | Fiabilité |
-|---------|-------------------|-----------|
-| **JSON Mode** | Le modèle est contraint de produire du JSON valide | Moyenne |
-| **Schema Enforcement** | On fournit un schéma JSON que la sortie doit respecter | Haute |
-| **Function Calling** | Le modèle "appelle" une fonction avec des paramètres typés | Haute |
-| **Constrained Decoding** | Le vocabulaire est restreint token par token pendant la génération | Très haute |
-
-> **Indispensable** pour les intégrations API, l'extraction de données, et le Tool Calling des agents IA.
-
-<small>Sources : [1] [OpenAI Structured Outputs](https://platform.openai.com/docs/guides/structured-outputs)</small>
-
----
-
 <!-- _class: cols -->
 
-# 34 — Structured Output : Classifier & Extraction
+# 32 — Structured Output : Classifier & Extraction
+
+Les LLMs produisent du texte libre, mais les systèmes attendent des **données structurées** (JSON Mode, Schema Enforcement, Function Calling).
 
 <div class="left">
 
@@ -761,26 +714,7 @@ Le problème : les LLMs produisent du texte libre, mais les systèmes attendent 
 
 ---
 
-# 35 — Structured Output : Tool Calling & n8n
-
-Le LLM "appelle" un outil en produisant un JSON correspondant à un schéma de fonction :
-
-```
-User : "Planifie une réunion avec Alice et Bob demain à 14h"
-```
-
-```json
-{ "function": "create_event",
-  "params": { "date": "2026-02-23T14:00",
-    "participants": ["alice@co.com", "bob@co.com"],
-    "topic": "Budget Q3" } }
-```
-
-> Le LLM remplit le JSON d'input d'un node **n8n** — c'est la base du **Tool Calling** et des **agents IA**. Il ne clique pas sur un bouton : il produit un JSON qu'un orchestrateur exécute.
-
----
-
-# 36 — Field Ordering : le schéma comme Chain-of-Thought
+# 33 — Field Ordering : le schéma comme Chain-of-Thought
 
 Les LLMs génèrent token par token, **de gauche à droite**. L'ordre des champs dans le JSON contrôle *quand* le modèle réfléchit :
 
@@ -798,32 +732,9 @@ Les LLMs génèrent token par token, **de gauche à droite**. L'ordre des champs
 
 ---
 
-<!-- _class: cols -->
-
-# 37 — Schema Design : bonnes pratiques
-
-<div class="left">
-
-**Optimal** : `{ reasoning → confidence → answer }`
-- Le **nommage** compte : `answer` > `final_choice` → 4,5% à **95%** [1]
-- `description` = micro-prompts dans le schéma [2]
-
-</div>
-<div class="right">
-
-**Avancé** :
-- Gemini réordonne alphabétiquement — nommer pour forcer l'ordre [3]
-- Tâches complexes : 2 étapes (raisonnement libre → extraction structurée) [4]
-
-</div>
-
-<small>Sources : [1] [Instructor](https://python.useinstructor.com/blog/2024/09/26/bad-schemas-could-break-your-llm-structured-outputs/) · [2] [PARSE](https://arxiv.org/abs/2408.02442) · [3] [Castillo](https://dylancastillo.co/posts/gemini-structured-outputs.html) · [4] [Goldberg](https://gist.github.com/yoavg/5b106275e38f4ccc796bc8ba7919060b)</small>
-
----
-
 <!-- _class: compact -->
 
-# 38 — Confidence en classification : le piège du score verbalisé
+# 34 — Confidence en classification : le piège du score verbalisé
 
 Demander au LLM *"donne ta confiance"* → **le score est hallucié** [1] :
 - Scores concentrés entre **80–100%**, multiples de 5
@@ -841,49 +752,24 @@ Demander au LLM *"donne ta confiance"* → **le score est hallucié** [1] :
 
 ---
 
-<!-- _class: cols -->
+<!-- _class: img-right compact-table -->
 
-# 39 — Confidence : patterns de production
+# 35 — LLMs multimodaux
 
-<div class="left">
-
-**Logprobs** (OpenAI, vLLM) :
-- `exp(logprob)` → probabilité par classe [1]
-- Calibrer avec isotonic regression (~200 exemples)
-
-**Self-Consistency** :
-- N=5–10 échantillons + vote majoritaire [2]
-
-</div>
-<div class="right">
-
-**En pratique** :
-- Logprobs dispo → calibrer (isotonic regression)
-- Pas de logprobs (Claude) → self-consistency [3]
-- Seuil de confiance → items incertains vers humain · Reasoning Models **mieux calibrés** [4]
-
-</div>
-
-<small>Sources : [1] [OpenAI Cookbook](https://developers.openai.com/cookbook/examples/using_logprobs/) · [2] [Wang et al. (ICLR 2023)](https://arxiv.org/abs/2203.11171) · [3] [Taubenfeld et al.](https://arxiv.org/abs/2502.06233) · [4] [OpenReview 2025](https://openreview.net/pdf?id=I0ZI28A9El)</small>
-
----
-
-# 40 — LLMs multimodaux
-
-Les LLMs récents ne se limitent plus au texte — ils comprennent et génèrent plusieurs **modalités** :
+![bg right:55% contain](assets/multimodal-llms-substack.png)
 
 | Modalité | Capacités | Modèles clés |
 |----------|-----------|--------------|
-| **Vision** 🖼️ | Analyser images, OCR, décrire des visuels | GPT-4o, Claude, Gemini, Qwen-VL |
-| **Audio** 🎙️ | Transcrire, traduire, converser en vocal | GPT-4o, Gemini, Whisper |
-| **Vidéo** 🎬 | Résumer, analyser des séquences vidéo | Gemini 2.5, GPT-4o |
-| **Code** 💻 | Écrire, débugger, exécuter du code | Claude, Codestral, Qwen-Coder |
+| **Vision** | Images, OCR, visuels | GPT-4o, Claude, Gemini |
+| **Audio** | Transcrire, vocal | GPT-4o, Whisper |
+| **Vidéo** | Résumer, analyser | Gemini 2.5, GPT-4o |
+| **Code** | Écrire, débugger | Claude, Codestral |
 
-> La tendance 2025 : un seul modèle qui voit, entend, lit et code. L'interface devient naturelle — vous montrez, vous parlez, l'IA comprend.
+> Un seul modèle qui voit, entend, lit et code — l'interface devient naturelle.
 
 ---
 
-# 41 — Multimodalité : cas d'usage business
+# 36 — Multimodalité : cas d'usage business
 
 | Cas d'usage | Modalité | Exemple concret |
 |-------------|----------|-----------------|
@@ -905,7 +791,7 @@ Les LLMs récents ne se limitent plus au texte — ils comprennent et génèrent
 
 ---
 
-# 42 — Les 3 principes du Prompting
+# 37 — Les 3 principes du Prompting
 
 | Principe | Description |
 |---|---|
@@ -914,17 +800,20 @@ Les LLMs récents ne se limitent plus au texte — ils comprennent et génèrent
 | *3. Expérimentez et itérez* | Il n'existe pas de prompt parfait — améliorez par itération |
 
 *Exemple* — Mauvais : *"Aide-moi à écrire un email."*
-Bon : *"Help me write a professional email asking to join the legal docs project. Explain why my LLM prompting experience makes me a strong candidate. One paragraph."*
+Bon : *"Help me write a professional email asking to join the legal docs project.*
+*Explain why my LLM prompting experience makes me a strong candidate. One paragraph."*
 
 > Le Prompt Engineering n'est pas un talent mystique. C'est une *compétence itérative* que tout le monde peut développer.
 
 ---
 
-# 43 — Chain-of-Thought et itération
+# 38 — Chain-of-Thought et itération
 
 *Chain-of-Thought* — décomposer une tâche en *étapes explicites* améliore la qualité :
 
-*"Step 1: 5 fun words about cats. Step 2: Create rhyming toy names. Step 3: Add emoji."*
+*"Step 1: 5 fun words about cats.*
+*Step 2: Create rhyming toy names.*
+*Step 3: Add emoji."*
 
 | Step 1 | Step 2 | Step 3 |
 |---|---|---|
@@ -948,7 +837,7 @@ Bon : *"Help me write a professional email asking to join the legal docs project
 
 <!-- _class: compact -->
 
-# 44 — Points clés à retenir
+# 39 — Points clés à retenir
 
 - **Mécanisme** — Next-token prediction, séquentiel
 - **Pipeline** — Pretraining (15T tokens) → SFT → RLHF → Reasoning
