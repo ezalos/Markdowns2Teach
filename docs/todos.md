@@ -1,7 +1,80 @@
+Pour les rags, quoi  dire : 
+- expliquer le fondamental pareto (chnunking + bm25) 
+- la method (noisy signal for llm pred, follow recall on search engine, for this synthetic dat generation is great, juges can be cheaper)
+
+Pour les agents, some notes : 
+Mais un agent IA c'est quoi ?
+Un agent c'est un systeme qui agit en autonomie pour accomplir un objectif a l'aide d'outils !
+Par exemple si tu demandes a un agent de te trouver un bon resto asiat a paris pour diner mardi prochain, c'est son objectif !
+Peut-etre que les outils qu'il a disposition c'est :
+recherche google
+lire un site web
+google maps
+Il va commencer par une recherche Google :
+"Meilleurs restaurant asiatiques Paris"
+Il va voir les 5 premiers resultats, et ca tombe le 2eme c'est un top 10.
+Il va recuperer le contenu du siteweb.
+Et apres pour chaque restaurant il va verifier avec l'outil google maps que le restaurant est bien ouvert mardi prochain.
+
+
+
+
+
 Corrections of the course : 
 - Benchmark satures, but it's possible to see beyon (make new slide after), progress is constant
 - context window, wrong diagram, and false "noting is deleted"
-- 
+
+
+CORRECTIONS : 
+Here are some corrections to on the slides.
+@docs/references/slide-creation-standards.md
+@docs/references/workflow-new-slides.md
+@docs/references/course-architecture.md
+
+Corrections session 2-A LLM : 
+- SLide context window, you need ot change the image for https://platform.claude.com/docs/images/context-window-thinking.svg + and do not say that "noting is deleted" 
+- Mixture of expert use this image : https://media.licdn.com/dms/image/v2/D5612AQGOYM7pxovxYQ/article-cover_image-shrink_720_1280/B56ZWbBoLeHEAI-/0/1742062650873?e=1774483200&v=beta&t=rb092P1wag2hNnKPSwRPQwCqFkzGAEBllcNou8ImLvk 
+- Finetuning add image : https://miro.medium.com/v2/resize:fit:1400/format:webp/1*y9mXfWfxvqHk55TNrP2CXg.png 
+- Slide 15 : cost for GPT  2 is now around 60$ (2hours of 8xh100) https://x.com/karpathy/status/2029701092347630069?s=20 
+- Slide 20 : please capture the plot from epoch ai and add it
+- slide 21: you cna remove
+- Slide 23 : please add an exemple of open-weight model, but not open-source commercial. Like YOLO (if you got an llm example it's best)
+-for quantization please add this image  : https://miro.medium.com/v2/resize:fit:1400/1*5IdTuemsFlNSkLfOtcOR2g.png 
+- for moe & vram add this image  https://substackcdn.com/image/fetch/$s_!bmV0!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fce63e5cc-9b82-45b4-b3dc-9db0cac47da3_880x748.png 
+- slide 29: missing new line on right side
+- slide 30: behind the token nb  put the multiplication in paranthesis : ~670 tokens (= 500 mots * 4/3 tokens/words)
+- slide 33 : remove the table and merge with the next slide diagrams
+- slide 35: remove
+- slide 37: remove
+- slide 39: remove
+- slide 40: add image https://substackcdn.com/image/fetch/$s_!Pq2z!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0d76dab1-362f-45b6-9b12-a12ac131edc5_1600x944.png 
+- slide 42: put the example on 2 lines, more readable
+- slide 43: put the example on 3 lines, more readable
+
+CORRECTIONS : 
+Here are some corrections to on the slides.
+@docs/references/slide-creation-standards.md
+@docs/references/workflow-new-slides.md
+@docs/references/course-architecture.md
+
+Add these images to the slides on evaluation : 
+- confusion matrix : https://stratusdata.io/wp-content/uploads/Blank.png 
+- Accuracy : https://stratusdata.io/wp-content/uploads/1-%E2%80%93-2.png 
+- Recall : https://stratusdata.io/wp-content/uploads/2-%E2%80%93-2.png
+- Precision : https://stratusdata.io/wp-content/uploads/4-%E2%80%93-2.png
+If not enough space on precison / recall slides and you have to make 2 slides, it's ok
+- Slide 8 IoU stack 2 images veritcally
+- for mae add this https://miro.medium.com/v2/resize:fit:1200/0*s6YGm5hBneEVNc7U.jpg and change rmse to MSE and add this https://byam.github.io/assets/img/model-eval-val/mean-squared-error.png . Also add hte formulas (simple for 1 example)
+
+Slides Evaluation corrections :
+- 01 confusion matrix add https://stratusdata.io/gone-fishing-4-metrics-for-evaluating-binary-classifiers/
+- 02 make one slide for accuracy, and then a slide for the "piege". No need to tell it in one slide. For the piege slide explain that airport scanner which needs to find 10 bags out of 10k can have 99.9% accuracy while missing everything.
+- For precision / recall, I have a live demonstration I will show. If it fits, cool to add : https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Precisionrecall.svg/1280px-Precisionrecall.svg.png but if dont fit, its ok without
+- Slide 8 : stack 2 images veritcally
+- Slide 9 can be removed
+- Slide 10, must modify (too much saturation). We can keep MMLU + SWE-bench (give the current rating for frontier clowsed source). Change GSM8K & HumanEval, for ARC-AGI 2 & Humanity's Last Exam. Give numbers for frontier AI.
+- For chatbot arena, add a word of caution, and this source https://www.hackster.io/news/chatbot-arena-shenanigans-09bd3fa3e6fa
+- GDP val add source https://evals.openai.com/gdpval/leaderboard 
 
 
 Interesting stuff to use : 
@@ -48,10 +121,10 @@ Ecosystem AI, where it's heading :
 
 These topics need deeper research before their new decks can be finalized:
 
-- [ ] **MCP protocol deep dive** — for S3-A agents section. What MCP is, how it works, the protocol spec, real-world examples
-- [ ] **Skills concept** — for S3-A agents section. What Skills are in agent development, how they compose with MCP
-- [ ] **Agent development methodology** — for S3-A agents section. Best practices, common patterns, failure modes
-- [ ] **RAG expansion** — for S3-A. Hybrid search, advanced chunking strategies, reranking, production patterns
+- [x] **MCP protocol deep dive** — DONE (S3-B slides 13-18). M×N problem, M+N solution, Host/Client/Server, 4 capabilities, ecosystem, security risks
+- [x] **Skills concept** — DONE (S3-B slides 20-21). Tool vs Skill, SKILL.md standard, 26+ platforms, composition patterns
+- [x] **Agent development methodology** — DONE (S3-B slides 22-24). Claude Code, OpenClaw, Knowledge Work Stack, product comparison
+- [x] **RAG expansion** — already covered in S3-A (hybrid search, chunking, reranking, production patterns)
 - [ ] **N8N OpenRouter integration** — for S2-C. Step-by-step structured output generation tutorial
 - [ ] **Agent demo design** — for S3-C. What specific MCP tool / agent workflow to demo live
 

@@ -66,25 +66,35 @@ Each 3h session follows:
 
 ## Session 3 — Cadrer un projet IA
 
-**A — RAG & Agents IA** (`session-03/A-rag-agents.md`, 30 slides)
-- RAG pipeline (chunking, embeddings, vector DB, hybrid search, reranking)
-- RAG advanced (Contextual Retrieval, Agentic/Self/Corrective RAG)
-- Agents (ReAct, Tool Use, MCP protocol deep dive, MCP security)
-- Skills (SKILL.md standard, Skills vs Tools)
-- Agent methodology (Anthropic progression, compound errors, failure modes)
-- Toolbox synthesis, key takeaways
+**0 — Informations pratiques** (`session-03/0-infos.md`, 9 slides)
+- Session 4 logistics: 42 Paris location, transport, ID required, campus visit
+- Session 4 intervenants: Maxime Jégat (Hoox, AI UGC), Tanguy Auffret (HEC, startup advisor)
+- Session 5 intervenante: Juliette Lefay (Phygital Studio, tech-art entrepreneurship)
+- Session 5 reminders: QCM format (20 Qs, 5 propositions, 30 min), project presentations grading
 
-**B — Méthodologie projet IA** (`session-03/B-methodologie-projet.md`, 17 slides)
+**A — RAG & Embeddings** (`session-03/A-rag-embeddings.md`, 24 slides)
+- Embeddings deep dive: 2D intuition, PCA, cosine similarity, semantic clusters, word arithmetic, multi-modal
+- RAG pipeline (chunking, vector DB, hybrid search, BM25 proof)
+- RAG advanced (Reranking, Contextual Retrieval, production patterns)
+- RAG vs Fine-tuning, Long Context vs RAG
+
+**B — Agents IA** (`session-03/B-agents.md`, 49 slides)
+- Progressive intro: Alfred narrative, agency spectrum (5 levels), agent cycle (Think→Act→Observe), augmented LLM
+- Anthropic complexity ladder: 6 patterns (Prompt Chaining → Routing → Parallelization → Orchestrator-Workers → Evaluator-Optimizer → Agents)
+- MCP deep dive: M×N problem, M+N solution, Host/Client/Server, 4 capabilities, ecosystem, security risks
+- Tools, Skills & products: Tool Use, SKILL.md standard, Claude Code + Knowledge Work Stack, OpenClaw (315K stars, MoltMatch incident)
+- Agent memory: Buffer, Summary, RAG-based, Semantic, Episodic, Tool-based persistence
+- Production: compound errors, failure modes, when NOT to use agents, Discovery-first
+- Context Engineering (Jason Liu): Write/Select/Compress/Isolate, 4 response levels, Peripheral Vision, Subagents, Compaction, 3 Form Factors, Composabilité
+- Karpathy AutoResearch: autonomous ML experimentation loop, "programming the program.md"
+
+**C — Méthodologie projet IA** (`session-03/C-methodologie-projet.md`, 25 slides)
+- Rapid Agent Prototyping (Jason Liu): CLAUDE.md as spec, folder-based testing
 - CRISP-DM 6 phases, LLMOps 9 phases
 - AI Canvas tool
 - Open Source vs API vs Self-hosted
 - Case studies: Klarna, L'Oréal, Schneider, Doctolib, Alan
 - Failure analysis patterns
-
-**C — Agents en action** (`session-03/C-demo-agents.md`, 11 slides)
-- Live demo: n8n AI Agent with ReAct loop, Calculator + HTTP tools
-- MCP teaser: Claude Desktop + filesystem MCP
-- Project check-in: team status, presentation prep, checklist
 
 ---
 

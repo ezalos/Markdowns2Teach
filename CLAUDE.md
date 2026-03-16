@@ -22,7 +22,7 @@ Target audience: business school students (mostly non-engineers), entrepreneuria
 |---------|-------|--------|--------|
 | 1 | Comprendre l'IA en 2026 | L'IA Générative : ce qu'elle sait faire | *(pas de Deck B — Bloc C : premier projet IA)* |
 | 2 | Les LLMs : de la théorie à la pratique | Les LLMs : comprendre et utiliser | Évaluer l'IA |
-| 3 | Construire avec l'IA | RAG & Agents IA | Méthodologie projet IA |
+| 3 | Construire avec l'IA | RAG & Embeddings | Agents IA · C: Méthodologie projet IA |
 | 4 | Le business de l'IA | L'écosystème IA | Business Models & Cas Réels |
 | 5 | Éthique, gouvernance & clôture | Régulation & IA responsable | B: Présentations finales (live) · C: QCM & clôture |
 
@@ -216,9 +216,9 @@ make clean      # Remove dist/
 | `slides/session-02/A-llms.md` | Les LLMs : comprendre et utiliser | 45 |
 | `slides/session-02/B-evaluer-ia.md` | Évaluer l'IA | 21 |
 | `slides/session-02/C-n8n-openrouter.md` | Classification par LLM avec OpenRouter | 16 |
-| `slides/session-03/A-rag-agents.md` | RAG & Agents IA | 34 |
-| `slides/session-03/B-methodologie-projet.md` | Méthodologie projet IA | 29 |
-| `slides/session-03/C-demo-agents.md` | Agents en action | 11 |
+| `slides/session-03/A-rag-embeddings.md` | RAG & Embeddings | 30 |
+| `slides/session-03/B-agents.md` | Agents IA : du workflow à l'autonomie | 49 |
+| `slides/session-03/C-methodologie-projet.md` | Méthodologie projet IA | 25 |
 | `slides/session-04/A-ecosysteme-ia.md` | L'écosystème IA | 23 |
 | `slides/session-04/B-business-models.md` | Business Models & Cas Réels | 18 |
 | `slides/session-05/A-regulation-ethique.md` | Régulation & IA responsable | 27 |
@@ -243,6 +243,8 @@ make clean      # Remove dist/
 | `slides/extra-decks/B-au-dela-des-llms.md` | L'IA au-delà des LLMs *(ex-S1-B, prompting → S2-A)* | 23 |
 | `slides/extra-decks/A-evaluer-solution-ia.md` | Évaluer une solution IA *(ex-S3-A, replaced by S2-B)* | 18 |
 | `slides/extra-decks/B-methodologie-projet-v1.md` | Méthodologie projet IA v1 *(ex-S3-B, restructured)* | 17 |
+| `slides/extra-decks/A-rag-agents-v1.md` | RAG & Agents IA v1 *(ex-S3-A, split → A-rag-embeddings + B-agents)* | 34 |
+| `slides/extra-decks/C-demo-agents-v1.md` | Agents en action *(ex-S3-C, absorbed → B-agents)* | 11 |
 
 ## Source Materials
 
