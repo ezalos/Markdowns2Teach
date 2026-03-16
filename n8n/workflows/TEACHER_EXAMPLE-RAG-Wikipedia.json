@@ -1,0 +1,332 @@
+{
+  "name": "TEACHER_EXAMPLE — RAG — Wikipedia",
+  "nodes": [
+    {
+      "parameters": {
+        "public": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [0, -200],
+      "id": "a1b2c3d4-00d0-4000-8000-0000000000d0",
+      "name": "Chat",
+      "webhookId": "a1b2c3d4-00d0-4000-8000-0000000000d0"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Convert chatInput to query format for TF-IDF Search\nconst chatInput = $input.first().json.chatInput;\nreturn [{ json: { query: chatInput } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [200, -200],
+      "id": "a1b2c3d4-00d1-4000-8000-0000000000d1",
+      "name": "Chat to Query"
+    },
+    {
+      "parameters": {
+        "path": "rag-add-doc",
+        "httpMethod": "POST",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [0, 0],
+      "id": "a1b2c3d4-0001-4000-8000-000000000001",
+      "name": "Webhook Add Document",
+      "webhookId": "a1b2c3d4-0001-4000-8000-000000000001"
+    },
+    {
+      "parameters": {
+        "url": "=https://en.wikipedia.org/api/rest_v1/page/summary/{{ $json.body.article }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "n8n-RAG-Demo/1.0 (sorbonne-m2-course; louis@sorbonne.fr)"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [300, 0],
+      "id": "a1b2c3d4-0002-4000-8000-000000000002",
+      "name": "Fetch Wikipedia Article"
+    },
+    {
+      "parameters": {
+        "jsCode": "const staticData = $getWorkflowStaticData('global');\nif (!staticData.documents) {\n  staticData.documents = [];\n}\n\nconst item = $input.first().json;\nconst title = item.title;\nconst text = item.extract;\nconst url = item.content_urls?.desktop?.page || '';\n\nconst exists = staticData.documents.some(d => d.title === title);\nif (exists) {\n  return [{\n    json: {\n      success: true,\n      duplicate: true,\n      message: `Article \"${title}\" already in corpus`,\n      doc_count: staticData.documents.length\n    }\n  }];\n}\n\nstaticData.documents.push({\n  title,\n  text,\n  url,\n  added: new Date().toISOString()\n});\n\nreturn [{\n  json: {\n    success: true,\n    title,\n    message: `Article \"${title}\" added to corpus`,\n    doc_count: staticData.documents.length\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [600, 0],
+      "id": "a1b2c3d4-0003-4000-8000-000000000003",
+      "name": "Store Document"
+    },
+    {
+      "parameters": {
+        "path": "rag-search",
+        "httpMethod": "POST",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [0, 400],
+      "id": "a1b2c3d4-0004-4000-8000-000000000004",
+      "name": "Webhook Search",
+      "webhookId": "a1b2c3d4-0004-4000-8000-000000000004"
+    },
+    {
+      "parameters": {
+        "jsCode": "const staticData = $getWorkflowStaticData('global');\nconst docs = staticData.documents || [];\nconst query = $input.first().json.body?.query || $input.first().json.query || '';\n\nif (!query) {\n  return [{ json: { error: 'Missing query parameter. Send {\"query\": \"your question\"}' } }];\n}\n\nif (docs.length === 0) {\n  return [{ json: { query, answer: 'Aucun document dans le corpus. Ajoutez des articles via POST /webhook/rag-add-doc', sources: [], doc_count: 0 } }];\n}\n\n// --- TF-IDF Search ---\nfunction tokenize(text) {\n  return text.toLowerCase()\n    .replace(/[^a-zà-ÿ0-9\\s]/g, '')\n    .split(/\\s+/)\n    .filter(t => t.length > 2);\n}\n\nconst queryTokens = tokenize(query);\nconst N = docs.length;\n\nconst df = {};\ndocs.forEach(doc => {\n  const tokens = new Set(tokenize(doc.text));\n  tokens.forEach(t => { df[t] = (df[t] || 0) + 1; });\n});\n\nconst scored = docs.map((doc) => {\n  const tokens = tokenize(doc.text);\n  const tf = {};\n  tokens.forEach(t => { tf[t] = (tf[t] || 0) + 1; });\n\n  let score = 0;\n  queryTokens.forEach(qt => {\n    if (tf[qt] && df[qt]) {\n      const termFreq = tf[qt] / tokens.length;\n      const idf = Math.log(N / df[qt]);\n      score += termFreq * idf;\n    }\n  });\n\n  return { title: doc.title, text: doc.text, url: doc.url, score };\n});\n\nscored.sort((a, b) => b.score - a.score);\nconst topDocs = scored.slice(0, 3).filter(d => d.score > 0);\n\n// Build RAG prompt\nlet context = '';\nif (topDocs.length === 0) {\n  context = 'Aucun document pertinent trouvé dans la base.';\n} else {\n  topDocs.forEach((doc, i) => {\n    context += `---\\n[Document ${i + 1}: ${doc.title}] (score: ${doc.score.toFixed(4)})\\n${doc.text}\\nSource : ${doc.url}\\n`;\n  });\n  context += '---';\n}\n\nconst prompt = `Tu es un assistant RAG. Tu réponds aux questions en utilisant UNIQUEMENT le contexte fourni.\\n\\nContexte (${docs.length} docs, ${topDocs.length} pertinents via TF-IDF) :\\n${context}\\n\\nQuestion : ${query}\\n\\nRéponds en français. Cite les documents utilisés [titre]. Si le contexte ne suffit pas, dis-le.`;\n\nreturn [{ json: { query, prompt, sources: topDocs.map(d => ({ title: d.title, score: d.score, url: d.url })), doc_count: docs.length } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [300, 400],
+      "id": "a1b2c3d4-0005-4000-8000-000000000005",
+      "name": "TF-IDF Search"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://openrouter.ai/api/v1/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ model: 'mistralai/mistral-small-3.1-24b-instruct:free', messages: [{ role: 'user', content: $json.prompt }], max_tokens: 1024 }) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [600, 400],
+      "id": "a1b2c3d4-0006-4000-8000-000000000006",
+      "name": "Call OpenRouter",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "PLACEHOLDER_OPENROUTER",
+          "name": "OpenRouter Bearer"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = $input.first().json;\nconst prev = $('TF-IDF Search').first().json;\n\nconst answer = input.choices?.[0]?.message?.content || 'No response from LLM';\nconst model = input.model || 'unknown';\nconst srcList = (prev.sources || []).map(s => s.title).join(', ');\nconst chatOutput = srcList ? `${answer}\\n\\n📚 Sources : ${srcList}` : answer;\n\nreturn [{\n  json: {\n    output: chatOutput,\n    query: prev.query,\n    answer: answer,\n    model: model,\n    sources: prev.sources,\n    doc_count: prev.doc_count\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 400],
+      "id": "a1b2c3d4-0007-4000-8000-000000000007",
+      "name": "Format Response"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 800],
+      "id": "a1b2c3d4-0008-4000-8000-000000000008",
+      "name": "Init Corpus"
+    },
+    {
+      "parameters": {
+        "jsCode": "const articles = [\n  'Machine_learning',\n  'Deep_learning',\n  'Artificial_intelligence',\n  'Natural_language_processing',\n  'Large_language_model',\n  'Transformer_(deep_learning_architecture)',\n  'Retrieval-augmented_generation',\n  'Neural_network_(machine_learning)',\n  'Generative_artificial_intelligence',\n  'Computer_vision',\n  'Reinforcement_learning',\n  'Prompt_engineering'\n];\n\nreturn articles.map(article => ({ json: { article } }));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [300, 800],
+      "id": "a1b2c3d4-0009-4000-8000-000000000009",
+      "name": "Article List"
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [600, 800],
+      "id": "a1b2c3d4-000a-4000-8000-00000000000a",
+      "name": "Process One at a Time"
+    },
+    {
+      "parameters": {
+        "url": "=https://en.wikipedia.org/api/rest_v1/page/summary/{{ $json.article }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "n8n-RAG-Demo/1.0 (sorbonne-m2-course; louis@sorbonne.fr)"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [900, 800],
+      "id": "a1b2c3d4-000b-4000-8000-00000000000b",
+      "name": "Fetch Wikipedia (Init)"
+    },
+    {
+      "parameters": {
+        "jsCode": "const staticData = $getWorkflowStaticData('global');\nif (!staticData.documents) {\n  staticData.documents = [];\n}\n\nconst item = $input.first().json;\nconst title = item.title;\nconst text = item.extract;\nconst url = item.content_urls?.desktop?.page || '';\n\nconst exists = staticData.documents.some(d => d.title === title);\nif (!exists) {\n  staticData.documents.push({\n    title,\n    text,\n    url,\n    added: new Date().toISOString()\n  });\n}\n\nreturn [{\n  json: {\n    stored: title,\n    total: staticData.documents.length\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1200, 800],
+      "id": "a1b2c3d4-000c-4000-8000-00000000000c",
+      "name": "Store Document (Init)"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Chat": {
+      "main": [
+        [
+          {
+            "node": "Chat to Query",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Chat to Query": {
+      "main": [
+        [
+          {
+            "node": "TF-IDF Search",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook Add Document": {
+      "main": [
+        [
+          {
+            "node": "Fetch Wikipedia Article",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch Wikipedia Article": {
+      "main": [
+        [
+          {
+            "node": "Store Document",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook Search": {
+      "main": [
+        [
+          {
+            "node": "TF-IDF Search",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TF-IDF Search": {
+      "main": [
+        [
+          {
+            "node": "Call OpenRouter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call OpenRouter": {
+      "main": [
+        [
+          {
+            "node": "Format Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Init Corpus": {
+      "main": [
+        [
+          {
+            "node": "Article List",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Article List": {
+      "main": [
+        [
+          {
+            "node": "Process One at a Time",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process One at a Time": {
+      "main": [
+        [
+          {
+            "node": "Fetch Wikipedia (Init)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Fetch Wikipedia (Init)": {
+      "main": [
+        [
+          {
+            "node": "Store Document (Init)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Store Document (Init)": {
+      "main": [
+        [
+          {
+            "node": "Process One at a Time",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "tags": []
+}
