@@ -47,6 +47,8 @@ En Session 2, on a vu que les LLMs **hallucinent** et ont un **Knowledge Cutoff*
 
 ---
 
+<!-- _class: img-right -->
+
 # 02 — RAG = un LLM branché sur un moteur de recherche
 
 Le RAG est une idée simple : **connecter un LLM à un moteur de recherche**.
@@ -57,6 +59,8 @@ Le RAG est une idée simple : **connecter un LLM à un moteur de recherche**.
 - **Question** — l'utilisateur pose une question → le moteur trouve les documents pertinents → le LLM génère une réponse à partir de ces documents
 
 > Le moteur de recherche peut être un simple **TF-IDF**, un **BM25**, des **Embeddings**, ou les trois combinés. Le choix du moteur est une décision technique — le principe reste le même.
+
+![bg right:55% contain](assets/infographics/rag-llm-search-engine.png)
 
 ---
 
