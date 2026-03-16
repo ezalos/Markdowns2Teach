@@ -64,7 +64,7 @@ Each 3h session follows:
 
 ---
 
-## Session 3 — Cadrer un projet IA
+## Session 3 — Construire avec l'IA
 
 **0 — Informations pratiques** (`session-03/0-infos.md`, 9 slides)
 - Session 4 logistics: 42 Paris location, transport, ID required, campus visit
@@ -72,13 +72,18 @@ Each 3h session follows:
 - Session 5 intervenante: Juliette Lefay (Phygital Studio, tech-art entrepreneurship)
 - Session 5 reminders: QCM format (20 Qs, 5 propositions, 30 min), project presentations grading
 
-**A — RAG & Embeddings** (`session-03/A-rag-embeddings.md`, 24 slides)
-- Embeddings deep dive: 2D intuition, PCA, cosine similarity, semantic clusters, word arithmetic, multi-modal
-- RAG pipeline (chunking, vector DB, hybrid search, BM25 proof)
-- RAG advanced (Reranking, Contextual Retrieval, production patterns)
-- RAG vs Fine-tuning, Long Context vs RAG
+**A — Embeddings : Le GPS du sens** (`session-03/A-embeddings.md`, 9 slides)
+- Intuition: mots comme coordonnées, 2D → 768 dimensions
+- Mécanique: PCA, Cosine Similarity, clusters sémantiques, Word Arithmetic
+- Applications: Multi-Modal Embeddings, choix de modèle, discussion
 
-**B — Agents IA** (`session-03/B-agents.md`, 49 slides)
+**B — RAG : Retrieval Augmented Generation** (`session-03/B-rag.md`, 25 slides)
+- Pourquoi le RAG: hallucinations, knowledge cutoff, RAG = LLM + moteur de recherche, chatbot RH
+- Pipeline: 5 étapes, chunking, TF-IDF & BM25, recherche sémantique, hybrid search, vector DBs
+- RAG avancé: reranking, contextual retrieval, patterns de production, RAG vs fine-tuning, long context
+- Améliorer son RAG (Jason Liu): 5 niveaux de maturité, quick wins, anti-patterns, 6 evals, flywheel
+
+**C — Agents IA** (`session-03/C-agents.md`, 49 slides)
 - Progressive intro: Alfred narrative, agency spectrum (5 levels), agent cycle (Think→Act→Observe), augmented LLM
 - Anthropic complexity ladder: 6 patterns (Prompt Chaining → Routing → Parallelization → Orchestrator-Workers → Evaluator-Optimizer → Agents)
 - MCP deep dive: M×N problem, M+N solution, Host/Client/Server, 4 capabilities, ecosystem, security risks
@@ -88,13 +93,12 @@ Each 3h session follows:
 - Context Engineering (Jason Liu): Write/Select/Compress/Isolate, 4 response levels, Peripheral Vision, Subagents, Compaction, 3 Form Factors, Composabilité
 - Karpathy AutoResearch: autonomous ML experimentation loop, "programming the program.md"
 
-**C — Méthodologie projet IA** (`session-03/C-methodologie-projet.md`, 25 slides)
-- Rapid Agent Prototyping (Jason Liu): CLAUDE.md as spec, folder-based testing
-- CRISP-DM 6 phases, LLMOps 9 phases
-- AI Canvas tool
-- Open Source vs API vs Self-hosted
-- Case studies: Klarna, L'Oréal, Schneider, Doctolib, Alan
-- Failure analysis patterns
+**D — Méthodologie projet IA** (`session-03/D-methodologie-projet.md`, 25 slides)
+- Prompt-based development, 4 catégories GenAI, lifecycle Scope/Build/Evaluate/Deploy
+- CRISP-DM 6 phases, LLMOps 9 phases, AI Canvas, ML Canvas
+- MVP patterns (Wizard of Oz, Concierge, Rule-Based, Prompt Eng, API Wrapper)
+- 6 pièges AI Engineering (Chip Huyen), Gmail Story
+- Choix de stack: Closed vs Open Source, progression Prompting→RAG→Fine-tuning, coûts API
 
 ---
 

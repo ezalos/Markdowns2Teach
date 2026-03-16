@@ -37,7 +37,7 @@ Pour chaque claim non sourcé :
 | P1 | `session-02/A-prompt-au-produit.md` | 5 | Tableau pricing API, "90% projects", "~7 mois", "~10x price drop" |
 | P2 | `session-05/A-regulation-ethique.md` | 6 | Flash Crash $1T, Amazon recruiting, Meta RAI, Thomson Reuters v. Ross |
 | P3 | `session-01/B-au-dela-des-llms.md` | 5+1 | ImageNet, AlexNet, CNN benchmarks, "(Gartner)" informel, SLM pricing |
-| P4 | `session-03/B-methodologie-projet.md` | 4 | Fausse "Estimations sectorielles", CRISP-DM "400+ citations", "50-70%" |
+| P4 | `session-03/D-methodologie-projet.md` | 4 | Fausse "Estimations sectorielles", CRISP-DM "400+ citations", "50-70%" |
 | P5 | `session-04/A-ecosysteme-ia.md` | 3 | Fausse "Estimations développeurs" (CUDA 98%), parts de marché cloud, ASML |
 | P6 | `session-04/B-business-models.md` | 3 | Tableau pricing API, OpenAI $57B funding, L'Oréal experts/brevets |
 | P7 | `session-03/A-evaluer-solution-ia.md` | 2 | Tableau fourchettes de coûts, stat "65% surcoûts" |
