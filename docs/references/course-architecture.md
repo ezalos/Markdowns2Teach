@@ -46,9 +46,11 @@
 
 | Bloc | Contenu | Fichier |
 |------|---------|---------|
-| **A** | RAG & Agents IA — **RAG** : pourquoi (callback hallucinations/cutoff S2), pipeline 5 étapes, chunking, embeddings, vector DBs, hybrid search, BM25 DeepMind (preuve mathématique), Context Engineering (jxnl), applications, RAG vs Fine-tuning. **Agents** : ReAct, Tool Use, MCP protocol, Skills, pourquoi pas le Multi-Agent (Cognition/Devin), Reasoning Models comme "équipe interne" (DeepSeek-R1), méthodologie, écosystème 2026 | `slides/session-03/A-rag-agents.md` (34 slides) |
-| **B** | Méthodologie projet IA — Prompt-based dev, 4 catégories d'apps GenAI, lifecycle Scope/Build/Evaluate/Deploy, CRISP-DM, LLMOps, AI Canvas, MVP patterns (Gmail story), 6 pièges de l'AI Engineering (Chip Huyen), choix de stack (API vs Open-weights vs Self-hosted), coûts, progression Prompting→RAG→Fine-tuning | `slides/session-03/B-methodologie-projet.md` (29 slides) |
-| **C** | Démo agents — workflow MCP / agent guidé | *(design TBD)* |
+| **Info** | Informations pratiques — logistique S4 (42 Paris), intervenants S4/S5, rappels QCM et présentations | `slides/session-03/0-infos.md` (9 slides) |
+| **A** | Embeddings — intuition (GPS du sens, 2D→768d), mécanique (PCA, cosine similarity, clusters, word arithmetic), applications (multimodal, choix de modèle) | `slides/session-03/A-embeddings.md` (9 slides) |
+| **B** | RAG — pourquoi (hallucinations/cutoff), pipeline (chunking, TF-IDF, BM25, embeddings, hybrid search, vector DB), avancé (reranking, contextual retrieval, production patterns), amélioration (Jason Liu: maturity levels, quick wins, anti-patterns, 6 evals, flywheel) | `slides/session-03/B-rag.md` (25 slides) |
+| **C** | Agents IA — spectre d'agence, cycle Think→Act→Observe, 6 patterns Anthropic, MCP deep dive, Skills, Claude Code, OpenClaw, mémoire, production (erreurs composées), Context Engineering, AutoResearch | `slides/session-03/C-agents.md` (49 slides) |
+| **D** | Méthodologie projet IA — Prompt-based dev, 4 catégories GenAI, lifecycle, CRISP-DM, LLMOps, AI Canvas, MVP patterns, 6 pièges AI Engineering, choix de stack | `slides/session-03/D-methodologie-projet.md` (25 slides) |
 
 ### Séance 4 — Le business de l'IA
 
@@ -84,8 +86,10 @@
 | `session-01/C-premier-projet-ia.md` | 25 | ✅ Terminé |
 | `session-02/A-llms.md` | 45 | ✅ Terminé — enrichi coûts entraînement (Epoch AI), données limitées, synthetic data, gap open/closed |
 | `session-02/B-evaluer-ia.md` | 21 | ✅ Terminé — enrichi LM Council, ECI accélération, GDPval |
-| `session-03/A-rag-agents.md` | 34 | ✅ Terminé — enrichi BM25 DeepMind, Context Engineering, Multi-Agent critique, Reasoning Models |
-| `session-03/B-methodologie-projet.md` | 29 | ✅ Terminé — enrichi 6 pièges AI Engineering (Chip Huyen) |
+| `session-03/A-embeddings.md` | 9 | ✅ Terminé — extrait de A-rag-embeddings |
+| `session-03/B-rag.md` | 25 | ✅ Terminé — restructuré avec slides TF-IDF/BM25, intro simplifiée |
+| `session-03/C-agents.md` | 49 | ✅ Terminé — enrichi MCP, Skills, OpenClaw, AutoResearch |
+| `session-03/D-methodologie-projet.md` | 25 | ✅ Terminé — enrichi 6 pièges AI Engineering (Chip Huyen) |
 | `session-04/A-ecosysteme-ia.md` | 23 | ✅ Terminé — enrichi section "L'IA en 2030" (inference, scaling, énergie, benchmarks économiques) |
 | `session-04/B-business-models.md` | 18 | ✅ Terminé |
 | `session-05/A-regulation-ethique.md` | 27 | ✅ Terminé — enrichi Constitutional AI, Amodei, débat gouvernance Anthropic |
