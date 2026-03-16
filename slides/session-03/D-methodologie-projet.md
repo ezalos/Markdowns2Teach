@@ -7,7 +7,7 @@ footer: "Sources multiples"
 ---
 
 <!-- ABOUTME: Méthodologie projet IA — du prompt-based development au déploiement, CRISP-DM, LLMOps, AI Canvas, MVP, choix de stack. -->
-<!-- ABOUTME: Seconde moitié de la Session 3, cadré pour entrepreneurs M2 non-ingénieurs. -->
+<!-- ABOUTME: Block D de la Session 3, cadré pour entrepreneurs M2 non-ingénieurs. -->
 
 <!-- _class: title -->
 <!-- _paginate: skip -->
@@ -16,7 +16,7 @@ footer: "Sources multiples"
 
 # Méthodologie projet IA
 
-## Session 3B — Du cadrage au déploiement
+## Session 3D — Du cadrage au déploiement
 
 M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 
@@ -96,7 +96,7 @@ Le cadrage est l'étape la plus critique. Un mauvais scope = un projet qui écho
 - Quel niveau de qualité est acceptable ?
 
 **Mesurer le succès** — Définir des KPIs dès le scope :
-- *Précision* : % de réponses correctes (cf. Deck A, Precision/Recall)
+- *Précision* : % de réponses correctes (cf. Session 2B, Precision/Recall)
 - *Satisfaction utilisateur* : NPS, résolution au premier contact
 - *ROI* : coût IA vs coût du processus manuel remplacé
 
@@ -286,9 +286,26 @@ Avant de construire un modèle, **5 patterns** pour tester la valeur [1] :
 
 ---
 
+# 13 — Prototypage rapide d'agents
+
+La plupart des équipes **perdent des mois** à construire l'infrastructure agent avant de valider l'idée [1].
+
+**L'approche Jason Liu** — tester avec Claude Code comme harness :
+- `CLAUDE.md` = spécification en langage naturel (mission, outils, critères de succès)
+- `tools/` = scripts CLI wrappant les APIs réelles
+- `tests/` = scénarios avec `request.txt` (input) + `check.py` (validation pass/fail)
+
+**Le test décisif** : si Claude Code ne peut pas accomplir la tâche avec un accès parfait aux outils, votre agent de production ne le pourra pas non plus.
+
+> C'est le **Prompt Engineering MVP** (slide 12) appliqué aux agents. Un test passant = concept validé [1].
+
+<small>Sources : [1] [Jason Liu — Rapid Agent Prototyping](https://jxnl.co/writing/2025/09/04/context-engineering-rapid-agent-prototyping/)</small>
+
+---
+
 <!-- _class: compact -->
 
-# 13 — Les 6 pièges de l'AI Engineering
+# 14 — Les 6 pièges de l'AI Engineering
 
 Chip Huyen identifie **6 erreurs récurrentes** dans les projets GenAI [1] :
 
@@ -305,7 +322,7 @@ Chip Huyen identifie **6 erreurs récurrentes** dans les projets GenAI [1] :
 
 ---
 
-# 14 — Discussion : Avez-vous besoin de GenAI ?
+# 15 — Discussion : Avez-vous besoin de GenAI ?
 
 > **Scénario** : votre startup veut ajouter de l'IA à son produit. Un investisseur vous demande : *"Pourquoi de la GenAI et pas une simple regex ou un modèle classique ?"*
 
@@ -313,7 +330,7 @@ Chip Huyen identifie **6 erreurs récurrentes** dans les projets GenAI [1] :
 
 - Quand la GenAI est-elle **overkill** ? Citez un cas où une règle simple suffirait
 - Comment savez-vous qu'il faut **monter en complexité** (Prompting → RAG → Fine-tuning) ?
-- Si votre démo fonctionne en 1 mois, combien de temps budgétez-vous pour la production ? (indice : slide 13, piège #4)
+- Si votre démo fonctionne en 1 mois, combien de temps budgétez-vous pour la production ? (indice : slide 14, piège #4)
 
 > **Rappel** : Google Rule of ML #1 — *"If you can build it without ML, do so first."* Le même principe s'applique à la GenAI.
 
@@ -321,7 +338,7 @@ Chip Huyen identifie **6 erreurs récurrentes** dans les projets GenAI [1] :
 
 <!-- _class: compact -->
 
-# 15 — The Gmail Story — Le MVP comme méthodologie
+# 16 — The Gmail Story — Le MVP comme méthodologie
 
 <!-- TODO: Louis will present the Gmail story live — prepare slide with key points after discussion -->
 
@@ -341,7 +358,7 @@ Gmail a démarré comme **la chose la plus simple possible**.
 
 ---
 
-# 16 — Discussion : Canvas en action
+# 17 — Discussion : Canvas en action
 
 > Votre startup fintech (30 personnes, 5M EUR CA, budget IA 150K EUR) a brainstormé **15 use cases**. Après filtrage, il en reste 7. Budget pour 2-3 maximum.
 
@@ -368,7 +385,7 @@ Gmail a démarré comme **la chose la plus simple possible**.
 
 <!-- _class: cols -->
 
-# 17 — Trois modèles d'accès aux LLMs
+# 18 — Trois modèles d'accès aux LLMs
 
 <div class="left">
 
@@ -398,7 +415,7 @@ Gmail a démarré comme **la chose la plus simple possible**.
 
 <!-- _class: img-right -->
 
-# 18 — Le guide de décision
+# 19 — Le guide de décision
 
 ![bg right:55% contain](assets/infographics/decision-guide_run_20260216_171259_3f18b9.png)
 
@@ -415,7 +432,7 @@ Quatre niveaux d'investissement technique :
 
 ---
 
-# 19 — L'écosystème open-source européen
+# 20 — L'écosystème open-source européen
 
 - **Hugging Face** : Paris, **$4,5 Mds** valorisation, **1M+ modèles**, 400K datasets [1]
 - **Mistral AI** : Paris, **EUR 11,7 Mds** valorisation, seul frontier UE [2]
@@ -428,7 +445,7 @@ Quatre niveaux d'investissement technique :
 
 ---
 
-# 20 — Combien coûte un appel API ?
+# 21 — Combien coûte un appel API ?
 
 | Modèle | Input (par 1M tokens) | Output (par 1M tokens) | Positionnement |
 |---|---|---|---|
@@ -447,7 +464,7 @@ Quatre niveaux d'investissement technique :
 
 <!-- _class: img-right compact-table -->
 
-# 21 — Progression : Prompting → RAG → Fine-tuning
+# 22 — Progression : Prompting → RAG → Fine-tuning
 
 | Outil | Complexité | Coût | Quand l'utiliser |
 |---|---|---|---|
@@ -464,7 +481,7 @@ Quatre niveaux d'investissement technique :
 
 <!-- _class: img-right -->
 
-# 22 — Cas pratique : BettaBurgers
+# 23 — Cas pratique : BettaBurgers
 
 **Contexte** : BettaBurgers veut un chatbot pour prendre les commandes.
 
@@ -493,7 +510,7 @@ Quatre niveaux d'investissement technique :
 
 <!-- _class: compact -->
 
-# 23 — Trois phases, trois sets d'outils
+# 24 — Trois phases, trois sets d'outils
 
 **Phase 1 — Valider** (0-3 mois) :
 - Use Case Prioritization, AI Project Canvas, MVP Prompt Engineering
@@ -512,7 +529,7 @@ Quatre niveaux d'investissement technique :
 
 ---
 
-# 24 — Key Takeaways
+# 25 — Key Takeaways
 
 1. **Prompt-based Development** — de 7 mois à quelques jours, l'IA accessible à tous
 
