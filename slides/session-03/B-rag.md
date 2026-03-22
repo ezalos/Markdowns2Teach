@@ -143,6 +143,8 @@ Le Chunking transforme un document de 50 pages en morceaux exploitables par le L
 
 ---
 
+<!-- _class: compact -->
+
 # 07 — Recherche par mots-clés : TF-IDF & BM25
 
 Avant les Embeddings, la recherche fonctionnait par **comptage de mots** :
@@ -158,18 +160,19 @@ Avant les Embeddings, la recherche fonctionnait par **comptage de mots** :
 
 > Rapide (~5 ms), aucun modèle à entraîner, excellent pour les **termes exacts**. Faiblesse : ne comprend pas que "voiture" et "automobile" sont le même concept.
 
-<small>Sources : [1] [Robertson & Zaragoza — The Probabilistic Relevance Framework: BM25 and Beyond](https://dl.acm.org/doi/10.1561/1500000019)</small>
+<small>Sources : [1] [Robertson & Zaragoza — BM25 and Beyond](https://dl.acm.org/doi/10.1561/1500000019)</small>
 
 ---
+
+<!-- _class: compact -->
 
 # 08 — Recherche sémantique & Hybrid Search
 
 **Embeddings** (cf. Deck A) résolvent la faiblesse des mots-clés :
-- Comparent le **sens**, pas les mots exacts
-- "Voiture" et "automobile" → vecteurs proches
+- Comparent le **sens**, pas les mots exacts — "voiture" et "automobile" → vecteurs proches
 - Excellents pour les questions en langage naturel
 
-**Mais les Embeddings ont aussi des limites** :
+**Limites des Embeddings** :
 - Peuvent manquer un terme technique exact ("article L.121-3")
 - Plus lents et plus coûteux que BM25
 
@@ -177,7 +180,7 @@ Avant les Embeddings, la recherche fonctionnait par **comptage de mots** :
 - BM25 pour les mots exacts + Embeddings pour le sens
 - **+15–30% de rappel** vs chaque méthode seule [1]
 
-> Il n'y a pas de débat : en production, c'est **toujours** Hybrid Search.
+> En production, c'est **toujours** Hybrid Search.
 
 <small>Sources : [1] [Anthropic — Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval)</small>
 

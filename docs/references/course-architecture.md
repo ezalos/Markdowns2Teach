@@ -49,16 +49,16 @@
 | **Info** | Informations pratiques — logistique S4 (42 Paris), intervenants S4/S5, rappels QCM et présentations | `slides/session-03/0-infos.md` (9 slides) |
 | **A** | Embeddings — intuition (GPS du sens, 2D→768d), mécanique (PCA, cosine similarity, clusters, word arithmetic), applications (multimodal, choix de modèle) | `slides/session-03/A-embeddings.md` (9 slides) |
 | **B** | RAG — pourquoi (hallucinations/cutoff), pipeline (chunking, TF-IDF, BM25, embeddings, hybrid search, vector DB), avancé (reranking, contextual retrieval, production patterns), amélioration (Jason Liu: maturity levels, quick wins, anti-patterns, 6 evals, flywheel) | `slides/session-03/B-rag.md` (25 slides) |
-| **C** | Agents IA — spectre d'agence, cycle Think→Act→Observe, 6 patterns Anthropic, MCP deep dive, Skills, Claude Code, OpenClaw, mémoire, production (erreurs composées), Context Engineering, AutoResearch | `slides/session-03/C-agents.md` (49 slides) |
-| **D** | Méthodologie projet IA — Prompt-based dev, 4 catégories GenAI, lifecycle, CRISP-DM, LLMOps, AI Canvas, MVP patterns, 6 pièges AI Engineering, choix de stack | `slides/session-03/D-methodologie-projet.md` (25 slides) |
+| **C** | Agents IA — spectre d'agence, cycle Think→Act→Observe, Tools & Skills (SKILL.md concret), MCP (HuggingFace diagrams, n8n exemple, débat), 5 patterns Anthropic (avec diagrammes), mémoire LLM-centrée, production (erreurs composées), Context Engineering (3 slides essentielles), produits agents (Claude Code, OpenClaw + pulse files), AutoResearch | `slides/session-03/C-agents.md` (44 slides) |
 
 ### Séance 4 — Le business de l'IA
 
 | Bloc | Contenu | Fichier |
 |------|---------|---------|
-| **A** | L'écosystème IA — Chaîne de valeur 9 couches, acteurs clés (NVIDIA, cloud, labs), marché et investissements, positionnement FR/EU, Mistral AI, **L'IA en 2030** (inference economics, scaling compute 5000× GPT-4, énergie comme nouveau pétrole, GDPval/RLI benchmarks économiques) | `slides/session-04/A-ecosysteme-ia.md` (23 slides) |
-| **B** | Business Models & Cas Réels — 7 patterns business, déflation des coûts, moats, data flywheel, cas réels (Klarna, L'Oréal, Schneider Electric, Cursor, failure cases, secteurs régulés), 5 tendances structurelles | `slides/session-04/B-business-models.md` (18 slides) |
-| **C** | Intervenants externes (~1h total) | Voir section ci-dessous |
+| **A** | Méthodologie projet IA — Bitter Lesson, prompt-based dev, GenAI lifecycle (Scope→Build→Evaluate→Deploy), baseline + itération, MVP patterns, 6 pièges AI Engineering, progression Prompting→RAG→Fine-tuning, Gmail Story | `slides/session-04/A-methodologie-projet.md` (17 slides) |
+| **B** | L'écosystème IA — Value chain 9 couches (Energy, Hardware, Cloud, Data, Models, Distribution, Safety, Applications), NVIDIA triple verrouillage, Scaling/Inference/Energy intégrés dans les couches, Mistral AI, positionnement FR/EU | `slides/session-04/B-ecosysteme-ia.md` (22 slides) |
+| **C** | Business Models & Cas Réels — 7 patterns business, déflation des coûts, moats, data flywheel, cas réels (Klarna, L'Oréal, Schneider Electric, Cursor, failure cases, secteurs régulés), 5 tendances structurelles | `slides/session-04/C-business-models.md` (18 slides) |
+| **D** | Intervenants externes (~1h total) | Voir section ci-dessous |
 
 ### Séance 5 — Éthique, gouvernance & clôture
 
@@ -88,10 +88,10 @@
 | `session-02/B-evaluer-ia.md` | 21 | ✅ Terminé — enrichi LM Council, ECI accélération, GDPval |
 | `session-03/A-embeddings.md` | 9 | ✅ Terminé — extrait de A-rag-embeddings |
 | `session-03/B-rag.md` | 25 | ✅ Terminé — restructuré avec slides TF-IDF/BM25, intro simplifiée |
-| `session-03/C-agents.md` | 49 | ✅ Terminé — enrichi MCP, Skills, OpenClaw, AutoResearch |
-| `session-03/D-methodologie-projet.md` | 25 | ✅ Terminé — enrichi 6 pièges AI Engineering (Chip Huyen) |
-| `session-04/A-ecosysteme-ia.md` | 23 | ✅ Terminé — enrichi section "L'IA en 2030" (inference, scaling, énergie, benchmarks économiques) |
-| `session-04/B-business-models.md` | 18 | ✅ Terminé |
+| `session-03/C-agents.md` | 44 | ✅ Terminé — restructuré : Tools/Skills→MCP→Patterns→Mémoire→Production→Context Eng.→Produits→AutoResearch. Diagrammes Anthropic + HuggingFace, mémoire LLM-centrée, Context Eng. compacté (5 slides → extra-deck) |
+| `session-04/A-methodologie-projet.md` | 17 | ✅ Terminé — restructuré depuis S3-D : Bitter Lesson, CV avant/maintenant, baseline+itération, MVP enrichi, Gmail Story |
+| `session-04/B-ecosysteme-ia.md` | 22 | ✅ Terminé — restructuré : 9 couches avec narratif (PDF source), Energy+Data ajoutées, Scaling/Inference intégrés dans couches, 6 PaperBanana, NVIDIA triple verrouillage |
+| `session-04/C-business-models.md` | 18 | ✅ Terminé |
 | `session-05/A-regulation-ethique.md` | 27 | ✅ Terminé — enrichi Constitutional AI, Amodei, débat gouvernance Anthropic |
 
 ### Decks de référence (evaluation/)
@@ -114,6 +114,7 @@
 | `extra-decks/B-methodologie-projet-v1.md` | 17 | Ex-S3-B — restructuré en S3-B + cas → S4-B |
 | `extra-decks/architectures.md` | 4 | Extra — CNN, RNN, GAN, Transformer deep dive |
 | `extra-decks/D-biais-ethique.md` | 3 | Extra — teaser biais & éthique (S5 couvre le sujet) |
+| `extra-decks/D-methodologie-projet-v1.md` | 25 | Ex-S3-D — restructuré et déplacé vers S4-A |
 
 ### QCMs
 

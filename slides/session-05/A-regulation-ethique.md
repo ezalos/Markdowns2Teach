@@ -76,7 +76,7 @@ Trois questions à se poser **avant** de lancer un produit IA :
 
 **Open-source** : modèles <10²⁵ FLOPs exemptés **si** licence libre, poids publics, non monétisé [2]
 
-<small>Sources : [1] [CEPS](https://www.ceps.eu/) · [2] [EU AI Act Art. 53](https://eur-lex.europa.eu/eli/reg/2024/1689)</small>
+<small>Sources : [1] [CEPS](https://www.ceps.eu/clarifying-the-costs-for-the-eus-ai-act/) · [2] [EU AI Act Art. 53](https://eur-lex.europa.eu/eli/reg/2024/1689)</small>
 
 ---
 
@@ -118,7 +118,7 @@ Trois questions à se poser **avant** de lancer un produit IA :
 
 > **Tendance** : l'UE régule par la loi, les US par les tribunaux, la Chine par le Parti [1].
 
-<small>Sources : [1] [OECD](https://oecd.ai/en/ai-principles) · [2] [White House](https://www.whitehouse.gov/presidential-actions/)</small>
+<small>Sources : [1] [OECD](https://oecd.ai/en/ai-principles) · [2] [White House](https://www.whitehouse.gov/presidential-actions/2025/01/removing-barriers-to-american-leadership-in-artificial-intelligence/)</small>
 
 ---
 
@@ -134,7 +134,7 @@ Trois questions à se poser **avant** de lancer un produit IA :
 
 **Exception** : la sécurité des enfants est **explicitement exemptée** de la préemption.
 
-<small>Sources : [1] [White House](https://www.whitehouse.gov/presidential-actions/) · [2] [Federal Register](https://www.federalregister.gov/)</small>
+<small>Sources : [1] [White House](https://www.whitehouse.gov/presidential-actions/2025/01/removing-barriers-to-american-leadership-in-artificial-intelligence/) · [2] [Federal Register](https://www.federalregister.gov/documents/2025/01/31/2025-02172/removing-barriers-to-american-leadership-in-artificial-intelligence)</small>
 
 ---
 
@@ -177,7 +177,7 @@ Trois questions à se poser **avant** de lancer un produit IA :
 
 > **Pour un entrepreneur** : si votre IA touche au recrutement, au crédit ou à l'assurance, le biais est votre **risque juridique n°1**.
 
-<small>Sources : [1] [Bloomberg Law](https://news.bloomberglaw.com/) · [2] [Reuters](https://www.reuters.com/article/us-amazon-com-jobs-automation-insight-idUSKCN1MK08G)</small>
+<small>Sources : [1] [Bloomberg Law](https://news.bloomberglaw.com/daily-labor-report/employers-find-openings-to-share-ai-bias-liability-with-vendors) · [2] [Reuters](https://www.reuters.com/article/us-amazon-com-jobs-automation-insight-idUSKCN1MK08G)</small>
 
 ---
 
@@ -194,7 +194,7 @@ Trois questions à se poser **avant** de lancer un produit IA :
 
 > Les deployers doivent révéler les deepfakes **dès la première exposition**.
 
-<small>Sources : [1] [NYT](https://www.nytimes.com/) · [2] [EU AI Act Art. 50](https://eur-lex.europa.eu/eli/reg/2024/1689) · [3] [C2PA](https://c2pa.org/) · [4] [Loeb & Loeb](https://www.loeb.com/en/insights/publications/2025/02/thomson-reuters-v-ross-intelligence-inc)</small>
+<small>Sources : [1] [NYT](https://www.nytimes.com/2023/12/27/business/media/new-york-times-open-ai-microsoft-lawsuit.html) · [2] [EU AI Act Art. 50](https://eur-lex.europa.eu/eli/reg/2024/1689) · [3] [C2PA](https://c2pa.org/) · [4] [Loeb & Loeb](https://www.loeb.com/en/insights/publications/2025/02/thomson-reuters-v-ross-intelligence-inc)</small>
 
 ---
 
@@ -221,7 +221,7 @@ Trois questions à se poser **avant** de lancer un produit IA :
 
 > Le reporting environnemental IA est une **obligation légale**, pas un engagement RSE.
 
-<small>Sources : [1] [IEA](https://www.iea.org/) · [2] [Google](https://sustainability.google/) · [3] [Nature Sustainability](https://www.nature.com/natsustain/) · [4] [Stanford HAI](https://hai.stanford.edu/ai-index/2025-ai-index-report)</small>
+<small>Sources : [1] [IEA](https://www.iea.org/reports/electricity-2024) · [2] [Google](https://sustainability.google/reports/google-2024-environmental-report/) · [3] [Nature](https://www.nature.com/articles/d41586-024-00478-x) · [4] [Stanford HAI](https://hai.stanford.edu/ai-index/2025-ai-index-report)</small>
 
 ---
 
@@ -333,7 +333,7 @@ Les dommages causés par l'IA sont **concrets et documentés** :
 
 ![w:200](assets/ng03/img-007.png) ![w:200](assets/ng03/img-008.png) ![w:200](assets/ng03/img-006.png)
 
-<small>Sources : [1] [CA Gov](https://www.gov.ca.gov/) · [2] [SEC/CFTC](https://www.sec.gov/news/studies/2010/marketevents-report.pdf) · Adapté de Andrew Ng · DeepLearning.AI · CC BY-SA 2.0</small>
+<small>Sources : [1] [CA Gov](https://www.gov.ca.gov/2024/09/29/governor-newsom-announces-new-initiatives-to-advance-safe-and-responsible-ai-protect-californians/) · [2] [SEC/CFTC](https://www.sec.gov/news/studies/2010/marketevents-report.pdf) · Adapté de Andrew Ng · DeepLearning.AI · CC BY-SA 2.0</small>
 
 ---
 
@@ -370,7 +370,7 @@ Les dommages causés par l'IA sont **concrets et documentés** :
 
 > **Paradoxe Meta** : refuse l'auto-régulation **et** dissout son équipe RAI — tout en publiant des outils open-source (LlamaFirewall, Llama Guard 4).
 
-<small>Sources : [1] [Microsoft](https://www.microsoft.com/en-us/ai/principles-and-approach) · [2] [Google](https://deepmind.google/discover/blog/) · [3] [Anthropic](https://www.anthropic.com/responsible-scaling-policy) · [4] [CNBC](https://www.cnbc.com/2023/11/18/facebook-parent-meta-breaks-up-its-responsible-ai-team.html)</small>
+<small>Sources : [1] [Microsoft](https://www.microsoft.com/en-us/ai/principles-and-approach) · [2] [DeepMind](https://deepmind.google/blog/introducing-the-frontier-safety-framework/) · [3] [Anthropic](https://www.anthropic.com/responsible-scaling-policy) · [4] [CNBC](https://www.cnbc.com/2023/11/18/facebook-parent-meta-breaks-up-its-responsible-ai-team.html)</small>
 
 ---
 
@@ -537,7 +537,7 @@ Anthropic a publié en janvier 2026 une **constitution de 83 pages** qui défini
 
 > La conformité n'est pas un coût — c'est un **investissement dans l'accès au marché**.
 
-<small>Sources : [1] [EU AI Act Art. 57-59](https://eur-lex.europa.eu/eli/reg/2024/1689) · [2] [European Parliament](https://www.europarl.europa.eu/)</small>
+<small>Sources : [1] [EU AI Act Art. 57-59](https://eur-lex.europa.eu/eli/reg/2024/1689) · [2] [European Parliament](https://www.europarl.europa.eu/thinktank/en/document/EPRS_BRI(2022)733544)</small>
 
 ---
 
