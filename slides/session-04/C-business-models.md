@@ -44,7 +44,7 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 
 > Le même output coûte moins cher chaque trimestre — **anticipez la déflation**.
 
-<small>Sources : [1] [Gartner](https://www.gartner.com/en/articles/ai-pricing-tips-control-costs-effectively) · [2] [Intercom](https://www.intercom.com/fin)</small>
+<small>Sources : [1] [Gartner](https://www.gartner.com/en/articles/ai-pricing-tips-control-costs-effectively) · [2] [Intercom Fin](https://fin.ai/)</small>
 
 ---
 
@@ -96,7 +96,7 @@ Pourquoi ça marche :
 # 04 — Wrappers, Agents & Embedded AI
 
 **Wrappers** — le piège de la commoditisation :
-- **85-92%** échouent dans les 5 ans [1]
+- **85%** des projets IA ne livrent pas les résultats attendus [1]
 - 8 000+ assistants d'écriture IA : seulement **10-15** génèrent du revenu [1]
 
 **Agents autonomes** — la prochaine vague :
@@ -107,7 +107,7 @@ Pourquoi ça marche :
 **Embedded AI** — l'IA dans les produits existants :
 - Microsoft 365 Copilot : **$30/user/mois** d'uplift sur licence [3]
 
-<small>Sources : [1] [a16z](https://a16z.com/context-is-king/) · [2] [IDC](https://www.businesswire.com/news/home/20240819177906/en/Worldwide-Spending-on-Artificial-Intelligence-Forecast-to-Reach-632-Billion-in-2028-According-to-a-New-IDC-Spending-Guide) · [3] [Bloomberg](https://www.bloomberg.com/news/articles/2025-03-06/the-hottest-ai-companies-right-now-are-apps)</small>
+<small>Sources : [1] [Gartner / a16z](https://a16z.com/context-is-king/) · [2] [IDC](https://www.businesswire.com/news/home/20240819177906/en/Worldwide-Spending-on-Artificial-Intelligence-Forecast-to-Reach-632-Billion-in-2028-According-to-a-New-IDC-Spending-Guide) · [3] [Bloomberg](https://www.bloomberg.com/news/articles/2025-03-06/the-hottest-ai-companies-right-now-are-apps)</small>
 
 ---
 
@@ -127,9 +127,9 @@ Pourquoi ça marche :
 |------|-----------|---------|
 | Data propriétaire | Très forte | Tempus (5M dossiers) |
 | Network effects | Très forte | Hugging Face (2M+ modèles) |
-| Switching costs | Forte | Cursor (workflows intégrés) |
 | Expertise domaine | Forte | Harvey (legal AI) |
 | Régulation | Forte | Mistral (hébergement UE) |
+| Switching costs | Forte ~ Moyenne | Cursor (workflows intégrés) |
 | Échelle compute | Moyenne | OpenAI ($57,9 Mds levés) [1] |
 | Marque / confiance | Moyenne | Anthropic ("responsible AI") |
 
@@ -164,32 +164,21 @@ Pourquoi ça marche :
 
 ---
 
-<!-- _class: cols -->
+<!-- _class: img-right -->
 
 # 07 — Cas : Klarna — remplacer puis réembaucher
 
-<div class="left">
+- **2022** : $1 Mds de pertes → CEO cherche à couper partout
+- **2024** : chatbot IA gère **2/3 des chats**, remplace 700 agents, 11→2 min [1]
+- **Fin 2024** : **$40 M** économisés, retour au profit ($244M perte → $21M profit)
+- **Début 2025** : backlash clients, CEO admet *"on est allés trop loin"*
+- **Mi-2025** : réembauche d'humains (400 SEK/h), H1 = **$152 M de perte** [2]
 
-**Le succès initial** [1]
+> **Augmentation > remplacement total** — la leçon la plus chère de 2025.
 
-- IA remplace **700 agents** (jan 2024)
-- 2,3M conversations/mois, 11→2 min
-- **$40 M** d'économies annuelles
-- $244M perte → **$21M profit**
+![bg right:55% contain](assets/infographics/klarna-timeline_run_20260323_143048_2c1e7c.png)
 
-</div>
-<div class="right">
-
-**Le retour de bâton** [2]
-
-- Qualité en baisse, CEO : *"on est allés trop loin"*
-- **Réembauchage** d'humains (400 SEK/h)
-- H1 2025 : **$152 M de perte** malgré les économies
-- Leçon : **augmentation > remplacement total**
-
-</div>
-
-<small>Sources : [1] [Klarna SEC F-1](https://www.sec.gov/Archives/edgar/data/2003292/000162828025012824/klarnagroupplcf-1.htm) · [2] [Bloomberg](https://www.bloomberg.com/news/articles/2024-12-12/klarna-stopped-all-hiring-a-year-ago-to-replace-workers-with-ai)</small>
+<small>Sources : [1] [Klarna](https://www.klarna.com/international/press/klarna-ai-assistant-handles-two-thirds-of-customer-service-chats-in-its-first-month/) · [2] [Entrepreneur](https://www.entrepreneur.com/business-news/klarna-ceo-reverses-course-by-hiring-more-humans-not-ai/491396)</small>
 
 ---
 
@@ -210,22 +199,22 @@ Pourquoi ça marche :
 
 <!-- _class: compact compact-table -->
 
-# 09 — Cas : Schneider Electric — €700M économisés par le Build
+# 09 — Cas : Schneider Electric — Build in-house a l'echelle
 
-- **Build in-house** : outils IA maison (maintenance prédictive, optimisation énergie)
-- **€700M** économisés depuis 2019, **7,4M** d'assets connectés (EcoStruxure IoT) [1][2]
-- Début par un cas simple : **maintenance prédictive**
+- **Build in-house** : outils IA maison (maintenance predictive, optimisation energie)
+- **EUR 100M+** de valeur IA (supply chain, maintenance predictive) + EUR 30M de productivite [1]
+- **200+** professionnels IA, **18 brevets**, **7,4M** d'assets connectes (EcoStruxure IoT) [2]
 
-| Critère | Schneider (Build) | L'Oréal (Buy) |
+| Critere | Schneider (Build) | L'Oreal (Buy) |
 |---------|-------------------|---------------|
-| Investissement | Élevé (temps + talent) | Élevé (prix d'achat) |
-| Contrôle | Total | Partiel |
-| ROI | €700M sur 5 ans | 3x conversion |
-| Timeline | Lente (années) | Rapide (intégration) |
+| Investissement | Eleve (temps + talent) | Eleve (prix d'achat) |
+| Controle | Total | Partiel |
+| ROI | EUR 100M+ supply chain | 3x conversion |
+| Timeline | Lente (annees) | Rapide (integration) |
 
-> **Pas de réponse universelle** au Build vs Buy — dépend de vos ressources et timeline.
+> **Pas de reponse universelle** au Build vs Buy — depend de vos ressources et timeline.
 
-<small>Sources : [1] [Schneider Electric](https://www.se.com/ww/en/about-us/newsroom/news/press-releases/schneider-electric-accelerates-its-ai-at-scale-strategy-with-solid-progress-in-the-first-year-637354860adc3a6541060214/) · [2] [EcoStruxure Platform](https://www.se.com/ww/en/work/campaign/innovation/platform/)</small>
+<small>Sources : [1] [Schneider Electric AI](https://www.se.com/ww/en/work/solutions/artificial-intelligence/solutions/) · [2] [Schneider Electric](https://www.se.com/ww/en/about-us/newsroom/news/press-releases/schneider-electric-accelerates-its-ai-at-scale-strategy-with-solid-progress-in-the-first-year-637354860adc3a6541060214/)</small>
 
 ---
 
@@ -234,57 +223,50 @@ Pourquoi ça marche :
 | Entreprise | Secteur | Valorisation | Métrique IA clé [1] |
 |------------|---------|:-----------:|-----------------|
 | Doctolib | Santé | **€6,5 Mds** | 1,6M consultations IA, 80M users |
-| Alan | Assurance | **$4,5 Mds** | €505M ARR, +48% YoY |
+| Alan | Assurance | **€5 Mds** | €785M ARR, +53% YoY |
 | Shift Technology | Assurance | $1 Mds+ | **$5 Mds** fraude détectée/an |
-| Doctrine | Legal | >€100M | 25K juristes, 27M+ documents |
-| Owkin | Biotech | $1 Mds+ | Federated learning, 35 hôpitaux |
+| Doctrine | Legal | >€100M | 27K juristes, 27M+ documents |
+| Owkin | Biotech | $1 Mds+ | Federated learning, 104 data partners |
 
 > **5 sur 5 sont français.** La France domine l'IA dans les secteurs régulés — le RGPD et l'expertise métier créent un moat naturel.
 
-<small>Sources : [1] [Doctolib](https://about.doctolib.fr/) · [Alan](https://alan.com/) · [Shift](https://www.shift-technology.com/) · [Doctrine](https://www.doctrine.fr/) · [Owkin](https://owkin.com/)</small>
+<small>Sources : [1] [Sifted](https://sifted.eu/articles/doctolib-results-2024) · [TechCrunch](https://techcrunch.com/2026/03/11/health-insurance-startup-alan-reaches-e5b-valuation/) · [Shift](https://www.shift-technology.com/products/claims-fraud) · [Doctrine](https://doctrine.pr.co/fr/) · [Owkin](https://www.owkin.com/newsfeed/owkin-becomes-unicorn-with-180m-investment-from-sanofi-and-four-new-collaborative-projects)</small>
 
 ---
 
-<!-- _class: cols -->
+<!-- _class: img-right -->
 
-# 11 — Cas : Cursor — croissance record, rentabilité incertaine
+# 11 — Cas : Cursor — croissance record, étau fournisseur
 
-<div class="left">
+- **$0 → $2 Mds ARR** en 26 mois, $0 marketing [1]
+- Val. $29,3 Mds, 300+ pers., 50%+ Fortune 500
+- **~$650M/an** payés à Anthropic — pour $500M de CA [2]
+- Anthropic lance Claude Code → **fournisseur = concurrent**
+- Riposte : Composer 2 (-86%), pivot enterprise (60% CA)
 
-- **$0→$1 Mds ARR** en 24 mois [1]
-- **$29,3 Mds** val., **1M+** DAU [1]
-- 4 fondateurs MIT, ~150 pers., $0 marketing
-- Fork VS Code → **0 friction** migration
+> **Croissance ≠ rentabilité** — l'issue reste ouverte.
 
-</div>
-<div class="right">
+![bg right:55% contain](assets/infographics/cursor-etau_run_20260323_154826_b84660.png)
 
-- **Marge brute négative** : $650M/an à Anthropic [2]
-- Pas de modèle propre → dépendance fournisseur
-- OpenAI, Anthropic = concurrents directs
-- Leçon : **croissance ≠ rentabilité** en AI SaaS
-
-</div>
-
-<small>Sources : [1] [CNBC](https://www.cnbc.com/2025/11/13/cursor-ai-startup-funding-round-valuation.html) · [2] [Foundamental](https://www.foundamental.com/)</small>
+<small>Sources : [1] [Bloomberg](https://www.bloomberg.com/news/articles/2026-03-02/cursor-recurring-revenue-doubles-in-three-months-to-2-billion) · [2] [Fortune](https://fortune.com/2026/03/21/cursor-ceo-michael-truell-ai-coding-claude-anthropic-venture-capital/) · [Foundamental](https://www.foundamental.com/perspectives/negative-gross-margins-the-canary-in-the-market-froth-mine)</small>
 
 ---
 
 # 12 — Quand l'IA dérape : 4 échecs à connaître
 
-| Cas | Ce qui s'est passé | Conséquence [1] |
+| Cas | Ce qui s'est passé | Conséquence |
 |-----|---------------------|-------------|
-| Air Canada | Chatbot donne fausse info tarifaire | Condamné : CAD $812 |
-| Grok/xAI | 3M deepfakes en 11 jours | Enquête UE, perquisition FR |
-| UnitedHealth | Algo refuse soins, 90% overturned | Class action, 1,1 Mds rejets |
-| Workday | 100% rejet candidats 40+ ans | Class action nationale |
+| Air Canada | Chatbot donne fausse info tarifaire | Condamné : CAD $812 [1] |
+| Grok/xAI | ~3M deepfakes en 11 jours | Enquête UE (DSA), perquisition FR [2] |
+| UnitedHealth | Algo nH Predict refuse soins, ~90% renversés en appel | Class action, taux de refus 8,7→22,7% [3] |
+| Workday | Plaignants 40+ rejetés de 100% des candidatures | Collective action nationale (ADEA) [4] |
 
 - Air Canada : **"vous êtes responsable de votre chatbot"** — première jurisprudence [1]
-- Workday : première fois qu'un **vendor IA** (pas l'employeur) est poursuivi [2]
+- Workday : première fois qu'un **vendor IA** (pas l'employeur) est poursuivi [4]
 
 > **Règle d'or** : déployez toujours avec un human-in-the-loop pour les décisions à impact.
 
-<small>Sources : [1] [CRT Canada](https://decisions.civilresolutionbc.ca/) · [2] [Law360](https://www.law360.com/)</small>
+<small>Sources : [1] [CBC News](https://www.cbc.ca/news/canada/british-columbia/air-canada-chatbot-lawsuit-1.7116416) · [2] [Politico EU](https://www.politico.eu/article/grok-x-3-million-sexual-deepfake-11-days/) · [3] [STAT News](https://www.statnews.com/2023/11/14/unitedhealth-algorithm-medicare-advantage-investigation/) · [4] [Fisher Phillips](https://www.fisherphillips.com/en/insights/insights/discrimination-lawsuit-over-workdays-ai-hiring-tools-can-proceed-as-class-action-6-things)</small>
 
 ---
 
@@ -306,9 +288,9 @@ Pourquoi ça marche :
 
 4. **L'IA augmente, ne remplace pas** — Klarna réembauche, Doctolib garde le médecin, Duolingo perd en qualité [4]
 
-5. **La régulation crée des marchés** — l'EU AI Act ouvre un marché de **€17 Mds** pour la compliance [5]
+5. **La régulation crée des marchés** — l'EU AI Act ouvre un marché estimé a **EUR 7,6-31 Mds** pour la compliance [5]
 
-<small>Sources : [1] [Epoch AI](https://epoch.ai/data-insights/llm-inference-price-trends) · [2] [a16z](https://a16z.com/big-ideas-in-tech-2025/) · [3] [Gartner](https://www.gartner.com/en/newsroom/press-releases/2025-08-05-gartner-hype-cycle-identifies-top-ai-innovations-in-2025) · [4] [Bloomberg](https://www.bloomberg.com/news/articles/2025-03-06/the-hottest-ai-companies-right-now-are-apps) · [5] [CEPS](https://www.ceps.eu/clarifying-the-costs-for-the-eus-ai-act/)</small>
+<small>Sources : [1] [Epoch AI](https://epoch.ai/data-insights/llm-inference-price-trends) · [2] [a16z](https://a16z.com/big-ideas-in-tech-2025/) · [3] [Gartner](https://www.gartner.com/en/newsroom/press-releases/2025-08-05-gartner-hype-cycle-identifies-top-ai-innovations-in-2025) · [4] [Bloomberg](https://www.bloomberg.com/news/articles/2025-03-06/the-hottest-ai-companies-right-now-are-apps) · [5] [CDI](https://www2.datainnovation.org/2021-aia-costs.pdf)</small>
 
 ---
 

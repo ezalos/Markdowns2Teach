@@ -38,13 +38,13 @@ M2 IMT&E · Paris 1 Pantheon-Sorbonne · 2026
 | Marche mondial IA 2025 | **$1 757 Mds** | Gartner |
 | Projection 2026 | **$2 527 Mds** (+44% YoY) | Gartner |
 | Investissement corporate 2024 | **$252 Mds** | Stanford HAI |
-| Part de l'IA dans le VC mondial | **~50%** | PitchBook [5] |
+| Part de l'IA dans le VC mondial | **~50%** (2025) | Crunchbase [5] |
 | Adoption en entreprise | 55% → **88%** (en 2 ans) | McKinsey |
 | Licornes IA | **498** ($2 700 Mds cumules) | CB Insights |
 
 > L'IA capte **1 dollar de VC sur 2** et represente deja **~2,5%** du PIB mondial.
 
-<small>Sources : [1] [Gartner](https://www.gartner.com/en/newsroom/press-releases/2026-1-15-gartner-says-worldwide-ai-spending-will-total-2-point-5-trillion-dollars-in-2026) · [2] [Stanford HAI](https://hai.stanford.edu/ai-index/2025-ai-index-report) · [3] [McKinsey](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai) · [4] [CB Insights](https://www.cbinsights.com/research/report/ai-trends-2025/) · [5] [PitchBook](https://pitchbook.com/news/articles/ai-startups-grabbed-a-third-of-global-vc-dollars-in-2024) · [6] [Wikipedia — GWP](https://en.wikipedia.org/wiki/Gross_world_product)</small>
+<small>Sources : [1] [Gartner](https://www.gartner.com/en/newsroom/press-releases/2026-1-15-gartner-says-worldwide-ai-spending-will-total-2-point-5-trillion-dollars-in-2026) · [2] [Stanford HAI](https://hai.stanford.edu/ai-index/2025-ai-index-report) · [3] [McKinsey](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai) · [4] [CB Insights](https://www.cbinsights.com/research/report/ai-trends-2025/) · [5] [Crunchbase](https://news.crunchbase.com/venture/funding-data-third-largest-year-2025/) · [6] [Wikipedia — GWP](https://en.wikipedia.org/wiki/Gross_world_product)</small>
 
 ---
 
@@ -95,7 +95,7 @@ Les hyperscalers investissent massivement dans l'infra IA :
 
 </div>
 
-<small>Sources : [1] [Gartner](https://www.gartner.com/en/newsroom/press-releases/2026-1-15-gartner-says-worldwide-ai-spending-will-total-2-point-5-trillion-dollars-in-2026) · [2] [McKinsey](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai) · [3] [Stanford HAI](https://hai.stanford.edu/ai-index/2025-ai-index-report) · [4] [CB Insights](https://www.cbinsights.com/research/report/ai-trends-2025/) · [5] [MIT NANDA](https://nanda.media.mit.edu/ai_report_2025.pdf) · [6] [CNBC](https://www.cnbc.com/2026/02/06/google-microsoft-meta-amazon-ai-cash.html) · [7] [Goldman Sachs](https://www.goldmansachs.com/insights/articles/why-ai-companies-may-invest-more-than-500-billion-in-2026)</small>
+<small>Sources : [1] [Gartner](https://www.gartner.com/en/newsroom/press-releases/2026-1-15-gartner-says-worldwide-ai-spending-will-total-2-point-5-trillion-dollars-in-2026) · [2] [McKinsey](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai) · [3] [Stanford HAI](https://hai.stanford.edu/ai-index/2025-ai-index-report) · [4] [CB Insights](https://www.cbinsights.com/research/report/ai-trends-2025/) · [5] [MIT / Fortune](https://fortune.com/2025/08/18/mit-report-95-percent-generative-ai-pilots-at-companies-failing-cfo/) · [6] [CNBC](https://www.cnbc.com/2026/02/06/google-microsoft-meta-amazon-ai-cash.html) · [7] [Goldman Sachs](https://www.goldmansachs.com/insights/articles/why-ai-companies-may-invest-more-than-500-billion-in-2026)</small>
 
 ---
 
@@ -127,7 +127,7 @@ Les hyperscalers investissent massivement dans l'infra IA :
 
 <!-- _class: img-right -->
 
-# 05 — 🔷 Energy — le bottleneck invisible
+# 05 — (🔷0) Energy — le bottleneck invisible
 
 - Un cluster de **100K GPUs** = **87,5 MW** avant refroidissement [1]
 - Les data centers IA consommeront **432 TWh** en 2030 (**44%** du total) [1]
@@ -141,7 +141,7 @@ Les hyperscalers investissent massivement dans l'infra IA :
 
 > L'energie, pas les puces, determine **ou** l'IA se construit.
 
-<small>Sources : [1] [Epoch AI](https://epoch.ai/blog/can-ai-scaling-continue-through-2030) · [2] [CNBC](https://www.cnbc.com/2025/11/18/trump-nuclear-three-mile-island-crane-loan-constellation-ceg.html) · [3] [Data Center Dynamics](https://www.datacenterdynamics.com/en/analysis/france-ai-data-center-build-out-emmanuel-macron/) · [4] [Sifted](https://sifted.eu/articles/mistral-data-center-news)
+<small>Sources : [1] [Epoch AI](https://epoch.ai/blog/can-ai-scaling-continue-through-2030) · [2] [CNBC](https://www.cnbc.com/2025/11/18/trump-nuclear-three-mile-island-crane-loan-constellation-ceg.html) · [3] [Data Center Dynamics](https://www.datacenterdynamics.com/en/analysis/france-ai-data-center-build-out-emmanuel-macron/) · [4] [Sifted](https://sifted.eu/articles/mistral-data-center-news)</small>
 
 ![bg right:55% contain](assets/infographics/energy-layer_run_20260322_230538_d2822c.png)
 
@@ -149,7 +149,7 @@ Les hyperscalers investissent massivement dans l'infra IA :
 
 <!-- _class: img-right -->
 
-# 06 — 🔷 Hardware & Silicon — 3 entreprises, tout le pouvoir
+# 06 — (🔷1) Hardware & Silicon — 3 entreprises, tout le pouvoir
 
 **3 chokepoints** controlent la chaine :
 
@@ -173,9 +173,9 @@ Les hyperscalers investissent massivement dans l'infra IA :
 
 <div class="left">
 
-**Hardware** — $130,5 Mds CA (+114%), **88%** des GPUs data center [1]
+**Hardware** — $130,5 Mds CA (+114%), **88%** du CA = data center [1]
 
-**Software** — CUDA : 18 ans d'ecosysteme, **3,5M developpeurs** verrouilles. Migrer = reecrire tout le code [2]
+**Software** — CUDA : 20 ans d'ecosysteme, **6M developpeurs** verrouilles. Migrer = reecrire tout le code [2]
 
 **Ecosysteme** — $5 Mds investis dans Intel, CoreWeave, Lambda Labs. Controle le tier cloud niche [2]
 
@@ -212,7 +212,7 @@ Les hyperscalers investissent massivement dans l'infra IA :
 
 <!-- _class: img-right -->
 
-# 09 — 🔷 Cloud — les 3 geants et le cloud souverain
+# 09 — (🔷2) Cloud — les 3 geants et le cloud souverain
 
 **Hyperscalers** (65% du marche) [1] : AWS ($128,7 Mds), Azure (~$75 Mds), Google Cloud (~$58,8 Mds)
 
@@ -223,7 +223,7 @@ Les hyperscalers investissent massivement dans l'infra IA :
 
 > Microsoft a admis devant le Senat francais ne pas pouvoir "garantir" la securite des donnees UE.
 
-<small>Sources : [1] [Canalys Q1 2025](https://canalys.com/newsroom/global-cloud-q1-2025) · [2] [Computerworld](https://www.computerworld.com/article/4088666/gartner-european-it-leaders-to-boost-spending-on-local-clouds-amid-geopolitical-worries.html) · [3] [ActuIA](https://www.actuia.com/en/news/sensitive-data-and-cloud-act-microsoft-france-admits-it-cannot-oppose-an-american-injunction/) · [4] [Scaleway](https://www.scaleway.com/en/news/scaleway-announces-at-ai-pulse-major-advancements-in-ai-model-accessibility-new-compute-capabilities-and-expansion-of-its-presence-across-europe/)</small>
+<small>Sources : [1] [Canalys Q1 2025](https://www.e-channelnews.com/global-cloud-spending-surged-21-in-q1-2025/) · [2] [Computerworld](https://www.computerworld.com/article/4088666/gartner-european-it-leaders-to-boost-spending-on-local-clouds-amid-geopolitical-worries.html) · [3] [ActuIA](https://www.actuia.com/en/news/sensitive-data-and-cloud-act-microsoft-france-admits-it-cannot-oppose-an-american-injunction/) · [4] [Scaleway](https://www.scaleway.com/en/news/scaleway-announces-at-ai-pulse-major-advancements-in-ai-model-accessibility-new-compute-capabilities-and-expansion-of-its-presence-across-europe/)</small>
 
 ![bg right:55% contain](assets/infographics/cloud-layer_run_20260322_230538_981702.png)
 
@@ -231,23 +231,24 @@ Les hyperscalers investissent massivement dans l'infra IA :
 
 <!-- _class: img-right -->
 
-# 10 — 🔷 Data — la ressource la plus rare
+# 10 — (🔷3) Data — la ressource la plus rare
 
-Le bottleneck n'est plus le compute — c'est la **donnee** [1] :
+Le bottleneck n'est plus le compute — c'est la **donnée** [1] :
 
-- Couts de labeling : **88x** en 1 an. Compute : seulement **1,3x** [1]
-- **Scale AI** : $50M (2020) → **$2 Mds** CA (2025). Meta investit **$14,3 Mds** pour 49% — verrouille la donnee [2]
-- **Donnees synthetiques** : $0,5 Mds → **$2,7 Mds** en 2030 [3]
+- Coût marginal d'annotation > compute **3:1** en post-training. Croissance labeling **88x** en 1 an vs compute **1,3x** [1]
+- Chaque lab frontière dépense **~$1 Md/an** en annotation — jamais déclaré séparément [1]
+- **Meta** rachète 49% de Scale AI pour **$14,3 Mds** → exode de Google, OpenAI, xAI vers Surge/Mercor [2]
+- Paradoxe synthétique : coût unitaire **÷100** — mais les besoins explosent : marché total **$2,3 Mds → $10-17 Mds** d'ici 2030 [3]
 
-> Celui qui controle la boucle data → modele → users → data gagne.
+> Celui qui contrôle la boucle data → modèle → users → data gagne.
 
-<small>Sources : [1] [Daniel Kang / UC Berkeley](https://ddkang.substack.com/p/human-data-is-probably-more-expensive) · [2] [TechCrunch](https://techcrunch.com/2025/06/13/scale-ai-confirms-significant-investment-from-meta-says-ceo-alexandr-wang-is-leaving/) · [3] [Mordor Intelligence](https://www.mordorintelligence.com/industry-reports/synthetic-data-market)</small>
+<small>Sources : [1] [Kang 2025 / UC Irvine](https://ddkang.substack.com/p/human-data-is-probably-more-expensive) + [Foundation Capital](https://foundationcapital.com/) · [2] [TechCrunch](https://techcrunch.com/2025/06/13/scale-ai-confirms-significant-investment-from-meta-says-ceo-alexandr-wang-is-leaving/) · [3] [Epoch AI](https://epoch.ai/) + [Mordor Intelligence](https://www.mordorintelligence.com/industry-reports/synthetic-data-market)</small>
 
 ![bg right:55% contain](assets/infographics/data-layer_run_20260322_230615_b8c131.png)
 
 ---
 
-# 11 — 🔷 Foundation Models — le paradoxe des couts
+# 11 — (🔷4) Foundation Models — le paradoxe des couts
 
 | Lab | ARR fin 2025 [1] | Note |
 |-----|-----------|------|
@@ -259,7 +260,7 @@ Le bottleneck n'est plus le compute — c'est la **donnee** [1] :
 
 **Le paradoxe** : construire l'usine coute **28x** plus cher a chaque generation. Mais la faire tourner coute **280x** moins cher ($20 → $0,07 / M tokens en 18 mois) [2].
 
-<small>Sources : [1] [Sherwood News](https://sherwood.news/business/openais-arr-reached-over-usd20-billion-in-2025-cfo-says/) · [2] [Epoch AI](https://epoch.ai/data-insights/cost-trend-large-scale) · [3] [Stanford HAI](https://hai.stanford.edu/ai-index/2025-ai-index-report)</small>
+<small>Sources : [1] [Sherwood News](https://sherwood.news/business/openais-arr-reached-over-usd20-billion-in-2025-cfo-says/) · [2] [Epoch AI](https://epoch.ai/data-insights/llm-inference-price-trends) · [3] [Stanford HAI](https://hai.stanford.edu/ai-index/2025-ai-index-report)</small>
 
 ---
 
@@ -282,14 +283,14 @@ Le bottleneck n'est plus le compute — c'est la **donnee** [1] :
 
 <!-- _class: cols -->
 
-# 13 — Open-Source vs Closed : le grand basculement
+# 13 — Open-Source vs Closed : la progression
 
 <div class="left">
 
-**L'open-source atteint la parite** [1]
+**L'open-source progresse vite** [1]
 
-- Usage (tokens) : **43%** open vs **42%** closed
-- Cout moyen : **$0,23** vs **$1,86** / M tokens
+- Usage global : **~30%** open vs **~70%** proprietary
+- En roleplay : open-source a **43%**, quasi-parite [1]
 - Ecart de performance : de 8% a **1,7%** en 1 an [2]
 
 </div>
@@ -297,13 +298,13 @@ Le bottleneck n'est plus le compute — c'est la **donnee** [1] :
 
 **Mais la monetisation reste closed** [1]
 
-- Revenus : **4%** open vs **96%** closed
+- L'essentiel des revenus va aux modeles proprietary [1]
 - **Meta strategy** : donner les modeles pour commoditiser la couche, profiter de Instagram/WhatsApp [3]
 - Seul Meta ($160B+ CA pub) peut subsidier indefiniment [3]
 
 </div>
 
-<small>Sources : [1] [OpenRouter](https://openrouter.ai/state-of-ai) · [2] [Stanford HAI](https://hai.stanford.edu/ai-index/2025-ai-index-report) · [3] [Stratechery](https://stratechery.com/2024/meta-and-open/)</small>
+<small>Sources : [1] [OpenRouter / arXiv 2601.10088](https://openrouter.ai/state-of-ai) · [2] [Stanford HAI](https://hai.stanford.edu/ai-index/2025-ai-index-report) · [3] [Stratechery](https://stratechery.com/2024/meta-and-open/)</small>
 
 ---
 
@@ -328,23 +329,23 @@ Le bottleneck n'est plus le compute — c'est la **donnee** [1] :
 
 </div>
 
-<small>Sources : [1] [Mistral AI](https://mistral.ai/news/mistral-ai-raises-1-7-b-to-accelerate-technological-progress-with-ai) · [2] [Mistral AI Pricing](https://mistral.ai/products/) · [3] [CNBC](https://www.cnbc.com/2025/09/09/ai-firm-mistral-valued-at-14-billion-as-asml-takes-major-stake.html)</small>
+<small>Sources : [1] [Mistral AI](https://mistral.ai/news/mistral-ai-raises-1-7-b-to-accelerate-technological-progress-with-ai) · [2] [Mistral AI Pricing](https://mistral.ai/pricing) · [3] [CNBC](https://www.cnbc.com/2025/09/09/ai-firm-mistral-valued-at-14-billion-as-asml-takes-major-stake.html)</small>
 
 ---
 
 <!-- _class: img-right -->
 
-# 15 — 🔷 Distribution & APIs — les picks & shovels
+# 15 — (🔷5-6) Models Hub & APIs — les picks & shovels
 
 **Ceux qui profitent quel que soit le gagnant** :
 
-- **Hugging Face** (Paris) — 1M+ modeles, **0% commission** aux createurs (vs Apple 30%). $4,5 Mds val. Investisseurs : Google, Amazon, NVIDIA [1]
+- **Hugging Face** (Paris) — 2M+ modeles, **0% commission** aux createurs (vs Apple 30%). $4,5 Mds val. Investisseurs : Google, Amazon, NVIDIA [1]
 - **OpenRouter** — 400+ LLMs, API unifiee, **5%** commission. 8,4T tokens/mois. Moat = intelligence de routage [2]
 - **Together AI** — $15M → **$300M** ARR en 2 ans. Construit ses propres data centers. Chaque release open-weight = catalyseur [3]
 
 > Les plateformes de distribution accelerent la **commoditisation** des modeles — mais expandent le marche total.
 
-<small>Sources : [1] [Ars Technica](https://arstechnica.com/information-technology/2024/09/ai-hosting-platform-surpasses-1-million-models-for-the-first-time/) · [2] [Sacra](https://sacra.com/research/openrouter/) · [3] [SiliconAngle](https://siliconangle.com/2025/02/20/together-ai-raises-305m-ai-optimized-public-cloud/)</small>
+<small>Sources : [1] [Ars Technica](https://arstechnica.com/information-technology/2024/09/ai-hosting-platform-surpasses-1-million-models-for-the-first-time/) · [2] [Sacra](https://sacra.com/research/openrouter/) · [3] [Sacra](https://sacra.com/c/together-ai/)</small>
 
 ![bg right:55% contain](assets/infographics/distribution-layer_run_20260322_230616_bbdbe2.png)
 
@@ -352,19 +353,19 @@ Le bottleneck n'est plus le compute — c'est la **donnee** [1] :
 
 <!-- _class: img-right -->
 
-# 16 — 🔷 Safety & Compliance — EUR 31 Mds d'opportunite
+# 16 — (🔷7) Safety & Compliance — milliards d'opportunite
 
 L'EU AI Act entre en vigueur : **2 aout 2026**, application complete pour les systemes a haut risque [1].
 
 - **65 000+** systemes a haut risque a certifier [1]
-- **EUR 31 Mds sur 5 ans** de marche compliance d'ici 2030 [1]
+- Marche compliance estime a **EUR 7,6-31 Mds** sur 5 ans (fourchette haute contestee) [1]
 - Penalites : jusqu'a **EUR 35M** ou **7%** du CA mondial [1]
 
 **Giskard** (Paris, ~24 pers.) : open-source pour tester hallucinations, biais, injections. Clients : **AXA, BNP, Michelin, L'Oreal, Banque de France**. Benchmark Phare avec **Google DeepMind** [2].
 
 > La regulation **cree** des marches. Le RGPD a cree un marche privacy de milliards — l'AI Act fera pareil.
 
-<small>Sources : [1] [CEPS](https://www.ceps.eu/clarifying-the-costs-for-the-eus-ai-act/) · [EUR-Lex](https://eur-lex.europa.eu/eli/reg/2024/1689) · [2] [TechCrunch](https://techcrunch.com/2023/11/14/giskards-open-source-framework-evaluates-ai-models-before-theyre-pushed-into-production/)</small>
+<small>Sources : [1] [CDI](https://www2.datainnovation.org/2021-aia-costs.pdf) · [EUR-Lex](https://eur-lex.europa.eu/eli/reg/2024/1689) · [2] [TechCrunch](https://techcrunch.com/2023/11/14/giskards-open-source-framework-evaluates-ai-models-before-theyre-pushed-into-production/)</small>
 
 ![bg right:55% contain](assets/infographics/safety-layer_run_20260322_230617_919b22.png)
 
@@ -372,7 +373,7 @@ L'EU AI Act entre en vigueur : **2 aout 2026**, application complete pour les sy
 
 <!-- _class: img-right -->
 
-# 17 — 🔷 Applications AI-natives — vertical vs wrapper
+# 17 — (🔷8) Applications AI-natives — vertical vs wrapper
 
 **Vertical AI = croissance explosive** :
 - **Cursor** : $0 → **$2 Mds** ARR en 2 ans (record SaaS) [1]
@@ -428,7 +429,7 @@ L'EU AI Act entre en vigueur : **2 aout 2026**, application complete pour les sy
 
 </div>
 
-<small>Sources : [1] [ASML](https://www.asml.com/en/news/press-releases/2025/q4-2024-financial-results) · [2] [Mistral AI](https://mistral.ai/news/mistral-ai-raises-1-7-b-to-accelerate-technological-progress-with-ai) · [3] [Hugging Face](https://huggingface.co/blog) · [4] [ElevenLabs](https://elevenlabs.io/blog/series-d) · [5] [Stanford HAI](https://hai.stanford.edu/ai-index/2025-ai-index-report)</small>
+<small>Sources : [1] [ASML](https://www.asml.com/en/news/press-releases/2025/q4-2024-financial-results) · [2] [Mistral AI](https://mistral.ai/news/mistral-ai-raises-1-7-b-to-accelerate-technological-progress-with-ai) · [3] [Ars Technica](https://arstechnica.com/information-technology/2024/09/ai-hosting-platform-surpasses-1-million-models-for-the-first-time/) · [4] [ElevenLabs](https://elevenlabs.io/blog/series-d) · [5] [Stanford HAI](https://hai.stanford.edu/ai-index/2025-ai-index-report)</small>
 
 ---
 
@@ -437,13 +438,13 @@ L'EU AI Act entre en vigueur : **2 aout 2026**, application complete pour les sy
 La France se positionne comme hub IA europeen :
 
 - **750+ startups IA** en France, dont **43%** utilisent la GenAI [1]
-- **~36 000 emplois** dans l'IA, croissance des offres : **+91% YoY** [2]
-- Plan France IA : **EUR 109 Mds** annonces, Bpifrance : **EUR 10 Mds** dedies [3]
-- EU InvestAI : **EUR 200 Mds** mobilises sur 5 ans [4]
+- **~36 000 emplois** dans l'IA, croissance des offres : **+91% YoY** [1]
+- Plan France IA : **EUR 109 Mds** annonces, Bpifrance : **EUR 10 Mds** dedies [2]
+- EU InvestAI : **EUR 200 Mds** mobilises sur 5 ans [3]
 
 > **Contexte** : l'UE mobilise EUR 200 Mds via InvestAI, mais les US investissent **8x plus** en prive. L'Europe ne gagnera pas la course au compute, mais peut gagner celle de la **confiance**.
 
-<small>Sources : [1] [France Digitale](https://www.frenchtechjournal.com/france-digital-ai-mapping/) · [2] [LinkedIn](https://economicgraph.linkedin.com/research/work-change-report) · [3] [Bpifrance](https://www.bpifrance.com/2025/03/27/bpifrance-deploys-e10-billion-to-develop-the-ai-ecosystem/) · [4] [EU Commission](https://commission.europa.eu/topics/competitiveness/ai-continent_en)</small>
+<small>Sources : [1] [France Digitale](https://www.frenchtechjournal.com/france-digital-ai-mapping/) · [2] [Bpifrance](https://www.bpifrance.com/2025/03/27/bpifrance-deploys-e10-billion-to-develop-the-ai-ecosystem/) · [3] [EU Commission](https://commission.europa.eu/topics/competitiveness/ai-continent_en)</small>
 
 ---
 
