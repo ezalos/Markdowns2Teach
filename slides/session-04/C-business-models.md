@@ -30,30 +30,7 @@ M2 IMT&E · Paris 1 Panthéon-Sorbonne · 2026
 
 ---
 
-<!-- _class: compact -->
-
-# 01 — L'effondrement des coûts : le fait structurant
-
-L'inférence IA connaît une **déflation historique** :
-
-- GPT-3.5 : $20 → **$0,07** / M tokens en 2 ans = **÷280** [1]
-- Rythme post-2024 : **200x/an** de baisse [1]
-- Efficience algorithmique : ×2 tous les **~16 mois** [1]
-
-**Prix début 2026** (par million de tokens) :
-
-| Tier | Modèle | Prix input/output |
-|------|--------|-------------------|
-| Budget | GPT-4o mini | $0,15 / $0,60 [3] |
-| Budget | DeepSeek R1 | $0,55 / $2,19 [4] |
-| Mid | Claude Sonnet 4.5 | $3,00 / $15,00 [5] |
-| Premium | GPT-4 Turbo | $10,00 / $30,00 [3] |
-
-<small>Sources : [1] [Stanford HAI](https://hai.stanford.edu/ai-index/2025-ai-index-report) · [2] [Epoch AI](https://epoch.ai/data-insights/llm-inference-price-trends) · [3] [OpenAI Pricing](https://openai.com/api/pricing/) · [4] [DeepSeek Pricing](https://api-docs.deepseek.com/quick_start/pricing) · [5] [Anthropic Pricing](https://www.anthropic.com/pricing)</small>
-
----
-
-# 02 — De la licence seat à l'outcome-based
+# 01 — De la licence seat à l'outcome-based
 
 | Modèle | Part 2024 → 2025 [1] | Exemple | Prix |
 |--------|-------------------|---------|------|
@@ -71,22 +48,6 @@ L'inférence IA connaît une **déflation historique** :
 
 ---
 
-# 03 — Discussion : Tarifer votre produit IA
-
-> Vous lancez un **assistant juridique IA** pour PME. Trois options de pricing :
-
-| Option | Modèle | Avantage | Risque |
-|--------|--------|----------|--------|
-| A | $49/seat/mois | Revenus prévisibles | Sous-utilisation → churn |
-| B | $2/contrat analysé | Aligné sur la valeur | Revenus volatils |
-| C | $29/seat + $0,50/contrat | Prévisible + incitatif | Complexe à expliquer |
-
-**Questions pour la classe** :
-- Vos clients (PME) préfèrent-ils la prévisibilité ou l'alignement valeur ?
-- Si vos coûts d'inférence baissent de 10x/an, quelle option vous protège le mieux ?
-
----
-
 <!-- _class: section -->
 
 # Les 7 patterns de business model
@@ -97,7 +58,7 @@ L'inférence IA connaît une **déflation historique** :
 
 <!-- _class: compact -->
 
-# 04 — Vue d'ensemble : 7 familles de business models IA
+# 02 — Vue d'ensemble : 7 familles de business models IA
 
 | Pattern | Exemple | Métrique clé [1] |
 |---------|---------|-------------|
@@ -115,7 +76,7 @@ L'inférence IA connaît une **déflation historique** :
 
 ---
 
-# 05 — Vertical AI SaaS — la mine d'or
+# 03 — Vertical AI SaaS — la mine d'or
 
 Le Vertical AI SaaS cible un secteur précis avec des données domain-specific :
 
@@ -132,7 +93,7 @@ Pourquoi ça marche :
 
 ---
 
-# 06 — Wrappers, Agents & Embedded AI
+# 04 — Wrappers, Agents & Embedded AI
 
 **Wrappers** — le piège de la commoditisation :
 - **85-92%** échouent dans les 5 ans [1]
@@ -160,7 +121,7 @@ Pourquoi ça marche :
 
 <!-- _class: compact -->
 
-# 07 — Les moats de l'IA : taxonomie
+# 05 — Les moats de l'IA : taxonomie
 
 | Moat | Durabilité | Exemple |
 |------|-----------|---------|
@@ -180,7 +141,7 @@ Pourquoi ça marche :
 
 <!-- _class: img-right -->
 
-# 08 — Data flywheel : le cercle vertueux
+# 06 — Data flywheel : le cercle vertueux
 
 ![bg right:55% contain](assets/infographics/data-flywheel_run_20260216_171303_bb1a21.png)
 
@@ -205,7 +166,7 @@ Pourquoi ça marche :
 
 <!-- _class: cols -->
 
-# 09 — Cas : Klarna — remplacer puis réembaucher
+# 07 — Cas : Klarna — remplacer puis réembaucher
 
 <div class="left">
 
@@ -232,7 +193,7 @@ Pourquoi ça marche :
 
 ---
 
-# 10 — Cas : L'Oréal — acquérir l'IA, transformer le CA
+# 08 — Cas : L'Oréal — acquérir l'IA, transformer le CA
 
 | Dimension | Résultat [1] |
 |-----------|---------|
@@ -249,7 +210,7 @@ Pourquoi ça marche :
 
 <!-- _class: compact compact-table -->
 
-# 11 — Cas : Schneider Electric — €700M économisés par le Build
+# 09 — Cas : Schneider Electric — €700M économisés par le Build
 
 - **Build in-house** : outils IA maison (maintenance prédictive, optimisation énergie)
 - **€700M** économisés depuis 2019, **7,4M** d'assets connectés (EcoStruxure IoT) [1][2]
@@ -268,7 +229,7 @@ Pourquoi ça marche :
 
 ---
 
-# 12 — Cas : La France championne des secteurs régulés
+# 10 — Cas : La France championne des secteurs régulés
 
 | Entreprise | Secteur | Valorisation | Métrique IA clé [1] |
 |------------|---------|:-----------:|-----------------|
@@ -286,7 +247,7 @@ Pourquoi ça marche :
 
 <!-- _class: cols -->
 
-# 13 — Cas : Cursor — croissance record, rentabilité incertaine
+# 11 — Cas : Cursor — croissance record, rentabilité incertaine
 
 <div class="left">
 
@@ -309,21 +270,7 @@ Pourquoi ça marche :
 
 ---
 
-# 14 — Discussion : Le risque de plateforme
-
-> **Scénario** : OpenAI annonce "ChatGPT Code Editor" — un IDE gratuit intégré à ChatGPT. C'est le cauchemar de Cursor.
-
-- Cursor dépense **$650 M/an** chez Anthropic et n'a **pas de modèle propre**
-- Si votre produit peut devenir une **feature gratuite** de votre fournisseur, votre moat est trop mince
-
-**Questions pour la classe** :
-- Comment Cursor peut-il se défendre ? (data flywheel, intégration multi-modèles, vitesse)
-- Exemples historiques : Zoom vs Teams, Slack vs Teams — qui survit et pourquoi ?
-- Votre startup est-elle dans le même risque ? Comment l'évaluer ?
-
----
-
-# 15 — Quand l'IA dérape : 4 échecs à connaître
+# 12 — Quand l'IA dérape : 4 échecs à connaître
 
 | Cas | Ce qui s'est passé | Conséquence [1] |
 |-----|---------------------|-------------|
@@ -349,23 +296,7 @@ Pourquoi ça marche :
 
 ---
 
-# 16 — Grille de décision pour entrepreneurs
-
-| Critère | Vertical SaaS | Wrapper | Open-Source | Agents |
-|---------|--------------|---------|-------------|--------|
-| Capital d'entrée | $500K-2M | $50-200K | $1-5M | $500K-2M |
-| Temps → revenu | 12-18 mois | 3-6 mois | 18-24 mois | 18-24 mois |
-| Force du moat | Très forte | Faible | Moyenne | Moyenne |
-| Avantage UE | RGPD = barrière | Aucun | Mistral Apache | Giskard compliance |
-| Risque #1 | Cycle vente long | Commoditisation | Monétisation | ROI flou (40% annulés) |
-
-> Le sweet spot pour un entrepreneur européen : **Vertical SaaS** dans un secteur régulé avec données locales et compliance RGPD.
-
-<small>Sources : [a16z](https://a16z.com/the-new-business-of-ai-and-how-its-different-from-traditional-software/) · [Gartner](https://www.gartner.com/en/newsroom/press-releases/2025-08-05-gartner-hype-cycle-identifies-top-ai-innovations-in-2025) · [IDC](https://www.businesswire.com/news/home/20240819177906/en/Worldwide-Spending-on-Artificial-Intelligence-Forecast-to-Reach-632-Billion-in-2028-According-to-a-New-IDC-Spending-Guide)</small>
-
----
-
-# 17 — Les 5 tendances structurantes
+# 13 — Les 5 tendances structurantes
 
 1. **Cost deflation** — le coût d'inférence baisse de **10x/an** ; ce qui coûte $1 aujourd'hui coûtera $0,01 dans 2 ans [1]
 
@@ -381,7 +312,7 @@ Pourquoi ça marche :
 
 ---
 
-# 18 — Key Takeaways
+# 14 — Key Takeaways
 
 1. **Le marché est massif et accélère** — $2 530 Mds de dépenses, 53% du VC mondial, 498 licornes. L'opportunité est réelle.
 

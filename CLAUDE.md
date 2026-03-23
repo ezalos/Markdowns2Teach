@@ -221,7 +221,7 @@ make clean      # Remove dist/
 | `slides/session-03/C-agents.md` | Agents IA : du workflow à l'autonomie | 44 |
 | `slides/session-04/A-methodologie-projet.md` | Méthodologie projet IA | 17 |
 | `slides/session-04/B-ecosysteme-ia.md` | L'écosystème IA | 22 |
-| `slides/session-04/C-business-models.md` | Business Models & Cas Réels | 18 |
+| `slides/session-04/C-business-models.md` | Business Models & Cas Réels | 14 |
 | `slides/session-05/A-regulation-ethique.md` | Régulation & IA responsable | 27 |
 
 ### Evaluation reference decks
