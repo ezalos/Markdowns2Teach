@@ -58,8 +58,8 @@ pptx: $(PPTX_DIR) ## Build PPTX presentations → dist/pptx/
 html-inline: html ## Inject image preloader script into HTML slides
 	@python3 scripts/inline-images.py $(HTML_DIR)
 
-serve: html-inline ## Serve password-protected HTML slides on port 3901
-	python3 scripts/serve-auth.py $(HTML_DIR) --port 3901
+serve: html-inline ## Serve password-protected HTML slides on port 8080
+	python3 scripts/serve-auth.py $(HTML_DIR) --port 8080
 
 sync: ## Sync PPTX files to Google Drive via rclone
 	rclone sync $(PPTX_DIR)/ $(GDRIVE_REMOTE) --progress
@@ -80,8 +80,8 @@ pdf-full: $(PDF_FULL_DIR) ## Build full-content PDFs (no clipping) → dist/pdf-
 		slug=$$(dirname $$f | sed 's|^$(SLIDES_DIR)/||'); \
 		outfile="$(PDF_FULL_DIR)/$$slug-$$(basename $$f .md).pdf"; \
 		echo "  PDF:  $$f -> $$outfile"; \
-		$(MARP) --no-stdin --pdf --theme themes/sorbonne-fullpage.css \
-			--theme-set ./themes --allow-local-files "$$f" -o "$$outfile"; \
+		$(MARP) --no-stdin --pdf \
+			--allow-local-files "$$f" -o "$$outfile"; \
 	done
 
 guide: ## Build student guide as DOCX → dist/guide/

@@ -35,7 +35,7 @@ Richard Sutton (2019) résume **70 ans de recherche en IA** en une leçon :
 - Les méthodes générales (Search + Learning) finissent **toujours** par gagner
 - Pourquoi ? **Moore's Law** : le compute double tous les ~2 ans
 
-**Exemples** : Chess (Deep Blue), Go (AlphaGo), Speech (HMMs → Deep Learning), Vision (SIFT → CNNs → VLMs)
+**Exemples** : Chess (Deep Blue - 1997), Go (AlphaGo - 2015), Speech (HMMs → Deep Learning), Vision (SIFT → CNNs → VLMs)
 
 > **Pour les entrepreneurs** : les plateformes générales (GPT, Claude, Gemini) battent les solutions sur-mesure. Pariez sur le compute, pas sur l'ingénierie manuelle.
 
@@ -62,7 +62,7 @@ Richard Sutton (2019) résume **70 ans de recherche en IA** en une leçon :
 
 ![bg right:55% contain](assets/infographics/cv-before-vs-now_run_20260322_155403_87a8f5.png)
 
-<small>Sources : [1] [Andrew Ng — ML Specialization](https://www.youtube.com/watch?v=c3zw6KI6dLc&list=PLkDaE6sCZn6Gl29AoE31iwdVwSG-KnDzF&index=22)</small>
+<small>Sources : [1] [Andrew Ng — Deep Learning Specialization](https://www.youtube.com/watch?v=c3zw6KI6dLc&list=PLkDaE6sCZn6Gl29AoE31iwdVwSG-KnDzF&index=22)</small>
 
 ---
 
@@ -126,7 +126,7 @@ Le cadrage est l'étape la plus critique. Un mauvais scope = un projet qui écho
 
 **Mesurer le succès** — Définir des KPIs dès le scope :
 - *Précision* : % de réponses correctes (cf. Session 2B, Precision/Recall)
-- *Satisfaction utilisateur* : NPS, résolution au premier contact
+- *Satisfaction utilisateur* : NPS (Net promoter score), résolution au premier contact
 - *ROI* : coût IA vs coût du processus manuel remplacé
 
 > **Conseil** : commencez par le cas d'usage le plus simple qui apporte de la valeur.
@@ -137,7 +137,7 @@ Le cadrage est l'étape la plus critique. Un mauvais scope = un projet qui écho
 
 # 06 — Build — Un processus empirique
 
-Construire avec la GenAI est **hautement expérimental** :
+Construire avec l'IA est **hautement expérimental** :
 
 - Écrire un prompt, tester, corriger, itérer
 - Le cycle **Idea → Prompt → LLM Response** se répète des dizaines de fois
@@ -147,7 +147,7 @@ Construire avec la GenAI est **hautement expérimental** :
 
 > Lean Startup : Build → Measure → Learn — même logique appliquée à l'IA.
 
-![bg right:55% contain](assets/ng02/img-011.png)
+<!-- ![bg right:55% contain](assets/ng02/img-011.png) -->
 
 ---
 
@@ -242,7 +242,7 @@ Avant de construire un modèle, **5 patterns** pour tester la valeur [1] :
 
 > **Google "Rule of ML #1"** : si vous pouvez résoudre le problème sans ML, faites-le d'abord [2].
 
-<small>Sources : [1] [MIT Sloan](https://sloanreview.mit.edu/article/what-is-a-minimum-viable-ai-product/) · [2] [Google Rules of ML](https://developers.google.com/machine-learning/guides/rules-of-ml) · [3] [YC — Startup Ideas](https://www.youtube.com/watch?v=0kARDVL2nZg) · [4] [YC — Build an MVP](https://www.youtube.com/watch?v=1hHMwLxN6EM)</small>
+<small>Sources : [1] [MIT Sloan](https://sloanreview.mit.edu/article/what-is-a-minimum-viable-ai-product/) · [2] [Google Rules of ML](https://developers.google.com/machine-learning/guides/rules-of-ml) · [3] [YC — Startup Ideas](https://www.youtube.com/watch?v=Th8JoIan4dg) · [4] [YC — Plan an MVP](https://www.youtube.com/watch?v=1hHMwLxN6EM)</small>
 
 ---
 
@@ -317,7 +317,7 @@ Chip Huyen identifie **6 erreurs récurrentes** dans les projets GenAI [1] :
 
 ---
 
-<!-- _class: compact -->
+<!-- _class: compact
 
 # 16 — The Gmail Story — Le MVP comme méthodologie
 
@@ -334,7 +334,7 @@ Paul Buchheit (Google, employé #23) a écrit **Gmail v0 en un jour** — en ré
 
 <small>Sources : [1] [Paul Buchheit — YC Startup Library](https://www.ycombinator.com/library/Jc-paul-buchheit-creator-of-gmail)</small>
 
----
+--- -->
 
 <!-- _class: section -->
 
@@ -342,7 +342,7 @@ Paul Buchheit (Google, employé #23) a écrit **Gmail v0 en un jour** — en ré
 
 ---
 
-# 17 — Key Takeaways
+# 16 — Key Takeaways
 
 1. **The Bitter Lesson** — les méthodes générales + compute battent toujours l'ingénierie manuelle. Pariez sur les plateformes, pas sur le sur-mesure
 
@@ -353,7 +353,5 @@ Paul Buchheit (Google, employé #23) a écrit **Gmail v0 en un jour** — en ré
 4. **Baseline d'abord** — commencez par le modèle le plus simple (classe majoritaire, valeur moyenne), puis itérez en gardant uniquement ce qui améliore le score
 
 5. **MVP avant le modèle** — Wizard of Oz, Prompt Engineering MVP, ou Rule-Based First. Validez la valeur avant d'investir
-
-6. **Gmail = 3 features** — vitesse, stockage, conversations. Oubliez le reste
 
 > **Prochaine étape** : choisissez un use case, testez avec un MVP, mesurez.

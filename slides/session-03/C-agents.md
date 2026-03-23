@@ -53,8 +53,6 @@ Alfred ne vous redemande rien :
 
 # 02 — Le spectre d'agence : 5 niveaux
 
-<!-- TODO: regenerate agency-spectrum-5-levels.png with corrected star ratings (★★★ for both Multi-Step and Multi-Agent) -->
-
 Tous les systèmes IA ne sont pas des agents. L'**agence** se mesure sur un spectre [1] :
 
 - **☆☆☆** Simple processor — la sortie n'affecte rien
