@@ -1,0 +1,21 @@
+q_id,q_num,title,A,B,C,D,E
+QVNL,1,IA Générative vs IA Traditionnelle,FAUX,VRAI,FAUX,VRAI,VRAI
+QBKN,2,Paradigmes d'apprentissage,FAUX,VRAI,FAUX,FAUX,VRAI
+QWMN,3,Deep Learning et Transformers,VRAI,VRAI,FAUX,FAUX,VRAI
+QTEV,4,Tâches d'IA,VRAI,VRAI,FAUX,FAUX,VRAI
+QCYM,5,Définition du Machine Learning (Chip Huyen),VRAI,FAUX,VRAI,FAUX,FAUX
+QFJT,6,Mécanisme des LLMs,VRAI,FAUX,VRAI,FAUX,VRAI
+QAAF,7,Sampling et Mixture of Experts,FAUX,FAUX,FAUX,VRAI,VRAI
+QTXV,8,Pipeline d'entraînement des LLMs,VRAI,FAUX,VRAI,FAUX,FAUX
+QTKF,9,Métriques de classification,FAUX,VRAI,VRAI,FAUX,FAUX
+QBMP,10,Benchmarks et modèles,VRAI,FAUX,FAUX,VRAI,VRAI
+QJLW,11,Embeddings,VRAI,FAUX,VRAI,FAUX,VRAI
+QCXX,12,RAG : Pipeline et recherche,VRAI,VRAI,FAUX,VRAI,FAUX
+QNBR,13,RAG avancé et décisions,FAUX,VRAI,VRAI,FAUX,VRAI
+QZYU,14,Agents IA : définition et spectre,VRAI,VRAI,FAUX,VRAI,FAUX
+QSVG,15,Agents en production,VRAI,VRAI,FAUX,VRAI,FAUX
+QHAR,16,Méthodologie projet IA,VRAI,FAUX,VRAI,FAUX,VRAI
+QUHB,17,Infrastructure IA,VRAI,VRAI,FAUX,VRAI,FAUX
+QEAS,18,Souveraineté et écosystème européen,VRAI,VRAI,VRAI,FAUX,VRAI
+QKDV,19,Business Models IA,FAUX,VRAI,FAUX,VRAI,FAUX
+QZSE,20,Cas réels et leçons business,VRAI,FAUX,FAUX,VRAI,VRAI
