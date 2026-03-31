@@ -8,6 +8,12 @@ dist/
 infographics/
 outputs/
 
+# PaperBanana vendored clone and run archive
+paperbanana/PaperBanana/
+paperbanana/runs/
+student_submissions/
+r&d/
+
 # Node
 node_modules/
 
