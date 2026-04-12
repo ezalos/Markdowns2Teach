@@ -60,3 +60,6 @@ Thumbs.db
 *.swo
 *~
 .vscode/
+
+# Per-run citation audit bundles (kept local, not versioned)
+docs/citation-audit/
