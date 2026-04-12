@@ -1,5 +1,5 @@
 # ABOUTME: Parses hand-filled answers.md files, grades QCM with 3 scoring modes, generates histograms.
-# ABOUTME: Reads from docs/qcm/exam/students/<name>/answers.md, outputs CSV + PNG.
+# ABOUTME: Reads from .private/qcm-exam/students/<name>/answers.md, outputs CSV + PNG.
 
 """
 QCM Grading Pipeline
@@ -22,7 +22,7 @@ from pathlib import Path
 # ---------------------------------------------------------------------------
 
 PROJECT = Path(__file__).resolve().parent.parent
-EXAM_DIR = PROJECT / "docs" / "qcm" / "exam"
+EXAM_DIR = PROJECT / ".private" / "qcm-exam"
 STUDENTS_DIR = EXAM_DIR / "students"
 ANSWER_KEY = PROJECT / "docs" / "qcm" / "qcm-answer-key.csv"
 ANSWERS_CSV = EXAM_DIR / "student_answers.csv"

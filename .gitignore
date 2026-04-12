@@ -11,8 +11,23 @@ outputs/
 # PaperBanana vendored clone and run archive
 paperbanana/PaperBanana/
 paperbanana/runs/
-student_submissions/
 r&d/
+
+# Private archive — PII, credentials, student work, exam data
+.private/
+
+# Teacher-only n8n workflows (not distributed to students)
+n8n/workflows/not_given/
+
+# Safety net for legacy PII paths (in case they reappear at old locations)
+/students.csv
+/N8N Groupes Projects - group-roster.csv
+/Master 2 IMTE 2025-2026.pdf
+/student_submissions/
+/transcript*.vtt
+/n8n/backups/
+/n8n/group-credentials.csv
+/docs/qcm/exam/
 
 # Node
 node_modules/
