@@ -1,0 +1,81 @@
+version,position,q_id,q_num,title
+V1,1,QVNL,1,IA Générative vs IA Traditionnelle
+V1,2,QBKN,2,Paradigmes d'apprentissage
+V1,3,QWMN,3,Deep Learning et Transformers
+V1,4,QTEV,4,Tâches d'IA
+V1,5,QCYM,5,Définition du Machine Learning (Chip Huyen)
+V1,6,QFJT,6,Mécanisme des LLMs
+V1,7,QAAF,7,Sampling et Mixture of Experts
+V1,8,QTXV,8,Pipeline d'entraînement des LLMs
+V1,9,QTKF,9,Métriques de classification
+V1,10,QBMP,10,Benchmarks et modèles
+V1,11,QJLW,11,Embeddings
+V1,12,QCXX,12,RAG : Pipeline et recherche
+V1,13,QNBR,13,RAG avancé et décisions
+V1,14,QZYU,14,Agents IA : définition et spectre
+V1,15,QSVG,15,Agents en production
+V1,16,QHAR,16,Méthodologie projet IA
+V1,17,QUHB,17,Infrastructure IA
+V1,18,QEAS,18,Souveraineté et écosystème européen
+V1,19,QKDV,19,Business Models IA
+V1,20,QZSE,20,Cas réels et leçons business
+V2,1,QZSE,20,Cas réels et leçons business
+V2,2,QFJT,6,Mécanisme des LLMs
+V2,3,QSVG,15,Agents en production
+V2,4,QCYM,5,Définition du Machine Learning (Chip Huyen)
+V2,5,QBMP,10,Benchmarks et modèles
+V2,6,QZYU,14,Agents IA : définition et spectre
+V2,7,QHAR,16,Méthodologie projet IA
+V2,8,QKDV,19,Business Models IA
+V2,9,QAAF,7,Sampling et Mixture of Experts
+V2,10,QNBR,13,RAG avancé et décisions
+V2,11,QEAS,18,Souveraineté et écosystème européen
+V2,12,QJLW,11,Embeddings
+V2,13,QBKN,2,Paradigmes d'apprentissage
+V2,14,QCXX,12,RAG : Pipeline et recherche
+V2,15,QWMN,3,Deep Learning et Transformers
+V2,16,QUHB,17,Infrastructure IA
+V2,17,QTXV,8,Pipeline d'entraînement des LLMs
+V2,18,QTKF,9,Métriques de classification
+V2,19,QVNL,1,IA Générative vs IA Traditionnelle
+V2,20,QTEV,4,Tâches d'IA
+V3,1,QCXX,12,RAG : Pipeline et recherche
+V3,2,QZSE,20,Cas réels et leçons business
+V3,3,QBMP,10,Benchmarks et modèles
+V3,4,QBKN,2,Paradigmes d'apprentissage
+V3,5,QSVG,15,Agents en production
+V3,6,QCYM,5,Définition du Machine Learning (Chip Huyen)
+V3,7,QEAS,18,Souveraineté et écosystème européen
+V3,8,QUHB,17,Infrastructure IA
+V3,9,QNBR,13,RAG avancé et décisions
+V3,10,QTKF,9,Métriques de classification
+V3,11,QHAR,16,Méthodologie projet IA
+V3,12,QVNL,1,IA Générative vs IA Traditionnelle
+V3,13,QKDV,19,Business Models IA
+V3,14,QTXV,8,Pipeline d'entraînement des LLMs
+V3,15,QTEV,4,Tâches d'IA
+V3,16,QAAF,7,Sampling et Mixture of Experts
+V3,17,QJLW,11,Embeddings
+V3,18,QZYU,14,Agents IA : définition et spectre
+V3,19,QFJT,6,Mécanisme des LLMs
+V3,20,QWMN,3,Deep Learning et Transformers
+V4,1,QFJT,6,Mécanisme des LLMs
+V4,2,QWMN,3,Deep Learning et Transformers
+V4,3,QVNL,1,IA Générative vs IA Traditionnelle
+V4,4,QBKN,2,Paradigmes d'apprentissage
+V4,5,QZYU,14,Agents IA : définition et spectre
+V4,6,QCYM,5,Définition du Machine Learning (Chip Huyen)
+V4,7,QCXX,12,RAG : Pipeline et recherche
+V4,8,QTXV,8,Pipeline d'entraînement des LLMs
+V4,9,QKDV,19,Business Models IA
+V4,10,QAAF,7,Sampling et Mixture of Experts
+V4,11,QTKF,9,Métriques de classification
+V4,12,QNBR,13,RAG avancé et décisions
+V4,13,QBMP,10,Benchmarks et modèles
+V4,14,QHAR,16,Méthodologie projet IA
+V4,15,QSVG,15,Agents en production
+V4,16,QZSE,20,Cas réels et leçons business
+V4,17,QEAS,18,Souveraineté et écosystème européen
+V4,18,QUHB,17,Infrastructure IA
+V4,19,QJLW,11,Embeddings
+V4,20,QTEV,4,Tâches d'IA

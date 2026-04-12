@@ -1,3 +1,177 @@
+Here are some corrections to on the slides.
+@docs/references/slide-creation-standards.md
+@docs/references/workflow-new-slides.md
+@docs/references/course-architecture.md
+
+===========================================
+https://slides.develle.fr/session-04-C-business-models.html#4
+
+
+remove the slides : 1, 3, 14, 16
+
+===========================================
+Could be interesting to copy pasting the couple of last SemiAnalysis newsletters to see if intersting things
+
+https://slides.develle.fr/session-04-B-ecosysteme-ia.html#3
+
+1: add as reference that total world gdp is around 100 Trillion
+https://en.wikipedia.org/wiki/Gross_world_product
+also, where is the pitchbook source link ?
+
+3 & 6: sources are wrapped on the left
+
+For the 9 layers: please take in account "docs/sources/The AI Value Chain in 2025_ Nine Layers, One Trillion-Dollar Stack.pdf" to add a bit more narrative to the current raw numbers/company names. You may add 1 slide if needed (and up to 2 exceptionnally). Make sure to use and keep the sources cited in the pdf.
+I'm really looking to keep the 20% of the content which is the 80% most interesting (paretto), the point is not to double in size the deck. You should reshape what was here originally, especially if less interesting (just a bunch of numbers dont tell a lot), but keep the couple of company being cited so it at least ggive a clear picture to the students.
+Also, make sure to generate visuals for each individual layer, putting if needed graph or company logo. Take the time to brainstorm yourself. Also remember, the infography are here for the highlevel understanding, not stuffing paragraph of text.
+
+
+6 : it's a bit all over the place, the message is not really clear, it's hard to know what to keep from it.
+-> make me some propositions.
+
+7: we miss the revenue of scaleway
+
+11: remove
+
+For the slides 14-18. I'm curious if they wouldnt be better integrated in the layers directly. IF so they  do not count in the 1-2 extra slide by layer (but can still be reshaoed with the new content, but keep the images, they are great)
+
+On the previous deck on methodo, add theses sources in the mvp slide :
+- https://www.youtube.com/watch?v=0kARDVL2nZg 
+- https://www.youtube.com/watch?v=1hHMwLxN6EM
+also, we may need a new slide to explain what is needed for mvp
+
+On the next deck the data moat source is wrong, maybe it should be this link ? https://a16z.com/services-led-growth/ 
+update content if doesnt reflect it's resources (verify the other)
+===========================================
+
+https://slides.develle.fr/session-03-D-methodologie-projet.html
+-> should be moved to session 4
+
+Under is change of the order for the things in this deck, removing of slides, and new slides.
+
+
+NEWSLIDE : begin with the Bitter lesson from Richard Sutton.
+http://www.incompleteideas.net/IncIdeas/BitterLesson.html
+--> How AI get's 'simpler' with time, and is in the end just Moores Law
+
+Then NEWSLIDE on how it was really complex to do some CV task before : 
+https://www.youtube.com/watch?v=c3zw6KI6dLc&list=PLkDaE6sCZn6Gl29AoE31iwdVwSG-KnDzF&index=22
+Example, before for gender detection : training model, having dataset, 2 step process with one first model for bbox face & second for classif. both trained, so needed data
+- now just: image in VLM -> structured output out, no training needed and competitive in performance 
+This will require a paperbanana diagram showing the 2 different options 
+
+Then slide 01
+
+Then slides [03-07] how to build tech
+
+NEW SLIDE:  Add at the end that the first iteration is a bit different, the original build to :
+AI toy model first: majority class if classif, mean value if regression
+Evaluate having a small dataset at the beginning (~20 examples)
+
+NEW SLIDE: Then iterate on this baseline : 
+- Build / evaluate loop : keep changes if it improves your score. Complexity should be added only if it is useful
+- add examples in your dataset as you cross problems in production (something missed ? something incorrect being not predict), or if you want a better coverage.
+
+Slides 12-14
+
+Slide 22 — Progression : Prompting
+
+Slide 16 MVP Building GMAIL story : https://www.ycombinator.com/library/Jc-paul-buchheit-creator-of-gmail 
+
+
+Slides to remove : 2, 8-11, 15, 17, 18-21, 23-24
+ 
+
+
+https://slides.develle.fr/session-05-A-regulation-ethique.html#4
+
+02 — EU AI Act : les 4 niveaux de risque
+-> what are these 4 levels ? How do I know in which I am ? I'm ok with a simplification if really complex, but it should be clearly stated
+
+===========================================
+
+Feedback RAGs : 
+
+S02: should be moved just after "Le Pipeline RAG en détail" 
+Replace with a simple diagram, a RAG is just an LLM plugged on a search engine. 
+We can either feed the search engine new documents, or ask questions to the LLM which uses the search engine to answer.
+
+S03: great
+And after put directly the slide 17 with the concrete example!
+
+
+Let's move the embeddings deck outside the RAG one ! 
+Put it before A=Embedding, B=RAG, C=Agents, D=Methodo
+
+
+S13: great
+s14: we need to reformulate :
+-> We introduce the search engine part, which can be tfidf or bm25 or embeddings
+then we should present TF-IDF, then BM25 (we can just ay it's tfidf on bigrams and trigrams), then embeddings, then hybrid search
+
+===========================================
+
+Feedback Embeddings : 
+
+Add MTEB link !! But in the end we must test on our own data to be sure
+
+===========================================
+
+S01: Ok
+S03 should be next 
+S02: Multi-Step Agent and Multi-Agent are both 3 stars, not 4. THe diagram has the same pbm (but otherwise is beautifull, it's the only change needed).
+S04: ok
+
+Tools, Skills & produits agents S19-S21
+S20 : a full concrete example is better of a skills.md would be great something simple and visual (like a skill to translate a document, or somehting else, short that the text can be shown easily)
+
+
+Then explain that MCP is a particular type of tools, and go on with MCP chapter: 
+MCP S13-S18
+MCP : should be after the introduction of tools
+S13: please do a vertical stack of these diagrams : 
+- https://huggingface.co/datasets/mcp-course/images/resolve/main/unit1/1.png 
+- https://huggingface.co/datasets/mcp-course/images/resolve/main/unit1/1a.png 
+- https://huggingface.co/datasets/mcp-course/images/resolve/main/unit1/2.png
+S15: concrete example missing of host/client/server, do it with an n8n server and wiki search mcp
+S16 : https://huggingface.co/datasets/mcp-course/images/resolve/main/unit1/8.png
+
+Also, in MCP, it's missing the CLI controversy (like would the abstraction still be necessary in the future ?)
+ 
+
+Memory stuff S25-S30
+S26 types of memories : might be bullshit (it's human centered here). Let's stay LLM centered? Like: prompt / history conversation / memory.md / outside database 
+
+Context-Engineering: S36-S43
+-> it's way too much content, you need to only keep the most import  20% (like 2-4 slides) and put the rest in an extradeck
+
+
+S05 
+S06-S12 Agents work flows : should be later and should have diagrams (just fetch from anthropic, they are great)
+- prompt chaining https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F7418719e3dab222dccb379b8879e1dc08ad34c78-2401x1000.png&w=3840&q=75 
+- routing https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F5c0c0e9fe4def0b584c04d37849941da55e5e71c-2401x1000.png&w=3840&q=75 
+- parallelizzaion https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F406bb032ca007fd1624f261af717d70e6ca86286-2401x1000.png&w=3840&q=75 
+- orchestrator https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F8985fc683fae4780fb34eab1365ab78c7e51bc8e-2401x1000.png&w=3840&q=75 
+- evaluator https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F14f51e6406ccb29e695da48b17017e899a6119c7-2401x1000.png&w=3840&q=75
+
+
+Agent in production : S31-S35
+
+
+S22 - S23
+Open claw et Claude code should be way later in the course
+For the open claw : explain pulse files?
+
+AutoResearch : S44-S45
+
+S46 until the end needs to be custom made again
+
+
+
+
+===========================================
+
+
+
 Pour les rags, quoi  dire : 
 - expliquer le fondamental pareto (chnunking + bm25) 
 - la method (noisy signal for llm pred, follow recall on search engine, for this synthetic dat generation is great, juges can be cheaper)

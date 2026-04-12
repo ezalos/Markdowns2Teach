@@ -8,9 +8,8 @@ dist/
 infographics/
 outputs/
 
-# PaperBanana vendored clone and run archive
-paperbanana/PaperBanana/
-paperbanana/runs/
+# PaperBanana — tracked as its own repo (github.com:ezalos/PaperBanana_as_skill)
+paperbanana/
 r&d/
 
 # Private archive — PII, credentials, student work, exam data
