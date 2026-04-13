@@ -14,29 +14,32 @@ Grow this file by promoting per-run overlays (see `/cite-apply` promotion gate).
 
 ## Tier 1 — Primary sources (company IR, SEC filings, government)
 
-- **SEC.gov** — US Securities and Exchange Commission (filings, enforcement actions, joint reports with CFTC)
-- **CFTC.gov** — US Commodity Futures Trading Commission
+- **SEC.gov** (`sec.gov`) — US Securities and Exchange Commission (filings, enforcement actions, joint reports with CFTC)
+- **CFTC.gov** (`cftc.gov`) — US Commodity Futures Trading Commission
 - **EUR-Lex** (`eur-lex.europa.eu`) — EU legal texts, including the AI Act
 - **European Parliament** (`europarl.europa.eu`) — press releases, committee reports
 - **European Commission** (`ec.europa.eu`, `digital-strategy.ec.europa.eu`) — official communications
 - **Company investor relations** — any URL matching `investor.*`, `ir.*`, or `<domain>/investors`
 - **Company official news pages** — `anthropic.com/news`, `openai.com/index/*`, `mistral.ai/news`, etc.
 - **Company pricing pages** — `openai.com/pricing`, `anthropic.com/pricing`, `aws.amazon.com/*/pricing`
-- **Government statistics offices** — INSEE (FR), Eurostat (EU), BLS (US), ONS (UK)
+- **Anthropic** (`anthropic.com`) — AI safety company
+- **OpenAI** (`openai.com`) — AI research and products
+- **Mistral AI** (`mistral.ai`) — European AI company
+- **Government statistics offices** — INSEE (`insee.fr`), Eurostat (`eurostat.ec.europa.eu`), BLS (`bls.gov`), ONS (`ons.gov.uk`)
 
 ## Tier 2 — Peer-reviewed academic
 
 - **arXiv** (`arxiv.org`) — preprints (note acceptance venue in quote when available)
 - **NeurIPS / ICML / ICLR / EMNLP / ACL** — ML conference proceedings
-- **Nature**, **Science** — journals
-- **IEEE Xplore**, **ACM Digital Library** — engineering/CS journals
-- **The Lancet**, **NEJM** — medical journals (if ever relevant)
+- **Nature** (`nature.com`), **Science** (`science.org`) — journals
+- **IEEE Xplore** (`ieeexplore.ieee.org`), **ACM Digital Library** (`dl.acm.org`) — engineering/CS journals
+- **The Lancet** (`thelancet.com`), **NEJM** (`nejm.org`) — medical journals (if ever relevant)
 
 ## Tier 3 — Tier-1 research firms and trackers
 
 - **Gartner** (`gartner.com`) — market forecasts, Magic Quadrants
 - **McKinsey** (`mckinsey.com`, McKinsey Global Institute)
-- **Deloitte Insights** (`deloitte.com/insights`)
+- **Deloitte Insights** (`deloitte.com`)
 - **IDC** (`idc.com`)
 - **Forrester** (`forrester.com`)
 - **Stanford HAI AI Index** (`hai.stanford.edu`)

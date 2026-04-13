@@ -25,7 +25,7 @@ tiers:
       - name: "INSEE"
         domains: ["insee.fr"]
       - name: "Eurostat"
-        domains: ["ec.europa.eu/eurostat"]
+        domains: ["eurostat.ec.europa.eu"]
       - name: "U.S. Bureau of Labor Statistics"
         domains: ["bls.gov"]
       - name: "UK Office for National Statistics"
