@@ -156,6 +156,7 @@ Every `.md` slide file must start (after front matter) with two ABOUTME comments
   - Technical terms stay English: "Supervised Learning", "Deep Learning", "Prompt Engineering"
   - Do NOT write: "Apprentissage supervisé *(Supervised Learning)*"
   - Instead write: "Le Supervised Learning est la technique la plus déployée..."
+  - **Exception — Station F deck** (`slides/station-f/`): English body, same technical-term convention. Audience is international tech founders. Source of truth: `docs/station-f/spec.md`.
 - **Bullet points**: concise ideas, no long paragraphs
 - **Business-framed**: frame concepts for entrepreneurs, not researchers
 - **Engagement questions**: include 1–2 discussion questions per major section
@@ -196,6 +197,15 @@ make sync       # Sync dist/pptx/ to GDrive via rclone
 make clean      # Remove dist/
 ```
 
+## Citation Audit Skill
+
+Use the `/cite <file>` skill family to audit and source slide decks. Three phase-skills (`/cite-scan`, `/cite-research`, `/cite-apply`) plus the `/cite` orchestrator. Per-run state lives at `docs/citation-audit/<slug>/` (gitignored). Global references:
+
+- `docs/references/authority-map.md` — publisher roster by §6.2 tier
+- `docs/references/cite-skill-backlog.md` — self-improvement tracker
+
+Design: `docs/superpowers/specs/2026-04-12-cite-skill-design.md`.
+
 ## Attribution
 
 - **Andrew Ng / DeepLearning.AI**: CC BY-SA 2.0 — cite DeepLearning.AI as source
@@ -223,6 +233,15 @@ make clean      # Remove dist/
 | `slides/session-04/B-ecosysteme-ia.md` | L'écosystème IA | 22 |
 | `slides/session-04/C-business-models.md` | Business Models & Cas Réels | 14 |
 | `slides/session-05/A-regulation-ethique.md` | Régulation & IA responsable | 27 |
+
+### Station F decks (English — scoped exception)
+
+| Path | Title | Slides |
+|------|-------|--------|
+| `slides/station-f/A-state-of-the-field.md` | Building With AI — State of the Field | 25 |
+| `slides/station-f/B-building-with-ai.md` | Building With AI — Part B | 15 |
+
+Source of truth: `docs/station-f/spec.md`. Local source archives: `docs/station-f/sources/` (Raschka, Latent Space, MiroFish).
 
 ### Evaluation reference decks
 
