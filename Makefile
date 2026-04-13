@@ -15,7 +15,7 @@ SLIDE_FILES := $(shell find $(SLIDES_DIR) -name '*.md' -type f)
 GUIDE_DIR := $(DIST_DIR)/guide
 PANDOC := $(shell command -v pandoc 2>/dev/null || echo "$(HOME)/.local/bin/pandoc")
 
-.PHONY: all preview build pptx html html-inline index check check-citations dedup clean sync serve guide pdf-full help
+.PHONY: all preview build pptx html html-inline index check check-citations lint-authority-map dedup clean sync serve guide pdf-full help
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
@@ -64,7 +64,10 @@ serve: html-inline ## Serve password-protected HTML slides on port 8080
 sync: ## Sync PPTX files to Google Drive via rclone
 	rclone sync $(PPTX_DIR)/ $(GDRIVE_REMOTE) --progress
 
-check: ## Detect slides that overflow (pixel-accurate, requires npm install)
+lint-authority-map: ## Verify authority-map.md and authority-map.yaml are in sync
+	@python3 scripts/cite/lint_authority_map.py
+
+check: lint-authority-map ## Detect slides that overflow (pixel-accurate, requires npm install)
 	@node scripts/check-overflow-visual.js $(SLIDES_DIR)
 
 check-citations: ## Warn about data slides missing source citations
