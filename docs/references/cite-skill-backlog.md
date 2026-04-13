@@ -27,6 +27,16 @@ Categories:
 
 ## Open
 
+_(No open items. `/cite-apply` appends here when new caveats are surfaced.)_
+
+---
+
+## Resolved
+
+### v2 (2026-04-13) — see `docs/superpowers/specs/2026-04-13-cite-skill-v2-design.md`
+
+All 5 items below addressed by the v2 implementation. Quote-in-page substring check + page.txt preservation fix fabrication; tier lookup moved to `scripts/cite/tier_lookup.py` (not subagent judgment); enum validation via `scripts/cite/validate_claim.py`; verification command routing via `scripts/cite/target_scope.py`; PDF fallback chain (tavily advanced → WebFetch → pdftotext) documented in the cite-research subagent prompt.
+
 ## 2026-04-13 — docs-references-test-fixtures-cite-fixture (initial integration test)
 
 - **research**: Subagent assigned `authority_tier: 1` to a URL whose domain (`encyclopedia.pub`) is not in the authority-map baseline, because the page cites a tier-1 primary source.
@@ -48,9 +58,3 @@ Categories:
 - **tool**: Tavily Extract returned partial content for a large government PDF (~100 pages).
   - Context: SEC/CFTC Joint Report PDF for claim-02. Subagent got a fragment that didn't contain the specific sentence needed, though a corroborating figure was in the extract.
   - Suggestion: for PDFs over N pages, skill could chain multiple Extract calls with different `query` parameters to pull targeted chunks, OR fall back to downloading the PDF and using a local PDF-to-text subagent.
-
----
-
-## Resolved
-
-_(Move entries here when addressed in a skill revision.)_
