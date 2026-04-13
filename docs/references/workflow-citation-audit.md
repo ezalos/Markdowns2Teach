@@ -5,6 +5,20 @@
 
 Les règles de citation (classification des claims, hiérarchie d'autorité, format, récence, vérification) sont centralisées dans **`slide-creation-standards.md` §6**. Ce workflow y fait référence sans les répéter.
 
+## Automation: the `/cite` skill family
+
+For new audits, use the `/cite` skill family instead of the manual process
+below. It automates claim extraction, source research with strict quote
+verification, and citation application — with human-in-the-loop review gates.
+
+- `/cite <file>` — run all three phases with review gates
+- `/cite-scan <file>` — phase 1, extract claims (outputs to `docs/citation-audit/<slug>/`)
+- `/cite-research` — phase 2, parallel source-hunting
+- `/cite-apply` — phase 3, patch the file after you review flagged claims
+
+The manual workflow below remains as the fallback and reference for when
+claims need hand-sourcing.
+
 ---
 
 ## 1. Outillage
