@@ -45,65 +45,72 @@ cat > "$OUTPUT" <<'HEADER'
 <p class="subtitle">Deep Tech &amp; ML (UE3) — M2 IMT&amp;E · Paris 1 Panthéon-Sorbonne</p>
 HEADER
 
-# Build a sorted list of "slug\tfilename" pairs for proper grouping.
-# HTML files are named <slug>-<deck>.html (e.g. session-01-A-genai-fondamentaux.html).
-# Extract slug by matching the session-XX prefix.
-sorted_entries=""
-for f in $(find "$HTML_DIR" -maxdepth 1 -name '*.html' ! -name 'index.html'); do
-    filename=$(basename "$f")
-    base="${filename%.html}"
-    # Extract session slug (session-XX) from the filename prefix
-    if [[ "$base" =~ ^(session-[0-9]+)- ]]; then
-        slug="${BASH_REMATCH[1]}"
-    else
-        slug="unknown"
-    fi
-    sorted_entries+="$slug	$filename"$'\n'
+# Source-driven grouping: walk slides/<SUBDIR>/*.md and render the matching HTML
+# (named "<subdir>-<deck>.html" by the Makefile's flat-output convention).
+# This grounds the grouping in the directory layout so any subdir works — no
+# regex updates needed when a new deck dir (station-f, extra-decks, ...) is added.
+
+label_for_slug() {
+    case "$1" in
+        session-01)  echo "Session 1 — Comprendre l'IA en 2026" ;;
+        session-02)  echo "Session 2 — Construire avec l'IA" ;;
+        session-03)  echo "Session 3 — Cadrer un projet IA" ;;
+        session-04)  echo "Session 4 — Le business de l'IA" ;;
+        session-05)  echo "Session 5 — Éthique, gouvernance & clôture" ;;
+        evaluation)  echo "Evaluation reference decks" ;;
+        station-f)   echo "Station F — Building With AI (EN)" ;;
+        extra-decks) echo "Archived / extra decks" ;;
+        *)           echo "$1" ;;
+    esac
+}
+
+# Deterministic order: most-recent work first (station-f), then sessions
+# in course order (sorted), then evaluation, anything else alphabetically,
+# then extra-decks (archive) last. Update the leading group when newer work
+# supersedes station-f as the freshest deck set.
+all_slugs=""
+for subdir in "$SLIDES_DIR"/*/; do
+    [ -d "$subdir" ] || continue
+    all_slugs+="$(basename "$subdir")"$'\n'
 done
-sorted_entries=$(echo "$sorted_entries" | sort)
 
-# Group HTML files by session slug
-current_group=""
-while IFS=$'\t' read -r slug filename; do
+sessions=$(echo "$all_slugs" | grep -E '^session-' | sort || true)
+has_eval=$(echo "$all_slugs" | grep -Fx 'evaluation' || true)
+has_stationf=$(echo "$all_slugs" | grep -Fx 'station-f' || true)
+has_extra=$(echo "$all_slugs" | grep -Fx 'extra-decks' || true)
+others=$(echo "$all_slugs" | grep -vE '^(session-|evaluation$|station-f$|extra-decks$)' | grep -v '^$' | sort || true)
+
+ordered_slugs=$(printf "%s\n%s\n%s\n%s\n%s\n" "$has_stationf" "$sessions" "$has_eval" "$others" "$has_extra" | grep -v '^$' || true)
+
+while IFS= read -r slug; do
     [ -z "$slug" ] && continue
-    base="${filename%.html}"
+    subdir="$SLIDES_DIR/$slug"
+    # Collect source .md files in this subdir (sorted)
+    mds=$(find "$subdir" -maxdepth 1 -name '*.md' -type f 2>/dev/null | sort)
+    [ -z "$mds" ] && continue
 
-    # Resolve title from source .md — strip slug prefix to get deck basename
-    deck_base="${base#"$slug"-}"
-    srcfile="$SLIDES_DIR/$slug/$deck_base.md"
-    title=""
-    if [ -f "$srcfile" ]; then
-        title=$(get_title "$srcfile")
-    fi
-    if [ -z "$title" ]; then
-        title=$(echo "$deck_base" | sed 's/^[0-9]*-//;s/-/ /g')
-    fi
+    header_emitted=false
+    while IFS= read -r src; do
+        [ -f "$src" ] || continue
+        deck_base=$(basename "$src" .md)
+        htmlfile="$slug-$deck_base.html"
+        [ -f "$HTML_DIR/$htmlfile" ] || continue
 
-    # Start new group if needed
-    if [ "$slug" != "$current_group" ]; then
-        if [ -n "$current_group" ]; then
-            echo '</ul>' >> "$OUTPUT"
+        if ! $header_emitted; then
+            label=$(label_for_slug "$slug")
+            echo "<h2>$label</h2>" >> "$OUTPUT"
+            echo '<ul>' >> "$OUTPUT"
+            header_emitted=true
         fi
-        current_group="$slug"
-        # Map session directories to human-readable labels
-        group_label="$slug"
-        case "$slug" in
-            session-01) group_label="Session 1 — Comprendre l'IA en 2026" ;;
-            session-02) group_label="Session 2 — Construire avec l'IA" ;;
-            session-03) group_label="Session 3 — Cadrer un projet IA" ;;
-            session-04) group_label="Session 4 — Le business de l'IA" ;;
-            session-05) group_label="Session 5 — Éthique, gouvernance & clôture" ;;
-        esac
-        echo "<h2>$group_label</h2>" >> "$OUTPUT"
-        echo '<ul>' >> "$OUTPUT"
-    fi
 
-    echo "<li><a href=\"$filename\">$title</a><span class=\"deck-file\">$filename</span></li>" >> "$OUTPUT"
-done <<< "$sorted_entries"
+        title=$(get_title "$src")
+        if [ -z "$title" ]; then
+            title=$(echo "$deck_base" | sed 's/^[0-9]*-//;s/-/ /g')
+        fi
+        echo "<li><a href=\"$htmlfile\">$title</a><span class=\"deck-file\">$htmlfile</span></li>" >> "$OUTPUT"
+    done <<< "$mds"
 
-# Close last group
-if [ -n "$current_group" ]; then
-    echo '</ul>' >> "$OUTPUT"
-fi
+    $header_emitted && echo '</ul>' >> "$OUTPUT"
+done <<< "$ordered_slugs"
 
 echo '</body></html>' >> "$OUTPUT"
