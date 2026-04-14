@@ -199,12 +199,24 @@ make clean      # Remove dist/
 
 ## Citation Audit Skill
 
-Use the `/cite <file>` skill family to audit and source slide decks. Three phase-skills (`/cite-scan`, `/cite-research`, `/cite-apply`) plus the `/cite` orchestrator. Per-run state lives at `docs/citation-audit/<slug>/` (gitignored). Global references:
+Use the `/cite <file>` skill family to audit and source slide decks. Three phase-skills (`/cite-scan`, `/cite-research`, `/cite-apply`) plus the `/cite` orchestrator. Per-run state lives at `docs/citation-audit/<slug>/` (gitignored).
 
-- `docs/references/authority-map.md` — publisher roster by §6.2 tier
-- `docs/references/cite-skill-backlog.md` — self-improvement tracker
+**v2 architecture (current)**: deterministic validators in `scripts/cite/` enforce the strict contracts that v1 left to LLM judgment.
 
-Design: `docs/superpowers/specs/2026-04-12-cite-skill-design.md`.
+- `scripts/cite/validate_claim.py` — schema + enum + verbatim quote-in-page substring check
+- `scripts/cite/tier_lookup.py` — `url_domain` → tier integer, no LLM judgment
+- `scripts/cite/lint_authority_map.py` — bidirectional sync check (wired into `make check`)
+- `scripts/cite/target_scope.py` — routes verification command per target path
+- 23 unit tests at `scripts/cite/tests/`, run with `pytest scripts/cite/tests/`
+
+Global references:
+- `docs/references/authority-map.md` — human roster by §6.2 tier
+- `docs/references/authority-map.yaml` — machine-readable sibling, source of truth for `tier_lookup.py`
+- `docs/references/cite-skill-backlog.md` — self-improvement tracker (v1 issues now under `## Resolved`)
+
+Design specs:
+- `docs/superpowers/specs/2026-04-12-cite-skill-design.md` — v1 (initial design)
+- `docs/superpowers/specs/2026-04-13-cite-skill-v2-design.md` — v2 (validators + Rule of Least Privilege for LLMs)
 
 ## Attribution
 
