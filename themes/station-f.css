@@ -1,0 +1,34 @@
+/* ABOUTME: Station F theme — inherits sorbonne.css layout, overrides palette for a neutral dark identity. */
+/* ABOUTME: Keeps all layout classes (title, section, cols, img-right, compact, dark, highlight) functional. */
+
+/* @theme station-f */
+
+@import 'sorbonne';
+
+:root {
+  --sorbonne-blue: #0F172A;    /* deep slate replaces Sorbonne navy */
+  --sorbonne-light: #F1F5F9;   /* cool grey-blue wash */
+  --accent-orange: #F97316;    /* warmer orange */
+  --text-dark: #0F172A;
+  --text-muted: #475569;
+  --bg-white: #FFFFFF;
+}
+
+/* Title slide — sorbonne hardcodes the gradient endpoint, re-declare with neutral tones */
+section.title {
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+}
+
+/* Dark class — same neutral gradient */
+section.dark {
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+}
+
+/* Blockquote / highlight — warm tint aligned to new orange */
+section blockquote {
+  background-color: #FFF7ED;
+}
+
+section.highlight {
+  background-color: #FFF7ED;
+}

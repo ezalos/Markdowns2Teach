@@ -15,11 +15,16 @@ SLIDE_FILES := $(shell find $(SLIDES_DIR) -name '*.md' -type f)
 GUIDE_DIR := $(DIST_DIR)/guide
 PANDOC := $(shell command -v pandoc 2>/dev/null || echo "$(HOME)/.local/bin/pandoc")
 
-.PHONY: all preview build pptx html html-inline index check check-citations lint-authority-map dedup clean sync serve guide pdf-full help
+.PHONY: all preview build pptx html html-inline index check check-citations lint-authority-map dedup clean sync serve guide pdf-full help html-% pptx-% pdf-full-% build-%
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
 		awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2}'
+	@printf "\n  Per-subdir pattern targets (scope to slides/<NAME>/):\n"
+	@printf "    \033[36m%-15s\033[0m %s\n" "html-<NAME>"     "e.g. make html-station-f"
+	@printf "    \033[36m%-15s\033[0m %s\n" "pptx-<NAME>"     "e.g. make pptx-session-04"
+	@printf "    \033[36m%-15s\033[0m %s\n" "pdf-full-<NAME>" "e.g. make pdf-full-station-f"
+	@printf "    \033[36m%-15s\033[0m %s\n" "build-<NAME>"    "HTML + PPTX + PDF for one subdir"
 
 all: build ## Build all outputs (HTML + PPTX)
 
@@ -29,7 +34,8 @@ preview: ## Launch Marp preview server
 build: html pptx pdf-full ## Build both HTML and PPTX
 
 html: $(HTML_DIR) ## Build HTML slides → dist/html/
-	@for f in $(SLIDE_FILES); do \
+	@set -e; \
+	for f in $(SLIDE_FILES); do \
 		slug=$$(dirname $$f | sed 's|^$(SLIDES_DIR)/||'); \
 		outfile="$(HTML_DIR)/$$slug-$$(basename $$f .md).html"; \
 		echo "  HTML: $$f -> $$outfile"; \
@@ -47,7 +53,8 @@ index: $(HTML_DIR) ## Generate index.html with links to all decks
 	@bash scripts/generate-index.sh $(SLIDES_DIR) $(HTML_DIR)
 
 pptx: $(PPTX_DIR) ## Build PPTX presentations → dist/pptx/
-	@for f in $(SLIDE_FILES); do \
+	@set -e; \
+	for f in $(SLIDE_FILES); do \
 		slug=$$(dirname $$f | sed 's|^$(SLIDES_DIR)/||'); \
 		outfile="$(PPTX_DIR)/$$slug-$$(basename $$f .md).pptx"; \
 		echo "  PPTX: $$f -> $$outfile"; \
@@ -79,13 +86,56 @@ dedup: ## Remove duplicate images from all asset directories
 	done
 
 pdf-full: $(PDF_FULL_DIR) ## Build full-content PDFs (no clipping) → dist/pdf-full/
-	@for f in $(SLIDE_FILES); do \
+	@set -e; \
+	for f in $(SLIDE_FILES); do \
 		slug=$$(dirname $$f | sed 's|^$(SLIDES_DIR)/||'); \
 		outfile="$(PDF_FULL_DIR)/$$slug-$$(basename $$f .md).pdf"; \
 		echo "  PDF:  $$f -> $$outfile"; \
 		$(MARP) --no-stdin --pdf \
 			--allow-local-files "$$f" -o "$$outfile"; \
 	done
+
+# --- Per-subdir pattern rules (iterate on one deck dir at a time) ---
+# Usage: make build-station-f  /  make html-station-f  /  make pptx-session-04
+# The pattern stem `$*` is the first-level directory under slides/.
+
+html-%: $(HTML_DIR) ## Build HTML for slides/<NAME>/ only (e.g. make html-station-f)
+	@set -e; \
+	for f in $$(find $(SLIDES_DIR)/$* -name '*.md' -type f); do \
+		slug=$$(dirname $$f | sed 's|^$(SLIDES_DIR)/||'); \
+		outfile="$(HTML_DIR)/$$slug-$$(basename $$f .md).html"; \
+		echo "  HTML: $$f -> $$outfile"; \
+		$(MARP) "$$f" -o "$$outfile"; \
+	done
+	@for d in $$(find $(SLIDES_DIR)/$* -type d -name assets); do \
+		echo "  ASSETS: $$d -> $(HTML_DIR)/assets/"; \
+		mkdir -p "$(HTML_DIR)/assets"; \
+		cp -ru "$$d/." "$(HTML_DIR)/assets/"; \
+	done
+	@$(MAKE) index
+
+pptx-%: $(PPTX_DIR) ## Build PPTX for slides/<NAME>/ only
+	@set -e; \
+	for f in $$(find $(SLIDES_DIR)/$* -name '*.md' -type f); do \
+		slug=$$(dirname $$f | sed 's|^$(SLIDES_DIR)/||'); \
+		outfile="$(PPTX_DIR)/$$slug-$$(basename $$f .md).pptx"; \
+		echo "  PPTX: $$f -> $$outfile"; \
+		$(MARP) --pptx-editable "$$f" -o "$$outfile"; \
+		uv run scripts/fix-pptx-margins.py "$$outfile"; \
+	done
+
+pdf-full-%: $(PDF_FULL_DIR) ## Build full-content PDFs for slides/<NAME>/ only
+	@set -e; \
+	for f in $$(find $(SLIDES_DIR)/$* -name '*.md' -type f); do \
+		slug=$$(dirname $$f | sed 's|^$(SLIDES_DIR)/||'); \
+		outfile="$(PDF_FULL_DIR)/$$slug-$$(basename $$f .md).pdf"; \
+		echo "  PDF:  $$f -> $$outfile"; \
+		$(MARP) --no-stdin --pdf \
+			--allow-local-files "$$f" -o "$$outfile"; \
+	done
+
+build-%: html-% pptx-% pdf-full-% ## Build HTML+PPTX+PDF for slides/<NAME>/ only
+	@true
 
 guide: ## Build student guide as DOCX → dist/guide/
 	@bash scripts/install-pandoc.sh

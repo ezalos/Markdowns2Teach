@@ -26,6 +26,19 @@ Grow this file by promoting per-run overlays (see `/cite-apply` promotion gate).
 - **OpenAI** (`openai.com`) — AI research and products
 - **Mistral AI** (`mistral.ai`) — European AI company
 - **Government statistics offices** — INSEE (`insee.fr`), Eurostat (`eurostat.ec.europa.eu`), BLS (`bls.gov`), ONS (`ons.gov.uk`)
+- **Klarna** (`klarna.com`) — company press releases
+- **L'Oréal Finance** (`loreal-finance.com`) — investor relations / annual report
+- **Fin AI** (`fin.ai`) — Intercom product / pricing page
+- **Google Developers** (`developers.google.com`) — official Google documentation (Rules of ML, etc.)
+- **EU AI Act Service Desk** (`ai-act-service-desk.ec.europa.eu`) — official EU AI Act support
+- **Meta AI** (`ai.meta.com`) — Meta's official AI blog (Llama announcements)
+- **Google corporate blog** (`blog.google`) — official Google/Alphabet blog
+- **Google DeepMind** (`deepmind.google`) — Google DeepMind official site
+- **Anthropic Claude product** (`claude.com`) — Claude product/feature pages
+- **AWS** (`aws.amazon.com`) — AWS official announcements and documentation
+- **Linux Foundation** (`linuxfoundation.org`) — foundation press releases and announcements
+- **EU AI Act explainer** (`artificialintelligenceact.eu`) — official EU AI Act portal maintained by the Future of Life Institute / EC contributors
+- **Coursera** (`coursera.org`) — course platform, authoritative for official course pages (e.g., Andrew Ng's Generative AI for Everyone)
 
 ## Tier 2 — Peer-reviewed academic
 
@@ -34,6 +47,9 @@ Grow this file by promoting per-run overlays (see `/cite-apply` promotion gate).
 - **Nature** (`nature.com`), **Science** (`science.org`) — journals
 - **IEEE Xplore** (`ieeexplore.ieee.org`), **ACM Digital Library** (`dl.acm.org`) — engineering/CS journals
 - **The Lancet** (`thelancet.com`), **NEJM** (`nejm.org`) — medical journals (if ever relevant)
+- **SWE-bench** (`swebench.com`) — academic coding-agent benchmark (paper: Jimenez et al.)
+- **Terminal-Bench** (`tbench.ai`) — Stanford / Laude Institute terminal-agent benchmark
+- **OSWorld** (`os-world.github.io`) — academic benchmark for computer-use agents
 
 ## Tier 3 — Tier-1 research firms and trackers
 
@@ -42,12 +58,23 @@ Grow this file by promoting per-run overlays (see `/cite-apply` promotion gate).
 - **Deloitte Insights** (`deloitte.com`)
 - **IDC** (`idc.com`)
 - **Forrester** (`forrester.com`)
-- **Stanford HAI AI Index** (`hai.stanford.edu`)
+- **Stanford HAI AI Index** (`hai.stanford.edu`, `aiindex.stanford.edu`)
 - **OECD.AI** (`oecd.ai`)
-- **Epoch AI** (`epochai.org`) — compute / training / model trends
+- **Epoch AI** (`epochai.org`, `epoch.ai`) — compute / training / model trends
 - **Our World in Data** (`ourworldindata.org`)
 - **CB Insights** (`cbinsights.com`)
 - **Statista** (`statista.com`)
+- **Stack Overflow Developer Survey** (`survey.stackoverflow.co`) — large-N developer methodology survey
+- **Microsoft Research** (`microsoft.com`) — corporate research publications
+- **Databricks** (`databricks.com`) — engineering / research blog
+- **Hugging Face** (`huggingface.co`) — official docs and courses
+- **MIT Sloan Management Review** (`sloanreview.mit.edu`)
+- **Andreessen Horowitz** (`a16z.com`) — VC research and market commentary
+- **Bessemer Venture Partners** (`bvp.com`) — State of AI / State of the Cloud reports
+- **METR** (`metr.org`) — model evaluation and safety research organisation (long-task benchmarks)
+- **Vals AI** (`vals.ai`) — independent benchmark verification / leaderboards
+- **Center for Data Innovation** (`datainnovation.org`, `www2.datainnovation.org`) — EU-policy think tank (EU AI Act compliance cost studies)
+- **Cisco (corporate research/security blog)** (`blogs.cisco.com`) — corporate engineering/security publications
 - Domain-specific:
   - **SemiAnalysis** (`semianalysis.com`) — AI hardware / datacenter
   - **CEPS** (`ceps.eu`) — EU policy
@@ -74,6 +101,21 @@ Grow this file by promoting per-run overlays (see `/cite-apply` promotion gate).
 - **Wired** (`wired.com`)
 - **VentureBeat** (`venturebeat.com`)
 - **MIT Technology Review** (`technologyreview.com`)
+- **Sifted** (`sifted.eu`) — EU startup press
+- **Entrepreneur** (`entrepreneur.com`) — business / startup press
+- **Latent Space** (`latent.space`) — AI industry editorial (swyx newsletter)
+- **Ahead of AI — Sebastian Raschka** (`magazine.sebastianraschka.com`) — recognized ML practitioner blog
+- **Chip Huyen** (`huyenchip.com`) — recognized ML practitioner blog
+- **Jason Liu** (`jxnl.co`) — AI practitioner blog
+- **VintageData** (`vintagedata.org`) — practitioner blog on synthetic data
+- **PYMNTS** (`pymnts.com`) — payments / retail trade press
+- **36Kr** (`36kr.com`, `eu.36kr.com`) — Chinese tech press
+- **The New Stack** (`thenewstack.io`) — developer-focused tech press
+- **Peter Steinberger blog** (`steipete.me`) — recognized practitioner blog (OpenClaw, iOS/AI tooling)
+- **Revenue Wizards** (`revenuewizards.com`) — SaaS pricing practitioner blog
+- **Jarvislabs docs** (`docs.jarvislabs.ai`) — GPU-infra practitioner docs / blog
+- **Spheron Network** (`spheron.network`) — GPU / ML infra practitioner blog
+- **Richard Sutton — Incomplete Ideas** (`incompleteideas.net`) — Sutton's personal essay site (The Bitter Lesson)
 
 ## Tier 6 — Startup databases and aggregators (flagged, needs human review)
 
@@ -82,6 +124,10 @@ Grow this file by promoting per-run overlays (see `/cite-apply` promotion gate).
 - **PitchBook** (`pitchbook.com`)
 - **Dealroom** (`dealroom.co`)
 - **Wikipedia** (`en.wikipedia.org`, `fr.wikipedia.org`) — acceptable only as a pointer to primary sources
+- **GitHub** (`github.com`) — code/README host; use only as pointer to code or official repo documentation
+- **YouTube** (`youtube.com`) — video aggregator; use only as pointer to official channel content
+- **X / Twitter** (`x.com`, `twitter.com`) — social media; use only for public statements by primary authors
+- **Tracxn** (`tracxn.com`) — startup data aggregator
 
 ---
 
