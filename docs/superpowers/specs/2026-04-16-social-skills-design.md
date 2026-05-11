@@ -53,7 +53,8 @@ Long-term, the system should learn from real engagement metrics and evolve its r
 │   └── x.md                        # voice rules (from brief + future corpus)
 ├── sources/
 │   ├── linkedin-posts.md           # pasted seed posts
-│   └── linkedin-export/            # gitignored — full LinkedIn archive when it arrives
+│   ├── linkedin-export/            # gitignored — full LinkedIn archive when it arrives
+│   └── x-brief.md                  # Louis's voice brief for X (until corpus exists)
 ├── drafts/
 │   └── YYYY-MM-DD-slug-<platform>.md
 ├── posted/
