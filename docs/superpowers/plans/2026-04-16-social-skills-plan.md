@@ -2,9 +2,9 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Build three Claude Code skills (`/post`, `/log`, `/audit`) that help Louis write, log, and audit LinkedIn + X posts in his voice, plus the `~/social/` content repo they read from.
+**Goal:** Build three Claude Code skills (`/post`, `/log`, `/audit`) that help Louis write, log, and audit LinkedIn + X posts in his voice, plus the `~/42/social/` content repo they read from.
 
-**Architecture:** Skills live at `~/.claude/skills/<name>/SKILL.md` (user-level, behavior only). Content lives in a separate git repo at `~/social/` (env var `$SOCIAL_HOME`). Skills do prompting + file I/O via the `Read/Write/Edit/Glob/AskUserQuestion` tools — no Python helpers in v1. Manual publication, manual metric entry. Pattern engine deferred to v2.
+**Architecture:** Skills live at `~/.claude/skills/<name>/SKILL.md` (user-level, behavior only). Content lives in a separate git repo at `~/42/social/` (env var `$SOCIAL_HOME`). Skills do prompting + file I/O via the `Read/Write/Edit/Glob/AskUserQuestion` tools — no Python helpers in v1. Manual publication, manual metric entry. Pattern engine deferred to v2.
 
 **Tech Stack:** Markdown (skill files + content), YAML frontmatter, flat YAML data store, bash for repo setup, `yq` for YAML validation (already installed), `pytest` not required (skills are not unit-tested in v1).
 
@@ -14,9 +14,9 @@
 
 ## File Structure
 
-**New content repo** (`~/social/`):
+**New content repo** (`~/42/social/`):
 ```
-~/social/
+~/42/social/
 ├── README.md                        # what lives here, how it ties to skills
 ├── .gitignore                       # ignore linkedin-export/ and drafts/.local
 ├── voice/
@@ -40,34 +40,34 @@
 ```
 
 **Modified:**
-- `~/.zshrc` — append `export SOCIAL_HOME="$HOME/social"` (if not present)
+- `~/.zshrc` — append `export SOCIAL_HOME="$HOME/42/social"` (if not present)
 
 ---
 
-### Task 1: Bootstrap `~/social/` content repo
+### Task 1: Bootstrap `~/42/social/` content repo
 
 **Files:**
-- Create: `~/social/README.md`
-- Create: `~/social/.gitignore`
-- Create: `~/social/data-store.yaml`
-- Create: `~/social/evolution-log.md`
-- Create: `~/social/drafts/.gitkeep`, `~/social/posted/.gitkeep`
-- Create: `~/social/voice/.gitkeep`, `~/social/sources/.gitkeep`
+- Create: `~/42/social/README.md`
+- Create: `~/42/social/.gitignore`
+- Create: `~/42/social/data-store.yaml`
+- Create: `~/42/social/evolution-log.md`
+- Create: `~/42/social/drafts/.gitkeep`, `~/42/social/posted/.gitkeep`
+- Create: `~/42/social/voice/.gitkeep`, `~/42/social/sources/.gitkeep`
 
 - [ ] **Step 1: Create directory tree**
 
 Run:
 ```bash
-mkdir -p ~/social/{voice,sources,drafts,posted}
-touch ~/social/drafts/.gitkeep ~/social/posted/.gitkeep ~/social/voice/.gitkeep ~/social/sources/.gitkeep
+mkdir -p ~/42/social/{voice,sources,drafts,posted}
+touch ~/42/social/drafts/.gitkeep ~/42/social/posted/.gitkeep ~/42/social/voice/.gitkeep ~/42/social/sources/.gitkeep
 ```
 
-Expected: tree created without errors. Verify with `ls -la ~/social/`.
+Expected: tree created without errors. Verify with `ls -la ~/42/social/`.
 
-- [ ] **Step 2: Write `~/social/README.md`**
+- [ ] **Step 2: Write `~/42/social/README.md`**
 
 ```markdown
-# ~/social — Louis's social content
+# ~/42/social — Louis's social content
 
 Voice rules, drafts, published posts, and metrics for Louis's LinkedIn + X presence.
 
@@ -82,7 +82,7 @@ Voice rules, drafts, published posts, and metrics for Louis's LinkedIn + X prese
 
 ## How to use
 
-Set `SOCIAL_HOME="$HOME/social"` in your shell rc. The three skills read from this env var.
+Set `SOCIAL_HOME="$HOME/42/social"` in your shell rc. The three skills read from this env var.
 
 1. **Bootstrap voice rules:** paste seed posts into `sources/linkedin-posts.md`, write a brief into `sources/x-brief.md`, then run `/audit linkedin` and `/audit x`.
 2. **Write a post:** `/post linkedin` or `/post x` — interview-driven.
@@ -92,7 +92,7 @@ Set `SOCIAL_HOME="$HOME/social"` in your shell rc. The three skills read from th
 Spec: `~/42/Markdowns2Teach/docs/superpowers/specs/2026-04-16-social-skills-design.md`
 ```
 
-- [ ] **Step 3: Write `~/social/.gitignore`**
+- [ ] **Step 3: Write `~/42/social/.gitignore`**
 
 ```
 # Full LinkedIn export — too large + contains DMs, not for sharing
@@ -102,7 +102,7 @@ sources/linkedin-export/
 drafts/.local/
 ```
 
-- [ ] **Step 4: Write `~/social/data-store.yaml`**
+- [ ] **Step 4: Write `~/42/social/data-store.yaml`**
 
 ```yaml
 # Posted items log. One entry per published post.
@@ -110,7 +110,7 @@ drafts/.local/
 posts: []
 ```
 
-- [ ] **Step 5: Write `~/social/evolution-log.md`**
+- [ ] **Step 5: Write `~/42/social/evolution-log.md`**
 
 ```markdown
 # Evolution Log
@@ -124,7 +124,7 @@ Format: `YYYY-MM-DD — <platform> — <rule changed> — <reason>`
 
 Run:
 ```bash
-cd ~/social && git init && git add . && git commit -m "chore: bootstrap social content repo"
+cd ~/42/social && git init && git add . && git commit -m "chore: bootstrap social content repo"
 ```
 
 Expected: initial commit created with all bootstrapped files.
@@ -134,10 +134,10 @@ Expected: initial commit created with all bootstrapped files.
 ### Task 2: Seed source files
 
 **Files:**
-- Create: `~/social/sources/linkedin-posts.md`
-- Create: `~/social/sources/x-brief.md`
+- Create: `~/42/social/sources/linkedin-posts.md`
+- Create: `~/42/social/sources/x-brief.md`
 
-- [ ] **Step 1: Write `~/social/sources/linkedin-posts.md`**
+- [ ] **Step 1: Write `~/42/social/sources/linkedin-posts.md`**
 
 Seed with the 3 LinkedIn posts Louis pasted in conversation on 2026-04-16. Use this template:
 
@@ -256,7 +256,7 @@ Si le contenu vous intéresse, n'hésitez pas à me le dire en commentaire, je p
 #MachineLearning #DeepTech #IA #Enseignement #Paris1Sorbonne #MasterIMTE #Ecole42 #GenAI #LLM #RAG
 ```
 
-- [ ] **Step 2: Write `~/social/sources/x-brief.md`**
+- [ ] **Step 2: Write `~/42/social/sources/x-brief.md`**
 
 ```markdown
 # X / Twitter — voice brief
@@ -302,7 +302,7 @@ No corpus yet. This brief is what `/audit x` uses to produce `voice/x.md` on fir
 
 Run:
 ```bash
-cd ~/social && git add sources/ && git commit -m "feat: seed LinkedIn corpus (3 posts) and X voice brief"
+cd ~/42/social && git add sources/ && git commit -m "feat: seed LinkedIn corpus (3 posts) and X voice brief"
 ```
 
 ---
@@ -328,7 +328,7 @@ description: Audit Louis's social posts to generate or update voice rules. Use w
 
 ## Inputs
 
-- `$SOCIAL_HOME` env var (fallback: `$HOME/social`)
+- `$SOCIAL_HOME` env var (fallback: `$HOME/42/social`)
 - Platform arg: `linkedin` or `x`
 - Corpus: `$SOCIAL_HOME/sources/<platform>-posts.md` + `$SOCIAL_HOME/posted/*-<platform>.md`
 - For X first-run only: `$SOCIAL_HOME/sources/x-brief.md` (when no corpus exists)
@@ -338,7 +338,7 @@ description: Audit Louis's social posts to generate or update voice rules. Use w
 
 ### Step 1: Resolve paths
 
-Read `$SOCIAL_HOME` from env. If unset, default to `$HOME/social` and warn.
+Read `$SOCIAL_HOME` from env. If unset, default to `$HOME/42/social` and warn.
 
 Verify these exist:
 - `$SOCIAL_HOME/sources/` (must exist, error otherwise)
@@ -435,7 +435,7 @@ Ask Louis before running git commands.
 
 ## Common failure modes
 
-- **`$SOCIAL_HOME` unset**: fall back to `~/social`, warn user, suggest adding `export SOCIAL_HOME=$HOME/social` to `.zshrc`
+- **`$SOCIAL_HOME` unset**: fall back to `~/42/social`, warn user, suggest adding `export SOCIAL_HOME=$HOME/42/social` to `.zshrc`
 - **No corpus and no brief**: stop, tell user to paste posts into `sources/<platform>-posts.md` or write `sources/<platform>-brief.md`
 - **Existing rules look better than proposal**: respect Louis's "reject" — never overwrite without explicit accept
 
@@ -468,15 +468,15 @@ This task is **executed by Louis interactively** in a fresh Claude Code session 
 - [ ] **Step 1: In a fresh Claude Code session, run `/audit linkedin`**
 
 Expected:
-- Skill reads `~/social/sources/linkedin-posts.md` (the 3 seed posts)
+- Skill reads `~/42/social/sources/linkedin-posts.md` (the 3 seed posts)
 - Skill presents a full `voice/linkedin.md` proposal
 - Louis approves or edits sections
-- File written to `~/social/voice/linkedin.md`
-- One entry appended to `~/social/evolution-log.md`
+- File written to `~/42/social/voice/linkedin.md`
+- One entry appended to `~/42/social/evolution-log.md`
 
 - [ ] **Step 2: Inspect the output**
 
-Run: `cat ~/social/voice/linkedin.md`
+Run: `cat ~/42/social/voice/linkedin.md`
 
 Check that the file contains:
 - The 3 hook patterns observed in seed posts (concrete-event-plus-claim, achievement-plus-scale, bold-Unicode-title)
@@ -490,7 +490,7 @@ If the output is missing one of those, iterate: re-run `/audit linkedin` and pro
 - [ ] **Step 3: Commit voice file**
 
 ```bash
-cd ~/social && git add voice/linkedin.md evolution-log.md && git commit -m "feat(voice): linkedin v1 — audited from 3 seed posts"
+cd ~/42/social && git add voice/linkedin.md evolution-log.md && git commit -m "feat(voice): linkedin v1 — audited from 3 seed posts"
 ```
 
 ---
@@ -500,12 +500,12 @@ cd ~/social && git add voice/linkedin.md evolution-log.md && git commit -m "feat
 - [ ] **Step 1: In a fresh Claude Code session, run `/audit x`**
 
 Expected:
-- Skill finds no corpus; falls back to `~/social/sources/x-brief.md`
+- Skill finds no corpus; falls back to `~/42/social/sources/x-brief.md`
 - Skill generates `voice/x.md` from the brief, marking rules as "intuition, not corpus-validated"
 
 - [ ] **Step 2: Inspect the output**
 
-Run: `cat ~/social/voice/x.md`
+Run: `cat ~/42/social/voice/x.md`
 
 Check:
 - Sections present (Format, Tone, Hook patterns, Structure, Vocabulary, What to avoid, Endings)
@@ -515,7 +515,7 @@ Check:
 - [ ] **Step 3: Commit**
 
 ```bash
-cd ~/social && git add voice/x.md evolution-log.md && git commit -m "feat(voice): x v1 — intuition-based from brief, awaiting corpus"
+cd ~/42/social && git add voice/x.md evolution-log.md && git commit -m "feat(voice): x v1 — intuition-based from brief, awaiting corpus"
 ```
 
 ---
@@ -541,7 +541,7 @@ description: Interview-driven LinkedIn/X post writer in Louis's voice. Triggered
 
 ## Inputs
 
-- `$SOCIAL_HOME` env var (fallback: `$HOME/social`)
+- `$SOCIAL_HOME` env var (fallback: `$HOME/42/social`)
 - Platform arg: `linkedin` or `x`
 - `$SOCIAL_HOME/voice/<platform>.md` (required — error if missing)
 
@@ -549,7 +549,7 @@ description: Interview-driven LinkedIn/X post writer in Louis's voice. Triggered
 
 ### Step 1: Resolve paths
 
-Read `$SOCIAL_HOME`. Default to `$HOME/social` if unset (warn).
+Read `$SOCIAL_HOME`. Default to `$HOME/42/social` if unset (warn).
 
 Verify `$SOCIAL_HOME/voice/<platform>.md` exists. If missing:
 ```
@@ -690,14 +690,14 @@ description: Capture metrics for a published post and move it from drafts to pos
 
 ## Inputs
 
-- `$SOCIAL_HOME` env var (fallback: `$HOME/social`)
+- `$SOCIAL_HOME` env var (fallback: `$HOME/42/social`)
 - Platform arg: `linkedin` or `x`
 
 ## Workflow
 
 ### Step 1: Resolve paths
 
-Read `$SOCIAL_HOME`. Default to `$HOME/social` if unset (warn).
+Read `$SOCIAL_HOME`. Default to `$HOME/42/social` if unset (warn).
 
 Verify these exist:
 - `$SOCIAL_HOME/drafts/`
@@ -839,7 +839,7 @@ Run:
 ```bash
 echo '' >> ~/.zshrc
 echo '# Social content repo (used by /post, /log, /audit skills)' >> ~/.zshrc
-echo 'export SOCIAL_HOME="$HOME/social"' >> ~/.zshrc
+echo 'export SOCIAL_HOME="$HOME/42/social"' >> ~/.zshrc
 ```
 
 - [ ] **Step 3: Verify**
@@ -874,7 +874,7 @@ This is **executed by Louis interactively** to verify the system works.
 - Say "ship it".
 
 Expected:
-- File at `~/social/drafts/<YYYY-MM-DD>-<slug>-linkedin.md` with frontmatter and post body.
+- File at `~/42/social/drafts/<YYYY-MM-DD>-<slug>-linkedin.md` with frontmatter and post body.
 - The output post text is displayed in chat ready to paste.
 
 - [ ] **Step 2: (Optional) Publish manually**
@@ -890,22 +890,22 @@ Louis copy-pastes to LinkedIn and publishes.
 - Optional notes.
 
 Expected:
-- `~/social/data-store.yaml` now contains one entry under `posts:`.
-- `~/social/drafts/<file>` no longer exists.
-- `~/social/posted/<file>` exists with metrics in frontmatter.
+- `~/42/social/data-store.yaml` now contains one entry under `posts:`.
+- `~/42/social/drafts/<file>` no longer exists.
+- `~/42/social/posted/<file>` exists with metrics in frontmatter.
 
 - [ ] **Step 4: Validate data-store.yaml**
 
 Run:
 ```bash
-yq '.posts | length' ~/social/data-store.yaml
+yq '.posts | length' ~/42/social/data-store.yaml
 ```
 
 Expected: `1` (or higher if more posts already logged).
 
 Run:
 ```bash
-yq '.posts[0]' ~/social/data-store.yaml
+yq '.posts[0]' ~/42/social/data-store.yaml
 ```
 
 Expected: a clean YAML object with all required fields.
@@ -913,7 +913,7 @@ Expected: a clean YAML object with all required fields.
 - [ ] **Step 5: Commit smoke-test state**
 
 ```bash
-cd ~/social && git add . && git commit -m "feat: end-to-end smoke test — 1 draft → posted with metrics"
+cd ~/42/social && git add . && git commit -m "feat: end-to-end smoke test — 1 draft → posted with metrics"
 ```
 
 ---
@@ -921,7 +921,7 @@ cd ~/social && git add . && git commit -m "feat: end-to-end smoke test — 1 dra
 ## Self-Review (after writing the plan above)
 
 **Spec coverage:**
-- ✅ `~/social/` content repo (Task 1)
+- ✅ `~/42/social/` content repo (Task 1)
 - ✅ Seed sources — LinkedIn posts + X brief (Task 2)
 - ✅ `/audit` skill (Task 3)
 - ✅ `/post` skill (Task 6)

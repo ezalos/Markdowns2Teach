@@ -46,7 +46,7 @@ Long-term, the system should learn from real engagement metrics and evolve its r
 ### File layout
 
 ```
-~/social/                           # new git repo, $SOCIAL_HOME
+~/42/social/                           # new git repo, $SOCIAL_HOME
 ├── README.md
 ├── voice/
 │   ├── linkedin.md                 # voice rules (audited from corpus)
@@ -68,7 +68,7 @@ Long-term, the system should learn from real engagement metrics and evolve its r
 └── audit/SKILL.md                  # /audit linkedin|x
 ```
 
-`SOCIAL_HOME=~/social` exported in `.zshrc`. Skills read `$SOCIAL_HOME` with `~/social` fallback.
+`SOCIAL_HOME=~/42/social` exported in `.zshrc`. Skills read `$SOCIAL_HOME` with `~/42/social` fallback.
 
 ### Why this layout
 
@@ -159,12 +159,12 @@ Rules are **prescriptive** ("Always use Unicode bold for mid-post section header
 ## Workflow end-to-end
 
 **Setup (one-time):**
-1. `mkdir ~/social && cd ~/social && git init`
+1. `mkdir ~/42/social && cd ~/42/social && git init`
 2. Paste 5–10 best LinkedIn posts into `sources/linkedin-posts.md`
 3. Write X voice brief into `sources/x-brief.md` (bullets are fine)
 4. Run `/audit linkedin` → generates `voice/linkedin.md`
 5. Run `/audit x` → generates `voice/x.md` from brief
-6. Export `SOCIAL_HOME=~/social` in `.zshrc`
+6. Export `SOCIAL_HOME=~/42/social` in `.zshrc`
 
 **Per-post (recurring):**
 1. `/post linkedin` → interview → hooks → draft → iterate → save to `drafts/`
