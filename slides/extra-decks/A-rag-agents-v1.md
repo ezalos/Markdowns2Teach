@@ -61,7 +61,7 @@ Le RAG est un pipeline de bout en bout — chaque étape compte :
 
 > Le RAG réduit les hallucinations de **70–90%** par rapport à un LLM seul [1]. La qualité du Chunking impacte plus que le choix du modèle d'embedding [2].
 
-<small>Sources : [1] [Données agrégées — recherche interne](docs/research/rag-ecosystem/report.md) · [2] [Anthropic](https://www.anthropic.com/news/contextual-retrieval)</small>
+<small>Sources : [1] [Données agrégées — recherche interne](docs/courses/sorbonne-m2/research/rag-ecosystem/report.md) · [2] [Anthropic](https://www.anthropic.com/news/contextual-retrieval)</small>
 
 ---
 
@@ -116,7 +116,7 @@ La **Cosine Similarity** mesure l'angle entre deux vecteurs — pas leur magnitu
 
 *Astuce* : ajoutez un **Reranker** après la recherche initiale pour re-scorer les résultats — **+20–35% de précision** pour 50–500ms de latence supplémentaire [1].
 
-<small>Sources : [1] [Données agrégées — recherche interne](docs/research/rag-ecosystem/report.md)</small>
+<small>Sources : [1] [Données agrégées — recherche interne](docs/courses/sorbonne-m2/research/rag-ecosystem/report.md)</small>
 
 ---
 
@@ -281,7 +281,7 @@ Le RAG basique récupère les top-K par similarité. En production, deux techniq
 
 > Techniques complémentaires, déployables en quelques heures. Meilleur ratio effort/qualité après le pipeline de base.
 
-<small>Sources : [1] [Données agrégées — recherche interne](docs/research/rag-ecosystem/report.md) · [2] [Anthropic — Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval)</small>
+<small>Sources : [1] [Données agrégées — recherche interne](docs/courses/sorbonne-m2/research/rag-ecosystem/report.md) · [2] [Anthropic — Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval)</small>
 
 ---
 
@@ -307,7 +307,7 @@ Le RAG basique récupère les top-K par similarité. En production, deux techniq
 
 > Les meilleurs systèmes combinent Hybrid Search + Reranking + boucle agentique → **>90% de pertinence** [1].
 
-<small>Sources : [1] [Données agrégées — recherche interne](docs/research/rag-ecosystem/report.md)</small>
+<small>Sources : [1] [Données agrégées — recherche interne](docs/courses/sorbonne-m2/research/rag-ecosystem/report.md)</small>
 
 ---
 

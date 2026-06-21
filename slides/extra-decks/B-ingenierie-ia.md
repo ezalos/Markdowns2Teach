@@ -63,7 +63,7 @@ Le RAG est un pipeline de bout en bout — chaque étape compte :
 
 ![bg right:35% contain](assets/infographics/rag-pipeline_run_20260219_100700_b17371.png)
 
-<small>Sources : [1] [Recherche interne](docs/research/rag-ecosystem/report.md) · [2] [Anthropic](https://www.anthropic.com/news/contextual-retrieval)</small>
+<small>Sources : [1] [Recherche interne](docs/courses/sorbonne-m2/research/rag-ecosystem/report.md) · [2] [Anthropic](https://www.anthropic.com/news/contextual-retrieval)</small>
 
 ---
 
@@ -80,7 +80,7 @@ La qualité du **Chunking** impacte plus que le choix du modèle d'embedding [2]
 
 > Optimisez le Chunking en priorité — c'est le levier n°1 de qualité d'un pipeline RAG.
 
-<small>Sources : [1] [Recherche interne](docs/research/rag-ecosystem/report.md) · [2] [Anthropic](https://www.anthropic.com/news/contextual-retrieval)</small>
+<small>Sources : [1] [Recherche interne](docs/courses/sorbonne-m2/research/rag-ecosystem/report.md) · [2] [Anthropic](https://www.anthropic.com/news/contextual-retrieval)</small>
 
 ---
 
@@ -148,7 +148,7 @@ La **Cosine Similarity** mesure l'angle entre deux vecteurs — pas leur magnitu
 
 *Astuce* : ajoutez un **Reranker** après la recherche initiale pour re-scorer les résultats — **+20-35% de précision** pour 50-500ms de latence supplémentaire [1].
 
-<small>Sources : [1] [Données agrégées — recherche interne](docs/research/rag-ecosystem/report.md)</small>
+<small>Sources : [1] [Données agrégées — recherche interne](docs/courses/sorbonne-m2/research/rag-ecosystem/report.md)</small>
 
 ---
 

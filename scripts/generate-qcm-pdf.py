@@ -4,16 +4,16 @@
 """
 QCM PDF Generator
 ==================
-Parses docs/qcm/qcm-sessions-1-4.md and generates 4 shuffled PDF versions
-for automatic VLM-based grading.
+Parses docs/courses/sorbonne-m2/qcm/qcm-sessions-1-4.md and generates 4 shuffled
+PDF versions for automatic VLM-based grading.
 
 Usage:
     uv run --with reportlab scripts/generate-qcm-pdf.py
 
 Output:
-    docs/qcm/qcm-v1.pdf ... qcm-v4.pdf
-    docs/qcm/qcm-answer-key.csv
-    docs/qcm/qcm-version-orders.csv
+    docs/courses/sorbonne-m2/qcm/qcm-v1.pdf ... qcm-v4.pdf
+    docs/courses/sorbonne-m2/qcm/qcm-answer-key.csv
+    docs/courses/sorbonne-m2/qcm/qcm-version-orders.csv
 """
 
 import csv
@@ -32,7 +32,7 @@ from reportlab.pdfgen import canvas
 # Constants
 # ---------------------------------------------------------------------------
 
-QCM_MD = Path(__file__).resolve().parent.parent / "docs" / "qcm" / "qcm-sessions-1-4.md"
+QCM_MD = Path(__file__).resolve().parent.parent / "docs" / "courses" / "sorbonne-m2" / "qcm" / "qcm-sessions-1-4.md"
 OUT_DIR = QCM_MD.parent
 
 PAGE_W, PAGE_H = A4  # 210 x 297 mm

@@ -528,7 +528,7 @@ Ce prompt permet de lancer une conversion de rapport de recherche dans une sessi
 
 Convertir un topic de recherche complété en un deck Marp pour le cours M2 IMT&E à Paris 1 Panthéon-Sorbonne.
 
-**Vous recevrez** : un chemin vers un répertoire de recherche (ex : `docs/research/ai-market-intelligence/`) contenant `report.md` et `results/*.json`.
+**Vous recevrez** : un chemin vers un répertoire de recherche (ex : `docs/courses/sorbonne-m2/research/ai-market-intelligence/`) contenant `report.md` et `results/*.json`.
 
 ### Processus
 

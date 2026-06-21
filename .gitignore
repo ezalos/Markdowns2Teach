@@ -26,7 +26,7 @@ n8n/workflows/not_given/
 /transcript*.vtt
 /n8n/backups/
 /n8n/group-credentials.csv
-/docs/qcm/exam/
+/docs/courses/sorbonne-m2/qcm/exam/
 
 # Node
 node_modules/
@@ -40,8 +40,11 @@ slides/**/assets/**/*.svg
 slides/**/assets/**/*.webp
 
 # Source materials (large binary files — PDFs, notebooks, HTML archives)
-docs/sources/
-!docs/sources/**/README.md
+# Ignore everything under sources/ except README.md at any depth. The directory
+# re-include (!**/) is required so git descends far enough for the README negation.
+docs/courses/sorbonne-m2/sources/**
+!docs/courses/sorbonne-m2/sources/**/
+!docs/courses/sorbonne-m2/sources/**/README.md
 
 # Archive files
 *.zip

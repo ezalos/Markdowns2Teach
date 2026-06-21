@@ -293,7 +293,7 @@ Le RAG basique récupère les top-K par similarité. En production, deux techniq
 
 > Techniques complémentaires, déployables en quelques heures. Meilleur ratio effort/qualité après le pipeline de base.
 
-<small>Sources : [1] [Données agrégées — recherche interne](docs/research/rag-ecosystem/report.md) · [2] [Anthropic — Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval)</small>
+<small>Sources : [1] [Données agrégées — recherche interne](docs/courses/sorbonne-m2/research/rag-ecosystem/report.md) · [2] [Anthropic — Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval)</small>
 
 ---
 
@@ -319,7 +319,7 @@ Le RAG basique récupère les top-K par similarité. En production, deux techniq
 
 > Les meilleurs systèmes combinent Hybrid Search + Reranking + boucle agentique → **>90% de pertinence** [1].
 
-<small>Sources : [1] [Données agrégées — recherche interne](docs/research/rag-ecosystem/report.md) · [2] [Sourcegraph/Amp — via jxnl.co](https://jxnl.co/writing/2025/09/11/rethinking-rag-architecture-for-the-age-of-agents/)</small>
+<small>Sources : [1] [Données agrégées — recherche interne](docs/courses/sorbonne-m2/research/rag-ecosystem/report.md) · [2] [Sourcegraph/Amp — via jxnl.co](https://jxnl.co/writing/2025/09/11/rethinking-rag-architecture-for-the-age-of-agents/)</small>
 
 ---
 
