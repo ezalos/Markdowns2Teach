@@ -16,7 +16,7 @@ r&d/
 .private/
 
 # Teacher-only n8n workflows (not distributed to students)
-n8n/workflows/not_given/
+workshops/sorbonne-m2-n8n/workflows/not_given/
 
 # Safety net for legacy PII paths (in case they reappear at old locations)
 /students.csv
@@ -24,8 +24,8 @@ n8n/workflows/not_given/
 /Master 2 IMTE 2025-2026.pdf
 /student_submissions/
 /transcript*.vtt
-/n8n/backups/
-/n8n/group-credentials.csv
+/workshops/sorbonne-m2-n8n/backups/
+/workshops/sorbonne-m2-n8n/group-credentials.csv
 /docs/courses/sorbonne-m2/qcm/exam/
 
 # Node
@@ -51,11 +51,11 @@ docs/courses/sorbonne-m2/sources/**
 
 # Secrets
 .envrc
-n8n/.env
-n8n/group-credentials.csv
+workshops/sorbonne-m2-n8n/.env
+workshops/sorbonne-m2-n8n/group-credentials.csv
 
 # n8n runtime data
-n8n/shared/
+workshops/sorbonne-m2-n8n/shared/
 
 # OS files
 .DS_Store

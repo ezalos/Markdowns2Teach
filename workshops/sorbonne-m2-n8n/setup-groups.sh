@@ -5,7 +5,7 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
 WORKFLOW_DIR="$SCRIPT_DIR/workflows"
 N8N_URL="${N8N_URL:-http://localhost:1111}"
 CRED_FILE="$PROJECT_ROOT/.private/n8n/group-credentials.csv"

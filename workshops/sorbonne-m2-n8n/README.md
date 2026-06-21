@@ -1,7 +1,12 @@
-<!-- ABOUTME: Documentation for the n8n workflow automation setup and local API interaction. -->
+<!-- ABOUTME: n8n hands-on workshop infrastructure for the Sorbonne M2 IMT&E course. -->
 <!-- ABOUTME: Covers Docker access, REST API authentication, workflow management, and the RAG demo. -->
 
-# n8n — Workflow Automation for M2 Course
+# n8n Workshop — Sorbonne M2 (Deep Tech & ML, UE3)
+
+> **Scope:** This is the hands-on **workshop infrastructure for the Sorbonne M2 IMT&E
+> course** (per-group n8n workflows, teacher examples, deploy/backup scripts). It is
+> course-specific, not a reusable part of the slide-build pipeline. Student-facing
+> guide: `docs/courses/sorbonne-m2/n8n-student-guide.md`.
 
 ## Local Access
 
