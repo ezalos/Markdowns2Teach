@@ -26,7 +26,7 @@ Agents. Once the infrastructure is in place, you deploy agents that use it auton
 You stand on the scaffolding layer like a general contractor — directing the agents, inspecting work, occasionally grabbing a hammer yourself. The job is the same one the freestyle chess amateurs had: understanding what the machine is good at, designing process around its strengths, and applying your own judgment where it falls short.
 
 
-slides/session-03/assets/agent_stack-claude_code.jpeg
+slides/sorbonne-m2-2026/session-03/assets/agent_stack-claude_code.jpeg
 
 
 

@@ -1,0 +1,55 @@
+# ABOUTME: Source of truth for the generated dist/html/index.html — declares deck
+# ABOUTME: groups, human labels, talk dates, and display order (newest-first by date).
+#
+# How it works (see scripts/generate-index.py):
+#   - Each group maps to a directory under slides/<id>/.
+#   - Groups are sorted by `date` descending (most recent talk first).
+#   - A `course` group with `subgroups` is rendered as one super-section whose
+#     sub-sections each list the decks in slides/<id>/<subgroup-id>/.
+#   - A `talk` group lists the decks directly in slides/<id>/.
+#   - `prebuilt_html: <file>` marks a deck rendered outside Marp (e.g. by the
+#     frontend-slides skill); the generator links the committed HTML directly.
+#   - Decks with no built HTML in dist/html/ are skipped, so partial builds
+#     (make html-<name>) still produce a sensible index.
+#   - Any slides/ dir not covered here still appears under "Not in manifest"
+#     so nothing is silently dropped — add it to this file to curate it.
+
+title: "Slide Decks"
+subtitle: "Talks, courses &amp; workshops — Louis Develle"
+
+groups:
+  - id: gustave-eiffel-agents
+    label: "Building AI Agents · Université Gustave Eiffel"
+    category: talk
+    date: 2026-06-01
+
+  - id: pruna
+    label: "Optimizing SDXL Inference · Pruna AI"
+    category: talk
+    date: 2026-05-28
+
+  - id: station-f
+    label: "Building With AI · Station F"
+    category: talk
+    date: 2026-04-15
+
+  - id: sorbonne-m2-2026
+    label: "Sorbonne M2 — Deep Tech &amp; ML (UE3)"
+    category: course
+    date: 2026-03-30
+    date_display: "23 fév – 30 mars 2026 · M2 IMT&amp;E · Paris 1 Panthéon-Sorbonne"
+    subgroups:
+      - id: session-01
+        label: "Séance 1 — Comprendre l'IA en 2026"
+      - id: session-02
+        label: "Séance 2 — Les LLMs : de la théorie à la pratique"
+      - id: session-03
+        label: "Séance 3 — Construire avec l'IA"
+      - id: session-04
+        label: "Séance 4 — Le business de l'IA"
+      - id: session-05
+        label: "Séance 5 — Éthique, gouvernance &amp; clôture"
+      - id: evaluation
+        label: "Évaluation — decks de référence"
+      - id: extra-decks
+        label: "Décks archivés / extra"

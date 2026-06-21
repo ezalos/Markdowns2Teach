@@ -36,7 +36,7 @@ build: html pptx pdf-full ## Build both HTML and PPTX
 html: $(HTML_DIR) ## Build HTML slides → dist/html/
 	@set -e; \
 	for f in $(SLIDE_FILES); do \
-		slug=$$(dirname $$f | sed 's|^$(SLIDES_DIR)/||'); \
+		slug=$$(dirname $$f | sed 's|^$(SLIDES_DIR)/||' | tr '/' '-'); \
 		outfile="$(HTML_DIR)/$$slug-$$(basename $$f .md).html"; \
 		echo "  HTML: $$f -> $$outfile"; \
 		$(MARP) "$$f" -o "$$outfile"; \
@@ -47,15 +47,16 @@ html: $(HTML_DIR) ## Build HTML slides → dist/html/
 		cp -ru "$$d/." "$(HTML_DIR)/assets/"; \
 	done
 	@$(MAKE) index
+	@if [ -x .private/build-hook.sh ]; then .private/build-hook.sh "$(HTML_DIR)"; fi
 
 index: $(HTML_DIR) ## Generate index.html with links to all decks
 	@echo "  INDEX: $(HTML_DIR)/index.html"
-	@bash scripts/generate-index.sh $(SLIDES_DIR) $(HTML_DIR)
+	@python3 scripts/generate-index.py $(SLIDES_DIR) $(HTML_DIR)
 
 pptx: $(PPTX_DIR) ## Build PPTX presentations → dist/pptx/
 	@set -e; \
 	for f in $(SLIDE_FILES); do \
-		slug=$$(dirname $$f | sed 's|^$(SLIDES_DIR)/||'); \
+		slug=$$(dirname $$f | sed 's|^$(SLIDES_DIR)/||' | tr '/' '-'); \
 		outfile="$(PPTX_DIR)/$$slug-$$(basename $$f .md).pptx"; \
 		echo "  PPTX: $$f -> $$outfile"; \
 		$(MARP) --pptx-editable "$$f" -o "$$outfile"; \
@@ -88,7 +89,7 @@ dedup: ## Remove duplicate images from all asset directories
 pdf-full: $(PDF_FULL_DIR) ## Build full-content PDFs (no clipping) → dist/pdf-full/
 	@set -e; \
 	for f in $(SLIDE_FILES); do \
-		slug=$$(dirname $$f | sed 's|^$(SLIDES_DIR)/||'); \
+		slug=$$(dirname $$f | sed 's|^$(SLIDES_DIR)/||' | tr '/' '-'); \
 		outfile="$(PDF_FULL_DIR)/$$slug-$$(basename $$f .md).pdf"; \
 		echo "  PDF:  $$f -> $$outfile"; \
 		$(MARP) --no-stdin --pdf \
@@ -102,7 +103,7 @@ pdf-full: $(PDF_FULL_DIR) ## Build full-content PDFs (no clipping) → dist/pdf-
 html-%: $(HTML_DIR) ## Build HTML for slides/<NAME>/ only (e.g. make html-station-f)
 	@set -e; \
 	for f in $$(find $(SLIDES_DIR)/$* -name '*.md' -type f); do \
-		slug=$$(dirname $$f | sed 's|^$(SLIDES_DIR)/||'); \
+		slug=$$(dirname $$f | sed 's|^$(SLIDES_DIR)/||' | tr '/' '-'); \
 		outfile="$(HTML_DIR)/$$slug-$$(basename $$f .md).html"; \
 		echo "  HTML: $$f -> $$outfile"; \
 		$(MARP) "$$f" -o "$$outfile"; \
@@ -117,7 +118,7 @@ html-%: $(HTML_DIR) ## Build HTML for slides/<NAME>/ only (e.g. make html-statio
 pptx-%: $(PPTX_DIR) ## Build PPTX for slides/<NAME>/ only
 	@set -e; \
 	for f in $$(find $(SLIDES_DIR)/$* -name '*.md' -type f); do \
-		slug=$$(dirname $$f | sed 's|^$(SLIDES_DIR)/||'); \
+		slug=$$(dirname $$f | sed 's|^$(SLIDES_DIR)/||' | tr '/' '-'); \
 		outfile="$(PPTX_DIR)/$$slug-$$(basename $$f .md).pptx"; \
 		echo "  PPTX: $$f -> $$outfile"; \
 		$(MARP) --pptx-editable "$$f" -o "$$outfile"; \
@@ -127,7 +128,7 @@ pptx-%: $(PPTX_DIR) ## Build PPTX for slides/<NAME>/ only
 pdf-full-%: $(PDF_FULL_DIR) ## Build full-content PDFs for slides/<NAME>/ only
 	@set -e; \
 	for f in $$(find $(SLIDES_DIR)/$* -name '*.md' -type f); do \
-		slug=$$(dirname $$f | sed 's|^$(SLIDES_DIR)/||'); \
+		slug=$$(dirname $$f | sed 's|^$(SLIDES_DIR)/||' | tr '/' '-'); \
 		outfile="$(PDF_FULL_DIR)/$$slug-$$(basename $$f .md).pdf"; \
 		echo "  PDF:  $$f -> $$outfile"; \
 		$(MARP) --no-stdin --pdf \
@@ -140,7 +141,7 @@ build-%: html-% pptx-% pdf-full-% ## Build HTML+PPTX+PDF for slides/<NAME>/ only
 guide: ## Build student guide as DOCX → dist/guide/
 	@bash scripts/install-pandoc.sh
 	@mkdir -p $(GUIDE_DIR)
-	$(PANDOC) docs/references/n8n-student-guide.md \
+	$(PANDOC) docs/courses/sorbonne-m2/n8n-student-guide.md \
 		-o $(GUIDE_DIR)/n8n-student-guide.docx \
 		--metadata title="Guide n8n — Projet de Classification IA" \
 		--metadata lang=fr
