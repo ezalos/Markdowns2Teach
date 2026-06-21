@@ -46,6 +46,10 @@ html: $(HTML_DIR) ## Build HTML slides → dist/html/
 		mkdir -p "$(HTML_DIR)/assets"; \
 		cp -ru "$$d/." "$(HTML_DIR)/assets/"; \
 	done
+	@for h in $$(find $(SLIDES_DIR) -maxdepth 2 -name '*.html' -type f); do \
+		echo "  PREBUILT: $$h -> $(HTML_DIR)/$$(basename $$h)"; \
+		cp "$$h" "$(HTML_DIR)/$$(basename $$h)"; \
+	done
 	@$(MAKE) index
 	@if [ -x .private/build-hook.sh ]; then .private/build-hook.sh "$(HTML_DIR)"; fi
 

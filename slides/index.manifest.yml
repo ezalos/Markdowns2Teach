@@ -18,6 +18,12 @@ title: "Slide Decks"
 subtitle: "Talks, courses &amp; workshops — Louis Develle"
 
 groups:
+  - id: capgemini-ai-agents
+    label: "AI Agents &amp; Claude Code — Tech Lab"
+    category: talk
+    date: 2026-06-18
+    prebuilt_html: capgemini-ai-agents.html   # rendered by frontend-slides, not Marp
+
   - id: gustave-eiffel-agents
     label: "Building AI Agents · Université Gustave Eiffel"
     category: talk
