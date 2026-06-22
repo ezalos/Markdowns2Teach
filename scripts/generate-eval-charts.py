@@ -10,8 +10,8 @@ Usage:
     python scripts/generate-eval-charts.py
 
 Output:
-    slides/evaluation/assets/infographics/price_vs_score_scatter.png
-    slides/evaluation/assets/infographics/price_vs_elo_scatter.png
+    slides/sorbonne-m2-2026/evaluation/assets/infographics/price_vs_score_scatter.png
+    slides/sorbonne-m2-2026/evaluation/assets/infographics/price_vs_elo_scatter.png
 """
 
 import matplotlib.pyplot as plt
@@ -40,7 +40,7 @@ tier_colors = {
     "Ultra-Premium": "#E65100",
 }
 
-OUTPUT_DIR = "slides/evaluation/assets/infographics"
+OUTPUT_DIR = "slides/sorbonne-m2-2026/evaluation/assets/infographics"
 
 
 def setup_style():

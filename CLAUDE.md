@@ -6,6 +6,12 @@ Slide decks for the **"Deep Tech & Machine Learning" (UE3)** course, M2 IMT&E at
 
 Target audience: business school students (mostly non-engineers), entrepreneurially-minded, heavy LLM users, curious about the latest AI products. Some have coded a bit but get lost in deep technical detail.
 
+The repo has since grown beyond this one course: it is now the home for **all of Louis's
+teaching and online writing** — standalone talks (`slides/<event>/`) and articles/essays
+(`writing/`) alongside the Sorbonne course (`slides/sorbonne-m2-2026/`). The pedagogical
+principles below are Sorbonne-specific; the slide/writing standards and tooling are reusable
+across everything.
+
 ## Pedagogical Principles
 
 - **70% hands-on / 30% theory** — practice from session 1
@@ -30,79 +36,57 @@ Each 3h session follows: **Deck A** (45 min) → break → **Deck B** (45 min) �
 
 ## Directory Structure
 
+The repo began as the Sorbonne M2 course and now also hosts **standalone talks** and
+**online writing**. Top-level split: `slides/` (decks), `writing/` (articles/essays),
+`workshops/` (hands-on infra), `docs/` (course docs + per-talk docs + reusable references).
+
 ```
 Markdowns2Teach/
 ├── CLAUDE.md                        # This file
 ├── .marprc.yml                      # Marp CLI config
-├── .gitignore
-├── Makefile                         # build/preview/clean/check/sync
-├── themes/
-│   └── sorbonne.css                 # Custom Marp theme
+├── Makefile                         # build/preview/clean/check/sync/index/guide
+├── themes/                          # sorbonne.css, sorbonne-fullpage.css, station-f.css
 ├── slides/
-│   ├── session-XX/                  # One dir per session (01–05)
-│   │   ├── A-slug.md                # Deck A (first half of session)
-│   │   ├── B-slug.md                # Deck B (second half, optional)
-│   │   └── assets/                  # Images (subdirs by source prefix)
-│   │       ├── ng01/                # Andrew Ng W1 images
-│   │       ├── ng02/                # Andrew Ng W2 images
-│   │       ├── ng03/                # Andrew Ng W3 images
-│   │       └── infographics/        # PaperBanana-generated diagrams
-│   ├── evaluation/                  # Full-length evaluation reference decks
-│   │   ├── A-eval-regression.md     # Regression metrics (27 slides)
-│   │   ├── B-eval-classification.md # Classification metrics (30 slides)
-│   │   ├── C-eval-computer-vision.md # CV metrics (31 slides)
-│   │   └── D-eval-llm.md           # LLM evaluation (45 slides)
-│   └── extra-decks/                 # Archived/optional decks (not in main sessions)
-│       ├── architectures.md         # CNN, RNN, GAN, Transformer deep dive
-│       ├── D-biais-ethique.md       # Bias & ethics intro (teaser for Session 5)
-│       ├── A-prompt-au-produit.md   # Ex-S2-A (absorbed into S3-B)
-│       ├── B-ingenierie-ia.md       # Ex-S2-B (absorbed into S3-A)
-│       ├── B-au-dela-des-llms.md    # Ex-S1-B (prompting cherry-picked → S2-A)
-│       ├── A-evaluer-solution-ia.md # Ex-S3-A (replaced by S2-B)
-│       ├── B-methodologie-projet-v1.md # Ex-S3-B (restructured → S3-B + cases → S4-B)
-│       └── assets/                  # Assets for extra decks
-├── scripts/
-│   ├── extract-images.sh            # PDF image extraction
-│   ├── check-overflow.sh            # Slide overflow linter
-│   └── generate-index.sh            # HTML index page generator
+│   ├── index.manifest.yml           # Source of truth for index grouping/dates/order
+│   ├── sorbonne-m2-2026/            # The Sorbonne M2 course
+│   │   ├── session-01 … session-05/ # A-/B-/C- decks + assets/ (ng01/ ng02/ ng03/ infographics/)
+│   │   ├── evaluation/              # Evaluation reference decks
+│   │   └── extra-decks/             # Archived/older session decks
+│   ├── station-f/                  # Talk — Building With AI (EN), 2 decks (2026-04-15)
+│   ├── pruna/                      # Talk — SDXL optimization, interview (2026-05-28)
+│   ├── gustave-eiffel-agents/      # Talk — Building AI Agents (2026-06-01)
+│   └── capgemini-ai-agents/        # Talk — AI Agents Tech Lab (frontend-slides HTML, 2026-06-18)
+│       ├── content/                # Portable Markdown (latest.md + 2026-06-10-original.md)
+│       └── capgemini-ai-agents.html # Generated self-contained deck (committed, linked from index)
+├── writing/                        # Online writing
+│   ├── medium/                     # Article projects (e.g. tf-to-pytorch-migration/)
+│   └── ai-safety-stance/           # Essay + grant + dialectic run
+├── workshops/
+│   └── sorbonne-m2-n8n/            # n8n hands-on workshop infra (Sorbonne course)
+├── scripts/                        # generate-index.py, check-overflow-visual.js, cite/, ...
 ├── docs/
-│   ├── outline.md                   # Active session map
-│   ├── todos.md                     # Active task tracker
-│   ├── notes/                       # Informal notes and drafts
-│   │   ├── Meeting Notes - Kevin Vu M2 Sorbonne.md
-│   │   ├── Outline - 2026 M2 - ML & DeepTech.md
-│   │   └── prompt_continue_deep_research.md
-│   ├── references/                  # Formalized course references
-│   │   ├── course-identity.md       # Course identity and student profile
-│   │   ├── course-architecture.md   # Session calendar and topics
-│   │   ├── slide-creation-standards.md  # Single source of truth for all slide-building rules
-│   │   ├── workflow-new-slides.md   # Workflows: create slides from scratch or from research
-│   │   ├── workflow-citation-audit.md   # Citation audit backlog and remediation process
-│   │   └── student-group-project.md # Student classification project brief
-│   ├── plans/                       # One-shot roadmaps
-│   │   ├── andrew-ng-conversion-roadmap.md
-│   │   ├── 2026_02_07-convert_references.md
-│   │   └── NotebookLM.prompt.txt
-│   ├── archive/slides-v1/           # Pre-restructuring slide archive
-│   ├── qcm/                         # Quiz materials
-│   ├── research/                    # Research pipeline outputs
-│   └── sources/                     # Source materials (gitignored except READMEs)
-│       ├── courses/                 # Course PDFs and HTML
-│       │   ├── AndrewNg/            # W1.pdf, W2.pdf, W3.pdf
-│       │   └── KevinVu/             # cours_*.html, cours_*.pdf
-│       └── books/                   # Reference books
-└── dist/                            # Generated output (gitignored)
-    ├── html/                        # Flat HTML output + assets/
-    └── pptx/                        # Flat PPTX output
+│   ├── courses/sorbonne-m2/        # Course-specific docs:
+│   │   ├── course-identity.md  course-architecture.md  student-group-project.md
+│   │   ├── n8n-student-guide.md  outline.md  todos.md  student-sheets/
+│   │   ├── notes/  qcm/  research/  plans/  sources/   # sources/ gitignored except READMEs
+│   ├── talks/                      # Per-talk specs/sources:
+│   │   ├── station-f/  gustave-eiffel-agents/  capgemini-ai-agents/
+│   ├── references/                 # Generic reusable standards (slides AND writing):
+│   │   ├── slide-creation-standards.md  workflow-new-slides.md
+│   │   ├── writing-standards.md  workflow-new-article.md  great-medium-article.md
+│   │   ├── authority-map.md/.yaml  cite-skill-backlog.md  overflow-remediation-playbook.md
+│   │   └── workflow-citation-audit.md
+│   ├── superpowers/                # Plans + specs
+│   └── archive/slides-v1/          # Pre-restructuring slide archive
+└── dist/                           # Generated output (gitignored): html/ pptx/ pdf-full/
 ```
 
 **Naming conventions:**
-- Session directories: `session-XX/` (XX = 01–05)
-- Deck files: `A-slug.md`, `B-slug.md` — letter prefix provides ordering within session
-- Session 5 has only deck A (Block B is live presentations, Block C is QCM + closing)
-- Assets: `assets/` per session, with source-prefix subdirs (`ng01/`, `ng02/`, `ng03/`)
-- English names for files/dirs
-- Original topic-based decks archived at `docs/archive/slides-v1/`
+- Course decks: `slides/sorbonne-m2-2026/session-XX/` (XX = 01–05), files `A-slug.md`, `B-slug.md`, `C-slug.md` (letter prefix orders within a session). Session 5 has only deck A.
+- Standalone talks: one top-level dir per event under `slides/` (group multiple decks only when they belong to the same event, e.g. `station-f/`). Add each to `slides/index.manifest.yml` with its date.
+- Assets: `assets/` per deck dir, source-prefix subdirs (`ng01/`, `ng02/`, `ng03/`, `infographics/`).
+- Build output is flat: nested slide paths flatten with `/`→`-` (e.g. `dist/html/sorbonne-m2-2026-session-01-A-….html`).
+- English names for files/dirs. Original topic-based decks archived at `docs/archive/slides-v1/`.
 
 ## Marp Slide Standards
 
@@ -156,7 +140,7 @@ Every `.md` slide file must start (after front matter) with two ABOUTME comments
   - Technical terms stay English: "Supervised Learning", "Deep Learning", "Prompt Engineering"
   - Do NOT write: "Apprentissage supervisé *(Supervised Learning)*"
   - Instead write: "Le Supervised Learning est la technique la plus déployée..."
-  - **Exception — Station F deck** (`slides/station-f/`): English body, same technical-term convention. Audience is international tech founders. Source of truth: `docs/station-f/spec.md`.
+  - **Exception — standalone talks** (e.g. `slides/station-f/`): English body, same technical-term convention. Audiences are international. Per-talk source-of-truth lives under `docs/talks/<event>/` (e.g. `docs/talks/station-f/spec.md`).
 - **Bullet points**: concise ideas, no long paragraphs
 - **Business-framed**: frame concepts for entrepreneurs, not researchers
 - **Engagement questions**: include 1–2 discussion questions per major section
@@ -189,34 +173,51 @@ Every data claim must be sourced. Use the following format on all research-backe
 
 ```bash
 make help       # Show available targets
-make build      # Build HTML + PPTX to dist/
-make html       # Build HTML only → dist/html/
+make build      # Build HTML + PPTX + PDF to dist/
+make html       # Build HTML only → dist/html/ (+ copies prebuilt HTML decks, regenerates index)
 make pptx       # Build PPTX only → dist/pptx/
 make preview    # Launch Marp preview server
+make index      # Regenerate dist/html/index.html from slides/index.manifest.yml
 make sync       # Sync dist/pptx/ to GDrive via rclone
+make guide      # Build the n8n student guide DOCX
 make clean      # Remove dist/
+make build-<NAME>  # Build one slides/<NAME>/ dir only (e.g. make build-station-f)
 ```
+
+**Two build systems:**
+- **Marp** (default) — Markdown decks under `slides/` → flat `dist/html/` + PPTX + PDF.
+- **frontend-slides** (the `/frontend-slides` skill) — for polished standalone HTML decks
+  generated from portable Markdown content (e.g. `slides/capgemini-ai-agents/`). The committed
+  `.html` is copied into `dist/html/` by `make html` and linked from the index via a
+  `prebuilt_html` entry in `slides/index.manifest.yml`. See that deck's README to regenerate.
+
+**The index** (`dist/html/index.html`) is generated by `scripts/generate-index.py` from
+`slides/index.manifest.yml` — the single source of truth for which decks appear, their group
+labels, dates, and order (talks sorted newest-first; the Sorbonne course grouped together).
+Adding a new talk = a new deck dir + one manifest entry with a `date`.
 
 ## Citation Audit Skill
 
-Use the `/cite <file>` skill family to audit and source slide decks. Three phase-skills (`/cite-scan`, `/cite-research`, `/cite-apply`) plus the `/cite` orchestrator. Per-run state lives at `docs/citation-audit/<slug>/` (gitignored).
+The `/cite` skill family is **globally installed** (symlinked into `~/.claude/skills/cite*`
+from Louis's dotfiles) and works in **any repo** — it is no longer project-specific. Use the
+`/cite <file>` orchestrator, or the three phase-skills `/cite-diagnose`, `/cite-remediate`,
+`/cite-correct`. The skills carry their own bundled validators and authority-map under
+`~/.claude/skills/cite/`. Per-run state lives at `docs/citation-audit/<slug>/` (gitignored).
 
-**v2 architecture (current)**: deterministic validators in `scripts/cite/` enforce the strict contracts that v1 left to LLM judgment.
-
-- `scripts/cite/validate_claim.py` — schema + enum + verbatim quote-in-page substring check
-- `scripts/cite/tier_lookup.py` — `url_domain` → tier integer, no LLM judgment
-- `scripts/cite/lint_authority_map.py` — bidirectional sync check (wired into `make check`)
-- `scripts/cite/target_scope.py` — routes verification command per target path
+**Repo-local pieces (build-only mirror, NOT used by the skill):** `scripts/cite/` is a local
+copy of the validators used solely by the Makefile — `make check` / `make lint-authority-map`:
+- `scripts/cite/lint_authority_map.py` — authority-map .md/.yaml sync check (wired into `make check`)
+- `scripts/cite/validate_claim.py`, `tier_lookup.py`, `target_scope.py` — same contracts
 - 23 unit tests at `scripts/cite/tests/`, run with `pytest scripts/cite/tests/`
 
-Global references:
-- `docs/references/authority-map.md` — human roster by §6.2 tier
-- `docs/references/authority-map.yaml` — machine-readable sibling, source of truth for `tier_lookup.py`
-- `docs/references/cite-skill-backlog.md` — self-improvement tracker (v1 issues now under `## Resolved`)
+**Authority map:** `docs/references/authority-map.{md,yaml}` is this repo's roster, and doubles
+as the optional **per-project overlay** the global skill accepts (passed as an extra `--map`).
+The global skill's own `~/.claude/skills/cite/memory/authority-map.yaml` is **shared mutable
+state across all repos** — `/cite-correct`'s auto-promote writes accumulated learnings there.
+- `docs/references/cite-skill-backlog.md` — self-improvement tracker
 
-Design specs:
-- `docs/superpowers/specs/2026-04-12-cite-skill-design.md` — v1 (initial design)
-- `docs/superpowers/specs/2026-04-13-cite-skill-v2-design.md` — v2 (validators + Rule of Least Privilege for LLMs)
+Design specs (historical): `docs/superpowers/specs/2026-04-12-cite-skill-design.md` (v1),
+`docs/superpowers/specs/2026-04-13-cite-skill-v2-design.md` (v2 — validators + least-privilege).
 
 ## Attribution
 
@@ -233,65 +234,81 @@ Design specs:
 
 | Path | Title | Slides |
 |------|-------|--------|
-| `slides/session-01/A-genai-fondamentaux.md` | L'IA Générative : ce qu'elle sait faire | 37 |
-| `slides/session-01/C-premier-projet-ia.md` | Votre premier projet IA | 25 |
-| `slides/session-02/A-llms.md` | Les LLMs : comprendre et utiliser | 45 |
-| `slides/session-02/B-evaluer-ia.md` | Évaluer l'IA | 21 |
-| `slides/session-02/C-n8n-openrouter.md` | Classification par LLM avec OpenRouter | 16 |
-| `slides/session-03/A-embeddings.md` | Embeddings : Le GPS du sens | 9 |
-| `slides/session-03/B-rag.md` | RAG : Retrieval Augmented Generation | 25 |
-| `slides/session-03/C-agents.md` | Agents IA : du workflow à l'autonomie | 44 |
-| `slides/session-04/A-methodologie-projet.md` | Méthodologie projet IA | 17 |
-| `slides/session-04/B-ecosysteme-ia.md` | L'écosystème IA | 22 |
-| `slides/session-04/C-business-models.md` | Business Models & Cas Réels | 14 |
-| `slides/session-05/A-regulation-ethique.md` | Régulation & IA responsable | 27 |
+| `slides/sorbonne-m2-2026/session-01/A-genai-fondamentaux.md` | L'IA Générative : ce qu'elle sait faire | 37 |
+| `slides/sorbonne-m2-2026/session-01/C-premier-projet-ia.md` | Votre premier projet IA | 25 |
+| `slides/sorbonne-m2-2026/session-02/A-llms.md` | Les LLMs : comprendre et utiliser | 45 |
+| `slides/sorbonne-m2-2026/session-02/B-evaluer-ia.md` | Évaluer l'IA | 21 |
+| `slides/sorbonne-m2-2026/session-02/C-n8n-openrouter.md` | Classification par LLM avec OpenRouter | 16 |
+| `slides/sorbonne-m2-2026/session-03/A-embeddings.md` | Embeddings : Le GPS du sens | 9 |
+| `slides/sorbonne-m2-2026/session-03/B-rag.md` | RAG : Retrieval Augmented Generation | 25 |
+| `slides/sorbonne-m2-2026/session-03/C-agents.md` | Agents IA : du workflow à l'autonomie | 44 |
+| `slides/sorbonne-m2-2026/session-04/A-methodologie-projet.md` | Méthodologie projet IA | 17 |
+| `slides/sorbonne-m2-2026/session-04/B-ecosysteme-ia.md` | L'écosystème IA | 22 |
+| `slides/sorbonne-m2-2026/session-04/C-business-models.md` | Business Models & Cas Réels | 14 |
+| `slides/sorbonne-m2-2026/session-05/A-regulation-ethique.md` | Régulation & IA responsable | 27 |
 
-### Station F decks (English — scoped exception)
+### Standalone talks (English — scoped exception)
 
-| Path | Title | Slides |
-|------|-------|--------|
-| `slides/station-f/A-state-of-the-field.md` | Building With AI — State of the Field | 25 |
-| `slides/station-f/B-building-with-ai.md` | Building With AI — Part B | 15 |
+One dir per event under `slides/`; each has a `date` in `slides/index.manifest.yml`
+and per-talk docs under `docs/talks/<event>/`.
 
-Source of truth: `docs/station-f/spec.md`. Local source archives: `docs/station-f/sources/` (Raschka, Latent Space, MiroFish).
+| Path | Title | Date | Build |
+|------|-------|------|-------|
+| `slides/capgemini-ai-agents/` | AI Agents & Claude Code — Tech Lab | 2026-06-18 | frontend-slides (HTML) |
+| `slides/gustave-eiffel-agents/agents.md` | Building AI Agents | 2026-06-01 | Marp |
+| `slides/pruna/sdxl_pruna_slides.md` | Optimizing SDXL Inference | 2026-05-28 | Marp |
+| `slides/station-f/A-state-of-the-field.md` | Building With AI — State of the Field (25) | 2026-04-15 | Marp |
+| `slides/station-f/B-building-with-ai.md` | Building With AI — Part B (15) | 2026-04-15 | Marp |
+
+- Station F source of truth: `docs/talks/station-f/spec.md`; source archives `docs/talks/station-f/sources/` (Raschka, Latent Space, MiroFish).
+- Capgemini: portable content in `slides/capgemini-ai-agents/content/` (genericized; branding removed); provenance in `docs/talks/capgemini-ai-agents/context.md`; regenerate the HTML via the frontend-slides skill (see the deck README).
 
 ### Evaluation reference decks
 
 | Path | Title | Slides |
 |------|-------|--------|
-| `slides/evaluation/A-eval-regression.md` | Évaluation : Regression | 27 |
-| `slides/evaluation/B-eval-classification.md` | Évaluation : Classification | 30 |
-| `slides/evaluation/C-eval-computer-vision.md` | Évaluation : Computer Vision | 31 |
-| `slides/evaluation/D-eval-llm.md` | Évaluation : LLMs | 45 |
+| `slides/sorbonne-m2-2026/evaluation/A-eval-regression.md` | Évaluation : Regression | 27 |
+| `slides/sorbonne-m2-2026/evaluation/B-eval-classification.md` | Évaluation : Classification | 30 |
+| `slides/sorbonne-m2-2026/evaluation/C-eval-computer-vision.md` | Évaluation : Computer Vision | 31 |
+| `slides/sorbonne-m2-2026/evaluation/D-eval-llm.md` | Évaluation : LLMs | 45 |
 
 ### Archived / extra decks
 
 | Path | Title | Slides |
 |------|-------|--------|
-| `slides/extra-decks/architectures.md` | Tour des architectures (CNN, RNN, GAN, Transformer) | 4 |
-| `slides/extra-decks/D-biais-ethique.md` | Biais et éthique : introduction | 3 |
-| `slides/extra-decks/A-prompt-au-produit.md` | Du Prompt au Produit *(ex-S2-A, absorbed → S3-B)* | 18 |
-| `slides/extra-decks/B-ingenierie-ia.md` | L'Ingénierie IA *(ex-S2-B, absorbed → S3-A)* | 17 |
-| `slides/extra-decks/B-au-dela-des-llms.md` | L'IA au-delà des LLMs *(ex-S1-B, prompting → S2-A)* | 23 |
-| `slides/extra-decks/A-evaluer-solution-ia.md` | Évaluer une solution IA *(ex-S3-A, replaced by S2-B)* | 18 |
-| `slides/extra-decks/B-methodologie-projet-v1.md` | Méthodologie projet IA v1 *(ex-S3-B, restructured)* | 17 |
-| `slides/extra-decks/A-rag-agents-v1.md` | RAG & Agents IA v1 *(ex-S3-A, split → A-rag-embeddings + B-agents)* | 34 |
-| `slides/extra-decks/C-demo-agents-v1.md` | Agents en action *(ex-S3-C, absorbed → B-agents)* | 11 |
-| `slides/extra-decks/A-rag-embeddings-v1.md` | RAG & Embeddings v1 *(split → A-embeddings + B-rag)* | 31 |
-| `slides/extra-decks/B-context-engineering-deep.md` | Context Engineering approfondi *(overflow from C-agents)* | 5 |
-| `slides/extra-decks/D-methodologie-projet-v1.md` | Méthodologie projet IA v1 *(ex-S3-D, restructured → S4-A)* | 25 |
+| `slides/sorbonne-m2-2026/extra-decks/architectures.md` | Tour des architectures (CNN, RNN, GAN, Transformer) | 4 |
+| `slides/sorbonne-m2-2026/extra-decks/D-biais-ethique.md` | Biais et éthique : introduction | 3 |
+| `slides/sorbonne-m2-2026/extra-decks/A-prompt-au-produit.md` | Du Prompt au Produit *(ex-S2-A, absorbed → S3-B)* | 18 |
+| `slides/sorbonne-m2-2026/extra-decks/B-ingenierie-ia.md` | L'Ingénierie IA *(ex-S2-B, absorbed → S3-A)* | 17 |
+| `slides/sorbonne-m2-2026/extra-decks/B-au-dela-des-llms.md` | L'IA au-delà des LLMs *(ex-S1-B, prompting → S2-A)* | 23 |
+| `slides/sorbonne-m2-2026/extra-decks/A-evaluer-solution-ia.md` | Évaluer une solution IA *(ex-S3-A, replaced by S2-B)* | 18 |
+| `slides/sorbonne-m2-2026/extra-decks/B-methodologie-projet-v1.md` | Méthodologie projet IA v1 *(ex-S3-B, restructured)* | 17 |
+| `slides/sorbonne-m2-2026/extra-decks/A-rag-agents-v1.md` | RAG & Agents IA v1 *(ex-S3-A, split → A-rag-embeddings + B-agents)* | 34 |
+| `slides/sorbonne-m2-2026/extra-decks/C-demo-agents-v1.md` | Agents en action *(ex-S3-C, absorbed → B-agents)* | 11 |
+| `slides/sorbonne-m2-2026/extra-decks/A-rag-embeddings-v1.md` | RAG & Embeddings v1 *(split → A-embeddings + B-rag)* | 31 |
+| `slides/sorbonne-m2-2026/extra-decks/B-context-engineering-deep.md` | Context Engineering approfondi *(overflow from C-agents)* | 5 |
+| `slides/sorbonne-m2-2026/extra-decks/D-methodologie-projet-v1.md` | Méthodologie projet IA v1 *(ex-S3-D, restructured → S4-A)* | 25 |
+
+## Writing
+
+Online articles and essays live under `writing/`. The standards mirror the slide system:
+- `docs/references/writing-standards.md` — single source of truth for article rules (distilled from `docs/references/great-medium-article.md`, the deep research-backed reference).
+- `docs/references/workflow-new-article.md` — from-scratch / from-research article workflow (mirrors `workflow-new-slides.md`).
+- `writing/medium/<slug>/` — one dir per article project (README + `outline.md`; draft prose later).
+- `writing/ai-safety-stance/` — personal essay + Coefficient Giving grant + dialectic run.
 
 ## Source Materials
 
 | Path | Contents |
 |------|----------|
-| `docs/sources/courses/AndrewNg/W1.pdf` | Andrew Ng "Generative AI for Everyone" W1 (88p) |
-| `docs/sources/courses/AndrewNg/W2.pdf` | Andrew Ng "Generative AI for Everyone" W2 (57p) |
-| `docs/sources/courses/AndrewNg/W3.pdf` | Andrew Ng "Generative AI for Everyone" W3 (49p) |
-| `docs/sources/courses/KevinVu/cours_*.html` | Kevin Vu WebSlides course decks (7 sessions) |
-| `docs/sources/courses/KevinVu/cours_*.pdf` | Kevin Vu course PDFs |
+| `docs/courses/sorbonne-m2/sources/courses/AndrewNg/W1.pdf` | Andrew Ng "Generative AI for Everyone" W1 (88p) |
+| `docs/courses/sorbonne-m2/sources/courses/AndrewNg/W2.pdf` | Andrew Ng "Generative AI for Everyone" W2 (57p) |
+| `docs/courses/sorbonne-m2/sources/courses/AndrewNg/W3.pdf` | Andrew Ng "Generative AI for Everyone" W3 (49p) |
+| `docs/courses/sorbonne-m2/sources/courses/KevinVu/cours_*.html` | Kevin Vu WebSlides course decks (7 sessions) |
+| `docs/courses/sorbonne-m2/sources/courses/KevinVu/cours_*.pdf` | Kevin Vu course PDFs |
 | `docs/archive/slides-v1/` | Pre-restructuring slide archive (15 topic directories) |
-| `docs/research/` | Research pipeline outputs (13 topics, reports + raw data) |
-| `docs/notes/Outline - 2026 M2 - ML & DeepTech.md` | Course plan, themes, and session structure |
-| `docs/notes/Meeting Notes - Kevin Vu M2 Sorbonne.md` | Notes from meeting with previous teacher |
-| `docs/references/` | Formalized course references (identity, architecture, standards, workflows) |
+| `docs/courses/sorbonne-m2/research/` | Research pipeline outputs (13 topics, reports + raw data) |
+| `docs/courses/sorbonne-m2/notes/Outline - 2026 M2 - ML & DeepTech.md` | Course plan, themes, and session structure |
+| `docs/courses/sorbonne-m2/notes/Meeting Notes - Kevin Vu M2 Sorbonne.md` | Notes from meeting with previous teacher |
+| `docs/courses/sorbonne-m2/` | Course-specific docs (identity, architecture, qcm, research, sources, notes, student project) |
+| `docs/references/` | Reusable standards (slide + writing creation, workflows, citation/authority map) |

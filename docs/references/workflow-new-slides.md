@@ -637,7 +637,7 @@ Les éléments cachés (0×0, dans des onglets) sont marqués `[HIDDEN]` en mode
 ```bash
 # Capturer dans le bon répertoire d'assets
 node scripts/capture-charts.js <url> \
-  -o slides/session-02/assets/epoch \
+  -o slides/sorbonne-m2-2026/session-02/assets/epoch \
   -p epoch-training-cost
 
 # Référencer dans la slide
