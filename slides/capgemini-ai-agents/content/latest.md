@@ -85,6 +85,8 @@
 - **76% support resolution** — of support conversations resolved autonomously by Intercom's Fin, at $0.99 per resolution, paid only on success. [4] (Intercom, vendor-reported)
 - Measured, already-happening numbers, not projections. This is the commodity at work: agents commit code, resolve customers and file briefings in production, every day.
 
+**Image:** ../assets/figures/claudecode-mascot.svg *(small Claude Code mark next to the 10%-of-commits stat)*
+
 **Sources:** [1] semianalysis.com · [2] coremention.com · [3] venturebeat.com · [4] fin.ai · [5] anthropic.com
 
 **Presenter notes:**
@@ -96,6 +98,8 @@
 
 **Eyebrow:** Trajectory
 **Title:** Agents run longer and longer on their own
+
+**Image:** ../assets/figures/metr-time-horizon.png
 
 **Diagram:** METR time-horizon chart — "Length of tasks completed autonomously · 50% success" (Source: METR, time-horizon benchmark). Task length completed at 50% success doubles every ~7 months, reaching multi-hour tasks in 2026.
 
@@ -114,6 +118,8 @@
 
 **Eyebrow:** Economics
 **Title:** The same intelligence, 9× to 900× cheaper every year [1]
+
+**Image:** ../assets/figures/epoch-inference.png
 
 **Diagram:** Epoch AI chart — "Price for the same benchmark score · $ per million tokens" (Source: Epoch AI — log scale). Inference price for a fixed capability level falls 9x to 900x per year across benchmarks.
 
@@ -146,6 +152,19 @@ Six onboarding cards (human side → agent equivalent):
 - The promotion (One day you stop doing it all yourself, you staff a team.) → **Orchestration** — Subagents it briefs, runs and coordinates.
 - Every onboarding step has an exact agent equivalent, and the harness is their sum. [1] **We walk each one this morning, live.**
 
+**Steps:** (reveal in order — 11 steps; each card first appears on its "human" front, then flips to its agent equivalent on the next click)
+1. LLM intro card visible from start; **The rulebook** card appears (human front)
+2. The rulebook flips → **Instructions** (CLAUDE.md)
+3. **The accesses** card appears (human front)
+4. The accesses flips → **Tools** (CLI, APIs, MCP connectors)
+5. **The experience** card appears (human front)
+6. The experience flips → **Memory** (files kept between sessions)
+7. **The training** card appears (human front)
+8. The training flips → **Skills** (markdown recipes)
+9. **The laptop** card appears (human front)
+10. The laptop flips → **Sandbox** (where its code runs)
+11. **The promotion** card appears then flips → **Orchestration** (subagents); the closing "harness is their sum" line lands
+
 **Sources:** [1] sebastianraschka.com
 
 **Presenter notes:**
@@ -166,6 +185,13 @@ Six onboarding cards (human side → agent equivalent):
 5. to accomplish its **goal**
 - Not a chatbot, not a single prompt. A loop that acts, observes, and acts again until the goal is reached.
 
+**Steps:** (reveal the definition fragment by fragment)
+1. An agent is a **system**
+2. which uses **tools**
+3. to interact **repeatedly**
+4. with its **environment**
+5. to accomplish its **goal**
+
 **Sources:** [1] anthropic.com
 
 **Presenter notes:**
@@ -180,6 +206,18 @@ Six onboarding cards (human side → agent equivalent):
 *(STEPPED — 10 steps; one Think/Act/Observe beat per click, then Answer.)*
 
 **Diagram:** Loop diagram — Thought ("what next?") → Action ("use a tool") → Observation ("read the result"), cycling. A progress rail tracks: Think · Act · Observe · Think · Act · Observe · Think · Act · Observe · Answer.
+
+**Steps:** (reveal in order — 10 steps; Goal + the 3 tools are visible from the start, then one Think/Act/Observe beat per click, then Answer)
+1. **Think:** To reach the goal, I should search the web first…
+2. **Act:** search_web "best Asian restaurants Paris"
+3. **Observe:** result #2: a top-10 of Asian restaurants in Paris
+4. **Think:** The right one is probably in that list — let me read it.
+5. **Act:** read_url the top-10 article
+6. **Observe:** Bim Bim Bap, Châtelet, looks ideal
+7. **Think:** Before I recommend it, I should check it's open Tuesday night.
+8. **Act:** google_maps "Bim Bim Bap Châtelet" — opening hours
+9. **Observe:** open every day of the week
+10. **Answer:** Book Bim Bim Bap at Châtelet
 
 **On-slide content:**
 - Goal (visible from start): Find an Asian restaurant for Tuesday night in Paris
@@ -215,6 +253,8 @@ Six onboarding cards (human side → agent equivalent):
 4. Browse the project files from the app
 5. The modes menu (auto mode comes after your first sprint)
 - (Screenshot: the real Claude Code desktop app — "The real thing — we drive it live on this screen")
+
+**Image:** ../assets/figures/claude-code-screenshot.png
 
 **Presenter notes:**
 > LIVE DEMO, screen share — the slide shows the real app screenshot, the checklist keeps the tour on rails: send a prompt, resume an old session, attach files with @path, file explorer, the modes menu (keep auto mode for after the CV sprint). Remind: the app hides the folder, show where files live. From here on, every harness block gets its own live demo.
@@ -309,6 +349,12 @@ Six onboarding cards (human side → agent equivalent):
 **Title:** Memory, the experience it builds
 *(STEPPED — 4 steps.)*
 
+**Steps:** (reveal in order — 4 steps, two rungs climbed in order)
+1. The intro line + **Level 01 · In the moment — Just ask** ("remember Muriel reviews every external mail")
+2. The `memory/MEMORY.md` example file (index up top, one file per fact) + the copy-button memory rule
+3. **Level 02 · .txt & .md — Write it down** (plain files, index up top, loaded on demand)
+4. *Why it matters:* a culture of written knowledge is the load-bearing asset
+
 **On-slide content:**
 - A hire gets better with every meeting: who is picky about what, which rules never bend. **That experience, the agent writes down and reuses** — two rungs, climbed in order.
 - **Level 01 · In the moment — Just ask:** Tell it what to keep: "remember Muriel reviews every external mail." It holds that for next time.
@@ -370,7 +416,9 @@ Six onboarding cards (human side → agent equivalent):
   - **CLI** — Anything your terminal can do: scripts, git, files.
   - **API** — Web search, internal services, SaaS endpoints, called directly.
   - **MCP** — A standard plug: one connector per tool, shared by every agent.
-- *Tools you could connect today:*
+- *Tools you could connect today (each row shows the tool's logo):*
+
+**Image:** ../assets/logos/outlook.svg · ../assets/logos/tavily.svg · ../assets/logos/sharepoint.svg · ../assets/logos/notion.svg · ../assets/logos/teams.svg
   - Outlook — Read & triage mail · Official M365 connector [2] · **read-only**
   - Tavily Search — Live web search & extract · Official MCP · claude mcp add [3]
   - SharePoint — Search docs & sites · Official M365 connector [2]
@@ -693,6 +741,15 @@ Six onboarding cards (human side → agent equivalent):
 - Parallelization — you decide the fan-out
 - Orchestrator – workers — the agent staffs the work
 - Evaluator – optimizer — one proposes, one judges
+
+**Image:** ../assets/figures/orch-prompt-chaining.png · ../assets/figures/orch-routing.png · ../assets/figures/orch-parallelization.png · ../assets/figures/orch-orchestrator-workers.png · ../assets/figures/orch-evaluator-optimizer.png
+
+**Steps:** (reveal in order — 5 steps; patterns pop one at a time, left to right, in increasing autonomy)
+1. **Prompt chaining** (orch-prompt-chaining.png) — fixed steps, gated
+2. **Routing** (orch-routing.png) — one call picks the lane
+3. **Parallelization** (orch-parallelization.png) — you decide the fan-out
+4. **Orchestrator – workers** (orch-orchestrator-workers.png) — the agent staffs the work
+5. **Evaluator – optimizer** (orch-evaluator-optimizer.png) — one proposes, one judges
 
 **On-slide content:**
 - Anthropic's five canonical patterns, in increasing autonomy. [1] **All five are doable with skills, no framework required.**

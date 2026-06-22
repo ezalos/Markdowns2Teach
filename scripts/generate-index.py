@@ -93,10 +93,17 @@ def main():
         section_blocks = []  # (subheading_html_or_None, [li, ...])
 
         if g.get("prebuilt_html"):
-            hname = g["prebuilt_html"]
-            if (html_dir / hname).is_file():
-                title = g.get("deck_title", label)
-                section_blocks.append((None, [li(title, hname)]))
+            pb = g["prebuilt_html"]
+            # Accept a single filename or a list of {file, label}.
+            entries = pb if isinstance(pb, list) else [{"file": pb, "label": g.get("deck_title", label)}]
+            items = []
+            for e in entries:
+                fn = e["file"] if isinstance(e, dict) else e
+                lbl = (e.get("label") if isinstance(e, dict) else None) or g.get("deck_title", label)
+                if (html_dir / fn).is_file():
+                    items.append(li(lbl, fn))
+            if items:
+                section_blocks.append((None, items))
         elif g.get("subgroups"):
             for sg in g["subgroups"]:
                 decks = decks_in(gdir / sg["id"], slides_dir, html_dir)

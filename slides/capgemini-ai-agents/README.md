@@ -15,11 +15,21 @@ deck is independent of the proprietary React framework it was first authored in.
 ```
 capgemini-ai-agents/
 ├── content/
-│   ├── latest.md              # current version (38 slides) — source of truth
-│   └── 2026-06-10-original.md # earlier version (37 slides) — archival
-├── capgemini-ai-agents.html   # generated deck (committed; linked from the index)
+│   ├── latest.md                       # latest version (38 slides) — exec, refined
+│   └── 2026-06-10-original.md          # earlier version (37 slides) — more technical
+├── assets/                             # teaching figures + tool logos (base64-inlined at build)
+│   ├── figures/                        # metr, epoch, claude-code screenshot, 5× orchestration, mascot
+│   └── logos/                          # notion/outlook/sharepoint/tavily/teams
+├── capgemini-ai-agents.html            # latest deck (generated, committed, linked from index)
+├── capgemini-ai-agents-original.html   # original/technical deck (generated, committed)
 └── README.md
 ```
+
+**Two versions are built and available** (both in the index under one group): the *latest*
+executive deck and the *original* (more technical) deck. Both are self-contained: images are
+base64-inlined and the stepped reveal animations (notably the harness "new hire" build-up) are
+re-implemented from the source. The content files carry `**Image:**` and `**Steps:**`
+annotations that drive figures and animations on regeneration.
 
 Provenance, versions, and the genericization note: `docs/talks/capgemini-ai-agents/context.md`.
 
