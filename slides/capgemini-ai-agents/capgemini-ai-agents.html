@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agents Tech Lab</title>
+
+<!-- ============================================================
+     FONTS — Fontshare (Clash Display display + Satoshi body)
+     plus JetBrains Mono for code/terminal blocks.
+     ============================================================ -->
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700,500&f[]=satoshi@400,500,700,900&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+
+<style>
+/* ============================================================
+   CSS CUSTOM PROPERTIES (THEME)
+   Style preset: Neon Cyber (refined / executive restraint).
+   Deep navy stage, cyan signal accent, magenta secondary.
+   Change these to retheme the whole deck.
+   ============================================================ */
+:root {
+    --bg-primary:    #070b16;
+    --bg-secondary:  #0c1322;
+    --panel-bg:      rgba(18, 27, 45, 0.72);
+    --panel-border:  rgba(96, 165, 250, 0.16);
+    --text-primary:  #eef2fb;
+    --text-secondary:#9fb0cc;
+    --text-dim:      #6b7a96;
+    --accent:        #2ee6c8;   /* cyan signal */
+    --accent-2:      #ff4d9d;   /* magenta */
+    --accent-3:      #7aa2ff;   /* electric blue */
+    --accent-glow:   rgba(46, 230, 200, 0.28);
+    --gold:          #f4c66a;
+
+    --stage-bg: #04060d;
+    --slide-bg: var(--bg-primary);
+
+    --font-display: 'Clash Display', sans-serif;
+    --font-body:    'Satoshi', sans-serif;
+    --font-mono:    'JetBrains Mono', monospace;
+
+    --slide-padding: 88px;
+
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --duration-normal: 0.6s;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ============================================================
+   VIEWPORT-BASE.CSS (mandatory fixed 16:9 stage — full contents)
+   ============================================================ */
+html, body {
+    width: 100%; height: 100%; margin: 0;
+    overflow: hidden; background: var(--stage-bg, #000);
+}
+.deck-viewport {
+    position: fixed; inset: 0; overflow: hidden;
+    background: var(--stage-bg, #000);
+}
+.deck-stage {
+    position: absolute; left: 0; top: 0;
+    width: 1920px; height: 1080px; overflow: hidden;
+    transform-origin: 0 0; background: var(--slide-bg, #fff);
+}
+.slide {
+    position: absolute; inset: 0;
+    width: 1920px; height: 1080px; overflow: hidden;
+    display: block; visibility: hidden; opacity: 0;
+    pointer-events: none; background: var(--slide-bg, #fff);
+}
+.slide.active, .slide.visible {
+    visibility: visible; opacity: 1; pointer-events: auto; z-index: 1;
+}
+img, video, canvas, svg { max-width: 100%; max-height: 100%; }
+.deck-controls {
+    position: fixed; left: 50%; bottom: 22px;
+    transform: translateX(-50%); z-index: 1000;
+}
+@media print {
+    html, body { width: 1920px; height: auto; overflow: visible; background: #fff; }
+    .deck-viewport { position: static; overflow: visible; background: #fff; }
+    .deck-stage { position: static; width: auto; height: auto; transform: none !important; background: none; }
+    .slide {
+        position: relative; display: block !important; visibility: visible !important;
+        opacity: 1 !important; pointer-events: auto !important;
+        width: 1920px; height: 1080px; break-after: page; page-break-after: always;
+    }
+    .slide:last-child { break-after: auto; page-break-after: auto; }
+    .deck-controls { display: none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important; transition-duration: 0.2s !important;
+    }
+}
+
+/* ============================================================
+   STAGE ATMOSPHERE — gradient mesh + grid + scanline depth
+   ============================================================ */
+.deck-stage {
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    background:
+        radial-gradient(ellipse 60% 50% at 78% 12%, rgba(46,230,200,0.10) 0%, transparent 60%),
+        radial-gradient(ellipse 55% 55% at 12% 88%, rgba(122,162,255,0.10) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 90% 90%, rgba(255,77,157,0.06) 0%, transparent 60%),
+        var(--bg-primary);
+}
+.deck-stage::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+    background-image:
+        linear-gradient(rgba(122,162,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(122,162,255,0.035) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 40%, #000 35%, transparent 100%);
+}
+
+/* ============================================================
+   SLIDE LAYOUT SCAFFOLD
+   ============================================================ */
+.slide {
+    padding: var(--slide-padding);
+    display: flex; flex-direction: column;
+}
+.slide-content { position: relative; z-index: 2; display: flex; flex-direction: column; height: 100%; }
+
+/* Slide header: eyebrow + number + title */
+.s-head { display: flex; flex-direction: column; gap: 10px; margin-bottom: 26px; }
+.s-meta { display: flex; align-items: center; gap: 18px; }
+.eyebrow {
+    font-family: var(--font-mono); font-size: 19px; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--accent);
+    display: inline-flex; align-items: center; gap: 12px;
+}
+.eyebrow::before {
+    content: ""; width: 34px; height: 2px; background: var(--accent);
+    box-shadow: 0 0 12px var(--accent-glow);
+}
+.s-num {
+    margin-left: auto; font-family: var(--font-mono); font-size: 18px;
+    color: var(--text-dim); letter-spacing: 0.12em;
+}
+.badge {
+    font-family: var(--font-mono); font-size: 16px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--bg-primary); font-weight: 700;
+    background: linear-gradient(135deg, var(--accent), #58f0d8);
+    padding: 7px 16px; border-radius: 6px;
+    box-shadow: 0 0 26px var(--accent-glow);
+}
+.badge.live { background: linear-gradient(135deg, var(--accent-2), #ff7eb8); box-shadow: 0 0 26px rgba(255,77,157,0.35); color: #fff; }
+.s-title {
+    font-family: var(--font-display); font-weight: 600;
+    font-size: 70px; line-height: 1.04; letter-spacing: -0.01em;
+    color: var(--text-primary);
+}
+.s-title .hl { color: var(--accent); }
+.s-title.small { font-size: 56px; }
+.goal-line { font-size: 25px; color: var(--text-secondary); margin-top: 4px; font-style: italic; }
+
+/* Body region */
+.s-body { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 18px; }
+
+/* Generic content text scale */
+.slide p, .slide li { font-size: 25px; line-height: 1.42; color: var(--text-secondary); }
+.slide strong { color: var(--text-primary); font-weight: 700; }
+.slide em { color: var(--accent-3); font-style: normal; font-weight: 500; }
+
+/* Bullet lists */
+ul.clean { list-style: none; display: flex; flex-direction: column; gap: 15px; }
+ul.clean > li { position: relative; padding-left: 34px; }
+ul.clean > li::before {
+    content: ""; position: absolute; left: 4px; top: 13px;
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--accent); box-shadow: 0 0 10px var(--accent-glow);
+}
+ul.dim > li::before { background: var(--accent-3); box-shadow: none; }
+
+/* Cards / panels */
+.cards { display: grid; gap: 20px; }
+.card {
+    background: var(--panel-bg); border: 1px solid var(--panel-border);
+    border-radius: 16px; padding: 24px 26px;
+    backdrop-filter: blur(6px);
+}
+.card h4 {
+    font-family: var(--font-display); font-weight: 500; font-size: 26px;
+    color: var(--text-primary); margin-bottom: 8px; display: flex; align-items: baseline; gap: 12px;
+}
+.card .k { font-family: var(--font-mono); color: var(--accent); font-size: 19px; }
+.card p, .card li { font-size: 22px; line-height: 1.36; }
+.card.accent { border-color: rgba(46,230,200,0.4); box-shadow: 0 0 0 1px rgba(46,230,200,0.08), 0 18px 50px rgba(0,0,0,0.35); }
+
+/* Two-column split */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; flex: 1; min-height: 0; }
+.two-col.wide-left { grid-template-columns: 1.25fr 1fr; }
+.two-col.wide-right { grid-template-columns: 1fr 1.3fr; }
+.col { display: flex; flex-direction: column; gap: 16px; min-height: 0; }
+.col-label {
+    font-family: var(--font-mono); font-size: 18px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--text-dim);
+}
+
+/* Big stat numbers */
+.stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.stat {
+    background: var(--panel-bg); border: 1px solid var(--panel-border);
+    border-radius: 16px; padding: 28px 28px 24px; position: relative; overflow: hidden;
+}
+.stat::after {
+    content: ""; position: absolute; left: 0; top: 0; width: 4px; height: 100%;
+    background: linear-gradient(var(--accent), transparent);
+}
+.stat .big {
+    font-family: var(--font-display); font-weight: 700; font-size: 64px;
+    color: var(--accent); line-height: 1; letter-spacing: -0.02em;
+}
+.stat .lbl { font-size: 22px; color: var(--text-primary); font-weight: 700; margin: 10px 0 6px; }
+.stat .desc { font-size: 19px; color: var(--text-secondary); line-height: 1.34; }
+
+/* Code / prompt blocks */
+.code {
+    font-family: var(--font-mono); font-size: 20px; line-height: 1.5;
+    color: #cfe6ff; background: #060a14;
+    border: 1px solid rgba(122,162,255,0.22); border-left: 4px solid var(--accent);
+    border-radius: 12px; padding: 20px 24px; white-space: pre-wrap;
+    box-shadow: inset 0 0 60px rgba(46,230,200,0.04);
+    overflow: hidden;
+}
+.code.sm { font-size: 17px; line-height: 1.45; }
+.code .cmt { color: var(--text-dim); }
+.code .key { color: var(--accent); }
+.prompt-q {
+    border-left: 4px solid var(--accent-2); background: #0a0712;
+    color: var(--text-secondary); font-size: 20px; line-height: 1.46;
+    border-radius: 12px; padding: 20px 24px; white-space: pre-wrap;
+    font-family: var(--font-body); border-top: 1px solid rgba(255,77,157,0.18);
+    border-right: 1px solid rgba(255,77,157,0.18); border-bottom: 1px solid rgba(255,77,157,0.18);
+}
+.prompt-q.sm { font-size: 17px; line-height: 1.4; }
+.copy-tag {
+    display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono);
+    font-size: 15px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--accent-2); margin-bottom: 8px;
+}
+.copy-tag::before { content: "⧉"; font-size: 18px; }
+
+/* Caption / diagram-note */
+.caption {
+    font-size: 19px; color: var(--text-dim); font-style: italic;
+    border-left: 2px solid var(--panel-border); padding-left: 16px;
+}
+.figure-note {
+    background: rgba(122,162,255,0.06); border: 1px dashed rgba(122,162,255,0.3);
+    border-radius: 14px; padding: 22px 26px; font-size: 21px; color: var(--text-secondary);
+}
+.figure-note .ftitle { color: var(--accent); font-family: var(--font-mono); font-size: 18px; letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-bottom: 10px; }
+
+/* Sources footer line */
+.sources {
+    margin-top: auto; padding-top: 16px; font-family: var(--font-mono);
+    font-size: 15px; color: var(--text-dim); letter-spacing: 0.02em;
+    border-top: 1px solid rgba(122,162,255,0.1);
+}
+.sources b { color: var(--text-secondary); font-weight: 500; }
+
+/* Pills / chips */
+.chips { display: flex; flex-wrap: wrap; gap: 12px; }
+.chip {
+    font-family: var(--font-mono); font-size: 18px; color: var(--accent-3);
+    background: rgba(122,162,255,0.1); border: 1px solid rgba(122,162,255,0.25);
+    border-radius: 999px; padding: 7px 16px;
+}
+
+/* Loop rail (agent loop) */
+.rail { display: flex; gap: 10px; flex-wrap: wrap; }
+.rail .beat {
+    font-family: var(--font-mono); font-size: 17px; padding: 6px 14px; border-radius: 8px;
+    border: 1px solid var(--panel-border); color: var(--text-dim);
+}
+.rail .think { color: var(--accent-3); border-color: rgba(122,162,255,0.4); }
+.rail .act { color: var(--accent); border-color: rgba(46,230,200,0.4); }
+.rail .obs { color: var(--accent-2); border-color: rgba(255,77,157,0.4); }
+.rail .ans { color: var(--gold); border-color: rgba(244,198,106,0.45); background: rgba(244,198,106,0.08); }
+
+/* Timer pill */
+.timer {
+    display: inline-flex; align-items: center; gap: 14px; align-self: flex-start;
+    font-family: var(--font-mono); font-size: 30px; color: var(--accent);
+    background: rgba(46,230,200,0.08); border: 1px solid rgba(46,230,200,0.35);
+    border-radius: 14px; padding: 14px 24px; letter-spacing: 0.08em;
+}
+.timer .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent-glow); animation: pulse 1.6s infinite; }
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+/* Photo placeholder frame */
+.photo-frame {
+    border: 1px solid var(--panel-border); border-radius: 16px;
+    background:
+        repeating-linear-gradient(135deg, rgba(122,162,255,0.04) 0 16px, transparent 16px 32px),
+        var(--bg-secondary);
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    color: var(--text-dim); font-size: 21px; font-style: italic; padding: 28px;
+    position: relative; overflow: hidden;
+}
+.photo-frame::before {
+    content: "▣"; position: absolute; top: 16px; left: 18px; color: rgba(122,162,255,0.3); font-size: 22px;
+}
+
+/* ============================================================
+   TITLE / SECTION / DIVIDER SLIDES
+   ============================================================ */
+.slide.title-slide { justify-content: center; }
+.title-kicker {
+    font-family: var(--font-mono); font-size: 24px; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 28px;
+    display: inline-flex; align-items: center; gap: 16px;
+}
+.title-kicker::before, .title-kicker::after { content: ""; width: 48px; height: 2px; background: var(--accent); box-shadow: 0 0 14px var(--accent-glow); }
+.mega {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 168px; line-height: 0.92; letter-spacing: -0.03em; color: #fff;
+    text-shadow: 0 0 80px rgba(46,230,200,0.18);
+}
+.mega .hl { color: var(--accent); }
+.title-sub { font-size: 32px; color: var(--text-secondary); max-width: 1180px; margin-top: 36px; line-height: 1.45; }
+.title-sub strong { color: var(--text-primary); }
+.title-foot {
+    position: absolute; left: var(--slide-padding); bottom: var(--slide-padding);
+    font-family: var(--font-mono); font-size: 18px; color: var(--text-dim); letter-spacing: 0.18em; text-transform: uppercase;
+}
+.title-proof {
+    position: absolute; right: var(--slide-padding); bottom: var(--slide-padding);
+    font-size: 19px; color: var(--text-dim); font-style: italic; max-width: 420px; text-align: right;
+    border-right: 2px solid var(--accent); padding-right: 16px;
+}
+
+/* Definition fragments */
+.def {
+    font-family: var(--font-display); font-weight: 500;
+    font-size: 64px; line-height: 1.18; color: var(--text-secondary);
+    max-width: 1400px;
+}
+.def .w { color: var(--accent); font-weight: 600; }
+
+/* numbered method steps */
+.method-num {
+    font-family: var(--font-display); font-weight: 700; font-size: 150px;
+    color: rgba(46,230,200,0.16); line-height: 1; letter-spacing: -0.04em;
+}
+
+/* method cycle diagram */
+.cycle { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; align-items: stretch; }
+.cycle .step {
+    position: relative; background: var(--panel-bg); border: 1px solid var(--panel-border);
+    border-radius: 14px; padding: 24px; margin-right: 30px; display: flex; flex-direction: column; gap: 8px;
+}
+.cycle .step:last-child { margin-right: 0; }
+.cycle .step:not(:last-child)::after {
+    content: "→"; position: absolute; right: -28px; top: 50%; transform: translateY(-50%);
+    color: var(--accent); font-size: 30px;
+}
+.cycle .step .n { font-family: var(--font-mono); color: var(--accent); font-size: 19px; }
+.cycle .step h4 { font-family: var(--font-display); font-weight: 500; font-size: 27px; color: var(--text-primary); }
+.cycle .step p { font-size: 19px; }
+.cycle .step.loop { border-color: rgba(255,77,157,0.4); }
+
+/* matrix table */
+table.tbl { border-collapse: collapse; width: 100%; }
+table.tbl td, table.tbl th { border-bottom: 1px solid var(--panel-border); padding: 12px 16px; text-align: left; font-size: 21px; }
+table.tbl th { color: var(--accent); font-family: var(--font-mono); font-size: 17px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; }
+table.tbl td { color: var(--text-secondary); }
+table.tbl td strong { color: var(--text-primary); }
+
+/* small footnote tag in stats etc */
+.cite { color: var(--accent); font-family: var(--font-mono); font-size: 0.8em; vertical-align: super; }
+
+/* ============================================================
+   ENTRANCE ANIMATIONS — staggered reveals on active slide
+   ============================================================ */
+.reveal {
+    opacity: 0; transform: translateY(26px);
+    transition: opacity var(--duration-normal) var(--ease-out-expo),
+                transform var(--duration-normal) var(--ease-out-expo);
+}
+.slide.visible .reveal { opacity: 1; transform: translateY(0); }
+.slide.visible .reveal:nth-child(1) { transition-delay: 0.05s; }
+.slide.visible .reveal:nth-child(2) { transition-delay: 0.12s; }
+.slide.visible .reveal:nth-child(3) { transition-delay: 0.19s; }
+.slide.visible .reveal:nth-child(4) { transition-delay: 0.26s; }
+.slide.visible .reveal:nth-child(5) { transition-delay: 0.33s; }
+.slide.visible .reveal:nth-child(6) { transition-delay: 0.40s; }
+.slide.visible .reveal:nth-child(7) { transition-delay: 0.47s; }
+
+/* ============================================================
+   DECK CHROME — progress bar + counter
+   ============================================================ */
+.progress-bar {
+    position: fixed; top: 0; left: 0; height: 3px; z-index: 1000;
+    background: linear-gradient(90deg, var(--accent), var(--accent-3));
+    box-shadow: 0 0 14px var(--accent-glow); transition: width 0.4s var(--ease-out-expo);
+}
+.counter {
+    position: fixed; right: 26px; bottom: 22px; z-index: 1000;
+    font-family: var(--font-mono); font-size: 16px; color: var(--text-dim); letter-spacing: 0.12em;
+}
+.counter b { color: var(--accent); }
+.hint {
+    position: fixed; left: 26px; bottom: 22px; z-index: 1000;
+    font-family: var(--font-mono); font-size: 14px; color: var(--text-dim); letter-spacing: 0.1em;
+    opacity: 0.7;
+}
+
+/* edit affordance */
+.edit-hotzone { position: fixed; top: 0; left: 0; width: 80px; height: 80px; z-index: 10000; cursor: pointer; }
+.edit-toggle {
+    position: fixed; top: 18px; left: 18px; z-index: 10001;
+    background: var(--panel-bg); border: 1px solid var(--panel-border); color: var(--accent);
+    font-size: 20px; border-radius: 10px; padding: 8px 12px; cursor: pointer;
+    opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+}
+.edit-toggle.show, .edit-toggle.active { opacity: 1; pointer-events: auto; }
+.edit-toggle.active { color: var(--accent-2); border-color: var(--accent-2); }
+[contenteditable="true"] { outline: 1px dashed var(--accent); outline-offset: 4px; border-radius: 4px; }
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+<!-- ============================================================
+     01 — COVER
+     ============================================================ -->
+<!-- NOTES: Welcome in English. One of 3 labs this morning; ours: AI Agents Tech. Promise: everyone leaves with a working agent project AND a slide-generation system. -->
+<section class="slide title-slide active">
+    <div class="slide-content" style="justify-content:center;">
+        <div class="title-kicker reveal">Executive Lab · AI Agents</div>
+        <h1 class="mega reveal">AI Agents<br><span class="hl">Tech Lab</span></h1>
+        <p class="title-sub reveal">Three hours, hands on. Understand how AI agents really work, then <strong>build your own with Claude Code</strong>, and leave with it running.</p>
+    </div>
+    <div class="title-proof reveal">A full room of professionals presenting their AI builds — every participant ships.</div>
+    <div class="title-foot">AI Agents Tech Lab</div>
+</section>
+
+<!-- ============================================================
+     02 — INSTRUCTORS
+     ============================================================ -->
+<!-- NOTES: 30 seconds: who runs the lab today. Louis = 42 Network curriculum / Station F / Sorbonne. -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">Your instructor today</span><span class="s-num">02</span></div>
+            <h2 class="s-title reveal">Your instructor today</h2>
+        </div>
+        <div class="s-body">
+            <div class="card accent reveal" style="max-width:1300px;">
+                <h4>Louis Develle <span class="k">Research engineer &amp; teacher</span></h4>
+                <ul class="clean" style="margin-top:14px;">
+                    <li>Created the AI curriculum for the <strong>42 Network</strong>, 25,000+ students worldwide</li>
+                    <li><strong>AI Lead at Station F</strong>, Europe's largest startup campus</li>
+                    <li>Teaches the <strong>M2 ML &amp; DeepTech</strong> track at the Sorbonne</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     03 — AGENDA
+     ============================================================ -->
+<!-- NOTES: The intro is already done. Announce the rhythm explicitly so nobody is surprised: demos all along, a 10' sprint, a 30' sprint, then a full hour of build. Tease the slide machine now, it keeps the room hooked. 12:30 demos: each lab selects 2 projects for the full group. Finished beats impressive-but-incomplete. -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">How the morning runs</span><span class="s-num">03</span></div>
+            <h2 class="s-title reveal">Mostly building, <span class="hl">briefly talking</span></h2>
+        </div>
+        <div class="s-body">
+            <div class="cards reveal" style="grid-template-columns:repeat(2,1fr);gap:18px;">
+                <div class="card"><h4>Understand <span class="k">Demos all along</span></h4><p>What agents are and how Claude Code works — everything shown live, never just told.</p></div>
+                <div class="card"><h4>Sprint 1 <span class="k">10 min · Hands on</span></h4><p>First touch: 80 CVs, one role, you pick the candidates with Claude Code.</p></div>
+                <div class="card"><h4>Sprint 2 <span class="k">20 min · Your agent</span></h4><p>You build a press-review agent on your own topics, with the method we show you.</p></div>
+                <div class="card"><h4>The build <span class="k">1 h · Slide machine</span></h4><p>You leave with a slide-generation system in your company colors, plus a morning routine.</p></div>
+            </div>
+            <p class="reveal" style="margin-top:6px;">Around 12:00, demos for the full group. One rule until then: <strong>a finished project beats an impressive one that does not run.</strong></p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     04 — INTELLIGENCE IS A COMMODITY
+     ============================================================ -->
+<!-- NOTES: PF's framing, the hook for non-technicals: intelligence used to mean hiring, now you buy it like a raw material. Agents are how you act on the world with it. Optional color if the room responds: the child analogy — smart at 5, you still teach it tools, skills, priorities. -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">The shift underneath everything</span><span class="s-num">04</span></div>
+            <h2 class="s-title reveal">Intelligence is now a <span class="hl">commodity</span></h2>
+        </div>
+        <div class="s-body">
+            <div class="two-col reveal">
+                <div class="col">
+                    <div class="col-label">Until now</div>
+                    <div class="card"><p><strong>Buying intelligence meant hiring someone.</strong> Scarce, slow to recruit, one person at a time. Your output scaled with your headcount.</p></div>
+                </div>
+                <div class="col">
+                    <div class="col-label">Today</div>
+                    <div class="card accent"><p><strong>You buy it like a raw material.</strong> On tap, by the unit, as much as you want. A new input for everything your teams produce.</p></div>
+                </div>
+            </div>
+            <p class="reveal" style="margin-top:6px;">Raw intelligence only talks. <strong>An agent is what puts it to work</strong>, acting on the world to deliver value with it. That is what this morning is about.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     05 — CRAZY NUMBERS
+     ============================================================ -->
+<!-- NOTES: 120 seconds on slides 5-7. Figures verified June 10, 2026 (sources: slide0-lecture.md). Caveats to say out loud: commit share counts public repos + Claude co-author tags only, true AI share is higher (Codex/Copilot/Cursor leave no signature). Fin resolution rate is vendor-defined. Bonus ammo if asked: Anthropic $30B run rate (80x in 27 months), execs claiming 50-90% of code AI-written, ~49% of occupations already use Claude for a quarter of their tasks. -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">Why agents, why now</span><span class="s-num">05</span></div>
+            <h2 class="s-title reveal">Agents are <span class="hl">already doing the work</span></h2>
+        </div>
+        <div class="s-body">
+            <div class="stat-grid reveal">
+                <div class="stat"><div class="big">10%</div><div class="lbl">of all GitHub commits</div><div class="desc">Public commits now authored by Claude Code, one single agent — up from 4% in six weeks. <span class="cite">[1][2][5]</span></div></div>
+                <div class="stat"><div class="big">$2.5B</div><div class="lbl">revenue, annualized</div><div class="desc">For Claude Code alone, less than a year after launch. Value people actually pay for. <span class="cite">[3]</span></div></div>
+                <div class="stat"><div class="big">76%</div><div class="lbl">support resolved</div><div class="desc">Of conversations resolved autonomously by Intercom's Fin, at $0.99 per resolution, paid only on success. <span class="cite">[4]</span></div></div>
+            </div>
+            <p class="reveal">Measured, already-happening numbers, not projections. This is the commodity at work: agents commit code, resolve customers and file briefings <strong>in production, every day.</strong></p>
+            <div class="sources reveal"><b>Sources :</b> [1] semianalysis.com · [2] coremention.com · [3] venturebeat.com · [4] fin.ai · [5] anthropic.com</div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     06 — METR CURVE
+     ============================================================ -->
+<!-- NOTES: METR benchmark, official figure (deck-assets): length of tasks agents complete at 50% success doubles every ~7 months. Swap the PNG if METR publishes a newer one before the day. -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">Trajectory</span><span class="s-num">06</span></div>
+            <h2 class="s-title reveal">Agents run <span class="hl">longer and longer</span> on their own</h2>
+        </div>
+        <div class="s-body">
+            <div class="two-col wide-right reveal">
+                <div class="col">
+                    <ul class="clean">
+                        <li>In 2023, an agent could hold a task for <strong>a few minutes</strong>. Today it holds <strong>hours of autonomous work</strong>.</li>
+                        <li>A clean exponential: the autonomy window <strong>doubles roughly every seven months</strong>, and it has not bent yet. <span class="cite">[1][2]</span></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <div class="figure-note" style="height:100%;display:flex;flex-direction:column;justify-content:center;">
+                        <span class="ftitle">Diagram · METR time-horizon</span>
+                        Length of tasks completed autonomously at <strong>50% success</strong> — doubling every ~7 months, reaching multi-hour tasks in 2026.
+                        <div style="margin-top:18px;font-family:var(--font-mono);font-size:17px;color:var(--text-dim);">2023 ▁ · 2024 ▃ · 2025 ▅ · 2026 █ &nbsp;(log scale)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="sources reveal"><b>Sources :</b> [1] metr.org · [2] arxiv.org</div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     07 — COST COLLAPSE
+     ============================================================ -->
+<!-- NOTES: Epoch AI figure (deck-assets): cost for the same intelligence drops ~10x per year, up to 900x on some benchmarks. Takeaway: 'too hard or too expensive' is a bad excuse, time alone takes care of both. -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">Economics</span><span class="s-num">07</span></div>
+            <h2 class="s-title small reveal">The same intelligence, <span class="hl">9× to 900× cheaper</span> every year <span class="cite">[1]</span></h2>
+        </div>
+        <div class="s-body">
+            <div class="two-col wide-right reveal">
+                <div class="col">
+                    <ul class="clean">
+                        <li>Capability climbs while price collapses. What is <strong>premium today is commodity next year</strong>.</li>
+                    </ul>
+                    <div class="card accent"><p><em>The takeaway:</em> "Too hard" or "too expensive" are bad reasons not to start. Build the use case now — time alone takes care of both.</p></div>
+                </div>
+                <div class="col">
+                    <div class="figure-note" style="height:100%;display:flex;flex-direction:column;justify-content:center;">
+                        <span class="ftitle">Diagram · Epoch AI</span>
+                        Price for the same benchmark score — <strong>$ per million tokens</strong>, log scale. Inference price for a fixed capability level falls 9× to 900× per year across benchmarks.
+                        <div style="margin-top:18px;font-family:var(--font-mono);font-size:17px;color:var(--text-dim);">█▆▄▂▁ &nbsp;cost ↓ &nbsp;·&nbsp; capability ↑</div>
+                    </div>
+                </div>
+            </div>
+            <div class="sources reveal"><b>Sources :</b> [1] epoch.ai</div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     08 — LLM + HARNESS (THE NEW HIRE)
+     ============================================================ -->
+<!-- NOTES: STEPPED — each advance flips one card from the human side to the agent side. The new-hire analogy is the backbone of the whole morning: rulebook→CLAUDE.md, accesses→tools, experience→memory (BEFORE skills, mirrors the tour), training→skills, laptop→sandbox, promotion→subagents. Take your time, this is the slide that makes the room feel powerful, not small. -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">The anatomy</span><span class="s-num">08</span></div>
+            <h2 class="s-title reveal">Your agent is a <span class="hl">new hire</span></h2>
+        </div>
+        <div class="s-body">
+            <p class="reveal"><strong>LLM</strong> — The hire arrives brilliant, that part you buy. <strong>Day one is everything else.</strong></p>
+            <div class="cards reveal" style="grid-template-columns:repeat(3,1fr);gap:16px;">
+                <div class="card"><h4>The rulebook <span class="k">→ Instructions</span></h4><p>How we work here, what is expected, what is off-limits. → <strong>CLAUDE.md</strong>, standing instructions read every session.</p></div>
+                <div class="card"><h4>The accesses <span class="k">→ Tools</span></h4><p>Teams, SharePoint, Outlook, the tools of the house. → <strong>Tools</strong>: CLI, APIs, MCP connectors.</p></div>
+                <div class="card"><h4>The experience <span class="k">→ Memory</span></h4><p>Meeting notes, client quirks, everything learned on the job. → <strong>Memory</strong>, plain files first.</p></div>
+                <div class="card"><h4>The training <span class="k">→ Skills</span></h4><p>Review a contract, screen CVs, brief the press. → <strong>Skills</strong>, recipes in plain markdown.</p></div>
+                <div class="card"><h4>The laptop <span class="k">→ Sandbox</span></h4><p>Your machine, your folders; IT grants the rest. → <strong>Sandbox</strong>: where its code runs, how far it reaches.</p></div>
+                <div class="card"><h4>The promotion <span class="k">→ Orchestration</span></h4><p>One day you staff a team. → <strong>Orchestration</strong>: subagents it briefs, runs and coordinates.</p></div>
+            </div>
+            <p class="reveal">Every onboarding step has an exact agent equivalent, and the harness is their sum. <span class="cite">[1]</span> <strong>We walk each one this morning, live.</strong></p>
+            <div class="sources reveal"><b>Sources :</b> [1] sebastianraschka.com</div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     09 — DEFINITION
+     ============================================================ -->
+<!-- NOTES: Now that they FEEL what an agent is, the formal definition. Read the five fragments slowly, every demo this morning maps back to it. -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">Definition</span><span class="s-num">09</span></div>
+            <h2 class="s-title reveal">What is an agent? <span class="cite">[1]</span></h2>
+        </div>
+        <div class="s-body" style="justify-content:center;gap:36px;">
+            <p class="def reveal">An agent is a <span class="w">system</span><br>which uses <span class="w">tools</span><br>to interact <span class="w">repeatedly</span><br>with its <span class="w">environment</span><br>to accomplish its <span class="w">goal</span>.</p>
+            <p class="reveal" style="font-size:27px;">Not a chatbot, not a single prompt. <strong>A loop that acts, observes, and acts again</strong> until the goal is reached.</p>
+            <div class="sources reveal"><b>Sources :</b> [1] anthropic.com</div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     10 — AGENT LOOP
+     ============================================================ -->
+<!-- NOTES: STEPPED — one beat per click (Think/Act/Observe ×3, then Answer): think → search_web → observe → think → read_url the top-10 → observe → think 'is it open Tuesday?' → google_maps → observe hours → answer. The loop diagram highlights the current phase; the rail top-right tracks position. Goal + the 3 tools are visible from the start. -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">A simple example</span><span class="s-num">10</span></div>
+            <h2 class="s-title reveal">One goal, many small steps <span class="cite">[1]</span></h2>
+        </div>
+        <div class="s-body">
+            <div class="card accent reveal" style="display:flex;gap:30px;align-items:center;flex-wrap:wrap;">
+                <p><strong>Goal:</strong> Find an Asian restaurant for Tuesday night in Paris</p>
+                <div class="chips"><span class="chip">search_web</span><span class="chip">read_url</span><span class="chip">google_maps</span></div>
+            </div>
+            <div class="two-col reveal" style="flex:1;">
+                <div class="col">
+                    <table class="tbl">
+                        <tr><th>Phase</th><th>Step</th></tr>
+                        <tr><td><strong>Think</strong></td><td>I should search the web first…</td></tr>
+                        <tr><td><strong>Act</strong></td><td>search_web "best Asian restaurants Paris"</td></tr>
+                        <tr><td><strong>Observe</strong></td><td>result #2: a top-10 of Asian restaurants</td></tr>
+                        <tr><td><strong>Think</strong></td><td>The right one is probably in that list</td></tr>
+                        <tr><td><strong>Act</strong></td><td>read_url the top-10 article</td></tr>
+                        <tr><td><strong>Observe</strong></td><td>Bim Bim Bap, Châtelet, looks ideal</td></tr>
+                    </table>
+                </div>
+                <div class="col">
+                    <table class="tbl">
+                        <tr><th>Phase</th><th>Step</th></tr>
+                        <tr><td><strong>Think</strong></td><td>Check it's open Tuesday night first</td></tr>
+                        <tr><td><strong>Act</strong></td><td>google_maps "Bim Bim Bap Châtelet" hours</td></tr>
+                        <tr><td><strong>Observe</strong></td><td>open every day of the week</td></tr>
+                    </table>
+                    <div class="card" style="border-color:rgba(244,198,106,0.4);background:rgba(244,198,106,0.06);"><p><strong style="color:var(--gold);">Answer:</strong> Book Bim Bim Bap at Châtelet — open Tuesday night, great reviews, fits your group.</p></div>
+                </div>
+            </div>
+            <div class="rail reveal"><span class="beat think">Think</span><span class="beat act">Act</span><span class="beat obs">Observe</span><span class="beat think">Think</span><span class="beat act">Act</span><span class="beat obs">Observe</span><span class="beat think">Think</span><span class="beat act">Act</span><span class="beat obs">Observe</span><span class="beat ans">Answer</span></div>
+            <div class="sources reveal"><b>Sources :</b> [1] arxiv.org</div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     11 — MEET CLAUDE CODE
+     ============================================================ -->
+<!-- NOTES: LIVE DEMO, screen share — the slide shows the real app screenshot, the checklist keeps the tour on rails: send a prompt, resume an old session, attach files with @path, file explorer, the modes menu (keep auto mode for after the CV sprint). Remind: the app hides the folder, show where files live. From here on, every harness block gets its own live demo. -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">The product</span><span class="badge live">Live demo</span><span class="s-num">11</span></div>
+            <h2 class="s-title reveal">Meet <span class="hl">Claude Code</span></h2>
+        </div>
+        <div class="s-body">
+            <div class="two-col wide-left reveal">
+                <div class="col">
+                    <div class="col-label">The 5-minute tour</div>
+                    <ul class="clean">
+                        <li>Send a prompt, watch it <strong>think and act</strong></li>
+                        <li><strong>Resume a past session</strong>, nothing is lost</li>
+                        <li>Attach files with <strong>@path</strong></li>
+                        <li>Browse the project files from the app</li>
+                        <li>The <strong>modes menu</strong> (auto mode comes after your first sprint)</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <div class="photo-frame" style="height:100%;">Screenshot: the real Claude Code desktop app — "The real thing — we drive it live on this screen"</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     12 — THINKING MODELS (THE MODEL AND THE BRAIN)
+     ============================================================ -->
+<!-- NOTES: Moved up, right after meeting Claude Code. The model and the brain: build with the best model, set thinking effort to max, AND turn on fast mode (/fast) for faster output during the live build. Close on the budget-of-intelligence trade-off. -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">Settings that matter</span><span class="s-num">12</span></div>
+            <h2 class="s-title reveal">The model and the <span class="hl">brain</span></h2>
+        </div>
+        <div class="s-body">
+            <div class="cards reveal" style="grid-template-columns:repeat(3,1fr);gap:16px;">
+                <div class="card"><h4>The model</h4><p>Build with the best available — today Claude Fable 5 leads FrontierCode Diamond, the hardest production-code benchmark. <span class="cite">[1]</span> See the <strong>ceiling</strong>, not the average. Cheaper models come later, once tests prove they're good enough.</p></div>
+                <div class="card"><h4>Thinking effort</h4><p>How long the model reasons before acting. For design and debugging, set it to <strong>max</strong> — trade minutes for quality. During the lab, everything runs at full effort.</p></div>
+                <div class="card accent"><h4>Fast mode <span class="k">/fast</span></h4><p>Turn <strong>fast mode on</strong> for the lab: the same top model with faster output, so the live build never waits on you.</p></div>
+            </div>
+            <p class="reveal">The trade-off is honest: more intelligence and more thinking burn more tokens. <strong>Your subscription is a budget of intelligence.</strong> Spend it where quality matters, save the cheap settings for routine runs.</p>
+            <div class="sources reveal"><b>Sources :</b> [1] llm-stats.com/frontiercode</div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     13 — SANDBOX
+     ============================================================ -->
+<!-- NOTES: Harness 1/6 — your machine + the starter repo, set up live. Code runs locally, scoped to the launch folder = the agent's reach. Walk the repo tree (CLAUDE.md, .claude/skills, projects, docs — their files go in docs/), then the copy-prompt that reads docs and installs packages. The Preview slide is next, so end on 'now let's see it run'. -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">Harness · 1/6 · Your machine</span><span class="badge">Let's set it up · live</span><span class="s-num">13</span></div>
+            <h2 class="s-title reveal">The sandbox, <span class="hl">where it acts</span></h2>
+        </div>
+        <div class="s-body">
+            <p class="reveal">A new hire gets a laptop, not the keys to the building. The code runs <strong>on your machine, scoped to the folder you launch it in</strong> — and that folder is your starter repo.</p>
+            <div class="two-col wide-left reveal">
+                <div class="col">
+                    <div class="figure-note">
+                        <span class="ftitle">Diagram · nested reach</span>
+                        Your machine ⊃ <em>other folders · system · network</em> (permission required) ⊃ <strong>the launch folder</strong> — the agent's reach.
+                    </div>
+                    <ul class="clean" style="font-size:22px;">
+                        <li>Code runs <strong>on your machine</strong>, not someone else's cloud.</li>
+                        <li>By default <strong>scoped to the launch folder</strong> — that folder is its whole reach.</li>
+                        <li>Everything is pre-wired; drop your files in <strong>docs/</strong>, the only effort left is the agent.</li>
+                        <li>Anything beyond the folder is a <strong>right you grant explicitly</strong> — the autonomy dial.</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <div class="code sm"><span class="cmt"># repo tree · lab3-agentic/</span>
+<span class="key">CLAUDE.md</span>          the rulebook, read every session
+<span class="key">.claude/skills/</span>    cv-scoring · nda-analysis · press-synthesis…
+<span class="key">projects/</span>          the three exercises
+<span class="key">docs/</span>              drop your own files here</div>
+                    <div class="copy-tag">Copy prompt</div>
+                    <div class="prompt-q sm">You are in your working directory, read docs and install the packages, thanks</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     14 — PREVIEW
+     ============================================================ -->
+<!-- NOTES: NEW — right after the sandbox. How to actually see the app: click the panel button top-right in Claude Code → Preview (the same menu holds Diff, Terminal, Files, Background tasks, Plan). Keep it open during the build so changes show live. Screenshot is the real menu. -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">Harness · See it run</span><span class="badge">Top-right</span><span class="s-num">14</span></div>
+            <h2 class="s-title reveal">Open the <span class="hl">preview</span></h2>
+        </div>
+        <div class="s-body">
+            <div class="two-col wide-left reveal">
+                <div class="col">
+                    <ul class="clean">
+                        <li>Click the panel button, <strong>top right</strong>, then Preview — your app rendered live as the agent edits it.</li>
+                        <li>Same menu holds <strong>Diff, Terminal, Files, Background tasks</strong> and <strong>Plan</strong>.</li>
+                        <li>Keep it open while you build: every change lands in front of you <strong>in real time</strong>.</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <div class="photo-frame" style="height:100%;">Screenshot: the Claude Code app with the top-right panel menu open — Preview, Diff, Terminal, Files, Background tasks, Plan</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     15 — CLAUDE.md (THE RULEBOOK)
+     ============================================================ -->
+<!-- NOTES: Harness 2/6 — Instructions. CLAUDE.md is the agent's rulebook, read at every session start. Walk the Paul/executive-team example: who I am, how to behave (no em-dashes / AI tells), what to know (knowledge lives on SharePoint). Mention global-vs-project split, and Karpathy's published CLAUDE.md as a model to steal from. -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">Harness · 2/6 · Instructions</span><span class="s-num">15</span></div>
+            <h2 class="s-title reveal">CLAUDE.md, the <span class="hl">rulebook</span></h2>
+        </div>
+        <div class="s-body">
+            <p class="reveal">Every hire reads the internal rulebook on day one, then never asks those questions again. <strong>CLAUDE.md is that rulebook for your agent.</strong></p>
+            <div class="two-col reveal">
+                <div class="col">
+                    <div class="code sm"><span class="cmt"># ~/.claude/CLAUDE.md</span>
+<span class="key"># Who I am</span>
+Paul, member of the executive team.
+<span class="key"># How you should behave</span>
+Do not use em-dashes or other AI tells when writing.
+<span class="key"># Things you should know</span>
+All our knowledge is on SharePoint, always check there if unsure.</div>
+                </div>
+                <div class="col">
+                    <ul class="clean" style="font-size:22px;">
+                        <li>One file, <strong>read at every session start</strong>, global or per project. <span class="cite">[1]</span></li>
+                        <li>Home of everything you'd otherwise <strong>repeat in every prompt</strong>: context, rules, conventions, commands.</li>
+                        <li>Per project, so each agent carries <strong>its own ground truth</strong>, on top of a global one.</li>
+                        <li><em>Reference:</em> Andrej Karpathy publishes his own CLAUDE.md — a great model to steal from. Link in your starter repo.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sources reveal"><b>Sources :</b> [1] docs.claude.com</div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     16 — MEMORY (THE EXPERIENCE IT BUILDS)
+     ============================================================ -->
+<!-- NOTES: Harness 3/6 — Memory = the experience a hire builds. Demo cue: record live 'we operate exclusively on Microsoft / Azure'. New: a copy button on the slide pastes that exact memory rule. Tell them to keep it in mind — it fires during the skill demo, next. Start dumb: markdown files. -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">Harness · 3/6 · Memory</span><span class="s-num">16</span></div>
+            <h2 class="s-title reveal">Memory, the <span class="hl">experience it builds</span></h2>
+        </div>
+        <div class="s-body">
+            <p class="reveal">A hire gets better with every meeting: who is picky, which rules never bend. <strong>That experience, the agent writes down and reuses</strong> — two rungs, climbed in order.</p>
+            <div class="two-col reveal">
+                <div class="col">
+                    <div class="card"><h4 style="font-size:23px;">Level 01 · In the moment <span class="k">Just ask</span></h4><p>"remember Muriel reviews every external mail." It holds that for next time.</p></div>
+                    <div class="card accent"><h4 style="font-size:23px;">Level 02 · .txt &amp; .md <span class="k">Write it down</span></h4><p>Plain files it edits itself: readable, diffable, versionable — an index up top, one short file per fact, loaded on demand.</p></div>
+                </div>
+                <div class="col">
+                    <div class="code sm"><span class="cmt"># memory/MEMORY.md — an index up top</span>
+<span class="key"># Memory index</span>
+Microsoft suite only, never Google Workspace  → it-stack.md
+VP invites need an agenda and one decision    → vp.md
+Muriel reviews every external mail, keep short → muriel.md</div>
+                    <div class="copy-tag">Copy — the memory rule</div>
+                    <div class="prompt-q sm">We operate exclusively on Microsoft / Azure. We CANNOT sign with a counterparty that hosts or routes our data on Google Cloud / Google Workspace — doing so is impossible and deleterious.</div>
+                </div>
+            </div>
+            <p class="reveal" style="font-size:22px;"><em>Why it matters:</em> <strong>A culture of written knowledge is the load-bearing asset.</strong> What lives only in someone's head, the agent can't use; what's written down, it reads, reuses, keeps current. <span class="cite">[1]</span></p>
+            <div class="sources reveal"><b>Sources :</b> [1] anthropic.com</div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     17 — SKILLS (THE TRAINING YOU GIVE IT)
+     ============================================================ -->
+<!-- NOTES: Harness 4/6 — Skills = the training you give a hire. LIVE: run the contract-review skill on an NDA → step 4 cross-checks memory → the Microsoft-only rule fires and the conflict is flagged. The memory×skill crossover IS the wow moment, rehearse it. Plugins to name: superpowers, frontend-design, knowledge-work. -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">Harness · 4/6 · Skills</span><span class="badge live">Live: review an NDA</span><span class="s-num">17</span></div>
+            <h2 class="s-title reveal">Skills, the <span class="hl">training you give it</span></h2>
+        </div>
+        <div class="s-body">
+            <p class="reveal">You train a hire to review contracts the firm's way. <strong>For the agent, that training is a markdown recipe.</strong></p>
+            <div class="two-col reveal">
+                <div class="col">
+                    <div class="code sm"><span class="cmt"># skills/contract-review/SKILL.md</span>
+<span class="key">name:</span> contract-review
+<span class="key">description:</span> Review a contract, flag risky
+  clauses, report on one page
+<span class="cmt"># (below: loaded on demand)</span>
+1. Read the contract, map parties and scopes
+2. Walk every clause: IP, liability, insurance, data
+3. Flag each risk with the clause it comes from
+4. Cross-check company memory for conflicts
+5. Write a one-page report, risks first</div>
+                </div>
+                <div class="col">
+                    <div class="copy-tag">Copy — NDA review prompt</div>
+                    <div class="prompt-q sm">/nda-analysis review @demos/nda-review/contracts/sample-nda.md</div>
+                    <ul class="clean" style="font-size:21px;">
+                        <li>A skill is <strong>just a markdown recipe</strong> — anyone here can write one. <span class="cite">[1]</span></li>
+                        <li>The agent sees <strong>name + description</strong> up front, loads the steps when relevant.</li>
+                        <li>Ready-made libraries: <strong>superpowers, frontend-design, knowledge-work</strong>.</li>
+                        <li><em>Security:</em> external skills are instructions you didn't write. Read them before installing. <span class="cite">[2]</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sources reveal"><b>Sources :</b> [1] agentskills.io · [2] snyk.io</div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     18 — TOOLS (HOW AN AGENT TOUCHES THE WORLD)
+     ============================================================ -->
+<!-- NOTES: Harness 5/6 — Tools, right after Skills (a skill reaches for tools). Concrete connectors an exec would wire to Claude Code: Outlook (read-only), Tavily, SharePoint, Notion, Teams, each with its MCP status + a source. Optional LIVE Notion-MCP demo. Voice-over security: external tools run with the agent's permissions, default read-only. -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">Harness · 5/6 · Tools</span><span class="badge live">Live: read a Notion page</span><span class="s-num">18</span></div>
+            <h2 class="s-title small reveal">Tools, how an agent <span class="hl">touches the world</span></h2>
+        </div>
+        <div class="s-body">
+            <p class="reveal">Day one, your hire gets their accesses — Teams, SharePoint, Outlook. <strong>Same move for your agent: you hand it tools.</strong></p>
+            <div class="two-col wide-right reveal">
+                <div class="col">
+                    <div class="col-label">Three ways to plug in</div>
+                    <div class="card"><p><strong>CLI</strong> — anything your terminal can do: scripts, git, files.</p></div>
+                    <div class="card"><p><strong>API</strong> — web search, internal services, SaaS endpoints, called directly.</p></div>
+                    <div class="card accent"><p><strong>MCP</strong> — a standard plug: one connector per tool, shared by every agent.</p></div>
+                </div>
+                <div class="col">
+                    <table class="tbl">
+                        <tr><th>Tool</th><th>What · proof</th></tr>
+                        <tr><td><strong>Outlook</strong></td><td>Read &amp; triage mail · M365 connector <span class="cite">[2]</span> · read-only</td></tr>
+                        <tr><td><strong>Tavily Search</strong></td><td>Live web search &amp; extract · Official MCP <span class="cite">[3]</span></td></tr>
+                        <tr><td><strong>SharePoint</strong></td><td>Search docs &amp; sites · M365 connector <span class="cite">[2]</span></td></tr>
+                        <tr><td><strong>Notion</strong></td><td>Read &amp; write pages · Official Notion MCP <span class="cite">[4]</span></td></tr>
+                        <tr><td><strong>Teams</strong></td><td>Read channels &amp; chats · M365 connector <span class="cite">[2]</span></td></tr>
+                    </table>
+                    <p style="font-size:20px;"><em>Security:</em> every external tool runs with your agent's permissions. <strong>Default to read-only</strong>, treat third-party tools as attack surface, install only what you trust.</p>
+                </div>
+            </div>
+            <div class="sources reveal"><b>Sources :</b> [1] anthropic.com · [2] support.claude.com (M365, read-only) · [3] github.com/tavily-ai/tavily-mcp · [4] github.com/makenotion/notion-mcp-server</div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     19 — ORCHESTRATION (THE PROMOTION)
+     ============================================================ -->
+<!-- NOTES: Harness 6/6 — the promotion: too competent to do it all alone, so it staffs others. LIVE: 3 parallel subagents prepare a negotiation — tech news, commercial moves, product news of the counterparty, one hook sentence each. NO routines here (they close the morning). -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">Harness · 6/6 · Orchestration</span><span class="s-num">19</span></div>
+            <h2 class="s-title reveal">The <span class="hl">promotion</span></h2>
+        </div>
+        <div class="s-body">
+            <div class="two-col reveal">
+                <div class="col">
+                    <div class="col-label">Your hire — too good to do it all alone</div>
+                    <div class="card"><p>Tools mastered, experience built, skills sharp. The next step you give them is a team: they stop producing everything themselves and start <strong>delegating</strong>.</p></div>
+                </div>
+                <div class="col">
+                    <div class="col-label">Your agent — subagents</div>
+                    <div class="card accent"><p>An agent can staff other agents: brief three specialists <strong>in parallel</strong>, collect their findings, merge. You stay the one giving the goal. <span class="cite">[1]</span></p></div>
+                </div>
+            </div>
+            <div class="card reveal" style="border-color:rgba(255,77,157,0.4);">
+                <p><strong style="color:var(--accent-2);">Live now:</strong> three subagents prepare a negotiation — one on tech news, one on commercial moves, one on product — one hook sentence each.</p>
+            </div>
+            <div class="sources reveal"><b>Sources :</b> [1] sebastianraschka.com</div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     20 — PROMPT STRUCTURE (A GOOD PROMPT IS A GOOD BRIEF)
+     ============================================================ -->
+<!-- NOTES: Moved to the END of the harness — the good-prompt recap once all six parts are seen. Prompting = briefing an intern: context · task · guidelines · constraints, then the annotated example. Say it: a good habit, not a ritual. -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">Talking to your agent</span><span class="s-num">20</span></div>
+            <h2 class="s-title reveal">A good prompt is a <span class="hl">good brief</span></h2>
+        </div>
+        <div class="s-body">
+            <div class="two-col reveal">
+                <div class="col">
+                    <div class="col-label">The four parts</div>
+                    <ul class="clean" style="font-size:22px;">
+                        <li><strong>Context</strong> — what the intern needs before starting: who it's for, what exists already.</li>
+                        <li><strong>Task</strong> — the one thing you want done, stated plainly.</li>
+                        <li><strong>Guidelines</strong> — how you like it done: tone, format, sources, examples.</li>
+                        <li><strong>Constraints</strong> — the hard lines: deadline, length, what must not change.</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <div class="col-label">One real brief, annotated</div>
+                    <div class="prompt-q sm"><strong style="color:var(--accent);">Context:</strong> goes to an exec team, read on their phone between two meetings.
+<strong style="color:var(--accent);">Task:</strong> summarize the attached 40-page report.
+<strong style="color:var(--accent);">Guidelines:</strong> lead with the three decisions, plain business language, one source per claim.
+<strong style="color:var(--accent);">Constraints:</strong> one page max, nothing confidential quoted verbatim.</div>
+                </div>
+            </div>
+            <p class="reveal">That is all prompting is: <strong>briefing a very fast intern.</strong> The structure is a habit, not a ritual — skip it when the ask is obvious.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     21 — CV SPRINT (SPRINT 1)
+     ============================================================ -->
+<!-- NOTES: SPRINT 1 — click Start on the 10' timer (it survives navigating away). 80 sales CVs + the job description for a Sales Account Executive (file is projects/1-talent-cv-scoring/data/jobs/sales-account-executive.md). Say the role out loud. They use the /cv-scoring skill: point it at the job description + the CVs folder (data/cvs). Find your 3 candidates. Debrief: criteria matrix, only ~15 CVs pass everything. Dataset: Kaggle resumes, pre-loaded by IT. -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">Sprint 1 · Hands on</span><span class="s-num">21</span></div>
+            <h2 class="s-title reveal">80 CVs, 3 candidates, <span class="hl">10 minutes</span></h2>
+        </div>
+        <div class="s-body">
+            <div class="timer reveal"><span class="dot"></span>10:00 · Sprint 1</div>
+            <div class="cards reveal" style="grid-template-columns:repeat(3,1fr);gap:16px;">
+                <div class="card"><h4>The pile <span class="k">data/cvs/</span></h4><p>80 real sales CVs, already in your starter folder.</p></div>
+                <div class="card"><h4>The role <span class="k">Sales Account Executive</span></h4><p>You are hiring a Sales Account Executive — not a Head of Sales. The job description is in the project. Read it, or have Claude read it.</p></div>
+                <div class="card accent"><h4>The ask <span class="k">/cv-scoring</span></h4><p>With Claude Code, pick the 3 candidates you'd actually interview. Try the cv-scoring skill: point it at the job description and the CVs folder.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     22 — CONTEXT ENGINEERING (WHAT THE MODEL ACTUALLY SEES)
+     ============================================================ -->
+<!-- NOTES: The big mental model. ONE text rebuilt & re-sent every turn (stateless). Three zones. Progressive disclosure: the SKILL.md and MEMORY.md they saw are the example — index up top, detail on demand. Finite window → manage what is in it. Say the basics slowly: every call re-sends everything relevant; that is the harness's job. -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">Context engineering</span><span class="s-num">22</span></div>
+            <h2 class="s-title reveal">What the model <span class="hl">actually sees</span></h2>
+        </div>
+        <div class="s-body">
+            <div class="two-col reveal">
+                <div class="col">
+                    <div class="col-label">The context window · rebuilt every turn <span class="cite">[1]</span></div>
+                    <div class="card"><h4 style="font-size:22px;">System</h4><p>CLAUDE.md · environment · Skills index (name + description) · Memory index (one line per fact)</p></div>
+                    <div class="card"><h4 style="font-size:22px;">Tools</h4><p>search_web(query) → results · fetch_page(url) → content · read_file(path) → text …</p></div>
+                    <div class="card"><h4 style="font-size:22px;">Conversation</h4><p>Your message · thinking · tool call · tool result (× many) · agent answer · your next message — then free space.</p></div>
+                </div>
+                <div class="col">
+                    <div class="col-label">Four ideas</div>
+                    <ul class="clean" style="font-size:21px;">
+                        <li><strong>One text, stateless</strong> — rebuilt and re-sent every single turn. The model remembers nothing by itself.</li>
+                        <li><strong>Three zones</strong> — instructions, tools, conversation. Everything the agent "is" lives in one of them.</li>
+                        <li><strong>Progressive disclosure</strong> — indexes up top, detail on demand. Exactly the SKILL.md and MEMORY.md you just saw.</li>
+                        <li><strong>A finite window</strong> — there's a size limit, so you manage what earns its place.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sources reveal"><b>Sources :</b> [1] anthropic.com</div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     23 — PERMISSIONS & AUTO MODE
+     ============================================================ -->
+<!-- NOTES: Permissions & auto mode — moved here, just before the build sprints. By default the agent asks before each action; flip auto mode on (LIVE) to pre-approve within the sandbox; extra rights are granted in plain language in the prompt. Sets the autonomy dial before they build. -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">Rights</span><span class="s-num">23</span></div>
+            <h2 class="s-title reveal">Permissions &amp; <span class="hl">auto mode</span></h2>
+        </div>
+        <div class="s-body">
+            <div class="two-col reveal">
+                <div class="col">
+                    <ul class="clean">
+                        <li>By default the agent <strong>asks before acting</strong>: every file write, every command. <span class="cite">[1]</span></li>
+                        <li><strong>Auto mode</strong> pre-approves actions inside the sandbox — the loop runs uninterrupted.</li>
+                        <li>Extra rights are granted <strong>in plain language</strong>, in the prompt: "you may write to the reports folder".</li>
+                        <li><em>For the lab:</em> turn auto mode on. The sandbox keeps it contained, the build flows much better.</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <div class="code sm"><span class="cmt"># prompt</span>
+"Draft the briefing and save it to reports/"
+
+<span class="cmt"># permission request</span>
+<span class="key">Claude wants to write:</span>
+  reports/briefing-06-18.md
+  [ Allow once ]  [ Allow always ]  [ Deny ]
+
+<span class="cmt"># mode:</span> ask · plan · <span class="key">auto ←</span></div>
+                </div>
+            </div>
+            <div class="sources reveal"><b>Sources :</b> [1] docs.claude.com</div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     24 — PRESS SPRINT (SPRINT 2)
+     ============================================================ -->
+<!-- NOTES: Before the method walk: name the thing we build together — the Press Review agent — live, while the method is shown step by step on the next slides. Free topic, their folder; co-instructors roam to unblock. The later deck sprint runs on this agent's output. -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">Sprint 2 · Your agent · 20 min</span><span class="s-num">24</span></div>
+            <h2 class="s-title reveal">Build your <span class="hl">press agent</span></h2>
+        </div>
+        <div class="s-body">
+            <div class="timer reveal"><span class="dot"></span>20:00 · Sprint 2 &nbsp;<span style="font-size:18px;color:var(--text-dim);">(+5 min extend)</span></div>
+            <div class="cards reveal" style="grid-template-columns:repeat(3,1fr);gap:16px;">
+                <div class="card"><h4>Your topics</h4><p>A client, a competitor, a deal on the market, a technology you track. Your briefing, not ours.</p></div>
+                <div class="card accent"><h4>The method, end to end</h4><p>The live build you're about to run with us: clarify, build, then test and improve until the checks pass.</p></div>
+                <div class="card"><h4>If you finish</h4><p>Set the routine: your briefing lands in your inbox every morning. We help table by table.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     25 — METHOD OVERVIEW (THE BUILD METHOD)
+     ============================================================ -->
+<!-- NOTES: Transition to build. We do the method LIVE on the Press Review agent, step by step — then they redo it. Three steps now: Clarify → Build → Test and improve, then Value delivery. The diagram is linear, the only loop is inside step 3. -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">The build method</span><span class="s-num">25</span></div>
+            <h2 class="s-title reveal">Build agents that <span class="hl">actually work</span></h2>
+        </div>
+        <div class="s-body">
+            <div class="cycle reveal">
+                <div class="step"><span class="n">01</span><h4>Clarify</h4><p>Research, success criteria.</p></div>
+                <div class="step"><span class="n">02</span><h4>Build</h4><p>A→Z, tools wired.</p></div>
+                <div class="step loop"><span class="n">03</span><h4>Test &amp; improve</h4><p>Test → investigate → improve.</p></div>
+                <div class="step"><span class="n">04</span><h4>Deliver value</h4><p>A deck, or your use case.</p></div>
+            </div>
+            <p class="reveal">We build a <strong>Press Review agent live, step by step</strong> — you follow along. Then you run the same method on your own project.</p>
+            <p class="reveal">What you're building: <strong>a skill, or a small collection of skills</strong>, plus the tools it needs and the data it can access.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     26 — STEP 1: CLARIFY THE GOAL
+     ============================================================ -->
+<!-- NOTES: Step 1 — Clarify. Copy buttons: the research prompt, and the pre-run deep research (Markdown). Say it: deep research runs in the Claude APP, outputs a .md we feed to the code; make the success criteria explicit. Works best on tasks you know how to do well yourself. -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">Method · Step 1 of 4</span><span class="s-num">26</span></div>
+            <h2 class="s-title reveal"><span style="color:rgba(46,230,200,0.4);font-family:var(--font-display);">01</span> &nbsp;Clarify the goal</h2>
+            <p class="goal-line reveal">Know what a great result looks like, before a single line is built.</p>
+        </div>
+        <div class="s-body">
+            <div class="two-col wide-right reveal">
+                <div class="col">
+                    <ul class="clean" style="font-size:22px;">
+                        <li>Use a <strong>deep research</strong> to fully understand your subject and make the <strong>success criteria</strong> clear — you know exactly when the task is complete.</li>
+                        <li>It works best on a task <strong>you know how to do well yourself</strong>.</li>
+                        <li><em>Where this runs:</em> in the Claude app (deep research), not Claude Code. It runs long, so don't wait for it live — ours is pre-run and you copy it next. The output feeds every step.</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <div class="copy-tag">Copy — the deep-research brief (paste into the Claude app, not Code)</div>
+                    <div class="prompt-q sm">As a non technical person, I will create an agent system with claude code to do the following task:
+
+Press briefing, to understand what AI initiatives and projects are ongoing among my company's competitors (Deloitte, PwC, EY, Accenture, …)
+
+Deep-research this on two axes:
+• The strongest fundamentals (the 20% of effort that produces 80% of the value) — widely recognized frameworks preferred.
+• My agent iterates autonomously, so I need an excellent evaluation: a sum of binary criteria, for the whole workflow and each intermediate step.
+
+I'm a senior executive on the executive team. Ask me questions to deliver the maximum value.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     27 — STEP 2: BUILD THE SKILL AND USE IT
+     ============================================================ -->
+<!-- NOTES: Step 2 — Build the skill and use it. Copy the build prompt: it asks where the deep-research file is, then /brainstorming the minimal MVP against the binary checks, wires tools & data, chooses 3 concrete tests, builds and runs it. Slide is deliberately simple now (no terminal/secrets box). -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">Method · Step 2 of 4</span><span class="s-num">27</span></div>
+            <h2 class="s-title reveal"><span style="color:rgba(46,230,200,0.4);font-family:var(--font-display);">02</span> &nbsp;Build the skill and use it</h2>
+            <p class="goal-line reveal">Turn the research into a first skill that runs end to end.</p>
+        </div>
+        <div class="s-body">
+            <div class="two-col reveal">
+                <div class="col">
+                    <ul class="clean" style="font-size:21px;">
+                        <li>Copy the prompt to create the first draft of your skill, <strong>press-review</strong>, leveraging the deep research.</li>
+                        <li><em>"Don't wait for hours · copy the deep research"</em> — pastes the pre-run deep-research Markdown.</li>
+                        <li>It asks where your <strong>deep-research file</strong> is, then turns it into the most minimal MVP.</li>
+                        <li>It wires the <strong>tools and data access</strong> now, and picks three concrete tests.</li>
+                        <li>Then it <strong>builds it and runs it</strong>, A to Z.</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <div class="copy-tag">Copy — the build prompt</div>
+                    <div class="prompt-q sm">Where is the deep-research file for this task? Tell me the path (or paste it), and read it first.
+
+Then /brainstorming a skill called press-review from that research: the most minimal MVP that can be evaluated against the binary checks in the document. Wire the tools and data access it needs now (web search, the test folder).
+
+You must choose three concrete tests to evaluate the skill. Make it easily retestable.
+
+Then build it and run it.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     28 — STEP 3: TEST AND IMPROVE
+     ============================================================ -->
+<!-- NOTES: Step 3 — Test and improve (merged test/observe/fix). Inner loop: test on 3 fresh examples (/clear first) → investigate the red checks → improve one bottleneck → repeat until green. Copy the test-and-improve SKILL (the instructor provides the final skill to paste in). /teach to understand the agent. -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">Method · Step 3 of 4</span><span class="s-num">28</span></div>
+            <h2 class="s-title reveal"><span style="color:rgba(46,230,200,0.4);font-family:var(--font-display);">03</span> &nbsp;Test and improve</h2>
+            <p class="goal-line reveal">Judge the output you see, push the fix into the skill, re-run, repeat until it's great.</p>
+        </div>
+        <div class="s-body">
+            <div class="two-col reveal">
+                <div class="col">
+                    <ul class="clean" style="font-size:22px;">
+                        <li>Use the skill to improve your <strong>output</strong> and your <strong>workflow</strong>.</li>
+                        <li>It shows you the rendered output in the <strong>live preview</strong> and asks what's weak — plain language, no jargon.</li>
+                        <li>You react with your taste; it pushes the fix <strong>into the skill</strong> (not the one-off output), then re-runs so you re-review.</li>
+                        <li>Loop until you're happy — every run gets better and the improvement <strong>survives the next one</strong>.</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <div class="card accent"><h4 style="font-size:22px;">Install the skill</h4><p>Copy it into your workspace, then start a <strong>new session</strong> so the command shows up.</p></div>
+                    <div class="code sm"><span class="cmt"># paste here</span>
+.claude/skills/refine-from-preview/SKILL.md
+
+<span class="cmt"># then, new session:</span>
+<span class="key">/refine-from-preview</span></div>
+                    <div class="copy-tag">Copy — the refine-from-preview skill</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     29 — STEP 4: DELIVER VALUE
+     ============================================================ -->
+<!-- NOTES: Value delivery (ex 'Understand what you built'). Build a deck with frontend-design + brainstorming, no special generator, then refine it with the method. Tell them they're there: they have the method and the controls. Free to pick a deck or any use case they care about. -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">Method · Step 4 of 4</span><span class="s-num">29</span></div>
+            <h2 class="s-title reveal"><span style="color:rgba(46,230,200,0.4);font-family:var(--font-display);">04</span> &nbsp;Deliver value</h2>
+            <p class="goal-line reveal">You have the whole method and the controls. Now make it something you can show.</p>
+        </div>
+        <div class="s-body">
+            <div class="two-col wide-right reveal">
+                <div class="col">
+                    <ul class="clean" style="font-size:22px;">
+                        <li>Build a deck with the <strong>frontend-design</strong> and <strong>brainstorming</strong> skills — no special generator needed.</li>
+                        <li>Then run <strong>the same method on it</strong>: clarify, build, test and improve, until it's presentable.</li>
+                        <li>Free to choose: a deck, or <strong>any subject you care about</strong> — the methodology is the same.</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <div class="copy-tag">Copy — the deck prompt</div>
+                    <div class="prompt-q sm">/frontend-design use the result from the press briefing to generate a beautiful corporate deck, branded with your company look. The graphic chart is in @projects/3-deck-pptx-creation/brand/company-brand.md
+When the code is generated, you can use the boilerplate in @web/app/deck if useful.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     30 — LOOP RECAP (THE METHOD, END TO END)
+     ============================================================ -->
+<!-- NOTES: The method end to end: clarify and build once, then test and improve until every check is green, before value delivery. This is their map for the sprint. -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">Recap</span><span class="s-num">30</span></div>
+            <h2 class="s-title reveal">The method, <span class="hl">end to end</span></h2>
+        </div>
+        <div class="s-body" style="justify-content:center;gap:40px;">
+            <div class="cycle reveal">
+                <div class="step"><span class="n">01</span><h4>Clarify</h4></div>
+                <div class="step"><span class="n">02</span><h4>Build</h4></div>
+                <div class="step loop"><span class="n">03</span><h4>Test &amp; improve</h4><p>test → investigate → improve</p></div>
+                <div class="step"><span class="n">04</span><h4>Deliver value</h4></div>
+            </div>
+            <p class="reveal" style="font-size:28px;text-align:center;max-width:1400px;margin:0 auto;">Clarify and build once, then <strong>test and improve, turning until every check is green</strong>, before value delivery. This is your map for the next sprint.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     31 — DECK SPRINT (THE BUILD)
+     ============================================================ -->
+<!-- NOTES: THE BUILD — ~1 h before the demos. Build the deck with frontend-design + brainstorming, then refine with the method. Insist on the demo. We roam table by table to help build the tool of their dreams; free choice of use case (advanced tables can take a precise subject). 12:30 demos. Joker slides ready if the room is strong. -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">The build · ~1 h before the demos</span><span class="s-num">31</span></div>
+            <h2 class="s-title reveal">Generate <span class="hl">company-grade decks</span></h2>
+        </div>
+        <div class="s-body">
+            <div class="timer reveal"><span class="dot"></span>60:00 · The build &nbsp;<span style="font-size:18px;color:var(--text-dim);">(+5 min extend)</span></div>
+            <div class="cards reveal" style="grid-template-columns:repeat(3,1fr);gap:16px;">
+                <div class="card"><h4><span class="k">01</span> Build it</h4><p>With frontend-design and brainstorming.</p></div>
+                <div class="card"><h4><span class="k">02</span> Refine it</h4><p>With the method you just learned.</p></div>
+                <div class="card accent"><h4><span class="k">03</span> Present it</h4><p>Make it presentable, then present it.</p></div>
+            </div>
+            <p class="reveal"><strong>We roam the room to help you build your tool</strong>, then around 12:00, the demos. Going further, table by table: data sovereignty, data hygiene, orchestration patterns, LLM as judge, auto-improve — slides ready if the room wants them.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     32 — SOVEREIGNTY (JOKER CARD)
+     ============================================================ -->
+<!-- NOTES: JOKER CARD (this and the next 4): only if the room is strong or asks. Theory, one slide: lead models today for the ceiling; the sovereign path when industrializing: OpenCode → vLLM self-hosted or EU APIs (Mistral, Scaleway) → open-weight models. Field note: a CAC40 client mandates API keys and blocks local models. -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">Data sovereignty</span><span class="s-num">32</span></div>
+            <h2 class="s-title reveal">The sovereign path <span class="hl">exists</span></h2>
+        </div>
+        <div class="s-body">
+            <p class="reveal">This morning we use the <strong>best models at full effort</strong> — you should see the ceiling. When you industrialize internally, the sovereign chain is ready:</p>
+            <div class="cards reveal" style="grid-template-columns:repeat(3,1fr);gap:16px;">
+                <div class="card"><h4><span class="k">01</span> Model-agnostic agent</h4><p><strong>OpenCode</strong>, open source, deployable internally, plugs into any provider. <span style="color:var(--text-dim);">(opencode.ai)</span></p></div>
+                <div class="card"><h4><span class="k">02</span> Sovereign inference</h4><p>Self-hosted vLLM, or EU APIs: <strong>Mistral La Plateforme, Scaleway</strong>. EU-hosted, GDPR, OpenAI-compatible. <span class="cite">[1][2]</span></p></div>
+                <div class="card"><h4><span class="k">03</span> Open-weight models</h4><p><strong>Mistral, Qwen, Gemma</strong> — shortlist per use case, runnable locally via Ollama. <span style="color:var(--text-dim);">(ollama run …)</span></p></div>
+            </div>
+            <p class="reveal" style="font-size:22px;"><em>Field note:</em> seen at a CAC40 client — organization policy mandates API keys and blocks local models. Plan for the sovereign-API scenario as much as the local one.</p>
+            <div class="sources reveal"><b>Sources :</b> [1] help.mistral.ai · [2] scaleway.com</div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     33 — DATA HYGIENE
+     ============================================================ -->
+<!-- NOTES: Separate primary sources from AI-processed outputs. .claudeignore for sensitive data, read-only mounts, nothing sensitive to non-EU clouds. -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">Data hygiene</span><span class="s-num">33</span></div>
+            <h2 class="s-title reveal">Four reflexes that <span class="hl">age well</span></h2>
+        </div>
+        <div class="s-body">
+            <div class="cards reveal" style="grid-template-columns:repeat(2,1fr);gap:18px;">
+                <div class="card"><h4><span class="k">01</span> Separate primary from processed</h4><p>Primary sources on one side, AI-generated outputs on the other, never mixed. Once they blur, you can't trust either.</p></div>
+                <div class="card"><h4><span class="k">02</span> Keep sensitive data out of context</h4><p><strong>.claudeignore</strong> excludes folders from the agent's sight, same spirit as .gitignore.</p></div>
+                <div class="card"><h4><span class="k">03</span> Read-only by default</h4><p>Reference data is mounted read-only — the agent reads it, never rewrites it.</p></div>
+                <div class="card"><h4><span class="k">04</span> Mind the destination</h4><p>Sensitive code and data don't leave for non-EU clouds — that's what the sovereign path is for.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     34 — ORCHESTRATION PATTERNS
+     ============================================================ -->
+<!-- NOTES: STEPPED — the five Anthropic schemas pop one at a time, left to right, in increasing autonomy: prompt chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer. All doable with skills, no framework. -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">Orchestration patterns</span><span class="s-num">34</span></div>
+            <h2 class="s-title reveal">Five patterns, <span class="hl">endless mileage</span></h2>
+        </div>
+        <div class="s-body">
+            <div class="cards reveal" style="grid-template-columns:repeat(5,1fr);gap:14px;">
+                <div class="card"><h4 style="font-size:21px;">Prompt chaining</h4><p>Fixed steps, gated.</p></div>
+                <div class="card"><h4 style="font-size:21px;">Routing</h4><p>One call picks the lane.</p></div>
+                <div class="card"><h4 style="font-size:21px;">Parallelization</h4><p>You decide the fan-out.</p></div>
+                <div class="card"><h4 style="font-size:21px;">Orchestrator–workers</h4><p>The agent staffs the work.</p></div>
+                <div class="card accent"><h4 style="font-size:21px;">Evaluator–optimizer</h4><p>One proposes, one judges.</p></div>
+            </div>
+            <p class="reveal" style="font-size:27px;">Anthropic's five canonical patterns, in increasing autonomy. <span class="cite">[1]</span> <strong>All five are doable with skills, no framework required.</strong></p>
+            <div class="sources reveal"><b>Sources :</b> [1] anthropic.com</div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     35 — LLM AS JUDGE
+     ============================================================ -->
+<!-- NOTES: An LLM judge is noisy, it changes its mind. Sample 3-5 times (odd number), majority vote. Small law of large numbers. -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">LLM as judge</span><span class="s-num">35</span></div>
+            <h2 class="s-title reveal">Never trust <span class="hl">one vote</span></h2>
+        </div>
+        <div class="s-body">
+            <div class="two-col reveal">
+                <div class="col">
+                    <ul class="clean">
+                        <li>An LLM judging an output is <strong>noisy</strong>: ask the same judge twice, it changes its mind.</li>
+                        <li>So sample it <strong>3 or 5 times — an odd number</strong> — and take the majority vote. <span class="cite">[1]</span></li>
+                        <li>A small <strong>law of large numbers</strong>, for the price of a few extra calls.</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <div class="card accent">
+                        <h4 style="font-size:22px;">"Is this briefing properly sourced?"</h4>
+                        <div style="font-family:var(--font-mono);font-size:30px;margin:14px 0;letter-spacing:0.1em;"><span style="color:var(--accent);">✓ ✓</span> <span style="color:var(--accent-2);">✗</span> <span style="color:var(--accent);">✓</span> <span style="color:var(--accent-2);">✗</span></div>
+                        <p style="font-size:23px;"><strong style="color:var(--accent);">→ ✓ yes (3 / 5).</strong> Five samples, one stable verdict. Use it inside your binary checks whenever a criterion needs judgment.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="sources reveal"><b>Sources :</b> [1] hamel.dev</div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     36 — META-IMPROVEMENT
+     ============================================================ -->
+<!-- NOTES: lessons.md dropped (too abstract for this room). Auto-improve: their press agent already has evals, they can switch it on today. Wrap-up skill at session end. Ablation: try removing complexity, keep what survives the tests. -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">Meta</span><span class="s-num">36</span></div>
+            <h2 class="s-title reveal">Agents that <span class="hl">improve themselves</span></h2>
+        </div>
+        <div class="s-body">
+            <div class="cards reveal" style="grid-template-columns:repeat(3,1fr);gap:18px;">
+                <div class="card accent"><h4>Auto-improve</h4><p>Hand the agent its own eval scores and let it iterate on its skills against the tests. Your press agent already has the evals — <strong>switch this on today</strong>.</p></div>
+                <div class="card"><h4>Wrap-up skill</h4><p>A skill that runs at session end: write down what was learned, file the test cases, leave the repo clean.</p></div>
+                <div class="card"><h4>Ablation</h4><p>Regularly try removing complexity. If the tests still pass without it, <strong>it never earned its place</strong>.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     37 — DEMO TIME
+     ============================================================ -->
+<!-- NOTES: 12:30 sharp. Each lab selects 2 projects, presented to the full group. A finished project beats an impressive incomplete one, scope accordingly. -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">~12:00 · all labs reunite</span><span class="s-num">37</span></div>
+            <h2 class="s-title reveal">Demo <span class="hl">time</span></h2>
+        </div>
+        <div class="s-body">
+            <div class="two-col wide-left reveal">
+                <div class="col">
+                    <ul class="clean">
+                        <li>Each lab selects <strong>2 projects</strong>, presented live to the full group.</li>
+                        <li><strong>A finished project beats an impressive one that does not run.</strong> Scope tight, run it end to end twice before you raise your hand.</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <div class="photo-frame" style="height:100%;">Photo: a full room watching live demos — "Live demos, full room — the best part of the day"</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     38 — TAKE HOME
+     ============================================================ -->
+<!-- NOTES: Close the loop from the orchestration slide: set up a Routine live, the press briefing emails itself every morning. Everything they built runs on their machine. Stay available for follow-up questions. -->
+<section class="slide">
+    <div class="slide-content">
+        <div class="s-head">
+            <div class="s-meta"><span class="eyebrow">Before you go</span><span class="s-num">38</span></div>
+            <h2 class="s-title reveal">Take it <span class="hl">home</span></h2>
+        </div>
+        <div class="s-body">
+            <div class="cards reveal" style="grid-template-columns:repeat(3,1fr);gap:18px;">
+                <div class="card accent"><h4>Set the routine, now</h4><p>Your press briefing emails itself every morning at 8. We configure it together before you leave.</p></div>
+                <div class="card"><h4>It all runs on your machine</h4><p>Everything you built today is yours: keep iterating, and the sovereign path is there when you industrialize.</p></div>
+                <div class="card"><h4>We stay in the loop</h4><p>Questions next week, next quarter: reach out, we answer.</p></div>
+            </div>
+            <p class="reveal" style="font-size:40px;font-family:var(--font-display);color:var(--accent);text-align:center;margin-top:18px;">Thank you</p>
+            <div class="photo-frame reveal" style="flex:1;min-height:0;">Photo: a cohort after a build day — "See you at the next build"</div>
+        </div>
+    </div>
+</section>
+
+</main>
+</div>
+
+<!-- Deck chrome -->
+<div class="counter"><b id="curNum">01</b> / <span id="totNum">38</span></div>
+<div class="hint">← → · Space · Home/End</div>
+
+<!-- Inline edit affordance -->
+<div class="edit-hotzone" id="editHotzone"></div>
+<button class="edit-toggle" id="editToggle" title="Edit mode (E)">✏️</button>
+
+<script>
+/* ============================================================
+   SLIDE PRESENTATION CONTROLLER
+   - Fixed 16:9 stage scaling
+   - Keyboard / wheel / touch navigation
+   - Progress bar + counter
+   ============================================================ */
+class SlidePresentation {
+    constructor() {
+        this.slides = Array.from(document.querySelectorAll('.slide'));
+        this.current = 0;
+        this.stage = document.getElementById('deckStage');
+        this.bar = document.getElementById('progressBar');
+        this.curNum = document.getElementById('curNum');
+        this.totNum = document.getElementById('totNum');
+        this.totNum.textContent = String(this.slides.length).padStart(2, '0');
+
+        this.scaleStage();
+        window.addEventListener('resize', () => this.scaleStage());
+        this.bindKeys();
+        this.bindWheel();
+        this.bindTouch();
+        this.show(0);
+    }
+
+    /* Scale the whole 1920x1080 stage uniformly into the viewport (letterbox). */
+    scaleStage() {
+        const f = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+        const x = (window.innerWidth - 1920 * f) / 2;
+        const y = (window.innerHeight - 1080 * f) / 2;
+        this.stage.style.transform = `translate(${x}px, ${y}px) scale(${f})`;
+    }
+
+    show(i) {
+        this.current = Math.max(0, Math.min(i, this.slides.length - 1));
+        this.slides.forEach((s, idx) => {
+            const on = idx === this.current;
+            s.classList.toggle('active', on);
+            s.classList.toggle('visible', on);
+        });
+        const pct = (this.current + 1) / this.slides.length * 100;
+        this.bar.style.width = pct + '%';
+        this.curNum.textContent = String(this.current + 1).padStart(2, '0');
+    }
+
+    next() { this.show(this.current + 1); }
+    prev() { this.show(this.current - 1); }
+
+    bindKeys() {
+        document.addEventListener('keydown', (e) => {
+            if (e.target.getAttribute && e.target.getAttribute('contenteditable')) return;
+            switch (e.key) {
+                case 'ArrowRight': case 'ArrowDown': case 'PageDown': case ' ':
+                    e.preventDefault(); this.next(); break;
+                case 'ArrowLeft': case 'ArrowUp': case 'PageUp':
+                    e.preventDefault(); this.prev(); break;
+                case 'Home': e.preventDefault(); this.show(0); break;
+                case 'End': e.preventDefault(); this.show(this.slides.length - 1); break;
+            }
+        });
+    }
+
+    bindWheel() {
+        let lock = false;
+        window.addEventListener('wheel', (e) => {
+            if (lock) return;
+            if (Math.abs(e.deltaY) < 24) return;
+            lock = true;
+            (e.deltaY > 0 ? this.next() : this.prev());
+            setTimeout(() => { lock = false; }, 650);
+        }, { passive: true });
+    }
+
+    bindTouch() {
+        let x0 = null, y0 = null;
+        window.addEventListener('touchstart', (e) => {
+            x0 = e.touches[0].clientX; y0 = e.touches[0].clientY;
+        }, { passive: true });
+        window.addEventListener('touchend', (e) => {
+            if (x0 === null) return;
+            const dx = e.changedTouches[0].clientX - x0;
+            const dy = e.changedTouches[0].clientY - y0;
+            if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+                (dx < 0 ? this.next() : this.prev());
+            }
+            x0 = y0 = null;
+        }, { passive: true });
+    }
+}
+
+/* ============================================================
+   INLINE EDITING (post-draft affordance)
+   - Hover top-left hotzone or press E to reveal the toggle
+   - Click any text to edit; changes persist in localStorage
+   ============================================================ */
+class InlineEditor {
+    constructor() {
+        this.isActive = false;
+        this.toggle = document.getElementById('editToggle');
+        this.stage = document.getElementById('deckStage');
+        this.STORE = 'aiagents-techlab-edits';
+        this.restore();
+    }
+    toggleEditMode() {
+        this.isActive = !this.isActive;
+        this.toggle.classList.toggle('active', this.isActive);
+        this.toggle.classList.toggle('show', this.isActive);
+        const editable = this.stage.querySelectorAll('h1,h2,h3,h4,p,li,td,th,.def,.code,.prompt-q');
+        editable.forEach((el) => {
+            el.contentEditable = this.isActive ? 'true' : 'false';
+        });
+        if (!this.isActive) this.persist();
+    }
+    persist() {
+        try { localStorage.setItem(this.STORE, this.stage.innerHTML); } catch (e) {}
+    }
+    restore() {
+        try {
+            const html = localStorage.getItem(this.STORE);
+            if (html) this.stage.innerHTML = html;
+        } catch (e) {}
+    }
+}
+
+const deck = new SlidePresentation();
+const editor = new InlineEditor();
+
+/* Edit toggle interactions: click + hotzone hover (400ms grace) + E key */
+(function () {
+    const hotzone = document.getElementById('editHotzone');
+    const editToggle = document.getElementById('editToggle');
+    let hideTimeout = null;
+
+    editToggle.addEventListener('click', () => editor.toggleEditMode());
+
+    hotzone.addEventListener('mouseenter', () => {
+        clearTimeout(hideTimeout);
+        editToggle.classList.add('show');
+    });
+    hotzone.addEventListener('mouseleave', () => {
+        hideTimeout = setTimeout(() => { if (!editor.isActive) editToggle.classList.remove('show'); }, 400);
+    });
+    editToggle.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+    editToggle.addEventListener('mouseleave', () => {
+        hideTimeout = setTimeout(() => { if (!editor.isActive) editToggle.classList.remove('show'); }, 400);
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if ((e.key === 'e' || e.key === 'E') && !(e.target.getAttribute && e.target.getAttribute('contenteditable') === 'true')) {
+            editor.toggleEditMode();
+        }
+        if (e.key === 's' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); editor.persist(); }
+    });
+})();
+</script>
+</body>
+</html>
