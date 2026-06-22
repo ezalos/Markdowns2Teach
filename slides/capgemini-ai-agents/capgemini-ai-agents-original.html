@@ -340,7 +340,6 @@ ol.num>li::before{content:counter(s,decimal-leading-zero);position:absolute;left
 </style>
 </head>
 <body>
-<div id="buildtag" style="position:fixed;top:6px;left:8px;z-index:99999;font:11px ui-monospace,monospace;color:#f97316;opacity:.8;pointer-events:none">build R5 · inline-transition</div>
 <!-- NOTES per slide (presenter cues), see content/2026-06-10-original.md for full text -->
 <div class="deck-viewport">
 <div class="deck-stage" id="deckStage">
@@ -553,9 +552,13 @@ class Deck {
   bindWheel(){
     let lock=false;
     window.addEventListener('wheel',(e)=>{
-      if(lock) return; if(Math.abs(e.deltaY)<24) return;
-      lock=true; (e.deltaY>0?this.next():this.prev());
-      setTimeout(()=>{lock=false;},650);
+      if(lock) return;
+      // Normalize across deltaMode (some mice report lines/pages, not pixels)
+      // so a physical scroll wheel drives the slides exactly like the arrows.
+      const dy = e.deltaMode===1 ? e.deltaY*16 : (e.deltaMode===2 ? e.deltaY*400 : e.deltaY);
+      if(Math.abs(dy) < 6) return;
+      lock=true; (dy>0 ? this.next() : this.prev());
+      setTimeout(()=>{lock=false;}, 450);
     },{passive:true});
   }
   bindTouch(){

@@ -54,3 +54,10 @@ and linked from the index (manifest entry `capgemini-ai-agents`, `prebuilt_html`
 
 > Marp decks and this frontend-slides deck coexist: Marp for the Sorbonne course
 > and most talks; frontend-slides when the priority is a polished standalone HTML deck.
+
+**On every regeneration, replicate the interaction contract** in
+`docs/references/html-deck-interaction-standards.md` — stepped reveals animate
+forward only (transition set *inline*, the macOS-safe way), LEFT/wheel-up jumps
+to the previous slide at its final state, the scroll wheel drives slides like the
+arrows, single bottom-right pagination, working copy buttons + timers. Verify
+with `make test-decks` (headful). These encode bugs that were costly to find.
