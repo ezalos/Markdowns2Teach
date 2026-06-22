@@ -15,7 +15,7 @@ SLIDE_FILES := $(shell find $(SLIDES_DIR) -name '*.md' -type f)
 GUIDE_DIR := $(DIST_DIR)/guide
 PANDOC := $(shell command -v pandoc 2>/dev/null || echo "$(HOME)/.local/bin/pandoc")
 
-.PHONY: all preview build pptx html html-inline index check check-citations lint-authority-map dedup clean sync serve guide pdf-full help html-% pptx-% pdf-full-% build-%
+.PHONY: all preview build pptx html html-inline index check check-citations lint-authority-map dedup clean sync serve deploy guide pdf-full help html-% pptx-% pdf-full-% build-%
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
@@ -72,6 +72,11 @@ html-inline: html ## Inject image preloader script into HTML slides
 
 serve: html-inline ## Serve password-protected HTML slides on port 8080
 	python3 scripts/serve-auth.py $(HTML_DIR) --port 8080
+
+deploy: html ## Publish to slides.develle.fr (rebuilds dist/html, served live by `make serve` on :8080)
+	@echo "  DEPLOY: dist/html rebuilt — slides.develle.fr proxies (nginx@TinyButMighty) → TheBeast:8080 → serve-auth.py (live)."
+	@echo "          The running 'make serve' picks up changes immediately. Hard-refresh (Ctrl+Shift+R) to bypass browser cache."
+	@echo "          If 'make serve' is not running, start it: make serve"
 
 sync: ## Sync PPTX files to Google Drive via rclone
 	rclone sync $(PPTX_DIR)/ $(GDRIVE_REMOTE) --progress

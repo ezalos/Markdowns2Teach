@@ -43,6 +43,13 @@ class AuthHandler(SimpleHTTPRequestHandler):
         self.wfile.write(b"401 Unauthorized\n")
         return False
 
+    def end_headers(self):
+        # Always revalidate: decks are updated in place and served live, so a
+        # stale browser cache would otherwise show an old build. no-cache still
+        # allows 304s via Last-Modified, so unchanged files aren't re-downloaded.
+        self.send_header("Cache-Control", "no-cache, must-revalidate")
+        super().end_headers()
+
     def log_message(self, format, *args):
         # Prefix log lines with the server address for clarity
         sys.stderr.write(
