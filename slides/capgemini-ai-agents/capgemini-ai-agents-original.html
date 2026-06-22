@@ -340,7 +340,7 @@ ol.num>li::before{content:counter(s,decimal-leading-zero);position:absolute;left
 </style>
 </head>
 <body>
-<div id="buildtag" style="position:fixed;top:6px;left:8px;z-index:99999;font:11px ui-monospace,monospace;color:#f97316;opacity:.8;pointer-events:none">build R4 · anim-cancel</div>
+<div id="buildtag" style="position:fixed;top:6px;left:8px;z-index:99999;font:11px ui-monospace,monospace;color:#f97316;opacity:.8;pointer-events:none">build R5 · inline-transition</div>
 <!-- NOTES per slide (presenter cues), see content/2026-06-10-original.md for full text -->
 <div class="deck-viewport">
 <div class="deck-stage" id="deckStage">
@@ -472,8 +472,11 @@ class Deck {
   }
   applySteps(i){
     const sl=this.slides[i];
+    // End state same in both directions; transition set INLINE atomically with
+    // the class change. Backward => none (instant), which works on macOS too.
+    const back = this.dir === 'backward';
     const g=this.groups(i);
-    g.forEach((el,idx)=>el.classList.toggle('shown', idx<this.step));
+    g.forEach((el,idx)=>{ el.style.transition = back ? 'none' : 'opacity 0.5s var(--ease), transform 0.5s var(--ease)'; el.classList.toggle('shown', idx<this.step); });
     this.renderDots(i);
   }
   renderDots(i){
@@ -495,6 +498,7 @@ class Deck {
   // Jump to slide n. finalState=true reveals every step instantly (used for
   // End / backward slide entry); otherwise lands at step 0. Always silent.
   goTo(n, finalState){
+    this.dir='backward';
     this.silent(()=>{
       this.show(n);
       this.step = finalState ? this.stepCount(this.cur) : 0;
@@ -505,6 +509,7 @@ class Deck {
     const total=this.stepCount(this.cur);
     if(this.step<total){
       // forward reveal of one step — THIS is the only path that animates
+      this.dir='forward';
       this.animateForward(()=>{
         this.step++;
         this.applySteps(this.cur);
@@ -513,6 +518,7 @@ class Deck {
     }
     if(this.cur<this.slides.length-1){
       // entering a new slide forward: land at step 0 with no animation
+      this.dir='backward';
       this.silent(()=>{
         this.show(this.cur+1);
         this.step=0;
@@ -521,13 +527,10 @@ class Deck {
     }
   }
   prev(){
-    if(this.step>0){
-      // step backward within a slide: final-for-this-step state, no replay
-      this.silent(()=>{ this.step--; this.applySteps(this.cur); });
-      return;
-    }
+    // LEFT jumps to the previous slide at its FINAL step (like the original
+    // deck's retreat) — never reverse-steps reveals. "Backward = final state."
+    this.dir='backward';
     if(this.cur>0){
-      // backward into previous slide: arrive fully revealed, no animation
       this.silent(()=>{
         this.show(this.cur-1);
         this.step=this.stepCount(this.cur);
