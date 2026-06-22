@@ -49,6 +49,9 @@ docs/courses/sorbonne-m2/sources/**
 # Archive files
 *.zip
 
+# Third-party reference PDFs kept locally but not redistributed via git
+writing/ai-safety-stance/Who's Solving AI Alignment and How Far They've Gotten_ A 2025 Field Survey.pdf
+
 # Secrets
 .envrc
 workshops/sorbonne-m2-n8n/.env
