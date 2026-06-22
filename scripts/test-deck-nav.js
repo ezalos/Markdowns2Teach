@@ -18,24 +18,25 @@ const path = require("path");
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const CHROME = process.env.CHROME_PATH || "/usr/bin/google-chrome";
+// HEADFUL when a display is available: headless Chrome diverges from real browsers
+// on compositor-thread transitions and gave a FALSE PASS on a backward-animation bug
+// that only reproduces headful (like the user's Brave). Set HEADLESS=1 to force headless.
+const HEADFUL = !!process.env.DISPLAY && process.env.HEADLESS !== "1";
 
 async function launch() {
+  const opts = {
+    headless: HEADFUL ? false : "new",
+    executablePath: CHROME,
+    args: ["--no-sandbox", "--disable-dev-shm-usage"].concat(HEADFUL ? ["--new-window", "--window-size=1300,800"] : []),
+    defaultViewport: { width: 1280, height: 720 },
+    protocolTimeout: 180000,
+  };
   // First Chrome launch in a fresh shell occasionally exits 126; retry once.
   try {
-    return await puppeteer.launch({
-      headless: "new",
-      executablePath: CHROME,
-      args: ["--no-sandbox", "--disable-dev-shm-usage"],
-      protocolTimeout: 180000,
-    });
+    return await puppeteer.launch(opts);
   } catch (e) {
     await sleep(500);
-    return await puppeteer.launch({
-      headless: "new",
-      executablePath: CHROME,
-      args: ["--no-sandbox", "--disable-dev-shm-usage"],
-      protocolTimeout: 180000,
-    });
+    return await puppeteer.launch(opts);
   }
 }
 

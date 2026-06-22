@@ -449,8 +449,9 @@ class Deck {
   // Nothing can animate later — there is no delayed stagger to fire.
   silent(fn){
     this.root.classList.remove('anim');
-    fn();
-    void this.root.offsetWidth; // commit final state synchronously
+    void this.root.offsetWidth; // commit "transitions off" BEFORE mutating — else a
+    fn();                       // change made while .anim was still on (within the
+    void this.root.offsetWidth; // 750ms forward window) animates the reversal.
   }
   // animateForward(): the ONLY path that plays the entrance/reveal
   // animation. Enable transitions (.anim), force the pre-mutation baseline
