@@ -1,5 +1,5 @@
 # ABOUTME: Build automation for Marp slide decks.
-# ABOUTME: Provides targets for preview, build (HTML+PPTX), sync to GDrive, and clean.
+# ABOUTME: Pattern-rule build with per-file timestamps + asset deps (incremental).
 
 SLIDES_DIR := slides
 DIST_DIR := dist
@@ -9,13 +9,42 @@ PDF_FULL_DIR := $(DIST_DIR)/pdf-full
 MARP := marp
 GDRIVE_REMOTE := gdrive:Travail/Formations/Sorbonne/AutoDecks
 
-# Find all .md files under slides/
+# All Marp source files
 SLIDE_FILES := $(shell find $(SLIDES_DIR) -name '*.md' -type f)
+
+# Output paths mirror source layout under dist/ (no path-flattening)
+HTML_OUT := $(patsubst $(SLIDES_DIR)/%.md,$(HTML_DIR)/%.html,$(SLIDE_FILES))
+PPTX_OUT := $(patsubst $(SLIDES_DIR)/%.md,$(PPTX_DIR)/%.pptx,$(SLIDE_FILES))
+PDF_OUT  := $(patsubst $(SLIDES_DIR)/%.md,$(PDF_FULL_DIR)/%.pdf,$(SLIDE_FILES))
+
+# Pre-built HTML decks (rendered by frontend-slides, not Marp)
+PREBUILT_SRC := $(shell find $(SLIDES_DIR) -maxdepth 2 -name '*.html' -type f)
+PREBUILT_OUT := $(patsubst $(SLIDES_DIR)/%.html,$(HTML_DIR)/%.html,$(PREBUILT_SRC))
+
+# Asset symlinks: for each deck dir that has assets/, expose dist/html/<deck>/assets → source
+ASSET_SRC_DIRS := $(shell find $(SLIDES_DIR) -type d -name assets)
+ASSET_LINK_OUT := $(patsubst $(SLIDES_DIR)/%,$(HTML_DIR)/%,$(ASSET_SRC_DIRS))
+
+# Global build inputs (any change → rebuild all)
+THEMES := $(wildcard themes/*.css)
+GLOBAL_DEPS := .marprc.yml $(THEMES) Makefile
+
+# Pre-bucket outputs by top-level deck dir so per-subdir targets can use simple variable
+# lookups (filter+stem in prereqs runs into Make's % escape rules — variables sidestep it).
+TOP_DIRS := $(notdir $(patsubst %/,%,$(wildcard $(SLIDES_DIR)/*/)))
+define topdir_rules
+HTML_OUT_$(1)     := $$(filter $(HTML_DIR)/$(1)/%,$$(HTML_OUT))
+PREBUILT_OUT_$(1) := $$(filter $(HTML_DIR)/$(1)/%,$$(PREBUILT_OUT))
+ASSET_OUT_$(1)    := $$(filter $(HTML_DIR)/$(1)/%,$$(ASSET_LINK_OUT))
+PPTX_OUT_$(1)     := $$(filter $(PPTX_DIR)/$(1)/%,$$(PPTX_OUT))
+PDF_OUT_$(1)      := $$(filter $(PDF_FULL_DIR)/$(1)/%,$$(PDF_OUT))
+endef
+$(foreach d,$(TOP_DIRS),$(eval $(call topdir_rules,$(d))))
 
 GUIDE_DIR := $(DIST_DIR)/guide
 PANDOC := $(shell command -v pandoc 2>/dev/null || echo "$(HOME)/.local/bin/pandoc")
 
-.PHONY: all preview build pptx html html-inline index check check-citations lint-authority-map dedup clean sync serve deploy test-decks guide pdf-full help html-% pptx-% pdf-full-% build-%
+.PHONY: all preview build pptx html html-inline index check check-citations lint-authority-map dedup clean sync serve deploy test-decks guide pdf-full help html-% pptx-% pdf-full-% build-% assets
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
@@ -24,48 +53,72 @@ help: ## Show this help
 	@printf "    \033[36m%-15s\033[0m %s\n" "html-<NAME>"     "e.g. make html-station-f"
 	@printf "    \033[36m%-15s\033[0m %s\n" "pptx-<NAME>"     "e.g. make pptx-session-04"
 	@printf "    \033[36m%-15s\033[0m %s\n" "pdf-full-<NAME>" "e.g. make pdf-full-station-f"
-	@printf "    \033[36m%-15s\033[0m %s\n" "build-<NAME>"    "HTML + PPTX + PDF for one subdir"
+	@printf "    \033[36m%-15s\033[0m %s\n" "build-<NAME>"    "HTML + PDF + PPTX for one subdir"
 
-all: build ## Build all outputs (HTML + PPTX)
+all: build ## Build all outputs (HTML + PDF + PPTX)
 
 preview: ## Launch Marp preview server
 	$(MARP) --preview $(SLIDES_DIR)
 
-build: html pptx pdf-full ## Build both HTML and PPTX
+# Order: HTML first (fastest), PDF next (most important), PPTX last.
+build: html pdf-full pptx ## Build HTML + PDF + PPTX (incremental)
 
-html: $(HTML_DIR) ## Build HTML slides → dist/html/
-	@set -e; \
-	for f in $(SLIDE_FILES); do \
-		slug=$$(dirname $$f | sed 's|^$(SLIDES_DIR)/||' | tr '/' '-'); \
-		outfile="$(HTML_DIR)/$$slug-$$(basename $$f .md).html"; \
-		echo "  HTML: $$f -> $$outfile"; \
-		$(MARP) "$$f" -o "$$outfile"; \
-	done
-	@for d in $$(find $(SLIDES_DIR) -type d -name assets); do \
-		echo "  ASSETS: $$d -> $(HTML_DIR)/assets/"; \
-		mkdir -p "$(HTML_DIR)/assets"; \
-		cp -ru "$$d/." "$(HTML_DIR)/assets/"; \
-	done
-	@for h in $$(find $(SLIDES_DIR) -maxdepth 2 -name '*.html' -type f); do \
-		echo "  PREBUILT: $$h -> $(HTML_DIR)/$$(basename $$h)"; \
-		cp "$$h" "$(HTML_DIR)/$$(basename $$h)"; \
-	done
-	@$(MAKE) index
+# --- HTML ---
+
+html: $(HTML_OUT) $(PREBUILT_OUT) assets index ## Build HTML slides → dist/html/<deck>/
 	@if [ -x .private/build-hook.sh ]; then .private/build-hook.sh "$(HTML_DIR)"; fi
+
+# Pattern rule: dist/html/<rel>.html depends on slides/<rel>.md + global deps + that deck's assets.
+# Asset deps are resolved at expansion time via $(shell find ...).
+.SECONDEXPANSION:
+$(HTML_DIR)/%.html: $(SLIDES_DIR)/%.md $(GLOBAL_DEPS) $$(shell find $(SLIDES_DIR)/$$(dir $$*)assets -type f 2>/dev/null)
+	@mkdir -p $(dir $@)
+	@echo "  HTML: $< -> $@"
+	@$(MARP) "$<" -o "$@"
+
+# Pre-built HTML: copy from source to mirrored output path.
+$(HTML_DIR)/%.html: $(SLIDES_DIR)/%.html
+	@mkdir -p $(dir $@)
+	@echo "  PREBUILT: $< -> $@"
+	@cp "$<" "$@"
+
+# Assets: symlink each source assets/ dir to its co-located output location.
+assets: $(ASSET_LINK_OUT)
+
+$(HTML_DIR)/%/assets: $(SLIDES_DIR)/%/assets | $(HTML_DIR)
+	@mkdir -p $(dir $@)
+	@if [ ! -L "$@" ]; then \
+		rm -rf "$@" 2>/dev/null || true; \
+		ln -s "$(abspath $<)" "$@"; \
+		echo "  ASSETS: $< -> $@ (symlink)"; \
+	fi
 
 index: $(HTML_DIR) ## Generate index.html with links to all decks
 	@echo "  INDEX: $(HTML_DIR)/index.html"
 	@python3 scripts/generate-index.py $(SLIDES_DIR) $(HTML_DIR)
 
-pptx: $(PPTX_DIR) ## Build PPTX presentations → dist/pptx/
-	@set -e; \
-	for f in $(SLIDE_FILES); do \
-		slug=$$(dirname $$f | sed 's|^$(SLIDES_DIR)/||' | tr '/' '-'); \
-		outfile="$(PPTX_DIR)/$$slug-$$(basename $$f .md).pptx"; \
-		echo "  PPTX: $$f -> $$outfile"; \
-		$(MARP) --pptx-editable "$$f" -o "$$outfile"; \
-		uv run scripts/fix-pptx-margins.py "$$outfile"; \
-	done
+# --- PPTX ---
+
+pptx: $(PPTX_OUT) ## Build PPTX presentations → dist/pptx/<deck>/
+
+.SECONDEXPANSION:
+$(PPTX_DIR)/%.pptx: $(SLIDES_DIR)/%.md $(GLOBAL_DEPS) $$(shell find $(SLIDES_DIR)/$$(dir $$*)assets -type f 2>/dev/null)
+	@mkdir -p $(dir $@)
+	@echo "  PPTX: $< -> $@"
+	@$(MARP) --pptx-editable "$<" -o "$@"
+	@uv run scripts/fix-pptx-margins.py "$@"
+
+# --- PDF ---
+
+pdf-full: $(PDF_OUT) ## Build full-content PDFs (no clipping) → dist/pdf-full/<deck>/
+
+.SECONDEXPANSION:
+$(PDF_FULL_DIR)/%.pdf: $(SLIDES_DIR)/%.md $(GLOBAL_DEPS) $$(shell find $(SLIDES_DIR)/$$(dir $$*)assets -type f 2>/dev/null)
+	@mkdir -p $(dir $@)
+	@echo "  PDF:  $< -> $@"
+	@$(MARP) --no-stdin --pdf --allow-local-files "$<" -o "$@"
+
+# --- Post-processing & serve ---
 
 html-inline: html ## Inject image preloader script into HTML slides
 	@python3 scripts/inline-images.py $(HTML_DIR)
@@ -85,6 +138,8 @@ deploy: html ## Publish to slides.develle.fr (rebuilds dist/html, served live by
 sync: ## Sync PPTX files to Google Drive via rclone
 	rclone sync $(PPTX_DIR)/ $(GDRIVE_REMOTE) --progress
 
+# --- Checks ---
+
 lint-authority-map: ## Verify authority-map.md and authority-map.yaml are in sync
 	@python3 scripts/cite/lint_authority_map.py
 
@@ -99,56 +154,21 @@ dedup: ## Remove duplicate images from all asset directories
 		python3 scripts/dedup-images.py "$$d"; \
 	done
 
-pdf-full: $(PDF_FULL_DIR) ## Build full-content PDFs (no clipping) → dist/pdf-full/
-	@set -e; \
-	for f in $(SLIDE_FILES); do \
-		slug=$$(dirname $$f | sed 's|^$(SLIDES_DIR)/||' | tr '/' '-'); \
-		outfile="$(PDF_FULL_DIR)/$$slug-$$(basename $$f .md).pdf"; \
-		echo "  PDF:  $$f -> $$outfile"; \
-		$(MARP) --no-stdin --pdf \
-			--allow-local-files "$$f" -o "$$outfile"; \
-	done
+# --- Per-subdir pattern targets (iterate on one deck dir at a time) ---
+# Stem is a top-level dir under slides/, e.g. `station-f` or `sorbonne-m2-2026`.
+# Static-pattern filters against pre-computed *_OUT lists, so prereqs are real targets
+# (no recursive $(MAKE) needed for the build step — only for `index`).
 
-# --- Per-subdir pattern rules (iterate on one deck dir at a time) ---
-# Usage: make build-station-f  /  make html-station-f  /  make pptx-session-04
-# The pattern stem `$*` is the first-level directory under slides/.
-
-html-%: $(HTML_DIR) ## Build HTML for slides/<NAME>/ only (e.g. make html-station-f)
-	@set -e; \
-	for f in $$(find $(SLIDES_DIR)/$* -name '*.md' -type f); do \
-		slug=$$(dirname $$f | sed 's|^$(SLIDES_DIR)/||' | tr '/' '-'); \
-		outfile="$(HTML_DIR)/$$slug-$$(basename $$f .md).html"; \
-		echo "  HTML: $$f -> $$outfile"; \
-		$(MARP) "$$f" -o "$$outfile"; \
-	done
-	@for d in $$(find $(SLIDES_DIR)/$* -type d -name assets); do \
-		echo "  ASSETS: $$d -> $(HTML_DIR)/assets/"; \
-		mkdir -p "$(HTML_DIR)/assets"; \
-		cp -ru "$$d/." "$(HTML_DIR)/assets/"; \
-	done
+html-%: $$(HTML_OUT_$$*) $$(PREBUILT_OUT_$$*) $$(ASSET_OUT_$$*) ## Build HTML for slides/<NAME>/ only
 	@$(MAKE) index
 
-pptx-%: $(PPTX_DIR) ## Build PPTX for slides/<NAME>/ only
-	@set -e; \
-	for f in $$(find $(SLIDES_DIR)/$* -name '*.md' -type f); do \
-		slug=$$(dirname $$f | sed 's|^$(SLIDES_DIR)/||' | tr '/' '-'); \
-		outfile="$(PPTX_DIR)/$$slug-$$(basename $$f .md).pptx"; \
-		echo "  PPTX: $$f -> $$outfile"; \
-		$(MARP) --pptx-editable "$$f" -o "$$outfile"; \
-		uv run scripts/fix-pptx-margins.py "$$outfile"; \
-	done
+pptx-%: $$(PPTX_OUT_$$*) ## Build PPTX for slides/<NAME>/ only
+	@true
 
-pdf-full-%: $(PDF_FULL_DIR) ## Build full-content PDFs for slides/<NAME>/ only
-	@set -e; \
-	for f in $$(find $(SLIDES_DIR)/$* -name '*.md' -type f); do \
-		slug=$$(dirname $$f | sed 's|^$(SLIDES_DIR)/||' | tr '/' '-'); \
-		outfile="$(PDF_FULL_DIR)/$$slug-$$(basename $$f .md).pdf"; \
-		echo "  PDF:  $$f -> $$outfile"; \
-		$(MARP) --no-stdin --pdf \
-			--allow-local-files "$$f" -o "$$outfile"; \
-	done
+pdf-full-%: $$(PDF_OUT_$$*) ## Build full-content PDFs for slides/<NAME>/ only
+	@true
 
-build-%: html-% pptx-% pdf-full-% ## Build HTML+PPTX+PDF for slides/<NAME>/ only
+build-%: html-% pdf-full-% pptx-% ## Build HTML + PDF + PPTX for slides/<NAME>/ only
 	@true
 
 guide: ## Build student guide as DOCX → dist/guide/
@@ -161,13 +181,13 @@ guide: ## Build student guide as DOCX → dist/guide/
 	@echo "  GUIDE: $(GUIDE_DIR)/n8n-student-guide.docx"
 
 $(HTML_DIR):
-	mkdir -p $(HTML_DIR)
+	@mkdir -p $(HTML_DIR)
 
 $(PPTX_DIR):
-	mkdir -p $(PPTX_DIR)
+	@mkdir -p $(PPTX_DIR)
 
 $(PDF_FULL_DIR):
-	mkdir -p $(PDF_FULL_DIR)
+	@mkdir -p $(PDF_FULL_DIR)
 
 clean: ## Remove all build artifacts
 	rip $(DIST_DIR) 2>/dev/null || true

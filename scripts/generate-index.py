@@ -40,10 +40,9 @@ def deslugify(stem: str) -> str:
 
 
 def html_name(md_path: Path, slides_dir: Path) -> str:
-    """Mirror the Makefile flat-output naming: <parent-rel-with-dashes>-<stem>.html"""
+    """Mirror the Makefile nested-output naming: dist/html/<rel>.html"""
     rel = md_path.relative_to(slides_dir)
-    slug = str(rel.parent).replace("/", "-")
-    return f"{slug}-{md_path.stem}.html"
+    return str(rel.with_suffix(".html"))
 
 
 def decks_in(dir_path: Path, slides_dir: Path, html_dir: Path):

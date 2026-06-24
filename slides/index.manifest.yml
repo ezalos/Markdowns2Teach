@@ -23,9 +23,9 @@ groups:
     category: talk
     date: 2026-06-18
     prebuilt_html:                            # rendered by frontend-slides, not Marp
-      - file: capgemini-ai-agents.html
+      - file: capgemini-ai-agents/capgemini-ai-agents.html
         label: "Tech Lab — latest (executive, stepped + figures)"
-      - file: capgemini-ai-agents-original.html
+      - file: capgemini-ai-agents/capgemini-ai-agents-original.html
         label: "Tech Lab — original 2026-06-10 (more technical)"
 
   - id: gustave-eiffel-agents

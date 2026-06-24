@@ -85,10 +85,11 @@ def main() -> None:
         sys.exit(1)
 
     html_dir = Path(sys.argv[1])
-    for html_file in sorted(html_dir.glob("*.html")):
+    for html_file in sorted(html_dir.rglob("*.html")):
         if html_file.name == "index.html":
             continue
-        print(f"  PRELOAD: {html_file.name}")
+        rel = html_file.relative_to(html_dir)
+        print(f"  PRELOAD: {rel}")
         inject_preloader(html_file)
 
 
