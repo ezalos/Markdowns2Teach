@@ -4,22 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Agents &amp; Claude Code — Tech Lab</title>
-<link rel="preconnect" href="https://api.fontshare.com">
-<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700,500&f[]=satoshi@400,500,700,900&display=swap">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..700&family=Work+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg-primary:#0a0a0f; --bg-secondary:#12120f;
-  --panel-bg:rgba(255,255,255,0.025); --panel-border:rgba(255,255,255,0.10);
-  --text-primary:#f6f3ee; --text-secondary:#b9b3a8; --text-dim:#7d7668;
-  --brand:#f97316; --brand-2:#fb923c; --brand-3:#fdba74;
-  --brand-glow:rgba(249,115,22,0.30);
-  --amber:#fbbf24; --emerald:#34d399; --red:#f87171;
-  --stage-bg:#050507; --slide-bg:var(--bg-primary);
-  --font-display:'Clash Display',sans-serif;
-  --font-body:'Satoshi',sans-serif;
+  /* STYLE C — Light paper editorial */
+  --bg-primary:#f0e9da; --bg-secondary:#ece3d2;
+  --panel-bg:#fffdf7; --panel-border:rgba(26,34,56,0.16);
+  --text-primary:#1a2238; --text-secondary:rgba(32,36,46,0.70); --text-dim:rgba(32,36,46,0.46);
+  --brand:#b1502a; --brand-2:#c05f37; --brand-3:#9c441f;
+  --brand-glow:rgba(177,80,42,0.28);
+  --amber:#b07a18; --emerald:#2f8f63; --red:#c0432e;
+  --stage-bg:#ddd5c6; --slide-bg:var(--bg-primary);
+  --font-display:'Bodoni Moda',serif;
+  --font-body:'Work Sans',system-ui,sans-serif;
   --font-mono:'JetBrains Mono',monospace;
   --slide-padding:80px;
   --ease:cubic-bezier(0.16,1,0.3,1);
@@ -47,14 +46,20 @@ img,video,canvas,svg{max-width:100%;max-height:100%;}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.2s!important;}}
 
 /* stage atmosphere */
-.deck-stage{color:var(--text-primary);font-family:var(--font-body);
+.deck-stage{color:var(--text-primary);font-family:var(--font-body);background:var(--bg-primary);}
+/* paper texture — warm vellum cream with fractal grain + faint fibers + vellum highlight,
+   applied per-slide so every slide sits on the same paper. */
+.slide{color:var(--text-primary);font-family:var(--font-body);
   background:
-    radial-gradient(ellipse 60% 50% at 80% 8%,rgba(249,115,22,0.10) 0%,transparent 60%),
-    radial-gradient(ellipse 55% 55% at 8% 92%,rgba(251,146,60,0.07) 0%,transparent 60%),
-    var(--bg-primary);}
-.deck-stage::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
-  background-image:linear-gradient(rgba(249,115,22,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(249,115,22,0.04) 1px,transparent 1px);
-  background-size:64px 64px;mask-image:radial-gradient(ellipse 80% 80% at 50% 40%,#000 35%,transparent 100%);}
+    radial-gradient(120% 90% at 14% 8%, rgba(255,252,245,0.9) 0%, rgba(255,252,245,0) 50%),
+    radial-gradient(110% 100% at 92% 96%, rgba(177,80,42,0.07) 0%, rgba(177,80,42,0) 52%),
+    linear-gradient(160deg, #f4eee1 0%, #ece3d2 56%, #e4dac6 100%);}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;opacity:0.5;
+  background-image:
+    repeating-linear-gradient(96deg, rgba(26,34,56,0.018) 0 2px, transparent 2px 7px),
+    repeating-linear-gradient(2deg, rgba(177,80,42,0.012) 0 1px, transparent 1px 9px);}
+.slide::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;opacity:0.55;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");}
 
 /* slide scaffold */
 .slide{padding:var(--slide-padding);display:flex;flex-direction:column;}
@@ -63,8 +68,8 @@ img,video,canvas,svg{max-width:100%;max-height:100%;}
 .s-meta{display:flex;align-items:center;gap:18px;}
 .eyebrow{font-family:var(--font-mono);font-size:18px;letter-spacing:0.22em;text-transform:uppercase;color:var(--brand);display:inline-flex;align-items:center;gap:12px;}
 .eyebrow::before{content:"";width:34px;height:2px;background:var(--brand);box-shadow:0 0 12px var(--brand-glow);}
-.badge{font-family:var(--font-mono);font-size:15px;letter-spacing:0.10em;text-transform:uppercase;color:#1a1206;font-weight:700;background:linear-gradient(135deg,var(--brand),var(--brand-2));padding:7px 15px;border-radius:6px;box-shadow:0 0 24px var(--brand-glow);margin-left:auto;}
-.badge.live{background:linear-gradient(135deg,#ef4444,#f97316);color:#fff;}
+.badge{font-family:var(--font-mono);font-size:15px;letter-spacing:0.10em;text-transform:uppercase;color:#fff7ef;font-weight:700;background:linear-gradient(135deg,var(--brand),var(--brand-2));padding:7px 15px;border-radius:6px;box-shadow:0 6px 18px var(--brand-glow);margin-left:auto;}
+.badge.live{background:linear-gradient(135deg,#ef4444,#b1502a);color:#fff;}
 .s-title{font-family:var(--font-display);font-weight:600;font-size:66px;line-height:1.05;letter-spacing:-0.01em;color:var(--text-primary);}
 .s-title.small{font-size:52px;}
 .s-title .hl{color:var(--brand);}
@@ -87,11 +92,11 @@ ol.num>li::before{content:counter(s,decimal-leading-zero);position:absolute;left
 
 /* cards */
 .cards{display:grid;gap:20px;}
-.card{background:var(--panel-bg);border:1px solid var(--panel-border);border-radius:16px;padding:24px 26px;backdrop-filter:blur(6px);}
+.card{background:var(--panel-bg);border:1px solid var(--panel-border);border-radius:16px;padding:24px 26px;box-shadow:0 8px 24px rgba(26,34,56,0.07);}
 .card h4{font-family:var(--font-display);font-weight:500;font-size:26px;color:var(--text-primary);margin-bottom:8px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
 .card .k{font-family:var(--font-mono);color:var(--brand);font-size:18px;}
 .card p,.card li{font-size:21px;line-height:1.34;}
-.card.accent{border-color:rgba(249,115,22,0.45);background:rgba(249,115,22,0.045);}
+.card.accent{border-color:rgba(177,80,42,0.45);background:rgba(177,80,42,0.045);}
 .card.warn{border-color:rgba(251,191,36,0.45);background:rgba(251,191,36,0.04);}
 .card.warn h4{color:var(--amber);}
 .idx{font-family:var(--font-mono);color:var(--brand);font-size:30px;font-weight:700;display:block;margin-bottom:6px;}
@@ -106,14 +111,14 @@ ol.num>li::before{content:counter(s,decimal-leading-zero);position:absolute;left
 /* callout */
 .callout{display:flex;gap:16px;align-items:flex-start;border:1px solid var(--panel-border);border-radius:14px;padding:18px 22px;background:var(--panel-bg);}
 .callout .ci{flex:none;width:34px;height:34px;color:var(--brand);}
-.callout.tip{border-color:rgba(249,115,22,0.4);background:rgba(249,115,22,0.05);}
+.callout.tip{border-color:rgba(177,80,42,0.4);background:rgba(177,80,42,0.05);}
 .callout.security{border-color:rgba(251,191,36,0.45);background:rgba(251,191,36,0.05);}
 .callout.security .ci{color:var(--amber);}
 .callout h5{font-family:var(--font-display);font-weight:500;font-size:22px;color:var(--text-primary);margin-bottom:4px;}
 
 /* big stats */
 .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-.stat{background:var(--panel-bg);border:1px solid var(--panel-border);border-radius:16px;padding:26px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:8px;}
+.stat{background:var(--panel-bg);border:1px solid var(--panel-border);border-radius:16px;padding:26px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:8px;box-shadow:0 8px 24px rgba(26,34,56,0.07);}
 .stat::after{content:"";position:absolute;left:0;top:0;width:4px;height:100%;background:linear-gradient(var(--brand),transparent);}
 .stat .stat-ico{width:44px;height:44px;}
 .stat .big{font-family:var(--font-display);font-weight:700;font-size:58px;line-height:1;background:linear-gradient(120deg,var(--brand),var(--brand-3));-webkit-background-clip:text;background-clip:text;color:transparent;}
@@ -121,8 +126,8 @@ ol.num>li::before{content:counter(s,decimal-leading-zero);position:absolute;left
 .stat .stat-src{font-family:var(--font-mono);font-size:15px;color:var(--text-dim);margin-top:auto;}
 
 /* app window (terminal/dialog chrome) */
-.appwin{border:1px solid var(--panel-border);border-radius:14px;background:rgba(10,10,14,0.85);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 18px 50px rgba(0,0,0,0.4);}
-.appwin .titlebar{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--panel-border);background:rgba(255,255,255,0.02);}
+.appwin{border:1px solid var(--panel-border);border-radius:14px;background:#fbf7ee;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 14px 40px rgba(26,34,56,0.14);}
+.appwin .titlebar{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--panel-border);background:rgba(26,34,56,0.03);}
 .appwin .dot{width:12px;height:12px;border-radius:50%;}
 .appwin .dot.r{background:#ff5f56;}.appwin .dot.y{background:#ffbd2e;}.appwin .dot.g{background:#27c93f;}
 .appwin .wtitle{font-family:var(--font-mono);font-size:16px;color:var(--text-dim);margin-left:8px;}
@@ -137,21 +142,21 @@ ol.num>li::before{content:counter(s,decimal-leading-zero);position:absolute;left
 
 /* generic boxes */
 .box{border:1px solid var(--panel-border);border-radius:12px;padding:16px 20px;background:var(--panel-bg);}
-.box.brand{border-color:rgba(249,115,22,0.5);background:rgba(249,115,22,0.06);}
+.box.brand{border-color:rgba(177,80,42,0.5);background:rgba(177,80,42,0.06);}
 .box.amber{border-color:rgba(251,191,36,0.45);background:rgba(251,191,36,0.05);}
 .box.dashed{border-style:dashed;}
 .boxlabel{font-family:var(--font-mono);font-size:16px;letter-spacing:0.14em;text-transform:uppercase;color:var(--brand);margin-bottom:8px;}
 .box.amber .boxlabel{color:var(--amber);}
 
 /* copy button */
-.copy-btn{display:inline-flex;align-items:center;gap:12px;font-family:var(--font-mono);font-size:20px;font-weight:700;letter-spacing:0.02em;color:var(--brand);background:rgba(249,115,22,0.08);border:1.5px solid var(--brand);border-radius:12px;padding:14px 22px;cursor:pointer;transition:background-color 0.2s var(--ease),border-color 0.2s var(--ease),color 0.2s var(--ease),transform 0.2s var(--ease);position:relative;}
-.copy-btn:hover{background:rgba(249,115,22,0.16);transform:translateY(-1px);}
+.copy-btn{display:inline-flex;align-items:center;gap:12px;font-family:var(--font-mono);font-size:20px;font-weight:700;letter-spacing:0.02em;color:var(--brand);background:rgba(177,80,42,0.08);border:1.5px solid var(--brand);border-radius:12px;padding:14px 22px;cursor:pointer;transition:background-color 0.2s var(--ease),border-color 0.2s var(--ease),color 0.2s var(--ease),transform 0.2s var(--ease);position:relative;}
+.copy-btn:hover{background:rgba(177,80,42,0.16);transform:translateY(-1px);}
 .copy-btn .ico{flex:none;}
 .copy-btn .ok{display:none;color:var(--emerald);}
 .copy-btn.copied .lbl,.copy-btn.copied .ico{display:none;}
 .copy-btn.copied .ok{display:inline;}
 .copy-btn.copied{border-color:var(--emerald);background:rgba(52,211,153,0.10);}
-.copy-btn.inverted{background:var(--brand);color:#1a1206;border-color:var(--brand);}
+.copy-btn.inverted{background:var(--brand);color:#fff7ef;border-color:var(--brand);}
 .copy-btn.inverted:hover{background:var(--brand-2);}
 
 /* timer */
@@ -159,8 +164,8 @@ ol.num>li::before{content:counter(s,decimal-leading-zero);position:absolute;left
 .tm-face{font-family:var(--font-display);font-weight:700;font-size:200px;line-height:1;letter-spacing:-0.02em;background:linear-gradient(120deg,var(--brand),var(--brand-3));-webkit-background-clip:text;background-clip:text;color:transparent;font-variant-numeric:tabular-nums;}
 .timer.low .tm-face,.timer.done .tm-face{background:linear-gradient(120deg,var(--amber),#fde68a);-webkit-background-clip:text;background-clip:text;color:transparent;}
 .tm-ctrls{display:flex;gap:14px;}
-.tm-btn{font-family:var(--font-mono);font-size:20px;font-weight:700;color:var(--brand);background:rgba(249,115,22,0.08);border:1.5px solid var(--brand);border-radius:10px;padding:12px 24px;cursor:pointer;transition:background-color 0.2s var(--ease),border-color 0.2s var(--ease),color 0.2s var(--ease),transform 0.2s var(--ease);}
-.tm-btn:hover{background:rgba(249,115,22,0.18);}
+.tm-btn{font-family:var(--font-mono);font-size:20px;font-weight:700;color:var(--brand);background:rgba(177,80,42,0.08);border:1.5px solid var(--brand);border-radius:10px;padding:12px 24px;cursor:pointer;transition:background-color 0.2s var(--ease),border-color 0.2s var(--ease),color 0.2s var(--ease),transform 0.2s var(--ease);}
+.tm-btn:hover{background:rgba(177,80,42,0.18);}
 
 /* GLOBAL animation gate — catch-all kill-switch.
    In the steady state the deck root (#deckStage) does NOT carry .anim, so
@@ -195,8 +200,8 @@ ol.num>li::before{content:counter(s,decimal-leading-zero);position:absolute;left
 .flip-card .inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;}
 .anim .flip-card .inner{transition:transform 0.65s var(--ease);}
 .flip-card.flipped .inner{transform:rotateY(180deg);}
-.flip-card .face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:8px;border:1px solid rgba(255,255,255,0.12);background:var(--panel-bg);}
-.flip-card .face.back{transform:rotateY(180deg);border-color:rgba(249,115,22,0.6);background:rgba(249,115,22,0.06);}
+.flip-card .face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:8px;border:1px solid rgba(26,34,56,0.16);background:var(--panel-bg);box-shadow:0 8px 24px rgba(26,34,56,0.08);}
+.flip-card .face.back{transform:rotateY(180deg);border-color:rgba(177,80,42,0.6);background:rgba(177,80,42,0.06);}
 .flip-card .face .fhead{display:flex;align-items:center;justify-content:space-between;}
 .flip-card .face .ficon{width:34px;height:34px;color:var(--text-dim);}
 .flip-card .face.back .ficon{color:var(--brand);}
@@ -204,12 +209,12 @@ ol.num>li::before{content:counter(s,decimal-leading-zero);position:absolute;left
 .flip-card .face.back .flab{color:var(--brand);}
 .flip-card .face h4{font-family:var(--font-display);font-weight:600;font-size:28px;color:var(--text-primary);}
 .flip-card .face p{font-size:19px;line-height:1.3;}
-.llm-capsule{display:flex;align-items:center;gap:24px;border:1px solid rgba(249,115,22,0.4);border-radius:16px;padding:14px 28px;background:rgba(249,115,22,0.04);margin-bottom:18px;}
+.llm-capsule{display:flex;align-items:center;gap:24px;border:1px solid rgba(177,80,42,0.4);border-radius:16px;padding:14px 28px;background:rgba(177,80,42,0.04);margin-bottom:18px;}
 .llm-capsule .llm{font-family:var(--font-display);font-weight:700;font-size:54px;background:linear-gradient(120deg,var(--brand),var(--brand-3));-webkit-background-clip:text;background-clip:text;color:transparent;}
 .llm-capsule .div{width:1px;height:46px;background:var(--panel-border);}
 
 /* figure frame (PNG charts) */
-.figframe{border:1px solid var(--panel-border);border-radius:16px;background:var(--panel-bg);padding:18px;display:flex;flex-direction:column;gap:12px;height:100%;}
+.figframe{border:1px solid var(--panel-border);border-radius:16px;background:var(--panel-bg);padding:18px;display:flex;flex-direction:column;gap:12px;height:100%;box-shadow:0 10px 30px rgba(26,34,56,0.10);}
 .figframe .figtitle{font-family:var(--font-display);font-size:24px;color:var(--text-primary);}
 .figframe .figimg{flex:1;min-height:0;background:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:10px;}
 .figframe .figimg img{width:100%;height:100%;object-fit:contain;}
@@ -223,7 +228,7 @@ ol.num>li::before{content:counter(s,decimal-leading-zero);position:absolute;left
 
 /* tool tiles bench (slide 13->18 content) */
 .tool-bench{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-.tool-tile{border:1px solid var(--panel-border);border-radius:14px;padding:16px 18px;background:var(--panel-bg);display:flex;flex-direction:column;gap:8px;position:relative;}
+.tool-tile{border:1px solid var(--panel-border);border-radius:14px;padding:16px 18px;background:var(--panel-bg);display:flex;flex-direction:column;gap:8px;position:relative;box-shadow:0 6px 18px rgba(26,34,56,0.06);}
 .tool-tile .chip{width:46px;height:46px;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center;padding:7px;}
 .tool-tile .chip img{width:100%;height:100%;object-fit:contain;}
 .tool-tile .tname{font-family:var(--font-display);font-size:22px;color:var(--text-primary);}
@@ -236,7 +241,7 @@ ol.num>li::before{content:counter(s,decimal-leading-zero);position:absolute;left
 
 /* context window zones */
 .ctx-zone{border:1px solid var(--panel-border);border-radius:12px;padding:14px 18px;background:var(--panel-bg);display:flex;flex-direction:column;gap:4px;}
-.ctx-zone.sys{border-color:rgba(249,115,22,0.4);}
+.ctx-zone.sys{border-color:rgba(177,80,42,0.4);}
 .ctx-zone .zlab{font-family:var(--font-mono);font-size:16px;letter-spacing:0.12em;text-transform:uppercase;color:var(--brand);}
 .ctx-zone.sys .zlab{color:var(--brand);}
 .ctx-zone.neutral .zlab{color:var(--text-dim);}
@@ -252,7 +257,7 @@ ol.num>li::before{content:counter(s,decimal-leading-zero);position:absolute;left
 .stephead{display:flex;flex-direction:column;gap:10px;}
 .stephead .scount{font-family:var(--font-mono);font-size:20px;color:var(--text-dim);letter-spacing:0.1em;}
 .stephead .sdashes{display:flex;gap:8px;}
-.stephead .sdashes .d{height:6px;flex:1;border-radius:3px;background:rgba(255,255,255,0.12);}
+.stephead .sdashes .d{height:6px;flex:1;border-radius:3px;background:rgba(26,34,56,0.16);}
 .stephead .sdashes .d.on{background:var(--brand);box-shadow:0 0 10px var(--brand-glow);}
 
 /* vote chips (slide 37) */
@@ -260,7 +265,7 @@ ol.num>li::before{content:counter(s,decimal-leading-zero);position:absolute;left
 .vote{width:74px;height:74px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:36px;font-weight:700;border:2px solid;}
 .vote.y{border-color:var(--emerald);color:var(--emerald);background:rgba(52,211,153,0.08);}
 .vote.n{border-color:var(--red);color:var(--red);background:rgba(248,113,113,0.08);}
-.vote-res{border:2px solid var(--brand);background:rgba(249,115,22,0.08);border-radius:14px;padding:16px 26px;display:flex;flex-direction:column;align-items:center;gap:4px;}
+.vote-res{border:2px solid var(--brand);background:rgba(177,80,42,0.08);border-radius:14px;padding:16px 26px;display:flex;flex-direction:column;align-items:center;gap:4px;}
 .vote-res .v{font-family:var(--font-display);font-size:34px;color:var(--emerald);font-weight:700;}
 .vote-res .f{font-family:var(--font-mono);font-size:22px;color:var(--brand);}
 .arrow-big{font-size:48px;color:var(--brand);}
@@ -268,13 +273,13 @@ ol.num>li::before{content:counter(s,decimal-leading-zero);position:absolute;left
 /* permission buttons */
 .perm-btns{display:flex;gap:12px;margin-top:6px;}
 .perm-btn{font-family:var(--font-mono);font-size:17px;border-radius:8px;padding:9px 18px;border:1px solid var(--panel-border);color:var(--text-dim);}
-.perm-btn.go{border-color:var(--brand);color:var(--brand);background:rgba(249,115,22,0.08);}
+.perm-btn.go{border-color:var(--brand);color:var(--brand);background:rgba(177,80,42,0.08);}
 
 /* flow (agenda) */
 .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;flex:1;min-height:0;align-content:center;}
-.flow .fline{position:absolute;left:5%;right:5%;top:36px;height:2px;background:linear-gradient(90deg,rgba(249,115,22,0.1),rgba(249,115,22,0.5),rgba(249,115,22,0.7));z-index:0;}
+.flow .fline{position:absolute;left:5%;right:5%;top:36px;height:2px;background:linear-gradient(90deg,rgba(177,80,42,0.1),rgba(177,80,42,0.5),rgba(177,80,42,0.7));z-index:0;}
 .flow .fnode{position:relative;z-index:1;display:flex;flex-direction:column;gap:8px;}
-.flow .fbubble{width:72px;height:72px;border-radius:50%;border:2px solid rgba(249,115,22,0.4);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:28px;color:var(--brand);background:var(--bg-primary);}
+.flow .fbubble{width:72px;height:72px;border-radius:50%;border:2px solid rgba(177,80,42,0.4);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:28px;color:var(--brand);background:var(--bg-primary);}
 .flow .ftitle{font-family:var(--font-display);font-size:30px;color:var(--text-primary);font-weight:600;}
 .flow .fplayers{font-family:var(--font-mono);font-size:17px;color:var(--brand);}
 .flow .fbody{font-size:20px;color:var(--text-secondary);line-height:1.32;}
@@ -288,9 +293,9 @@ ol.num>li::before{content:counter(s,decimal-leading-zero);position:absolute;left
 
 /* instructor cards */
 .bio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:center;flex:1;}
-.bio{border:1px solid var(--panel-border);border-radius:18px;padding:28px;background:var(--panel-bg);display:flex;flex-direction:column;gap:12px;}
+.bio{border:1px solid var(--panel-border);border-radius:18px;padding:28px;background:var(--panel-bg);display:flex;flex-direction:column;gap:12px;box-shadow:0 8px 24px rgba(26,34,56,0.07);}
 .bio.off{transform:translateY(34px);}
-.bio .ava{width:92px;height:92px;border-radius:16px;border:2px solid var(--brand);background:rgba(249,115,22,0.1);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:38px;color:var(--brand);font-weight:700;}
+.bio .ava{width:92px;height:92px;border-radius:16px;border:2px solid var(--brand);background:rgba(177,80,42,0.1);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:38px;color:var(--brand);font-weight:700;}
 .bio .bname{font-family:var(--font-display);font-size:30px;color:var(--text-primary);font-weight:600;}
 .bio .brole{font-family:var(--font-mono);font-size:16px;color:var(--brand);text-transform:uppercase;letter-spacing:0.08em;}
 .bio ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
@@ -320,10 +325,10 @@ ol.num>li::before{content:counter(s,decimal-leading-zero);position:absolute;left
 .sources a{color:var(--brand-3);text-decoration:none;}
 
 /* === presentation chrome (outside stage) === */
-.pagination{position:fixed;right:26px;bottom:22px;z-index:1000;font-family:var(--font-mono);font-size:18px;color:var(--text-secondary);background:rgba(10,10,14,0.7);border:1px solid var(--panel-border);border-radius:10px;padding:8px 14px;letter-spacing:0.08em;}
+.pagination{position:fixed;right:26px;bottom:22px;z-index:1000;font-family:var(--font-mono);font-size:18px;color:var(--text-secondary);background:rgba(255,253,247,0.92);border:1px solid var(--panel-border);border-radius:10px;padding:8px 14px;letter-spacing:0.08em;}
 .pagination b{color:var(--brand);}
 .stepdots{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:1000;display:flex;gap:9px;}
-.stepdots .sd{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.16);transition:background 0.25s;}
+.stepdots .sd{width:9px;height:9px;border-radius:50%;background:rgba(26,34,56,0.16);transition:background 0.25s;}
 .stepdots .sd.on{background:var(--brand);box-shadow:0 0 8px var(--brand-glow);}
 .stepdots:empty{display:none;}
 .hint{position:fixed;left:26px;bottom:24px;z-index:1000;font-family:var(--font-mono);font-size:14px;color:var(--text-dim);opacity:0.6;}
@@ -446,10 +451,10 @@ ol.num>li::before{content:counter(s,decimal-leading-zero);position:absolute;left
 <div class="s-head"><span class="step-tag">A simple example · stepped</span><h1 class="s-title small">One goal, many small steps <span class="cite">[1]</span></h1></div>
 <div class="s-body"><div class="two-col" style="grid-template-columns:0.95fr 1.25fr;">
  <div class="col" style="justify-content:center;"><svg viewBox="0 0 540 480" class="method-svg" style="max-height:420px;">
-<defs><marker id="loop-arrow" markerWidth="10" markerHeight="10" refX="7" refY="5" orient="auto"><path d="M0 0 L8 5 L0 10 z" fill="#f97316"/></marker></defs>
-<path d="M 336 105 A 150 150 0 0 1 420 250" fill="none" stroke="rgba(249,115,22,0.55)" stroke-width="2" marker-end="url(#loop-arrow)"/><path d="M 354 364 A 150 150 0 0 1 186 364" fill="none" stroke="rgba(249,115,22,0.55)" stroke-width="2" marker-end="url(#loop-arrow)"/><path d="M 120 250 A 150 150 0 0 1 204 105" fill="none" stroke="rgba(249,115,22,0.55)" stroke-width="2" marker-end="url(#loop-arrow)"/><g class="loopnode" data-phase="think"><rect x="178" y="54" width="184" height="72" rx="14" fill="rgba(249,115,22,0.04)" stroke="rgba(249,115,22,0.5)" stroke-width="1.5"/><text x="270" y="86" text-anchor="middle" font-family="Clash Display" font-size="24" fill="#f6f3ee">Thought</text><text x="270" y="110" text-anchor="middle" font-family="JetBrains Mono" font-size="14" fill="#7d7668">what next?</text></g><g class="loopnode" data-phase="act"><rect x="308" y="279" width="184" height="72" rx="14" fill="rgba(249,115,22,0.04)" stroke="rgba(249,115,22,0.5)" stroke-width="1.5"/><text x="400" y="311" text-anchor="middle" font-family="Clash Display" font-size="24" fill="#f6f3ee">Action</text><text x="400" y="335" text-anchor="middle" font-family="JetBrains Mono" font-size="14" fill="#7d7668">use a tool</text></g><g class="loopnode" data-phase="observe"><rect x="48" y="279" width="184" height="72" rx="14" fill="rgba(249,115,22,0.04)" stroke="rgba(249,115,22,0.5)" stroke-width="1.5"/><text x="140" y="311" text-anchor="middle" font-family="Clash Display" font-size="24" fill="#f6f3ee">Observation</text><text x="140" y="335" text-anchor="middle" font-family="JetBrains Mono" font-size="14" fill="#7d7668">read the result</text></g>
-<text x="270" y="232" text-anchor="middle" font-family="Satoshi" font-size="20" fill="#7d7668">until the goal</text>
-<text x="270" y="258" text-anchor="middle" font-family="Satoshi" font-size="20" fill="#7d7668">is reached</text>
+<defs><marker id="loop-arrow" markerWidth="10" markerHeight="10" refX="7" refY="5" orient="auto"><path d="M0 0 L8 5 L0 10 z" fill="#b1502a"/></marker></defs>
+<path d="M 336 105 A 150 150 0 0 1 420 250" fill="none" stroke="rgba(177,80,42,0.55)" stroke-width="2" marker-end="url(#loop-arrow)"/><path d="M 354 364 A 150 150 0 0 1 186 364" fill="none" stroke="rgba(177,80,42,0.55)" stroke-width="2" marker-end="url(#loop-arrow)"/><path d="M 120 250 A 150 150 0 0 1 204 105" fill="none" stroke="rgba(177,80,42,0.55)" stroke-width="2" marker-end="url(#loop-arrow)"/><g class="loopnode" data-phase="think"><rect x="178" y="54" width="184" height="72" rx="14" fill="rgba(177,80,42,0.04)" stroke="rgba(177,80,42,0.5)" stroke-width="1.5"/><text x="270" y="86" text-anchor="middle" font-family="Bodoni Moda" font-size="24" fill="#1a2238">Thought</text><text x="270" y="110" text-anchor="middle" font-family="JetBrains Mono" font-size="14" fill="#6c7184">what next?</text></g><g class="loopnode" data-phase="act"><rect x="308" y="279" width="184" height="72" rx="14" fill="rgba(177,80,42,0.04)" stroke="rgba(177,80,42,0.5)" stroke-width="1.5"/><text x="400" y="311" text-anchor="middle" font-family="Bodoni Moda" font-size="24" fill="#1a2238">Action</text><text x="400" y="335" text-anchor="middle" font-family="JetBrains Mono" font-size="14" fill="#6c7184">use a tool</text></g><g class="loopnode" data-phase="observe"><rect x="48" y="279" width="184" height="72" rx="14" fill="rgba(177,80,42,0.04)" stroke="rgba(177,80,42,0.5)" stroke-width="1.5"/><text x="140" y="311" text-anchor="middle" font-family="Bodoni Moda" font-size="24" fill="#1a2238">Observation</text><text x="140" y="335" text-anchor="middle" font-family="JetBrains Mono" font-size="14" fill="#6c7184">read the result</text></g>
+<text x="270" y="232" text-anchor="middle" font-family="Work Sans" font-size="20" fill="#6c7184">until the goal</text>
+<text x="270" y="258" text-anchor="middle" font-family="Work Sans" font-size="20" fill="#6c7184">is reached</text>
 </svg>
    <div class="prail" data-diagram="ProgressRail" style="margin-top:8px;"><div class="pr" data-rail="1"><span class="pdot"></span>Think</div><div class="pr" data-rail="2"><span class="pdot"></span>Act</div><div class="pr" data-rail="3"><span class="pdot"></span>Observe</div><div class="pr" data-rail="4"><span class="pdot"></span>Think</div><div class="pr" data-rail="5"><span class="pdot"></span>Act</div><div class="pr" data-rail="6"><span class="pdot"></span>Observe</div><div class="pr" data-rail="7"><span class="pdot"></span>Think</div><div class="pr" data-rail="8"><span class="pdot"></span>Act</div><div class="pr" data-rail="9"><span class="pdot"></span>Observe</div><div class="pr" data-rail="10"><span class="pdot"></span>Answer</div></div>
  </div>
@@ -459,7 +464,7 @@ ol.num>li::before{content:counter(s,decimal-leading-zero);position:absolute;left
    <div class="wbody" style="font-size:17px;gap:6px;">
      <div class="box brand" data-diagram="GoalBar" style="padding:8px 12px;"><span class="boxlabel" style="margin-bottom:2px;">Goal</span>Find an Asian restaurant for Tuesday night in Paris</div>
      <div data-diagram="ToolStrip" style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;"><span class="dim" style="font-size:14px;">Tools</span><span class="box" style="padding:3px 10px;font-size:14px;">● search_web</span><span class="box" style="padding:3px 10px;font-size:14px;">● read_url</span><span class="box" style="padding:3px 10px;font-size:14px;">● google_maps</span></div>
-     <div data-diagram="Beat" style="display:flex;flex-direction:column;gap:6px;"><div class="step-group" style="color:#b9b3a8;font-style:italic;">Thinking: To reach the goal, I should search the web first…</div><div class="step-group toolcall">● <span class="tn">search_web &quot;best Asian restaurants Paris&quot;</span></div><div class="step-group dim">→ result #2: a top-10 of Asian restaurants in Paris</div><div class="step-group" style="color:#b9b3a8;font-style:italic;">Thinking: The right one is probably in that list — let me read it.</div><div class="step-group toolcall">● <span class="tn">read_url — the top-10 article</span></div><div class="step-group dim">→ Bim Bim Bap, Châtelet, looks ideal</div><div class="step-group" style="color:#b9b3a8;font-style:italic;">Thinking: Before I recommend it, I should check it is open Tuesday night.</div><div class="step-group toolcall">● <span class="tn">google_maps &quot;Bim Bim Bap Châtelet&quot; — opening hours</span></div><div class="step-group dim">→ open every day of the week</div><div class="step-group box brand" style="margin-top:6px;"><span class="boxlabel">Answer</span>Book Bim Bim Bap at Châtelet — open Tuesday night, great reviews, fits your group.</div></div>
+     <div data-diagram="Beat" style="display:flex;flex-direction:column;gap:6px;"><div class="step-group" style="color:#52566a;font-style:italic;">Thinking: To reach the goal, I should search the web first…</div><div class="step-group toolcall">● <span class="tn">search_web &quot;best Asian restaurants Paris&quot;</span></div><div class="step-group dim">→ result #2: a top-10 of Asian restaurants in Paris</div><div class="step-group" style="color:#52566a;font-style:italic;">Thinking: The right one is probably in that list — let me read it.</div><div class="step-group toolcall">● <span class="tn">read_url — the top-10 article</span></div><div class="step-group dim">→ Bim Bim Bap, Châtelet, looks ideal</div><div class="step-group" style="color:#52566a;font-style:italic;">Thinking: Before I recommend it, I should check it is open Tuesday night.</div><div class="step-group toolcall">● <span class="tn">google_maps &quot;Bim Bim Bap Châtelet&quot; — opening hours</span></div><div class="step-group dim">→ open every day of the week</div><div class="step-group box brand" style="margin-top:6px;"><span class="boxlabel">Answer</span>Book Bim Bim Bap at Châtelet — open Tuesday night, great reviews, fits your group.</div></div>
    </div>
   </div>
  </div>
@@ -671,7 +676,7 @@ ol.num>li::before{content:counter(s,decimal-leading-zero);position:absolute;left
 <section class="slide "><div class="slide-content"><div class="masthead"><span class="logo">AI</span><span class="sep"></span><span>Tech Lab</span><span class="sep"></span><span class="eyb">Context engineering</span></div>
 <div class="s-head" style="margin-top:54px;"><span class="eyebrow">Context engineering</span><h1 class="s-title">What the model actually sees</h1></div>
 <div class="s-body"><div class="two-col wide-left">
- <div class="col"><div class="box" data-diagram="context-window-zones" style="background:rgba(0,0,0,0.4);flex:1;min-height:0;display:flex;flex-direction:column;gap:12px;">
+ <div class="col"><div class="box" data-diagram="context-window-zones" style="background:rgba(26,34,56,0.04);flex:1;min-height:0;display:flex;flex-direction:column;gap:12px;">
    <div style="display:flex;align-items:center;justify-content:space-between;"><span class="boxlabel" style="color:var(--text-primary);font-size:20px;">The context window</span><span class="box brand" style="padding:4px 12px;font-family:var(--font-mono);font-size:14px;color:var(--brand);">↻ rebuilt every turn [1]</span></div>
    <div class="ctx-zone sys"><span class="zlab">System</span><span class="zrow">CLAUDE.md · environment info</span><span class="zrow">Skills index — name + description only</span><span class="zrow">Memory index — one line per fact</span></div>
    <div class="ctx-zone neutral"><span class="zlab">Tools</span><span class="zrow">search_web(query) → results</span><span class="zrow">fetch_page(url) → content</span><span class="zrow">read_file(path) → text …</span></div>
@@ -729,11 +734,11 @@ ol.num>li::before{content:counter(s,decimal-leading-zero);position:absolute;left
 <section class="slide "><div class="slide-content"><div class="masthead"><span class="logo">AI</span><span class="sep"></span><span>Tech Lab</span><span class="sep"></span><span class="eyb">The build method</span></div>
 <div class="s-head" style="margin-top:54px;"><span class="eyebrow">The build method</span><h1 class="s-title">Build agents that actually work</h1></div>
 <div class="s-body" style="justify-content:center;gap:30px;">
- <div style="width:100%;"><svg viewBox="0 0 1640 300" class="method-svg" data-diagram="MethodCycle"><defs><marker id="cycle-arrow" markerWidth="12" markerHeight="12" refX="8" refY="6" orient="auto"><path d="M0 0 L10 6 L0 12 z" fill="#f97316"/></marker></defs><line x1="360.0" y1="150" x2="414.0" y2="150" stroke="#f97316" stroke-width="2.5" marker-end="url(#cycle-arrow)"/><line x1="740.0" y1="150" x2="794.0" y2="150" stroke="#f97316" stroke-width="2.5" marker-end="url(#cycle-arrow)"/><line x1="1120.0" y1="150" x2="1174.0" y2="150" stroke="#f97316" stroke-width="2.5" marker-end="url(#cycle-arrow)"/><g><rect x="40.0" y="96.0" width="320" height="108" rx="16" fill="rgba(255,255,255,0.025)" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/><text x="62.0" y="128" font-family="JetBrains Mono" font-size="20" fill="#f97316">01</text><text x="200" y="148" text-anchor="middle" font-family="Clash Display" font-size="30" fill="#f6f3ee">Clarify</text><text x="200" y="180" text-anchor="middle" font-family="JetBrains Mono" font-size="15" fill="#7d7668">research, success criteria</text></g><g><rect x="420.0" y="96.0" width="320" height="108" rx="16" fill="rgba(255,255,255,0.025)" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/><text x="442.0" y="128" font-family="JetBrains Mono" font-size="20" fill="#f97316">02</text><text x="580" y="148" text-anchor="middle" font-family="Clash Display" font-size="30" fill="#f6f3ee">Build</text><text x="580" y="180" text-anchor="middle" font-family="JetBrains Mono" font-size="15" fill="#7d7668">A→Z, tools wired</text></g><g><rect x="800.0" y="96.0" width="320" height="108" rx="16" fill="rgba(249,115,22,0.08)" stroke="rgba(249,115,22,0.8)" stroke-width="2"/><text x="822.0" y="128" font-family="JetBrains Mono" font-size="20" fill="#f97316">03</text><text x="960" y="148" text-anchor="middle" font-family="Clash Display" font-size="30" fill="#f6f3ee">Test and improve</text><text x="960" y="180" text-anchor="middle" font-family="JetBrains Mono" font-size="15" fill="#7d7668">test → investigate → improve</text></g><g><rect x="1180.0" y="96.0" width="320" height="108" rx="16" fill="rgba(249,115,22,0.12)" stroke="rgba(249,115,22,0.9)" stroke-width="2.5"/><text x="1202.0" y="128" font-family="JetBrains Mono" font-size="20" fill="#f97316">04</text><text x="1340" y="148" text-anchor="middle" font-family="Clash Display" font-size="30" fill="#f6f3ee">Deliver value</text><text x="1340" y="180" text-anchor="middle" font-family="JetBrains Mono" font-size="15" fill="#7d7668">a deck, or your use case</text></g></svg></div>
+ <div style="width:100%;"><svg viewBox="0 0 1640 300" class="method-svg" data-diagram="MethodCycle"><defs><marker id="cycle-arrow" markerWidth="12" markerHeight="12" refX="8" refY="6" orient="auto"><path d="M0 0 L10 6 L0 12 z" fill="#b1502a"/></marker></defs><line x1="360.0" y1="150" x2="414.0" y2="150" stroke="#b1502a" stroke-width="2.5" marker-end="url(#cycle-arrow)"/><line x1="740.0" y1="150" x2="794.0" y2="150" stroke="#b1502a" stroke-width="2.5" marker-end="url(#cycle-arrow)"/><line x1="1120.0" y1="150" x2="1174.0" y2="150" stroke="#b1502a" stroke-width="2.5" marker-end="url(#cycle-arrow)"/><g><rect x="40.0" y="96.0" width="320" height="108" rx="16" fill="#fffdf7" stroke="rgba(26,34,56,0.16)" stroke-width="1.5"/><text x="62.0" y="128" font-family="JetBrains Mono" font-size="20" fill="#b1502a">01</text><text x="200" y="148" text-anchor="middle" font-family="Bodoni Moda" font-size="30" fill="#1a2238">Clarify</text><text x="200" y="180" text-anchor="middle" font-family="JetBrains Mono" font-size="15" fill="#6c7184">research, success criteria</text></g><g><rect x="420.0" y="96.0" width="320" height="108" rx="16" fill="#fffdf7" stroke="rgba(26,34,56,0.16)" stroke-width="1.5"/><text x="442.0" y="128" font-family="JetBrains Mono" font-size="20" fill="#b1502a">02</text><text x="580" y="148" text-anchor="middle" font-family="Bodoni Moda" font-size="30" fill="#1a2238">Build</text><text x="580" y="180" text-anchor="middle" font-family="JetBrains Mono" font-size="15" fill="#6c7184">A→Z, tools wired</text></g><g><rect x="800.0" y="96.0" width="320" height="108" rx="16" fill="rgba(177,80,42,0.08)" stroke="rgba(177,80,42,0.8)" stroke-width="2"/><text x="822.0" y="128" font-family="JetBrains Mono" font-size="20" fill="#b1502a">03</text><text x="960" y="148" text-anchor="middle" font-family="Bodoni Moda" font-size="30" fill="#1a2238">Test and improve</text><text x="960" y="180" text-anchor="middle" font-family="JetBrains Mono" font-size="15" fill="#6c7184">test → investigate → improve</text></g><g><rect x="1180.0" y="96.0" width="320" height="108" rx="16" fill="rgba(177,80,42,0.12)" stroke="rgba(177,80,42,0.9)" stroke-width="2.5"/><text x="1202.0" y="128" font-family="JetBrains Mono" font-size="20" fill="#b1502a">04</text><text x="1340" y="148" text-anchor="middle" font-family="Bodoni Moda" font-size="30" fill="#1a2238">Deliver value</text><text x="1340" y="180" text-anchor="middle" font-family="JetBrains Mono" font-size="15" fill="#6c7184">a deck, or your use case</text></g></svg></div>
  <p style="font-size:27px;text-align:center;">We build a <strong>Press Review agent live, step by step</strong>, you follow along. Then you run the same method on your own project.</p>
  <p style="font-size:23px;text-align:center;">What you are building: <strong>a skill, or a small collection of skills</strong>, plus the tools it needs and the data it can access.</p>
 </div></div></section>
-<section class="slide "><div class="slide-content"><div class="minimap"><svg viewBox="0 0 380 50" data-diagram="MethodMiniMap"><defs><marker id="mm-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L6 4 L0 8 z" fill="#7d7668"/></marker></defs><line x1="44" y1="23" x2="116" y2="23" stroke="#7d7668" stroke-width="1.5" marker-end="url(#mm-arrow)"/><line x1="144" y1="23" x2="216" y2="23" stroke="#7d7668" stroke-width="1.5" marker-end="url(#mm-arrow)"/><line x1="244" y1="23" x2="316" y2="23" stroke="#7d7668" stroke-width="1.5" marker-end="url(#mm-arrow)"/><circle cx="30" cy="23" r="12" fill="rgba(249,115,22,0.2)"/><circle cx="30" cy="23" r="6" fill="#f97316"/><text x="30" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#f97316" font-weight="700">Clarify</text><circle cx="130" cy="23" r="6" fill="none" stroke="#7d7668" stroke-width="1.5"/><text x="130" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#7d7668">Build</text><circle cx="230" cy="23" r="6" fill="none" stroke="#7d7668" stroke-width="1.5"/><text x="230" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#7d7668">Improve</text><circle cx="330" cy="23" r="6" fill="none" stroke="#7d7668" stroke-width="1.5"/><text x="330" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#7d7668">Deliver</text></svg></div>
+<section class="slide "><div class="slide-content"><div class="minimap"><svg viewBox="0 0 380 50" data-diagram="MethodMiniMap"><defs><marker id="mm-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L6 4 L0 8 z" fill="#6c7184"/></marker></defs><line x1="44" y1="23" x2="116" y2="23" stroke="#6c7184" stroke-width="1.5" marker-end="url(#mm-arrow)"/><line x1="144" y1="23" x2="216" y2="23" stroke="#6c7184" stroke-width="1.5" marker-end="url(#mm-arrow)"/><line x1="244" y1="23" x2="316" y2="23" stroke="#6c7184" stroke-width="1.5" marker-end="url(#mm-arrow)"/><circle cx="30" cy="23" r="12" fill="rgba(177,80,42,0.2)"/><circle cx="30" cy="23" r="6" fill="#b1502a"/><text x="30" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#b1502a" font-weight="700">Clarify</text><circle cx="130" cy="23" r="6" fill="none" stroke="#6c7184" stroke-width="1.5"/><text x="130" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#6c7184">Build</text><circle cx="230" cy="23" r="6" fill="none" stroke="#6c7184" stroke-width="1.5"/><text x="230" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#6c7184">Improve</text><circle cx="330" cy="23" r="6" fill="none" stroke="#6c7184" stroke-width="1.5"/><text x="330" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#6c7184">Deliver</text></svg></div>
 <div class="s-head"><div class="stephead" data-diagram="StepHeader"><div class="scount">Step 01 / 04</div><div class="sdashes"><div class="d on"></div><div class="d "></div><div class="d "></div><div class="d "></div></div><h1 class="s-title" style="font-size:60px;">Clarify the goal</h1><div class="goal-line">Know what a great result looks like, before a single line is built.</div></div></div>
 <div class="s-body"><div class="two-col">
  <div class="col" style="justify-content:center;"><ul class="clean">
@@ -758,7 +763,7 @@ To tell you a bit more about myself, I&#x27;m a senior executive on the executiv
 Do not hesitate to ask me questions to better understand how this task is useful to me and context about my work so you can deliver the maximum possible value with your deep-research."><svg class="ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="lbl">Copy the research prompt</span><span class="ok">Copied!</span></button>
  </div>
 </div></div></div></section>
-<section class="slide "><div class="slide-content"><div class="minimap"><svg viewBox="0 0 380 50" data-diagram="MethodMiniMap"><defs><marker id="mm-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L6 4 L0 8 z" fill="#7d7668"/></marker></defs><line x1="44" y1="23" x2="116" y2="23" stroke="#7d7668" stroke-width="1.5" marker-end="url(#mm-arrow)"/><line x1="144" y1="23" x2="216" y2="23" stroke="#7d7668" stroke-width="1.5" marker-end="url(#mm-arrow)"/><line x1="244" y1="23" x2="316" y2="23" stroke="#7d7668" stroke-width="1.5" marker-end="url(#mm-arrow)"/><circle cx="30" cy="23" r="6" fill="none" stroke="#7d7668" stroke-width="1.5"/><text x="30" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#7d7668">Clarify</text><circle cx="130" cy="23" r="12" fill="rgba(249,115,22,0.2)"/><circle cx="130" cy="23" r="6" fill="#f97316"/><text x="130" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#f97316" font-weight="700">Build</text><circle cx="230" cy="23" r="6" fill="none" stroke="#7d7668" stroke-width="1.5"/><text x="230" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#7d7668">Improve</text><circle cx="330" cy="23" r="6" fill="none" stroke="#7d7668" stroke-width="1.5"/><text x="330" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#7d7668">Deliver</text></svg></div>
+<section class="slide "><div class="slide-content"><div class="minimap"><svg viewBox="0 0 380 50" data-diagram="MethodMiniMap"><defs><marker id="mm-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L6 4 L0 8 z" fill="#6c7184"/></marker></defs><line x1="44" y1="23" x2="116" y2="23" stroke="#6c7184" stroke-width="1.5" marker-end="url(#mm-arrow)"/><line x1="144" y1="23" x2="216" y2="23" stroke="#6c7184" stroke-width="1.5" marker-end="url(#mm-arrow)"/><line x1="244" y1="23" x2="316" y2="23" stroke="#6c7184" stroke-width="1.5" marker-end="url(#mm-arrow)"/><circle cx="30" cy="23" r="6" fill="none" stroke="#6c7184" stroke-width="1.5"/><text x="30" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#6c7184">Clarify</text><circle cx="130" cy="23" r="12" fill="rgba(177,80,42,0.2)"/><circle cx="130" cy="23" r="6" fill="#b1502a"/><text x="130" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#b1502a" font-weight="700">Build</text><circle cx="230" cy="23" r="6" fill="none" stroke="#6c7184" stroke-width="1.5"/><text x="230" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#6c7184">Improve</text><circle cx="330" cy="23" r="6" fill="none" stroke="#6c7184" stroke-width="1.5"/><text x="330" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#6c7184">Deliver</text></svg></div>
 <div class="s-head"><div class="stephead" data-diagram="StepHeader"><div class="scount">Step 02 / 04</div><div class="sdashes"><div class="d on"></div><div class="d on"></div><div class="d "></div><div class="d "></div></div><h1 class="s-title" style="font-size:60px;">Build the skill and use it</h1><div class="goal-line">Turn the research into a first skill that runs end to end.</div></div></div>
 <div class="s-body"><div class="two-col">
  <div class="col" style="justify-content:center;"><p>Copy the prompt to create the first draft of your skill, <strong>press-review</strong>, leveraging the deep research we just did.</p>
@@ -922,7 +927,7 @@ You must choose three concrete tests that will be used to test and evaluate the 
 Then build it and run it."><svg class="ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="lbl">Copy the build prompt</span><span class="ok">Copied!</span></button></div>
  </div>
 </div></div></div></section>
-<section class="slide "><div class="slide-content"><div class="minimap"><svg viewBox="0 0 380 50" data-diagram="MethodMiniMap"><defs><marker id="mm-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L6 4 L0 8 z" fill="#7d7668"/></marker></defs><line x1="44" y1="23" x2="116" y2="23" stroke="#7d7668" stroke-width="1.5" marker-end="url(#mm-arrow)"/><line x1="144" y1="23" x2="216" y2="23" stroke="#7d7668" stroke-width="1.5" marker-end="url(#mm-arrow)"/><line x1="244" y1="23" x2="316" y2="23" stroke="#7d7668" stroke-width="1.5" marker-end="url(#mm-arrow)"/><circle cx="30" cy="23" r="6" fill="none" stroke="#7d7668" stroke-width="1.5"/><text x="30" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#7d7668">Clarify</text><circle cx="130" cy="23" r="6" fill="none" stroke="#7d7668" stroke-width="1.5"/><text x="130" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#7d7668">Build</text><circle cx="230" cy="23" r="12" fill="rgba(249,115,22,0.2)"/><circle cx="230" cy="23" r="6" fill="#f97316"/><text x="230" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#f97316" font-weight="700">Improve</text><circle cx="330" cy="23" r="6" fill="none" stroke="#7d7668" stroke-width="1.5"/><text x="330" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#7d7668">Deliver</text></svg></div>
+<section class="slide "><div class="slide-content"><div class="minimap"><svg viewBox="0 0 380 50" data-diagram="MethodMiniMap"><defs><marker id="mm-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L6 4 L0 8 z" fill="#6c7184"/></marker></defs><line x1="44" y1="23" x2="116" y2="23" stroke="#6c7184" stroke-width="1.5" marker-end="url(#mm-arrow)"/><line x1="144" y1="23" x2="216" y2="23" stroke="#6c7184" stroke-width="1.5" marker-end="url(#mm-arrow)"/><line x1="244" y1="23" x2="316" y2="23" stroke="#6c7184" stroke-width="1.5" marker-end="url(#mm-arrow)"/><circle cx="30" cy="23" r="6" fill="none" stroke="#6c7184" stroke-width="1.5"/><text x="30" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#6c7184">Clarify</text><circle cx="130" cy="23" r="6" fill="none" stroke="#6c7184" stroke-width="1.5"/><text x="130" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#6c7184">Build</text><circle cx="230" cy="23" r="12" fill="rgba(177,80,42,0.2)"/><circle cx="230" cy="23" r="6" fill="#b1502a"/><text x="230" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#b1502a" font-weight="700">Improve</text><circle cx="330" cy="23" r="6" fill="none" stroke="#6c7184" stroke-width="1.5"/><text x="330" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#6c7184">Deliver</text></svg></div>
 <div class="s-head"><div class="stephead" data-diagram="StepHeader"><div class="scount">Step 03 / 04</div><div class="sdashes"><div class="d on"></div><div class="d on"></div><div class="d on"></div><div class="d "></div></div><h1 class="s-title" style="font-size:60px;">Test and improve</h1><div class="goal-line">Judge the output you see, push the fix into the skill, re-run, repeat until it's great.</div></div></div>
 <div class="s-body"><div class="two-col">
  <div class="col" style="justify-content:center;"><p>Use the skill to improve your <strong>output</strong> and your <strong>workflow</strong>.</p>
@@ -1074,7 +1079,7 @@ Fresh memo is live in the preview — take a look.
   about its criteria; that&#x27;s your private yardstick."><svg class="ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="lbl">Copy the refine-from-preview skill</span><span class="ok">Copied!</span></button>
  </div>
 </div></div></div></section>
-<section class="slide "><div class="slide-content"><div class="minimap"><svg viewBox="0 0 380 50" data-diagram="MethodMiniMap"><defs><marker id="mm-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L6 4 L0 8 z" fill="#7d7668"/></marker></defs><line x1="44" y1="23" x2="116" y2="23" stroke="#7d7668" stroke-width="1.5" marker-end="url(#mm-arrow)"/><line x1="144" y1="23" x2="216" y2="23" stroke="#7d7668" stroke-width="1.5" marker-end="url(#mm-arrow)"/><line x1="244" y1="23" x2="316" y2="23" stroke="#7d7668" stroke-width="1.5" marker-end="url(#mm-arrow)"/><circle cx="30" cy="23" r="6" fill="none" stroke="#7d7668" stroke-width="1.5"/><text x="30" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#7d7668">Clarify</text><circle cx="130" cy="23" r="6" fill="none" stroke="#7d7668" stroke-width="1.5"/><text x="130" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#7d7668">Build</text><circle cx="230" cy="23" r="6" fill="none" stroke="#7d7668" stroke-width="1.5"/><text x="230" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#7d7668">Improve</text><circle cx="330" cy="23" r="12" fill="rgba(249,115,22,0.2)"/><circle cx="330" cy="23" r="6" fill="#f97316"/><text x="330" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#f97316" font-weight="700">Deliver</text></svg></div>
+<section class="slide "><div class="slide-content"><div class="minimap"><svg viewBox="0 0 380 50" data-diagram="MethodMiniMap"><defs><marker id="mm-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L6 4 L0 8 z" fill="#6c7184"/></marker></defs><line x1="44" y1="23" x2="116" y2="23" stroke="#6c7184" stroke-width="1.5" marker-end="url(#mm-arrow)"/><line x1="144" y1="23" x2="216" y2="23" stroke="#6c7184" stroke-width="1.5" marker-end="url(#mm-arrow)"/><line x1="244" y1="23" x2="316" y2="23" stroke="#6c7184" stroke-width="1.5" marker-end="url(#mm-arrow)"/><circle cx="30" cy="23" r="6" fill="none" stroke="#6c7184" stroke-width="1.5"/><text x="30" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#6c7184">Clarify</text><circle cx="130" cy="23" r="6" fill="none" stroke="#6c7184" stroke-width="1.5"/><text x="130" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#6c7184">Build</text><circle cx="230" cy="23" r="6" fill="none" stroke="#6c7184" stroke-width="1.5"/><text x="230" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#6c7184">Improve</text><circle cx="330" cy="23" r="12" fill="rgba(177,80,42,0.2)"/><circle cx="330" cy="23" r="6" fill="#b1502a"/><text x="330" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#b1502a" font-weight="700">Deliver</text></svg></div>
 <div class="s-head"><div class="stephead" data-diagram="StepHeader"><div class="scount">Step 04 / 04</div><div class="sdashes"><div class="d on"></div><div class="d on"></div><div class="d on"></div><div class="d on"></div></div><h1 class="s-title" style="font-size:60px;">Deliver value</h1><div class="goal-line">You have the whole method and the controls. Now make it something you can show.</div></div></div>
 <div class="s-body"><div class="two-col">
  <div class="col" style="justify-content:center;"><ul class="clean">
@@ -1092,7 +1097,7 @@ When the code is generated, you can use the boilerplate in @web/app/deck if usef
 <section class="slide "><div class="slide-content"><div class="masthead"><span class="logo">AI</span><span class="sep"></span><span>Tech Lab</span><span class="sep"></span><span class="eyb">Recap</span></div>
 <div class="s-head" style="margin-top:54px;"><span class="eyebrow">Recap</span><h1 class="s-title">The method, end to end</h1></div>
 <div class="s-body" style="justify-content:center;gap:40px;">
- <div style="width:100%;"><svg viewBox="0 0 1640 300" class="method-svg" data-diagram="MethodCycle"><defs><marker id="cycle-arrow" markerWidth="12" markerHeight="12" refX="8" refY="6" orient="auto"><path d="M0 0 L10 6 L0 12 z" fill="#f97316"/></marker></defs><line x1="360.0" y1="150" x2="414.0" y2="150" stroke="#f97316" stroke-width="2.5" marker-end="url(#cycle-arrow)"/><line x1="740.0" y1="150" x2="794.0" y2="150" stroke="#f97316" stroke-width="2.5" marker-end="url(#cycle-arrow)"/><line x1="1120.0" y1="150" x2="1174.0" y2="150" stroke="#f97316" stroke-width="2.5" marker-end="url(#cycle-arrow)"/><g><rect x="40.0" y="96.0" width="320" height="108" rx="16" fill="rgba(255,255,255,0.025)" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/><text x="62.0" y="128" font-family="JetBrains Mono" font-size="20" fill="#f97316">01</text><text x="200" y="148" text-anchor="middle" font-family="Clash Display" font-size="30" fill="#f6f3ee">Clarify</text><text x="200" y="180" text-anchor="middle" font-family="JetBrains Mono" font-size="15" fill="#7d7668">research, success criteria</text></g><g><rect x="420.0" y="96.0" width="320" height="108" rx="16" fill="rgba(255,255,255,0.025)" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/><text x="442.0" y="128" font-family="JetBrains Mono" font-size="20" fill="#f97316">02</text><text x="580" y="148" text-anchor="middle" font-family="Clash Display" font-size="30" fill="#f6f3ee">Build</text><text x="580" y="180" text-anchor="middle" font-family="JetBrains Mono" font-size="15" fill="#7d7668">A→Z, tools wired</text></g><g><rect x="800.0" y="96.0" width="320" height="108" rx="16" fill="rgba(249,115,22,0.08)" stroke="rgba(249,115,22,0.8)" stroke-width="2"/><text x="822.0" y="128" font-family="JetBrains Mono" font-size="20" fill="#f97316">03</text><text x="960" y="148" text-anchor="middle" font-family="Clash Display" font-size="30" fill="#f6f3ee">Test and improve</text><text x="960" y="180" text-anchor="middle" font-family="JetBrains Mono" font-size="15" fill="#7d7668">test → investigate → improve</text></g><g><rect x="1180.0" y="96.0" width="320" height="108" rx="16" fill="rgba(249,115,22,0.12)" stroke="rgba(249,115,22,0.9)" stroke-width="2.5"/><text x="1202.0" y="128" font-family="JetBrains Mono" font-size="20" fill="#f97316">04</text><text x="1340" y="148" text-anchor="middle" font-family="Clash Display" font-size="30" fill="#f6f3ee">Deliver value</text><text x="1340" y="180" text-anchor="middle" font-family="JetBrains Mono" font-size="15" fill="#7d7668">a deck, or your use case</text></g></svg></div>
+ <div style="width:100%;"><svg viewBox="0 0 1640 300" class="method-svg" data-diagram="MethodCycle"><defs><marker id="cycle-arrow" markerWidth="12" markerHeight="12" refX="8" refY="6" orient="auto"><path d="M0 0 L10 6 L0 12 z" fill="#b1502a"/></marker></defs><line x1="360.0" y1="150" x2="414.0" y2="150" stroke="#b1502a" stroke-width="2.5" marker-end="url(#cycle-arrow)"/><line x1="740.0" y1="150" x2="794.0" y2="150" stroke="#b1502a" stroke-width="2.5" marker-end="url(#cycle-arrow)"/><line x1="1120.0" y1="150" x2="1174.0" y2="150" stroke="#b1502a" stroke-width="2.5" marker-end="url(#cycle-arrow)"/><g><rect x="40.0" y="96.0" width="320" height="108" rx="16" fill="#fffdf7" stroke="rgba(26,34,56,0.16)" stroke-width="1.5"/><text x="62.0" y="128" font-family="JetBrains Mono" font-size="20" fill="#b1502a">01</text><text x="200" y="148" text-anchor="middle" font-family="Bodoni Moda" font-size="30" fill="#1a2238">Clarify</text><text x="200" y="180" text-anchor="middle" font-family="JetBrains Mono" font-size="15" fill="#6c7184">research, success criteria</text></g><g><rect x="420.0" y="96.0" width="320" height="108" rx="16" fill="#fffdf7" stroke="rgba(26,34,56,0.16)" stroke-width="1.5"/><text x="442.0" y="128" font-family="JetBrains Mono" font-size="20" fill="#b1502a">02</text><text x="580" y="148" text-anchor="middle" font-family="Bodoni Moda" font-size="30" fill="#1a2238">Build</text><text x="580" y="180" text-anchor="middle" font-family="JetBrains Mono" font-size="15" fill="#6c7184">A→Z, tools wired</text></g><g><rect x="800.0" y="96.0" width="320" height="108" rx="16" fill="rgba(177,80,42,0.08)" stroke="rgba(177,80,42,0.8)" stroke-width="2"/><text x="822.0" y="128" font-family="JetBrains Mono" font-size="20" fill="#b1502a">03</text><text x="960" y="148" text-anchor="middle" font-family="Bodoni Moda" font-size="30" fill="#1a2238">Test and improve</text><text x="960" y="180" text-anchor="middle" font-family="JetBrains Mono" font-size="15" fill="#6c7184">test → investigate → improve</text></g><g><rect x="1180.0" y="96.0" width="320" height="108" rx="16" fill="rgba(177,80,42,0.12)" stroke="rgba(177,80,42,0.9)" stroke-width="2.5"/><text x="1202.0" y="128" font-family="JetBrains Mono" font-size="20" fill="#b1502a">04</text><text x="1340" y="148" text-anchor="middle" font-family="Bodoni Moda" font-size="30" fill="#1a2238">Deliver value</text><text x="1340" y="180" text-anchor="middle" font-family="JetBrains Mono" font-size="15" fill="#6c7184">a deck, or your use case</text></g></svg></div>
  <p style="font-size:28px;text-align:center;">Clarify and build once, then <strong>test and improve, turning until every check is green</strong>, before value delivery. This is your map for the next sprint.</p>
 </div></div></section>
 <section class="slide "><div class="slide-content"><div class="masthead"><span class="logo">AI</span><span class="sep"></span><span>Tech Lab</span><span class="sep"></span><span class="eyb">The build · ~1 h before the demos</span></div>
@@ -1389,9 +1394,9 @@ class Deck {
       const p=n.getAttribute('data-phase');
       const rect=n.querySelector('rect');
       const on=(ph==='done')||(p===ph);
-      rect.setAttribute('stroke','rgba(249,115,22,'+(on?0.95:0.25)+')');
+      rect.setAttribute('stroke','rgba(177,80,42,'+(on?0.95:0.25)+')');
       rect.setAttribute('stroke-width', on?'2.4':'1.5');
-      rect.setAttribute('fill','rgba(249,115,22,'+(on?0.12:0.03)+')');
+      rect.setAttribute('fill','rgba(177,80,42,'+(on?0.12:0.03)+')');
       n.style.opacity = (ph===null)?'0.5':(on?'1':'0.4');
     });
     sl.querySelectorAll('.prail .pr').forEach(pr=>{
