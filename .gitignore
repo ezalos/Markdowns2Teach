@@ -72,3 +72,6 @@ Thumbs.db
 
 # Per-run citation audit bundles (kept local, not versioned)
 docs/citation-audit/
+
+# Video source cache (raw media + verbatim auto-captions) — local only
+docs/talks/heuritech-agents/sources/videos/
