@@ -4,7 +4,7 @@ Here are some corrections to on the slides.
 @docs/references/course-architecture.md
 
 ===========================================
-https://slides.develle.fr/session-04-C-business-models.html#4
+https://slides.develle.fr/sorbonne-m2-2026/session-04/C-business-models.html#4
 
 
 remove the slides : 1, 3, 14, 16
@@ -12,7 +12,7 @@ remove the slides : 1, 3, 14, 16
 ===========================================
 Could be interesting to copy pasting the couple of last SemiAnalysis newsletters to see if intersting things
 
-https://slides.develle.fr/session-04-B-ecosysteme-ia.html#3
+https://slides.develle.fr/sorbonne-m2-2026/session-04/B-ecosysteme-ia.html#3
 
 1: add as reference that total world gdp is around 100 Trillion
 https://en.wikipedia.org/wiki/Gross_world_product
@@ -43,8 +43,8 @@ On the next deck the data moat source is wrong, maybe it should be this link ? h
 update content if doesnt reflect it's resources (verify the other)
 ===========================================
 
-https://slides.develle.fr/session-03-D-methodologie-projet.html
--> should be moved to session 4
+https://slides.develle.fr/sorbonne-m2-2026/session-04/A-methodologie-projet.html
+-> (was session-03-D, moved to session-04-A)
 
 Under is change of the order for the things in this deck, removing of slides, and new slides.
 
@@ -82,7 +82,7 @@ Slides to remove : 2, 8-11, 15, 17, 18-21, 23-24
  
 
 
-https://slides.develle.fr/session-05-A-regulation-ethique.html#4
+https://slides.develle.fr/sorbonne-m2-2026/session-05/A-regulation-ethique.html#4
 
 02 — EU AI Act : les 4 niveaux de risque
 -> what are these 4 levels ? How do I know in which I am ? I'm ok with a simplification if really complex, but it should be clearly stated
