@@ -18,6 +18,14 @@ title: "Slide Decks"
 subtitle: "Talks, courses &amp; workshops — Louis Develle"
 
 groups:
+  - id: heuritech-agents
+    label: "AI Agents — From Theory to Loops · Heuritech"
+    category: talk
+    date: 2026-06-25
+    prebuilt_html:                            # rendered by frontend-slides, not Marp
+      - file: heuritech-agents/heuritech-agents.html
+        label: "From Theory to Loops (technical, theory-only)"
+
   - id: capgemini-ai-agents
     label: "AI Agents &amp; Claude Code — Tech Lab"
     category: talk

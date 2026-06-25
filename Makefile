@@ -9,9 +9,10 @@ PDF_FULL_DIR := $(DIST_DIR)/pdf-full
 MARP := marp
 GDRIVE_REMOTE := gdrive:Travail/Formations/Sorbonne/AutoDecks
 
-# All Marp source files. Exclude prebuilt frontend-slides deck dirs: their .md
-# are portable content + README (regeneration sources), not Marp decks.
-SLIDE_FILES := $(shell find $(SLIDES_DIR) -name '*.md' -type f -not -path '$(SLIDES_DIR)/capgemini-ai-agents/*')
+# All Marp source files. Auto-exclude any prebuilt frontend-slides deck dir
+# (one that holds its own .html): their .md are portable content + README
+# (regeneration sources), not Marp decks.
+SLIDE_FILES := $(shell find $(SLIDES_DIR) -name '*.md' -type f $(shell find $(SLIDES_DIR) -maxdepth 2 -name '*.html' -type f -printf '-not -path %h/* '))
 
 # Output paths mirror source layout under dist/ (no path-flattening)
 HTML_OUT := $(patsubst $(SLIDES_DIR)/%.md,$(HTML_DIR)/%.html,$(SLIDE_FILES))
