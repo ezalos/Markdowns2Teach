@@ -49,8 +49,8 @@ build step). Install once, then point it at `content/latest.md`:
 # → feed it content/latest.md; write the result to capgemini-ai-agents.html
 ```
 
-The committed `capgemini-ai-agents.html` is copied into `dist/html/` by `make html`
-and linked from the index (manifest entry `capgemini-ai-agents`, `prebuilt_html`).
+The committed `capgemini-ai-agents.html` is copied into `dist/html/capgemini-ai-agents/`
+by `make html` and linked from the index (manifest entry `capgemini-ai-agents`, `prebuilt_html`).
 
 > Marp decks and this frontend-slides deck coexist: Marp for the Sorbonne course
 > and most talks; frontend-slides when the priority is a polished standalone HTML deck.
