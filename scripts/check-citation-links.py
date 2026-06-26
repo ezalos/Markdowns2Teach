@@ -30,21 +30,48 @@ ALLOW_HOSTS = {
     "fonts.googleapis.com", "fonts.gstatic.com", "api.fontshare.com",
 }
 
+# Stricter bar (Louis, 2026-06-26): a citation must hit the EXACT page, so these
+# are rejected even though they technically have a path —
+#   INDEX_DENYLIST: known section/listing indexes, not a specific source.
+#   REDIRECT_HOSTS: stale hosts that 301 to a canonical home; cite the canonical.
+# Matched on the FULL host+path, so /news is rejected but /news/<article> passes.
+INDEX_DENYLIST = {
+    "anthropic.com/news", "anthropic.com/research", "anthropic.com/engineering",
+    "anthropic.com/customers",
+}
+REDIRECT_HOSTS = {"docs.claude.com"}  # -> code.claude.com / platform.claude.com
+
 HREF_RE = re.compile(r'href="(https?://[^"]+)"')
 
 
-def bare_domain_links(html: str):
-    bad = []
+def _host_path(url: str):
+    p = urlparse(url)
+    host = (p.hostname or "").lower()
+    if host.startswith("www."):
+        host = host[4:]
+    return host, (p.path or ""), (p.query or "")
+
+
+def flag_links(html: str):
+    """Offline citation problems: (url, reason). No network."""
+    flagged = []
     for url in HREF_RE.findall(html):
-        host = (urlparse(url).hostname or "").lower()
-        if host in ALLOW_HOSTS:
+        host, path, query = _host_path(url)
+        if (urlparse(url).hostname or "").lower() in ALLOW_HOSTS:
             continue
-        path = urlparse(url).path or ""
-        query = urlparse(url).query or ""
-        # "bare domain" = no meaningful path and no query (e.g. https://anthropic.com or .../)
-        if path.strip("/") == "" and not query:
-            bad.append(url)
-    return sorted(set(bad))
+        full_key = f"{host}/{path.strip('/')}" if path.strip("/") else host
+        if not path.strip("/") and not query:
+            flagged.append((url, "bare domain — link the exact source page"))
+        elif host in REDIRECT_HOSTS:
+            flagged.append((url, f"stale-redirect host ({host}) — cite the canonical URL"))
+        elif full_key in INDEX_DENYLIST:
+            flagged.append((url, "section index / listing page — link the exact article"))
+    # dedupe, stable
+    seen, out = set(), []
+    for item in flagged:
+        if item[0] not in seen:
+            seen.add(item[0]); out.append(item)
+    return out
 
 
 def all_links(html: str):
@@ -91,12 +118,12 @@ def main():
             print(f"FAIL  {f}: {e}")
             total += 1
             continue
-        bad = bare_domain_links(html)
+        bad = flag_links(html)
         if bad:
             total += len(bad)
-            print(f"FAIL  {f}: {len(bad)} bare-domain citation link(s) — must deep-link to the exact source:")
-            for u in bad:
-                print(f"    - {u}")
+            print(f"FAIL  {f}: {len(bad)} citation link(s) not pointing to the exact source:")
+            for u, reason in bad:
+                print(f"    - {u}  [{reason}]")
         dead = []
         if live:
             for u in all_links(html):

@@ -74,9 +74,13 @@ claim (the article, the data-insight, the docs page, the video with its `?v=`),
   domain; that is the root cause this rule exists to kill.
 - If the exact supporting page genuinely cannot be found, make the citation
   **text-only** (no `<a>`). A bare-domain or guessed link is worse than no link.
-- Enforced by `scripts/check-citation-links.py` (wired into `make check`). It
-  FAILS the build on any non-asset `href` whose URL has no path/query. A deck
-  does not ship until this passes with zero findings.
+- Enforced by `scripts/check-citation-links.py` (wired into `make check`). The
+  bar is strict: it FAILS the build on a non-asset `href` that is **(a)** a bare
+  domain, **(b)** a known section index / listing page (`anthropic.com/news`,
+  `/research`, `/engineering`, …), or **(c)** a stale-redirect host
+  (`docs.claude.com` → cite the `code.claude.com` canonical). A deck does not
+  ship until this passes with zero findings. Extend `INDEX_DENYLIST` /
+  `REDIRECT_HOSTS` in the script as new index/redirect patterns surface.
 - **Before publishing**, also run it with `--check-live` (network): it FAILS on
   dead deep-links (4xx/5xx) — a link can have a path yet 404 (stale slug), which
   the offline check can't see. `make check` stays offline/fast; the live pass is
