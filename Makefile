@@ -131,9 +131,10 @@ html-inline: html ## Inject image preloader script into HTML slides
 serve: html-inline ## Serve password-protected HTML slides on port 8080
 	python3 scripts/serve-auth.py $(HTML_DIR) --port 8080
 
-test-decks: ## Headless test: frontend-slides decks never animate on backward nav
+test-decks: ## Verify prebuilt decks: no backward animation AND no box overlap / off-stage spill
 	@node -e "require('puppeteer').launch({headless:'new',executablePath:'$${CHROME_PATH:-/usr/bin/google-chrome}',args:['--no-sandbox']}).then(b=>b.close()).catch(()=>{})" 2>/dev/null || true
-	@node scripts/test-deck-nav.js slides/capgemini-ai-agents/capgemini-ai-agents.html slides/capgemini-ai-agents/capgemini-ai-agents-original.html
+	@node scripts/test-deck-nav.js $(PREBUILT_HTML)
+	@node scripts/check-slide-overlap.js $(PREBUILT_HTML)
 
 deploy: html ## Publish to slides.develle.fr (rebuilds dist/html, served live by `make serve` on :8080)
 	@echo "  DEPLOY: dist/html rebuilt — slides.develle.fr proxies (nginx@TinyButMighty) → TheBeast:8080 → serve-auth.py (live)."

@@ -89,10 +89,31 @@ claim (the article, the data-insight, the docs page, the video with its `?v=`),
   anchors to exact URLs in document order (the same domain is cited for different
   claims on different slides, so order matters), unlinking the unrecoverable ones.
 
-## 6. Verify HEADFUL, not headless
+## 6. No box overlap, no off-stage spill — the fixed stage is unforgiving
+
+The 1920×1080 stage does not reflow: when a slide holds too much, boxes silently
+overlap or content runs off the stage (a `flex:1;min-height:0` row shrinks below
+a card's intrinsic height, so the card spills into the row below). `scrollHeight`
+checks miss it — grid/flex panels cover each other without scrolling.
+
+- Authoring discipline: keep one row's content within its height; if it doesn't
+  fit, **split the slide or move content to a second column** — do not rely on
+  `min-height:0` to magically shrink intrinsic-height cards. Respect the density
+  limits (few boxes per slide, comfortable type).
+- Enforced by `scripts/check-slide-overlap.js` (in `make test-decks`). It drives
+  `window.deck` to each slide's **final step state** and FAILS on:
+  **OVERLAP** — two visible boxes (bg/border) that are not nested yet intersect;
+  **SPILL** — a content child whose box leaves the slide-content area.
+  It already ignores deck chrome (masthead/pager/timers), SVG internals, and 3D
+  flip-card faces (`backface-visibility:hidden`); extend those exclusions, never
+  loosen the thresholds, if a new intentional pattern trips it.
+
+## 7. Verify HEADFUL, not headless
 
 Headless Chrome diverges from real browsers on compositor transitions and gave
-false passes here. Test with `make test-decks` (`scripts/test-deck-nav.js`),
-which runs **headful** when a display is present, drives the real controller to
-every stepped slide via event listeners, and asserts **forward animates / zero
-backward animation events**. See [[feedback-animation-testing]].
+false passes here. Test with `make test-decks` (`scripts/test-deck-nav.js` +
+`scripts/check-slide-overlap.js`), which run **headful** when a display is
+present, drive the real controller to every stepped slide, and assert **forward
+animates / zero backward animation events** and **zero overlap/spill**. (Overlap
+geometry is identical headless; the headful requirement is only for the animation
+test.) See [[feedback-animation-testing]].
