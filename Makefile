@@ -46,7 +46,10 @@ $(foreach d,$(TOP_DIRS),$(eval $(call topdir_rules,$(d))))
 GUIDE_DIR := $(DIST_DIR)/guide
 PANDOC := $(shell command -v pandoc 2>/dev/null || echo "$(HOME)/.local/bin/pandoc")
 
-.PHONY: all preview build pptx html html-inline index check check-citations lint-authority-map dedup clean sync serve deploy test-decks guide pdf-full help html-% pptx-% pdf-full-% build-% assets
+.PHONY: all preview build pptx html html-inline index check check-citations check-citation-links lint-authority-map dedup clean sync serve deploy test-decks guide pdf-full help html-% pptx-% pdf-full-% build-% assets
+
+# All prebuilt HTML decks (frontend-slides) — the ones whose citations must deep-link
+PREBUILT_HTML := $(shell find $(SLIDES_DIR) -maxdepth 2 -name '*.html' -type f)
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
@@ -145,8 +148,11 @@ sync: ## Sync PPTX files to Google Drive via rclone
 lint-authority-map: ## Verify authority-map.md and authority-map.yaml are in sync
 	@python3 scripts/cite/lint_authority_map.py
 
-check: lint-authority-map ## Detect slides that overflow (pixel-accurate, requires npm install)
+check: lint-authority-map check-citation-links ## Detect slides that overflow (pixel-accurate, requires npm install)
 	@node scripts/check-overflow-visual.js $(SLIDES_DIR)
+
+check-citation-links: ## Fail if any prebuilt-deck citation links to a bare domain instead of the exact source
+	@python3 scripts/check-citation-links.py $(PREBUILT_HTML)
 
 check-citations: ## Warn about data slides missing source citations
 	@bash scripts/check-citations.sh $(SLIDES_DIR)
