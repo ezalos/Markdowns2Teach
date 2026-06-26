@@ -75,3 +75,6 @@ docs/citation-audit/
 
 # Video source cache (raw media + verbatim auto-captions) — local only
 docs/talks/heuritech-agents/sources/videos/
+
+# Chart font cache (fetched on demand by deck_chart.py)
+scripts/charts/.fontcache/
