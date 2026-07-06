@@ -87,6 +87,7 @@ Markdowns2Teach/
 - Assets: `assets/` per deck dir, source-prefix subdirs (`ng01/`, `ng02/`, `ng03/`, `infographics/`).
 - Build output mirrors source layout: `slides/<rel>.md` → `dist/{html,pptx,pdf-full}/<rel>.{html,pptx,pdf}`. Each deck's `assets/` is symlinked into its output dir so relative refs resolve.
 - English names for files/dirs. Original topic-based decks archived at `docs/archive/slides-v1/`.
+- **No spaces in slide or asset filenames.** Make's prereq parser splits on whitespace, so a file like `foo bar.png` becomes two prereqs and breaks the build. Use kebab-case (`foo-bar.png`) or snake_case (`foo_bar.png`).
 
 ## Marp Slide Standards
 

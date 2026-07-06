@@ -12,7 +12,10 @@ GDRIVE_REMOTE := gdrive:Travail/Formations/Sorbonne/AutoDecks
 # All Marp source files. Auto-exclude any prebuilt frontend-slides deck dir
 # (one that holds its own .html): their .md are portable content + README
 # (regeneration sources), not Marp decks.
-SLIDE_FILES := $(shell find $(SLIDES_DIR) -name '*.md' -type f $(shell find $(SLIDES_DIR) -maxdepth 2 -name '*.html' -type f -printf '-not -path %h/* '))
+# %h/\\* → literal `%h/\*` in the outer arglist so sh doesn't glob-expand the `*`
+# before find sees it (that mis-parses as extra positional paths → "paths must
+# precede expression"). The `\*` in sh is a literal `*`, which find's -path wants.
+SLIDE_FILES := $(shell find $(SLIDES_DIR) -name '*.md' -type f $(shell find $(SLIDES_DIR) -maxdepth 2 -name '*.html' -type f -printf '-not -path %h/\\* '))
 
 # Output paths mirror source layout under dist/ (no path-flattening)
 HTML_OUT := $(patsubst $(SLIDES_DIR)/%.md,$(HTML_DIR)/%.html,$(SLIDE_FILES))
