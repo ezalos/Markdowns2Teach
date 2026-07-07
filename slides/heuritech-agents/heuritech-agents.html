@@ -813,7 +813,7 @@ ol.num>li::before{content:counter(s,decimal-leading-zero);position:absolute;left
 <section class="slide "><div class="slide-content"><div class="masthead"><span class="logo">AI</span><span class="sep"></span><span>Tech Lab</span><span class="sep"></span><span class="eyb">Loops &middot; why now</span></div>
 <div class="s-head" style="margin-top:54px;"><span class="eyebrow">Loops &middot; why now</span><h1 class="s-title">Why now &mdash; <span class="hl">real capability gains</span></h1></div>
 <div class="s-body" style="justify-content:center;">
- <p style="font-size:26px;margin-bottom:8px;">Loops work <strong>now</strong> because of real capability gains, not hype:</p>
+ <p style="font-size:26px;margin-bottom:8px;">The harness is assembled &mdash; but you don&rsquo;t drive it by hand. You build <strong>loops</strong>. And they work <strong>now</strong>, on real capability gains, not hype:</p>
  <ul class="cap-list" data-diagram="why-now-capabilities">
   <li><strong>Models are better at long tasks</strong> &mdash; METR: Opus 4.6 completes 50% of <strong>12-hour</strong> tasks, ~6&times; Opus 4. The autonomy window is what loops cash in.</li>
   <li><strong>Huge tasks already shipped</strong> &mdash; a <strong>Stripe codebase migration in a day</strong> (vs ~2 months by hand); Lovable one-shots apps.</li>
@@ -964,7 +964,7 @@ ol.num>li::before{content:counter(s,decimal-leading-zero);position:absolute;left
 <section class="slide "><div class="slide-content"><div class="masthead"><span class="logo">AI</span><span class="sep"></span><span>Tech Lab</span><span class="sep"></span><span class="eyb">Evals &middot; re-running production</span></div>
 <div class="s-head"><span class="eyebrow">Evals &middot; re-running production</span><h1 class="s-title small">Evals = <span class="hl">re-running production</span></h1></div>
 <div class="s-body">
- <p style="font-size:24px;">Where does the loop's <strong>Evaluation</strong> ingredient get its data? Not from hand-written tests &mdash; from <strong>production itself</strong>, captured and replayed offline.</p>
+ <p style="font-size:24px;">A loop&rsquo;s third phase is <strong>verify</strong> &mdash; and evals are that phase done <strong>seriously</strong>. Where&rsquo;s the signal from? Not hand-written tests &mdash; from <strong>production itself</strong>, captured and replayed offline.</p>
  <div class="fly">
   <div class="fly-svg">
    <svg viewBox="0 0 360 320" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1085,7 +1085,7 @@ Run the press-briefing skill on tests/example-2.md"><svg class="ico" viewBox="0 
 <div class="s-head" style="margin-top:54px;"><span class="eyebrow">The whole arc</span><h1 class="s-title">From the loop, to the harness, to the loops</h1></div>
 <div class="s-body" style="justify-content:center;gap:20px;">
  <ul class="clean" style="font-size:25px;">
-  <li>One mental model, end to end: an <strong>agent is a loop</strong> (think &rarr; act &rarr; observe), wrapped in a <strong>harness</strong> (instructions, tools, memory, skills, sandbox, orchestration, context, permissions).</li>
+  <li>One mental model, end to end: an <strong>agent is a loop</strong> (gather context &rarr; act &rarr; verify), wrapped in a <strong>harness</strong> (instructions, tools, memory, skills, sandbox, orchestration, context).</li>
   <li>The frontier is <strong>loops that prompt themselves</strong> &mdash; long-running, parallel, self-evaluating &mdash; built on real industry progress, not hype.</li>
   <li>The <strong>method</strong> is how you engineer one that converges: clarify &rarr; draft &rarr; evaluate &rarr; observe &rarr; improve &rarr; understand.</li>
  </ul>
@@ -1272,7 +1272,7 @@ class Deck {
       });
     } else {
       const g=this.groups(i);
-      g.forEach((el,idx)=>{ el.style.transition = back ? 'none' : 'opacity 0.5s var(--ease), transform 0.5s var(--ease)'; el.classList.toggle('shown', idx<this.step); });
+      g.forEach((el,idx)=>{ el.style.transition = back ? 'none' : ''; el.classList.toggle('shown', idx<this.step); }); // forward: rely on '.anim .step-group{transition}' (gated to the forward reveal window); do NOT leave a persistent inline transition that a later backward toggle can tween.
     }
     if(this.isLoop(i)) this.applyLoop(i);
     this.renderDots(i);
