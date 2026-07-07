@@ -17,10 +17,15 @@ tool against real, dated, sourced points.
   uv run --with matplotlib --with seaborn \
     scripts/charts/deck_chart.py scripts/charts/specs/<name>.json /tmp/<name>.png
   ```
-- **`scripts/charts/specs/<name>.json`** — the committed, editable data spec (one per chart).
-  Points carry `date`, `value`, `src` (the `[n]` key), `label`, and optional `dx/dy/ha` to
-  dodge neighbours. Sections: `points_measured`, `points_disputed` (hollow outliers),
-  `projection` (dashed). See `specs/heuritech-commit-share.json`.
+- **`scripts/charts/specs/<name>.json`** — the committed, editable chart *config* (figsize,
+  x-range, `y_max`, `month_interval`). Point it at a CSV via `"data_csv": "data/<name>.csv"`,
+  or inline the points (`points_measured` / `points_disputed` / `projection`).
+- **`scripts/charts/data/<name>.csv`** — the clean, editable data, one row per dot:
+  `date,value,source,kind,label[,dx,dy,ha]` where `kind ∈ {baseline,measured,disputed,projection}`.
+  The `source` column colours each dot and drives a **legend naming each dot's origin**
+  (measured sources filled, disputed sources hollow); tune colours/labels with `source_colors`
+  / `source_legend` in the spec. `dx/dy/ha` nudge a value label to dodge neighbours. See
+  `specs/heuritech-commit-share.json` + `data/heuritech-commit-share.csv`.
 - Fonts are fetched once to `scripts/charts/.fontcache/` (gitignored); falls back to DejaVu
   if offline. The chart still renders, just with substitute fonts.
 

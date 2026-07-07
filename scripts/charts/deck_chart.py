@@ -10,6 +10,7 @@
 # Run:  uv run --with matplotlib --with seaborn scripts/charts/deck_chart.py <spec.json> <out.png>
 # Spec: see scripts/charts/specs/*.json and docs/references/deck-charts.md.
 
+import csv
 import json
 import sys
 import os
@@ -70,6 +71,31 @@ def d(s):
     return datetime.strptime(s, "%Y-%m-%d")
 
 
+def load_points(spec):
+    """Return (measured, disputed, projection) from a CSV (data_csv) or inline spec arrays.
+    CSV columns: date,value,source,kind,label[,dx,dy,ha]. kind in {baseline,measured,disputed,projection}."""
+    if not spec.get("data_csv"):
+        return spec["points_measured"], spec.get("points_disputed", []), spec.get("projection")
+    path = spec["data_csv"]
+    if not os.path.isabs(path):
+        path = os.path.join(os.path.dirname(__file__), path)
+    def mk(r):
+        o = {"date": r["date"], "value": float(r["value"]), "source": (r.get("source") or "").strip(),
+             "label": (r.get("label") or "").strip(), "ha": (r.get("ha") or "center").strip()}
+        for k in ("dx", "dy"):
+            if r.get(k):
+                o[k] = float(r[k])
+        return o
+    rows = list(csv.DictReader(open(path)))
+    measured = [mk(r) for r in rows if r["kind"] in ("measured", "baseline")]
+    disputed = [mk(r) for r in rows if r["kind"] == "disputed"]
+    pj = [mk(r) for r in rows if r["kind"] == "projection"]
+    proj = ({"to": pj[0]["date"], "value": pj[0]["value"], "label": pj[0]["label"],
+             "source": pj[0]["source"], **{k: pj[0][k] for k in ("dx", "dy", "ha") if k in pj[0]}}
+            if pj else None)
+    return measured, disputed, proj
+
+
 def render(spec, out):
     body, mono, _serif = load_fonts()
     sns.set_style("white")
@@ -79,45 +105,67 @@ def render(spec, out):
     fig, ax = plt.subplots(figsize=tuple(spec.get("figsize", [7.8, 3.05])), dpi=spec.get("dpi", 200))
     fig.patch.set_alpha(0); ax.patch.set_alpha(0)
 
-    measured = spec["points_measured"]
+    # ---- points: from CSV (one row per dot, with a `source` column) or inline spec arrays ----
+    src_colors = {**{"SemiAnalysis": BRAND, "Kinlan": INK, "CoreMention": GREY, "GA": GREY},
+                  **spec.get("source_colors", {})}
+    src_legend = {**{"Kinlan": "Kinlan · aifoc.us", "CoreMention": "CoreMention (disputed)"},
+                  **spec.get("source_legend", {})}
+    measured, disputed, proj = load_points(spec)
+
     mx = [d(p["date"]) for p in measured]
     my = [p["value"] for p in measured]
 
-    # filled area + solid measured line
+    # filled area + solid measured line (the trend)
     ax.fill_between(mx, my, color=AREA, zorder=1)
     ax.plot(mx, my, color=BRAND, lw=2.6, zorder=3, solid_capstyle="round")
-    ax.scatter(mx, my, s=46, color=DARK, zorder=4, edgecolor="#fffdf7", linewidth=1.4)
+    # measured dots COLOURED BY SOURCE
+    for p in measured:
+        ax.scatter([d(p["date"])], [p["value"]], s=54, zorder=4, edgecolor="#fffdf7",
+                   linewidth=1.4, color=src_colors.get(p.get("source", ""), DARK))
 
-    # projection (dashed) from the last measured point
-    proj = spec.get("projection")
+    # projection (dashed) from the last measured point; endpoint hollow in its source colour
     if proj:
         last = measured[-1]
         px = [d(last["date"]), d(proj["to"])]; py = [last["value"], proj["value"]]
         ax.plot(px, py, color=BRAND, lw=2.0, ls=(0, (5, 4)), alpha=0.6, zorder=2)
-        ax.scatter([px[1]], [py[1]], s=46, facecolor="#fffdf7", edgecolor=BRAND, linewidth=2, zorder=4)
+        ax.scatter([px[1]], [py[1]], s=54, facecolor="#fffdf7", linewidth=2, zorder=4,
+                   edgecolor=src_colors.get(proj.get("source", ""), BRAND))
 
-    # disputed / outlier points (hollow grey)
-    for p in spec.get("points_disputed", []):
-        ax.scatter([d(p["date"])], [p["value"]], s=40, facecolor="none", edgecolor=GREY,
-                   linewidth=1.6, zorder=4)
+    # disputed / outlier points (hollow, in the source colour)
+    for p in disputed:
+        ax.scatter([d(p["date"])], [p["value"]], s=48, facecolor="none", linewidth=1.8, zorder=4,
+                   edgecolor=src_colors.get(p.get("source", ""), GREY))
 
-    # per-point label "value [n]" (mono, like the deck chart labels). The [n] keys to the
-    # CLICKABLE source list in the slide HTML footer — source text is never baked into the PNG.
-    # Each point may carry dx/dy/ha overrides to dodge its neighbours.
+    # per-point value label (mono). Source identity now comes from the LEGEND, not a [n].
     def annotate(p, dy=12, dx=0, ha="center", color=DARK):
-        txt = p.get("label", "")
-        if p.get("src"):
-            txt = (txt + " " if txt else "") + f"[{p['src']}]"
-        if txt:
-            ax.annotate(txt, (d(p["date"]), p["value"]), textcoords="offset points",
+        if p.get("label"):
+            ax.annotate(p["label"], (d(p["date"]), p["value"]), textcoords="offset points",
                         xytext=(p.get("dx", dx), p.get("dy", dy)), ha=p.get("ha", ha),
                         fontsize=p.get("fs", 12), fontfamily=mono, color=color)
     for p in measured:
-        annotate(p)
-    for p in spec.get("points_disputed", []):
+        annotate(p, color=src_colors.get(p.get("source", ""), DARK))
+    for p in disputed:
         annotate(p, dy=-18, color=GREY)
     if proj:
         annotate({**proj, "date": proj["to"]}, dx=-12, dy=-6, ha="right", color=BRAND)
+
+    # ---- legend: one entry per data source (each dot's origin) ----
+    from matplotlib.lines import Line2D
+    seen, handles = set(), []
+    for p in measured + disputed + ([proj] if proj else []):
+        s = p.get("source", "")
+        if not s or s == "GA" or s in seen:
+            continue
+        seen.add(s)
+        hollow = s in {q.get("source", "") for q in disputed}
+        handles.append(Line2D([0], [0], marker="o", linestyle="none", markersize=9, markeredgewidth=1.6,
+                              markerfacecolor="none" if hollow else src_colors.get(s, DARK),
+                              markeredgecolor=src_colors.get(s, DARK), label=src_legend.get(s, s)))
+    if handles:
+        leg = ax.legend(handles=handles, loc="upper left", frameon=False, fontsize=10.5,
+                        handletextpad=0.4, labelspacing=0.35, borderaxespad=0.3)
+        for t in leg.get_texts():
+            t.set_fontfamily(mono); t.set_color(DIM)
 
     # axes
     ax.set_ylim(0, spec.get("y_max", 22))
@@ -132,15 +180,12 @@ def render(spec, out):
     ax.grid(axis="y", color="#1a2238", alpha=0.08, lw=1)
     sns.despine(ax=ax, top=True, right=True)
     ax.spines["left"].set_alpha(0.35); ax.spines["bottom"].set_alpha(0.35)
-    if spec.get("note"):
-        ax.annotate(spec["note"], (0.5, -0.22), xycoords="axes fraction", ha="center",
-                    fontsize=10.5, fontfamily=mono, color=DIM)
 
     fig.tight_layout(pad=0.6)
     fig.savefig(out, transparent=True, bbox_inches="tight", pad_inches=0.06)
     print(f"wrote {out}  ({len(measured)} measured pts"
           f"{', +projection' if proj else ''}"
-          f"{', +%d disputed' % len(spec.get('points_disputed', [])) if spec.get('points_disputed') else ''})")
+          f"{', +%d disputed' % len(disputed) if disputed else ''})")
 
 
 if __name__ == "__main__":

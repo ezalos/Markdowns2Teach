@@ -100,13 +100,16 @@ checks miss it — grid/flex panels cover each other without scrolling.
   fit, **split the slide or move content to a second column** — do not rely on
   `min-height:0` to magically shrink intrinsic-height cards. Respect the density
   limits (few boxes per slide, comfortable type).
-- Enforced by `scripts/check-slide-overlap.js` (in `make test-decks`). It drives
-  `window.deck` to each slide's **final step state** and FAILS on:
-  **OVERLAP** — two visible boxes (bg/border) that are not nested yet intersect;
-  **SPILL** — a content child whose box leaves the slide-content area.
-  It already ignores deck chrome (masthead/pager/timers), SVG internals, and 3D
-  flip-card faces (`backface-visibility:hidden`); extend those exclusions, never
-  loosen the thresholds, if a new intentional pattern trips it.
+- Enforced by `scripts/check-slide-overlap.js` (in `make test-decks`). It reveals
+  every step (`goTo(i,true)`) to measure the fullest layout, and FAILS on:
+  **OVERLAP** — two non-nested visible elements that intersect, where an element
+  is a bg/border **box** OR a **leaf block of text** (a quote/paragraph whose
+  accent is a `::before` has no real border but still collides — the box-only
+  check missed exactly this on the SOTA-loop slide); **SPILL** — a content child
+  leaving the slide-content area. Inline elements (`strong`/`span`/`a`…) are
+  excluded (their line-wrap boxes overlap harmlessly), as are deck chrome, SVG
+  internals, and 3D flip-card faces. Extend those exclusions, never loosen the
+  thresholds, if a new intentional pattern trips it.
 
 ## 7. Verify HEADFUL, not headless
 

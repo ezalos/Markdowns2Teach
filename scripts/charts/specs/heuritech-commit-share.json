@@ -1,20 +1,11 @@
 {
-  "_comment": "Claude Code share of public GitHub commits. Measured points only; sources keyed [n] to the slide HTML footer. Research 2026-06-26 (docs/talks/heuritech-agents). 10% is a single-vendor outlier conflicting ~2x with the independent Mar-2026 count, shown as disputed.",
-  "figsize": [7.8, 3.05],
+  "_comment": "Claude Code share of public GitHub commits. Data + per-dot source in data/heuritech-commit-share.csv (research 2026-06-26, docs/talks/heuritech-agents). Dots are coloured by source with a legend; 10% is a single-vendor outlier shown hollow/disputed.",
+  "data_csv": "data/heuritech-commit-share.csv",
+  "figsize": [8.0, 3.15],
   "dpi": 200,
   "x_from": "2025-05-01",
   "x_to": "2027-01-12",
   "month_interval": 3,
   "y_max": 22,
-  "y_ticks": [0, 5, 10, 15, 20],
-  "points_measured": [
-    {"date": "2025-05-22", "value": 0.0, "src": null, "label": "0% GA", "dx": 4, "dy": 11, "ha": "left"},
-    {"date": "2025-09-29", "value": 0.7, "src": 2, "label": "0.7%", "dy": 13},
-    {"date": "2026-02-02", "value": 4.0, "src": 1, "label": "4%", "dx": -6, "dy": -22, "ha": "center"},
-    {"date": "2026-03-16", "value": 4.5, "src": 2, "label": "4.5%", "dy": 13}
-  ],
-  "points_disputed": [
-    {"date": "2026-03-15", "value": 10.0, "src": 3, "label": "~10%", "dx": 12, "dy": -4, "ha": "left"}
-  ],
-  "projection": {"to": "2026-12-31", "value": 20.0, "src": 1, "label": "20% proj."}
+  "y_ticks": [0, 5, 10, 15, 20]
 }
