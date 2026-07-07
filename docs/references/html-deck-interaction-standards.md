@@ -81,10 +81,15 @@ claim (the article, the data-insight, the docs page, the video with its `?v=`),
   (`docs.claude.com` → cite the `code.claude.com` canonical). A deck does not
   ship until this passes with zero findings. Extend `INDEX_DENYLIST` /
   `REDIRECT_HOSTS` in the script as new index/redirect patterns surface.
+- **Every source must be CLICKABLE.** The linter also FAILS on non-clickable
+  sources — a text-only attribution ("Source: PostHog — …" with no `<a>`) or a
+  domain named in a `Sources :` line that isn't wrapped in a link. A source you
+  can't click is a source you can't verify. See CLAUDE.md's non-negotiable rule.
 - **Before publishing**, also run it with `--check-live` (network): it FAILS on
   dead deep-links (4xx/5xx) — a link can have a path yet 404 (stale slug), which
   the offline check can't see. `make check` stays offline/fast; the live pass is
-  the publish gate.
+  the publish gate. A single-page tracker whose root IS the content goes in the
+  linter's `ROOT_SOURCES` (still live-checked), not shipped as bare/text-only.
 - Remediation reference: `scripts/fix-citation-links.py` rewrites bare-domain
   anchors to exact URLs in document order (the same domain is cited for different
   claims on different slides, so order matters), unlinking the unrecoverable ones.

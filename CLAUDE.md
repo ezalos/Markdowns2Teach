@@ -1,5 +1,23 @@
 # Markdowns2Teach — Project Conventions
 
+## ⚠️ NON-NEGOTIABLE — every source must be a clickable, live, exact link
+
+**A source you cannot click is a source you cannot verify. Never build, propose, or ship a
+deck with a source that is not a clickable link to the exact, live page.** This applies to
+EVERY citation on EVERY slide — footer `Sources :` lines, `loop-source` / `dual-cite`
+attributions, stat labels, chart `[n]` markers. Text-only attributions ("Source: PostHog —
+…" with no `<a>`), bare domains, section-index pages, and dead/unreachable links are all
+FORBIDDEN.
+
+- **Before proposing or shipping ANY deck, run and pass:**
+  `python3 scripts/check-citation-links.py --check-live <deck.html>`
+  It fails on: bare domains, section-index/redirect pages, **non-clickable (text-only)
+  sources**, and **dead links (4xx/5xx)**. Zero findings, or the deck does not ship.
+- **If any source cannot be made a clickable, live, exact link, STOP and LOUDLY WARN Louis**
+  — name the slide and the source. Never silently downgrade to text-only or ship it anyway.
+- If a source's exact page is genuinely a single-page tracker/dashboard (root = the content),
+  add it to `ROOT_SOURCES` in the linter (documented) — it stays live-checked.
+
 ## Purpose
 
 Slide decks for the **"Deep Tech & Machine Learning" (UE3)** course, M2 IMT&E at Paris 1 Panthéon-Sorbonne (5 sessions x 3h, Mon 17h30–20h30, ~28 inscrits, 15–20 présents, 7 équipes de 4).
