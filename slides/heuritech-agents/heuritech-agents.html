@@ -446,7 +446,7 @@ ol.num>li::before{content:counter(s,decimal-leading-zero);position:absolute;left
 .sd-node .sdn-ix{font-family:var(--font-mono);font-size:15px;color:var(--brand);}
 .sd-node .sdn-t{font-family:var(--font-display);font-size:24px;color:var(--text-primary);}
 .sd-arrow{font-size:30px;color:var(--brand);padding:0 12px;}
-.loop-source{font-family:var(--font-mono);font-size:15px;color:var(--text-dim);margin-top:14px;}
+.loop-source{font-family:var(--font-mono);font-size:15px;color:var(--text-dim);margin-top:14px;} .loop-source a{color:var(--brand-3);text-decoration:none;border-bottom:1px solid rgba(156,68,31,0.35);}
 .loop-source b{color:var(--brand-3);font-weight:500;}
 .cap-list{list-style:none;display:flex;flex-direction:column;gap:16px;}
 .cap-list>li{position:relative;padding-left:38px;font-size:26px;line-height:1.38;}
@@ -643,16 +643,16 @@ ol.num>li::before{content:counter(s,decimal-leading-zero);position:absolute;left
    <div class="sources">Sources : [1] <a href="https://epoch.ai/data-insights/llm-inference-price-trends">epoch.ai</a></div>
  </div>
 </div></div></div></section>
-<section class="slide loop-slide" data-steps="10"><div class="slide-content"><div class="masthead"><span class="logo">AI</span><span class="sep"></span><span>Tech Lab</span><span class="sep"></span><span class="eyb">A simple example</span></div>
-<div class="s-head"><span class="step-tag">A simple example · stepped</span><h1 class="s-title small">One goal, many small steps <span class="cite">[1]</span></h1></div>
+<section class="slide loop-slide" data-steps="10"><div class="slide-content"><div class="masthead"><span class="logo">AI</span><span class="sep"></span><span>Tech Lab</span><span class="sep"></span><span class="eyb">What an agent is &middot; the loop</span></div>
+<div class="s-head"><span class="step-tag">an agent is a loop: gather context → take action → verify → repeat</span><h1 class="s-title small">One goal, many small steps <span class="cite">[1][2]</span></h1></div>
 <div class="s-body"><div class="two-col" style="grid-template-columns:0.95fr 1.25fr;">
  <div class="col" style="justify-content:center;"><svg viewBox="0 0 540 480" class="method-svg" style="max-height:420px;">
 <defs><marker id="loop-arrow" markerWidth="10" markerHeight="10" refX="7" refY="5" orient="auto"><path d="M0 0 L8 5 L0 10 z" fill="#b1502a"/></marker></defs>
-<path d="M 336 105 A 150 150 0 0 1 420 250" fill="none" stroke="rgba(177,80,42,0.55)" stroke-width="2" marker-end="url(#loop-arrow)"/><path d="M 354 364 A 150 150 0 0 1 186 364" fill="none" stroke="rgba(177,80,42,0.55)" stroke-width="2" marker-end="url(#loop-arrow)"/><path d="M 120 250 A 150 150 0 0 1 204 105" fill="none" stroke="rgba(177,80,42,0.55)" stroke-width="2" marker-end="url(#loop-arrow)"/><g class="loopnode" data-phase="think"><rect x="178" y="54" width="184" height="72" rx="14" fill="rgba(177,80,42,0.04)" stroke="rgba(177,80,42,0.5)" stroke-width="1.5"/><text x="270" y="86" text-anchor="middle" font-family="Bodoni Moda" font-size="24" fill="#1a2238">Thought</text><text x="270" y="110" text-anchor="middle" font-family="JetBrains Mono" font-size="14" fill="#6c7184">what next?</text></g><g class="loopnode" data-phase="act"><rect x="308" y="279" width="184" height="72" rx="14" fill="rgba(177,80,42,0.04)" stroke="rgba(177,80,42,0.5)" stroke-width="1.5"/><text x="400" y="311" text-anchor="middle" font-family="Bodoni Moda" font-size="24" fill="#1a2238">Action</text><text x="400" y="335" text-anchor="middle" font-family="JetBrains Mono" font-size="14" fill="#6c7184">use a tool</text></g><g class="loopnode" data-phase="observe"><rect x="48" y="279" width="184" height="72" rx="14" fill="rgba(177,80,42,0.04)" stroke="rgba(177,80,42,0.5)" stroke-width="1.5"/><text x="140" y="311" text-anchor="middle" font-family="Bodoni Moda" font-size="24" fill="#1a2238">Observation</text><text x="140" y="335" text-anchor="middle" font-family="JetBrains Mono" font-size="14" fill="#6c7184">read the result</text></g>
+<path d="M 336 105 A 150 150 0 0 1 420 250" fill="none" stroke="rgba(177,80,42,0.55)" stroke-width="2" marker-end="url(#loop-arrow)"/><path d="M 354 364 A 150 150 0 0 1 186 364" fill="none" stroke="rgba(177,80,42,0.55)" stroke-width="2" marker-end="url(#loop-arrow)"/><path d="M 120 250 A 150 150 0 0 1 204 105" fill="none" stroke="rgba(177,80,42,0.55)" stroke-width="2" marker-end="url(#loop-arrow)"/><g class="loopnode" data-phase="think"><rect x="178" y="54" width="184" height="72" rx="14" fill="rgba(177,80,42,0.04)" stroke="rgba(177,80,42,0.5)" stroke-width="1.5"/><text x="270" y="86" text-anchor="middle" font-family="Bodoni Moda" font-size="24" fill="#1a2238">Gather context</text><text x="270" y="110" text-anchor="middle" font-family="JetBrains Mono" font-size="14" fill="#6c7184">what do I know?</text></g><g class="loopnode" data-phase="act"><rect x="308" y="279" width="184" height="72" rx="14" fill="rgba(177,80,42,0.04)" stroke="rgba(177,80,42,0.5)" stroke-width="1.5"/><text x="400" y="311" text-anchor="middle" font-family="Bodoni Moda" font-size="24" fill="#1a2238">Take action</text><text x="400" y="335" text-anchor="middle" font-family="JetBrains Mono" font-size="14" fill="#6c7184">use a tool</text></g><g class="loopnode" data-phase="observe"><rect x="48" y="279" width="184" height="72" rx="14" fill="rgba(177,80,42,0.04)" stroke="rgba(177,80,42,0.5)" stroke-width="1.5"/><text x="140" y="311" text-anchor="middle" font-family="Bodoni Moda" font-size="24" fill="#1a2238">Verify</text><text x="140" y="335" text-anchor="middle" font-family="JetBrains Mono" font-size="14" fill="#6c7184">did it work?</text></g>
 <text x="270" y="232" text-anchor="middle" font-family="Work Sans" font-size="20" fill="#6c7184">until the goal</text>
 <text x="270" y="258" text-anchor="middle" font-family="Work Sans" font-size="20" fill="#6c7184">is reached</text>
 </svg>
-   <div class="prail" data-diagram="ProgressRail" style="margin-top:8px;"><div class="pr" data-rail="1"><span class="pdot"></span>Think</div><div class="pr" data-rail="2"><span class="pdot"></span>Act</div><div class="pr" data-rail="3"><span class="pdot"></span>Observe</div><div class="pr" data-rail="4"><span class="pdot"></span>Think</div><div class="pr" data-rail="5"><span class="pdot"></span>Act</div><div class="pr" data-rail="6"><span class="pdot"></span>Observe</div><div class="pr" data-rail="7"><span class="pdot"></span>Think</div><div class="pr" data-rail="8"><span class="pdot"></span>Act</div><div class="pr" data-rail="9"><span class="pdot"></span>Observe</div><div class="pr" data-rail="10"><span class="pdot"></span>Answer</div></div>
+   <div class="prail" data-diagram="ProgressRail" style="margin-top:8px;"><div class="pr" data-rail="1"><span class="pdot"></span>Gather</div><div class="pr" data-rail="2"><span class="pdot"></span>Act</div><div class="pr" data-rail="3"><span class="pdot"></span>Verify</div><div class="pr" data-rail="4"><span class="pdot"></span>Gather</div><div class="pr" data-rail="5"><span class="pdot"></span>Act</div><div class="pr" data-rail="6"><span class="pdot"></span>Verify</div><div class="pr" data-rail="7"><span class="pdot"></span>Gather</div><div class="pr" data-rail="8"><span class="pdot"></span>Act</div><div class="pr" data-rail="9"><span class="pdot"></span>Verify</div><div class="pr" data-rail="10"><span class="pdot"></span>Answer</div></div>
  </div>
  <div class="col" style="padding-left:36px;">
   <div class="appwin" data-diagram="LoopDiagram" style="flex:1;min-height:0;">
@@ -665,7 +665,7 @@ ol.num>li::before{content:counter(s,decimal-leading-zero);position:absolute;left
   </div>
  </div>
 </div>
-<div class="sources">Sources : [1] <a href="https://arxiv.org/abs/2210.03629">arxiv.org</a> (ReAct)</div>
+<div class="sources">Sources : [1] <a href="https://claude.com/blog/getting-started-with-loops">claude.com</a> (the agentic loop) &middot; [2] <a href="https://arxiv.org/abs/2210.03629">arxiv.org</a> (ReAct)</div>
 </div></div></section>
 <section class="slide " data-steps="7"><div class="slide-content"><div class="masthead"><span class="logo">AI</span><span class="sep"></span><span>Tech Lab</span><span class="sep"></span><span class="eyb">The anatomy</span></div>
 <div class="s-head"><span class="step-tag">The anatomy &middot; stepped</span><h1 class="s-title small">Agent = LLM + harness</h1></div>
@@ -832,18 +832,19 @@ ol.num>li::before{content:counter(s,decimal-leading-zero);position:absolute;left
   <div class="card"><h4>Peter Steinberger &middot; OpenClaw</h4><p>Loops as the way to keep an agent productive over long horizons.</p></div>
   <div class="card"><h4>Boris Cherny &middot; Claude Code</h4><p>Loops built into the harness itself.</p></div>
  </div>
- <p>The shift: from "write this for me" (one prompt, one task) to <strong>"keep working toward this"</strong> (a loop that re-prompts itself until the goal is met). This section is the <strong>theoretical bridge</strong> to the build method.</p>
- <div class="loop-source">Source: <b>PostHog</b> — "Why we're bullish on loops", Ian Vanagas</div>
+ <p>The shift: from "write this for me" (one prompt, one task) to <strong>"keep working toward this"</strong> (a loop that re-prompts itself until the goal is met). Anthropic&rsquo;s Claude Code team defines it exactly so: <strong>&ldquo;loops = agents repeating cycles of work until a stop condition is met.&rdquo;</strong></p>
+ <div class="loop-source">Source: <b>Anthropic</b> &mdash; <a href="https://claude.com/blog/getting-started-with-loops">&ldquo;Getting started with loops&rdquo;</a> (Claude Code team) &middot; <b>PostHog</b> &mdash; Ian Vanagas.</div>
 </div></div></section>
 <section class="slide "><div class="slide-content"><div class="masthead"><span class="logo">AI</span><span class="sep"></span><span>Tech Lab</span><span class="sep"></span><span class="eyb">Loops &middot; the anatomy</span></div>
-<div class="s-head"><span class="eyebrow">Loops &middot; the anatomy</span><h1 class="s-title small">Engineering a loop &mdash; the four ingredients</h1></div>
+<div class="s-head"><span class="eyebrow">Loops &middot; the anatomy</span><h1 class="s-title small">The kinds of loops &mdash; a ladder of <span class="hl">autonomy</span></h1></div>
 <div class="s-body">
- <div class="cards" data-diagram="loop-four-ingredients" style="grid-template-columns:repeat(4,1fr);gap:16px;">
-  <div class="ing-card"><div class="ih"><span class="num">01</span> Goal</div><p>What the loop is driving toward. <em>"A loop without a goal is a slop cannon."</em> The goal makes self-prompting converge instead of wander.</p></div>
-  <div class="ing-card"><div class="ih"><span class="num">02</span> Context</div><p>The fuel: tools, skills, analytics, errors, memories. Curated and replenished, not loaded once. For long runs, keep shared state in <strong>files</strong> (JSON the model won't overwrite), not the context window.</p></div>
-  <div class="ing-card accent"><div class="ih"><span class="num">03</span> Evaluation</div><p>The agent checks itself: tests, evals, metrics, LLM-as-judge. <strong>Agents verify by using the product, not by reading diffs</strong> &mdash; and a separate critic beats self-review. That lets the loop run unattended.</p></div>
-  <div class="ing-card"><div class="ih"><span class="num">04</span> An Agent</div><p><em>Basic tier:</em> Claude Code in a <span style="font-family:var(--font-mono);font-size:0.9em;">while true</span> (the "Ralph" pattern), or a <span style="font-family:var(--font-mono);font-size:0.9em;">/goal</span> command. <em>SOTA:</em> a purpose-built harness &mdash; the <strong>adversarial planner/generator/evaluator loop</strong> (next slide), the thing Ralph never had.</p></div>
+ <div class="cards" data-diagram="loop-types" style="grid-template-columns:repeat(4,1fr);gap:16px;">
+  <div class="ing-card"><div class="ih"><span class="num">01</span> Turn-based</div><p><strong>Trigger:</strong> a prompt.<br><strong>Stops:</strong> when Claude judges the task done, or needs more context.<br><em>Shorter, one-off tasks.</em></p></div>
+  <div class="ing-card"><div class="ih"><span class="num">02</span> Goal-based</div><p><strong>Trigger:</strong> a prompt &mdash; <span style="font-family:var(--font-mono);font-size:0.9em;">/goal</span>.<br><strong>Stops:</strong> goal reached, or max turns.<br><em>Tasks with a verifiable exit.</em></p></div>
+  <div class="ing-card"><div class="ih"><span class="num">03</span> Time-based</div><p><strong>Trigger:</strong> a schedule &mdash; <span style="font-family:var(--font-mono);font-size:0.9em;">/loop</span> · <span style="font-family:var(--font-mono);font-size:0.9em;">/schedule</span>.<br><strong>Stops:</strong> you cancel, or it completes.<br><em>Recurring work; external systems.</em></p></div>
+  <div class="ing-card accent"><div class="ih"><span class="num">04</span> Proactive</div><p><strong>Trigger:</strong> an event &mdash; no human in real time.<br><strong>Stops:</strong> each run exits at its goal.<br><em>Streams of well-defined work.</em></p></div>
  </div>
+ <p style="margin-top:12px;font-size:21px;">Autonomy climbs left → right. Whatever the type, a loop needs a <strong>goal</strong> and a way to <strong>verify</strong> &mdash; <em>&ldquo;a loop without a goal is a slop cannon.&rdquo;</em></p>
  <div class="col-label" style="margin-top:14px;">Loop examples &mdash; what people actually run</div>
  <div class="examples-row" data-diagram="loop-examples">
   <div class="ex-card"><span class="exi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 0 0 9 9"/></svg></span><div class="ext">PR babysitter</div><div class="exd">Watches and shepherds pull requests to green.</div></div>
@@ -851,9 +852,8 @@ ol.num>li::before{content:counter(s,decimal-leading-zero);position:absolute;left
   <div class="ex-card"><span class="exi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20" opacity=".3"/><path d="M5 5l14 14M19 5L5 19"/></svg></span><div class="ext">Flaky-test hunter</div><div class="exd">Finds and stabilises non-deterministic tests.</div></div>
   <div class="ex-card"><span class="exi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></span><div class="ext">Perf autoresearcher</div><div class="exd">Karpathy's fixed a <strong>3-year-old bug</strong> and found an <strong>11% perf</strong> win.</div></div>
  </div>
- <div class="loop-source">Source: <b>PostHog</b> — "Why we're bullish on loops", Ian Vanagas</div>
- <div class="dual-cite">Corroborated first-hand by <b>Anthropic</b> &mdash; Prabaker &amp; Wilson, "Build Agents That Run for Hours" (the primary actor PostHog describes).</div>
-</div></div></section>
+ <div class="loop-source">Types: <b>Anthropic</b> &mdash; <a href="https://claude.com/blog/getting-started-with-loops">&ldquo;Getting started with loops&rdquo;</a> (Claude Code team). &ldquo;Slop cannon&rdquo;: <b>PostHog</b> &mdash; Ian Vanagas.</div>
+</div></div></div></section>
 <section class="slide "><div class="slide-content"><div class="masthead"><span class="logo">AI</span><span class="sep"></span><span>Tech Lab</span><span class="sep"></span><span class="eyb">Loops &middot; the SOTA loop</span></div>
 <div class="s-head"><span class="eyebrow">Loops &middot; the SOTA loop</span><h1 class="s-title small">Planner &middot; Generator &middot; Evaluator &mdash; <span class="hl">the loop Anthropic actually runs</span></h1></div>
 <div class="s-body">
@@ -908,7 +908,7 @@ ol.num>li::before{content:counter(s,decimal-leading-zero);position:absolute;left
   </div>
  </div>
  <div class="pge-quote step-group" data-order="5"><p>&ldquo;Tuning a standalone critic to be harsh is tractable; tuning a builder to be self-critical is not. <strong>Self-review is a trap.</strong>&rdquo;</p><span class="qa">Ash Prabaker &mdash; you exploit the gap between an LLM as critic vs. generator.</span></div>
- <div class="loop-source">Source: <b>Anthropic</b> &mdash; "Build Agents That Run for Hours" (Prabaker &amp; Wilson)</div>
+ <div class="loop-source">Source: <b>Anthropic</b> &mdash; &ldquo;Build Agents That Run for Hours&rdquo; (Prabaker &amp; Wilson). Now official guidance: <a href="https://claude.com/blog/getting-started-with-loops">&ldquo;use a second agent for reviews &mdash; fresh context is less biased.&rdquo;</a></div>
 </div></div></section>
 <section class="slide "><div class="slide-content"><div class="masthead"><span class="logo">AI</span><span class="sep"></span><span>Tech Lab</span><span class="sep"></span><span class="eyb">Loops &middot; self-driving</span></div>
 <div class="s-head"><span class="eyebrow">Loops &middot; self-driving</span><h1 class="s-title">Self-driving products</h1></div>
