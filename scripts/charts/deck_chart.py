@@ -108,7 +108,7 @@ def render(spec, out):
     # ---- points: from CSV (one row per dot, with a `source` column) or inline spec arrays ----
     src_colors = {**{"SemiAnalysis": BRAND, "Kinlan": INK, "CoreMention": GREY, "botcommits": GREY, "GA": GREY},
                   **spec.get("source_colors", {})}
-    src_legend = {**{"Kinlan": "Kinlan · aifoc.us — commits", "SemiAnalysis": "SemiAnalysis — commits", "botcommits": "botcommits — pushes (≈3× commits)"},
+    src_legend = {**{"Kinlan": "Kinlan · aifoc.us — commits", "SemiAnalysis": "SemiAnalysis — commits", "botcommits": "botcommits — all coding agents (pushes)"},
                   **spec.get("source_legend", {})}
     measured, disputed, proj = load_points(spec)
 
