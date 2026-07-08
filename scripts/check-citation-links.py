@@ -122,8 +122,9 @@ def dead_link(url: str):
         urllib.request.urlopen(req, timeout=20).getcode()
         return None
     except urllib.error.HTTPError as e:
-        # Some hosts reject HEAD or bot UAs (403/405/429) but the page is fine.
-        if e.code in (403, 405, 429):
+        # Auth-gated (401) or bot-rejecting (403/405/429) hosts still EXIST — not dead.
+        # (e.g. slides.develle.fr is behind Basic auth; a deck viewer is already authed.)
+        if e.code in (401, 403, 405, 429):
             return None
         return f"HTTP {e.code}"
     except Exception:
@@ -132,7 +133,7 @@ def dead_link(url: str):
             urllib.request.urlopen(req, timeout=20)
             return None
         except urllib.error.HTTPError as e:
-            return None if e.code in (403, 405, 429) else f"HTTP {e.code}"
+            return None if e.code in (401, 403, 405, 429) else f"HTTP {e.code}"
         except Exception as e:
             return f"unreachable ({type(e).__name__})"
 

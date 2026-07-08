@@ -3,5 +3,4 @@ date,value,source,kind,label,dx,dy,ha
 2025-09-29,0.7,Kinlan,measured,0.7%,0,14,center
 2026-02-02,4.0,SemiAnalysis,measured,4%,-8,-22,center
 2026-03-16,4.5,Kinlan,measured,4.5%,4,14,left
-2026-03-15,10.0,botcommits,disputed,~10% of pushes,16,-2,left
 2026-12-31,20.0,SemiAnalysis,projection,20% proj.,-14,-8,right
