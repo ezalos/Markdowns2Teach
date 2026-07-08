@@ -737,63 +737,7 @@ ol.num>li::before{content:counter(s,decimal-leading-zero);position:absolute;left
  </div>
  <div class="loop-source">Types: <b>Anthropic</b> &mdash; <a href="https://claude.com/blog/getting-started-with-loops">&ldquo;Getting started with loops&rdquo;</a> (Claude Code team). &ldquo;Slop cannon&rdquo;: <b>PostHog</b> &mdash; Ian Vanagas.</div>
 </div></div></div></section>
-<section class="slide "><div class="slide-content"><div class="masthead"><span class="logo">AI</span><span class="sep"></span><span>Tech Lab</span><span class="sep"></span><span class="eyb">Loops &middot; the SOTA loop</span></div>
-<div class="s-head"><span class="eyebrow">Loops &middot; the SOTA loop</span><h1 class="s-title small">Planner &middot; Generator &middot; Evaluator &mdash; <span class="hl">the loop Anthropic actually runs</span></h1></div>
-<div class="s-body">
- <div class="sota">
-  <div class="sota-roles">
-   <div class="pge-role step-group" data-order="1"><div class="rh"><span class="rn">PM</span> Planner <span class="cw">own context window</span></div><p>One-line spec &rarr; a deliberately <strong>high-level</strong> series of sprints. Vague on purpose: granular plans make errors <strong>cascade</strong> over a multi-hour run.</p></div>
-   <div class="pge-role step-group" data-order="2"><div class="rh"><span class="rn">IC</span> Generator <span class="cw">own context window</span></div><p>Builds. Proposes the contract, then writes code against it &mdash; its own context, prompt and job.</p></div>
-   <div class="pge-role accent step-group" data-order="3"><div class="rh"><span class="rn">QA</span> Evaluator <span class="cw">own context window</span></div><p>Grades by <strong>using the app</strong> &mdash; Playwright clicks, screenshots, scores &mdash; <strong>not by reading diffs</strong>. Can throw it all out and restart.</p></div>
-  </div>
-  <div class="sota-stage">
-   <div class="sota-diagram">
-    <svg viewBox="0 0 580 296" fill="none" xmlns="http://www.w3.org/2000/svg">
-     <defs>
-      <marker id="sotaArr" markerWidth="9" markerHeight="9" refX="7.5" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#b1502a"/></marker>
-      <marker id="sotaArrD" markerWidth="9" markerHeight="9" refX="7.5" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="rgba(32,36,46,0.5)"/></marker>
-     </defs>
-     <!-- Planner (top, centered) -->
-     <rect x="200" y="8" width="180" height="50" rx="11" fill="rgba(177,80,42,0.05)" stroke="#b1502a" stroke-width="1.5"/>
-     <text x="290" y="30" text-anchor="middle" font-family="'Bodoni Moda',serif" font-size="22" fill="#1a2238">Planner</text>
-     <text x="290" y="48" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11.5" fill="rgba(32,36,46,0.6)">one-line spec &rarr; sprints</text>
-     <!-- Planner -> contract -->
-     <line x1="290" y1="58" x2="290" y2="82" stroke="#b1502a" stroke-width="1.6" marker-end="url(#sotaArr)"/>
-     <!-- contract.md (shared artifact, middle, its own region) -->
-     <rect x="206" y="86" width="168" height="46" rx="9" fill="rgba(26,34,56,0.05)" stroke="rgba(26,34,56,0.45)" stroke-width="1.3" stroke-dasharray="6 4"/>
-     <text x="290" y="106" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="14" fill="#1a2238">contract.md</text>
-     <text x="290" y="123" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10.5" fill="rgba(32,36,46,0.6)">agreed &ldquo;done&rdquo; on disk &middot; 27 criteria</text>
-     <!-- contract feeds both builders (curves land clear of labels) -->
-     <path d="M222 132 C150 152 110 156 100 168" stroke="rgba(32,36,46,0.5)" stroke-width="1.3" marker-end="url(#sotaArrD)"/>
-     <path d="M358 132 C430 152 470 156 480 168" stroke="rgba(32,36,46,0.5)" stroke-width="1.3" marker-end="url(#sotaArrD)"/>
-     <!-- Generator (bottom-left) -->
-     <rect x="20" y="172" width="170" height="62" rx="12" fill="#fffdf7" stroke="rgba(26,34,56,0.3)" stroke-width="1.5"/>
-     <text x="105" y="198" text-anchor="middle" font-family="'Bodoni Moda',serif" font-size="22" fill="#1a2238">Generator</text>
-     <text x="105" y="218" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11.5" fill="rgba(32,36,46,0.6)">builds against contract</text>
-     <!-- Evaluator (bottom-right) -->
-     <rect x="390" y="172" width="170" height="62" rx="12" fill="rgba(177,80,42,0.06)" stroke="#b1502a" stroke-width="1.6"/>
-     <text x="475" y="198" text-anchor="middle" font-family="'Bodoni Moda',serif" font-size="22" fill="#1a2238">Evaluator</text>
-     <text x="475" y="218" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11.5" fill="rgba(32,36,46,0.6)">drives the live app</text>
-     <!-- adversarial exchange in the clear central gap (x 194..386) -->
-     <line x1="196" y1="190" x2="384" y2="190" stroke="#b1502a" stroke-width="1.8" marker-end="url(#sotaArr)"/>
-     <line x1="384" y1="216" x2="196" y2="216" stroke="#b1502a" stroke-width="1.8" marker-end="url(#sotaArr)"/>
-     <text x="290" y="184" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11.5" fill="rgba(32,36,46,0.65)">build &rarr;</text>
-     <text x="290" y="232" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11.5" fill="rgba(32,36,46,0.65)">&larr; critique (Playwright)</text>
-     <!-- throw-it-all-out loop below both boxes (own region) -->
-     <path d="M105 234 C105 268 290 272 290 272 C290 272 475 268 475 234" stroke="#b1502a" stroke-width="1.4" stroke-dasharray="6 5" fill="none" marker-end="url(#sotaArr)"/>
-     <text x="290" y="290" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11.5" fill="#b1502a">can throw it all out &amp; restart from scratch</text>
-    </svg>
-   </div>
-   <div class="sota-contract step-group" data-order="4">
-    <div class="sc-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13l2 2 4-4"/></svg>contract.md &mdash; what Ralph never had</div>
-    <p>Before a line of code, generator and evaluator <strong>negotiate &ldquo;done&rdquo; into a file</strong> &mdash; scope, tests, edge cases &mdash; until both agree (e.g. <strong>27 criteria</strong>). The evaluator grades against <em>that</em>, not the planner's one-shot spec.</p>
-   </div>
-  </div>
- </div>
- <div class="pge-quote step-group" data-order="5"><p>&ldquo;Tuning a standalone critic to be harsh is tractable; tuning a builder to be self-critical is not. <strong>Self-review is a trap.</strong>&rdquo;</p><span class="qa">Ash Prabaker &mdash; you exploit the gap between an LLM as critic vs. generator.</span></div>
- <div class="loop-source">Source: <b>Anthropic</b> &mdash; &ldquo;Build Agents That Run for Hours&rdquo; (Prabaker &amp; Wilson) &middot; now <a href="https://claude.com/blog/getting-started-with-loops">official</a>: a fresh-context reviewer beats self-review.</div>
-</div></div></section>
-<section class="slide "><div class="slide-content"><div class="masthead"><span class="logo">AI</span><span class="sep"></span><span>Tech Lab</span><span class="sep"></span><span class="eyb">Loops &middot; self-driving</span></div>
+<section class="slide" data-steps="4"><div class="slide-content"><div class="masthead"><span class="logo">AI</span><span class="sep"></span><span>Tech Lab</span><span class="sep"></span><span class="eyb">Loops &middot; the SOTA loop</span></div><div class="s-head"><span class="step-tag">Loops &middot; the SOTA loop &middot; stepped</span><h1 class="s-title small">Planner &middot; Generator &middot; Evaluator &mdash; <span class="hl">the loop Anthropic runs</span></h1></div><div class="s-body" style="gap:16px;"><div class="pge-role step-group" data-order="1"><div class="rh"><span class="rn">PM</span> Planner <span class="cw">own context window</span></div><p>One-line spec &rarr; a deliberately <strong>high-level</strong> series of sprints. Vague on purpose &mdash; granular plans make errors <strong>cascade</strong> over a multi-hour run.</p><div style="font-family:var(--font-mono);font-size:15px;background:#fbf8f0;border:1px solid var(--panel-border);border-radius:8px;padding:10px 14px;color:var(--text-secondary);margin-top:10px;line-height:1.5;"><span style="color:var(--brand-3);">/goal</span> &quot;Kanban board: drag cards between columns, persist to localStorage&quot; &nbsp;&rarr;&nbsp; 5 high-level sprints</div></div><div class="two-col" style="grid-template-columns:1fr 1fr;gap:24px;align-items:start;"><div class="pge-role step-group" data-order="2"><div class="rh"><span class="rn">IC</span> Generator <span class="cw">own context window</span></div><p>Builds against the contract &mdash; its own context, prompt and job. Proposes the contract, then writes code to satisfy it.</p></div><div class="pge-role accent step-group" data-order="3"><div class="rh"><span class="rn">QA</span> Evaluator <span class="cw">own context window</span></div><p>Grades by <strong>using the app</strong> &mdash; Playwright clicks, screenshots, scores &mdash; <strong>not by reading diffs</strong>. Can throw it all out and restart.</p><div class="sota-contract" style="margin-top:12px;"><div class="sc-head">contract.md &mdash; what Ralph never had</div><p>Before a line of code, generator &amp; evaluator <strong>negotiate &ldquo;done&rdquo; into a file</strong> (scope, tests, edge cases &mdash; e.g. <strong>27 criteria</strong>). The evaluator grades against <em>that</em>.</p></div></div></div><div class="pge-quote step-group" data-order="4"><p>&ldquo;Tuning a standalone critic to be harsh is tractable; tuning a builder to be self-critical is not. <strong>Self-review is a trap.</strong>&rdquo;</p><span class="qa">Ash Prabaker &mdash; exploit the gap between an LLM as critic vs. generator.</span></div><div class="loop-source">Source: <b>Anthropic</b> &mdash; <a href="https://www.youtube.com/watch?v=mR-WAvEPRwE">&ldquo;Build Agents That Run for Hours&rdquo;</a> (Prabaker &amp; Wilson) &middot; now <a href="https://claude.com/blog/getting-started-with-loops">official</a>: a fresh-context reviewer beats self-review.</div></div></div></section><section class="slide "><div class="slide-content"><div class="masthead"><span class="logo">AI</span><span class="sep"></span><span>Tech Lab</span><span class="sep"></span><span class="eyb">Loops &middot; self-driving</span></div>
 <div class="s-head"><span class="eyebrow">Loops &middot; self-driving</span><h1 class="s-title">Self-driving products</h1></div>
 <div class="s-body">
  <p>The bigger goal than tokenmaxxing: <strong>the agent prompts itself, and the product improves without input.</strong> Product engineers already run this loop manually:</p>
