@@ -1,5 +1,5 @@
 // ABOUTME: Pixel-accurate slide overflow detector using Puppeteer and headless Chrome.
-// ABOUTME: Renders Marp slides to HTML and compares scrollHeight vs clientHeight per section.
+// ABOUTME: Checks both vertical (scrollHeight) and horizontal (scrollWidth + descendant right edges).
 
 const { execFileSync } = require("child_process");
 const fs = require("fs");
@@ -8,6 +8,7 @@ const path = require("path");
 const puppeteer = require("puppeteer");
 
 const LINE_HEIGHT_PX = 37.5; // 25px font * 1.5 line-height
+const RIGHT_EDGE_TOLERANCE_PX = 1; // sub-pixel rounding tolerance
 
 function findMarp() {
   // Try common locations for the marp binary
@@ -73,26 +74,93 @@ function renderToHtml(marpBin, mdFile, tmpDir) {
   }
 }
 
-async function measureOverflow(page) {
-  return page.evaluate(() => {
+async function measureOverflow(page, tolerance) {
+  return page.evaluate((tol) => {
     // Only measure sections with an id (actual content slides).
     // Sections without id are Marp background pseudo-elements.
     const sections = document.querySelectorAll("section[id]");
     const results = [];
     for (let i = 0; i < sections.length; i++) {
       const s = sections[i];
+
+      // Vertical (bottom) overflow — content taller than the slide.
       const scrollH = s.scrollHeight;
       const clientH = s.clientHeight;
-      const overflow = scrollH - clientH;
+      const overflowY = scrollH - clientH;
+
+      // Horizontal (right) overflow — content wider than the slide.
+      // Two complementary signals:
+      //   1. scrollWidth vs clientWidth (catches any content past the right edge)
+      //   2. specific descendants (img/pre/table/code) whose bounding box
+      //      extends past the section's right edge — gives us the
+      //      culprit element for the report
+      const scrollW = s.scrollWidth;
+      const clientW = s.clientWidth;
+      const overflowX = scrollW - clientW;
+
+      const sRect = s.getBoundingClientRect();
+      const sectionRight = sRect.right;
+      let worstRight = 0;
+      let worstRightTag = null;
+      let worstRightHint = null;
+      // Descendants likely to push width: images, code blocks, tables, embeds.
+      const candidates = s.querySelectorAll("img, pre, code, table, video, iframe, figure");
+      for (const el of candidates) {
+        const r = el.getBoundingClientRect();
+        if (r.width === 0 || r.height === 0) continue; // skip non-rendered
+        const overshoot = r.right - sectionRight;
+        if (overshoot > worstRight) {
+          worstRight = overshoot;
+          worstRightTag = el.tagName.toLowerCase();
+          const src = el.getAttribute("src");
+          if (src) {
+            worstRightHint = src.split("/").pop();
+          } else {
+            const txt = (el.textContent || "").trim().replace(/\s+/g, " ");
+            worstRightHint = txt ? txt.slice(0, 40) + (txt.length > 40 ? "…" : "") : null;
+          }
+        }
+      }
+      worstRight = Math.max(0, Math.round(worstRight));
+      // Apply tolerance — only flag if the overshoot is meaningful.
+      const flaggedRight = worstRight > tol ? worstRight : 0;
+      const flaggedScrollX = overflowX > tol ? overflowX : 0;
+
       const heading = s.querySelector("h1, h2");
       let title = null;
       if (heading) {
         title = heading.textContent.trim().replace(/^\d+\s*[—–-]\s*/, "");
       }
-      results.push({ index: i, scrollH, clientH, overflow, title });
+      results.push({
+        index: i,
+        scrollH,
+        clientH,
+        overflowY,
+        scrollW,
+        clientW,
+        overflowX: flaggedScrollX,
+        worstRight: flaggedRight,
+        worstRightTag,
+        worstRightHint,
+        title,
+      });
     }
     return results;
-  });
+  }, tolerance);
+}
+
+function formatRightIssue(slide) {
+  // Prefer the descendant report (it tells you *which* element overflows);
+  // fall back to scrollWidth for cases like long unbreakable text runs.
+  if (slide.worstRight > 0) {
+    const tag = slide.worstRightTag || "el";
+    const hint = slide.worstRightHint ? ` "${slide.worstRightHint}"` : "";
+    return `overflows RIGHT by ${slide.worstRight}px (<${tag}>${hint})`;
+  }
+  if (slide.overflowX > 0) {
+    return `overflows RIGHT by ${slide.overflowX}px (content)`;
+  }
+  return null;
 }
 
 async function main() {
@@ -127,7 +195,7 @@ async function main() {
     await page.setViewport({ width: 1280, height: 720 });
     await page.goto(`file://${htmlFile}`, { waitUntil: "networkidle0" });
 
-    const slides = await measureOverflow(page);
+    const slides = await measureOverflow(page, RIGHT_EDGE_TOLERANCE_PX);
     await page.close();
 
     let fileHasOverflow = false;
@@ -135,11 +203,19 @@ async function main() {
     for (const slide of slides) {
       const num = String(slide.index + 1).padStart(2, "0");
       const label = slide.title ? `"${slide.title}"` : "(no title)";
-      if (slide.overflow > 0) {
-        const approxLines = Math.ceil(slide.overflow / LINE_HEIGHT_PX);
-        lines.push(
-          `  [!] Slide ${num} ${label} -- overflows by ${slide.overflow}px (~${approxLines} line${approxLines > 1 ? "s" : ""})`
+      const issues = [];
+      if (slide.overflowY > 0) {
+        const approxLines = Math.ceil(slide.overflowY / LINE_HEIGHT_PX);
+        issues.push(
+          `overflows BOTTOM by ${slide.overflowY}px (~${approxLines} line${approxLines > 1 ? "s" : ""})`
         );
+      }
+      const rightIssue = formatRightIssue(slide);
+      if (rightIssue) {
+        issues.push(rightIssue);
+      }
+      if (issues.length > 0) {
+        lines.push(`  [!] Slide ${num} ${label} -- ${issues.join("; ")}`);
         totalOverflows++;
         fileHasOverflow = true;
       } else {
