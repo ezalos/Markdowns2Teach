@@ -142,7 +142,7 @@ test-decks: ## Verify prebuilt decks: no backward animation AND no box overlap /
 deploy: verify-sources-live html ## Publish to slides.develle.fr — GATED on live source verification (registry + verbatim quotes)
 	@echo "  DEPLOY: dist/html rebuilt — slides.develle.fr = Cloudflare Tunnel (cloudflared@TinyButMighty) → TheBeast:8080 → serve-auth.py (live)."
 	@echo "          The running 'make serve' picks up changes immediately. Hard-refresh (Ctrl+Shift+R) to bypass browser cache."
-	@echo "          If 'make serve' is not running, start it: make serve"
+	@echo "          Origin is supervised by systemd: systemctl --user status serve-slides (auto-restarts, starts at boot via linger)."
 
 sync: ## Sync PPTX files to Google Drive via rclone
 	rclone sync $(PPTX_DIR)/ $(GDRIVE_REMOTE) --progress
