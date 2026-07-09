@@ -140,7 +140,7 @@ test-decks: ## Verify prebuilt decks: no backward animation AND no box overlap /
 	@node scripts/check-slide-overlap.js $(PREBUILT_HTML)
 
 deploy: verify-sources-live html ## Publish to slides.develle.fr — GATED on live source verification (registry + verbatim quotes)
-	@echo "  DEPLOY: dist/html rebuilt — slides.develle.fr proxies (nginx@TinyButMighty) → TheBeast:8080 → serve-auth.py (live)."
+	@echo "  DEPLOY: dist/html rebuilt — slides.develle.fr = Cloudflare Tunnel (cloudflared@TinyButMighty) → TheBeast:8080 → serve-auth.py (live)."
 	@echo "          The running 'make serve' picks up changes immediately. Hard-refresh (Ctrl+Shift+R) to bypass browser cache."
 	@echo "          If 'make serve' is not running, start it: make serve"
 
