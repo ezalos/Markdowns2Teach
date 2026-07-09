@@ -1,0 +1,171 @@
+# ABOUTME: Curated source registry for heuritech-agents.html — the single source of truth for citations.
+# ABOUTME: Every entry: full exact URL + VERBATIM quote (live-verified by scripts/verify-sources.py).
+#
+# Contract (enforced by `python3 scripts/verify-sources.py slides/heuritech-agents/heuritech-agents.html`):
+#   - every <a href> citation in the deck MUST have an entry here
+#   - `quote` is a character-by-character string that appears on the page (whitespace/entity-normalized)
+#   - entries that cannot be text-verified need `verify: link-only` + `reason:` and are LOUDLY warned
+deck: heuritech-agents.html
+sources:
+  - id: metr-time-horizon-1-1
+    url: https://metr.org/blog/2026-1-29-time-horizon-1-1/
+    authority: METR
+    title: "Time Horizon 1.1"
+    quote: "We're releasing a new version of our time horizon estimates (TH1.1), using more tasks and a new eval infrastructure."
+    slides: [5]
+
+  - id: metr-long-tasks-paper
+    url: https://arxiv.org/abs/2503.14499
+    authority: arXiv (METR)
+    title: "Measuring AI Ability to Complete Long Software Tasks"
+    quote: "frontier AI time horizon has been doubling approximately every seven months since 2019"
+    slides: [5]
+
+  - id: epoch-inference-price-trends
+    url: https://epoch.ai/data-insights/llm-inference-price-trends
+    authority: Epoch AI
+    title: "LLM inference price trends"
+    quote: "LLM inference prices have fallen rapidly but unequally across tasks"
+    slides: [6]
+
+  - id: semianalysis-claude-code-inflection
+    url: https://newsletter.semianalysis.com/p/claude-code-is-the-inflection-point
+    authority: SemiAnalysis
+    title: "Claude Code is the Inflection Point"
+    quote: "4% of GitHub public commits are being authored by Claude Code right now. At the current trajectory, we believe that Claude Code will be 20%+ of all daily commits by the end of 2026"
+    slides: [7]
+
+  - id: kinlan-github-commits
+    url: https://aifoc.us/damn-claude-thats-a-lot-of-commits/
+    authority: AI Focus (Paul Kinlan)
+    title: "How much of the code on GitHub is now AI-written"
+    quote: "Claude Code accounted for 180,000 of them, about 0.7%"
+    slides: [7]
+
+  - id: botcommits-tracker
+    url: https://botcommits.dev
+    authority: botcommits.dev
+    title: "Tracking AI-Generated Commits on GitHub"
+    quote: "Claude Code: 24 commits in Jan 2025. 5.2 million in Feb 2026. A 216,000x increase in 13 months."
+    slides: [7]
+
+  - id: venturebeat-agent-acceleration
+    url: https://venturebeat.com/ai/the-great-ai-agent-acceleration-why-enterprise-adoption-is-happening-faster-than-anyone-predicted
+    authority: VentureBeat
+    title: "The great AI agent acceleration"
+    verify: link-only
+    reason: "persistent HTTP 429 bot-wall — machine quote-check impossible; page verified by hand in a browser"
+    slides: [7]
+
+  - id: fin-benchmarks
+    url: https://fin.ai/benchmarks
+    authority: Fin (Intercom)
+    title: "AI customer support benchmarks"
+    quote: "% of conversations your AI agent actually resolves"
+    slides: [7]
+
+  - id: raschka-coding-agent
+    url: https://magazine.sebastianraschka.com/p/components-of-a-coding-agent
+    authority: Sebastian Raschka
+    title: "Components of A Coding Agent"
+    quote: "How coding agents use tools, memory, and repo context to make LLMs work better in practice"
+    slides: [8]
+
+  - id: anthropic-advanced-tool-use
+    url: https://anthropic.com/engineering/advanced-tool-use
+    authority: Anthropic Engineering
+    title: "Introducing advanced tool use on the Claude Developer Platform"
+    quote: "Tool Search Tool, which allows Claude to use search tools to access thousands of tools without consuming its context window"
+    slides: [9]
+
+  - id: claude-getting-started-with-loops
+    url: https://claude.com/blog/getting-started-with-loops
+    authority: Anthropic (Claude Code team)
+    title: "Getting started with loops"
+    quote: "progressing from turn-based to goal-based, time-based, and proactive loops"
+    slides: [10, 14, 15, 16]
+
+  - id: react-paper
+    url: https://arxiv.org/abs/2210.03629
+    authority: arXiv (Yao et al.)
+    title: "ReAct: Synergizing Reasoning and Acting in Language Models"
+    quote: "we explore the use of LLMs to generate both reasoning traces and task-specific actions in an interleaved manner"
+    slides: [10]
+
+  - id: anthropic-agent-skills
+    url: https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills
+    authority: Anthropic Engineering
+    title: "Equipping agents for the real world with Agent Skills"
+    quote: "Discover how Anthropic builds AI agents with practical capabilities through modular skills"
+    slides: [11]
+
+  - id: claudefast-subagent-patterns
+    url: https://claudefa.st/blog/guide/agents/sub-agent-best-practices
+    authority: ClaudeFast
+    title: "Claude Code Sub-Agents: Parallel vs Sequential Patterns"
+    quote: "3+ unrelated tasks or independent domains"
+    slides: [12]
+
+  - id: posthog-bullish-on-loops
+    url: https://newsletter.posthog.com/p/why-were-bullish-on-loops
+    authority: PostHog (Ian Vanagas)
+    title: "Why we're bullish on loops"
+    quote: "A loop without a goal is a slop cannon."
+    slides: [13, 15]
+
+  - id: anthropic-agents-run-for-hours
+    url: https://www.youtube.com/watch?v=mR-WAvEPRwE
+    authority: Anthropic (Prabaker & Wilson)
+    title: "Build Agents That Run for Hours"
+    quote: "Why self-evaluation is a trap and adversarial evaluator agents work better"
+    slides: [16]
+
+  - id: obra-superpowers
+    url: https://github.com/obra/superpowers
+    authority: GitHub (obra)
+    title: "superpowers"
+    quote: "An agentic skills framework & software development methodology that works."
+    slides: [17]
+
+  - id: mattpocock-skills
+    url: https://github.com/mattpocock/skills
+    authority: GitHub (Matt Pocock)
+    title: "skills"
+    quote: "Skills for Real Engineers. Straight from my .claude directory."
+    slides: [17]
+
+  - id: trq-make-me-understand
+    url: https://x.com/trq212/status/2061545633560010826
+    authority: X (Thariq, Anthropic)
+    title: "make-me-understand skill post"
+    quote: "been asking others at Anthropic how they stay in the loop with Claude and fully understand the work being done"
+    slides: [17]
+
+  - id: rlaif-vlm-deck
+    url: https://slides.develle.fr/rlaif-vlm/rlaif-vlm.html
+    authority: Louis Develle
+    title: "RLAIF-VLM hackathon deck"
+    verify: link-only
+    reason: "own deployment behind Google auth — returns 401 to robots when healthy; viewers of this deck are already authed"
+    slides: [17]
+
+  - id: braintrust-eval-maturity
+    url: https://www.youtube.com/watch?v=FB-MLPhL9Ms
+    authority: Braintrust (Phil Hetzel)
+    title: "The maturity phases of running evals"
+    quote: "Most teams approach evals like unit tests and try to cover every possible failure."
+    slides: [19, 20, 21]
+
+  - id: meta-production-evals
+    url: https://www.youtube.com/watch?v=vljxQZfJ9wY
+    authority: Meta Superintelligence Labs (Nishant Gupta)
+    title: "Production Evals For Agentic AI Systems"
+    quote: "Production Evals For Agentic AI Systems - Nishant Gupta, Meta Superintelligence Labs"
+    slides: [19]
+
+  - id: hamel-evals
+    url: https://hamel.dev/blog/posts/evals/
+    authority: Hamel Husain
+    title: "Your AI Product Needs Evals"
+    quote: "How to construct domain-specific LLM evaluation systems."
+    slides: [20]

@@ -49,7 +49,7 @@ $(foreach d,$(TOP_DIRS),$(eval $(call topdir_rules,$(d))))
 GUIDE_DIR := $(DIST_DIR)/guide
 PANDOC := $(shell command -v pandoc 2>/dev/null || echo "$(HOME)/.local/bin/pandoc")
 
-.PHONY: all preview build pptx html html-inline index check check-citations check-citation-links lint-authority-map dedup clean sync serve deploy test-decks guide pdf-full help html-% pptx-% pdf-full-% build-% assets
+.PHONY: all preview build pptx html html-inline index check check-citations check-citation-links verify-sources lint-authority-map dedup clean sync serve deploy test-decks guide pdf-full help html-% pptx-% pdf-full-% build-% export-pdf-% assets
 
 # All prebuilt HTML decks (frontend-slides) — the ones whose citations must deep-link
 PREBUILT_HTML := $(shell find $(SLIDES_DIR) -maxdepth 2 -name '*.html' -type f)
@@ -152,11 +152,28 @@ sync: ## Sync PPTX files to Google Drive via rclone
 lint-authority-map: ## Verify authority-map.md and authority-map.yaml are in sync
 	@python3 scripts/cite/lint_authority_map.py
 
-check: lint-authority-map check-citation-links ## Detect slides that overflow (pixel-accurate, requires npm install)
+check: lint-authority-map check-citation-links verify-sources ## Detect slides that overflow (pixel-accurate, requires npm install)
 	@node scripts/check-overflow-visual.js $(SLIDES_DIR)
 
 check-citation-links: ## Fail if any prebuilt-deck citation links to a bare domain instead of the exact source
 	@python3 scripts/check-citation-links.py $(PREBUILT_HTML)
+
+verify-sources: ## Enforce the sources contract (registry + verbatim quotes) on prebuilt decks; offline here, LIVE in export-pdf-%
+	@for deck in $(PREBUILT_HTML); do \
+	  if [ -f "$$(dirname $$deck)/sources.yml" ]; then \
+	    python3 scripts/verify-sources.py "$$deck" --offline || exit 1; \
+	  else \
+	    echo "WARN  $$deck has NO sources.yml — every deck must grow a curated source registry"; \
+	  fi; \
+	done
+
+export-pdf-%: ## Export slides/<NAME>/ deck to a verified PDF (LIVE source check + link annotations + references page)
+	@deck=$$(find $(SLIDES_DIR)/$* -maxdepth 1 -name '*.html' -type f | head -1); \
+	 [ -n "$$deck" ] || { echo "no HTML deck under slides/$*"; exit 2; }; \
+	 python3 scripts/verify-sources.py "$$deck" || exit 1; \
+	 NODE_PATH=$$(npm root -g) node scripts/export-deck-pdf.js "$$deck" dist/pdf-export/$* && \
+	 uv run --quiet --with pillow --with reportlab --with pyyaml \
+	   python3 scripts/export-deck-pdf.py dist/pdf-export/$* "$$(dirname $$deck)/sources.yml" dist/pdf-export/$*.pdf
 
 check-citations: ## Warn about data slides missing source citations
 	@bash scripts/check-citations.sh $(SLIDES_DIR)

@@ -13,6 +13,17 @@ FORBIDDEN.
   `python3 scripts/check-citation-links.py --check-live <deck.html>`
   It fails on: bare domains, section-index/redirect pages, **non-clickable (text-only)
   sources**, and **dead links (4xx/5xx)**. Zero findings, or the deck does not ship.
+- **Every deck must have a curated `sources.yml` registry next to it** (full exact URL +
+  authority + title + **verbatim quote** proving the source says what we cite), enforced by
+  `python3 scripts/verify-sources.py <deck.html>` — it fetches each URL and greps the quote
+  character-by-character (same contract as the /cite skill's `validate_claim.py`). Wired into
+  `make check` (offline cross-check) and it GATES `make export-pdf-<deck>` (live). Unverifiable
+  entries need `verify: link-only` + `reason:` and are loudly warned, never silent.
+- **PDF/PPTX/any export counts as "the deck"** — the citation guarantee applies to what the
+  reader actually receives. Export PDFs ONLY via `make export-pdf-<deck>` (paint-synced
+  screenshots + clickable link annotations + a References page with every full URL). NEVER
+  `page.pdf()` on fixed-stage decks (stale-frame race → identical pages, 2026-07-09 incident)
+  and NEVER bare screenshot-PDFs (they strip every hyperlink → bare-domain citations).
 - **If any source cannot be made a clickable, live, exact link, STOP and LOUDLY WARN Louis**
   — name the slide and the source. Never silently downgrade to text-only or ship it anyway.
 - If a source's exact page is genuinely a single-page tracker/dashboard (root = the content),
