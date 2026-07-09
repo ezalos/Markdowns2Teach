@@ -18,6 +18,14 @@ title: "Slide Decks"
 subtitle: "Talks, courses &amp; workshops — Louis Develle"
 
 groups:
+  - id: rlaif-vlm
+    label: "RLAIF on a Vision-Language Model — 48h Autonomous Lab"
+    category: talk
+    date: 2026-07-03
+    prebuilt_html:                            # rendered by frontend-slides, not Marp
+      - file: rlaif-vlm/rlaif-vlm.html
+        label: "48 Hours, One AI Researcher (story deck)"
+
   - id: heuritech-agents
     label: "AI Agents — From Theory to Loops · Heuritech"
     category: talk

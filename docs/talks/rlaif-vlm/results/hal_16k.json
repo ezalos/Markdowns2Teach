@@ -1,0 +1,16 @@
+{
+ "adapter": "untracked_files/runs/qwen3b-final-16k/checkpoint-1000",
+ "n_images": 120,
+ "base": {
+  "hallucination_rate": 0.0083,
+  "coverage": null,
+  "n_absent": 120,
+  "n_present": 0
+ },
+ "tuned": {
+  "hallucination_rate": 0.0083,
+  "coverage": null,
+  "n_absent": 120,
+  "n_present": 0
+ }
+}

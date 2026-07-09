@@ -1,0 +1,81 @@
+{
+ "adapter": "untracked_files/runs/qwen3b-phase3-8k",
+ "n": 600,
+ "base": {
+  "n": 600,
+  "accuracy": 0.8667,
+  "precision": 0.959,
+  "recall": 0.7697,
+  "f1": 0.854,
+  "yes_rate": 0.4067
+ },
+ "tuned": {
+  "n": 600,
+  "accuracy": 0.8683,
+  "precision": 0.9592,
+  "recall": 0.773,
+  "f1": 0.8561,
+  "yes_rate": 0.4083
+ },
+ "paired": {
+  "both_right": 517,
+  "base_only_right": 3,
+  "tuned_only_right": 4
+ },
+ "per_category": {
+  "random": {
+   "base": {
+    "n": 207,
+    "accuracy": 0.8841,
+    "precision": 0.9882,
+    "recall": 0.785,
+    "f1": 0.875,
+    "yes_rate": 0.4106
+   },
+   "tuned": {
+    "n": 207,
+    "accuracy": 0.8841,
+    "precision": 0.9882,
+    "recall": 0.785,
+    "f1": 0.875,
+    "yes_rate": 0.4106
+   }
+  },
+  "adversarial": {
+   "base": {
+    "n": 182,
+    "accuracy": 0.8352,
+    "precision": 0.8939,
+    "recall": 0.7195,
+    "f1": 0.7973,
+    "yes_rate": 0.3626
+   },
+   "tuned": {
+    "n": 182,
+    "accuracy": 0.8352,
+    "precision": 0.8824,
+    "recall": 0.7317,
+    "f1": 0.8,
+    "yes_rate": 0.3736
+   }
+  },
+  "popular": {
+   "base": {
+    "n": 211,
+    "accuracy": 0.8768,
+    "precision": 0.9785,
+    "recall": 0.7913,
+    "f1": 0.875,
+    "yes_rate": 0.4408
+   },
+   "tuned": {
+    "n": 211,
+    "accuracy": 0.8815,
+    "precision": 0.9891,
+    "recall": 0.7913,
+    "f1": 0.8792,
+    "yes_rate": 0.436
+   }
+  }
+ }
+}
