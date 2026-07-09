@@ -215,6 +215,41 @@ make clean      # Remove dist/
 make build-<NAME>  # Build one slides/<NAME>/ dir only (e.g. make build-station-f)
 ```
 
+## Serving architecture (slides.develle.fr) — how it runs & how to recover it
+
+```
+Browser ── HTTPS ──> Cloudflare edge (all *.develle.fr are CF-proxied)
+                        │  Cloudflare TUNNEL (outbound from the Pi; no inbound port)
+                        ▼
+        TinyButMighty: cloudflared (systemd, token-managed; ingress in CF dashboard)
+                        │  plain HTTP over LAN
+                        ▼
+        TheBeast (192.168.1.96): serve-auth.py on :8080  ← systemd user unit `serve-slides`
+                        │  HTTP Basic Auth (password hardcoded in scripts/serve-auth.py)
+                        ▼
+                dist/html/  (served LIVE from disk — `make deploy` = rebuild only)
+```
+
+- **The Pi is a relay, not the server.** There is NO nginx in this path. The Pi's Caddy
+  (:443) serves the OTHER subdomains (share/upload/social, proxies deck/alakazam) — slides
+  goes tunnel-only and has no Caddy block.
+- **The origin is supervised**: systemd user unit **`serve-slides`** on TheBeast
+  (`Restart=always`, linger enabled so it starts at boot without login). Unit file is a
+  dotfile: tracked as `serve-slides.service` in `~/Setup/dotfiles/dotfiles.json`
+  (TheBeast-only), symlinked to `~/.config/systemd/user/serve-slides.service`.
+- **Commands**: `systemctl --user status serve-slides` · `journalctl --user -u serve-slides -f`
+  · restart: `systemctl --user restart serve-slides`. (Non-interactive shells need
+  `XDG_RUNTIME_DIR=/run/user/$(id -u)` and `DBUS_SESSION_BUS_ADDRESS=unix:path=$XDG_RUNTIME_DIR/bus`.)
+- **Symptoms**: `401` from slides.develle.fr = HEALTHY (auth gate). `502` = origin down →
+  check `systemctl --user status serve-slides` on TheBeast. Site unreachable/5xx from CF =
+  tunnel down → check `cloudflared.service` on TinyButMighty (`ssh TinyButMighty`).
+- **Full recovery (rebuilt machine)**: clone this repo + `make html`; deploy dotfiles
+  (`cd ~/Setup && .venv/bin/python -m src_dotfiles deploy`); then
+  `systemctl --user daemon-reload && systemctl --user enable --now serve-slides` and
+  `loginctl enable-linger ezalos`. Cross-host manifest: `~/Setup/docs/server-services.md`.
+- **Any new persistent service (cron/systemd) MUST be added to
+  `~/Setup/docs/server-services.md`** — that manifest is the recovery checklist per host.
+
 **Two build systems:**
 - **Marp** (default) — Markdown decks under `slides/<deck>/` → `dist/{html,pptx,pdf-full}/<deck>/`,
   preserving the source layout. Per-file pattern rules → builds are incremental: only files whose
