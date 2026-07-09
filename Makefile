@@ -49,7 +49,7 @@ $(foreach d,$(TOP_DIRS),$(eval $(call topdir_rules,$(d))))
 GUIDE_DIR := $(DIST_DIR)/guide
 PANDOC := $(shell command -v pandoc 2>/dev/null || echo "$(HOME)/.local/bin/pandoc")
 
-.PHONY: all preview build pptx html html-inline index check check-citations check-citation-links verify-sources lint-authority-map dedup clean sync serve deploy test-decks guide pdf-full help html-% pptx-% pdf-full-% build-% export-pdf-% assets
+.PHONY: all preview build pptx html html-inline index check check-citations check-citation-links verify-sources verify-sources-live lint-authority-map dedup clean sync serve deploy test-decks guide pdf-full help html-% pptx-% pdf-full-% build-% export-pdf-% assets
 
 # All prebuilt HTML decks (frontend-slides) — the ones whose citations must deep-link
 PREBUILT_HTML := $(shell find $(SLIDES_DIR) -maxdepth 2 -name '*.html' -type f)
@@ -139,7 +139,7 @@ test-decks: ## Verify prebuilt decks: no backward animation AND no box overlap /
 	@node scripts/test-deck-nav.js $(PREBUILT_HTML)
 	@node scripts/check-slide-overlap.js $(PREBUILT_HTML)
 
-deploy: html ## Publish to slides.develle.fr (rebuilds dist/html, served live by `make serve` on :8080)
+deploy: verify-sources-live html ## Publish to slides.develle.fr — GATED on live source verification (registry + verbatim quotes)
 	@echo "  DEPLOY: dist/html rebuilt — slides.develle.fr proxies (nginx@TinyButMighty) → TheBeast:8080 → serve-auth.py (live)."
 	@echo "          The running 'make serve' picks up changes immediately. Hard-refresh (Ctrl+Shift+R) to bypass browser cache."
 	@echo "          If 'make serve' is not running, start it: make serve"
@@ -158,13 +158,14 @@ check: lint-authority-map check-citation-links verify-sources ## Detect slides t
 check-citation-links: ## Fail if any prebuilt-deck citation links to a bare domain instead of the exact source
 	@python3 scripts/check-citation-links.py $(PREBUILT_HTML)
 
-verify-sources: ## Enforce the sources contract (registry + verbatim quotes) on prebuilt decks; offline here, LIVE in export-pdf-%
+verify-sources: ## Enforce the sources contract (registry + verbatim quotes) on prebuilt decks — offline (schema + cross-check)
 	@for deck in $(PREBUILT_HTML); do \
-	  if [ -f "$$(dirname $$deck)/sources.yml" ]; then \
-	    python3 scripts/verify-sources.py "$$deck" --offline || exit 1; \
-	  else \
-	    echo "WARN  $$deck has NO sources.yml — every deck must grow a curated source registry"; \
-	  fi; \
+	  python3 scripts/verify-sources.py "$$deck" --offline || exit 1; \
+	done
+
+verify-sources-live: ## Same, LIVE: fetch every URL + grep the verbatim quote. Gates deploy and export-pdf-%.
+	@for deck in $(PREBUILT_HTML); do \
+	  python3 scripts/verify-sources.py "$$deck" || exit 1; \
 	done
 
 export-pdf-%: ## Export slides/<NAME>/ deck to a verified PDF (LIVE source check + link annotations + references page)

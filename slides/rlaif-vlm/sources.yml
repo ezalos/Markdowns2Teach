@@ -1,0 +1,10 @@
+# ABOUTME: Curated source registry for rlaif-vlm.html (see scripts/verify-sources.py contract).
+# ABOUTME: Every citation href must be here with a live-verified verbatim quote.
+deck: rlaif-vlm.html
+sources:
+  - id: rlaif-v-dataset
+    url: https://huggingface.co/datasets/openbmb/RLAIF-V-Dataset
+    authority: Hugging Face (OpenBMB)
+    title: "RLAIF-V-Dataset"
+    quote: "openbmb/RLAIF-V-Dataset"
+    slides: [4]

@@ -1,0 +1,172 @@
+# ABOUTME: Curated source registry shared by capgemini-ai-agents.html AND capgemini-ai-agents-original.html.
+# ABOUTME: Union of both decks' citations; every entry live-verified by scripts/verify-sources.py.
+deck: capgemini-ai-agents.html
+sources:
+  - id: semianalysis-claude-code-inflection
+    url: https://newsletter.semianalysis.com/p/claude-code-is-the-inflection-point
+    authority: SemiAnalysis
+    title: "Claude Code is the Inflection Point"
+    quote: "4% of GitHub public commits are being authored by Claude Code right now. At the current trajectory, we believe that Claude Code will be 20%+ of all daily commits by the end of 2026"
+
+  - id: botcommits-tracker
+    url: https://botcommits.dev
+    authority: botcommits.dev
+    title: "Tracking AI-Generated Commits on GitHub"
+    quote: "Claude Code: 24 commits in Jan 2025. 5.2 million in Feb 2026. A 216,000x increase in 13 months."
+
+  - id: venturebeat-agent-acceleration
+    url: https://venturebeat.com/ai/the-great-ai-agent-acceleration-why-enterprise-adoption-is-happening-faster-than-anyone-predicted
+    authority: VentureBeat
+    title: "The great AI agent acceleration"
+    verify: link-only
+    reason: "persistent HTTP 429 bot-wall — machine quote-check impossible; page verified by hand in a browser"
+
+  - id: fin-benchmarks
+    url: https://fin.ai/benchmarks
+    authority: Fin (Intercom)
+    title: "AI customer support benchmarks"
+    quote: "% of conversations your AI agent actually resolves"
+
+  - id: anthropic-claude-code
+    url: https://www.anthropic.com/claude-code
+    authority: Anthropic
+    title: "Claude Code"
+    quote: "Claude Code understands your codebase, edits files, runs commands, and helps you ship faster."
+
+  - id: metr-time-horizon-1-1
+    url: https://metr.org/blog/2026-1-29-time-horizon-1-1/
+    authority: METR
+    title: "Time Horizon 1.1"
+    quote: "We're releasing a new version of our time horizon estimates (TH1.1), using more tasks and a new eval infrastructure."
+
+  - id: metr-long-tasks-paper
+    url: https://arxiv.org/abs/2503.14499
+    authority: arXiv (METR)
+    title: "Measuring AI Ability to Complete Long Software Tasks"
+    quote: "frontier AI time horizon has been doubling approximately every seven months since 2019"
+
+  - id: epoch-inference-price-trends
+    url: https://epoch.ai/data-insights/llm-inference-price-trends
+    authority: Epoch AI
+    title: "LLM inference price trends"
+    quote: "LLM inference prices have fallen rapidly but unequally across tasks"
+
+  - id: raschka-coding-agent
+    url: https://magazine.sebastianraschka.com/p/components-of-a-coding-agent
+    authority: Sebastian Raschka
+    title: "Components of A Coding Agent"
+    quote: "How coding agents use tools, memory, and repo context to make LLMs work better in practice"
+
+  - id: anthropic-building-effective-agents
+    url: https://www.anthropic.com/engineering/building-effective-agents
+    authority: Anthropic Engineering
+    title: "Building Effective AI Agents"
+    quote: "Building Effective AI Agents"
+
+  - id: react-paper
+    url: https://arxiv.org/abs/2210.03629
+    authority: arXiv (Yao et al.)
+    title: "ReAct: Synergizing Reasoning and Acting in Language Models"
+    quote: "we explore the use of LLMs to generate both reasoning traces and task-specific actions in an interleaved manner"
+
+  - id: llm-stats-models
+    url: https://llm-stats.com/models
+    authority: LLM Stats
+    title: "AI Models — Compare 300+ LLMs"
+    quote: "Compare 300+ LLMs by Intelligence, Price & Speed"
+
+  - id: claude-code-memory-docs
+    url: https://code.claude.com/docs/en/memory
+    authority: Claude Code Docs
+    title: "How Claude remembers your project"
+    quote: "Give Claude persistent instructions with CLAUDE.md files, and let Claude accumulate learnings automatically with auto memory."
+
+  - id: anthropic-agent-skills
+    url: https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills
+    authority: Anthropic Engineering
+    title: "Equipping agents for the real world with Agent Skills"
+    quote: "Discover how Anthropic builds AI agents with practical capabilities through modular skills"
+
+  - id: agentskills-spec
+    url: https://agentskills.io/specification
+    authority: agentskills.io
+    title: "Agent Skills specification"
+    quote: "The complete format specification for Agent Skills."
+
+  - id: snyk-skill-md-threat
+    url: https://snyk.io/articles/skill-md-shell-access/
+    authority: Snyk
+    title: "From SKILL.md to Shell Access in Three Lines of Markdown"
+    quote: "From SKILL.md to Shell Access in Three Lines of Markdown"
+
+  - id: anthropic-contain-claude
+    url: https://www.anthropic.com/engineering/how-we-contain-claude
+    authority: Anthropic Engineering
+    title: "How we contain Claude across products"
+    quote: "How we contain Claude across products"
+
+  - id: claude-cowork-safety
+    url: https://support.claude.com/en/articles/13364135-use-claude-cowork-safely
+    authority: Claude Help Center
+    title: "Use Claude Cowork safely"
+    quote: "Use Claude Cowork safely"
+
+  - id: tavily-mcp
+    url: https://github.com/tavily-ai/tavily-mcp
+    authority: GitHub (Tavily)
+    title: "tavily-mcp"
+    quote: "Production ready MCP server with real-time search, extract, map & crawl."
+
+  - id: notion-mcp
+    url: https://github.com/makenotion/notion-mcp-server
+    authority: GitHub (Notion)
+    title: "notion-mcp-server"
+    quote: "Official Notion MCP Server"
+
+  - id: anthropic-context-engineering
+    url: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents
+    authority: Anthropic Engineering
+    title: "Effective context engineering for AI agents"
+    quote: "Effective context engineering for AI agents"
+
+  - id: claude-code-iam-docs
+    url: https://code.claude.com/docs/en/iam
+    authority: Claude Code Docs
+    title: "Authentication"
+    quote: "Log in to Claude Code and configure authentication for individuals, teams, and organizations."
+
+  - id: mistral-api-key-quickstart
+    url: https://docs.mistral.ai/getting-started/quickstarts/studio/activate-and-generate-api-key
+    authority: Mistral Docs
+    title: "Activate Studio and generate an API key"
+    quote: "Generate your first API key in Studio in ~5 minutes."
+
+  - id: scaleway-generative-apis
+    url: https://www.scaleway.com/en/generative-apis/
+    authority: Scaleway
+    title: "Generative APIs"
+    quote: "Generative APIs | Scaleway"
+
+  - id: hamel-llm-judge
+    url: https://hamel.dev/blog/posts/llm-judge
+    authority: Hamel Husain
+    title: "Using LLM-as-a-Judge For Evaluation"
+    quote: "Using LLM-as-a-Judge For Evaluation: A Complete Guide"
+
+  - id: mistral-pricing
+    url: https://mistral.ai/pricing/
+    authority: Mistral
+    title: "Pricing"
+    quote: "Explore pricing for Mistral Vibe and APIs."
+
+  - id: anthropic-advanced-tool-use
+    url: https://www.anthropic.com/engineering/advanced-tool-use
+    authority: Anthropic Engineering
+    title: "Introducing advanced tool use on the Claude Developer Platform"
+    quote: "Tool Search Tool, which allows Claude to use search tools to access thousands of tools without consuming its context window"
+
+  - id: hamel-evals
+    url: https://hamel.dev/blog/posts/evals/
+    authority: Hamel Husain
+    title: "Your AI Product Needs Evals"
+    quote: "How to construct domain-specific LLM evaluation systems."
