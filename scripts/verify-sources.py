@@ -17,18 +17,33 @@ whether the source actually SAYS what we cite. This tool closes that hole:
   4. Entries that genuinely cannot be text-verified (JS-only walls, auth gates) must say
      `verify: link-only` with a `reason:` — and they are printed LOUDLY, never silent.
 
+File-backed sources (2026-07-13, deck-capability design): claims backed by repo artifacts
+instead of web pages use a `file:` entry (repo-relative path) and are marked in the deck
+with data-file-source="<id>". Two modes:
+  - promoted (default): the file must exist AND be git-tracked;
+  - verify: local-only (+ sha256 + reason): heavy/personal artifacts living in gitignored
+    intake drops — checksum-verified when present, LOUDLY warned when absent, never silent.
+File checks are local disk operations, so they run in --offline mode too.
+Contract cousin: the /cite skill's validate_claim.py (~/Setup/skills/cite/scripts/)
+implements the same verbatim-quote idea for prose claims — shared CONTRACT, independent
+code, on purpose. Read the 2026-07-13 deck-capability design before unifying or forking.
+Spec: docs/references/deck-intake-spec.md
+Design: docs/superpowers/specs/2026-07-13-deck-capability-design.md
+
 Usage:
   python3 scripts/verify-sources.py <deck.html> [--registry <sources.yml>] [--offline]
 
 Default registry: sources.yml next to the deck. --offline skips network (schema +
-cross-check only) for fast pre-commit runs; full (live) mode is REQUIRED before any
-share/deploy/PDF export.
+cross-check + file checks) for fast pre-commit runs; full (live) mode is REQUIRED before
+any share/deploy/PDF export.
 
 Exit 0 = clean; 1 = violations (printed); 2 = bad args / missing registry.
 """
 
+import hashlib
 import html as htmllib
 import re
+import subprocess
 import sys
 import unicodedata
 import urllib.request
@@ -37,10 +52,12 @@ from pathlib import Path
 import yaml
 
 HREF_RE = re.compile(r'<a\s+[^>]*href="(https?://[^"]+)"', re.S)
+FILE_SRC_RE = re.compile(r'data-file-source="([^"]+)"')
 # same allow-list philosophy as check-citation-links.py: assets aren't citations
 ALLOW_HOSTS = {"fonts.googleapis.com", "fonts.gstatic.com", "api.fontshare.com"}
 GATED_CODES = (401, 403, 405, 429)  # exists but bot/auth-gated
 UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36"}
+REPO_ROOT = Path(__file__).resolve().parents[1]
 
 
 def norm(s: str) -> str:
@@ -78,11 +95,106 @@ def deck_citation_urls(deck_html: str):
     return urls
 
 
+def deck_file_source_ids(deck_html: str):
+    ids = []
+    for i in FILE_SRC_RE.findall(deck_html):
+        if i not in ids:
+            ids.append(i)
+    return ids
+
+
 def canon(u: str) -> str:
     """Loose URL identity: scheme + www + trailing-slash insensitive."""
     u = re.sub(r"^https?://", "", u).lstrip()
     u = re.sub(r"^www\.", "", u)
     return u.rstrip("/")
+
+
+def is_git_tracked(path: Path, repo_root: Path) -> bool:
+    r = subprocess.run(
+        ["git", "-C", str(repo_root), "ls-files", "--error-unmatch",
+         str(path.relative_to(repo_root))],
+        capture_output=True)
+    return r.returncode == 0
+
+
+def sha256_of(path: Path) -> str:
+    h = hashlib.sha256()
+    with open(path, "rb") as fh:
+        for chunk in iter(lambda: fh.read(1 << 20), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def validate_schema(entries):
+    """Field-level registry checks. Returns a list of problem strings."""
+    problems = []
+    for e in entries:
+        eid = e.get("id", "<missing-id>")
+        for field in ("id", "authority", "title"):
+            if not e.get(field):
+                problems.append(f"registry entry '{eid}': missing required field '{field}'")
+        has_url, has_file = bool(e.get("url")), bool(e.get("file"))
+        if has_url == has_file:
+            problems.append(f"registry entry '{eid}': exactly one of 'url' or 'file' is required")
+        elif has_url:
+            if e.get("verify") == "link-only":
+                if not e.get("reason"):
+                    problems.append(f"registry entry '{eid}': verify: link-only REQUIRES a reason")
+            elif not e.get("quote"):
+                problems.append(f"registry entry '{eid}': missing verbatim 'quote' (or verify: link-only + reason)")
+        else:
+            if e.get("verify") == "local-only":
+                if not e.get("sha256"):
+                    problems.append(f"registry entry '{eid}': verify: local-only REQUIRES sha256")
+                if not e.get("reason"):
+                    problems.append(f"registry entry '{eid}': verify: local-only REQUIRES a reason")
+            elif e.get("verify"):
+                problems.append(f"registry entry '{eid}': unknown verify mode '{e.get('verify')}' for a file source")
+    return problems
+
+
+def check_file_entry(e, repo_root=REPO_ROOT, tracked=is_git_tracked):
+    """Verify one file: entry against the working tree. Returns (problems, warnings).
+    Local disk operation — runs in offline AND live modes."""
+    problems, warnings = [], []
+    eid, rel = e.get("id", "?"), e["file"]
+    p = repo_root / rel
+    if e.get("verify") == "local-only":
+        if not p.exists():
+            warnings.append(f"LOCAL-ONLY artifact ABSENT '{eid}': {rel} — {e.get('reason')} "
+                            "(not on this clone; re-pull the intake drop to verify)")
+        elif e.get("sha256") and sha256_of(p) != e["sha256"]:
+            problems.append(f"'{eid}': sha256 MISMATCH for {rel} — artifact changed since the "
+                            "claim was verified; re-verify the claim and update sha256")
+    else:
+        if not p.exists():
+            problems.append(f"'{eid}': file source MISSING: {rel}")
+        elif not tracked(p, repo_root):
+            problems.append(f"'{eid}': file source {rel} is not git-tracked — promote it (commit) "
+                            "or mark verify: local-only + sha256 + reason")
+    return problems, warnings
+
+
+def cross_check(cited_urls, cited_file_ids, entries):
+    """Deck <-> registry cross-check for both source kinds. Returns (problems, warnings)."""
+    problems, warnings = [], []
+    by_canon = {canon(e["url"]): e for e in entries if e.get("url")}
+    file_by_id = {e["id"]: e for e in entries if e.get("file") and e.get("id")}
+    for u in cited_urls:
+        if canon(u) not in by_canon:
+            problems.append(f"deck cites UNREGISTERED source: {u}  -> add it to the registry with a verbatim quote")
+    for i in cited_file_ids:
+        if i not in file_by_id:
+            problems.append(f'deck cites UNREGISTERED file source: data-file-source="{i}"  -> add a file: entry')
+    cited_canon = {canon(u) for u in cited_urls}
+    for c, e in by_canon.items():
+        if c not in cited_canon:
+            warnings.append(f"registry entry '{e['id']}' is not cited by the deck (stale? remove or keep deliberately)")
+    for i in file_by_id:
+        if i not in cited_file_ids:
+            warnings.append(f"registry file entry '{i}' is not cited by the deck (stale? remove or keep deliberately)")
+    return problems, warnings
 
 
 def main():
@@ -101,41 +213,30 @@ def main():
         reg_path = deck_path.parent / "sources.yml"
     if not reg_path.exists():
         print(f"FAIL  no sources registry at {reg_path} — every deck MUST have one.")
-        print("      Create it: one entry per source (id, url, authority, title, quote).")
+        print("      Create it: one entry per source (id, url|file, authority, title, quote).")
         sys.exit(2)
 
     deck_html = deck_path.read_text(encoding="utf-8", errors="replace")
     reg = yaml.safe_load(reg_path.read_text(encoding="utf-8"))
     entries = reg.get("sources", [])
 
-    problems, warnings = [], []
+    problems = validate_schema(entries)
+    warnings = []
 
-    # ---- schema ----
-    by_canon = {}
-    for e in entries:
-        eid = e.get("id", "<missing-id>")
-        for field in ("id", "url", "authority", "title"):
-            if not e.get(field):
-                problems.append(f"registry entry '{eid}': missing required field '{field}'")
-        if e.get("verify") == "link-only":
-            if not e.get("reason"):
-                problems.append(f"registry entry '{eid}': verify: link-only REQUIRES a reason")
-        elif not e.get("quote"):
-            problems.append(f"registry entry '{eid}': missing verbatim 'quote' (or verify: link-only + reason)")
-        if e.get("url"):
-            by_canon[canon(e["url"])] = e
-
-    # ---- cross-check deck <-> registry ----
     cited = deck_citation_urls(deck_html)
-    for u in cited:
-        if canon(u) not in by_canon:
-            problems.append(f"deck cites UNREGISTERED source: {u}  -> add it to {reg_path.name} with a verbatim quote")
-    cited_canon = {canon(u) for u in cited}
-    for c, e in by_canon.items():
-        if c not in cited_canon:
-            warnings.append(f"registry entry '{e['id']}' is not cited by the deck (stale? remove or keep deliberately)")
+    cited_file_ids = deck_file_source_ids(deck_html)
+    p, w = cross_check(cited, cited_file_ids, entries)
+    problems += p
+    warnings += w
 
-    # ---- live verification ----
+    # ---- file-backed sources: verified on local disk, offline AND live ----
+    for e in entries:
+        if e.get("file"):
+            p, w = check_file_entry(e)
+            problems += p
+            warnings += w
+
+    # ---- live verification (URL entries only) ----
     if not offline:
         for e in entries:
             url, eid = e.get("url"), e.get("id", "?")
@@ -167,10 +268,11 @@ def main():
         print(f"FAIL  {deck_path.name}: {len(problems)} sources-contract violation(s):")
         for p in problems:
             print(f"    - {p}")
-        print("\nEVERY citation must be registered with a full URL + live-verified verbatim quote.")
+        print("\nEVERY citation must be registered: URLs with a live-verified verbatim quote,")
+        print("file artifacts committed (promoted) or local-only with a matching sha256.")
         sys.exit(1)
-    mode = "offline (schema + cross-check)" if offline else "LIVE (fetch + verbatim quote grep)"
-    print(f"PASS  {deck_path.name}: {len(cited)} cited sources all registered & verified [{mode}]")
+    mode = "offline (schema + cross-check + files)" if offline else "LIVE (fetch + verbatim quote grep + files)"
+    print(f"PASS  {deck_path.name}: {len(cited)} cited URL(s) + {len(cited_file_ids)} file source(s) all registered & verified [{mode}]")
 
 
 if __name__ == "__main__":

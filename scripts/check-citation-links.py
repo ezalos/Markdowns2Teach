@@ -87,7 +87,9 @@ DOMAIN_RE = re.compile(
 
 def unclickable_sources(html):
     """A source you can't click is a source you can't verify. Flag source-footer elements that
-    (a) name a domain that is NOT inside an <a>, or (b) attribute a source with NO link at all."""
+    (a) name a domain that is NOT inside an <a>, or (b) attribute a source with NO link at all.
+    Elements carrying data-file-source are exempt — those sources are file artifacts verified
+    by verify-sources.py, not links."""
     bad = []
     for m in SRC_ELEM_RE.finditer(html):
         inner = m.group(2)
@@ -97,7 +99,8 @@ def unclickable_sources(html):
         unlinked = re.sub(r"<[^>]+>", " ", unlinked)
         for dom in set(DOMAIN_RE.findall(unlinked)):
             bad.append(("unlinked source (not clickable)", dom))
-        if "<a " not in inner and re.search(r"\bSources?\s*:|\bSource\b|\[\d+\]", text_all):
+        if "<a " not in inner and "data-file-source" not in inner \
+                and re.search(r"\bSources?\s*:|\bSource\b|\[\d+\]", text_all):
             bad.append(("source line with NO clickable link", re.sub(r"\s+", " ", text_all).strip()[:70]))
     # dedupe
     seen, out = set(), []
