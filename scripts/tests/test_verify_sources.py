@@ -1,7 +1,7 @@
 # ABOUTME: Unit tests for file-backed source support in verify-sources.py (schema,
-# ABOUTME: promoted/local-only checks, deck cross-check) + the data-file-source
-# ABOUTME: exemption in check-citation-links.py's non-clickable detector.
+# ABOUTME: local-only checks, cross-check) + the data-file-source exemption in check-citation-links.py.
 import hashlib
+import subprocess
 
 
 def entry(**kw):
@@ -75,6 +75,18 @@ class TestCheckFileEntry:
             entry(file="a.bin", verify="local-only", sha256="deadbeef", reason="heavy"),
             repo_root=tmp_path)
         assert any("MISMATCH" in p for p in probs)
+
+
+class TestIsGitTracked:
+    def test_tracked_and_untracked_in_a_real_repo(self, vs, tmp_path):
+        subprocess.run(["git", "init", "-q"], cwd=tmp_path, check=True)
+        tracked = tmp_path / "tracked.md"
+        tracked.write_text("x")
+        subprocess.run(["git", "add", "tracked.md"], cwd=tmp_path, check=True)
+        untracked = tmp_path / "untracked.md"
+        untracked.write_text("y")
+        assert vs.is_git_tracked(tracked, tmp_path) is True
+        assert vs.is_git_tracked(untracked, tmp_path) is False
 
 
 class TestCrossCheck:
