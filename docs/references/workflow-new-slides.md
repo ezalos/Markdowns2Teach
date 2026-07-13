@@ -3,6 +3,12 @@
 <!-- ABOUTME: Workflows complets pour créer des slides Marp — de zéro ou depuis un rapport de recherche. -->
 <!-- ABOUTME: Couvre cadrage, recherche, narration, rédaction, PaperBanana et vérification. Référence slide-creation-standards.md. -->
 
+> **PLAN B — Marp.** The default engine for ALL new decks is frontend-slides: start at
+> `docs/references/workflow-new-deck.md`. Use this Marp workflow only with a stated reason
+> recorded in the deck README or manifest comment (e.g. editable PPTX handouts), and ship a
+> `sources.yml` alongside (same contract as HTML decks). (Engine policy: 2026-07-13
+> deck-capability design.)
+
 ## Quel workflow utiliser ?
 
 | Situation | Workflow |
