@@ -23,3 +23,24 @@ mutated DOM. Non-deterministic: single-slide repros passed.
 then capture via screenshot (forces fresh composite), and HARD-FAIL the pipeline if two
 consecutive captures hash identical. A fixed sleep is a race, and "it worked when I tested one"
 is exactly how races ship.
+
+## 2026-07-13 — Acceptance must run EVERY documented gate, including export
+**What happened:** the deck-capability plan shipped file-backed citation sources and its
+acceptance task ran check/verify gates but never `make export-pdf-<deck>`. The final review
+found the exporter's References page crashed (KeyError) on `file:` entries — the documented
+ship gate was broken for the exact feature being accepted. Same root pattern as the
+2026-07-09 lesson: the guarantee didn't cover the delivered artifact, this time at plan level.
+**Rule:** an acceptance/verification step must enumerate and run every gate the docs promise
+for the artifact's full lifecycle (check → test → EXPORT → deploy), not just the fast ones.
+If a doc says "make export-pdf verifies X", the plan must run it.
+
+## 2026-07-13 — Never `git add -A` in plans/subagent steps; pathspec commits bypass the index
+**What happened:** (1) a task's `git add -A <paths>` step was executed as bare `-A` by a
+subagent and swept 25.8MB of untracked experiment data (docs/talks/rlaif-vlm/examples/) into
+history — discovered two tasks later. (2) In ~/Setup, `git commit <pathspec>` committed
+working-tree content, bypassing a carefully partial-staged index and sweeping a concurrent
+session's edits (caught and undone immediately).
+**Rules:** plans and fix dispatches always use explicit `git add <file...>` (never `-A`);
+after partial staging (`git apply --cached`), commit with NO pathspec; when two sessions
+share a repo, treat the index as contested — stage and commit in one breath, verify
+`git diff --cached` first.
