@@ -19,6 +19,10 @@ FORBIDDEN.
   character-by-character (same contract as the /cite skill's `validate_claim.py`). Wired into
   `make check` (offline cross-check) and it GATES `make export-pdf-<deck>` (live). Unverifiable
   entries need `verify: link-only` + `reason:` and are loudly warned, never silent.
+- **Internal artifacts** (experiment data, project files) are citable via `file:` registry
+  entries marked `data-file-source="<id>"` in the deck — committed, or
+  `verify: local-only` + `sha256` + `reason` when heavy/personal. They complement, never
+  replace, the clickable-link rule for externally-sourced claims.
 - **PDF/PPTX/any export counts as "the deck"** — the citation guarantee applies to what the
   reader actually receives. Export PDFs ONLY via `make export-pdf-<deck>` (paint-synced
   screenshots + clickable link annotations + a References page with every full URL). NEVER
@@ -92,7 +96,7 @@ Markdowns2Teach/
 │   └── ai-safety-stance/           # Essay + grant + dialectic run
 ├── workshops/
 │   └── sorbonne-m2-n8n/            # n8n hands-on workshop infra (Sorbonne course)
-├── scripts/                        # generate-index.py, check-overflow-visual.js, cite/, ...
+├── scripts/                        # generate-index.py, check-overflow-visual.js, verify-sources.py, ...
 ├── docs/
 │   ├── courses/sorbonne-m2/        # Course-specific docs:
 │   │   ├── course-identity.md  course-architecture.md  student-group-project.md
@@ -107,7 +111,7 @@ Markdowns2Teach/
 │   │   └── workflow-citation-audit.md
 │   ├── superpowers/                # Plans + specs
 │   └── archive/slides-v1/          # Pre-restructuring slide archive
-└── dist/                           # Generated output (gitignored): html/ pptx/ pdf-full/
+└── dist/                           # Generated output (gitignored): html/ pptx/ pdf-full/ pdf-export/
 ```
 
 **Naming conventions:**
@@ -215,6 +219,23 @@ make clean      # Remove dist/
 make build-<NAME>  # Build one slides/<NAME>/ dir only (e.g. make build-station-f)
 ```
 
+## Deck capability — cross-project intake
+
+Decks about OTHER projects are fed by intake bundles, not by reading the source repo:
+a source-side agent (any repo, any machine) follows `docs/references/deck-intake-spec.md`
+and rsyncs immutable drops into `docs/talks/<slug>/intake_<YYYY-MM-DD-HHMM>/` (gitignored —
+sources can be heavy or personal). The deck session builds `slides/<slug>/` per
+`docs/references/workflow-new-deck.md`. Need more material? Write
+`docs/talks/<slug>/requests/REQUESTS-<datetime>.md` (committed) and tell Louis — the source
+agent pulls the talk dir, answers, and pushes a new drop with `ANSWERS.md`. Discovery from
+other repos: the global `deck` skill (`~/Setup/skills/deck/`).
+
+Internal artifacts are first-class citable sources: mark the claim with
+`data-file-source="<id>"` and add a `file:` entry to `sources.yml` — committed (promoted
+after a size + sensitivity check) or `verify: local-only` + `sha256` + `reason` for
+heavy/personal files. Enforced by `scripts/verify-sources.py` in offline AND live modes.
+PERSONAL-flagged material is never committed or shown without Louis's explicit approval.
+
 ## Serving architecture (slides.develle.fr) — how it runs & how to recover it
 
 ```
@@ -250,14 +271,16 @@ Browser ── HTTPS ──> Cloudflare edge (all *.develle.fr are CF-proxied)
 - **Any new persistent service (cron/systemd) MUST be added to
   `~/Setup/docs/server-services.md`** — that manifest is the recovery checklist per host.
 
-**Two build systems:**
-- **Marp** (default) — Markdown decks under `slides/<deck>/` → `dist/{html,pptx,pdf-full}/<deck>/`,
-  preserving the source layout. Per-file pattern rules → builds are incremental: only files whose
-  `.md`, `assets/`, theme CSS, or `.marprc.yml` changed get rebuilt.
-- **frontend-slides** (the `/frontend-slides` skill) — for polished standalone HTML decks
-  generated from portable Markdown content (e.g. `slides/capgemini-ai-agents/`). The committed
-  `.html` is copied into `dist/html/<deck>/` by `make html` and linked from the index via a
-  `prebuilt_html` entry in `slides/index.manifest.yml`. See that deck's README to regenerate.
+**Two build systems — frontend-slides is the DEFAULT, Marp is plan B:**
+- **frontend-slides** (the `/frontend-slides` skill) — DEFAULT for every new deck, talks AND
+  future course editions: polished standalone HTML generated from portable Markdown content
+  (e.g. `slides/capgemini-ai-agents/`). The committed `.html` is copied into
+  `dist/html/<deck>/` by `make html` and linked from the index via a `prebuilt_html` entry
+  in `slides/index.manifest.yml`. Start at `docs/references/workflow-new-deck.md`.
+- **Marp** (PLAN B — requires a stated reason recorded in the deck README or a manifest
+  comment, e.g. editable PPTX handouts) — Markdown decks under `slides/<deck>/` →
+  `dist/{html,pptx,pdf-full}/<deck>/`, preserving the source layout. Incremental per-file
+  pattern rules. New Marp decks also ship a `sources.yml` (same contract as HTML decks).
 
 **The index** (`dist/html/index.html`) is generated by `scripts/generate-index.py` from
 `slides/index.manifest.yml` — the single source of truth for which decks appear, their group
@@ -272,16 +295,17 @@ from Louis's dotfiles) and works in **any repo** — it is no longer project-spe
 `/cite-correct`. The skills carry their own bundled validators and authority-map under
 `~/.claude/skills/cite/`. Per-run state lives at `docs/citation-audit/<slug>/` (gitignored).
 
-**Repo-local pieces (build-only mirror, NOT used by the skill):** `scripts/cite/` is a local
-copy of the validators used solely by the Makefile — `make check` / `make lint-authority-map`:
-- `scripts/cite/lint_authority_map.py` — authority-map .md/.yaml sync check (wired into `make check`)
-- `scripts/cite/validate_claim.py`, `tier_lookup.py`, `target_scope.py` — same contracts
-- 23 unit tests at `scripts/cite/tests/`, run with `pytest scripts/cite/tests/`
+**Repo-local mirror removed (2026-07-13):** the shared validators are canonical in the
+global skill bundle (`~/Setup/skills/cite/scripts/`, deployed at
+`~/.claude/skills/cite/scripts/`); `make lint-authority-map` calls the deployed
+`lint_authority_map.py` with this repo's map paths. The deck-artifact linters
+(`scripts/check-citation-links.py`, `scripts/verify-sources.py`) remain repo-canonical —
+they enforce the deck-specific contract (registry + verbatim quotes + file sources) and
+have no global counterpart. Tests: `python3 -m pytest scripts/tests/ -v`.
 
-**Authority map:** `docs/references/authority-map.{md,yaml}` is this repo's roster, and doubles
-as the optional **per-project overlay** the global skill accepts (passed as an extra `--map`).
-The global skill's own `~/.claude/skills/cite/memory/authority-map.yaml` is **shared mutable
-state across all repos** — `/cite-correct`'s auto-promote writes accumulated learnings there.
+**Authority map:** `docs/references/authority-map.{md,yaml}` is a true OVERLAY (repo-specific
+entries only) over the global base at `~/.claude/skills/cite/memory/authority-map.yaml`;
+/cite layers it via repeatable `--map` (later wins). Promotions default to the global base.
 - `docs/references/cite-skill-backlog.md` — self-improvement tracker
 
 Design specs (historical): `docs/superpowers/specs/2026-04-12-cite-skill-design.md` (v1),
