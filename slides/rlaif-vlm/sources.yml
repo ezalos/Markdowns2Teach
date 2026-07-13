@@ -8,3 +8,28 @@ sources:
     title: "RLAIF-V-Dataset"
     quote: "openbmb/RLAIF-V-Dataset"
     slides: [4]
+
+  # --- internal artifacts (Task 8, deck-capability design acceptance) ---
+  - id: eval-overnight-best-clean
+    file: docs/talks/rlaif-vlm/results/overnight_best_clean.json
+    authority: internal - RLAIF-VLM experiment artifact
+    title: "Held-out preference eval, qwen3b-overnight-24k checkpoint-2500 (decontaminated split)"
+    slides: [11]
+
+  - id: probe-log-fullres
+    file: docs/talks/rlaif-vlm/intake_2026-07-13-1442/examples/probes_fullres/probe_log.jsonl
+    authority: internal - RLAIF-VLM experiment artifact
+    title: "Probe log, full-res frozen images (steps 100-500) — voltage-outlet before/after"
+    verify: local-only
+    sha256: "a752e9ce0d75d9508890ced5aba1a8c5de03ebc3a98382ad1a84d97af227b75b"
+    reason: raw probe generations in a gitignored intake drop (heavy)
+    slides: [2]
+
+  - id: rlaif-preferences-round1
+    file: docs/talks/rlaif-vlm/intake_2026-07-13-1442/examples/rlaif/preferences.jsonl
+    authority: internal - RLAIF-VLM experiment artifact
+    title: "Round-1 RLAIF preference pairs (105, AI-judged, base-model generations)"
+    verify: local-only
+    sha256: "c9cb1c107e6b30627f973d5c22261647155833be7976687e64aaa39ba63fa225"
+    reason: raw preference-pair data + images in a gitignored intake drop (heavy)
+    slides: [12]

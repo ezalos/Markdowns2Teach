@@ -320,7 +320,7 @@ p.body .g{color:var(--green);font-weight:600;}
               <div class="ans bad"><div class="badge">STEP 100</div><div class="txt">"Rated at <b style="color:var(--red)">120 volts</b> — standard for US homes."</div></div>
               <div class="ans good"><div class="badge">STEP 500</div><div class="txt">"I <b style="color:var(--green)">can't determine</b> the voltage from the image — you'd need to check the plug."</div></div>
             </div>
-            <div class="sources reveal r5"><small>Source : <a href="https://huggingface.co/datasets/openbmb/RLAIF-V-Dataset">RLAIF-V dataset · openbmb · HuggingFace</a> — the model's own probe answers, training step 100 → 500.</small></div>
+            <div class="sources reveal r5"><small>Source : <a href="https://huggingface.co/datasets/openbmb/RLAIF-V-Dataset">RLAIF-V dataset · openbmb · HuggingFace</a> — the model's own probe answers, training step 100 → 500. · <span class="file-src" data-file-source="probe-log-fullres">probe_log.jsonl</span></small></div>
           </div>
         </div>
       </div>
@@ -541,6 +541,7 @@ p.body .g{color:var(--green);font-weight:600;}
           <div class="stepline"><div class="sn">4</div><div class="sg">+7</div><div class="sl">3× data + a <b>full epoch</b> — on the clean, never-trained set → <b>72.3%</b></div></div>
         </div>
         <p class="body muted reveal r4" style="margin-top:22px;font-size:20px;"><b style="color:var(--head)">Honest read:</b> per-component gains weren't separated — under deadline, scale + recipe + data shipped together; earlier own-slice numbers ran hot (the "moving exam" bug). <b style="color:var(--head)">72.3 vs 65.6</b> is the clean comparison — and every scaled run went <b>flat, then jumped</b>, so a naive stop-rule would have killed the winner.</p>
+        <div class="sources reveal r4" style="margin-top:10px;"><small>Source : <span class="file-src" data-file-source="eval-overnight-best-clean">overnight_best_clean.json</span> — 256-pair held-out preference eval, checkpoint-2500.</small></div>
       </div>
     </section>
 
@@ -562,6 +563,7 @@ p.body .g{color:var(--green);font-weight:600;}
               <div class="row red" style="padding:16px 22px;grid-template-columns:110px 1fr;gap:16px;"><div class="no" style="font-size:34px;">38%</div><div class="rt" style="font-size:22px;">Round 2 — iterate again and it's <b>worse than the start.</b> It over-optimized a noisy teacher.</div></div>
               <div class="row" style="padding:16px 22px;grid-template-columns:110px 1fr;gap:16px;"><div class="no" style="font-size:34px;">58%</div><div class="rt" style="font-size:22px;">De-noise the feedback (3-vote judge) → the gain returns. <span class="then">The judge's quality is the ceiling.</span></div></div>
             </div>
+            <div class="sources reveal r3" style="margin-top:12px;"><small>Source : <span class="file-src" data-file-source="rlaif-preferences-round1">preferences.jsonl</span> — round-1 AI-judged preference pairs, base-model generations.</small></div>
           </div>
         </div>
       </div>
