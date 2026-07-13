@@ -149,8 +149,9 @@ sync: ## Sync PPTX files to Google Drive via rclone
 
 # --- Checks ---
 
-lint-authority-map: ## Verify authority-map.md and authority-map.yaml are in sync
-	@python3 scripts/cite/lint_authority_map.py
+lint-authority-map: ## Verify the repo authority-map overlay (.md/.yaml) is in sync — canonical script lives in the global cite skill
+	@python3 $$HOME/.claude/skills/cite/scripts/lint_authority_map.py \
+	  --md docs/references/authority-map.md --yaml docs/references/authority-map.yaml
 
 check: lint-authority-map check-citation-links verify-sources ## Detect slides that overflow (pixel-accurate, requires npm install)
 	@node scripts/check-overflow-visual.js $(SLIDES_DIR)

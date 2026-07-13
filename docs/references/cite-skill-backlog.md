@@ -35,7 +35,7 @@ _(No open items. `/cite-apply` appends here when new caveats are surfaced.)_
 
 ### v2 (2026-04-13) — see `docs/superpowers/specs/2026-04-13-cite-skill-v2-design.md`
 
-All 5 items below addressed by the v2 implementation. Quote-in-page substring check + page.txt preservation fix fabrication; tier lookup moved to `scripts/cite/tier_lookup.py` (not subagent judgment); enum validation via `scripts/cite/validate_claim.py`; verification command routing via `scripts/cite/target_scope.py`; PDF fallback chain (tavily advanced → WebFetch → pdftotext) documented in the cite-research subagent prompt.
+All 5 items below addressed by the v2 implementation. Quote-in-page substring check + page.txt preservation fix fabrication; tier lookup moved to `~/.claude/skills/cite/scripts/tier_lookup.py` (not subagent judgment); enum validation via `~/.claude/skills/cite/scripts/validate_claim.py`; verification command routing via `~/.claude/skills/cite/scripts/target_scope.py`; PDF fallback chain (tavily advanced → WebFetch → pdftotext) documented in the cite-research subagent prompt.
 
 ## 2026-04-13 — docs-references-test-fixtures-cite-fixture (initial integration test)
 
