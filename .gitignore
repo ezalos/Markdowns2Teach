@@ -76,6 +76,11 @@ docs/citation-audit/
 # Video source cache (raw media + verbatim auto-captions) — local only
 docs/talks/heuritech-agents/sources/videos/
 
+# Deck-intake drops (rsync landing zone) — heavy/personal source bundles, never
+# auto-committed; cited artifacts are promoted deliberately or registered
+# verify: local-only + sha256 (see docs/references/deck-intake-spec.md)
+docs/talks/*/intake_*/
+
 # Chart font cache (fetched on demand by deck_chart.py)
 scripts/charts/.fontcache/
 
