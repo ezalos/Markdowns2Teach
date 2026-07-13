@@ -63,6 +63,8 @@ Iterate until the deck holds:
   3. **Derive** — produce what you need from drops already present (charts, crops,
      recomputation), with subagents where useful.
 
+  If a re-pull fails, report it and stop — never guess at bundle state.
+
 ## 4. Ship
 
 1. `slides/index.manifest.yml`: add the deck (`date`, `prebuilt_html`).

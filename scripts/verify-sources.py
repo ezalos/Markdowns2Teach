@@ -144,7 +144,11 @@ def validate_schema(entries):
             elif not e.get("quote"):
                 problems.append(f"registry entry '{eid}': missing verbatim 'quote' (or verify: link-only + reason)")
         else:
-            if e.get("verify") == "local-only":
+            file_path = e.get("file") or ""
+            if file_path.startswith("/") or ".." in Path(file_path).parts:
+                problems.append(f"registry entry '{eid}': 'file' must be a repo-relative path "
+                                 "(no absolute paths, no '..')")
+            elif e.get("verify") == "local-only":
                 if not e.get("sha256"):
                     problems.append(f"registry entry '{eid}': verify: local-only REQUIRES sha256")
                 if not e.get("reason"):

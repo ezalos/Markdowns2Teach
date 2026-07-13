@@ -301,7 +301,7 @@ global skill bundle (`~/Setup/skills/cite/scripts/`, deployed at
 `lint_authority_map.py` with this repo's map paths. The deck-artifact linters
 (`scripts/check-citation-links.py`, `scripts/verify-sources.py`) remain repo-canonical —
 they enforce the deck-specific contract (registry + verbatim quotes + file sources) and
-have no global counterpart. Tests: `python3 -m pytest scripts/tests/ -v`.
+have no global counterpart. Tests: `uv run --with pytest --with pyyaml -- python3 -m pytest scripts/tests/ -v`.
 
 **Authority map:** `docs/references/authority-map.{md,yaml}` is a true OVERLAY (repo-specific
 entries only) over the global base at `~/.claude/skills/cite/memory/authority-map.yaml`;

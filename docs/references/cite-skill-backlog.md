@@ -58,3 +58,22 @@ All 5 items below addressed by the v2 implementation. Quote-in-page substring ch
 - **tool**: Tavily Extract returned partial content for a large government PDF (~100 pages).
   - Context: SEC/CFTC Joint Report PDF for claim-02. Subagent got a fragment that didn't contain the specific sentence needed, though a corroborating figure was in the extract.
   - Suggestion: for PDFs over N pages, skill could chain multiple Extract calls with different `query` parameters to pull targeted chunks, OR fall back to downloading the PDF and using a local PDF-to-text subagent.
+
+## Follow-ups (2026-07-13 deck-capability final review)
+
+- **tool**: `check-citation-links.py`'s `data-file-source` exemption is element-wide, not
+  per-source — a footer that mixes a clickable `<a>` citation with a `.file-src` span
+  in the SAME sources element escapes the no-clickable-link check entirely instead of
+  being checked source-by-source. Tighten the check to per-source granularity so a
+  file-backed source can't accidentally shield an adjacent bare/non-clickable URL
+  citation in the same element.
+- **tool**: `slides/rlaif-vlm/rlaif-vlm.html` lacks the `window.deck` API other decks
+  expose, so `make test-decks` cannot drive it (no programmatic slide navigation to
+  screenshot/inspect). Either retrofit the deck with the standard `window.deck` API or
+  explicitly exempt it in `test-decks` with a documented reason.
+- **tool**: `lint_authority_map.py`'s `only_in_md` branch (entries present in the `.md`
+  roster but missing from the `.yaml`) has no test coverage in the global skill's suite —
+  add one so a regression there isn't silent.
+- **process**: keep a reproducible layout-check script (à la `check-slide-overlap.js` /
+  `check-overflow-visual.js`) usable on decks `test-decks` can't drive, so overflow/overlap
+  regressions on those decks are still caught mechanically instead of only by eyeballing.

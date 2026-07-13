@@ -34,6 +34,14 @@ class TestValidateSchema:
         probs = vs.validate_schema([entry(file="d/x.json", verify="link-only")])
         assert any("unknown verify mode" in p for p in probs)
 
+    def test_absolute_file_path_fails(self, vs):
+        probs = vs.validate_schema([entry(file="/etc/passwd")])
+        assert any("repo-relative path" in p for p in probs)
+
+    def test_dotdot_file_path_fails(self, vs):
+        probs = vs.validate_schema([entry(file="../../etc/passwd")])
+        assert any("repo-relative path" in p for p in probs)
+
 
 class TestCheckFileEntry:
     def test_promoted_missing_file_fails(self, vs, tmp_path):

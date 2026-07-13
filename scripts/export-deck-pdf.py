@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # ABOUTME: Stage 2 of deck→PDF export: assembles slide PNGs into a PDF with CLICKABLE link
-# ABOUTME: annotations + a References page listing every source's FULL URL in selectable text.
+# ABOUTME: annotations + a References page listing every source's FULL URL, or repo path for file-backed sources, in selectable text.
 
 """
 Why this exists: a shipped screenshot-PDF silently stripped every hyperlink — citations
@@ -8,8 +8,11 @@ degraded to bare-domain labels, unverifiable (2026-07-09 incident). This assembl
 guarantees a PDF can never lose its sources:
   1. every <a> rectangle captured by export-deck-pdf.js becomes a real PDF link annotation
      (clickable in any reader), and
-  2. a final References page lists every registry source as selectable text with the FULL
-     exact URL — so even a print or flat copy carries the complete links.
+  2. a final References page lists every registry source as selectable text — URL entries
+     get the FULL exact URL + a clickable link annotation; `file:` entries (internal
+     artifacts, no live URL to click) get the repo-relative path instead, suffixed
+     `(committed)` or `(local-only, sha256 <prefix>…)` — so even a print or flat copy
+     carries every source in full.
 It refuses to build if pages are missing or any two consecutive pages are identical.
 
 Usage: python3 scripts/export-deck-pdf.py <shots_dir> <sources.yml> <out.pdf>
@@ -80,8 +83,17 @@ def main():
             c.setFillColor(INK); c.setFont("Helvetica-Bold", 10.5)
             c.drawString(48, y, f"[s{slides}]  {e['authority']} — {e['title']}")
             c.setFillColor(BRAND); c.setFont("Helvetica", 9.5)
-            c.drawString(66, y - 13, e["url"])
-            c.linkURL(e["url"], (66, y - 17, 66 + c.stringWidth(e["url"], "Helvetica", 9.5), y - 4), relative=0)
+            if e.get("file"):
+                # file-backed source: repo-relative path is the citation, not a URL —
+                # nothing to click, so no linkURL annotation.
+                if e.get("verify") == "local-only":
+                    suffix = f" (local-only, sha256 {e.get('sha256', '')[:12]}…)"
+                else:
+                    suffix = " (committed)"
+                c.drawString(66, y - 13, f"{e['file']}{suffix}")
+            else:
+                c.drawString(66, y - 13, e["url"])
+                c.linkURL(e["url"], (66, y - 17, 66 + c.stringWidth(e["url"], "Helvetica", 9.5), y - 4), relative=0)
             if e.get("verify") == "link-only":
                 c.setFillColor(DIM); c.setFont("Helvetica-Oblique", 8)
                 c.drawString(66, y - 24, f"link-only: {e.get('reason','')[:110]}")
