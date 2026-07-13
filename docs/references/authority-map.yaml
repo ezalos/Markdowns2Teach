@@ -1,5 +1,5 @@
 # ABOUTME: Machine-readable authority roster; sibling to authority-map.md.
-# ABOUTME: Read by ~/.claude/skills/cite/scripts/tier_lookup.py. Kept in sync with .md via ~/.claude/skills/cite/scripts/lint_authority_map.py (wired into make lint-authority-map).
+# ABOUTME: Read by scripts/cite/tier_lookup.py. Kept in sync with .md via scripts/cite/lint_authority_map.py.
 
 tiers:
   1:
