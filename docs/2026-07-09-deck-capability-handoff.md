@@ -1,6 +1,12 @@
 # Deck capability: handoff from the Setup capability-surface session
 
-Status: handoff, 2026-07-09. Written from a `~/Setup` session that was
+Status: resolved (noted 2026-08-01). The design session ran and the capability
+shipped: a global `deck` skill routes any project to an intake bundle, and this
+repo's CLAUDE.md section "Deck capability — cross-project intake" plus
+`docs/references/deck-intake-spec.md` are now the authoritative answer to the
+open questions below. Kept as the record of what seeded that design.
+
+Original status: handoff, 2026-07-09. Written from a `~/Setup` session that was
 designing cross-session capability discovery (secrets, domains, ports, deck).
 The deck was deliberately scoped out of that spec: Louis's call, because the
 design question is a product question and the context to answer it lives here,
