@@ -33,7 +33,7 @@ Legend: KEEP / REFRESH (stale >3mo) / RESTORED (v1 cut it) / NEW / RETIRED (cont
 | Key | Slide | Pace | Status | Source |
 |-----|-------|------|--------|--------|
 | S04 | Intelligence is a commodity | TEACH | KEEP §04 | — |
-| S05 | Agents are already doing the work (commit share, revenue, Fin) | TEACH | REFRESH — all figures Jun-10 | brief `ai-economics-refresh` |
+| S05 | **The curve bent** — agent-authored commits turned out to be a sigmoid: +14%/month now against +89% in March, doubling time 2.62 months against 1.22, inflection April 2026, already at ~66-88% of the estimated ceiling | TEACH | **REFRAMED 2026-08-31** — the April framing is contradicted by its own source | `sources/botcommits-2026-08-the-bend.md` + charter `ai-economics` |
 | S06 | The AI economy in dollars — $110bn revenue, $175bn run rate, 3× faster than prior IT waves; the $2T CapEx tension | TEACH | NEW | Azhar thread + EV report |
 | S07 | **The benchmark treadmill** — why the curve we showed in April stopped measuring the frontier (METR overfit), and what the field measures now | TEACH | **REPLACES §06** | **run: frontier-evaluations** (+ METR sources rehomed here) |
 | S08 | Price × effort × accuracy — the frontier scatter, rebuilt from the live leaderboard | TEACH | NEW | DeepSWE + `deck_chart.py` |
@@ -143,6 +143,20 @@ Legend: KEEP / REFRESH (stale >3mo) / RESTORED (v1 cut it) / NEW / RETIRED (cont
 slot with no slack, so **the pace column is the lever**: moving three TEACH slides to FAST
 buys four minutes. The appendix does not consume time. Decide the final MAIN/APPENDIX split
 once the slides exist and can be read at real size, not now.
+
+## The spine (emerged 2026-08-31, from the botcommits finding)
+
+Two curves the April deck quoted have bent, measured independently:
+
+> **The capability benchmark (METR) stopped measuring the frontier** once labs optimised for
+> it. **The adoption curve (agent-authored commits) turned out to be a sigmoid**, inflecting
+> in April 2026. What still compounds is not the trend line — it is the thing you build: the
+> harness, the loop, the written memory.
+
+S05 and S07 are the same lesson from two independent measurements, and the rest of the deck
+(harness → fundamentals → orchestration → loops → leverage) is the answer to "so what does
+compound?". Correcting your own April slide, on the record, with the source's own data, is
+the most credible thing available in this room.
 
 ## Open decisions for Louis
 

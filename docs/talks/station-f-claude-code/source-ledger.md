@@ -23,7 +23,7 @@ The heuritech registry is the parent. Every entry is accounted for.
 | 3 | `epoch-inference-price-trends` | Epoch AI | 7 | **S09** | Unchanged claim (9×-900×/yr). Re-verify the figure is current. |
 | 4 | `semianalysis-claude-code-inflection` | SemiAnalysis | 5 | **S05** | Refresh number via `ai-economics-refresh`. |
 | 5 | `kinlan-github-commits` | Paul Kinlan | 5 | **S05** | Same. |
-| 6 | `botcommits-tracker` | botcommits.dev | 5 | **S05** | Live tracker — re-snapshot before the talk. |
+| 6 | `botcommits-tracker` | botcommits.dev | 5 | **S05** | **QUOTE DEAD (2026-08-31)** — the page injects numbers client-side, so no figure is greppable. Re-registered as `botcommits-the-bend` with a static prose quote. **The claim also inverted**: the curve is now a sigmoid. See `sources/botcommits-2026-08-the-bend.md`. |
 | 7 | `venturebeat-agent-acceleration` | VentureBeat | 5 | **S05** | Refresh; may be superseded by a newer revenue figure. |
 | 8 | `fin-benchmarks` | Intercom Fin | 5 | **S05** | Vendor-reported — caveat travels with it. |
 | 9 | `raschka-coding-agent` | Sebastian Raschka | 8, 19 | **S14 + S23** | Two claims, two destinations (harness decomposition; subagents). |
@@ -35,7 +35,7 @@ The heuritech registry is the parent. Every entry is accounted for.
 | 15 | `posthog-bullish-on-loops` | PostHog (Ian Vanagas) | 21-26 | **S35-S41** | Secondary synthesis — dual-cite with the Anthropic workshop where they overlap. |
 | 16 | `anthropic-agents-run-for-hours` | Anthropic (Prabaker & Wilson) | 21, 22 | **S35 + S36** | The primary behind most of PostHog. Prefer it. |
 | 17 | `obra-superpowers` | GitHub | 17 | **S21** | — |
-| 18 | `mattpocock-skills` | GitHub | 17 | **S21 + S26** | Now doubly load-bearing: the Grill Me skill lives in this repo. Re-verify star count. |
+| 18 | `mattpocock-skills` | GitHub | 17 | **S21 + S26** | **QUOTE DEAD (2026-08-31)** — the repo description changed from "Straight from my .claude directory" to **".agents directory"** (a signal in itself: the AGENTS.md convention). New quote needed. Stars **242,767** on 2026-08-31, last push 2026-08-24. Doubly load-bearing: the Grill Me skill lives here. |
 | 19 | `trq-make-me-understand` | X (@trq212) | 17 | **S48** | — |
 | 20 | `rlaif-vlm-deck` | own deck (self-published) | 17 | **S48** | `verify: link-only` (auth-gated own deployment) — carry the reason across. |
 | 21 | `braintrust-eval-maturity` | Braintrust (Hetzel) | 19, 20, 21 | **S45 + S46** | — |
