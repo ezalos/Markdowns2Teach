@@ -1,0 +1,20 @@
+# ABOUTME: Template for the gitignored 0600 .envrc (direnv). Copy to .envrc, fill values,
+# ABOUTME: `direnv allow`. Secrets policy: docs in the secrets skill; vaulted values = pass:// refs.
+
+export FC_API_KEY=            # Firecrawl (currently unused by repo scripts)
+export TV_API_KEY=            # Tavily (currently unused by repo scripts)
+export HF_TOKEN=              # Hugging Face
+export TELEGRAM_BOT_TOKEN=    # workshops/sorbonne-m2-n8n archive scripts
+
+export N8N_EMAIL=             # n8n workshop admin login (workshops/sorbonne-m2-n8n/*.sh)
+export N8N_PASSWORD=
+
+export GEMINI_API_KEY=        # paperbanana infographics
+export GOOGLE_API_KEY="$GEMINI_API_KEY"
+
+export OPENROUTER_API_KEY=    # session-02 C workshop (LLM classification)
+
+# Capability mode: pass:// refs stay refs; commands needing vaulted values use
+# `secrets run -- <cmd>`. Do NOT add `resolve` -- it costs ~7s of proton-agent
+# resolution in EVERY fresh terminal that enters the repo (diagnosed 2026-08-31).
+use proton general
