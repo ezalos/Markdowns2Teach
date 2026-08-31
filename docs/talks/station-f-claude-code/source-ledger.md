@@ -49,20 +49,26 @@ The heuritech registry is the parent. Every entry is accounted for.
 These were text-only mentions in the parent deck. Under this repo's non-negotiable they
 must become real registry entries with exact URLs and verbatim quotes, or be dropped.
 
-| Mention | Heuritech slide | → Destination | Action needed |
-|---------|-----------------|---------------|---------------|
-| `agentskills.io` | 16 | S21 | Needs exact page + quote, or drop in favour of `anthropic-agent-skills`. |
-| `snyk.io` (skill-security reflex) | 16 | S21 | Needs the exact article URL + quote. |
-| `llm-stats.com/frontiercode` | 11 | S15 | Live leaderboard — re-snapshot; model names in the claim are stale. |
-| `docs.claude.com` (CLAUDE.md, permissions/iam) | 14, 20 | S19 + S18 | Needs the exact doc pages (two different ones), not the domain. |
-| `anthropic.com` (definition of an agent) | 9 | S12 | Exact page + quote. |
-| `anthropic.com/news` (MCP announcement) | 18 | S22 | Exact page + quote. |
-| `anthropic.com/research/building-effective-agents` | 37 | S35 | Exact page + quote (this one is already precise). |
-| `mistral.ai`, `help.mistral.ai`, `scaleway.com` | 7, 35 | S09 + A01 | Exact pages + quotes. |
-| Karpathy `autoresearch` repo + nanochat +11% | 22 | S40 | Two separate stories — keep attributed separately (see heuritech `sources-and-speakers.md`). |
-| Stripe migration "1 day vs 2 months" | 23 | S39 | Vendor launch-day testimonial. Ship only with that caveat stated, or cut. |
-| Steinberger loops post · Cherny `/loop` | 21 | S37 | Exact post URLs. |
-| Karpathy published CLAUDE.md | 14 | S19 | Exact URL. |
+**RESOLVED 2026-08-31** — all 12 chased to a live exact URL with a grep-verified verbatim
+quote; ready-to-paste YAML in `sources/resolved-inherited-links.md`. **Four of them change
+what the deck may say** and block the build until the slide text changes with them.
+
+| Mention | → Destination | Status |
+|---------|---------------|--------|
+| `agentskills.io` | S21 | **REGISTER** — not thin marketing: it is the official Agent Skills spec site, and a *better* source than the Anthropic post for "one folder, one markdown file". Register both; they carry different halves. |
+| `snyk.io` | S21 | **REGISTER** — `skill-md-shell-access` article: *"treat third-party skills as trusted code. Read them before enabling."* |
+| `llm-stats.com/frontiercode` | S15 | **BLOCKER.** The URL is a hard 404 (real path `/benchmarks/frontiercode`) **and the claim is false**: on 2026-08-31 Grok 4.6 leads at 0.613, Opus 5 0.534, **Fable 5 third at 0.463** — and Cognition **deprecated the Diamond subset** in FrontierCode 1.1 (2026-07-07), so the deck names a benchmark that no longer exists. llm-stats flags it `0 verified / 4 self-reported`. **S15 must be rewritten.** |
+| `docs.claude.com` ×2 (CLAUDE.md; permissions) | S19 + S18 | **REGISTER at `code.claude.com`** — `docs.claude.com` is in the linter's `REDIRECT_HOSTS` and is rejected offline. Confirmed two genuinely different pages; `/iam` is now "Authentication" and permissions moved to its own page, so the parent deck pointed at the wrong document. |
+| `anthropic.com` (agent definition) | S12 | **REGISTER with a caveat** — the deck's five-fragment definition is **Louis's paraphrase, not an Anthropic quote**. Fine on a slide; must never appear in quotation marks or be attributed to Anthropic. Anthropic's own labelled definition is "LLMs autonomously using tools in a loop". |
+| `anthropic.com/news` (MCP) | S22 | **REGISTER** — exact announcement page verified. |
+| `building-effective-agents` | S35 | **REGISTER at the canonical `/engineering/` URL** (the `/research/` path 301s). **No contiguous sentence on that page names the five patterns** — they are five separate H3 headings. No quote was invented; the entry uses the verified "these building blocks aren't prescriptive" line, which supports what S35 actually asserts. |
+| `mistral.ai` ("open-weights track close behind") | S09 (+ S10) | **BLOCKER — the page does not exist.** Mistral's only relevant string is a product line. **Replaced with Epoch AI**, which measures exactly this: open models *"lagged frontier closed models by an average of four months"* (`epoch.ai/data-insights/open-closed-eci-gap`). Better source, same claim — and it feeds S10's two-lags slide directly. |
+| `help.mistral.ai` + `scaleway.com` | A01 | **REGISTER BOTH** — exact EU sovereign-inference pages verified. |
+| Karpathy `autoresearch` + nanochat +11% | S40 | Two separate stories — keep attributed separately. |
+| Stripe migration "1 day vs 2 months" | S39 | Vendor launch-day testimonial. Ship with the caveat stated, or cut. |
+| Steinberger loops post | S37 | **REGISTER** — exact post verified. |
+| Cherny `/loop` | S37 | **BLOCKER — misattribution risk.** He has no primary first-person linkable source for "loops built into the harness"; his `/loop`-looking tweet is about `.claude/commands/` slash commands, and his real loops quotes exist only in a Bloomberg video surfaced via third-party quote-tweets. **Louis's call**: drop the name and cite Anthropic's loops post (already registered, and it documents `/loop`), or keep the name as a labelled secondary. |
+| Karpathy published CLAUDE.md | S19 | **BLOCKER — wrong author.** The viral "Karpathy CLAUDE.md" was written by **Forrest Chang**, distilling Karpathy's X observations. Karpathy's real one lives in `karpathy/llm-council` and is project-specific notes, so *"a great model to steal from"* oversells it. Do not present the viral repo as his. |
 
 ## C. New sources collected for this talk (`./sources/`, 13 files)
 

@@ -37,7 +37,7 @@ Legend: KEEP / REFRESH (stale >3mo) / RESTORED (v1 cut it) / NEW / RETIRED (cont
 | S06 | The AI economy in dollars — $110bn revenue, $175bn run rate, 3× faster than prior IT waves; the $2T CapEx tension | TEACH | NEW | Azhar thread + EV report |
 | S07 | **The benchmark treadmill** — why the curve we showed in April stopped measuring the frontier (METR overfit), and what the field measures now | TEACH | **REPLACES §06** | **run: frontier-evaluations** (+ METR sources rehomed here) |
 | S08 | Price × effort × accuracy — the frontier scatter, rebuilt from the live leaderboard | TEACH | NEW | DeepSWE + `deck_chart.py` |
-| S09 | Cost collapse — same intelligence, 9× to 900× cheaper per year | TEACH | KEEP §07 | epoch.ai · mistral.ai |
+| S09 | Cost collapse — same intelligence, 9× to 900× cheaper per year; open weights lag the closed frontier by **four months** on average | TEACH | KEEP §07 — **source swapped**: no Mistral page supports the open-weights claim | epoch.ai inference-price + open-closed-eci-gap |
 | S10 | Frontier → your laptop: the two lags | FAST | NEW | brief `frontier-to-local-lag` |
 | S11 | Agents doing AI research — Fable 5 closed 82% of the gap to the human nanoGPT record; no run invented a new method | TEACH | NEW | Prime Intellect · ARC-AGI-3 |
 
@@ -48,7 +48,7 @@ Legend: KEEP / REFRESH (stale >3mo) / RESTORED (v1 cut it) / NEW / RETIRED (cont
 | S12 | Definition — system · tools · repeatedly · environment · goal | FAST | KEEP §08 | anthropic.com |
 | S13 | The agent loop — one goal, many small steps (stepped) | TEACH | KEEP §09 | ReAct paper |
 | S14 | Agent = LLM + harness (six parts) | TEACH | KEEP §10 | raschka |
-| S15 | The model and the brain — thinking effort, budget of intelligence | FAST | RESTORED §11 (refresh model names) | llm-stats |
+| S15 | **The model and the brain** — thinking effort, budget of intelligence. **The old claim is false and must be rewritten**: Grok 4.6 leads FrontierCode at 0.613, Opus 5 second, Fable 5 third at 0.463 — and the Diamond subset was deprecated in July. Teach the durable rule (*build on the best model available today, not the one your slide named*), not a ranking | FAST | RESTORED §11 — **CLAIM CORRECTED 2026-08-31** | llm-stats `/benchmarks/frontiercode` (the old URL 404s) |
 | S16 | Context engineering — what the model actually sees | TEACH | KEEP §19 | anthropic/engineering |
 | S17 | The sandbox, where it acts | FAST | RESTORED §12 (was merged in v1) | — |
 | S18 | Permissions & auto mode — the autonomy dial | FAST | RESTORED §20 (was merged in v1) | docs.claude.com |
@@ -183,6 +183,23 @@ the most credible thing available in this room.
 1. **S07** — do we name METR on stage as the retired benchmark (honest, and the audience saw it in April), or just show what replaced it? Recommendation: name it. Showing your own previous slide being retired is the most credible move in the deck.
 2. **M5 placement** — orchestration currently sits before loops. The alternative is after (loops → then how to run many). Recommendation: keep it before, so loops inherit the coordination rules.
 3. **Live demo** — S26 (Grill Me) is the natural demo; it costs ~3 min and needs a rehearsal. In or out?
+4. **S37 — Boris Cherny's attribution.** He has no primary, first-person, linkable source for "loops built into the harness": his `/loop`-looking tweet is about `.claude/commands/` slash commands, and his real loops quotes exist only in a Bloomberg video reached through third-party quote-tweets. Either drop the name and cite Anthropic's loops post (already registered, and it documents `/loop`), or keep him as a labelled secondary. Recommendation: drop the name — the two-builders-converging framing survives on Steinberger plus Anthropic, and a misattribution in front of this room costs more than the anecdote is worth.
+
+## Claim corrections forced by verification (2026-08-31)
+
+Four inherited claims cannot ship as written. Details and replacement sources in
+`source-ledger.md` §B and `sources/resolved-inherited-links.md`.
+
+| Slide | The problem | The fix |
+|-------|-------------|---------|
+| **S15** | *"Claude Fable 5 leads FrontierCode Diamond"* is false on both halves — Grok 4.6 leads at 0.613, Fable 5 is third at 0.463, and the Diamond subset was deprecated 2026-07-07. The cited URL 404s. | Teach the durable rule, not a ranking. Carry the `0 verified / 4 self-reported` caveat. |
+| **S09** | No Mistral page supports "open-weights track close behind". | Epoch AI measures it: a **four-month** average lag. |
+| **S19** | The viral "Karpathy CLAUDE.md" was written by Forrest Chang, not Karpathy. | Cite Karpathy's real one (`karpathy/llm-council`), and drop "a great model to steal from" — it is project-specific notes. |
+| **S12** | The five-fragment agent definition is Louis's paraphrase, not Anthropic's words. | Never in quotation marks, never attributed to Anthropic. |
+
+One more: **S35's "five patterns" quote does not exist** — they are five separate headings on
+the page, with no sentence naming them together. The registry uses the verified "these
+building blocks aren't prescriptive" line instead. No quote was invented to fill the gap.
 
 ## Pre-talk verification (Sept 1-2 — live things move weekly)
 
