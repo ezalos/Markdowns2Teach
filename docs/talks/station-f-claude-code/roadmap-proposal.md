@@ -1,95 +1,159 @@
 <!-- ABOUTME: Proposed roadmap/TOC for the Station F / Incubateur 42 talk of 2026-09-02, built on the heuritech-agents skeleton. -->
-<!-- ABOUTME: Status: PROPOSAL — awaiting Louis's agreement before any slide is built. Sources collected in ./sources/. -->
+<!-- ABOUTME: v2 — no lossy merges (pace column instead of cuts), METR retired, LeCun cut, orchestration research pending. -->
 
-# Roadmap proposal — Station F talk, 2026-09-02 14:00
+# Roadmap proposal v2 — Station F talk, 2026-09-02 14:00
 
-**Slot**: 1h = ~40 min presentation + ~20 min conversation · **Language**: English · **Target**: ~39 slides + backup cards
-**Audience**: Incubateur 42 founders, daily Claude users (Chloé: "la plupart utilisent bien sûr Claude") — they saw the April state-of-the-field + building-with-AI decks, so every number must be post-April fresh.
-**Skeleton**: `slides/heuritech-agents/content/heuritech.md` (40 slides, 5 movements). Legend: KEEP / REFRESH (stale >3mo) / NEW (source in `./sources/`) / MERGED.
+**Slot**: 1h = ~40 min presentation + ~20 min conversation · **Language**: English
+**Audience**: Incubateur 42 founders, daily Claude users. They saw the April state-of-the-field deck, so every number must be post-April fresh.
+**Skeleton**: `slides/heuritech-agents/content/heuritech.md` (40 slides). **Voice + visuals**: `deck-spec.md`. **Nothing is lost**: `source-ledger.md` tracks every source from every slide that moves, merges or retires.
 
-**Working title**: *Agentic Best Practices — Harness, Loops, Leverage* (alt: *Building With Agents in 2026*)
+## What changed from v1 (Louis's review)
 
-## Opening (3)
-| # | Slide | Status | Source |
-|---|-------|--------|--------|
-| 01 | Cover | NEW title | — |
-| 02 | Instructor | REFRESH (SF move?) | — |
-| 03 | Agenda — five movements | NEW | — |
+- **No lossy merges.** v1 compressed 10 harness slides into 5 and the method from 8 into 5. Reversed: every heuritech slide is authored. Time is managed with a **pace** column, not by deleting content.
+- **METR is retired as a frontier indicator** — overfit since ~April 2026. It does not simply disappear: it becomes the *benchmark-treadmill* teaching beat, which keeps both METR sources honestly used. What replaces it on the trajectory slide is pending the `frontier-evaluations` research run.
+- **LeCun is cut** entirely (was v1 slide 37).
+- **Orchestration gets its own movement** (M5) — graph engineering, central control, the Hugging Face incident — pending the `orchestration-2026` research run.
+- **Nothing else is deleted**: v1's cuts (thinking models, preview, tools/MCP, orchestration, first draft) are restored.
 
-## M1 — State of play, September 2026 (7) — the "what changed since April" payoff
-| # | Slide | Status | Source |
-|---|-------|--------|--------|
-| 04 | Intelligence is a commodity | KEEP | heuritech §04 |
-| 05 | Crazy numbers (commit share, revenue, Fin) | REFRESH — all figures Jun-10-vintage | brief `ai-economics-refresh` |
-| 06 | The AI economy in dollars — $110bn revenue, $175bn run rate, 3× faster than prior IT waves; the $2T CapEx tension (honest-broker beat) | NEW | tweet-…-state-of-ai-economy (Azhar 15-tweet thread + report) |
-| 07 | METR curve | REFRESH — doubling now ~4.3 mo | brief `agent-benchmarks-sept-2026` |
-| 08 | The price × effort × accuracy frontier — rebuilt scatter from the LIVE DeepSWE leaderboard (Kimi K3 ≈ Fable 5 at 35% price; Opus 5 at 74% since Aug 20) | NEW — the graph Louis wants early | tweet-…-kimi-k3-vs-fable5-deepswe + deck_chart.py |
-| 09 | Frontier → your laptop — the two lags (open-weights parity vs consumer hardware) | NEW — r/LocalLLaMA chart NOT shippable as-is | tweet-…-fable-local-in-two-years + brief `frontier-to-local-lag` |
-| 10 | Agents doing AI research — Prime Intellect: Fable 5 closed 82% of the gap to the human nanoGPT record… and no run invented a new method; ARC-AGI-3 harness story ([schema], self-reported caveat) | NEW | tweet-…-nanogpt-prime-intellect · tweet-…-schema-arc-agi-3 |
+**Pace column** — how long each slide gets, so 55 authored slides fit 40 minutes:
+`TEACH` ≈ 60-90s (the argument lives here) · `FAST` ≈ 20-30s (this room already knows it; recognition, not teaching) · `APPENDIX` = authored, in the deck, shown only if the conversation goes there.
 
-## M2 — The mental model, compressed (5) — they use it daily; compress heuritech's 10 harness slides
-| # | Slide | Status | Source |
-|---|-------|--------|--------|
-| 11 | Agent = a loop (definition + think/act/observe in one) | MERGED heuritech §08+09 | |
-| 12 | Agent = LLM + harness (six parts) | KEEP §10 | |
-| 13 | Context engineering — what the model actually sees | KEEP §19 (the big mental model) | |
-| 14 | Skills & memory — progressive disclosure | MERGED §15+16 (sets up 33-34) | |
-| 15 | Permissions, sandbox & auto mode — the autonomy dial | MERGED §12+20 (bridge to loops) | |
+Legend: KEEP / REFRESH (stale >3mo) / RESTORED (v1 cut it) / NEW / RETIRED (content retired, sources rehomed — see ledger).
 
-## M3 — Best practices: fundamentals matter more than ever (6) — NEW movement (Pocock + Coyle)
-| # | Slide | Status | Source |
-|---|-------|--------|--------|
-| 16 | Bad code is the most expensive it's ever been — AI compounds in good codebases, drowns in bad ones | NEW | v4F1gFy-hqg (Pocock) |
-| 17 | Reach shared understanding first — the Grill Me pattern (2-line skill, 40-100 questions; why plan mode is "eager to create an asset") · live-demo option: Louis has the plugin installed | NEW | v4F1gFy-hqg |
-| 18 | Ubiquitous language — a glossary file IS context engineering (calmer thinking traces) | NEW | v4F1gFy-hqg |
-| 19 | The rate of feedback is your speed limit — TDD, types, browser access = the agent's verification harness | NEW | v4F1gFy-hqg |
-| 20 | Design the interface, delegate the implementation — deep modules; "AI is the tactical sergeant, you're the strategic layer" | NEW | v4F1gFy-hqg |
-| 21 | No side effects until validated — "Pydantic at the door, ontology at the ledger" → mapped onto Claude Code hooks/permissions/tool schemas | NEW | Sir59K8ZDPU (Coyle) |
+## Opening
 
-## M4 — Loops & automating R&D (6)
-| # | Slide | Status | Source |
-|---|-------|--------|--------|
-| 22 | Don't prompt agents — build loops (thesis) | KEEP §21 | PostHog + Anthropic workshop |
-| 23 | Four ingredients: goal · context · evaluation · agent | KEEP §22 | |
-| 24 | Why now — capability gains | REFRESH §23 (METR figure, Stripe caveat) | |
-| 25 | R&D automation in the wild — Karpathy autoresearch (+11%, 3-yr bug, attributed separately) + Prime Intellect's honest ceiling + scheduled automations (swyx's weekly AEO loop as teaser for 35) | NEW/MERGED | brief `autonomous-rnd-evidence` |
-| 26 | Self-driving products — and the limits, stated plainly | KEEP §24 (+§25 folded) | |
-| 27 | Loops synthesis → bridge to method | KEEP §26, short | |
+| Key | Slide | Pace | Status |
+|-----|-------|------|--------|
+| S01 | Cover | TEACH | NEW title |
+| S02 | Instructor | FAST | REFRESH |
+| S03 | Agenda — the movements | FAST | NEW |
 
-## M5 — The method (5) — compressed from 8
-| # | Slide | Status | Source |
-|---|-------|--------|--------|
-| 28 | Method overview — the spine | KEEP §27 | |
-| 29 | Clarify → binary checks (Pareto) | KEEP §28 | |
-| 30 | Evaluate fresh + observability matrix (red row = bottleneck) | MERGED §30+31 | |
-| 31 | Improve one bottleneck at a time | KEEP §32 | |
-| 32 | Understand what you built (pairs with slide 20's "strategic layer") | KEEP §33 | |
+## M1 — State of play, September 2026
 
-## M6 — The founder's edge (5) — NEW closing movement: economic opportunities
-| # | Slide | Status | Source |
-|---|-------|--------|--------|
-| 33 | Skills that evolve — WikiSkill: the wiki carries the gain; 9B+skills (47.4%) beats 27B without (39.4%); + lessons.md / wrap-up / ablation (meta-improvement folded in) | NEW + §39 | tweet-…-dair-wikiskill (arXiv:2608.27454) |
-| 34 | Company brain — the memory opportunity: 9 architectures, 4 shared parts, DIY = Claude Code + git; category <6 months old (Wemory-relevant → conversation fuel) | NEW | tweet-…-femke-company-brain + brief `company-memory-landscape` |
-| 35 | AEO — untapped alpha: schedule an agent to autoresearch your AEO weekly (swyx's $1M framed as anecdote over measured referral data) | NEW | tweet-…-swyx-seo-automation + brief `aeo-answer-engine-optimization` |
-| 36 | The meta-skill — spot what just became computationally tractable ("meta-genius for a year or two") — the movement's thesis | NEW | tweet-…-meta-skill-tractability (Dean Ball) |
-| 37 | The bear case — LeCun raises $1.03B against the LLM path (world models); why the room should hold both views | NEW | tweet-…-lecun-world-models (cite TechCrunch/Brown/ETH primaries, never the re-upload) |
+| Key | Slide | Pace | Status | Source |
+|-----|-------|------|--------|--------|
+| S04 | Intelligence is a commodity | TEACH | KEEP §04 | — |
+| S05 | Agents are already doing the work (commit share, revenue, Fin) | TEACH | REFRESH — all figures Jun-10 | brief `ai-economics-refresh` |
+| S06 | The AI economy in dollars — $110bn revenue, $175bn run rate, 3× faster than prior IT waves; the $2T CapEx tension | TEACH | NEW | Azhar thread + EV report |
+| S07 | **The benchmark treadmill** — why the curve we showed in April stopped measuring the frontier (METR overfit), and what the field measures now | TEACH | **REPLACES §06** | **run: frontier-evaluations** (+ METR sources rehomed here) |
+| S08 | Price × effort × accuracy — the frontier scatter, rebuilt from the live leaderboard | TEACH | NEW | DeepSWE + `deck_chart.py` |
+| S09 | Cost collapse — same intelligence, 9× to 900× cheaper per year | TEACH | KEEP §07 | epoch.ai · mistral.ai |
+| S10 | Frontier → your laptop: the two lags | FAST | NEW | brief `frontier-to-local-lag` |
+| S11 | Agents doing AI research — Fable 5 closed 82% of the gap to the human nanoGPT record; no run invented a new method | TEACH | NEW | Prime Intellect · ARC-AGI-3 |
 
-## Close (2)
-| # | Slide | Status | Source |
-|---|-------|--------|--------|
-| 38 | The whole arc — loop → harness → fundamentals → loops → leverage | REFRESH §40 | |
-| 39 | Conversation starters — 3-4 cards: What would you loop? · Does on-policy AEO work? · The ownership math (levelsio, if brief pans out) · Is AI output watermarked? (if brief pans out) | NEW | briefs `founder-equity-expected-value`, `claude-watermarking-provenance` |
+## M2 — What an agent is
 
-## Backup / appendix cards (shown only if conversation goes there)
-Sovereignty (§35) · Data hygiene (§36) · Orchestration patterns (§37) · LLM-as-judge (§38) — all KEEP from heuritech, demoted from main flow.
+| Key | Slide | Pace | Status | Source |
+|-----|-------|------|--------|--------|
+| S12 | Definition — system · tools · repeatedly · environment · goal | FAST | KEEP §08 | anthropic.com |
+| S13 | The agent loop — one goal, many small steps (stepped) | TEACH | KEEP §09 | ReAct paper |
+| S14 | Agent = LLM + harness (six parts) | TEACH | KEEP §10 | raschka |
+| S15 | The model and the brain — thinking effort, budget of intelligence | FAST | RESTORED §11 (refresh model names) | llm-stats |
+| S16 | Context engineering — what the model actually sees | TEACH | KEEP §19 | anthropic/engineering |
+| S17 | The sandbox, where it acts | FAST | RESTORED §12 (was merged in v1) | — |
+| S18 | Permissions & auto mode — the autonomy dial | FAST | RESTORED §20 (was merged in v1) | docs.claude.com |
 
-## Cut from heuritech
-§11 Thinking models, §13 Preview, §17 Tools/MCP schemas, §18 Orchestration, §29 First draft — audience already lives these daily; MCP/tools get one line on slide 12.
+## M3 — The harness in depth
 
-## Pre-talk verification tasks (Sept 1-2 — live things move weekly)
-- Re-snapshot DeepSWE leaderboard (moved Aug 20; may move again).
-- Re-check Prime Intellect leaderboard (elie: more model results "next week").
-- Check ARC Prize VERIFIED leaderboard vs [schema]'s self-report.
-- Re-verify mattpocock/skills star count (241,839 on 2026-08-31) if quoted.
-- Re-verify Pocock's plan-mode critique still holds against current plan mode (April-vintage claim).
-- Run the citation gates (`check-citation-links.py --check-live`, `verify-sources.py`) — non-negotiable before ship.
+| Key | Slide | Pace | Status | Source |
+|-----|-------|------|--------|--------|
+| S19 | CLAUDE.md — standing instructions | FAST | KEEP §14 | docs.claude.com |
+| S20 | Memory — what it keeps between sessions | TEACH | KEEP §15 (was merged in v1) | anthropic/engineering |
+| S21 | Skills — recipes your agent follows | TEACH | KEEP §16 (was merged in v1) | anthropic agent-skills · superpowers · mattpocock |
+| S22 | Tools & MCP — the M×N → M+N schemas | FAST | RESTORED §17 | anthropic MCP |
+| S23 | Orchestration — agents that multiply | TEACH | RESTORED §18 → feeds M5 | raschka · claudefast |
+| S24 | Observability surfaces — preview, diff, terminal, background tasks | APPENDIX | RESTORED §13 | — |
+
+## M4 — Best practices: fundamentals matter more than ever (NEW movement)
+
+| Key | Slide | Pace | Status | Source |
+|-----|-------|------|--------|--------|
+| S25 | Bad code is the most expensive it has ever been — AI compounds in good codebases, drowns in bad ones | TEACH | NEW | Pocock (v4F1gFy-hqg) |
+| S26 | Reach shared understanding first — the Grill Me pattern (2 lines, 40-100 questions) · live-demo option | TEACH | NEW | Pocock |
+| S27 | Ubiquitous language — a glossary file IS context engineering | FAST | NEW | Pocock |
+| S28 | The rate of feedback is your speed limit — TDD, types, browser access as the agent's harness | TEACH | NEW | Pocock |
+| S29 | Design the interface, delegate the implementation — deep modules; you are the strategic layer | TEACH | NEW | Pocock (Ousterhout) |
+| S30 | No side effects until validated — types at the door, constraints at the ledger | TEACH | NEW | Coyle (Sir59K8ZDPU) |
+
+## M5 — Orchestration in practice (NEW movement — pending research)
+
+| Key | Slide | Pace | Status | Source |
+|-----|-------|------|--------|--------|
+| S31 | One agent or many? What the evidence actually says | TEACH | NEW | **run: orchestration-2026** |
+| S32 | Central control — one coordinator, one writer (the Hugging Face lesson) | TEACH | NEW | **run: orchestration-2026** |
+| S33 | Graph engineering — when the context stops being a folder and becomes a graph | TEACH | NEW | **run: orchestration-2026** |
+| S34 | Five patterns, endless mileage (stepped) | FAST | KEEP §37, promoted from backup | anthropic building-effective-agents |
+
+## M6 — Loops & automating R&D
+
+| Key | Slide | Pace | Status | Source |
+|-----|-------|------|--------|--------|
+| S35 | Don't prompt agents to write code — build loops | TEACH | KEEP §21 | PostHog · Anthropic workshop |
+| S36 | Engineering a loop — goal · context · evaluation · agent | TEACH | KEEP §22 | PostHog |
+| S37 | Why now — real capability gains | FAST | REFRESH §23 (METR line must change → S07) | PostHog + run |
+| S38 | R&D automation in the wild — Karpathy's autoresearch, Prime Intellect's ceiling, scheduled automations | TEACH | NEW/MERGED | brief `autonomous-rnd-evidence` |
+| S39 | Self-driving products — and the limits, stated plainly | TEACH | KEEP §24 | PostHog |
+| S40 | Code was never the problem — direction, taste, empathy | FAST | KEEP §25 | PostHog |
+| S41 | Loops synthesis → bridge to the method | FAST | KEEP §26 | PostHog |
+
+## M7 — The method
+
+| Key | Slide | Pace | Status | Source |
+|-----|-------|------|--------|--------|
+| S42 | The method, end to end — the spine | FAST | KEEP §27 | — |
+| S43 | Step 1: Clarify the goal → binary checks | TEACH | KEEP §28 | — |
+| S44 | Step 2: Get a first draft, A to Z | FAST | RESTORED §29 | — |
+| S45 | Step 3: Evaluate on 3 fresh examples | TEACH | KEEP §30 (was merged in v1) | braintrust · meta-evals |
+| S46 | Step 4: See inside your agent — the evaluation matrix | TEACH | KEEP §31 (was merged in v1) | hamel |
+| S47 | Step 5: Improve one bottleneck at a time | TEACH | KEEP §32 | — |
+| S48 | Step 6: Understand what you built | TEACH | KEEP §33 | trq · rlaif-vlm deck |
+| S49 | Loop recap — the method assembled | FAST | KEEP §34 | — |
+
+## M8 — The founder's edge
+
+| Key | Slide | Pace | Status | Source |
+|-----|-------|------|--------|--------|
+| S50 | Skills that evolve — WikiSkill: the wiki carries the gain; 9B+skills beats 27B without | TEACH | NEW | arXiv:2608.27454 |
+| S51 | Agents that improve themselves — lessons.md, wrap-up, ablation | FAST | KEEP §39 | — |
+| S52 | The company brain — 9 architectures, 4 shared parts, DIY = Claude Code + git | TEACH | NEW | brief `company-memory-landscape` |
+| S53 | AEO — schedule an agent to autoresearch your answer-engine presence weekly | TEACH | NEW | brief `aeo-answer-engine-optimization` |
+| S54 | The meta-skill — spot what just became computationally tractable | TEACH | NEW | Dean Ball |
+
+## Close
+
+| Key | Slide | Pace | Status |
+|-----|-------|------|--------|
+| S55 | The whole arc — loop → harness → fundamentals → orchestration → loops → leverage | TEACH | REFRESH §40 |
+| S56 | Conversation starters | TEACH | NEW |
+
+## Appendix (authored, shown on demand)
+
+| Key | Slide | Status | Source |
+|-----|-------|--------|--------|
+| A01 | Sovereignty — the sovereign path exists | KEEP §35 | mistral · scaleway |
+| A02 | Data hygiene — four reflexes that age well | KEEP §36 | — |
+| A03 | LLM as judge — never trust one vote | KEEP §38 | hamel |
+| A04 | The ownership math — dilution and expected value | NEW (if brief lands) | brief `founder-equity-expected-value` |
+| A05 | Is AI output watermarked? | NEW (if brief lands) | brief `claude-watermarking-provenance` |
+| A06 | Observability surfaces (S24 lives here if time is short) | RESTORED §13 | — |
+
+## Timing math (honest)
+
+38 TEACH-or-FAST slides in the main flow at the paces above ≈ 38-42 min. That is the whole
+slot with no slack, so **the pace column is the lever**: moving three TEACH slides to FAST
+buys four minutes. The appendix does not consume time. Decide the final MAIN/APPENDIX split
+once the slides exist and can be read at real size, not now.
+
+## Open decisions for Louis
+
+1. **S07** — do we name METR on stage as the retired benchmark (honest, and the audience saw it in April), or just show what replaced it? Recommendation: name it. Showing your own previous slide being retired is the most credible move in the deck.
+2. **M5 placement** — orchestration currently sits before loops. The alternative is after (loops → then how to run many). Recommendation: keep it before, so loops inherit the coordination rules.
+3. **Live demo** — S26 (Grill Me) is the natural demo; it costs ~3 min and needs a rehearsal. In or out?
+
+## Pre-talk verification (Sept 1-2 — live things move weekly)
+
+- Re-snapshot the DeepSWE leaderboard, the Prime Intellect leaderboard, the ARC Prize verified board.
+- Re-verify `mattpocock/skills` stars (241,839 on 2026-08-31) if quoted.
+- Re-verify Pocock's plan-mode critique against current plan mode (April-vintage claim).
+- Collect both research runs, promote reports into `sources/`, register every new URL in `sources.yml`.
+- Run the citation gates: `check-citation-links.py --check-live` and `verify-sources.py`. Zero findings or it does not ship.

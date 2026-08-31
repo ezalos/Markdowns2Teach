@@ -87,3 +87,10 @@ scripts/charts/.fontcache/
 # Local Claude session state + python bytecode
 .claude/
 __pycache__/
+
+# Deep-research run internals (rendered prompt + run state). Charters and the
+# collected reports stay committed; a directory-level ignore would swallow them,
+# because git cannot re-include a file under an excluded directory.
+docs/talks/*/research-runs/*/charter.rendered.md
+docs/talks/*/research-runs/*/run.json
+docs/talks/*/research-runs/*/logs/
