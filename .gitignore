@@ -73,8 +73,8 @@ Thumbs.db
 # Per-run citation audit bundles (kept local, not versioned)
 docs/citation-audit/
 
-# Video source cache (raw media + verbatim auto-captions) — local only
-docs/talks/heuritech-agents/sources/videos/
+# Video source caches (raw media + verbatim auto-captions) — local only
+docs/talks/*/sources/videos/
 
 # Deck-intake drops (rsync landing zone) — heavy/personal source bundles, never
 # auto-committed; cited artifacts are promoted deliberately or registered
