@@ -3,6 +3,9 @@
 
 # Research brief — Automating R&D: what the evidence actually supports
 
+> **Charter written** at `../research-runs/autonomous-rnd/charter.md` — queued behind the
+> two-run cap. The charter is the launch document; this brief keeps the background.
+
 ## Question
 What can autonomous agent loops genuinely do in R&D as of September 2026 — optimization, bug-finding, experiment-running, literature work — and where is the measured ceiling?
 

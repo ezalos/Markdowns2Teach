@@ -3,6 +3,9 @@
 
 # Research brief — AEO: the untapped alpha, beyond one anecdote
 
+> **Charter written** at `../research-runs/aeo/charter.md` — queued behind the two-run
+> cap. The charter is the launch document; this brief keeps the background.
+
 ## Question
 How large and how real is AI-referral traffic (ChatGPT/Claude/Perplexity → your product) in 2026, and what do documented AEO practices + scheduled-agent automations actually look like — beyond swyx's self-reported numbers?
 

@@ -3,6 +3,9 @@
 
 # Research brief — The AI economy in numbers, September 2026
 
+> **Charter written** at `../research-runs/ai-economics/charter.md` — queued behind the
+> two-run cap. The charter is the launch document; this brief keeps the background.
+
 ## Question
 What are the freshest defensible numbers on (a) agent adoption (commit share, revenue, resolution rates) and (b) the macro AI economy (revenue vs CapEx), as of September 2026?
 

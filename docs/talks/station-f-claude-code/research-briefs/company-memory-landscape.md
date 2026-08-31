@@ -3,6 +3,9 @@
 
 # Research brief — Company memory ("company brain") landscape
 
+> **Charter written** at `../research-runs/company-memory/charter.md` — queued behind the
+> two-run cap. The charter is the launch document; this brief keeps the background.
+
 ## Question
 What are the real architectures, maturity, and market signals behind "company memory" systems in 2026 — with a primary source per system instead of one vendor's infographic?
 

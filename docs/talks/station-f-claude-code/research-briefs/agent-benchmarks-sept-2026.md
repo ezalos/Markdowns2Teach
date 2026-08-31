@@ -3,6 +3,11 @@
 
 # Research brief — Agent benchmarks, September 2026
 
+> **Superseded 2026-08-31.** Folded into the launched run
+> `../research-runs/frontier-evaluations/charter.md`, which reframes the question around
+> METR being overfit since ~April 2026. What survives here is the **leaderboard-snapshot
+> checklist** (§What to find items 2-4) to re-run the day before the talk.
+
 ## Question
 Where do autonomous agents actually stand, on the freshest defensible numbers, as of the first week of September 2026 — and which single chart best shows the capability × price × effort frontier across models?
 
