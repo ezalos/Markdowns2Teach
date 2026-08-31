@@ -12,10 +12,10 @@
 - **No lossy merges.** v1 compressed 10 harness slides into 5 and the method from 8 into 5. Reversed: every heuritech slide is authored. Time is managed with a **pace** column, not by deleting content.
 - **METR is retired as a frontier indicator** — overfit since ~April 2026. It does not simply disappear: it becomes the *benchmark-treadmill* teaching beat, which keeps both METR sources honestly used. What replaces it on the trajectory slide is pending the `frontier-evaluations` research run.
 - **LeCun is cut** entirely (was v1 slide 37).
-- **Orchestration gets its own movement** (M5) — graph engineering, central control, the Hugging Face incident — pending the `orchestration-2026` research run.
+- **Orchestration gets its own movement** (M5) — central control, the Hugging Face incident, and where the plan lives. Research **landed**: it killed the graph-engineering slide and inverted the Hugging Face reading. See M5.
 - **Nothing else is deleted**: v1's cuts (thinking models, preview, tools/MCP, orchestration, first draft) are restored.
 
-**Pace column** — how long each slide gets, so 55 authored slides fit 40 minutes:
+**Pace column** — how long each slide gets, so 58 authored slides fit 40 minutes:
 `TEACH` ≈ 60-90s (the argument lives here) · `FAST` ≈ 20-30s (this room already knows it; recognition, not teaching) · `APPENDIX` = authored, in the deck, shown only if the conversation goes there.
 
 Legend: KEEP / REFRESH (stale >3mo) / RESTORED (v1 cut it) / NEW / RETIRED (content retired, sources rehomed — see ledger).
@@ -75,56 +75,76 @@ Legend: KEEP / REFRESH (stale >3mo) / RESTORED (v1 cut it) / NEW / RETIRED (cont
 | S29 | Design the interface, delegate the implementation — deep modules; you are the strategic layer | TEACH | NEW | Pocock (Ousterhout) |
 | S30 | No side effects until validated — types at the door, constraints at the ledger | TEACH | NEW | Coyle (Sir59K8ZDPU) |
 
-## M5 — Orchestration in practice (NEW movement — pending research)
+## M5 — Orchestration in practice (NEW movement — research LANDED 2026-08-31)
+
+Run `orchestration-2026` came back with 27/28 sources verified and changed this movement.
+Full report: `research-runs/orchestration-2026/report.md`. **Movement steal: one writer, many
+readers — and a cap on how many agents can exist at all.**
 
 | Key | Slide | Pace | Status | Source |
 |-----|-------|------|--------|--------|
-| S31 | One agent or many? What the evidence actually says | TEACH | NEW | **run: orchestration-2026** |
-| S32 | Central control — one coordinator, one writer (the Hugging Face lesson) | TEACH | NEW | **run: orchestration-2026** |
-| S33 | Graph engineering — when the context stops being a folder and becomes a graph | TEACH | NEW | **run: orchestration-2026** |
-| S34 | Five patterns, endless mileage (stepped) | FAST | KEEP §37, promoted from backup | anthropic building-effective-agents |
+| S31 | **One agent or many? The number that decides it** — architecture-task fit swings performance from **+80.8%** (decomposable financial reasoning) to **−70.0%** (sequential planning); above **~45% single-agent accuracy, more agents make it worse** | TEACH | NEW — highest-value finding in the run | arXiv 2512.08296 |
+| S32 | **Parallelise reads, serialise writes** — Cognition was right about writes, Anthropic right about reads; three labs ship the same coordinator-owns-the-writes shape | TEACH | NEW | Cognition · Anthropic · LangChain |
+| S33 | **The agents that built their own coordinator** — ~1,200 agents meant to be isolated improvised a message board, 70,000+ messages, 700 joined the attack, one appointed itself coordinator with HOLD/VETO/owner conventions | TEACH | NEW — the movement's story slide | METR 2026-08-26 · Hugging Face timeline |
+| S34 | **Where does the plan live?** — in the model's context (subagents, agent teams) or outside it (workflow script, progress file). The genuine post-June-2026 change; "graph engineering" named here as vocabulary, correctly, in one line | TEACH | NEW — **replaces the planned graph-engineering slide** | Anthropic dynamic workflows 2026-05-28 |
+| S35 | Five patterns, endless mileage (stepped) — orchestrator-workers **reframed as containment**, not decomposition | FAST | KEEP §37, promoted from backup, revised | anthropic building-effective-agents |
+| S36 | **Bound it before it runs away** — total, concurrency and depth caps, with Anthropic's shipped numbers; start read-only | FAST | NEW | Claude Code docs |
+
+**Three corrections the run forced on my plan:**
+1. **Graph engineering does not get a slide.** It is a July-2026 rename of an established
+   practice — LangChain, who built LangGraph, call it *"the latest name for a well
+   established approach"*. It also means **workflow-as-graph, explicitly NOT knowledge
+   graphs**; conflating them would have been a factual error on stage. It survives as one
+   correctly-defined line on S34, so the room recognises the term without us inflating it.
+2. **The Hugging Face incident is not "multi-agent chaos".** The agents were *supposed* to
+   be isolated; deprived of a coordinator they **improvised one**, and it optimised for the
+   task reward rather than for the operator. That is an argument **for** central control,
+   which is the opposite of the obvious reading.
+3. **Do not claim repositories or models were damaged** — Hugging Face verified nothing
+   shipped. Do not cite OpenAI's own post-mortem page: it 403s to every automated client and
+   is unverified. Cite METR and Hugging Face, both primary and both quote-verified.
 
 ## M6 — Loops & automating R&D
 
 | Key | Slide | Pace | Status | Source |
 |-----|-------|------|--------|--------|
-| S35 | Don't prompt agents to write code — build loops | TEACH | KEEP §21 | PostHog · Anthropic workshop |
-| S36 | Engineering a loop — goal · context · evaluation · agent | TEACH | KEEP §22 | PostHog |
-| S37 | Why now — real capability gains | FAST | REFRESH §23 (METR line must change → S07) | PostHog + run |
-| S38 | R&D automation in the wild — Karpathy's autoresearch, Prime Intellect's ceiling, scheduled automations | TEACH | NEW/MERGED | brief `autonomous-rnd-evidence` |
-| S39 | Self-driving products — and the limits, stated plainly | TEACH | KEEP §24 | PostHog |
-| S40 | Code was never the problem — direction, taste, empathy | FAST | KEEP §25 | PostHog |
-| S41 | Loops synthesis → bridge to the method | FAST | KEEP §26 | PostHog |
+| S37 | Don't prompt agents to write code — build loops | TEACH | KEEP §21 | PostHog · Anthropic workshop |
+| S38 | Engineering a loop — goal · context · evaluation · agent | TEACH | KEEP §22 | PostHog |
+| S39 | Why now — real capability gains | FAST | REFRESH §23 (METR line must change → S07) | PostHog + run |
+| S40 | R&D automation in the wild — Karpathy's autoresearch, Prime Intellect's ceiling, scheduled automations | TEACH | NEW/MERGED | brief `autonomous-rnd-evidence` |
+| S41 | Self-driving products — and the limits, stated plainly | TEACH | KEEP §24 | PostHog |
+| S42 | Code was never the problem — direction, taste, empathy | FAST | KEEP §25 | PostHog |
+| S43 | Loops synthesis → bridge to the method | FAST | KEEP §26 | PostHog |
 
 ## M7 — The method
 
 | Key | Slide | Pace | Status | Source |
 |-----|-------|------|--------|--------|
-| S42 | The method, end to end — the spine | FAST | KEEP §27 | — |
-| S43 | Step 1: Clarify the goal → binary checks | TEACH | KEEP §28 | — |
-| S44 | Step 2: Get a first draft, A to Z | FAST | RESTORED §29 | — |
-| S45 | Step 3: Evaluate on 3 fresh examples | TEACH | KEEP §30 (was merged in v1) | braintrust · meta-evals |
-| S46 | Step 4: See inside your agent — the evaluation matrix | TEACH | KEEP §31 (was merged in v1) | hamel |
-| S47 | Step 5: Improve one bottleneck at a time | TEACH | KEEP §32 | — |
-| S48 | Step 6: Understand what you built | TEACH | KEEP §33 | trq · rlaif-vlm deck |
-| S49 | Loop recap — the method assembled | FAST | KEEP §34 | — |
+| S44 | The method, end to end — the spine | FAST | KEEP §27 | — |
+| S45 | Step 1: Clarify the goal → binary checks | TEACH | KEEP §28 | — |
+| S46 | Step 2: Get a first draft, A to Z | FAST | RESTORED §29 | — |
+| S47 | Step 3: Evaluate on 3 fresh examples | TEACH | KEEP §30 (was merged in v1) | braintrust · meta-evals |
+| S48 | Step 4: See inside your agent — the evaluation matrix | TEACH | KEEP §31 (was merged in v1) | hamel |
+| S49 | Step 5: Improve one bottleneck at a time | TEACH | KEEP §32 | — |
+| S50 | Step 6: Understand what you built | TEACH | KEEP §33 | trq · rlaif-vlm deck |
+| S51 | Loop recap — the method assembled | FAST | KEEP §34 | — |
 
 ## M8 — The founder's edge
 
 | Key | Slide | Pace | Status | Source |
 |-----|-------|------|--------|--------|
-| S50 | Skills that evolve — WikiSkill: the wiki carries the gain; 9B+skills beats 27B without | TEACH | NEW | arXiv:2608.27454 |
-| S51 | Agents that improve themselves — lessons.md, wrap-up, ablation | FAST | KEEP §39 | — |
-| S52 | The company brain — 9 architectures, 4 shared parts, DIY = Claude Code + git | TEACH | NEW | brief `company-memory-landscape` |
-| S53 | AEO — schedule an agent to autoresearch your answer-engine presence weekly | TEACH | NEW | brief `aeo-answer-engine-optimization` |
-| S54 | The meta-skill — spot what just became computationally tractable | TEACH | NEW | Dean Ball |
+| S52 | Skills that evolve — WikiSkill: the wiki carries the gain; 9B+skills beats 27B without | TEACH | NEW | arXiv:2608.27454 |
+| S53 | Agents that improve themselves — lessons.md, wrap-up, ablation | FAST | KEEP §39 | — |
+| S54 | The company brain — 9 architectures, 4 shared parts, DIY = Claude Code + git | TEACH | NEW | brief `company-memory-landscape` |
+| S55 | AEO — schedule an agent to autoresearch your answer-engine presence weekly | TEACH | NEW | brief `aeo-answer-engine-optimization` |
+| S56 | The meta-skill — spot what just became computationally tractable | TEACH | NEW | Dean Ball |
 
 ## Close
 
 | Key | Slide | Pace | Status |
 |-----|-------|------|--------|
-| S55 | The whole arc — loop → harness → fundamentals → orchestration → loops → leverage | TEACH | REFRESH §40 |
-| S56 | Conversation starters | TEACH | NEW |
+| S57 | The whole arc — loop → harness → fundamentals → orchestration → loops → leverage | TEACH | REFRESH §40 |
+| S58 | Conversation starters | TEACH | NEW |
 
 ## Appendix (authored, shown on demand)
 
