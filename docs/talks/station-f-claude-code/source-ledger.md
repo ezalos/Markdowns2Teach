@@ -80,7 +80,7 @@ what the deck may say** and block the build until the slide text changes with th
 | `tweet-…-kimi-k3-vs-fable5-deepswe.md` | price × accuracy pairs; the real chart is the live leaderboard | **S08** | Cite `deepswe.datacurve.ai` + Together blog. Tweet numbers superseded — do not slide them. |
 | `tweet-…-schema-arc-agi-3.md` | 98.98% RHAE self-reported; verified frontier 0.51% → 7.78% | **S11** | Cite arcprize.org for the verified numbers; the self-report only as a labelled self-report. |
 | `tweet-…-nanogpt-prime-intellect.md` | 153 runs / 18 models; 82% of the gap; no new method | **S11 + S40** | Cite the Prime Intellect blog + leaderboard, not the tweet. |
-| `tweet-…-fable-local-in-two-years.md` | ~24.8-month lag community chart | **S10** | **Blocked**: permalink unrecoverable. Replace with Epoch AI per brief, or the slide ships without it. |
+| `tweet-…-fable-local-in-two-years.md` | ~24.8-month lag community chart | **RETIRED** | **Reason: measured false.** The `local-lag` run puts the real lag at 3-12 months, a factor of 2 to 8 lower, and the permalink was never recoverable. Replaced by Epoch AI's four-month open-weights figure. File kept; research not lost, only unused. |
 | `tweet-…-dair-wikiskill.md` | WikiSkill: +12.3/17.5/23.9%; 9B+skills 47.4% > 27B 39.4% | **S52** | Cite arXiv:2608.27454 directly. Preprint caveat travels. |
 | `tweet-…-femke-company-brain.md` | 9 systems, 4 shared parts | **S54** | Vendor marketing — per-system primaries needed (brief). Slite survey numbers do not ship uncorroborated. |
 | `tweet-…-swyx-seo-automation.md` | scheduled AEO automations; $1M projection | **S55** | $1M = labelled practitioner anecdote. Measured data from the brief carries the slide. |
@@ -97,8 +97,8 @@ what the deck may say** and block the build until the slide text changes with th
 | run `ai-economics` | **S05, S06** | **LANDED** — 20/22 verified. 2 unverified (McKinsey timeout, Bloomberg paywall); both routed through CNBC/KPMG instead. |
 | run `autonomous-rnd` | S40, S11 | **RUNNING** (launched 2026-09-01) |
 | run `company-memory` | S54 | **RUNNING** (launched 2026-09-01) |
-| run `aeo` | S55 | charter ready, queued behind the 2-run cap |
-| brief `frontier-to-local-lag` | S10 | queued |
+| run `aeo` | slide 42 | **LANDED 2026-09-01** — 41/41 verified. One documented gap: no case study of a scheduled weekly AEO agent exists, so that pattern stays an anecdote. |
+| run `local-lag` | slide 04c + appendix | **LANDED 2026-09-01** — **57/57 verified**. Verdict: drop the r/LocalLLaMA 24.8-month claim; the measured lag is 3-12 months, four months for open-weights parity. |
 | brief `agent-benchmarks-sept-2026` | S08 | **folded into** run `frontier-evaluations` — kept as the leaderboard-snapshot checklist |
 | brief `claude-watermarking-provenance` | A05 | queued, conversation-dependent |
 | brief `founder-equity-expected-value` | A04 | queued, conversation-dependent |

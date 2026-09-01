@@ -100,7 +100,7 @@ content (the three bends) → wrap (so what compounds?).*
 | 03 | **You all already use this. So what is left to learn?** | TEACH | WHY | The tension: everyone here prompts Claude daily. Some teams compound; most just spend more tokens. The difference is not the model. |
 | 04 | **Three curves that bent** | TEACH | CONTENT | (a) Commits: 19.8M in July 2026, but growth +14%/mo against +89% in March, doubling 2.62 months against 1.22, fits agree on an **April 2026 inflection** and a 22-30M ceiling. (b) METR: measurements above 16h unreliable, the trend fit excludes every point above 16h, last point 17.4h, and on GPT-5.6 Sol the answer runs **11.3h to >270h** depending on how cheating is scored — *"we do not consider any of these numbers to represent a robust measurement"*. (c) My own June slide named FrontierCode **Diamond**, a subset deprecated in July. |
 | 04b | **The money is real, and it is stretched** | TEACH | CONTENT | $110bn trailing-twelve-month GenAI revenue, $175bn run rate, **3× faster than any prior IT wave**, against **$2T of committed CapEx** — and revenue covers *ongoing* depreciation with only **19-32% headroom**, not the cumulative bill. Anthropic at **$65bn** run rate (end July 2026). This is why the room is right to care, and why nobody should assume the subsidy lasts. |
-| 04c | **Price × effort × accuracy** | TEACH | CONTENT | The frontier scatter, rebuilt from a leaderboard that publishes **cost per run beside the score**. Terminal-Bench 4.0: frontier at **51.8% ± 3.4**, $5,969 per run. **Always say the version and the operator** — three incompatible "Terminal-Bench" numbers are in circulation (51.8% on TB 4.0, 82.0% via Berkeley RDI, 89.5% on TB v2.1 via Artificial Analysis). Paired with the cost collapse: same capability, 9× to 900× cheaper per year; open weights lag the closed frontier by **four months** on average. |
+| 04c | **Price × effort × accuracy** | TEACH | CONTENT | The frontier scatter, rebuilt from a leaderboard that publishes **cost per run beside the score**. Terminal-Bench 4.0: frontier at **51.8% ± 3.4**, $5,969 per run. **Always say the version and the operator** — three incompatible "Terminal-Bench" numbers are in circulation (51.8% on TB 4.0, 82.0% via Berkeley RDI, 89.5% on TB v2.1 via Artificial Analysis). Paired with the cost collapse: same capability, 9× to 900× cheaper per year; open weights lag the closed frontier by **four months** on average (Epoch AI, measured daily 1 Jan – 28 May 2026; an 8-point index gap, and by Epoch's own note a **lower bound**). |
 | 05 | **So what compounds?** | TEACH | WRAP | Intuition to keep: *the trend line is not the asset; the thing you build around the model is.* Thread: Epoch Capabilities Index (15.5 points/year, 5 points ≈ one METR doubling) and the Remote Labor Index (2.5% → 15.8% in eight months) — trajectory and ceiling, on scales that do not run out. |
 
 **Steal**: stop quoting a benchmark you have not checked this month.
@@ -205,7 +205,7 @@ evidence. · Wrap: the meta-skill.*
 | 39 | **Plain files are not the beginner option** | TEACH | The company-brain slide. An agent that simply writes the conversation to a file and greps it scores **74.0%** on the memory benchmark — **in the same range as the specialised memory products, and above the full-context baseline**. *(Superlative deliberately dropped: the "beats every product" version rests on one vendor's table putting a competitor at 65.99%, and that competitor publicly disputes it with a corrected 75.14%. Both are vendor-run.)* The category is also not new — its founding paper is October 2023, not "six months old" as the marketing says. |
 | 40 | **When files stop being enough** | FAST | The honest threshold: at ~26k tokens, plain full context wins outright; at ~115k, memory systems win by 11-24 points; past a million, long context fails on its own. Scale when you cross the threshold, not before. And treat the vendor benchmarks with care — an audit of the standard one found 6.4% of the answer key wrong and the judge accepting 62.81% of deliberately wrong answers. |
 | 41 | **Skills that improve themselves** | TEACH | A persistent wiki plus executable skills: a 9B model with skills (47.4%) beats a 27B model without (39.4%) — the written artefact carries the gain, not the parameters. Plus the practice: `lessons.md`, a wrap-up skill, ablation. |
-| 42 | **The distribution nobody is optimising yet** | TEACH | Answer-engine presence: schedule an agent to research weekly how assistants describe and recommend you. *(Numbers land from the AEO run; the practitioner's revenue projection stays labelled as an anecdote on top of measured referral data.)* |
+| 42 | **The distribution nobody is optimising yet** | TEACH | Three measured facts, and the shape they make. **Tiny**: AI assistants are still *"less than 0.15% of total visits"* (Semrush, 50,000+ sites, all of 2025), and Google remains ~88% of referral traffic. **Best-converting**: Adobe, across a trillion-plus visits to US retail sites, measures AI-referred visits converting **60% higher** than non-AI traffic, with that traffic up 62% year over year. **Fastest-growing**: AI traffic grew 66% in 2025, outpacing every other channel. That profile — tiny, best-converting, fastest-growing — is exactly the case for **an automated weekly agent rather than a headcount**. Scheduled runs are first-party documented in Claude Code and ChatGPT; the practitioner's revenue projection stays a labelled anecdote on top of this. |
 | 43 | **The meta-skill** | TEACH | WRAP. Spotting which problems in your domain just became computationally tractable — *"probably the skill to have optimized for"* (**US spelling — the quote is graded character-by-character; "optimised" fails the gate**). Intuition: *the edge is not the model everyone has; it is noticing, first, what it just made possible.* |
 
 **Steal**: pick one thing that was intractable 12 months ago and re-test it this week.
@@ -244,7 +244,16 @@ And the full per-figure list, with the exact quote each one is graded against, i
 
 Sovereignty · data hygiene · LLM-as-judge · the five orchestration patterns in full · observability
 surfaces · the harness slides in depth (thinking effort, preview panel) · the ownership-math card ·
-watermarking · the two-lags slide if the local-inference question comes up.
+watermarking · **the two-lags card** if the local-inference question comes up.
+
+**The two-lags card, corrected**: the r/LocalLLaMA ~24.8-month cloud-to-laptop claim is
+**dropped** — unverifiable, and every independent measurement of the 2025-2026 regime puts the
+lag between **3 and 12 months**, a factor of 2 to 8 lower. Say four months for open-weights
+parity, and treat it as a lower bound.
+
+Two briefs were never run and stay as briefs: `claude-watermarking-provenance` and
+`founder-equity-expected-value`. Both are conversation-dependent appendix cards; if either
+comes up on the day, the honest answer is "I have not verified that, I will send it to you."
 
 ## Open decisions
 
