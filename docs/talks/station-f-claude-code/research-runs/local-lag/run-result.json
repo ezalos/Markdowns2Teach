@@ -1,0 +1,294 @@
+{
+  "status": "complete",
+  "sources_total": 57,
+  "sources_verified": 57,
+  "unanswered": [],
+  "unverified": [],
+  "sources": [
+    {
+      "n": 1,
+      "url": "https://epoch.ai/data-insights/open-closed-eci-gap",
+      "quote": "the most capable open-weight models have lagged frontier closed models by an average of four months"
+    },
+    {
+      "n": 2,
+      "url": "https://epoch.ai/data-insights/open-closed-eci-gap",
+      "quote": "we proceed day by day over our analysis window, January 1, 2026, through May 28, 2026"
+    },
+    {
+      "n": 3,
+      "url": "https://epoch.ai/data-insights/open-closed-eci-gap",
+      "quote": "We find an average ECI gap of 8 points, with a 90% confidence interval of 7 to 11 units."
+    },
+    {
+      "n": 4,
+      "url": "https://epoch.ai/data-insights/open-closed-eci-gap",
+      "quote": "Two factors mean that our estimate may tend to understate the true gap between open and closed models."
+    },
+    {
+      "n": 5,
+      "url": "https://epoch.ai/data-insights/open-closed-eci-gap",
+      "quote": "We find an average time gap of four months. This estimate would grow to six months"
+    },
+    {
+      "n": 6,
+      "url": "https://epoch.ai/data-insights/open-closed-eci-gap",
+      "quote": "This gap between open and closed models is slightly larger than the one we identified in our October 2025 Data Insight"
+    },
+    {
+      "n": 7,
+      "url": "https://epoch.ai/data-insights/consumer-gpu-model-gap",
+      "quote": "anyone can locally run models matching the absolute frontier of LLM performance from just 6 to 12 months ago"
+    },
+    {
+      "n": 8,
+      "url": "https://epoch.ai/data-insights/consumer-gpu-model-gap",
+      "quote": "consumer GPU typically match the capabilities of frontier models after an average lag between 6-12 months"
+    },
+    {
+      "n": 9,
+      "url": "https://epoch.ai/data-insights/consumer-gpu-model-gap",
+      "quote": "This lag is consistent with our previous estimate of a 5 to 22 month gap for open-weight models of any size"
+    },
+    {
+      "n": 10,
+      "url": "https://epoch.ai/data-insights/consumer-gpu-model-gap",
+      "quote": "small open models are more likely to be optimized for specific benchmarks"
+    },
+    {
+      "n": 11,
+      "url": "https://artificialanalysis.ai/models/open-source",
+      "quote": "Artificial Analysis Intelligence Index v4.1.1 incorporates 9 evaluations"
+    },
+    {
+      "n": 12,
+      "url": "https://artificialanalysis.ai/models/qwen3-8-27b",
+      "quote": "Qwen3.8 27B (xhigh) scores 52 on the Artificial Analysis Intelligence Index"
+    },
+    {
+      "n": 13,
+      "url": "https://artificialanalysis.ai/models/open-source/small",
+      "quote": "Open source AI models with between 4B to 40B parameters."
+    },
+    {
+      "n": 14,
+      "url": "https://artificialanalysis.ai/models/open-source/small",
+      "quote": "Qwen3.8 27B (xhigh) and Qwen3.8 27B (medium) are the highest intelligence Small open source models, defined as those with 4B-40B parameters"
+    },
+    {
+      "n": 15,
+      "url": "https://artificialanalysis.ai/models/gpt-5-4",
+      "quote": "GPT-5.4 (xhigh) scores 53 on the Artificial Analysis Intelligence Index"
+    },
+    {
+      "n": 16,
+      "url": "https://artificialanalysis.ai/models/ling-3-0-flash",
+      "quote": "Ling 3.0 Flash scores 38 on the Artificial Analysis Intelligence Index"
+    },
+    {
+      "n": 17,
+      "url": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+      "quote": "With 124B total parameters and 5.1B activated parameters"
+    },
+    {
+      "n": 18,
+      "url": "https://artificialanalysis.ai/models/open-source/medium",
+      "quote": "Ling 3.0 Flash and Qwen3.5 122B A10B are the highest intelligence Medium open source models, defined as those with 40B-150B parameters"
+    },
+    {
+      "n": 19,
+      "url": "https://artificialanalysis.ai/models/gemini-3-pro",
+      "quote": "Gemini 3 Pro Preview (high) scores 41 on the Artificial Analysis Intelligence Index"
+    },
+    {
+      "n": 20,
+      "url": "https://artificialanalysis.ai/models/glm-5-3-flash",
+      "quote": "GLM-5.3-Flash scores 57 on the Artificial Analysis Intelligence Index"
+    },
+    {
+      "n": 21,
+      "url": "https://huggingface.co/zai-org/GLM-5.3-Flash",
+      "quote": "With 320B total parameters and just 18B active parameters"
+    },
+    {
+      "n": 22,
+      "url": "https://artificialanalysis.ai/models/claude-opus-4-8",
+      "quote": "Claude Opus 4.8 (Adaptive Reasoning, Max Effort) scores 57 on the Artificial Analysis Intelligence Index"
+    },
+    {
+      "n": 23,
+      "url": "https://artificialanalysis.ai/models/open-source",
+      "quote": "Kimi K3 (max) and GLM-5.3 (max) are the highest intelligence open source models"
+    },
+    {
+      "n": 24,
+      "url": "https://arxiv.org/html/2607.27275v1",
+      "quote": "Post-training quantization to 4-bit weights is widely reported to be nearly lossless."
+    },
+    {
+      "n": 25,
+      "url": "https://arxiv.org/html/2607.27275v1",
+      "quote": "No cell shows a score change that survives multiple-comparison correction"
+    },
+    {
+      "n": 26,
+      "url": "https://arxiv.org/html/2607.27275v1",
+      "quote": "The failure set is the same at every precision"
+    },
+    {
+      "n": 27,
+      "url": "https://arxiv.org/html/2607.27275v1",
+      "quote": "The agreement is an artifact of what the score can see."
+    },
+    {
+      "n": 28,
+      "url": "https://arxiv.org/html/2607.27275v1",
+      "quote": "Sweeping the intermediate precision shows that 8 bits, weight-only"
+    },
+    {
+      "n": 29,
+      "url": "https://arxiv.org/html/2607.27275v1",
+      "quote": "The masking depends on a forgiving environment."
+    },
+    {
+      "n": 30,
+      "url": "https://artificialanalysis.ai/evaluations/tau3-banking",
+      "quote": "Qwen3.8 Max scores the highest on 𝜏³-Banking with a score of 51.3%"
+    },
+    {
+      "n": 31,
+      "url": "https://artificialanalysis.ai/evaluations/tau3-banking",
+      "quote": "Benchmark developed by Sierra Research"
+    },
+    {
+      "n": 32,
+      "url": "https://artificialanalysis.ai/evaluations/apex-agents-aa",
+      "quote": "Gemini 3.5 Flash (high) scores the highest on APEX-Agents-AA Pass@1 with a score of 47.1%"
+    },
+    {
+      "n": 33,
+      "url": "https://artificialanalysis.ai/evaluations/automationbench-aa",
+      "quote": "Gemini 3.7 Flash (high) scores the highest on AutomationBench-AA with a score of 62.7%"
+    },
+    {
+      "n": 34,
+      "url": "https://artificialanalysis.ai/evaluations/itbench-aa",
+      "quote": "GPT-5.6 Sol (max) scores the highest on ITBench-AA Average precision at full recall with a score of 56.2%"
+    },
+    {
+      "n": 35,
+      "url": "https://artificialanalysis.ai/evaluations/gdpval-aa",
+      "quote": "Claude Opus 5 (Adaptive Reasoning, Max Effort) scores the highest on GDPval-AA v2 with a score of 1824"
+    },
+    {
+      "n": 36,
+      "url": "https://artificialanalysis.ai/evaluations/terminalbench-v2-1",
+      "quote": "GPT-5.6 Sol (xhigh) scores the highest on Terminal-Bench v2.1 with a score of 89.5%"
+    },
+    {
+      "n": 37,
+      "url": "https://artificialanalysis.ai/evaluations/terminalbench-v2-1",
+      "quote": "89 curated tasks across software engineering, system administration, data processing, model training, and security"
+    },
+    {
+      "n": 38,
+      "url": "https://artificialanalysis.ai/evaluations/aa-analyst-agent",
+      "quote": "Gemini 3.7 Flash (high) scores the highest on AA-AnalystAgent pass^5 with a score of 60.0%"
+    },
+    {
+      "n": 39,
+      "url": "https://artificialanalysis.ai/evaluations/aa-analyst-agent",
+      "quote": "the headline metric is pass^5: the share of questions answered correctly on all five attempts"
+    },
+    {
+      "n": 40,
+      "url": "https://artificialanalysis.ai/evaluations/omniscience",
+      "quote": "Claude Fable 5 (Adaptive Reasoning, Max Effort, Opus 4.8 Fallback) scores the highest on AA-Omniscience with a score of 43"
+    },
+    {
+      "n": 41,
+      "url": "https://epoch.ai/gradient-updates/keeping-up-with-the-gpts",
+      "quote": "compute disadvantage to compete at the frontier. The compute gap is just too large"
+    },
+    {
+      "n": 42,
+      "url": "https://arxiv.org/html/2606.11690v1",
+      "quote": "on identical H100 hardware, effective cost spans $0.21 to $15.25 per million output tokens"
+    },
+    {
+      "n": 43,
+      "url": "https://arxiv.org/html/2606.11690v1",
+      "quote": "At 1 request/second on an H100, a Mixtral 8x7B FP16 deployment costs $15.25 per million tokens"
+    },
+    {
+      "n": 44,
+      "url": "https://arxiv.org/html/2606.11690v1",
+      "quote": "Under the naive model, all configurations appear permanently cheaper than API alternatives"
+    },
+    {
+      "n": 45,
+      "url": "https://arxiv.org/html/2606.11690v1",
+      "quote": "most severely over-selling it for low-traffic workloads"
+    },
+    {
+      "n": 46,
+      "url": "https://arxiv.org/html/2606.11690v1",
+      "quote": "most of the expected advantage evaporates"
+    },
+    {
+      "n": 47,
+      "url": "https://arxiv.org/html/2606.11690v1",
+      "quote": "The crossover is not a point; it is a threshold that moves with traffic and with the reference tier."
+    },
+    {
+      "n": 48,
+      "url": "https://arxiv.org/html/2606.11690v1",
+      "quote": "For Llama and Qwen models, the lower single-GPU cost means the crossover is below 1 rps"
+    },
+    {
+      "n": 49,
+      "url": "https://www.scaleway.com/en/news/glm-52-now-available-on-scaleways-generative-apis/",
+      "quote": "Announced by Z.ai on June 16th and available today on Scaleway"
+    },
+    {
+      "n": 50,
+      "url": "https://www.scaleway.com/en/news/glm-52-now-available-on-scaleways-generative-apis/",
+      "quote": "Paris, France, June 26, 2026"
+    },
+    {
+      "n": 51,
+      "url": "https://www.scaleway.com/en/news/glm-52-now-available-on-scaleways-generative-apis/",
+      "quote": "With this release, Scaleway becomes the first sovereign cloud provider in Europe to offer the model"
+    },
+    {
+      "n": 52,
+      "url": "https://www.scaleway.com/en/news/glm-52-now-available-on-scaleways-generative-apis/",
+      "quote": "all inference runs entirely on Scaleway"
+    },
+    {
+      "n": 53,
+      "url": "https://www.scaleway.com/en/docs/generative-apis/reference-content/supported-models/",
+      "quote": "Reviewed on August 14, 2026"
+    },
+    {
+      "n": 54,
+      "url": "https://www.ovhcloud.com/en/public-cloud/ai-endpoints/",
+      "quote": "More than 40 models A constantly updated range of popular, open-weight models."
+    },
+    {
+      "n": 55,
+      "url": "https://www.ovhcloud.com/en/public-cloud/ai-endpoints/",
+      "quote": "Zero data retention: We keep only the data required for billing purposes."
+    },
+    {
+      "n": 56,
+      "url": "https://artificialintelligenceact.eu/enforcement-of-chapter-v-under-the-eu-ai-act/",
+      "quote": "supervision and enforcement powers against GPAI model providers will only come into force on 2 August 2026"
+    },
+    {
+      "n": 57,
+      "url": "https://artificialintelligenceact.eu/enforcement-of-chapter-v-under-the-eu-ai-act/",
+      "quote": "3 % of their annual total worldwide turnover in the preceding financial year or EUR 15 000 000, whichever is higher"
+    }
+  ]
+}

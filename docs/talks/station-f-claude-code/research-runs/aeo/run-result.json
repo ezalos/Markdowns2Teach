@@ -1,0 +1,256 @@
+{
+  "status": "partial",
+  "sources_total": 41,
+  "sources_verified": 41,
+  "unanswered": [
+    "The automation pattern -- 'documented examples of scheduled agent automations running this kind of weekly research loop, with what they produced and what they cost'. NOT ANSWERED: no first-party case study, vendor write-up or independent study documenting a scheduled agent running answer-engine research on a weekly cadence, with outputs and costs, was located. The other half of the question -- first-party documentation of scheduled agent runs in major coding-agent products -- IS fully answered (Claude Code routines [35][36][37], ChatGPT scheduled tasks [38])."
+  ],
+  "unverified": [
+    {
+      "url": "https://business.adobe.com/blog/ai-driven-traffic-surges-across-industries",
+      "reason": "Repeated 60s+ timeouts via WebFetch and via curl over both HTTP/2 and HTTP/1.1; host unreachable from this network. Adobe figures in the report are cited to TechCrunch and Digital Commerce 360 quoting Adobe directly."
+    },
+    {
+      "url": "https://business.adobe.com/blog/ai-traffic-surge-retail-sites-not-machine-readable",
+      "reason": "Same host timeout as above; never fetched, never quoted."
+    },
+    {
+      "url": "https://business.adobe.com/resources/sdk/.2026-q2-ai-traffic-report/q2-2026-adi-ai-sourced-traffic-insights.pdf",
+      "reason": "WebFetch timeout and curl HTTP/2 INTERNAL_ERROR; the Adobe Digital Insights Q2 2026 PDF primary could not be retrieved."
+    },
+    {
+      "url": "https://business.adobe.com/resources/sdk/.q3-ai-traffic-trends-report/q3-2026-ai-sourced-traffic-insights.pdf",
+      "reason": "WebFetch timeout; Adobe Digital Insights Q3 2026 PDF primary could not be retrieved."
+    },
+    {
+      "url": "https://dl.acm.org/doi/10.1145/3795766.3799780",
+      "reason": "HTTP 403 via WebFetch and curl. This is 'Self-Promotion in LLM Recommendations' (ACM Web Science 2026), reportedly finding providers rank their own products ~0.2 positions above benchmark-justified. No arXiv preprint exists (arXiv API returned 0 results). The finding is deliberately absent from the report body."
+    },
+    {
+      "url": "https://www.pnas.org/doi/10.1073/pnas.2415697122",
+      "reason": "HTTP 403. The PubMed Central mirror of the identical article was fetched and quoted instead (sources 31 and 32)."
+    },
+    {
+      "url": "https://radar.cloudflare.com/ai-insights",
+      "reason": "HTTP 403 via WebFetch; the underlying Radar API requires an authenticated X-Auth-Key. Live 2026 per-platform crawl-to-refer figures could not be read from the dashboard, so the report uses Cloudflare's own blog posts and states the ratios are numerically unstable."
+    },
+    {
+      "url": "https://help.openai.com/en/articles/10291617-scheduled-tasks-in-chatgpt",
+      "reason": "HTTP 403. The equivalent first-party page at learn.chatgpt.com/docs/automations was fetched and quoted instead (source 38)."
+    },
+    {
+      "url": "https://arxiv.org/abs/2311.09735",
+      "reason": "Not fetched and not quoted. The Princeton GEO paper is referenced in the practices table as thinly-measured and explicitly flagged as NOT carried in the report's citations; no [n] marker points to it."
+    }
+  ],
+  "sources": [
+    {
+      "n": 1,
+      "url": "https://blog.cloudflare.com/agentic-internet-bot-report/",
+      "quote": "Google remains the dominant gateway to online discovery, accounting for approximately 88% of referral traffic."
+    },
+    {
+      "n": 2,
+      "url": "https://blog.cloudflare.com/agentic-internet-bot-report/",
+      "quote": "52% of crawler requests are now for AI training as of June 2026, up from 22% in Spring 2025."
+    },
+    {
+      "n": 3,
+      "url": "https://blog.cloudflare.com/agentic-internet-bot-report/",
+      "quote": "Today, for every hour spent online searching for information, only 15 minutes is spent on the open web."
+    },
+    {
+      "n": 4,
+      "url": "https://www.semrush.com/blog/traffic-channel-mix-study/",
+      "quote": "we analyzed billions of web visits across over 50,000 websites and 17 industries"
+    },
+    {
+      "n": 5,
+      "url": "https://www.semrush.com/blog/traffic-channel-mix-study/",
+      "quote": "AI traffic grew 66% in 2025 and outpaced every other channel, but it still makes up less than 0.15% of total visits."
+    },
+    {
+      "n": 6,
+      "url": "https://aisearch.similarweb.com/blog/gen-ai-stats/",
+      "quote": "Average monthly web visits across generative AI platforms worldwide grew 70% year-over-year, reaching 9.5 billion between June 2025 and May 2026"
+    },
+    {
+      "n": 7,
+      "url": "https://blog.cloudflare.com/ai-search-crawl-refer-ratio-on-radar/",
+      "quote": "Anthropic's AI platform Claude made nearly 71,000 HTML page requests for every HTML page referral"
+    },
+    {
+      "n": 8,
+      "url": "https://blog.cloudflare.com/ai-search-crawl-refer-ratio-on-radar/",
+      "quote": "because the referral counts only include traffic from the Web-based tools from these providers, these calculations may overstate the respective ratios"
+    },
+    {
+      "n": 9,
+      "url": "https://www.digitalcommerce360.com/2026/08/19/adobe-ai-referral-traffic-data-july-2026/",
+      "quote": "AI-based retail site visits convert at a rate 60% higher than non-AI traffic."
+    },
+    {
+      "n": 10,
+      "url": "https://www.digitalcommerce360.com/2026/08/19/adobe-ai-referral-traffic-data-july-2026/",
+      "quote": "In July 2026, AI-referral traffic to U.S. retail sites increased 62% year over year"
+    },
+    {
+      "n": 11,
+      "url": "https://techcrunch.com/2026/04/16/ai-traffic-to-us-retailers-rose-393-in-q1-and-its-boosting-their-revenue-too/",
+      "quote": "AI traffic converted 42% better than living, breathing customers in March 2026"
+    },
+    {
+      "n": 12,
+      "url": "https://techcrunch.com/2026/04/16/ai-traffic-to-us-retailers-rose-393-in-q1-and-its-boosting-their-revenue-too/",
+      "quote": "In March 2025, AI traffic converted 38% worse than regular people"
+    },
+    {
+      "n": 13,
+      "url": "https://ahrefs.com/blog/ai-search-traffic-conversions-ahrefs/",
+      "quote": "12.1% of signups from 0.5% of the traffic."
+    },
+    {
+      "n": 14,
+      "url": "https://ahrefs.com/blog/llmstxt-study/",
+      "quote": "Of the ~38,000 domains with a valid file, 97% saw no requests for it whatsoever in May."
+    },
+    {
+      "n": 15,
+      "url": "https://ahrefs.com/blog/llmstxt-study/",
+      "quote": "Zero requests came from AI bots for llms.txt files that don't exist. They never go looking."
+    },
+    {
+      "n": 16,
+      "url": "https://www.seroundtable.com/google-ai-llms-txt-39607.html",
+      "quote": "FWIW no AI system currently uses llms.txt."
+    },
+    {
+      "n": 17,
+      "url": "https://developers.google.com/search/docs/appearance/ai-features",
+      "quote": "You don't need to create new machine readable files, AI text files, or markup to appear in these features."
+    },
+    {
+      "n": 18,
+      "url": "https://developers.google.com/search/docs/appearance/ai-features",
+      "quote": "There are no additional requirements to appear in AI Overviews or AI Mode, nor other special optimizations necessary."
+    },
+    {
+      "n": 19,
+      "url": "https://ahrefs.com/blog/schema-ai-citations/",
+      "quote": "Adding schema produced no major uplift in citations on any platform."
+    },
+    {
+      "n": 20,
+      "url": "https://ahrefs.com/blog/schema-ai-citations/",
+      "quote": "We tracked 1,885 web pages that added JSON-LD schema between August 2025 and March 2026, matched them against 4,000 control pages"
+    },
+    {
+      "n": 21,
+      "url": "https://ahrefs.com/blog/ai-overview-citations-top-10",
+      "quote": "38% of pages cited in AI Overviews also rank in the top 10"
+    },
+    {
+      "n": 22,
+      "url": "https://ahrefs.com/blog/ai-overview-citations-top-10",
+      "quote": "This time around, we analyzed 863K keyword SERPs, and a grand total of 4M AI Overview URLs"
+    },
+    {
+      "n": 23,
+      "url": "https://ahrefs.com/blog/ai-overview-brand-correlation/",
+      "quote": "we've analyzed 75,000 brands to see which search factors are most likely to influence brand mentions in AI Overviews"
+    },
+    {
+      "n": 24,
+      "url": "https://ahrefs.com/blog/ai-overview-brand-correlation/",
+      "quote": "Web mentions (0.664) correlate much more strongly than backlinks (0.218)."
+    },
+    {
+      "n": 25,
+      "url": "https://searchengineland.com/ai-search-engines-cite-reddit-youtube-and-linkedin-most-study-473138",
+      "quote": "Reddit was the most-cited source across ChatGPT, Google AI Mode, Gemini, Perplexity, and AI Overviews."
+    },
+    {
+      "n": 26,
+      "url": "https://developers.openai.com/api/docs/bots",
+      "quote": "OAI-SearchBot is used to surface websites in search results in ChatGPT's search features."
+    },
+    {
+      "n": 27,
+      "url": "https://developers.openai.com/api/docs/bots",
+      "quote": "Sites that are opted out of OAI-SearchBot will not be shown in ChatGPT search answers, though can still appear as navigational links."
+    },
+    {
+      "n": 28,
+      "url": "https://docs.perplexity.ai/guides/bots",
+      "quote": "designed to surface and link websites in search results on Perplexity."
+    },
+    {
+      "n": 29,
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool",
+      "quote": "The web search tool gives Claude direct access to real-time web content, allowing it to answer questions with up-to-date information beyond its knowledge cutoff."
+    },
+    {
+      "n": 30,
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool",
+      "quote": "The API runs the searches and provides Claude with the results."
+    },
+    {
+      "n": 31,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12337326/",
+      "quote": "Our results show a consistent tendency for LLM-based AIs to prefer LLM-presented options."
+    },
+    {
+      "n": 32,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12337326/",
+      "quote": "GPT-3.5, GPT-4 and a selection of recent open-weight models in binary choice scenarios."
+    },
+    {
+      "n": 33,
+      "url": "https://arxiv.org/abs/2509.26464",
+      "quote": "across 72 experiments and ~41,000 queries, we discovered massive self-preferences in eight widely used LLMs."
+    },
+    {
+      "n": 34,
+      "url": "https://arxiv.org/abs/2404.13076",
+      "quote": "One such bias is self-preference, where an LLM evaluator scores its own outputs higher than others' while human annotators consider them of equal quality."
+    },
+    {
+      "n": 35,
+      "url": "https://claude.com/blog/introducing-routines-in-claude-code",
+      "quote": "A routine is a Claude Code automation you configure once"
+    },
+    {
+      "n": 36,
+      "url": "https://claude.com/blog/introducing-routines-in-claude-code",
+      "quote": "Routines run on Claude Code's web infrastructure, so nothing depends on your laptop being open."
+    },
+    {
+      "n": 37,
+      "url": "https://claude.com/blog/introducing-routines-in-claude-code",
+      "quote": "Pro users can run up to 5 routines per day, Max users can run up to 15 routines per day"
+    },
+    {
+      "n": 38,
+      "url": "https://learn.chatgpt.com/docs/automations",
+      "quote": "Schedule recurring tasks to run in the background."
+    },
+    {
+      "n": 39,
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Referrer-Policy",
+      "quote": "header will be omitted: sent requests do not include any referrer information."
+    },
+    {
+      "n": 40,
+      "url": "https://arxiv.org/abs/2604.02544",
+      "quote": "unreliable indicators of actual documentation consumption."
+    },
+    {
+      "n": 41,
+      "url": "https://www.semrush.com/news/463141-semrush-releases-expanded-2026-ai-visibility-index-analyzing-126-million-ai-search-prompts/",
+      "quote": "45% of marketing leaders cannot accurately measure their brand visibility within AI-generated answers"
+    }
+  ],
+  "partially_answered": [
+    "The self-preference question, in its exact form ('is content optimised with one model disproportionately recommended by that same model?'): no published study tests this. Reported as unanswered in the report body, as the charter permits. The adjacent and commercially stronger finding IS answered and cited: LLMs prefer LLM-authored over human-authored options when recommending (PNAS [31][32]); same-model self-preference is documented for judging [34] and for brand/company association [33], but not for content recommendation."
+  ]
+}

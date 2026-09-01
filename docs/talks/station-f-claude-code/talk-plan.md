@@ -69,14 +69,22 @@ are the reason the room should believe the question matters.
 
 | Part | Slides | Time |
 |---|---|---|
-| WHY (Part 1) | 5 | 6 min |
+| WHY (Part 1) | 7 | 8 min |
 | WHAT (Part 2) | 8 | 7 min |
 | Chapters 1-5 (Part 3) | 27 | 24 min |
 | WRAP (Part 4) | 3 | 3 min |
-| **Total** | **43** | **40 min** |
+| **Total** | **45** | **42 min** |
 
 Fifteen further slides are authored and held in the appendix. Pace marks: `TEACH` 60-90s ·
 `FAST` 20-30s.
+
+**42 minutes is two over.** The lever is the pace column, not the content: moving three
+Part-2 definition slides to `FAST` (this room knows them) recovers the two minutes. Decide
+that when the slides exist and can be read at real size.
+
+**Numbering note**: slides 04b and 04c are lettered inserts, added after the numbers sheet was
+keyed. Final sequential numbering happens at build time — until then these keys are stable
+IDs, and `numbers-sheet.md` documents the mapping from the older roadmap S-numbers.
 
 ---
 
@@ -91,6 +99,8 @@ content (the three bends) → wrap (so what compounds?).*
 | 02 | Instructor | FAST | — | 42 Network curriculum · Station F · Sorbonne. 30 seconds. |
 | 03 | **You all already use this. So what is left to learn?** | TEACH | WHY | The tension: everyone here prompts Claude daily. Some teams compound; most just spend more tokens. The difference is not the model. |
 | 04 | **Three curves that bent** | TEACH | CONTENT | (a) Commits: 19.8M in July 2026, but growth +14%/mo against +89% in March, doubling 2.62 months against 1.22, fits agree on an **April 2026 inflection** and a 22-30M ceiling. (b) METR: measurements above 16h unreliable, the trend fit excludes every point above 16h, last point 17.4h, and on GPT-5.6 Sol the answer runs **11.3h to >270h** depending on how cheating is scored — *"we do not consider any of these numbers to represent a robust measurement"*. (c) My own June slide named FrontierCode **Diamond**, a subset deprecated in July. |
+| 04b | **The money is real, and it is stretched** | TEACH | CONTENT | $110bn trailing-twelve-month GenAI revenue, $175bn run rate, **3× faster than any prior IT wave**, against **$2T of committed CapEx** — and revenue covers *ongoing* depreciation with only **19-32% headroom**, not the cumulative bill. Anthropic at **$65bn** run rate (end July 2026). This is why the room is right to care, and why nobody should assume the subsidy lasts. |
+| 04c | **Price × effort × accuracy** | TEACH | CONTENT | The frontier scatter, rebuilt from a leaderboard that publishes **cost per run beside the score**. Terminal-Bench 4.0: frontier at **51.8% ± 3.4**, $5,969 per run. **Always say the version and the operator** — three incompatible "Terminal-Bench" numbers are in circulation (51.8% on TB 4.0, 82.0% via Berkeley RDI, 89.5% on TB v2.1 via Artificial Analysis). Paired with the cost collapse: same capability, 9× to 900× cheaper per year; open weights lag the closed frontier by **four months** on average. |
 | 05 | **So what compounds?** | TEACH | WRAP | Intuition to keep: *the trend line is not the asset; the thing you build around the model is.* Thread: Epoch Capabilities Index (15.5 points/year, 5 points ≈ one METR doubling) and the Remote Labor Index (2.5% → 15.8% in eight months) — trajectory and ceiling, on scales that do not run out. |
 
 **Steal**: stop quoting a benchmark you have not checked this month.
@@ -192,11 +202,11 @@ evidence. · Wrap: the meta-skill.*
 
 | # | Slide | Pace | Content |
 |---|---|---|---|
-| 39 | **Plain files beat the products** | TEACH | The company-brain slide, and the finding that makes it worth a slide: an agent that simply writes the conversation to a file and greps it scores **74.0%** on the memory benchmark — **above every specialised memory product measured, and above the full-context baseline**. The category is also not new (its founding paper is from October 2023, not "six months old" as the marketing says). |
+| 39 | **Plain files are not the beginner option** | TEACH | The company-brain slide. An agent that simply writes the conversation to a file and greps it scores **74.0%** on the memory benchmark — **in the same range as the specialised memory products, and above the full-context baseline**. *(Superlative deliberately dropped: the "beats every product" version rests on one vendor's table putting a competitor at 65.99%, and that competitor publicly disputes it with a corrected 75.14%. Both are vendor-run.)* The category is also not new — its founding paper is October 2023, not "six months old" as the marketing says. |
 | 40 | **When files stop being enough** | FAST | The honest threshold: at ~26k tokens, plain full context wins outright; at ~115k, memory systems win by 11-24 points; past a million, long context fails on its own. Scale when you cross the threshold, not before. And treat the vendor benchmarks with care — an audit of the standard one found 6.4% of the answer key wrong and the judge accepting 62.81% of deliberately wrong answers. |
 | 41 | **Skills that improve themselves** | TEACH | A persistent wiki plus executable skills: a 9B model with skills (47.4%) beats a 27B model without (39.4%) — the written artefact carries the gain, not the parameters. Plus the practice: `lessons.md`, a wrap-up skill, ablation. |
 | 42 | **The distribution nobody is optimising yet** | TEACH | Answer-engine presence: schedule an agent to research weekly how assistants describe and recommend you. *(Numbers land from the AEO run; the practitioner's revenue projection stays labelled as an anecdote on top of measured referral data.)* |
-| 43 | **The meta-skill** | TEACH | WRAP. Spotting which problems in your domain just became computationally tractable — *"probably the skill to have optimised for"*. Intuition: *the edge is not the model everyone has; it is noticing, first, what it just made possible.* |
+| 43 | **The meta-skill** | TEACH | WRAP. Spotting which problems in your domain just became computationally tractable — *"probably the skill to have optimized for"* (**US spelling — the quote is graded character-by-character; "optimised" fails the gate**). Intuition: *the edge is not the model everyone has; it is noticing, first, what it just made possible.* |
 
 **Steal**: pick one thing that was intractable 12 months ago and re-test it this week.
 
@@ -221,7 +231,12 @@ evidence. · Wrap: the meta-skill.*
 5. **Not** "repositories were damaged" in the Hugging Face incident. Nothing shipped.
 6. **Not** "graph engineering is the evolution of context engineering." It is a rename, and it means workflow-as-graph, not knowledge graphs.
 
+7. **Never say "Terminal-Bench" without the version and the operator.** Three incompatible numbers are in circulation: 51.8% (TB 4.0), 82.0% (Berkeley RDI), 89.5% (TB v2.1 via Artificial Analysis).
+8. **Not** "plain files beat every memory product." Say *in the same range as, and above full context* — the superlative depends on one vendor's measurement of a competitor who publicly disputes it.
+
 Plus: a fitted ceiling is a model output — say *"the fits say"*, never *"it will be"*.
+And the full per-figure list, with the exact quote each one is graded against, is in
+`numbers-sheet.md` — that is the page to read the night before, not this one.
 
 ---
 
