@@ -33,13 +33,13 @@ Legend: KEEP / REFRESH (stale >3mo) / RESTORED (v1 cut it) / NEW / RETIRED (cont
 | Key | Slide | Pace | Status | Source |
 |-----|-------|------|--------|--------|
 | S04 | Intelligence is a commodity | TEACH | KEEP §04 | — |
-| S05 | **The curve bent** — agent-authored commits turned out to be a sigmoid: +14%/month now against +89% in March, doubling time 2.62 months against 1.22, inflection April 2026, already at ~66-88% of the estimated ceiling | TEACH | **REFRAMED 2026-08-31** — the April framing is contradicted by its own source | `sources/botcommits-2026-08-the-bend.md` + charter `ai-economics` |
-| S06 | The AI economy in dollars — $110bn revenue, $175bn run rate, 3× faster than prior IT waves; the $2T CapEx tension | TEACH | NEW | Azhar thread + EV report |
-| S07 | **The benchmark treadmill** — why the curve we showed in April stopped measuring the frontier (METR overfit), and what the field measures now | TEACH | **REPLACES §06** | **run: frontier-evaluations** (+ METR sources rehomed here) |
-| S08 | Price × effort × accuracy — the frontier scatter, rebuilt from the live leaderboard | TEACH | NEW | DeepSWE + `deck_chart.py` |
+| S05 | **The curve bent** — 19,804,129 Claude Code commits in July 2026, but growth +14%/month against +89% in March, doubling 2.62 months against 1.22, fits agree on an **April 2026 inflection and a 22-30M ceiling**. The share is a **range, not a point**: 17.8% of push events ≈ **6-18% of commits**, because nobody has the commit denominator. Reality check: Salesforce's own help desk, **5M conversations, 64% resolved autonomously** (a public company on its own desk, not a vendor's 76%) | TEACH | **REFRAMED** — the tracker that called the exponential is the one calling the bend | run `ai-economics` |
+| S06 | **The AI economy in dollars** — $110bn trailing-twelve-month revenue, $175bn run rate, 3× faster than any prior IT wave, $2T committed CapEx; Anthropic at **$65bn run rate** (end July 2026). The sharp line: revenues cover *ongoing* depreciation with only **19-32% headroom**, not the cumulative bill | TEACH | NEW — **all four EV figures verified verbatim** | EV report · CNBC |
+| S07 | **METR didn't get gamed — it got outgrown** — METR says measurements above 16h are unreliable, its own trend fit excludes every point above 16h, its last point is 17.4h, and on GPT-5.6 Sol the answer ran from 11.3h to >270h depending on how cheating is scored. Then: the Epoch Capabilities Index as the replacement trajectory (**15.5 points/year**, 5 points ≈ one METR doubling) | TEACH | **REPLACES §06 — mechanism corrected** | **run: frontier-evaluations** (METR sources rehomed) |
+| S08 | Price × effort × accuracy — the frontier scatter. **Terminal-Bench 4.0 is the better anchor than DeepSWE**: it publishes cost per run beside the score (frontier 51.8%, $5,969/run) and removes saturated tasks by design | TEACH | NEW — anchor swapped | tbench.ai + `deck_chart.py` |
 | S09 | Cost collapse — same intelligence, 9× to 900× cheaper per year; open weights lag the closed frontier by **four months** on average | TEACH | KEEP §07 — **source swapped**: no Mistral page supports the open-weights claim | epoch.ai inference-price + open-closed-eci-gap |
 | S10 | Frontier → your laptop: the two lags | FAST | NEW | brief `frontier-to-local-lag` |
-| S11 | Agents doing AI research — Fable 5 closed 82% of the gap to the human nanoGPT record; no run invented a new method | TEACH | NEW | Prime Intellect · ARC-AGI-3 |
+| S11 | **The ceiling, in two numbers** — Remote Labor Index: best model went **2.5% → 15.8%** automation of real paid freelance projects in under eight months (human-graded, 230 of 240 projects held private). And Agents' Last Exam: **0% on the hardest tier for every frontier agent tested**. Then Prime Intellect: Fable 5 closed 82% of the gap to the human nanoGPT record, and no run invented a new method | TEACH | NEW — trajectory *and* ceiling | run `frontier-evaluations` · Prime Intellect |
 
 ## M2 — What an agent is
 
@@ -184,6 +184,25 @@ the most credible thing available in this room.
 2. **M5 placement** — orchestration currently sits before loops. The alternative is after (loops → then how to run many). Recommendation: keep it before, so loops inherit the coordination rules.
 3. **Live demo** — S26 (Grill Me) is the natural demo; it costs ~3 min and needs a rehearsal. In or out?
 4. **S37 — Boris Cherny's attribution.** He has no primary, first-person, linkable source for "loops built into the harness": his `/loop`-looking tweet is about `.claude/commands/` slash commands, and his real loops quotes exist only in a Bloomberg video reached through third-party quote-tweets. Either drop the name and cite Anthropic's loops post (already registered, and it documents `/loop`), or keep him as a labelled secondary. Recommendation: drop the name — the two-builders-converging framing survives on Steinberger plus Anthropic, and a misattribution in front of this room costs more than the anecdote is worth.
+
+## Stage-safety notes (things that would get you challenged)
+
+- **Do not say "labs trained on METR" or "it's overfit".** Nobody has demonstrated a lab
+  trained on METR's task set, and a technical founder can pull the receipts. The conclusion
+  is right; the mechanism is wrong. Say **outgrown**, and let METR's own words carry it:
+  measurements above 16h unreliable, the trend fit excludes points above 16h, last point
+  17.4h, and *"we do not consider any of these numbers to represent a robust measurement"*.
+- **The overfit date is not April 2026.** Critiques cluster Dec 2025-Jan 2026; the
+  measurement broke publicly with the GPT-5.6 Sol evaluation on **26 June 2026**. April 2026
+  is the curve's **last honest reading** — say it that way.
+- **Benchmark gaming does exist — just not at METR.** Terminal-Bench published a Leaderboard
+  Integrity Update naming agent vendors that cheated. Useful if someone pushes back, and it
+  is a different claim from labs training on a benchmark.
+- **The Claude Code revenue number is six months old** ($2.5bn, Anthropic, 12 Feb 2026) and
+  it is the newest anyone has published. Say the date out loud. **The $8bn figure circulating
+  in aggregators traces to no primary page — do not use it.**
+- **A fitted ceiling is a model output.** Say "the fits say", never "it will be".
+- **Never claim repositories or models were damaged** in the Hugging Face incident.
 
 ## Claim corrections forced by verification (2026-08-31)
 

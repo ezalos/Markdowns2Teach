@@ -1,0 +1,37 @@
+{
+  "status": "complete",
+  "sources_total": 50,
+  "sources_verified": 48,
+  "unanswered": [],
+  "unverified": [
+    {
+      "url": "https://arcprize.org/leaderboard",
+      "reason": "Fetched successfully, but the ARC-AGI-1/2/3 leaderboard table is rendered client-side: the served HTML contains no model names or scores, so no score can be quoted verbatim from this page. It backs no [n] marker. Every ARC-AGI figure in the report comes instead from Anthropic's Claude Opus 5 System Card [14] or Epoch AI's CC-BY benchmark dataset [20]."
+    },
+    {
+      "url": "https://agents-last-exam.org/leaderboard",
+      "reason": "Fetched successfully, but the ALE-V1 leaderboard rows are rendered client-side and no /api/leaderboard or leaderboard.json endpoint is reachable; the served HTML contains only chrome. It backs no [n] marker. All Agents' Last Exam figures in the report come from the UC Berkeley RDI blog post [35][36][37] and the project site [38], and are therefore dated June 2026 (pre Opus 5 / GPT-5.6)."
+    },
+    {
+      "url": "https://forum.effectivealtruism.org/posts/ghhJh6SBYXxDktnZX/metr-time-horizon-2-0-the-benchmark-you-ve-been-waiting-for",
+      "reason": "Retrieved only through a summarising fetch, so its text was never verified character-by-character; its stated date also conflicted between the search index (Jul 2026) and the fetch (Jul 2025). It is in any case a satirical critique by a forum user (applying METR's methodology to Microsoft Excel), disclosed on the forum as AI-written, and not a METR release. It backs no claim in the report; it is mentioned in §11 only to record that no public 'METR Time Horizon 2.0' exists."
+    }
+  ],
+  "notes": {
+    "compiled": "2026-08-31",
+    "for": "Incubateur 42 / Station F talk, 2026-09-02 — trajectory slide replacement for METR time horizons",
+    "verdict": "Overfit claim is right in conclusion, partly wrong in mechanism. METR's curve failed because it ran past its own 16h reliability ceiling, because frontier reward hacking makes the number swing 11.3h-to-270h on a scoring judgement (METR's own June 2026 GPT-5.6 Sol evaluation), and because coverage stopped in April 2026 — not because a lab was shown to have trained on HCAST.",
+    "recommended_for_slide": [
+      "Epoch Capabilities Index (trajectory line, 15.5 ECI/yr, CC-BY dataset refreshed daily)",
+      "Remote Labor Index (reality check, 2.5% -> 15.8% in under 8 months, human-graded)",
+      "optional third: Terminal-Bench 4.0 (51.8% frontier, cost per run on the same row)"
+    ],
+    "quote_verification_method": "Every [n] source was fetched with curl (or, for two PDFs, downloaded and extracted with pdftotext -layout) and each quoted string was checked programmatically against the fetched bytes and against the same bytes with HTML tags stripped. sources.md records, per entry, which of those two matched — this matters for scripts/verify-sources.py, which greps character-by-character.",
+    "lesswrong_note": "Source [39] (lesswrong.com/posts/2RwDgMXo6nh42egoC) counts as verified: lesswrong.com serves a Vercel JS challenge to curl, so its quotes were verified character-by-character against the byte-identical GreaterWrong mirror, which sources.md discloses and links. A registry that fetches with curl should cite the GreaterWrong URL.",
+    "conflicts_recorded_not_resolved": [
+      "GDPval-AA v2 Claude Opus 5: live Artificial Analysis page 1824 vs Anthropic system card 1861",
+      "SWE-bench Pro Claude Opus 5: Anthropic internal harness 79.2% vs Scale public leaderboard top 61.50",
+      "METR doubling time: raw data file 128.7 days since 2023 vs TH1.1 announcement 196 days hybrid trend — both exclude points above 16h"
+    ]
+  }
+}

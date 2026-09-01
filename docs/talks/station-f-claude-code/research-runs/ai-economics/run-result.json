@@ -1,0 +1,32 @@
+{
+  "status": "complete",
+  "sources_total": 22,
+  "sources_verified": 20,
+  "unanswered": [],
+  "unverified": [
+    {
+      "url": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
+      "reason": "Could not be fetched: two WebFetch attempts timed out at 60s and a direct HTTPS request with a browser user-agent returned no body. McKinsey's State of AI global survey would have been the strongest available instrument for the enterprise-adoption question; it backs no [n] marker in the report, and KPMG's Q2 2026 AI Pulse (stated method, n=204) plus Ramp's transaction data were used instead."
+    },
+    {
+      "url": "https://www.bloomberg.com/news/articles/2026-08-17/anthropic-revenue-run-rate-surpasses-65-billion-ahead-of-ipo",
+      "reason": "Paywalled and not fetched. Bloomberg was first to report the $65bn Anthropic run rate; the claim is cited instead to CNBC [9], which was fetched and quoted, and to TechCrunch [10], which attributes it to Bloomberg. The Bloomberg URL appears in sources.md only as a pointer and backs no [n] marker."
+    }
+  ],
+  "notes": {
+    "fetch_caveats": [
+      "CNBC (source 9) returns HTTP 403 to a default fetcher user-agent and 200 to a browser user-agent; a citation gate using a plain fetcher will need the browser UA.",
+      "Three cited sources are PDFs (11, 13, 15): a grep-the-quote gate must run pdftotext -layout before matching, and the Exponential View report's two-column bullets wrap across lines in the raw extraction.",
+      "On ramp.com (18, 19) and techcrunch.com (10) the figures sit inside <span>/<a> tags, so quotes are contiguous in rendered text but not in raw HTML; a gate that strips tags before matching is required.",
+      "botcommits.dev (1) renders its headline numerals from JavaScript; the bare figures are cited to the data.json endpoint (2), which is static and greppable."
+    ],
+    "live_trackers_to_recheck": [
+      "https://botcommits.dev/data.json",
+      "https://ramp.com/data/ai-index",
+      "https://www.anthropic.com/news",
+      "https://intelligence.exponentialview.co/",
+      "https://kpmg.com/us/en/media/news/q2-ai-pulse-2026.html",
+      "https://github.blog/news-insights/octoverse/"
+    ]
+  }
+}

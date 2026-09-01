@@ -92,12 +92,12 @@ what the deck may say** and block the build until the slide text changes with th
 
 | Run / brief | → Destination | State |
 |-------------|---------------|-------|
-| run `frontier-evaluations` | **S07** (+ S08, S39 corrections) | LAUNCHED 2026-08-31, opus/high |
+| run `frontier-evaluations` | **S07, S08, S11** | **LANDED** — 48/50 verified. Replaces METR with the Epoch Capabilities Index + Remote Labor Index; corrects the overfit *mechanism*. 3 unverified (2 JS-rendered leaderboards, 1 satirical forum post) — none backs a marker. |
 | run `orchestration-2026` | **S31-S36** | **LANDED 2026-08-31** — 27/28 sources verified. Report + `sources.md` committed in the run dir; 28 new sources to register, listed there. **1 UNVERIFIED**: `openai.com/index/hugging-face-incident-and-the-road-ahead/` returns 403 to every automated client — it backs no marker and must NOT be cited until opened in a browser. |
-| brief `ai-economics-refresh` | S05, S06 | queued (cap = 2 runs) |
-| brief `autonomous-rnd-evidence` | S40, S11 | queued |
-| brief `company-memory-landscape` | S54 | queued |
-| brief `aeo-answer-engine-optimization` | S55 | queued |
+| run `ai-economics` | **S05, S06** | **LANDED** — 20/22 verified. 2 unverified (McKinsey timeout, Bloomberg paywall); both routed through CNBC/KPMG instead. |
+| run `autonomous-rnd` | S40, S11 | **RUNNING** (launched 2026-09-01) |
+| run `company-memory` | S54 | **RUNNING** (launched 2026-09-01) |
+| run `aeo` | S55 | charter ready, queued behind the 2-run cap |
 | brief `frontier-to-local-lag` | S10 | queued |
 | brief `agent-benchmarks-sept-2026` | S08 | **folded into** run `frontier-evaluations` — kept as the leaderboard-snapshot checklist |
 | brief `claude-watermarking-provenance` | A05 | queued, conversation-dependent |
