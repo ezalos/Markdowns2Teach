@@ -391,15 +391,14 @@ sources:
     # (numbers-sheet.md §4.1 Conflicts)
 
   - id: mem0-paper
-    url: https://arxiv.org/abs/2504.19413
+    # 2026-09-01: re-pointed from /abs/ to /html/ — the slide states the ~26,000-token
+    # threshold, and the abstract does not contain it. A citation must back the claim
+    # that is actually on the slide.
+    url: https://arxiv.org/html/2504.19413v1
     authority: arXiv (Mem0)
     title: "Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory"
-    quote: "a full-context approach that processes the entire conversation history"
+    quote: "26,000 tokens still achieves the highest J score"
     slides: [37]
-    # The load-bearing ~26,000-token threshold sentence is in the FULL TEXT, not the abstract:
-    # https://arxiv.org/html/2504.19413v1 — "a full-context method that ingests a chunk of roughly
-    # 26,000 tokens still achieves the highest J score (approximately 73%)". If slide 37 wants that
-    # number cited directly, point the href at the /html/ URL and swap this quote in.
 
   - id: penfield-locomo-audit
     url: https://penfieldlabs.substack.com/p/we-audited-locomo-64-of-the-answer
@@ -416,13 +415,13 @@ sources:
     slides: [37]
 
   - id: wikiskill-paper
-    url: https://arxiv.org/abs/2608.27454
+    # 2026-09-01: re-pointed from /abs/ to /html/ — the slide states the 47.4% vs 39.4%
+    # crossover, which lives in the full text, not the abstract.
+    url: https://arxiv.org/html/2608.27454
     authority: arXiv (WikiSkill — Google Research / Virginia Tech)
     title: "WikiSkill: Evolving Skills through Persistent Knowledge Accumulation"
-    quote: "our ablation studies confirm that persistent knowledge accumulation in the wiki is critical for effective skill evolution."
+    quote: "persistent knowledge accumulation in the wiki is critical for effective skill evolution"
     slides: [38]
-    # The 9B-with-skills (47.4%) vs 27B-without (39.4%) crossover is in the full text:
-    # https://arxiv.org/html/2608.27454 — note the stray space in "model scale ." there.
 
   # ================= Slide 39 — the AEO reality check =================
   - id: semrush-traffic-channel-mix

@@ -12,7 +12,14 @@ sources:
     url: https://botcommits.dev
     authority: botcommits.dev
     title: "Tracking AI-Generated Commits on GitHub"
-    quote: "Claude Code: 24 commits in Jan 2025. 5.2 million in Feb 2026. A 216,000x increase in 13 months."
+    # 2026-09-01: the tracker now injects EVERY figure client-side, so no
+    # number-bearing quote can grep the served HTML. The static prose also
+    # changed: the page's own headline is now "The Exponential Bent" and it
+    # fits a sigmoid with an April-2026 inflection, which no longer supports
+    # this deck's 216,000x framing. Kept link-only rather than re-pointed at a
+    # quote that would imply the page still says what this June deck says.
+    verify: link-only
+    reason: "all figures rendered client-side (no greppable number); the page's claim has also since changed — see docs/talks/station-f-claude-code/sources/botcommits-2026-08-the-bend.md"
 
   - id: venturebeat-agent-acceleration
     url: https://venturebeat.com/ai/the-great-ai-agent-acceleration-why-enterprise-adoption-is-happening-faster-than-anyone-predicted
@@ -70,10 +77,12 @@ sources:
     quote: "we explore the use of LLMs to generate both reasoning traces and task-specific actions in an interleaved manner"
 
   - id: llm-stats-models
-    url: https://llm-stats.com/models
+    # 2026-09-01: /models now 308-redirects to /ai-models, and the tagline was
+    # reworded. Re-pointed at the canonical URL with the current wording.
+    url: https://llm-stats.com/ai-models
     authority: LLM Stats
     title: "AI Models — Compare 300+ LLMs"
-    quote: "Compare 300+ LLMs by Intelligence, Price & Speed"
+    quote: "compare 300+ LLMs and multimodal AI models"
 
   - id: claude-code-memory-docs
     url: https://code.claude.com/docs/en/memory

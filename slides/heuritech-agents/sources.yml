@@ -46,7 +46,11 @@ sources:
     url: https://botcommits.dev
     authority: botcommits.dev
     title: "Tracking AI-Generated Commits on GitHub"
-    quote: "Claude Code: 24 commits in Jan 2025. 5.2 million in Feb 2026. A 216,000x increase in 13 months."
+    # 2026-09-01: every figure is now injected client-side, so no number-bearing
+    # quote can grep; the page's own claim has also changed (it now fits a sigmoid
+    # with an April-2026 inflection, headlined "The Exponential Bent").
+    verify: link-only
+    reason: "all figures rendered client-side (no greppable number); the page's claim has also since changed — see docs/talks/station-f-claude-code/sources/botcommits-2026-08-the-bend.md"
     slides: [7]
 
   - id: venturebeat-agent-acceleration
@@ -131,7 +135,8 @@ sources:
     url: https://github.com/mattpocock/skills
     authority: GitHub (Matt Pocock)
     title: "skills"
-    quote: "Skills for Real Engineers. Straight from my .claude directory."
+    # 2026-09-01: repo description changed .claude -> .agents (AGENTS.md convention).
+    quote: "Skills for Real Engineers. Straight from my .agents directory."
     slides: [17]
 
   - id: trq-make-me-understand
