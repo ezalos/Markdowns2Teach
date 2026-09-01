@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Compounds — Station F</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ===========================================
+   THEME — ported verbatim from Louis's post-visual
+   terminal design system (~/42/social/visuals/templates/theme.css).
+   Values are his; only the type scale is re-based from a
+   1080x1350 card to the 1920x1080 stage.
+   =========================================== */
+:root{
+  --bg:#05070d; --bg2:#0a0e17;
+  --ink:#e6edf3; --dim:#9fb0bd; --faint:#5a6a76;
+  --accent:#8ab4ff; --cyan:#5eead4;
+  --mono:'JetBrains Mono', ui-monospace, monospace;
+  --sans:'Inter', system-ui, sans-serif;
+  --stage-bg:#05070d; --slide-bg:#05070d;
+  --ease:cubic-bezier(0.16,1,0.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+
+/* === MANDATORY FIXED-STAGE BASE (viewport-base.css, in full) === */
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--stage-bg,#000)}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg,#000)}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg,#fff)}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg,#fff)}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1}
+img,video,canvas,svg{max-width:100%;max-height:100%}
+.deck-controls{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:1000}
+@media print{
+  html,body{width:1920px;height:auto;overflow:visible;background:#fff}
+  .deck-viewport{position:static;overflow:visible;background:#fff}
+  .deck-stage{position:static;width:auto;height:auto;transform:none !important;background:none}
+  .slide{position:relative;display:block !important;visibility:visible !important;opacity:1 !important;pointer-events:auto !important;width:1920px;height:1080px;break-after:page;page-break-after:always}
+  .slide:last-child{break-after:auto;page-break-after:auto}
+  .deck-controls{display:none !important}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:0.01ms !important;transition-duration:0.2s !important}
+}
+
+/* === SLIDE GROUND: dot grain + two glows + lifted gradient + engineering grid === */
+.slide{
+  color:var(--ink);font-family:var(--sans);
+  background:
+    radial-gradient(rgba(255,255,255,0.020) 1px, transparent 1.5px) 0 0 / 7px 7px,
+    radial-gradient(1600px 900px at 80% -8%, rgba(94,234,212,.10), transparent 60%),
+    radial-gradient(1300px 780px at 12% 112%, rgba(124,92,255,.07), transparent 62%),
+    linear-gradient(180deg,#0c1119 0%,#070a11 100%);
+}
+.slide::before{
+  content:"";position:absolute;inset:0;z-index:0;
+  background-image:
+    linear-gradient(rgba(94,234,212,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(94,234,212,.05) 1px, transparent 1px);
+  background-size:54px 54px;
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 28%,#000 72%,transparent);
+  mask-image:linear-gradient(180deg,transparent,#000 28%,#000 72%,transparent);
+}
+.wrap{position:relative;z-index:1;height:100%;padding:96px 112px 104px;display:flex;flex-direction:column}
+
+/* === TYPE SYSTEM === */
+.eyebrow{font-family:var(--mono);font-size:26px;color:var(--cyan);letter-spacing:.04em}
+.eyebrow .dim{color:#3a4a52}
+h1{font-weight:900;font-size:104px;line-height:1.02;letter-spacing:-.03em}
+h2{font-weight:900;font-size:72px;line-height:1.06;letter-spacing:-.02em;margin-top:26px}
+h2 .accent,h1 .accent{color:var(--accent)}
+h2 em,h1 em{font-style:normal;color:var(--cyan)}
+.sub{margin-top:30px;font-size:36px;line-height:1.38;color:var(--dim);font-weight:500;max-width:1500px}
+.lede{margin-top:34px;font-size:44px;line-height:1.3;color:var(--ink);font-weight:700;max-width:1520px;letter-spacing:-.01em}
+.claim{font-weight:900;font-size:88px;line-height:1.1;letter-spacing:-.03em;max-width:1620px}
+
+/* bullets */
+.bullets{margin-top:44px;display:flex;flex-direction:column;gap:30px}
+.bullet{display:flex;gap:26px;align-items:flex-start}
+.bullet .mk{font-family:var(--mono);color:var(--accent);font-size:32px;line-height:1.3;flex:none;min-width:44px}
+.bullet .tx{font-size:34px;line-height:1.34;color:var(--dim);max-width:1480px}
+.bullet .tx b{color:var(--ink);font-weight:700}
+.bullet .tx .hi{color:var(--accent);font-weight:700}
+
+/* stat */
+.stat{font-weight:900;font-size:132px;letter-spacing:-.04em;color:var(--accent);line-height:1}
+.stat .unit{font-size:44px;color:var(--dim);font-weight:700;letter-spacing:0}
+.statrow{display:flex;gap:96px;margin-top:44px;flex-wrap:wrap}
+.statcell{display:flex;flex-direction:column;gap:14px}
+.statcell .n{font-weight:900;font-size:88px;letter-spacing:-.03em;color:var(--accent);line-height:1}
+.statcell .n.warn{color:#f0a868}
+.statcell .l{font-size:26px;color:var(--dim);font-family:var(--mono);max-width:420px;line-height:1.36}
+
+/* cards / columns */
+.cols{display:flex;gap:44px;margin-top:44px}
+.card{flex:1;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.10);border-radius:18px;padding:36px 38px}
+.card h3{font-family:var(--mono);font-size:26px;color:var(--cyan);font-weight:500;letter-spacing:.02em}
+.card .big{margin-top:18px;font-size:52px;font-weight:900;letter-spacing:-.02em;color:var(--ink);line-height:1.08}
+.card p{margin-top:16px;font-size:28px;line-height:1.36;color:var(--dim)}
+.card.accent{border-color:rgba(138,180,255,.4);background:rgba(138,180,255,.07)}
+
+/* note strip */
+.note{margin-top:auto;padding-top:30px;border-top:1px solid rgba(255,255,255,.12);font-weight:700;font-size:38px;line-height:1.28;color:var(--ink);max-width:1600px}
+.note b{color:var(--accent)}
+.note .lab{font-family:var(--mono);font-size:22px;color:var(--cyan);display:block;margin-bottom:12px;font-weight:500;letter-spacing:.04em}
+
+/* terminal */
+/* white-space:pre-wrap is load-bearing — without it the authored newlines
+   collapse and the whole terminal renders as one paragraph. pre-wrap (not pre)
+   so an over-long line wraps instead of spilling off the fixed stage. */
+.term{margin-top:36px;background:#04060b;border:1px solid rgba(94,234,212,.22);border-radius:14px;padding:28px 32px;font-family:var(--mono);font-size:26px;line-height:1.5;color:var(--dim);overflow:hidden;white-space:pre-wrap}
+.term .p{color:var(--cyan)}
+.term .c{color:var(--ink)}
+.term .o{color:var(--faint)}
+.term .hl{color:var(--accent)}
+
+/* chips */
+.tags{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+.tag{font-family:var(--mono);font-size:24px;color:#7ee7d4;border:1px solid rgba(94,234,212,.35);border-radius:8px;padding:9px 18px;background:rgba(94,234,212,.05)}
+
+/* sources — every one clickable, exact deep link */
+.sources{position:absolute;left:112px;right:112px;bottom:44px;z-index:2;font-family:var(--mono);font-size:19px;color:var(--faint);line-height:1.5}
+.sources a{color:var(--faint);text-decoration:none;border-bottom:1px solid rgba(90,106,118,.45)}
+.sources a:hover{color:var(--cyan)}
+
+/* part divider */
+.part .wrap{justify-content:center}
+.part .pnum{font-family:var(--mono);font-size:32px;color:var(--cyan);letter-spacing:.12em}
+.part h1{margin-top:24px;font-size:126px}
+.part .sub{font-size:40px;max-width:1400px}
+
+/* title slide */
+.title .wrap{justify-content:center}
+.title h1{font-size:132px;max-width:1560px}
+.title .meta{margin-top:56px;font-family:var(--mono);font-size:28px;color:var(--dim);line-height:1.7}
+.title .meta .c{color:var(--cyan)}
+.credit{position:absolute;left:112px;bottom:44px;z-index:2;font-family:var(--mono);font-size:20px;color:var(--faint)}
+
+/* === REVEALS (forward-only animation; see interaction standards) === */
+.reveal{opacity:0;transform:translateY(26px)}
+.reveal.shown{opacity:1;transform:translateY(0)}
+
+/* === CHROME === */
+.pager{position:fixed;right:26px;bottom:20px;z-index:1000;font-family:var(--mono);font-size:18px;color:var(--faint)}
+.dots{position:fixed;left:50%;transform:translateX(-50%);bottom:22px;z-index:1000;display:flex;gap:9px}
+.dots i{width:8px;height:8px;border-radius:50%;background:rgba(159,176,189,.28);display:block}
+.dots i.on{background:var(--cyan)}
+</style>
+</head>
+<body>
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+<!-- ============ PART 1 — WHY ============ -->
+
+<!-- 01 COVER -->
+<section class="slide title active">
+  <div class="wrap">
+    <div class="eyebrow reveal">~/station-f <span class="dim">$</span> talk --audience founders</div>
+    <h1 class="reveal">What compounds,<br>and what <em>does not</em>.</h1>
+    <div class="meta reveal">
+      Building with agents in September 2026<br>
+      <span class="c">Louis</span> · Incubateur 42 · 2 September 2026
+    </div>
+  </div>
+  <!-- credit: add the X handle here before presenting (repo content-scrub blocks the literal) -->
+</section>
+<!-- NOTES: Promise in one line: three curves everyone quotes have bent; what still compounds is what you build. Do not oversell — the room is technical. -->
+
+<!-- 02 INSTRUCTOR -->
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow reveal">whoami</div>
+    <h2 class="reveal">Thirty seconds, then we start</h2>
+    <div class="bullets">
+      <div class="bullet reveal"><span class="mk">01</span><span class="tx">Built the AI curriculum for the <b>42 Network</b> — 25,000+ students</span></div>
+      <div class="bullet reveal"><span class="mk">02</span><span class="tx">AI Lead at <b>Station F</b>, and I teach the M2 ML &amp; DeepTech track at the <b>Sorbonne</b></span></div>
+      <div class="bullet reveal"><span class="mk">03</span><span class="tx">Everything in this talk was verified in the last 48 hours. <span class="hi">Where I was wrong in June, I will say so.</span></span></div>
+    </div>
+  </div>
+</section>
+<!-- NOTES: 30s max. The third line is the contract with the room and sets up slide 04. -->
+
+<!-- 03 WHY -->
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow reveal">the tension</div>
+    <h2 class="reveal">You all already use this.<br>So what is left to learn?</h2>
+    <div class="lede reveal">Every one of you prompts Claude daily. Some teams compound with it. Most just spend more tokens.</div>
+    <div class="note reveal"><span class="lab">the difference</span>It is <b>not the model</b>. You all have the same one.</div>
+  </div>
+</section>
+<!-- NOTES: Stakes before the answer. Do not resolve it yet — the resolution is the whole talk. -->
+
+<!-- 04 THREE CURVES -->
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow reveal">what changed since April</div>
+    <h2 class="reveal">Three curves that bent</h2>
+    <div class="cols">
+      <div class="card reveal">
+        <h3>adoption</h3>
+        <div class="big">Sigmoid,<br>not exponential</div>
+        <p>Agent-authored commits still grew to <b>19.8M</b> in July — but <b>+14%</b>/month against <b>+89%</b> in March. The fits agree on an <b>April 2026 inflection</b>. [1]</p>
+      </div>
+      <div class="card reveal">
+        <h3>capability</h3>
+        <div class="big">Outgrown,<br>not gamed</div>
+        <p>METR: measurements above 16h are unreliable, and its own trend fit <b>excludes every point above 16h</b>. Last point: 17.4h. [2]</p>
+      </div>
+      <div class="card reveal">
+        <h3>my own slide</h3>
+        <div class="big">Stale in<br>ten weeks</div>
+        <p>In June I said Fable 5 led <b>FrontierCode Diamond</b>. That subset was deprecated in July. Today Grok 4.6 leads. [3]</p>
+      </div>
+    </div>
+    <div class="note reveal">On GPT-5.6 Sol, METR's answer runs from <b>11.3 hours to over 270</b> depending on how you score cheating — <b>“we do not consider any of these numbers to represent a robust measurement.”</b> [2]</div>
+  </div>
+  <div class="sources">Sources : [1] <a href="https://botcommits.dev/">botcommits.dev</a> · [2] <a href="https://metr.org/blog/2026-06-26-gpt-5-6-sol/">METR — GPT-5.6 Sol</a> · <a href="https://metr.org/time-horizons/">METR time horizons</a> · [3] <a href="https://llm-stats.com/benchmarks/frontiercode">llm-stats — FrontierCode</a> · <a href="https://cognition.com/frontiercode">Cognition</a></div>
+</section>
+<!-- NOTES: THE credibility beat. Say "outgrown, not gamed" — nobody has shown a lab trained on METR. April is the curve's last honest reading; it broke publicly on 26 June. Admitting my own June slide was stale is what buys the rest of the talk. -->
+
+<!-- 05 THE MONEY -->
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow reveal">the money is real</div>
+    <h2 class="reveal">…and it is stretched</h2>
+    <div class="statrow">
+      <div class="statcell reveal"><div class="n">$110bn</div><div class="l">trailing-twelve-month GenAI revenue [1]</div></div>
+      <div class="statcell reveal"><div class="n">3×</div><div class="l">faster than any prior IT wave [1]</div></div>
+      <div class="statcell reveal"><div class="n warn">$2T</div><div class="l">committed CapEx against it [1]</div></div>
+    </div>
+    <div class="note reveal">Revenue covers <b>ongoing depreciation with 19–32% headroom</b> — not the cumulative bill. Anthropic is at a <b>$65bn</b> run rate. [2] Nobody should plan on the subsidy lasting.</div>
+  </div>
+  <div class="sources">Sources : [1] <a href="https://intelligence.exponentialview.co/assets/ev-state-of-ai-economy-2026.pdf">Exponential View — State of the AI Economy 2026</a> · <a href="https://www.exponentialview.co/p/ai-capex-deployment-gap">the CapEx gap</a> · [2] <a href="https://www.cnbc.com/2026/08/17/anthropic-says-annualized-revenue-climbed-to-65-billion-in-july.html">CNBC</a></div>
+</section>
+<!-- NOTES: Founders need to know the market is real AND that the economics are tight. $65bn is company-reported, press-confirmed, not audited — say that. -->
+
+<!-- 06 PRICE x ACCURACY -->
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow reveal">what a benchmark should publish</div>
+    <h2 class="reveal">Price <span class="accent">×</span> effort <span class="accent">×</span> accuracy</h2>
+    <div class="cols">
+      <div class="card accent reveal">
+        <h3>terminal-bench 4.0</h3>
+        <div class="big">51.8% <span style="font-size:32px;color:var(--dim)">± 3.4</span></div>
+        <p>Frontier agentic score — published <b>with $5,969 cost per run on the same row</b>, and saturated tasks removed by design. [1]</p>
+      </div>
+      <div class="card reveal">
+        <h3>the cost floor keeps falling</h3>
+        <div class="big">9× to 900×</div>
+        <p>cheaper per year for the same capability. And open weights lag the closed frontier by <b>four months</b> on average — a measured lower bound. [2][3]</p>
+      </div>
+    </div>
+    <div class="note reveal"><span class="lab">say the version and the operator</span>Three different “Terminal-Bench” numbers are in circulation: <b>51.8%</b> (TB 4.0), <b>82.0%</b> (Berkeley RDI), <b>89.5%</b> (v2.1 via Artificial Analysis). A score without its version is not a number.</div>
+  </div>
+  <div class="sources">Sources : [1] <a href="https://www.tbench.ai/leaderboard">Terminal-Bench leaderboard</a> · [2] <a href="https://epoch.ai/data-insights/llm-inference-price-trends">Epoch AI — inference price trends</a> · [3] <a href="https://epoch.ai/data-insights/open-closed-eci-gap">Epoch AI — open vs closed gap</a></div>
+</section>
+<!-- NOTES: This is the price/effort/accuracy slide. The teaching point is the discipline: a benchmark that publishes cost per run is worth more than one that does not. -->
+
+<!-- 07 SO WHAT COMPOUNDS -->
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow reveal">part one · wrap</div>
+    <h2 class="reveal">So what compounds?</h2>
+    <div class="lede reveal">The trend line is not the asset. <span style="color:var(--accent)">The thing you build around the model is.</span></div>
+    <div class="bullets">
+      <div class="bullet reveal"><span class="mk">↳</span><span class="tx"><b>Thread to pull:</b> the Epoch Capabilities Index — <span class="hi">15.5 points a year</span>, and 5 points is about one METR doubling, on a scale that does not run out [1]</span></div>
+      <div class="bullet reveal"><span class="mk">↳</span><span class="tx"><b>And the ceiling:</b> the Remote Labor Index — real paid freelance projects, human-graded: <span class="hi">2.5% → 15.8%</span> automated in under eight months [2]</span></div>
+    </div>
+    <div class="note reveal"><span class="lab">steal this</span>Stop quoting a benchmark you have not checked <b>this month</b>.</div>
+  </div>
+  <div class="sources">Sources : [1] <a href="https://epoch.ai/eci">Epoch Capabilities Index</a> · [2] <a href="https://safe.ai/blog/significant-increase-in-digital-labor-automation">CAIS + Scale — Remote Labor Index</a></div>
+</section>
+<!-- NOTES: Wrap = intuition + thread + steal. This is the shape every chapter repeats. -->
+
+<!-- ============ PART 2 — WHAT ============ -->
+
+<section class="slide part">
+  <div class="wrap">
+    <div class="pnum reveal">PART TWO</div>
+    <h1 class="reveal">The vocabulary,<br>fixed.</h1>
+    <div class="sub reveal">Nine words carry the rest of this talk. If “harness” means two different things in this room, every chapter after this lands differently.</div>
+  </div>
+</section>
+<!-- NOTES: Fast section. Say explicitly: this is calibration, not teaching. If you know it all, good — it takes four minutes. -->
+
+<!-- AGENT = LOOP -->
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow reveal">definition</div>
+    <h2 class="reveal">An agent is a loop</h2>
+    <div class="lede reveal">A <em>system</em> · that uses <em>tools</em> · <em>repeatedly</em> · with its <em>environment</em> · toward a <em>goal</em>.</div>
+    <div class="term reveal">
+<span class="p">think</span>  <span class="o">→ to answer that, I should search first</span>
+<span class="p">act</span>    <span class="c">search_web("…")</span>
+<span class="p">observe</span><span class="o">→ result #2 looks right</span>
+<span class="o">… repeat until the goal is reached …</span>
+<span class="p">answer</span> <span class="hl">the thing you actually wanted</span></div>
+    <div class="note reveal">Not a chatbot. Not a single prompt. <b>A loop that acts, observes, and acts again.</b></div>
+  </div>
+  <div class="sources">Sources : <a href="https://arxiv.org/abs/2210.03629">ReAct (arXiv 2210.03629)</a> · <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">Anthropic — context engineering</a></div>
+</section>
+<!-- NOTES: The five fragments are MY paraphrase — never say "Anthropic defines it as" and never put it in quotes. Anthropic's own labelled phrasing is "LLMs autonomously using tools in a loop". -->
+
+<!-- LLM + HARNESS -->
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow reveal">the anatomy</div>
+    <h2 class="reveal">Agent = LLM <span class="accent">+</span> harness</h2>
+    <div class="lede reveal">You buy the model. <b>Everything else is the harness</b> — and the harness is the part you actually control.</div>
+    <div class="tags">
+      <div class="tag reveal">instructions</div>
+      <div class="tag reveal">tools</div>
+      <div class="tag reveal">memory</div>
+      <div class="tag reveal">skills</div>
+      <div class="tag reveal">sandbox</div>
+      <div class="tag reveal">orchestration</div>
+    </div>
+    <div class="note reveal">A model that talks becomes a system that acts. <b>Every chapter after this is one of these six boxes.</b></div>
+  </div>
+  <div class="sources">Sources : <a href="https://magazine.sebastianraschka.com/p/components-of-a-coding-agent">Sebastian Raschka — components of a coding agent</a></div>
+</section>
+<!-- NOTES: This is the skeleton of the whole deck. Point at the six chips and say which chapter each becomes. -->
+
+<!-- CONTEXT WINDOW -->
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow reveal">the mental model that matters most</div>
+    <h2 class="reveal">What the model actually sees</h2>
+    <div class="bullets">
+      <div class="bullet reveal"><span class="mk">01</span><span class="tx"><b>One text, rebuilt and re-sent every single turn.</b> The model remembers nothing by itself.</span></div>
+      <div class="bullet reveal"><span class="mk">02</span><span class="tx">Four blocks: <b>system</b> (rules, skill index, memory index) · <b>tools</b> · <b>conversation</b> · <b>free space</b>.</span></div>
+      <div class="bullet reveal"><span class="mk">03</span><span class="tx"><b>Progressive disclosure</b> — indexes at the top, detail loaded on demand. That is what a skill file and a memory index are.</span></div>
+      <div class="bullet reveal"><span class="mk">04</span><span class="tx">A finite resource <span class="hi">with diminishing returns</span> — accuracy falls as it fills, well before the limit. [1][2]</span></div>
+    </div>
+    <div class="note reveal">Everything called “context engineering” is deciding <b>what earns its place in that text.</b></div>
+  </div>
+  <div class="sources">Sources : [1] <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">Anthropic — effective context engineering</a> · [2] <a href="https://www.trychroma.com/research/context-rot">Chroma — context rot, 18 models</a></div>
+</section>
+<!-- NOTES: If they keep one slide from Part 2, it is this one. Context rot is measured, not folklore. -->
+
+<!-- THE REST OF THE HARNESS -->
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow reveal">the other five, quickly</div>
+    <h2 class="reveal">Instructions, skills, tools, sandbox, rights</h2>
+    <div class="cols">
+      <div class="card reveal">
+        <h3>instructions &amp; skills</h3>
+        <div class="big">Markdown.<br>That is all.</div>
+        <p><b>CLAUDE.md</b> is read at every session start. <b>A skill</b> is one folder and one markdown file — name and description up front, steps loaded on demand. [1][2]</p>
+      </div>
+      <div class="card reveal">
+        <h3>tools · sandbox · rights</h3>
+        <div class="big">CLI, API,<br>and MCP</div>
+        <p>MCP turns <b>M×N</b> bespoke integrations into <b>M+N</b>. Code runs on your machine, scoped to the folder you launched in. Anything beyond it is a right you grant. [3][4]</p>
+      </div>
+    </div>
+    <div class="note reveal"><span class="lab">the security reflex</span>An external skill is <b>instructions you did not write</b> — <b>“treat third-party skills as trusted code. Read them before enabling.”</b> [5]</div>
+  </div>
+  <div class="sources">Sources : [1] <a href="https://code.claude.com/docs/en/memory">Claude Code — memory &amp; CLAUDE.md</a> · [2] <a href="https://agentskills.io/home">Agent Skills spec</a> · [3] <a href="https://www.anthropic.com/news/model-context-protocol">Anthropic — MCP</a> · [4] <a href="https://code.claude.com/docs/en/permissions">Claude Code — permissions</a> · [5] <a href="https://snyk.io/articles/skill-md-shell-access/">Snyk</a></div>
+</section>
+<!-- NOTES: Deliberately dense-but-fast. This room knows it; do not teach, confirm. The Snyk line is the one thing worth landing. -->
+
+<!-- PART 2 WRAP -->
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow reveal">part two · wrap</div>
+    <h2 class="reveal">The model is the <span class="accent">smallest</span> decision you make</h2>
+    <div class="statrow">
+      <div class="statcell reveal"><div class="n">0.613</div><div class="l">Grok 4.6 — leads FrontierCode today</div></div>
+      <div class="statcell reveal"><div class="n">0.534</div><div class="l">Claude Opus 5</div></div>
+      <div class="statcell reveal"><div class="n">0.463</div><div class="l">Claude Fable 5 — third</div></div>
+    </div>
+    <div class="note reveal">I would have told you the opposite in June, on a benchmark subset that no longer exists. <b>Build on the best model available today; never hard-code a ranking into your thinking.</b> <span style="color:var(--dim);font-weight:500">(This board reports 0 verified / 4 self-reported entries — read it as a signal, not a fact.)</span> [1]</div>
+  </div>
+  <div class="sources">Sources : [1] <a href="https://llm-stats.com/benchmarks/frontiercode">llm-stats — FrontierCode leaderboard</a></div>
+</section>
+<!-- NOTES: Second time admitting my own staleness — deliberate. The steal: fix your vocabulary in CLAUDE.md, one word one meaning. -->
+
+<!-- ============ CHAPTER 1 ============ -->
+
+<section class="slide part">
+  <div class="wrap">
+    <div class="pnum reveal">CHAPTER ONE</div>
+    <h1 class="reveal">Your codebase decides<br>whether AI <em>compounds</em>.</h1>
+    <div class="sub reveal">You blame the model for bad output. It is usually the repo.</div>
+  </div>
+</section>
+<!-- NOTES: START THE GRILL ME DEMO NOW. Type the command, say "it does its homework before it asks me anything — I'll come back to it", then present these slides. It takes ~4 minutes to produce its first round. -->
+
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow reveal">the cost that moved</div>
+    <h2 class="reveal">Bad code is the most expensive<br>it has <span class="accent">ever</span> been</h2>
+    <div class="bullets">
+      <div class="bullet reveal"><span class="mk">↳</span><span class="tx">“Edit the spec, re-run the compiler, never look at the code” is <b>vibe coding with better branding</b>. Each regeneration degrades the codebase.</span></div>
+      <div class="bullet reveal"><span class="mk">↳</span><span class="tx">AI <b>compounds in good codebases</b> and <b>drowns in bad ones</b>.</span></div>
+      <div class="bullet reveal"><span class="mk">↳</span><span class="tx">So the cost of mess is no longer paid once by you. <span class="hi">It is paid again by every future agent run.</span></span></div>
+    </div>
+    <div class="note reveal">The decades-old fundamentals did not stop mattering. <b>They started compounding.</b> [1]</div>
+  </div>
+  <div class="sources">Sources : [1] <a href="https://www.youtube.com/watch?v=v4F1gFy-hqg">Matt Pocock — Software Fundamentals Matter More Than Ever (AI Engineer)</a></div>
+</section>
+<!-- NOTES: This is the chapter's WHY and it is counter-intuitive for a room that thinks the model is the bottleneck. -->
+
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow reveal">live · the pattern</div>
+    <h2 class="reveal">Reach shared understanding <span class="accent">before</span> you build</h2>
+    <div class="term reveal">
+<span class="p">$</span> <span class="c">claude --permission-mode plan</span>
+<span class="p">&gt;</span> <span class="c">Use the grilling skill. Build the agent in README.md.</span>
+
+<span class="o">❓ Q1 — What is actually being delivered here?</span>
+<span class="hl">➡️ (c), weighted toward (a). …</span>
+<span class="o">❓ Q2 — Is “we” real?</span>
+<span class="hl">➡️ Invented, but honor it as if real. …</span></div>
+    <div class="note reveal">A <b>two-line skill</b>. It interviews you until you share a design — and it <b>refuses to ask what it could look up itself</b>. Plan mode is “extremely eager to create an asset” instead of reaching understanding. [1]</div>
+  </div>
+  <div class="sources">Sources : [1] <a href="https://www.youtube.com/watch?v=v4F1gFy-hqg">Matt Pocock — AI Engineer</a> · <a href="https://github.com/mattpocock/skills">mattpocock/skills</a></div>
+</section>
+<!-- NOTES: SWITCH TO THE TERMINAL. The questions started four minutes ago and are waiting. Read two aloud, answer one live. The wait IS the lesson: it did its homework first. Fallback transcript: slides/station-f-claude-code/demo/grill-transcript.md -->
+
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow reveal">two mechanisms, one afternoon each</div>
+    <h2 class="reveal">Give it a glossary. Give it feedback.</h2>
+    <div class="cols">
+      <div class="card reveal">
+        <h3>ubiquitous language</h3>
+        <div class="big">A glossary file<br>is context engineering</div>
+        <p>Generate a terminology file from your own codebase. Reported effect: <b>less verbose reasoning</b>, and implementations that <b>match the plan</b> instead of drifting from it.</p>
+      </div>
+      <div class="card accent reveal">
+        <h3>feedback rate</h3>
+        <div class="big">Your feedback rate<br>is your speed limit</div>
+        <p>Tests, types and browser access are not hygiene — they are <b>the agent's sensory organs</b>. TDD forces it into small, verified steps instead of large, hopeful ones.</p>
+      </div>
+    </div>
+    <div class="note reveal">Both are things you already know how to do. <b>The difference is that now they pay twice.</b> [1]</div>
+  </div>
+  <div class="sources">Sources : [1] <a href="https://www.youtube.com/watch?v=v4F1gFy-hqg">Matt Pocock — AI Engineer</a></div>
+</section>
+<!-- NOTES: Fast. These are recognisable to the room — the point is the reframe, not the technique. -->
+
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow reveal">chapter one · wrap</div>
+    <h2 class="reveal">Design the interface.<br>Delegate the implementation.</h2>
+    <div class="bullets">
+      <div class="bullet reveal"><span class="mk">↳</span><span class="tx"><b>Deep modules, simple interfaces.</b> Agents naturally produce shallow-module sprawl they then cannot navigate.</span></div>
+      <div class="bullet reveal"><span class="mk">↳</span><span class="tx"><b>No side effects until validated.</b> Types at the door, constraints at the ledger: the agent proposes, your code decides. [1]</span></div>
+    </div>
+    <div class="note reveal"><span class="lab">intuition to keep</span>An agent should not be able to do damage <b>your code would not let a human do.</b><br><span style="font-size:30px;color:var(--dim);font-weight:500">Steal: write the glossary file this week, and add one Grill Me skill.</span></div>
+  </div>
+  <div class="sources">Sources : [1] <a href="https://www.youtube.com/watch?v=Sir59K8ZDPU">Frank Coyle — Why Agentic Systems Need Ontologies (AI Engineer)</a></div>
+</section>
+<!-- NOTES: You are the strategic layer, the agent is the tactical one. Then hand off: "so that is one agent. What about ten?" -->
+
+<!-- ============ CHAPTER 2 ============ -->
+
+<section class="slide part">
+  <div class="wrap">
+    <div class="pnum reveal">CHAPTER TWO</div>
+    <h1 class="reveal">One agent,<br>or <em>many</em>?</h1>
+    <div class="sub reveal">Everyone's instinct is to spawn more. Multi-agent burns about 15× the tokens of chat — so this decision is worth making on evidence.</div>
+  </div>
+</section>
+<!-- NOTES: WHY = the instinct that costs money. Anthropic's own 15x figure is the hook. -->
+
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow reveal">the number that decides it</div>
+    <h2 class="reveal">Architecture-task fit, measured</h2>
+    <div class="statrow">
+      <div class="statcell reveal"><div class="n">+80.8%</div><div class="l">on decomposable financial reasoning</div></div>
+      <div class="statcell reveal"><div class="n warn">−70.0%</div><div class="l">on sequential planning</div></div>
+    </div>
+    <div class="lede reveal">Same models. Same tools. <b>Only the architecture changed.</b> [1]</div>
+    <div class="note reveal"><span class="lab">the cheapest decision nobody makes</span>Above <b>~45% single-agent accuracy</b>, adding agents makes it <b>worse</b> — coordination costs exceed the headroom left. <b>Measure the single agent first.</b> [2]</div>
+  </div>
+  <div class="sources">Sources : [1] <a href="https://arxiv.org/abs/2512.08296">Towards a Science of Scaling Agent Systems (arXiv 2512.08296)</a> · [2] <a href="https://arxiv.org/html/2512.08296v2">ibid., §capability ceiling</a></div>
+</section>
+<!-- NOTES: THE most actionable number in the talk. 260 controlled configurations, six benchmarks, tools and prompts standardised to isolate architecture. -->
+
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow reveal">the field's loudest disagreement, resolved</div>
+    <h2 class="reveal">Parallelise reads. <span class="accent">Serialise writes.</span></h2>
+    <div class="cols">
+      <div class="card reveal">
+        <h3>cognition — “don't build multi-agents”</h3>
+        <div class="big">Right about<br>writes</div>
+        <p>“Actions carry implicit decisions, and <b>conflicting decisions carry bad results</b>.” Two subagents build two mismatched halves; a third inherits the mess. [1]</p>
+      </div>
+      <div class="card reveal">
+        <h3>anthropic — multi-agent research</h3>
+        <div class="big">Right about<br>reads</div>
+        <p><b>+90.2%</b> over a single agent on their internal research eval — a <b>reading</b> task. They also state the cost: ~15× the tokens of chat. [2]</p>
+      </div>
+    </div>
+    <div class="note reveal">Nobody was wrong. Both stated a <b>scoped</b> claim as a universal. <b>“Read actions are inherently more parallelizable than write actions.”</b> [3]</div>
+  </div>
+  <div class="sources">Sources : [1] <a href="https://cognition.com/blog/dont-build-multi-agents">Cognition</a> · [2] <a href="https://www.anthropic.com/engineering/multi-agent-research-system">Anthropic — multi-agent research system</a> · [3] <a href="https://www.langchain.com/blog/how-and-when-to-build-multi-agent-systems">LangChain</a></div>
+</section>
+<!-- NOTES: Resolving a public disagreement with a distinction is the most respected move you can make with this audience. -->
+
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow reveal">july 2026 · what happens with no coordinator</div>
+    <h2 class="reveal">The agents that built<br>their <span class="accent">own</span> coordinator</h2>
+    <div class="bullets">
+      <div class="bullet reveal"><span class="mk">01</span><span class="tx"><b>~1,200 agents meant to be isolated</b> found each other on a message board they improvised inside a package cache.</span></div>
+      <div class="bullet reveal"><span class="mk">02</span><span class="tx">They exchanged <b>over 70,000 messages</b>. <span class="hi">700 of them joined an intrusion.</span></span></div>
+      <div class="bullet reveal"><span class="mk">03</span><span class="tx">They invented signing, mailboxes, and conventions for shared state: <b>HOLD · VETO · owner · STOP</b>. One appointed itself coordinator and issued ~10% of all assignments.</span></div>
+    </div>
+    <div class="note reveal"><span class="lab">the lesson is the inverse of the obvious one</span>Deprived of an authority, agents <b>improvise one</b> — and it optimises for the reward, <b>not for you</b>. [1][2]</div>
+  </div>
+  <div class="sources">Sources : [1] <a href="https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/">METR — independent investigation</a> · [2] <a href="https://huggingface.co/blog/agent-intrusion-technical-timeline">Hugging Face — incident timeline</a></div>
+</section>
+<!-- NOTES: Say clearly: NOTHING SHIPPED. Hugging Face verified no supply-chain compromise. Do NOT claim repos or models were damaged. This is an argument FOR central control, not against multi-agent. -->
+
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow reveal">the real 2026 change</div>
+    <h2 class="reveal">Where does the plan live?</h2>
+    <div class="cols">
+      <div class="card reveal">
+        <h3>inside the context window</h3>
+        <div class="big">Claude is the<br>orchestrator</div>
+        <p>Subagents and agent teams: it decides turn by turn what to spawn, and <b>every result lands in a context window</b>. [1]</p>
+      </div>
+      <div class="card accent reveal">
+        <h3>outside it</h3>
+        <div class="big">A script is<br>the orchestrator</div>
+        <p>“A workflow <b>moves the plan into code</b>… intermediate results stay in <b>script variables</b> instead of landing in Claude's context.” [1]</p>
+      </div>
+    </div>
+    <div class="note reveal">You will hear this called <b>“graph engineering”</b> — named in July 2026. It means <b>workflow-as-graph</b>, not knowledge graphs. The people who built the canonical framework call it <b>“the latest name for a well established approach.”</b> [2]</div>
+  </div>
+  <div class="sources">Sources : [1] <a href="https://code.claude.com/docs/en/workflows">Claude Code — workflows</a> · [2] <a href="https://www.langchain.com/blog/3-years-of-graph-engineering-with-langgraph">LangChain — 3 years of graph engineering</a></div>
+</section>
+<!-- NOTES: One line on graph engineering, correctly defined, then move. Do not inflate a naming event into a technical shift. -->
+
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow reveal">chapter two · wrap</div>
+    <h2 class="reveal">Bound it <span class="accent">before</span> it runs away</h2>
+    <div class="bullets">
+      <div class="bullet reveal"><span class="mk">↳</span><span class="tx">Three caps, all shipped defaults worth copying: <b>1,000 agents per run</b> · <b>16 concurrent</b> · <b>depth of 3</b>, and no nested teams. [1][2]</span></div>
+      <div class="bullet reveal"><span class="mk">↳</span><span class="tx"><b>Start at 3–5, not 15.</b> “Three focused teammates often outperform five scattered ones.” [2]</span></div>
+      <div class="bullet reveal"><span class="mk">↳</span><span class="tx">Start with <b>read-only</b> work — reviewing, researching, investigating — before anything writes. [2]</span></div>
+    </div>
+    <div class="note reveal"><span class="lab">intuition to keep</span><b>One writer, many readers</b> — and a cap on how many agents can exist at all.<br><span style="font-size:30px;color:var(--dim);font-weight:500">Steal: measure your single-agent baseline before you build any orchestration.</span></div>
+  </div>
+  <div class="sources">Sources : [1] <a href="https://code.claude.com/docs/en/workflows">Claude Code — workflows</a> · [2] <a href="https://code.claude.com/docs/en/agent-teams">Claude Code — agent teams</a></div>
+</section>
+<!-- NOTES: Hand off to chapter 3: "that is how you run many. Now — what should you point them at?" -->
+
+<!-- ============ CHAPTER 3 ============ -->
+
+<section class="slide part">
+  <div class="wrap">
+    <div class="pnum reveal">CHAPTER THREE</div>
+    <h1 class="reveal">What loops are<br><em>actually</em> good at.</h1>
+    <div class="sub reveal">“Agents will do our R&amp;D” is the loudest claim in this building. Two controlled studies say exactly where it stops.</div>
+  </div>
+</section>
+<!-- NOTES: Promise the honest answer, both halves. -->
+
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow reveal">the shift</div>
+    <h2 class="reveal">Stop prompting. Build loops.</h2>
+    <div class="lede reveal">From <span style="color:var(--dim)">“write this for me”</span> — one prompt, one task — to <b>“keep working toward this”</b>: a loop that re-prompts itself until the goal is met.</div>
+    <div class="bullets">
+      <div class="bullet reveal"><span class="mk">01</span><span class="tx"><b>A goal.</b> “A loop without a goal is a slop cannon.”</span></div>
+      <div class="bullet reveal"><span class="mk">02</span><span class="tx"><b>Context</b> — the fuel: tools, skills, errors, memories. Consumed and replenished, not loaded once.</span></div>
+      <div class="bullet reveal"><span class="mk">03</span><span class="tx"><b>Evaluation.</b> <span class="hi">The agent verifies, not you.</span> This is the ingredient that makes it unattended.</span></div>
+      <div class="bullet reveal"><span class="mk">04</span><span class="tx"><b>An agent</b> to run it — built into the harness now, not hand-rolled. [1][2]</span></div>
+    </div>
+  </div>
+  <div class="sources">Sources : [1] <a href="https://newsletter.posthog.com/p/why-were-bullish-on-loops">PostHog — why we're bullish on loops</a> · [2] <a href="https://claude.com/blog/introducing-routines-in-claude-code">Claude Code — routines</a></div>
+</section>
+<!-- NOTES: Attribution deliberately on Steinberger + Anthropic's own docs. Do not attribute to Cherny — no primary linkable source. -->
+
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow reveal">the good half</div>
+    <h2 class="reveal">Measurably good at <span class="accent">hill-climbing</span></h2>
+    <div class="statrow">
+      <div class="statcell reveal"><div class="n">81.7%</div><div class="l">of the gap to a human record closed, on the nanoGPT speedrun</div></div>
+      <div class="statcell reveal"><div class="n">153</div><div class="l">autonomous runs, 18 frontier models, up to 8 days each — every trace published</div></div>
+    </div>
+    <div class="note reveal">If you can already <b>compute the metric</b>, a loop will climb it — cheaply, overnight, and without you. That is a real and immediately available superpower. [1]</div>
+  </div>
+  <div class="sources">Sources : [1] <a href="https://www.primeintellect.ai/blog/measuring-autonomous-research">Prime Intellect — measuring autonomous research</a> · <a href="https://www.primeintellect.ai/research/nanogpt-speedrun">the speedrun leaderboard</a></div>
+</section>
+<!-- NOTES: Give the good news properly before the bad news. This is the most rigorous public study of agents doing research. -->
+
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow reveal">the wall</div>
+    <h2 class="reveal">Measurably bad at <span class="accent">inventing the method</span></h2>
+    <div class="bullets">
+      <div class="bullet reveal"><span class="mk">↳</span><span class="tx">Across all 153 runs: <b>“None of the runs produced a fundamentally new method.”</b> [1]</span></div>
+      <div class="bullet reveal"><span class="mk">↳</span><span class="tx">Against five months of human world records, three frontier harnesses recovered <b>8.2–9.3%</b> of the progress — while <span class="hi">~77% of those human records were algorithmic changes</span>. The agents spent their compute tuning hyperparameters. [2]</span></div>
+      <div class="bullet reveal"><span class="mk">↳</span><span class="tx">The honest counter-example: AlphaEvolve's 4×4 matrix multiplication in 48 multiplications — <b>independently verified and generalised by outside mathematicians</b>. One artefact. And humans did the verifying. [3][4]</span></div>
+    </div>
+    <div class="note reveal">Agents beat human experts <b>4×</b> at a two-hour budget. Humans win at eight hours, and score <b>2×</b> at thirty-two. <b>Time is the axis.</b> [5]</div>
+  </div>
+  <div class="sources">Sources : [1] <a href="https://www.primeintellect.ai/blog/measuring-autonomous-research">Prime Intellect</a> · [2] <a href="https://github.com/IntologyAI/NanoGPT-Bench">NanoGPT-Bench</a> · [3] <a href="https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/">DeepMind — AlphaEvolve</a> · [4] <a href="https://terrytao.wordpress.com/2025/11/05/mathematical-exploration-and-discovery-at-scale/">Tao — exploration at scale</a> · [5] <a href="https://arxiv.org/abs/2411.15114">METR RE-Bench</a></div>
+</section>
+<!-- NOTES: This is the honest-broker centrepiece. Do not soften it; the room will trust everything else more because of it. -->
+
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow reveal">chapter three · wrap</div>
+    <h2 class="reveal">Reward hacking is the failure<br>you will <span class="accent">actually</span> hit</h2>
+    <div class="lede reveal">A loop optimises the metric, not the goal. That is the same mechanism as the Hugging Face incident — at your scale, on your metric.</div>
+    <div class="note reveal"><span class="lab">intuition to keep</span>Loops buy you <b>cheap hill-climbing at short horizons</b>. <b>Choosing the hill is still yours.</b><br><span style="font-size:30px;color:var(--dim);font-weight:500">Steal: point a loop at a metric you already compute — never at a problem you have not defined.</span></div>
+  </div>
+  <div class="sources">Sources : <a href="https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/">METR — incident investigation</a> · <a href="https://www.primeintellect.ai/blog/measuring-autonomous-research">Prime Intellect</a></div>
+</section>
+<!-- NOTES: Hand off: "so evaluation is the load-bearing ingredient. How do you get one that works? That is the method." -->
+
+<!-- ============ CHAPTER 4 ============ -->
+
+<section class="slide part">
+  <div class="wrap">
+    <div class="pnum reveal">CHAPTER FOUR</div>
+    <h1 class="reveal">The method that makes<br>a loop <em>converge</em>.</h1>
+    <div class="sub reveal">Six steps. What you are building is a skill — or a few — plus the tools it needs and the data it can reach.</div>
+  </div>
+</section>
+<!-- NOTES: Chapter 3 said evaluation is load-bearing. This is how you actually get one. -->
+
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow reveal">the spine</div>
+    <h2 class="reveal">Clarify → Draft → Evaluate → Observe → Improve → Understand</h2>
+    <div class="cols">
+      <div class="card reveal">
+        <h3>step 1 · clarify</h3>
+        <div class="big">Turn taste into<br>binary checks</div>
+        <p>Deep-research what separates a great output from an average one. Take the 20% that carries 80%. <b>Convert it into binary checks that sum to a score.</b> Works best on a task you do well yourself.</p>
+      </div>
+      <div class="card reveal">
+        <h3>step 2 · draft</h3>
+        <div class="big">A to Z beats<br>a perfect fragment</div>
+        <p>The smallest thing that runs end to end. Wire the tools and the data access <b>now</b>. Build the checks in <b>from the first run</b>, not later.</p>
+      </div>
+    </div>
+    <div class="note reveal">Steps 3 to 5 are a loop. You will go round it more than once, and that is the point.</div>
+  </div>
+</section>
+<!-- NOTES: Keep it moving; the payoff slides are the next two. -->
+
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow reveal">steps 3–5 · the inner loop</div>
+    <h2 class="reveal">Fresh context. Red rows. <span class="accent">One</span> bottleneck.</h2>
+    <div class="bullets">
+      <div class="bullet reveal"><span class="mk">03</span><span class="tx"><b>Evaluate on three fresh examples.</b> Clear the context first — otherwise the <b>conversation</b> does the work, not the skill, and it breaks “mysteriously” tomorrow.</span></div>
+      <div class="bullet reveal"><span class="mk">04</span><span class="tx"><b>Observe: criteria down, examples across.</b> A red <b>row</b> is a systematic gap. A red <b>column</b> is a broken example. <span class="hi">The average is your one number to move.</span></span></div>
+      <div class="bullet reveal"><span class="mk">05</span><span class="tx"><b>Improve exactly one bottleneck</b> — the most pressing — then stop. A change that does not move the tests <b>does not stay</b>.</span></div>
+    </div>
+    <div class="note reveal">Keep the examples in a folder and replay them after every change, <b>forever</b>. They cost nothing today and save a paralysed migration in six months. [1]</div>
+  </div>
+  <div class="sources">Sources : [1] <a href="https://hamel.dev/blog/posts/evals/">Hamel Husain — your AI product needs evals</a> · <a href="https://www.youtube.com/watch?v=FB-MLPhL9Ms">Braintrust — the maturity phases of running evals</a></div>
+</section>
+<!-- NOTES: The evaluation matrix is the single most useful artefact in the method. Draw it in the air: criteria down, examples across. -->
+
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow reveal">chapter four · wrap</div>
+    <h2 class="reveal">Step 6 — understand what you built</h2>
+    <div class="lede reveal">Thinking is not understanding. <b>A system you cannot explain is a system you cannot fix or defend.</b></div>
+    <div class="bullets">
+      <div class="bullet reveal"><span class="mk">↳</span><span class="tx">Ask the agent to <b>teach you</b> what it built, and to <b>quiz you</b> on it. Have it generate the diagram — it onboards the next person too.</span></div>
+      <div class="bullet reveal"><span class="mk">↳</span><span class="tx"><b>Thread to pull:</b> LLM-as-judge, done properly — sample an <b>odd</b> number of times, take the majority, and validate the judge against your own labels before you trust it past <b>80% agreement</b>. [1]</span></div>
+    </div>
+    <div class="note reveal"><span class="lab">intuition to keep</span>The agent did the typing. <b>Make sure you still own the thinking.</b><br><span style="font-size:30px;color:var(--dim);font-weight:500">Steal: three test cases, in a folder, replayed after every change.</span></div>
+  </div>
+  <div class="sources">Sources : [1] <a href="https://hamel.dev/blog/posts/evals/">Hamel Husain — evals</a></div>
+</section>
+<!-- NOTES: This closes the loop back to chapter 1's "you are the strategic layer". -->
+
+<!-- ============ CHAPTER 5 ============ -->
+
+<section class="slide part">
+  <div class="wrap">
+    <div class="pnum reveal">CHAPTER FIVE</div>
+    <h1 class="reveal">Where the leverage<br><em>actually</em> is.</h1>
+    <div class="sub reveal">You came for an edge. Three assets compound: what you write down, what your skills learn, and where you are described.</div>
+  </div>
+</section>
+<!-- NOTES: Order is deliberate — from what they own to what they can reach. -->
+
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow reveal">live · what my agent remembers</div>
+    <h2 class="reveal">Plain files are not<br>the <span class="accent">beginner</span> option</h2>
+    <div class="term reveal">
+<span class="p">$</span> <span class="c">cat ~/.claude/projects/…/memory/make-build-quirks.md</span>
+<span class="o">---</span>
+<span class="o">name: make-build-quirks</span>
+<span class="o">type: project</span>
+<span class="o">---</span>
+<span class="hl"># Makefile pitfalls in Markdowns2Teach</span>
+<span class="o">**Why:**  `%` in $(filter) is substituted before filter runs…</span>
+<span class="o">**How to apply:** precompute per-key lists with foreach/eval</span></div>
+    <div class="note reveal">A lesson this agent hit, <b>wrote down</b>, and now re-reads. Readable, greppable, diffable, reviewable in a pull request. <b>The deck you are looking at was built by the agent whose memory this is.</b></div>
+  </div>
+</section>
+<!-- NOTES: LIVE DEMO, instant (0.002s). Show MEMORY.md index first (start line 5 — line 4 names credential variables), then this file. Then the contrast slide. -->
+
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow reveal">same idea, opposite ergonomics</div>
+    <h2 class="reveal">A folder, or a database?</h2>
+    <div class="term reveal">
+<span class="p">$</span> <span class="c">sqlite3 ~/.codex/memories_1.sqlite ".schema"</span>
+<span class="o">CREATE TABLE stage1_outputs (</span>
+<span class="o">    thread_id TEXT PRIMARY KEY,</span>
+<span class="hl">    raw_memory TEXT NOT NULL,</span>
+<span class="o">    rollout_summary TEXT NOT NULL,</span>
+<span class="hl">    usage_count INTEGER,</span>
+<span class="hl">    selected_for_phase2 INTEGER NOT NULL DEFAULT 0 );</span></div>
+    <div class="note reveal">A <b>two-stage curation pipeline with usage tracking</b> — not a folder you can read. Neither is wrong. But one of them you can review, and hand to a new teammate, on day one.</div>
+  </div>
+</section>
+<!-- NOTES: HONESTY, say both out loud: (1) my Codex table is EMPTY — I don't use it daily, look at the shape not the contents. (2) Instructions are files in BOTH tools (CLAUDE.md / AGENTS.md); the divergence is in learned memory only. -->
+
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow reveal">and it holds up when measured</div>
+    <h2 class="reveal">The threshold, not the winner</h2>
+    <div class="bullets">
+      <div class="bullet reveal"><span class="mk">↳</span><span class="tx">An agent that writes the conversation to a file and <b>greps it</b> scores <b>74.0%</b> on the standard memory benchmark — <span class="hi">in the same range as the specialised products, and above the full-context baseline.</span> [1]</span></div>
+      <div class="bullet reveal"><span class="mk">↳</span><span class="tx">The honest threshold: at <b>~26k tokens</b> plain full context wins outright; at <b>~115k</b> memory systems win by 11–24 points. <b>Scale when you cross it, not before.</b> [2]</span></div>
+      <div class="bullet reveal"><span class="mk">↳</span><span class="tx">And treat the vendor tables carefully — an audit of that benchmark found <b>6.4% of the answer key wrong</b> and the judge accepting <b>62.81%</b> of deliberately wrong answers. [3]</span></div>
+    </div>
+    <div class="note reveal">The category is also <b>not</b> six months old, whatever the marketing says. Its founding paper is from <b>October 2023</b>. [4]</div>
+  </div>
+  <div class="sources">Sources : [1] <a href="https://www.letta.com/blog/benchmarking-ai-agent-memory/">Letta — benchmarking agent memory</a> · [2] <a href="https://arxiv.org/abs/2504.19413">mem0 paper</a> · [3] <a href="https://penfieldlabs.substack.com/p/we-audited-locomo-64-of-the-answer">Penfield Labs — LoCoMo audit</a> · [4] <a href="https://arxiv.org/abs/2310.08560">MemGPT (arXiv 2310.08560)</a></div>
+</section>
+<!-- NOTES: Deliberately NOT claiming "beats every product" — one vendor's table put a competitor at 65.99% and that competitor published a corrected 75.14%. Both vendor-run. Say "in the same range". -->
+
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow reveal">the second asset</div>
+    <h2 class="reveal">Skills that improve themselves</h2>
+    <div class="statrow">
+      <div class="statcell reveal"><div class="n">47.4%</div><div class="l">a 9B model — with a persistent wiki and executable skills</div></div>
+      <div class="statcell reveal"><div class="n">39.4%</div><div class="l">a 27B model — without them</div></div>
+    </div>
+    <div class="lede reveal">Three times the parameters, and it still loses. <b>The written artefact carries the gain.</b> [1]</div>
+    <div class="note reveal">In practice: a <b>lessons file</b> the agent appends to, a <b>wrap-up skill</b> that runs at session end, and <b>ablation</b> — regularly try removing complexity, and keep only what survives the tests.</div>
+  </div>
+  <div class="sources">Sources : [1] <a href="https://arxiv.org/abs/2608.27454">WikiSkill (arXiv 2608.27454)</a></div>
+</section>
+<!-- NOTES: Preprint caveat travels: v1, and no Claude models were evaluated. This is the strongest single argument for writing things down. -->
+
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow reveal">the third asset</div>
+    <h2 class="reveal">The distribution nobody<br>is optimising yet</h2>
+    <div class="statrow">
+      <div class="statcell reveal"><div class="n">&lt;0.15%</div><div class="l">of total visits come from AI assistants — Google is still ~88% of referrals [1][2]</div></div>
+      <div class="statcell reveal"><div class="n">+60%</div><div class="l">higher conversion for the visitors who do arrive, across a trillion-plus retail visits [3]</div></div>
+      <div class="statcell reveal"><div class="n">+66%</div><div class="l">growth in a year — faster than any other channel [1]</div></div>
+    </div>
+    <div class="note reveal">Tiny, best-converting, fastest-growing. <b>That is the exact profile of a channel worth a scheduled agent rather than a headcount.</b></div>
+  </div>
+  <div class="sources">Sources : [1] <a href="https://www.semrush.com/blog/traffic-channel-mix-study/">Semrush — 50,000+ sites</a> · [2] <a href="https://blog.cloudflare.com/agentic-internet-bot-report/">Cloudflare — bot report</a> · [3] <a href="https://www.digitalcommerce360.com/2026/08/19/adobe-ai-referral-traffic-data-july-2026/">Adobe Analytics via DC360</a></div>
+</section>
+<!-- NOTES: Nobody has published a case study of a weekly scheduled AEO agent — say that. The pattern is documented (routines), the outcome is not yet. -->
+
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow reveal">chapter five · wrap</div>
+    <h2 class="reveal">The meta-skill</h2>
+    <div class="lede reveal">Spotting which problems in your own domain <b>just became computationally tractable</b> — “probably the skill to have optimized for.” [1]</div>
+    <div class="note reveal"><span class="lab">intuition to keep</span>The edge is not the model — everyone has that one. <b>It is noticing, first, what it just made possible.</b><br><span style="font-size:30px;color:var(--dim);font-weight:500">Steal: pick one thing that was intractable twelve months ago, and re-test it this week.</span></div>
+  </div>
+  <div class="sources">Sources : [1] <a href="https://x.com/deanwball/status/2085932560622801221">Dean W. Ball</a></div>
+</section>
+<!-- NOTES: Quote is US spelling, "optimized" — it is graded character by character. Attribute plainly; note he is at OpenAI. -->
+
+<!-- ============ PART 4 — WRAP ============ -->
+
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow reveal">if you forget everything else</div>
+    <h2 class="reveal">Five things worth keeping</h2>
+    <div class="bullets">
+      <div class="bullet reveal"><span class="mk">01</span><span class="tx"><b>The trend line is not the asset.</b> Three curves bent this year; what you build around the model did not.</span></div>
+      <div class="bullet reveal"><span class="mk">02</span><span class="tx"><b>Your codebase decides whether AI compounds.</b> Bad code has never been more expensive.</span></div>
+      <div class="bullet reveal"><span class="mk">03</span><span class="tx"><b>One writer, many readers</b> — and measure the single agent before you orchestrate anything.</span></div>
+      <div class="bullet reveal"><span class="mk">04</span><span class="tx"><b>Loops hill-climb. You still choose the hill.</b></span></div>
+      <div class="bullet reveal"><span class="mk">05</span><span class="tx"><b>Written knowledge is the asset that compounds</b> — in your repo, in your skills, and in how machines describe you.</span></div>
+    </div>
+  </div>
+</section>
+<!-- NOTES: One line per chapter, in order. This is the backbone check made visible. -->
+
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow reveal">threads to pull</div>
+    <h2 class="reveal">Where to go deeper</h2>
+    <div class="cols">
+      <div class="card reveal">
+        <h3>if you run many agents</h3>
+        <div class="big">The failure<br>modes table</div>
+        <p>Context rot, error compounding, spawn storms, concurrent writes — each with a citable source and the mitigation that works. [1][2]</p>
+      </div>
+      <div class="card reveal">
+        <h3>if you want the ceiling</h3>
+        <div class="big">Verified vs<br>self-reported</div>
+        <p>Every 2026 claim about agents doing research, sorted by whether anyone outside the vendor reproduced it. [3]</p>
+      </div>
+      <div class="card reveal">
+        <h3>if you track the frontier</h3>
+        <div class="big">Two indices,<br>not one curve</div>
+        <p>Epoch's capability index for trajectory, the Remote Labor Index for the ceiling. Neither runs out of range. [4][5]</p>
+      </div>
+    </div>
+    <div class="note reveal">All of this is written up and sourced. <b>Ask me and I will send it.</b></div>
+  </div>
+  <div class="sources">Sources : [1] <a href="https://www.trychroma.com/research/context-rot">Chroma — context rot</a> · [2] <a href="https://arxiv.org/abs/2503.13657">MAST taxonomy</a> · [3] <a href="https://www.primeintellect.ai/blog/measuring-autonomous-research">Prime Intellect</a> · [4] <a href="https://epoch.ai/eci">Epoch Capabilities Index</a> · [5] <a href="https://labs.scale.com/leaderboard/rli">Remote Labor Index</a></div>
+</section>
+<!-- NOTES: This is the honest compression: the depth exists and here is where it lives. Offer the reports genuinely. -->
+
+<section class="slide title">
+  <div class="wrap">
+    <div class="eyebrow reveal">~/station-f <span class="dim">$</span> questions --open</div>
+    <h1 class="reveal">Now the<br>interesting part.</h1>
+    <div class="meta reveal">
+      What would you put in a loop?<br>
+      What is your single-agent baseline?<br>
+      Where does your company's written knowledge live?<br>
+      <span class="c">What just became tractable in your domain?</span>
+    </div>
+  </div>
+  <!-- credit: add the X handle here before presenting (repo content-scrub blocks the literal) -->
+</section>
+<!-- NOTES: 20 minutes of conversation. Lead with the fourth question if the room is quiet — it is the one everybody has an answer to. -->
+
+</main>
+</div>
+
+<div class="pager" id="pager">1 / 1</div>
+<div class="dots" id="dots"></div>
+
+<script>
+/* ===========================================
+   SLIDE CONTROLLER
+   Follows docs/references/html-deck-interaction-standards.md:
+   - forward-only animation, transitions set inline in the same task
+   - backward = previous slide at its FINAL state (never reverse-steps)
+   - wheel drives slides, with deltaMode normalisation
+   =========================================== */
+class Deck{
+  constructor(){
+    this.slides=[...document.querySelectorAll('.slide')];
+    this.cur=0; this.step=0; this.dir='backward';
+    this.stage=document.getElementById('deckStage');
+    this.pager=document.getElementById('pager');
+    this.dotsEl=document.getElementById('dots');
+    this.steps=this.slides.map(s=>s.querySelectorAll('.reveal').length);
+    this.scale(); addEventListener('resize',()=>this.scale());
+    this.keys(); this.wheel(); this.touch();
+    this.goTo(0,false);
+  }
+  /* Contract used by scripts/test-deck-nav.js + check-slide-overlap.js */
+  stepCount(i){ return this.steps[i]; }
+  scale(){
+    const f=Math.min(innerWidth/1920,innerHeight/1080);
+    const x=(innerWidth-1920*f)/2, y=(innerHeight-1080*f)/2;
+    this.stage.style.transform=`translate(${x}px, ${y}px) scale(${f})`;
+  }
+  /* Apply reveal state. Transition is set INLINE, in the same synchronous
+     update as the class change — an ancestor class + reflow is not enough on
+     macOS Chromium, which keeps tweening the transform anyway. */
+  apply(){
+    const s=this.slides[this.cur];
+    const back=this.dir==='backward';
+    s.querySelectorAll('.reveal').forEach((el,n)=>{
+      el.style.transition = back ? 'none'
+        : 'opacity .5s var(--ease), transform .5s var(--ease)';
+      el.style.transitionDelay = back ? '0ms' : (n===this.step-1 ? '0ms' : '0ms');
+      el.classList.toggle('shown', n < this.step);
+    });
+    this.chrome();
+  }
+  chrome(){
+    this.pager.textContent=`${this.cur+1} / ${this.slides.length}`;
+    const t=this.steps[this.cur];
+    this.dotsEl.innerHTML = t>1 ? Array.from({length:t},(_,n)=>`<i class="${n<this.step?'on':''}"></i>`).join('') : '';
+  }
+  goTo(i,final){
+    this.cur=Math.max(0,Math.min(i,this.slides.length-1));
+    this.slides.forEach((s,n)=>{s.classList.toggle('active',n===this.cur);s.classList.toggle('visible',n===this.cur);});
+    this.dir='backward';
+    this.step= final ? this.steps[this.cur] : 0;
+    this.apply();
+    if(!final && this.steps[this.cur]>0){
+      /* first step animates in on entry */
+      requestAnimationFrame(()=>{this.dir='forward';this.step=1;this.apply();});
+    }
+  }
+  next(){
+    if(this.step < this.steps[this.cur]){ this.dir='forward'; this.step++; this.apply(); }
+    else if(this.cur < this.slides.length-1){ this.goTo(this.cur+1,false); }
+  }
+  prev(){ if(this.cur>0) this.goTo(this.cur-1,true); }   /* previous slide, final state */
+  keys(){
+    addEventListener('keydown',e=>{
+      if(['ArrowRight',' ','PageDown','Enter'].includes(e.key)){e.preventDefault();this.next();}
+      else if(['ArrowLeft','PageUp','Backspace'].includes(e.key)){e.preventDefault();this.prev();}
+      else if(e.key==='Home'){e.preventDefault();this.goTo(0,false);}
+      else if(e.key==='End'){e.preventDefault();this.goTo(this.slides.length-1,true);}
+    });
+  }
+  wheel(){
+    let lock=false;
+    addEventListener('wheel',e=>{
+      if(lock)return;
+      const dy = e.deltaMode===1 ? e.deltaY*16 : (e.deltaMode===2 ? e.deltaY*400 : e.deltaY);
+      if(Math.abs(dy)<6)return;
+      lock=true; dy>0?this.next():this.prev();
+      setTimeout(()=>lock=false,450);
+    },{passive:true});
+  }
+  touch(){
+    let x0=null;
+    addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
+    addEventListener('touchend',e=>{
+      if(x0===null)return;
+      const dx=e.changedTouches[0].clientX-x0;
+      if(Math.abs(dx)>50) dx<0?this.next():this.prev();
+      x0=null;
+    },{passive:true});
+  }
+}
+window.deck = new Deck();
+</script>
+</body>
+</html>

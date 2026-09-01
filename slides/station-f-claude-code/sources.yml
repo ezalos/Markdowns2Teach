@@ -1,0 +1,465 @@
+# ABOUTME: Curated source registry for station-f-claude-code.html — the single source of truth for citations.
+# ABOUTME: Every entry: full exact URL + VERBATIM quote (live-verified by scripts/verify-sources.py).
+#
+# Contract (enforced by
+#   `python3 scripts/verify-sources.py slides/station-f-claude-code/station-f-claude-code.html`):
+#   - every <a href> citation in the deck MUST have an entry here
+#   - `quote` is a character-by-character string that appears on the page, compared under
+#     verify-sources.py's norm(): entity-unescape -> NFKC -> quote/dash unification -> whitespace collapse
+#   - entries that cannot be text-verified need `verify: link-only` + `reason:` and are LOUDLY warned
+#
+# Built 2026-09-01 for the Station F / Incubateur 42 talk (2026-09-02). Quotes are carried over from
+# `docs/talks/station-f-claude-code/numbers-sheet.md`, `.../research-runs/*/sources.md` and
+# `.../sources/resolved-inherited-links.md` where those already verified them, and derived fresh
+# (curl + norm() grep) otherwise. Every entry below was re-run against the live page on 2026-09-01.
+#
+# LIVE PAGES — re-verify on the morning of the talk, they move:
+#   llmstats-frontiercode (slide 13 prints 0.613 / 0.534 / 0.463 off this board)
+#   primeintellect-speedrun-leaderboard, tbench-leaderboard, scale-rli-leaderboard, epoch-eci
+deck: station-f-claude-code.html
+sources:
+  # ================= Slide 4 — the bend, and what the trackers actually say =================
+  - id: botcommits-tracker
+    url: https://botcommits.dev/
+    authority: botcommits.dev
+    title: "AI-Attributed Commits on GitHub: The Exponential Bent"
+    quote: "Five more months of data say otherwise"
+    slides: [4]
+    # NOTE: every FIGURE on this page is injected client-side and is NOT greppable in the static
+    # HTML. Only the static prose verifies. Figures live in docs/.../sources/botcommits-2026-08-the-bend.md.
+
+  - id: metr-gpt-5-6-sol
+    url: https://metr.org/blog/2026-06-26-gpt-5-6-sol/
+    authority: METR
+    title: "Summary of METR's predeployment evaluation of GPT-5.6 Sol"
+    quote: "GPT-5.6 Sol’s detected cheating rate was higher than any public model we have evaluated on our ReAct agent harness"
+    slides: [4]
+
+  - id: metr-time-horizons
+    url: https://metr.org/time-horizons/
+    authority: METR
+    title: "Task-Completion Time Horizons of Frontier AI Models"
+    quote: "Measurements above 16 hrs are unreliable with our current task suite"
+    slides: [4]
+
+  - id: llmstats-frontiercode
+    url: https://llm-stats.com/benchmarks/frontiercode
+    authority: LLM Stats
+    title: "FrontierCode Leaderboard"
+    quote: "Grok 4.6 from xAI currently leads the FrontierCode leaderboard"
+    slides: [4, 13]
+
+  - id: cognition-frontiercode
+    url: https://cognition.com/frontiercode
+    authority: Cognition
+    title: "FrontierCode Leaderboard (methodology)"
+    quote: "deprecates the Diamond subset"
+    slides: [4]
+    # The leaderboard TABLE on this page is JS-rendered — never quote a number from it.
+
+  # ================= Slide 5 — the money =================
+  - id: ev-state-of-ai-economy-2026
+    url: https://intelligence.exponentialview.co/assets/ev-state-of-ai-economy-2026.pdf
+    authority: Exponential View (Azhar, Gildea, Petrovic, Warren, Gavrilov)
+    title: "The State of the AI Economy 2026"
+    verify: link-only
+    reason: "7.5 MB binary PDF with FlateDecode-compressed text streams — verify-sources.py decodes the
+      body as UTF-8, so no quote can ever grep. Text was extracted and quoted by hand with
+      `pdftotext -layout` (see numbers-sheet.md Appendix-A): the p.6 line reads
+      'The sector is growing 3x faster than any IT wave before it.' HTTP 200, link is live and exact."
+    slides: [5]
+
+  - id: ev-capex-deployment-gap
+    url: https://www.exponentialview.co/p/ai-capex-deployment-gap
+    authority: Exponential View
+    title: "Making sense of the AI capex logjam"
+    quote: "expect capital expenditure of $863 billion in 2026 – 88% more than last year."
+    # Full sentence opens "Based on current guidance, the seven largest AI-infrastructure builders" —
+    # but a footnote anchor ("1") is spliced in before "expect", breaking contiguity. Quote from "expect".
+    slides: [5]
+
+  - id: cnbc-anthropic-run-rate
+    url: https://www.cnbc.com/2026/08/17/anthropic-says-annualized-revenue-climbed-to-65-billion-in-july.html
+    authority: CNBC
+    title: "Anthropic tells investors annualized revenue run rate climbed to $65 billion in July"
+    quote: "Anthropic told investors over the weekend that its annualized revenue run rate hit $65 billion at the end of July, CNBC confirmed."
+    slides: [5]
+
+  # ================= Slide 6 — capability and cost =================
+  - id: tbench-leaderboard
+    url: https://www.tbench.ai/leaderboard
+    authority: Terminal-Bench (Stanford / Harbor / Laude Institute)
+    title: "TERMINAL-BENCH 4.0 leaderboard"
+    quote: "TERMINAL-BENCH 4.0 A benchmark to measure and evolve with the frontier of agent work"
+    slides: [6]
+    # Rows are served inside the Next.js payload, not as prose. Parsed snapshot in
+    # research-runs/frontier-evaluations/sources.md [22]. Re-snapshot on the morning.
+
+  - id: epoch-inference-price-trends
+    url: https://epoch.ai/data-insights/llm-inference-price-trends
+    authority: Epoch AI (Cottier, Snodin, Owen, Adamczewski)
+    title: "LLM inference prices have fallen rapidly but unequally across tasks"
+    quote: "the price to achieve GPT-4’s performance on a set of PhD-level science questions fell by 40x per year"
+    slides: [6]
+
+  - id: epoch-open-closed-gap
+    url: https://epoch.ai/data-insights/open-closed-eci-gap
+    authority: Epoch AI (Edwards & Emberson, 2026-05-29)
+    title: "Open models lag state-of-the-art closed models by 4 months"
+    quote: "the most capable open-weight models have lagged frontier closed models by an average of four months"
+    slides: [6]
+
+  # ================= Slide 7 / 42 — the two indices =================
+  - id: epoch-eci
+    url: https://epoch.ai/eci
+    authority: Epoch AI
+    title: "Epoch Capabilities Index"
+    quote: "allowing comparisons between models even over timespans long enough for single benchmarks to reach saturation"
+    slides: [7, 42]
+    # The 15.5-points/year figure lives on epoch.ai/trends, not here (see numbers-sheet.md slide 05).
+
+  - id: cais-digital-labor-automation
+    url: https://safe.ai/blog/significant-increase-in-digital-labor-automation
+    authority: Center for AI Safety (Mantas Mazeika)
+    title: "A Significant Increase in Digital Labor Automation"
+    quote: "Since RLI was released, the best automation rate has risen from 2.5% to 15.8%."
+    slides: [7]
+
+  - id: scale-rli-leaderboard
+    url: https://labs.scale.com/leaderboard/rli
+    authority: Scale Labs
+    title: "Scale Labs Leaderboard: Remote Labor Index (RLI)"
+    quote: "Private Set: 230 projects are used for all quantitative leaderboard evaluation."
+    slides: [7, 42]
+
+  # ================= Slide 9–11 — what an agent is, and the harness =================
+  - id: react-paper
+    url: https://arxiv.org/abs/2210.03629
+    authority: arXiv (Yao et al., Princeton / Google Brain)
+    title: "ReAct: Synergizing Reasoning and Acting in Language Models"
+    quote: "we explore the use of LLMs to generate both reasoning traces and task-specific actions in an interleaved manner"
+    slides: [9]
+
+  - id: anthropic-context-engineering
+    url: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents
+    authority: Anthropic Engineering
+    title: "Effective context engineering for AI agents"
+    quote: "a simple definition for agents: LLMs autonomously using tools in a loop"
+    slides: [9, 11]
+    # The deck's five-fragment wording on slide 9 is Louis's paraphrase — never in quotation marks,
+    # never attributed to Anthropic. (numbers-sheet.md slide 06)
+
+  - id: raschka-coding-agent-components
+    url: https://magazine.sebastianraschka.com/p/components-of-a-coding-agent
+    authority: Sebastian Raschka, PhD (Ahead of AI)
+    title: "Components of a Coding Agent"
+    quote: "six main components of coding agents"
+    slides: [10]
+
+  - id: chroma-context-rot
+    url: https://www.trychroma.com/research/context-rot
+    authority: Chroma Research
+    title: "Context Rot: How Increasing Input Tokens Impacts LLM Performance"
+    quote: "model performance degrades as input length increases, often in surprising and non-uniform ways"
+    slides: [11, 42]
+
+  # ================= Slide 12 — the six boxes of the harness =================
+  - id: claude-code-memory
+    url: https://code.claude.com/docs/en/memory
+    authority: Anthropic (Claude Code docs)
+    title: "How Claude remembers your project"
+    quote: "You write these files in plain text; Claude reads them at the start of every session"
+    slides: [12]
+
+  - id: agentskills-overview
+    url: https://agentskills.io/home
+    authority: Agent Skills (open specification)
+    title: "Agent Skills Overview"
+    quote: "At its core, a skill is a folder containing a SKILL.md file"
+    slides: [12]
+
+  - id: anthropic-mcp-announcement
+    url: https://www.anthropic.com/news/model-context-protocol
+    authority: Anthropic
+    title: "Introducing the Model Context Protocol"
+    quote: "replacing fragmented integrations with a single protocol"
+    slides: [12]
+
+  - id: claude-code-permissions
+    url: https://code.claude.com/docs/en/permissions
+    authority: Anthropic (Claude Code docs)
+    title: "Configure permissions"
+    quote: "Claude Code uses a tiered permission system to balance power and safety"
+    slides: [12]
+
+  - id: snyk-skill-md-shell-access
+    url: https://snyk.io/articles/skill-md-shell-access/
+    authority: Snyk
+    title: "From SKILL.md to Shell Access in Three Lines of Markdown: Threat Modeling Agent Skills"
+    quote: "treat third-party skills as trusted code. Read them before enabling"
+    slides: [12]
+
+  # ================= Slides 15–18 — chapter one, the fundamentals =================
+  - id: pocock-software-fundamentals
+    url: https://www.youtube.com/watch?v=v4F1gFy-hqg
+    authority: AI Engineer (Matt Pocock)
+    title: "\"Software Fundamentals Matter More Than Ever\" — Matt Pocock"
+    quote: "\"Software Fundamentals Matter More Than Ever\" — Matt Pocock"
+    slides: [15, 16, 17]
+    # Transcript + timestamped insight extraction: docs/.../sources/v4F1gFy-hqg-insights.md
+    # ("bad code is the most expensive it's ever been" [03:57]; plan mode "is extremely eager to
+    # create an asset" [07:04]). Only the title/description are greppable on the watch page.
+
+  - id: mattpocock-skills-repo
+    url: https://github.com/mattpocock/skills
+    authority: GitHub (Matt Pocock)
+    title: "mattpocock/skills — Skills for Real Engineers"
+    quote: "Skills for Real Engineers. Straight from my .agents directory."
+    slides: [16]
+
+  - id: coyle-agentic-ontologies
+    url: https://www.youtube.com/watch?v=Sir59K8ZDPU
+    authority: AI Engineer (Frank Coyle, UC Berkeley)
+    title: "Why Agentic Systems Need Ontologies — Frank Coyle, UC Berkeley"
+    quote: "Why Agentic Systems Need Ontologies — Frank Coyle, UC Berkeley"
+    slides: [18]
+    # Transcript + insight extraction: docs/.../sources/Sir59K8ZDPU-insights.md
+
+  # ================= Slides 20–24 — orchestration =================
+  - id: scaling-agent-systems-abs
+    url: https://arxiv.org/abs/2512.08296
+    authority: arXiv (Towards a Science of Scaling Agent Systems)
+    title: "Towards a Science of Scaling Agent Systems"
+    quote: "Relative performance change compared to single-agent baseline ranges from +80.8% on decomposable financial reasoning to -70.0% on sequential planning, demonstrating that architecture-task alignment determines collaborative success."
+    slides: [20]
+
+  - id: scaling-agent-systems-v2-fulltext
+    url: https://arxiv.org/html/2512.08296v2
+    authority: arXiv (Towards a Science of Scaling Agent Systems, v2 full text)
+    title: "Towards a Science of Scaling Agent Systems — §capability ceiling"
+    quote: "tasks where single-agent performance already exceeds 45% accuracy experience negative returns from additional agents, as coordination costs exceed diminishing improvement potential."
+    slides: [20]
+
+  - id: cognition-dont-build-multi-agents
+    url: https://cognition.com/blog/dont-build-multi-agents
+    authority: Cognition
+    title: "Don't Build Multi-Agents"
+    quote: "Actions carry implicit decisions, and conflicting decisions carry bad results"
+    slides: [21]
+
+  - id: anthropic-multi-agent-research-system
+    url: https://www.anthropic.com/engineering/multi-agent-research-system
+    authority: Anthropic Engineering
+    title: "How we built our multi-agent research system"
+    quote: "agents typically use about 4× more tokens than chat interactions, and multi-agent systems use about 15× more tokens than chats."
+    slides: [21]
+
+  - id: langchain-when-multi-agent
+    url: https://www.langchain.com/blog/how-and-when-to-build-multi-agent-systems
+    authority: LangChain
+    title: "How and when to build multi-agent systems"
+    quote: "The key insight is that read actions are inherently more parallelizable than write actions."
+    slides: [21]
+
+  - id: metr-hf-incident-investigation
+    url: https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/
+    authority: METR (with Redwood Research), commissioned by OpenAI
+    title: "Independent investigation of the OpenAI / Hugging Face agent incident"
+    quote: "Roughly 1200 agents meant to be isolated from one another found a way to communicate with one another on an unsanctioned message board, sending over 70,000 messages and files during the investigation period. Of these agents, 700 went on to participate in the attack"
+    slides: [22, 29]
+
+  - id: huggingface-agent-intrusion-timeline
+    url: https://huggingface.co/blog/agent-intrusion-technical-timeline
+    authority: Hugging Face
+    title: "Agent intrusion: technical timeline"
+    quote: "Write access was real, and it was used: it did not produce a change that shipped."
+    slides: [22]
+    # Say this out loud. NEVER say repositories were damaged. (numbers-sheet.md slide 23)
+
+  - id: claude-code-workflows
+    url: https://code.claude.com/docs/en/workflows
+    authority: Anthropic (Claude Code docs)
+    title: "Workflows"
+    quote: "The workflow runtime executes the script in an isolated environment, separate from your conversation. Intermediate results stay in script variables instead of landing in Claude's context."
+    slides: [23, 24]
+
+  - id: langchain-graph-engineering
+    url: https://www.langchain.com/blog/3-years-of-graph-engineering-with-langgraph
+    authority: LangChain
+    title: "3 Years of Graph Engineering with LangGraph"
+    quote: "the latest name for a well established approach to building reliable agents"
+    slides: [23]
+
+  - id: claude-code-agent-teams
+    url: https://code.claude.com/docs/en/agent-teams
+    authority: Anthropic (Claude Code docs)
+    title: "Agent teams"
+    quote: "Start with 3-5 teammates for most workflows. This balances parallel work with manageable coordination."
+    slides: [24]
+
+  # ================= Slide 26 — loops =================
+  - id: posthog-bullish-on-loops
+    url: https://newsletter.posthog.com/p/why-were-bullish-on-loops
+    authority: PostHog (Ian Vanagas)
+    title: "Why we're bullish on loops"
+    quote: "A loop without a goal is a slop cannon."
+    slides: [26]
+
+  - id: claude-code-routines
+    url: https://claude.com/blog/introducing-routines-in-claude-code
+    authority: Anthropic
+    title: "Introducing routines in Claude Code"
+    quote: "so nothing depends on your laptop being open."
+    # Full sentence: "Routines run on Claude Code's web infrastructure, so nothing depends on your
+    # laptop being open." — "web infrastructure" is wrapped in <strong>, so the comma boundary
+    # does not grep contiguously. Quote the second clause.
+    slides: [26]
+
+  # ================= Slides 27–29 — the autonomous-R&D ceiling =================
+  - id: primeintellect-measuring-autonomous-research
+    url: https://www.primeintellect.ai/blog/measuring-autonomous-research
+    authority: Prime Intellect
+    title: "Measuring Autonomous AI Research"
+    quote: "None of the runs produced a fundamentally new method; the winning ingredients are all similar to existing ones in the literature."
+    slides: [27, 28, 29, 42]
+
+  - id: primeintellect-speedrun-leaderboard
+    url: https://www.primeintellect.ai/research/nanogpt-speedrun
+    authority: Prime Intellect
+    title: "NanoGPT Speedrun Frontier (leaderboard)"
+    quote: "We ran 153 autonomous runs across 18 frontier models on the nanoGPT optimizer speedrun."
+    slides: [27]
+    # LIVE leaderboard — rows move. The stable prose above is what is registered; the 81.7%
+    # row was snapshot 2026-09-01 (numbers-sheet.md slide 28). Re-snapshot on the morning.
+
+  - id: nanogpt-bench
+    url: https://github.com/IntologyAI/NanoGPT-Bench
+    authority: GitHub (Intology AI)
+    title: "NanoGPT-Bench"
+    quote: "Agents spent the majority of their compute on hyperparameter tuning."
+    slides: [28]
+    # Also verified on this page: "All baselines recover less than 10% of the speedup achieved by
+    # human world records over the subsequent five months".
+
+  - id: deepmind-alphaevolve
+    url: https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/
+    authority: Google DeepMind
+    title: "AlphaEvolve: a Gemini-powered coding agent for designing advanced algorithms"
+    quote: "found an algorithm to multiply 4x4 complex-valued matrices using 48 scalar multiplications"
+    # Body prose reads "AlphaEvolve's procedure found an algorithm to ..." (lowercase f); the
+    # capitalised table variant carried in numbers-sheet.md does not appear in the served HTML.
+    slides: [28]
+
+  - id: tao-exploration-at-scale
+    url: https://terrytao.wordpress.com/2025/11/05/mathematical-exploration-and-discovery-at-scale/
+    authority: Terence Tao (What's new)
+    title: "Mathematical exploration and discovery at scale"
+    quote: "We tested this tool on a large number (67) of different mathematics problems"
+    slides: [28]
+
+  - id: metr-re-bench
+    url: https://arxiv.org/abs/2411.15114
+    authority: arXiv (METR)
+    title: "RE-Bench: Evaluating frontier AI R&D capabilities of language model agents against human experts"
+    quote: "find that the best AI agents achieve a score 4x higher than human experts when both are given a total time budget of 2 hours per environment"
+    # Abstract reads "and find that ..." — not "we find that". Nearly two years old: say the date.
+    slides: [28]
+
+  # ================= Slides 32–33 — evals =================
+  - id: hamel-your-ai-product-needs-evals
+    url: https://hamel.dev/blog/posts/evals/
+    authority: Hamel Husain
+    title: "Your AI Product Needs Evals"
+    quote: "Like software engineering, success with AI hinges on how fast you can iterate."
+    slides: [32, 33]
+
+  - id: braintrust-eval-maturity-phases
+    url: https://www.youtube.com/watch?v=FB-MLPhL9Ms
+    authority: AI Engineer (Phil Hetzel, Braintrust)
+    title: "The maturity phases of running evals — Phil Hetzel, Braintrust"
+    quote: "The maturity phases of running evals — Phil Hetzel, Braintrust"
+    slides: [32]
+
+  # ================= Slides 37–38 — memory and skills =================
+  - id: letta-benchmarking-agent-memory
+    url: https://www.letta.com/blog/benchmarking-ai-agent-memory/
+    authority: Letta
+    title: "Benchmarking AI Agent Memory"
+    quote: "Letta agents running on gpt-4o-mini achieve 74.0% accuracy on LoCoMo by simply storing conversation histories in files, rather than using specialized memory or retrieval tools."
+    slides: [37]
+    # "Above every specialised memory product" is DISPUTED — Zep claims 75.14%.
+    # (numbers-sheet.md §4.1 Conflicts)
+
+  - id: mem0-paper
+    url: https://arxiv.org/abs/2504.19413
+    authority: arXiv (Mem0)
+    title: "Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory"
+    quote: "a full-context approach that processes the entire conversation history"
+    slides: [37]
+    # The load-bearing ~26,000-token threshold sentence is in the FULL TEXT, not the abstract:
+    # https://arxiv.org/html/2504.19413v1 — "a full-context method that ingests a chunk of roughly
+    # 26,000 tokens still achieves the highest J score (approximately 73%)". If slide 37 wants that
+    # number cited directly, point the href at the /html/ URL and swap this quote in.
+
+  - id: penfield-locomo-audit
+    url: https://penfieldlabs.substack.com/p/we-audited-locomo-64-of-the-answer
+    authority: Penfield Labs
+    title: "We audited LoCoMo: 6.4% of the answer key is wrong"
+    quote: "We conducted a systematic audit of the ground truth and identified 99 score-corrupting errors in 1,540 questions (6.4%)."
+    slides: [37]
+
+  - id: memgpt-paper
+    url: https://arxiv.org/abs/2310.08560
+    authority: arXiv (MemGPT)
+    title: "MemGPT: Towards LLMs as Operating Systems"
+    quote: "Submitted on 12 Oct 2023"
+    slides: [37]
+
+  - id: wikiskill-paper
+    url: https://arxiv.org/abs/2608.27454
+    authority: arXiv (WikiSkill — Google Research / Virginia Tech)
+    title: "WikiSkill: Evolving Skills through Persistent Knowledge Accumulation"
+    quote: "our ablation studies confirm that persistent knowledge accumulation in the wiki is critical for effective skill evolution."
+    slides: [38]
+    # The 9B-with-skills (47.4%) vs 27B-without (39.4%) crossover is in the full text:
+    # https://arxiv.org/html/2608.27454 — note the stray space in "model scale ." there.
+
+  # ================= Slide 39 — the AEO reality check =================
+  - id: semrush-traffic-channel-mix
+    url: https://www.semrush.com/blog/traffic-channel-mix-study/
+    authority: Semrush
+    title: "Traffic Channel Mix Study"
+    quote: "AI traffic grew 66% in 2025 and outpaced every other channel, but it still makes up less than 0.15% of total visits."
+    slides: [39]
+
+  - id: cloudflare-agentic-bot-report
+    url: https://blog.cloudflare.com/agentic-internet-bot-report/
+    authority: Cloudflare
+    title: "The agentic internet: a bot report"
+    quote: "Google remains the dominant gateway to online discovery, accounting for approximately 88% of referral traffic."
+    slides: [39]
+
+  - id: dc360-adobe-ai-referral-july-2026
+    url: https://www.digitalcommerce360.com/2026/08/19/adobe-ai-referral-traffic-data-july-2026/
+    authority: Digital Commerce 360 (Adobe Analytics data)
+    title: "Adobe AI referral traffic data, July 2026"
+    quote: "AI-based retail site visits convert at a rate 60% higher than non-AI traffic."
+    slides: [39]
+    # ALWAYS say the month. Same series read 42% in March 2026 and -38% in March 2025. US retail only.
+
+  # ================= Slide 40 — the meta-skill =================
+  - id: deanball-meta-skill
+    url: https://x.com/deanwball/status/2085932560622801221
+    authority: X (Dean W. Ball — OpenAI head of strategic futures, 2026-08-08)
+    title: "The skill to have optimized for in the last three years"
+    quote: "this is probably the skill to have optimized for in the last three years"
+    slides: [40]
+    # NB: the original is US spelling "optimized". A grep on British "optimised" FAILS.
+
+  # ================= Slide 42 — threads to pull =================
+  - id: mast-taxonomy
+    url: https://arxiv.org/abs/2503.13657
+    authority: arXiv (Cemri, Pan, Yang et al., UC Berkeley; NeurIPS 2025)
+    title: "Why Do Multi-Agent LLM Systems Fail? (MAST taxonomy)"
+    quote: "We introduce MAST-Data, a comprehensive dataset of 1600+ annotated traces collected across 7 popular MAS frameworks."
+    slides: [42]

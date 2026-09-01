@@ -18,6 +18,14 @@ title: "Slide Decks"
 subtitle: "Talks, courses &amp; workshops — Louis Develle"
 
 groups:
+  - id: station-f-claude-code
+    label: "What Compounds — Building With Agents · Station F / Incubateur 42"
+    category: talk
+    date: 2026-09-02
+    prebuilt_html:                            # rendered by frontend-slides, not Marp
+      - file: station-f-claude-code/station-f-claude-code.html
+        label: "What compounds, and what does not (founders, 40 min)"
+
   - id: rlaif-vlm
     label: "RLAIF on a Vision-Language Model — 48h Autonomous Lab"
     category: talk
