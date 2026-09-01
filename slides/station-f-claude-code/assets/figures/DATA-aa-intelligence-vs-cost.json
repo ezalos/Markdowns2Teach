@@ -1,0 +1,632 @@
+{
+ "figure": "Cost vs capability by reasoning effort \u2014 Artificial Analysis Intelligence Index v4.1.1 vs cost per Index task",
+ "status": "NO PUBLISHED STATIC FIGURE \u2014 rebuild required",
+ "why": "artificialanalysis.ai renders its Intelligence-vs-Price scatter client-side. Its opengraph-image.png is a branded splash, not a chart. These values are the site's OWN published numbers, read verbatim from the schema.org Dataset (application/ld+json) blocks that Artificial Analysis server-renders into its homepage and model pages. No value is estimated or read off a pixel.",
+ "index_definition": "Artificial Analysis Intelligence Index v4.1.1 incorporates 9 evaluations: GDPval-AA v2, tau^3-Banking, Terminal-Bench v2.1, SciCode, Humanity's Last Exam, GPQA Diamond, CritPt, AA-Omniscience, AA-LCR. Evaluation results measured independently by Artificial Analysis.",
+ "cost_definition": "cost_per_index_task_usd = weighted average cost (USD) per Intelligence Index task, lower is better. cost_to_run_full_index_usd = total USD to run every evaluation in the Index.",
+ "source_pages": [
+  "https://artificialanalysis.ai/",
+  "https://artificialanalysis.ai/models/claude-fable-5",
+  "https://artificialanalysis.ai/models/claude-opus-5",
+  "https://artificialanalysis.ai/models/gpt-5-6-luna",
+  "https://artificialanalysis.ai/models/gpt-5-6-sol"
+ ],
+ "citation": "Artificial Analysis (2025). LLM benchmarks dataset. https://artificialanalysis.ai",
+ "license": "https://artificialanalysis.ai/docs/legal/Terms-of-Use.pdf",
+ "retrieved": "2026-09-01",
+ "effort_ladders_present": {
+  "GPT-5.6 Sol": [
+   "high",
+   "xhigh",
+   "max"
+  ],
+  "GPT-5.6 Luna": [
+   "high",
+   "xhigh",
+   "max"
+  ],
+  "Claude Opus 5": [
+   "medium",
+   "max"
+  ],
+  "Grok 4.6": [
+   "medium",
+   "high"
+  ],
+  "Claude Fable 5": [
+   "with fallback"
+  ]
+ },
+ "n": 31,
+ "data": [
+  {
+   "label": "Claude Opus 5 (max)",
+   "family": "Claude Opus 5",
+   "reasoning_effort": "max",
+   "intelligence_index": 63.0532,
+   "cost_per_index_task_usd": 2.336859,
+   "cost_to_run_full_index_usd": null,
+   "output_speed_tok_s": 53.6871679448644,
+   "time_per_task_s": 7.439170333426277,
+   "price_input_usd_per_mtok": null,
+   "price_output_usd_per_mtok": null,
+   "price_cache_hit_usd_per_mtok": null,
+   "model_page": "https://artificialanalysis.ai/models/claude-opus-5",
+   "observed_on": [
+    "https://artificialanalysis.ai/",
+    "https://artificialanalysis.ai/models/claude-fable-5",
+    "https://artificialanalysis.ai/models/claude-opus-5",
+    "https://artificialanalysis.ai/models/gpt-5-6-luna",
+    "https://artificialanalysis.ai/models/gpt-5-6-sol"
+   ]
+  },
+  {
+   "label": "Claude Fable 5 (with fallback)",
+   "family": "Claude Fable 5",
+   "reasoning_effort": "with fallback",
+   "intelligence_index": 62.0727,
+   "cost_per_index_task_usd": 3.139584,
+   "cost_to_run_full_index_usd": null,
+   "output_speed_tok_s": 66.8596022229631,
+   "time_per_task_s": 5.353552422895078,
+   "price_input_usd_per_mtok": null,
+   "price_output_usd_per_mtok": null,
+   "price_cache_hit_usd_per_mtok": null,
+   "model_page": "https://artificialanalysis.ai/models/claude-fable-5",
+   "observed_on": [
+    "https://artificialanalysis.ai/",
+    "https://artificialanalysis.ai/models/claude-fable-5",
+    "https://artificialanalysis.ai/models/claude-opus-5",
+    "https://artificialanalysis.ai/models/gpt-5-6-luna",
+    "https://artificialanalysis.ai/models/gpt-5-6-sol"
+   ]
+  },
+  {
+   "label": "GPT-5.6 Sol (max)",
+   "family": "GPT-5.6 Sol",
+   "reasoning_effort": "max",
+   "intelligence_index": 60.9299,
+   "cost_per_index_task_usd": 0.952976,
+   "cost_to_run_full_index_usd": 2017.29,
+   "output_speed_tok_s": 77.0984629747411,
+   "time_per_task_s": 3.632723492327886,
+   "price_input_usd_per_mtok": 4,
+   "price_output_usd_per_mtok": 20,
+   "price_cache_hit_usd_per_mtok": 0.4,
+   "model_page": "https://artificialanalysis.ai/models/gpt-5-6-sol",
+   "observed_on": [
+    "https://artificialanalysis.ai/",
+    "https://artificialanalysis.ai/models/claude-fable-5",
+    "https://artificialanalysis.ai/models/claude-opus-5",
+    "https://artificialanalysis.ai/models/gpt-5-6-luna",
+    "https://artificialanalysis.ai/models/gpt-5-6-sol"
+   ]
+  },
+  {
+   "label": "Grok 4.6 (high)",
+   "family": "Grok 4.6",
+   "reasoning_effort": "high",
+   "intelligence_index": 60.923,
+   "cost_per_index_task_usd": 0.937217,
+   "cost_to_run_full_index_usd": 1157.64,
+   "output_speed_tok_s": 54.3829839281105,
+   "time_per_task_s": 6.665498644414422,
+   "price_input_usd_per_mtok": 2,
+   "price_output_usd_per_mtok": 6,
+   "price_cache_hit_usd_per_mtok": 0.5,
+   "model_page": "https://artificialanalysis.ai/models/grok-4-6",
+   "observed_on": [
+    "https://artificialanalysis.ai/",
+    "https://artificialanalysis.ai/models/claude-fable-5",
+    "https://artificialanalysis.ai/models/claude-opus-5",
+    "https://artificialanalysis.ai/models/gpt-5-6-luna",
+    "https://artificialanalysis.ai/models/gpt-5-6-sol"
+   ]
+  },
+  {
+   "label": "Kimi K3 (max)",
+   "family": "Kimi K3",
+   "reasoning_effort": "max",
+   "intelligence_index": 59.6995,
+   "cost_per_index_task_usd": 0.837457,
+   "cost_to_run_full_index_usd": null,
+   "output_speed_tok_s": null,
+   "time_per_task_s": 10.407547495032805,
+   "price_input_usd_per_mtok": 3,
+   "price_output_usd_per_mtok": 15,
+   "price_cache_hit_usd_per_mtok": 0.3,
+   "model_page": "https://artificialanalysis.ai/models/kimi-k3",
+   "observed_on": [
+    "https://artificialanalysis.ai/",
+    "https://artificialanalysis.ai/models/claude-fable-5",
+    "https://artificialanalysis.ai/models/claude-opus-5",
+    "https://artificialanalysis.ai/models/gpt-5-6-luna",
+    "https://artificialanalysis.ai/models/gpt-5-6-sol"
+   ]
+  },
+  {
+   "label": "GLM-5.3 (max)",
+   "family": "GLM-5.3",
+   "reasoning_effort": "max",
+   "intelligence_index": 59.5134,
+   "cost_per_index_task_usd": 0.682931,
+   "cost_to_run_full_index_usd": 1238.5,
+   "output_speed_tok_s": 69.5618056767254,
+   "time_per_task_s": 8.799449665268025,
+   "price_input_usd_per_mtok": 1.4,
+   "price_output_usd_per_mtok": 4.4,
+   "price_cache_hit_usd_per_mtok": 0.26,
+   "model_page": "https://artificialanalysis.ai/models/glm-5-3",
+   "observed_on": [
+    "https://artificialanalysis.ai/",
+    "https://artificialanalysis.ai/models/claude-fable-5",
+    "https://artificialanalysis.ai/models/claude-opus-5",
+    "https://artificialanalysis.ai/models/gpt-5-6-luna",
+    "https://artificialanalysis.ai/models/gpt-5-6-sol"
+   ]
+  },
+  {
+   "label": "GPT-5.6 Sol (xhigh)",
+   "family": "GPT-5.6 Sol",
+   "reasoning_effort": "xhigh",
+   "intelligence_index": 59.009,
+   "cost_per_index_task_usd": 0.627881,
+   "cost_to_run_full_index_usd": 1107.55,
+   "output_speed_tok_s": 80.4439308056392,
+   "time_per_task_s": 2.2672838496999224,
+   "price_input_usd_per_mtok": 4,
+   "price_output_usd_per_mtok": 20,
+   "price_cache_hit_usd_per_mtok": 0.4,
+   "model_page": "https://artificialanalysis.ai/models/gpt-5-6-sol-xhigh",
+   "observed_on": [
+    "https://artificialanalysis.ai/models/claude-fable-5",
+    "https://artificialanalysis.ai/models/claude-opus-5",
+    "https://artificialanalysis.ai/models/gpt-5-6-sol"
+   ]
+  },
+  {
+   "label": "Grok 4.6 (medium)",
+   "family": "Grok 4.6",
+   "reasoning_effort": "medium",
+   "intelligence_index": 59.0064,
+   "cost_per_index_task_usd": 0.782884,
+   "cost_to_run_full_index_usd": 929.97,
+   "output_speed_tok_s": 56.5171636807895,
+   "time_per_task_s": 5.082583909203641,
+   "price_input_usd_per_mtok": 2,
+   "price_output_usd_per_mtok": 6,
+   "price_cache_hit_usd_per_mtok": 0.5,
+   "model_page": "https://artificialanalysis.ai/models/grok-4-6-medium",
+   "observed_on": [
+    "https://artificialanalysis.ai/models/claude-fable-5",
+    "https://artificialanalysis.ai/models/claude-opus-5",
+    "https://artificialanalysis.ai/models/gpt-5-6-sol"
+   ]
+  },
+  {
+   "label": "Claude Opus 5 (medium)",
+   "family": "Claude Opus 5",
+   "reasoning_effort": "medium",
+   "intelligence_index": 58.6355,
+   "cost_per_index_task_usd": 0.724278,
+   "cost_to_run_full_index_usd": 1116.24,
+   "output_speed_tok_s": null,
+   "time_per_task_s": 2.5633922562115643,
+   "price_input_usd_per_mtok": null,
+   "price_output_usd_per_mtok": null,
+   "price_cache_hit_usd_per_mtok": null,
+   "model_page": "https://artificialanalysis.ai/models/claude-opus-5-medium",
+   "observed_on": [
+    "https://artificialanalysis.ai/models/claude-fable-5",
+    "https://artificialanalysis.ai/models/claude-opus-5",
+    "https://artificialanalysis.ai/models/gpt-5-6-sol"
+   ]
+  },
+  {
+   "label": "Qwen3.8 Max",
+   "family": "Qwen3.8 Max",
+   "reasoning_effort": "n/a",
+   "intelligence_index": 58.0774,
+   "cost_per_index_task_usd": 0.913337,
+   "cost_to_run_full_index_usd": 1532.07,
+   "output_speed_tok_s": null,
+   "time_per_task_s": null,
+   "price_input_usd_per_mtok": 2,
+   "price_output_usd_per_mtok": 6,
+   "price_cache_hit_usd_per_mtok": 0.25,
+   "model_page": "https://artificialanalysis.ai/models/qwen3-8-max",
+   "observed_on": [
+    "https://artificialanalysis.ai/models/claude-fable-5",
+    "https://artificialanalysis.ai/models/claude-opus-5",
+    "https://artificialanalysis.ai/models/gpt-5-6-sol"
+   ]
+  },
+  {
+   "label": "Qwen3.8 2.4T A95B",
+   "family": "Qwen3.8 2.4T A95B",
+   "reasoning_effort": "n/a",
+   "intelligence_index": 57.7043,
+   "cost_per_index_task_usd": 0.807078,
+   "cost_to_run_full_index_usd": 1395.05,
+   "output_speed_tok_s": null,
+   "time_per_task_s": 12.057168811821267,
+   "price_input_usd_per_mtok": 2,
+   "price_output_usd_per_mtok": 6,
+   "price_cache_hit_usd_per_mtok": 0.25,
+   "model_page": "https://artificialanalysis.ai/models/qwen3-8-2-4t-a95b",
+   "observed_on": [
+    "https://artificialanalysis.ai/",
+    "https://artificialanalysis.ai/models/claude-fable-5",
+    "https://artificialanalysis.ai/models/claude-opus-5",
+    "https://artificialanalysis.ai/models/gpt-5-6-sol"
+   ]
+  },
+  {
+   "label": "GLM-5.3-Flash",
+   "family": "GLM-5.3-Flash",
+   "reasoning_effort": "n/a",
+   "intelligence_index": 57.4592,
+   "cost_per_index_task_usd": 0.086853,
+   "cost_to_run_full_index_usd": 138.02,
+   "output_speed_tok_s": null,
+   "time_per_task_s": null,
+   "price_input_usd_per_mtok": 0.15,
+   "price_output_usd_per_mtok": 0.5,
+   "price_cache_hit_usd_per_mtok": 0.026,
+   "model_page": "https://artificialanalysis.ai/models/glm-5-3-flash",
+   "observed_on": [
+    "https://artificialanalysis.ai/",
+    "https://artificialanalysis.ai/models/gpt-5-6-luna"
+   ]
+  },
+  {
+   "label": "GPT-5.6 Sol (high)",
+   "family": "GPT-5.6 Sol",
+   "reasoning_effort": "high",
+   "intelligence_index": 57.3317,
+   "cost_per_index_task_usd": 0.426859,
+   "cost_to_run_full_index_usd": 699.68,
+   "output_speed_tok_s": 77.7985719283976,
+   "time_per_task_s": 1.6192502688516401,
+   "price_input_usd_per_mtok": 4,
+   "price_output_usd_per_mtok": 20,
+   "price_cache_hit_usd_per_mtok": 0.4,
+   "model_page": "https://artificialanalysis.ai/models/gpt-5-6-sol-high",
+   "observed_on": [
+    "https://artificialanalysis.ai/models/claude-fable-5",
+    "https://artificialanalysis.ai/models/claude-opus-5",
+    "https://artificialanalysis.ai/models/gpt-5-6-sol"
+   ]
+  },
+  {
+   "label": "Muse Spark 1.2 (xhigh)",
+   "family": "Muse Spark 1.2",
+   "reasoning_effort": "xhigh",
+   "intelligence_index": 56.7616,
+   "cost_per_index_task_usd": 0.3992,
+   "cost_to_run_full_index_usd": 639.27,
+   "output_speed_tok_s": null,
+   "time_per_task_s": null,
+   "price_input_usd_per_mtok": 1.25,
+   "price_output_usd_per_mtok": 4.25,
+   "price_cache_hit_usd_per_mtok": 0.15,
+   "model_page": "https://artificialanalysis.ai/models/muse-spark-1-2",
+   "observed_on": [
+    "https://artificialanalysis.ai/",
+    "https://artificialanalysis.ai/models/claude-fable-5",
+    "https://artificialanalysis.ai/models/claude-opus-5",
+    "https://artificialanalysis.ai/models/gpt-5-6-luna",
+    "https://artificialanalysis.ai/models/gpt-5-6-sol"
+   ]
+  },
+  {
+   "label": "GPT-5.6 Terra (max)",
+   "family": "GPT-5.6 Terra",
+   "reasoning_effort": "max",
+   "intelligence_index": 56.5756,
+   "cost_per_index_task_usd": 0.526035,
+   "cost_to_run_full_index_usd": 1409.48,
+   "output_speed_tok_s": 117.522024970996,
+   "time_per_task_s": 3.0472844685013944,
+   "price_input_usd_per_mtok": 2,
+   "price_output_usd_per_mtok": 12,
+   "price_cache_hit_usd_per_mtok": 0.2,
+   "model_page": "https://artificialanalysis.ai/models/gpt-5-6-terra",
+   "observed_on": [
+    "https://artificialanalysis.ai/",
+    "https://artificialanalysis.ai/models/claude-fable-5",
+    "https://artificialanalysis.ai/models/claude-opus-5",
+    "https://artificialanalysis.ai/models/gpt-5-6-sol"
+   ]
+  },
+  {
+   "label": "Gemini 3.7 Flash (high)",
+   "family": "Gemini 3.7 Flash",
+   "reasoning_effort": "high",
+   "intelligence_index": 56.0301,
+   "cost_per_index_task_usd": 0.402166,
+   "cost_to_run_full_index_usd": 484.73,
+   "output_speed_tok_s": 289.492406056878,
+   "time_per_task_s": 2.0721043241907555,
+   "price_input_usd_per_mtok": 0.75,
+   "price_output_usd_per_mtok": 3.75,
+   "price_cache_hit_usd_per_mtok": 0.075,
+   "model_page": "https://artificialanalysis.ai/models/gemini-3-7-flash",
+   "observed_on": [
+    "https://artificialanalysis.ai/",
+    "https://artificialanalysis.ai/models/claude-fable-5",
+    "https://artificialanalysis.ai/models/claude-opus-5",
+    "https://artificialanalysis.ai/models/gpt-5-6-luna",
+    "https://artificialanalysis.ai/models/gpt-5-6-sol"
+   ]
+  },
+  {
+   "label": "Qwen3.8-Flash-Next",
+   "family": "Qwen3.8-Flash-Next",
+   "reasoning_effort": "n/a",
+   "intelligence_index": 55.814,
+   "cost_per_index_task_usd": 0.097019,
+   "cost_to_run_full_index_usd": 158.13,
+   "output_speed_tok_s": 88.9960206464471,
+   "time_per_task_s": null,
+   "price_input_usd_per_mtok": 0.15,
+   "price_output_usd_per_mtok": 0.47,
+   "price_cache_hit_usd_per_mtok": 0.016,
+   "model_page": "https://artificialanalysis.ai/models/qwen3-8-flash-next",
+   "observed_on": [
+    "https://artificialanalysis.ai/models/gpt-5-6-luna"
+   ]
+  },
+  {
+   "label": "DeepSeek V4 Pro 0813 (max)",
+   "family": "DeepSeek V4 Pro 0813",
+   "reasoning_effort": "max",
+   "intelligence_index": 53.1977,
+   "cost_per_index_task_usd": 0.265268,
+   "cost_to_run_full_index_usd": 616.95,
+   "output_speed_tok_s": 54.0686066289047,
+   "time_per_task_s": null,
+   "price_input_usd_per_mtok": 1.32,
+   "price_output_usd_per_mtok": 3.96,
+   "price_cache_hit_usd_per_mtok": 0.044,
+   "model_page": "https://artificialanalysis.ai/models/deepseek-v4-pro",
+   "observed_on": [
+    "https://artificialanalysis.ai/",
+    "https://artificialanalysis.ai/models/claude-fable-5",
+    "https://artificialanalysis.ai/models/claude-opus-5",
+    "https://artificialanalysis.ai/models/gpt-5-6-luna",
+    "https://artificialanalysis.ai/models/gpt-5-6-sol"
+   ]
+  },
+  {
+   "label": "GPT-5.6 Luna (max)",
+   "family": "GPT-5.6 Luna",
+   "reasoning_effort": "max",
+   "intelligence_index": 52.3181,
+   "cost_per_index_task_usd": 0.048659,
+   "cost_to_run_full_index_usd": 173.85,
+   "output_speed_tok_s": 129.804930018043,
+   "time_per_task_s": 2.618856514965209,
+   "price_input_usd_per_mtok": 0.2,
+   "price_output_usd_per_mtok": 1.2,
+   "price_cache_hit_usd_per_mtok": 0.02,
+   "model_page": "https://artificialanalysis.ai/models/gpt-5-6-luna",
+   "observed_on": [
+    "https://artificialanalysis.ai/",
+    "https://artificialanalysis.ai/models/claude-fable-5",
+    "https://artificialanalysis.ai/models/claude-opus-5",
+    "https://artificialanalysis.ai/models/gpt-5-6-luna",
+    "https://artificialanalysis.ai/models/gpt-5-6-sol"
+   ]
+  },
+  {
+   "label": "Qwen3.8 27B (xhigh)",
+   "family": "Qwen3.8 27B",
+   "reasoning_effort": "xhigh",
+   "intelligence_index": 52.0247,
+   "cost_per_index_task_usd": 0.369022,
+   "cost_to_run_full_index_usd": 693.67,
+   "output_speed_tok_s": 44.7005012640185,
+   "time_per_task_s": null,
+   "price_input_usd_per_mtok": 0.5,
+   "price_output_usd_per_mtok": 3,
+   "price_cache_hit_usd_per_mtok": 0.05,
+   "model_page": "https://artificialanalysis.ai/models/qwen3-8-27b",
+   "observed_on": [
+    "https://artificialanalysis.ai/"
+   ]
+  },
+  {
+   "label": "DeepSeek V4 Flash 0731 (max)",
+   "family": "DeepSeek V4 Flash 0731",
+   "reasoning_effort": "max",
+   "intelligence_index": 51.7666,
+   "cost_per_index_task_usd": 0.112159,
+   "cost_to_run_full_index_usd": 323.26,
+   "output_speed_tok_s": 107.910346925489,
+   "time_per_task_s": 6.209110988927295,
+   "price_input_usd_per_mtok": 0.44,
+   "price_output_usd_per_mtok": 1.32,
+   "price_cache_hit_usd_per_mtok": 0.014,
+   "model_page": "https://artificialanalysis.ai/models/deepseek-v4-flash",
+   "observed_on": [
+    "https://artificialanalysis.ai/models/gpt-5-6-luna"
+   ]
+  },
+  {
+   "label": "DeepSeek V4 Flash Vision (max)",
+   "family": "DeepSeek V4 Flash Vision",
+   "reasoning_effort": "max",
+   "intelligence_index": 51.4736,
+   "cost_per_index_task_usd": 0.116358,
+   "cost_to_run_full_index_usd": 235.89,
+   "output_speed_tok_s": 108.65959327297,
+   "time_per_task_s": 6.288462594443473,
+   "price_input_usd_per_mtok": 0.44,
+   "price_output_usd_per_mtok": 1.32,
+   "price_cache_hit_usd_per_mtok": 0.014,
+   "model_page": "https://artificialanalysis.ai/models/deepseek-v4-flash-vision",
+   "observed_on": [
+    "https://artificialanalysis.ai/models/gpt-5-6-luna"
+   ]
+  },
+  {
+   "label": "GPT-5.6 Luna (xhigh)",
+   "family": "GPT-5.6 Luna",
+   "reasoning_effort": "xhigh",
+   "intelligence_index": 50.0587,
+   "cost_per_index_task_usd": 0.032756,
+   "cost_to_run_full_index_usd": 96.36,
+   "output_speed_tok_s": 125.014819484821,
+   "time_per_task_s": 1.7814528114717834,
+   "price_input_usd_per_mtok": 0.2,
+   "price_output_usd_per_mtok": 1.2,
+   "price_cache_hit_usd_per_mtok": 0.02,
+   "model_page": "https://artificialanalysis.ai/models/gpt-5-6-luna-xhigh",
+   "observed_on": [
+    "https://artificialanalysis.ai/models/gpt-5-6-luna"
+   ]
+  },
+  {
+   "label": "Agnes 2.5 Pro Beta",
+   "family": "Agnes 2.5 Pro Beta",
+   "reasoning_effort": "n/a",
+   "intelligence_index": 49.0952,
+   "cost_per_index_task_usd": 0.026799,
+   "cost_to_run_full_index_usd": 55.61,
+   "output_speed_tok_s": 150.853901316863,
+   "time_per_task_s": 5.338282884741604,
+   "price_input_usd_per_mtok": 0.1,
+   "price_output_usd_per_mtok": 0.3,
+   "price_cache_hit_usd_per_mtok": 0.01,
+   "model_page": "https://artificialanalysis.ai/models/agnes-2-5-pro-beta",
+   "observed_on": [
+    "https://artificialanalysis.ai/models/gpt-5-6-luna"
+   ]
+  },
+  {
+   "label": "GPT-5.6 Luna (high)",
+   "family": "GPT-5.6 Luna",
+   "reasoning_effort": "high",
+   "intelligence_index": 46.9604,
+   "cost_per_index_task_usd": 0.022344,
+   "cost_to_run_full_index_usd": 55.86,
+   "output_speed_tok_s": 121.610739679114,
+   "time_per_task_s": 1.1858561426045744,
+   "price_input_usd_per_mtok": 0.2,
+   "price_output_usd_per_mtok": 1.2,
+   "price_cache_hit_usd_per_mtok": 0.02,
+   "model_page": "https://artificialanalysis.ai/models/gpt-5-6-luna-high",
+   "observed_on": [
+    "https://artificialanalysis.ai/models/gpt-5-6-luna"
+   ]
+  },
+  {
+   "label": "MiniMax-M3",
+   "family": "MiniMax-M3",
+   "reasoning_effort": "n/a",
+   "intelligence_index": 45.3969,
+   "cost_per_index_task_usd": 0.13871,
+   "cost_to_run_full_index_usd": 204.82,
+   "output_speed_tok_s": 131.130661419199,
+   "time_per_task_s": 3.3740929628787506,
+   "price_input_usd_per_mtok": 0.3,
+   "price_output_usd_per_mtok": 1.2,
+   "price_cache_hit_usd_per_mtok": 0.06,
+   "model_page": "https://artificialanalysis.ai/models/minimax-m3",
+   "observed_on": [
+    "https://artificialanalysis.ai/",
+    "https://artificialanalysis.ai/models/gpt-5-6-luna"
+   ]
+  },
+  {
+   "label": "DeepSeek V4 Pro (max)",
+   "family": "DeepSeek V4 Pro",
+   "reasoning_effort": "max",
+   "intelligence_index": 45.2683,
+   "cost_per_index_task_usd": 0.049752,
+   "cost_to_run_full_index_usd": 178.12,
+   "output_speed_tok_s": null,
+   "time_per_task_s": null,
+   "price_input_usd_per_mtok": 0.435,
+   "price_output_usd_per_mtok": 0.87,
+   "price_cache_hit_usd_per_mtok": 0.0036,
+   "model_page": "https://artificialanalysis.ai/models/deepseek-v4-pro-0424",
+   "observed_on": [
+    "https://artificialanalysis.ai/models/gpt-5-6-luna"
+   ]
+  },
+  {
+   "label": "Apodex 1.1",
+   "family": "Apodex 1.1",
+   "reasoning_effort": "n/a",
+   "intelligence_index": 43.9995,
+   "cost_per_index_task_usd": 0.231101,
+   "cost_to_run_full_index_usd": 618.41,
+   "output_speed_tok_s": null,
+   "time_per_task_s": null,
+   "price_input_usd_per_mtok": 0.3,
+   "price_output_usd_per_mtok": 3,
+   "price_cache_hit_usd_per_mtok": 0.03,
+   "model_page": "https://artificialanalysis.ai/models/apodex-1-1",
+   "observed_on": [
+    "https://artificialanalysis.ai/models/gpt-5-6-luna"
+   ]
+  },
+  {
+   "label": "Inkling",
+   "family": "Inkling",
+   "reasoning_effort": "n/a",
+   "intelligence_index": 42.2948,
+   "cost_per_index_task_usd": 0.338885,
+   "cost_to_run_full_index_usd": 698.28,
+   "output_speed_tok_s": 73.7887489524821,
+   "time_per_task_s": 5.505513684442714,
+   "price_input_usd_per_mtok": 1,
+   "price_output_usd_per_mtok": 4.05,
+   "price_cache_hit_usd_per_mtok": 0.17,
+   "model_page": "https://artificialanalysis.ai/models/inkling",
+   "observed_on": [
+    "https://artificialanalysis.ai/"
+   ]
+  },
+  {
+   "label": "Nemotron 3 Ultra",
+   "family": "Nemotron 3 Ultra",
+   "reasoning_effort": "n/a",
+   "intelligence_index": 38.3185,
+   "cost_per_index_task_usd": 0.385856,
+   "cost_to_run_full_index_usd": 530.47,
+   "output_speed_tok_s": 96.0988844936716,
+   "time_per_task_s": 4.10363187852849,
+   "price_input_usd_per_mtok": 0.675,
+   "price_output_usd_per_mtok": 2.675,
+   "price_cache_hit_usd_per_mtok": 0.25,
+   "model_page": "https://artificialanalysis.ai/models/nvidia-nemotron-3-ultra-550b-a55b",
+   "observed_on": [
+    "https://artificialanalysis.ai/",
+    "https://artificialanalysis.ai/models/claude-fable-5",
+    "https://artificialanalysis.ai/models/claude-opus-5",
+    "https://artificialanalysis.ai/models/gpt-5-6-luna",
+    "https://artificialanalysis.ai/models/gpt-5-6-sol"
+   ]
+  },
+  {
+   "label": "Gemini 3.5 Flash-Lite",
+   "family": "Gemini 3.5 Flash-Lite",
+   "reasoning_effort": "n/a",
+   "intelligence_index": 37.4387,
+   "cost_per_index_task_usd": 0.096525,
+   "cost_to_run_full_index_usd": 153.39,
+   "output_speed_tok_s": 339.207341278931,
+   "time_per_task_s": 0.6996222631028782,
+   "price_input_usd_per_mtok": 0.3,
+   "price_output_usd_per_mtok": 2.5,
+   "price_cache_hit_usd_per_mtok": 0.03,
+   "model_page": "https://artificialanalysis.ai/models/gemini-3-5-flash-lite",
+   "observed_on": [
+    "https://artificialanalysis.ai/"
+   ]
+  }
+ ]
+}

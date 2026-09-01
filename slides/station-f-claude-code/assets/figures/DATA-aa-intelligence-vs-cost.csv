@@ -1,0 +1,32 @@
+label,family,reasoning_effort,intelligence_index,cost_per_index_task_usd,cost_to_run_full_index_usd,output_speed_tok_s,time_per_task_s,price_input_usd_per_mtok,price_output_usd_per_mtok,price_cache_hit_usd_per_mtok,model_page
+Claude Opus 5 (max),Claude Opus 5,max,63.0532,2.336859,,53.6871679448644,7.439170333426277,,,,https://artificialanalysis.ai/models/claude-opus-5
+Claude Fable 5 (with fallback),Claude Fable 5,with fallback,62.0727,3.139584,,66.8596022229631,5.353552422895078,,,,https://artificialanalysis.ai/models/claude-fable-5
+GPT-5.6 Sol (max),GPT-5.6 Sol,max,60.9299,0.952976,2017.29,77.0984629747411,3.632723492327886,4,20,0.4,https://artificialanalysis.ai/models/gpt-5-6-sol
+Grok 4.6 (high),Grok 4.6,high,60.923,0.937217,1157.64,54.3829839281105,6.665498644414422,2,6,0.5,https://artificialanalysis.ai/models/grok-4-6
+Kimi K3 (max),Kimi K3,max,59.6995,0.837457,,,10.407547495032805,3,15,0.3,https://artificialanalysis.ai/models/kimi-k3
+GLM-5.3 (max),GLM-5.3,max,59.5134,0.682931,1238.5,69.5618056767254,8.799449665268025,1.4,4.4,0.26,https://artificialanalysis.ai/models/glm-5-3
+GPT-5.6 Sol (xhigh),GPT-5.6 Sol,xhigh,59.009,0.627881,1107.55,80.4439308056392,2.2672838496999224,4,20,0.4,https://artificialanalysis.ai/models/gpt-5-6-sol-xhigh
+Grok 4.6 (medium),Grok 4.6,medium,59.0064,0.782884,929.97,56.5171636807895,5.082583909203641,2,6,0.5,https://artificialanalysis.ai/models/grok-4-6-medium
+Claude Opus 5 (medium),Claude Opus 5,medium,58.6355,0.724278,1116.24,,2.5633922562115643,,,,https://artificialanalysis.ai/models/claude-opus-5-medium
+Qwen3.8 Max,Qwen3.8 Max,n/a,58.0774,0.913337,1532.07,,,2,6,0.25,https://artificialanalysis.ai/models/qwen3-8-max
+Qwen3.8 2.4T A95B,Qwen3.8 2.4T A95B,n/a,57.7043,0.807078,1395.05,,12.057168811821267,2,6,0.25,https://artificialanalysis.ai/models/qwen3-8-2-4t-a95b
+GLM-5.3-Flash,GLM-5.3-Flash,n/a,57.4592,0.086853,138.02,,,0.15,0.5,0.026,https://artificialanalysis.ai/models/glm-5-3-flash
+GPT-5.6 Sol (high),GPT-5.6 Sol,high,57.3317,0.426859,699.68,77.7985719283976,1.6192502688516401,4,20,0.4,https://artificialanalysis.ai/models/gpt-5-6-sol-high
+Muse Spark 1.2 (xhigh),Muse Spark 1.2,xhigh,56.7616,0.3992,639.27,,,1.25,4.25,0.15,https://artificialanalysis.ai/models/muse-spark-1-2
+GPT-5.6 Terra (max),GPT-5.6 Terra,max,56.5756,0.526035,1409.48,117.522024970996,3.0472844685013944,2,12,0.2,https://artificialanalysis.ai/models/gpt-5-6-terra
+Gemini 3.7 Flash (high),Gemini 3.7 Flash,high,56.0301,0.402166,484.73,289.492406056878,2.0721043241907555,0.75,3.75,0.075,https://artificialanalysis.ai/models/gemini-3-7-flash
+Qwen3.8-Flash-Next,Qwen3.8-Flash-Next,n/a,55.814,0.097019,158.13,88.9960206464471,,0.15,0.47,0.016,https://artificialanalysis.ai/models/qwen3-8-flash-next
+DeepSeek V4 Pro 0813 (max),DeepSeek V4 Pro 0813,max,53.1977,0.265268,616.95,54.0686066289047,,1.32,3.96,0.044,https://artificialanalysis.ai/models/deepseek-v4-pro
+GPT-5.6 Luna (max),GPT-5.6 Luna,max,52.3181,0.048659,173.85,129.804930018043,2.618856514965209,0.2,1.2,0.02,https://artificialanalysis.ai/models/gpt-5-6-luna
+Qwen3.8 27B (xhigh),Qwen3.8 27B,xhigh,52.0247,0.369022,693.67,44.7005012640185,,0.5,3,0.05,https://artificialanalysis.ai/models/qwen3-8-27b
+DeepSeek V4 Flash 0731 (max),DeepSeek V4 Flash 0731,max,51.7666,0.112159,323.26,107.910346925489,6.209110988927295,0.44,1.32,0.014,https://artificialanalysis.ai/models/deepseek-v4-flash
+DeepSeek V4 Flash Vision (max),DeepSeek V4 Flash Vision,max,51.4736,0.116358,235.89,108.65959327297,6.288462594443473,0.44,1.32,0.014,https://artificialanalysis.ai/models/deepseek-v4-flash-vision
+GPT-5.6 Luna (xhigh),GPT-5.6 Luna,xhigh,50.0587,0.032756,96.36,125.014819484821,1.7814528114717834,0.2,1.2,0.02,https://artificialanalysis.ai/models/gpt-5-6-luna-xhigh
+Agnes 2.5 Pro Beta,Agnes 2.5 Pro Beta,n/a,49.0952,0.026799,55.61,150.853901316863,5.338282884741604,0.1,0.3,0.01,https://artificialanalysis.ai/models/agnes-2-5-pro-beta
+GPT-5.6 Luna (high),GPT-5.6 Luna,high,46.9604,0.022344,55.86,121.610739679114,1.1858561426045744,0.2,1.2,0.02,https://artificialanalysis.ai/models/gpt-5-6-luna-high
+MiniMax-M3,MiniMax-M3,n/a,45.3969,0.13871,204.82,131.130661419199,3.3740929628787506,0.3,1.2,0.06,https://artificialanalysis.ai/models/minimax-m3
+DeepSeek V4 Pro (max),DeepSeek V4 Pro,max,45.2683,0.049752,178.12,,,0.435,0.87,0.0036,https://artificialanalysis.ai/models/deepseek-v4-pro-0424
+Apodex 1.1,Apodex 1.1,n/a,43.9995,0.231101,618.41,,,0.3,3,0.03,https://artificialanalysis.ai/models/apodex-1-1
+Inkling,Inkling,n/a,42.2948,0.338885,698.28,73.7887489524821,5.505513684442714,1,4.05,0.17,https://artificialanalysis.ai/models/inkling
+Nemotron 3 Ultra,Nemotron 3 Ultra,n/a,38.3185,0.385856,530.47,96.0988844936716,4.10363187852849,0.675,2.675,0.25,https://artificialanalysis.ai/models/nvidia-nemotron-3-ultra-550b-a55b
+Gemini 3.5 Flash-Lite,Gemini 3.5 Flash-Lite,n/a,37.4387,0.096525,153.39,339.207341278931,0.6996222631028782,0.3,2.5,0.03,https://artificialanalysis.ai/models/gemini-3-5-flash-lite

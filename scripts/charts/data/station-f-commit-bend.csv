@@ -1,0 +1,21 @@
+date,value,source,kind,label,dx,dy,ha
+2025-01-01,0.000,botcommits,measured,0.0M,0,14,center
+2025-02-01,0.002,botcommits,measured,,0,14,center
+2025-03-01,0.023,botcommits,measured,,0,14,center
+2025-04-01,0.022,botcommits,measured,,0,14,center
+2025-05-01,0.043,botcommits,measured,,0,14,center
+2025-06-01,0.224,botcommits,measured,0.2M,0,14,center
+2025-07-01,0.441,botcommits,measured,,0,14,center
+2025-08-01,0.557,botcommits,measured,,0,14,center
+2025-09-01,0.486,botcommits,measured,,0,14,center
+2025-10-01,0.954,botcommits,measured,,0,14,center
+2025-11-01,1.116,botcommits,measured,,0,14,center
+2025-12-01,1.550,botcommits,measured,,0,14,center
+2026-01-01,3.396,botcommits,measured,,0,14,center
+2026-02-01,5.439,botcommits,measured,,0,14,center
+2026-03-01,10.292,botcommits,measured,10.3M,0,14,center
+2026-04-01,11.757,botcommits,measured,,0,14,center
+2026-05-01,13.854,botcommits,measured,,0,14,center
+2026-06-01,17.437,botcommits,measured,,0,14,center
+2026-07-01,19.804,botcommits,measured,19.8M,0,14,center
+2026-07-01,98.478,March forecast,projection,98M forecast,0,-26,center

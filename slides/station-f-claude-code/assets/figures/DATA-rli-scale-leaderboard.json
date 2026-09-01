@@ -1,0 +1,68 @@
+{
+ "source_page": "https://labs.scale.com/leaderboard/rli",
+ "chart": "Remote Labor Index (RLI) leaderboard \u2014 Automation Rate",
+ "note": "Leaderboard is client-rendered; values read verbatim from the server-rendered HTML. No static chart image is published.",
+ "retrieved": "2026-09-01",
+ "data": [
+  {
+   "model": "Fable-5",
+   "automation_rate_pct": 15.8
+  },
+  {
+   "model": "Opus 4.8",
+   "automation_rate_pct": 8.33
+  },
+  {
+   "model": "Codex GPT 5.5",
+   "automation_rate_pct": 6.25
+  },
+  {
+   "model": "claude-opus-4-6 (CoWork)",
+   "automation_rate_pct": 4.17
+  },
+  {
+   "model": "claude-opus-4-5-20251101-thinking",
+   "automation_rate_pct": 3.75
+  },
+  {
+   "model": "Manus_1.6 (Max)",
+   "automation_rate_pct": 2.92
+  },
+  {
+   "model": "gpt-5.2-2025-12-11 (medium)",
+   "automation_rate_pct": 2.5
+  },
+  {
+   "model": "Manus 1.5",
+   "automation_rate_pct": 2.5
+  },
+  {
+   "model": "Manus 1.0",
+   "automation_rate_pct": 2.5
+  },
+  {
+   "model": "gpt-5.2-2025-12-11 (default)",
+   "automation_rate_pct": 2.08
+  },
+  {
+   "model": "claude-4-5-Sonnet",
+   "automation_rate_pct": 2.08
+  },
+  {
+   "model": "gpt-5-2025-08-07",
+   "automation_rate_pct": 1.67
+  },
+  {
+   "model": "ChatGPT agent",
+   "automation_rate_pct": 1.25
+  },
+  {
+   "model": "gemini-3-pro-preview",
+   "automation_rate_pct": 1.25
+  },
+  {
+   "model": "gemini-2.5-pro-preview-06-05",
+   "automation_rate_pct": 0.83
+  }
+ ]
+}

@@ -1,0 +1,294 @@
+<script>
+/* ============================================================
+   COPY BUTTONS — copy hidden payload from data-copy attribute.
+   ============================================================ */
+function fallbackCopy(text){
+  var ta=document.createElement('textarea');
+  ta.value=text; ta.style.position='fixed'; ta.style.opacity='0';
+  document.body.appendChild(ta); ta.focus(); ta.select();
+  try{ document.execCommand('copy'); }catch(e){}
+  document.body.removeChild(ta);
+}
+document.querySelectorAll('.copy-btn').forEach(function(btn){
+  btn.addEventListener('click', function(e){
+    e.stopPropagation();
+    var text=btn.getAttribute('data-copy')||'';
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).catch(function(){ fallbackCopy(text); });
+    } else { fallbackCopy(text); }
+    btn.classList.add('copied');
+    clearTimeout(btn._t);
+    btn._t=setTimeout(function(){ btn.classList.remove('copied'); }, 1600);
+  });
+});
+
+/* ============================================================
+   TIMERS — deadline-based countdown, persists via localStorage.
+   ============================================================ */
+function fmt(s){ if(s<0)s=0; var m=Math.floor(s/60), x=s%60; return (m<10?'0':'')+m+':'+(x<10?'0':'')+x; }
+document.querySelectorAll('.timer').forEach(function(tm){
+  var key='cgtl_timer_'+tm.getAttribute('data-key');
+  var baseMin=parseInt(tm.getAttribute('data-min'),10);
+  var extendMin=parseInt(tm.getAttribute('data-extend')||'0',10);
+  var face=tm.querySelector('.tm-face');
+  var toggle=tm.querySelector('.tm-toggle');
+  function load(){ try{ return JSON.parse(localStorage.getItem(key)||'null'); }catch(e){ return null; } }
+  function save(st){ try{ localStorage.setItem(key, JSON.stringify(st)); }catch(e){} }
+  // state: {running, deadline (ms epoch, only when running), remaining (s, when paused), total(s)}
+  var st=load();
+  if(!st){ st={running:false, remaining:baseMin*60, total:baseMin*60}; save(st); }
+  function remainingNow(){
+    if(st.running){ return Math.max(0, Math.round((st.deadline - Date.now())/1000)); }
+    return st.remaining;
+  }
+  var iv=null;
+  function render(){
+    var r=remainingNow();
+    face.textContent=fmt(r);
+    tm.classList.toggle('low', r>0 && r<60);
+    tm.classList.toggle('done', r<=0);
+    toggle.innerHTML = st.running ? '&#10073;&#10073; Pause' : '&#9654; Start';
+    if(st.running && r<=0){ // hit zero
+      st.running=false; st.remaining=0; save(st); stopTick();
+    }
+  }
+  function startTick(){ if(iv) return; iv=setInterval(render, 250); }
+  function stopTick(){ if(iv){ clearInterval(iv); iv=null; } }
+  function setRunning(run){
+    if(run){
+      var r=remainingNow(); if(r<=0) r=st.total;
+      st.running=true; st.deadline=Date.now()+r*1000; save(st); startTick();
+    } else {
+      st.remaining=remainingNow(); st.running=false; save(st); stopTick();
+    }
+    render();
+  }
+  tm.querySelectorAll('.tm-btn').forEach(function(b){
+    b.addEventListener('click', function(e){
+      e.stopPropagation();
+      var act=b.getAttribute('data-act');
+      if(act==='toggle'){ setRunning(!st.running); }
+      else if(act==='reset'){ stopTick(); st={running:false, remaining:baseMin*60, total:baseMin*60}; save(st); render(); }
+      else if(act==='extend'){
+        if(st.running){ st.deadline += extendMin*60*1000; }
+        else { st.remaining += extendMin*60; }
+        st.total += extendMin*60; save(st); render();
+      }
+    });
+  });
+  render();
+  if(st.running) startTick();
+  tm._refresh=function(){ render(); if(st.running) startTick(); };
+});
+
+/* ============================================================
+   SLIDE CONTROLLER — fixed 16:9 stage, keyboard/wheel/touch nav.
+   Stepped reveals: forward animates one step; backward / re-entry
+   shows the final revealed state with NO animation replay.
+   ============================================================ */
+class Deck {
+  constructor(){
+    this.slides=Array.from(document.querySelectorAll('.slide'));
+    this.cur=0; this.step=0;
+    this.stage=document.getElementById('deckStage');
+    this.root=this.stage; // animation kill-switch target (deck root)
+    this.curNum=document.getElementById('curNum');
+    this.totNum=document.getElementById('totNum');
+    this.dots=document.getElementById('stepDots');
+    this.totNum.textContent=String(this.slides.length).padStart(2,'0');
+    this.scale(); window.addEventListener('resize',()=>this.scale());
+    this.bindKeys(); this.bindWheel(); this.bindTouch();
+    this.goTo(0, false);
+  }
+  scale(){
+    const f=Math.min(window.innerWidth/1920, window.innerHeight/1080);
+    const x=(window.innerWidth-1920*f)/2, y=(window.innerHeight-1080*f)/2;
+    this.stage.style.transform=`translate(${x}px, ${y}px) scale(${f})`;
+  }
+  stepCount(i){
+    const sl=this.slides[i];
+    const declared=sl.getAttribute('data-steps');
+    if(declared!==null) return parseInt(declared,10);
+    return this.groups(i).length;
+  }
+  groups(i){
+    // ordered list of step-groups, honoring optional data-order
+    let g=Array.from(this.slides[i].querySelectorAll('.step-group'));
+    if(g.some(el=>el.hasAttribute('data-order'))){
+      g=g.slice().sort((a,b)=>(parseInt(a.getAttribute('data-order')||'999')-parseInt(b.getAttribute('data-order')||'999')));
+    }
+    return g;
+  }
+  isFlip(i){ return this.slides[i].classList.contains('flip-slide'); }
+  isLoop(i){ return this.slides[i].classList.contains('loop-slide'); }
+  // FORWARD-ONLY animation gating.
+  // silent(): mutate reveal state with NO animation. Entrance/reveal
+  // transitions are off unless the root carries .anim, so simply running
+  // fn here lands every element in its FINAL state instantly. Used for
+  // every backward move, step-back, slide entry, and jump (Home/End/goTo).
+  // Nothing can animate later — there is no delayed stagger to fire.
+  silent(fn){
+    this.root.classList.remove('anim');
+    void this.root.offsetWidth; // commit "transitions off" BEFORE mutating
+    fn();
+    void this.root.offsetWidth; // commit final state
+    // Belt-and-braces for compositor-thread transitions (notably macOS Core
+    // Animation, which can keep interpolating a transform despite the style
+    // change): cancel any animation that started so it snaps to the final state.
+    try { this.root.querySelectorAll('.flip-card .inner, .step-group, .reveal').forEach(function(el){ if(el.getAnimations) el.getAnimations().forEach(function(a){ a.cancel(); }); }); } catch(e) {}
+  }
+  // animateForward(): the ONLY path that plays the entrance/reveal
+  // animation. Enable transitions (.anim), force the pre-mutation baseline
+  // to commit, mutate so the browser interpolates to the new state, then
+  // drop .anim once the longest transition (~0.65s) has finished so a
+  // subsequent silent mutation can never accidentally animate.
+  animateForward(fn){
+    this.root.classList.add('anim');
+    void this.root.offsetWidth; // commit baseline so the change is a transition
+    fn();
+    clearTimeout(this._animT);
+    this._animT=setTimeout(()=>{ this.root.classList.remove('anim'); }, 750);
+  }
+  applySteps(i){
+    const sl=this.slides[i];
+    // Mechanism from the original deck (proven on macOS): the end state is the
+    // same in both directions; only the transition differs, set INLINE on the
+    // element ATOMICALLY with the class change. Backward => transition:none, so
+    // the new transform/opacity applies with no tween. This beats the ancestor
+    // .anim-class + reflow approach, which macOS Core Animation ignored.
+    const back = this.dir === 'backward';
+    if(this.isFlip(i)){
+      // flip cards: appear when step>data-appear, flip when step>data-flipat
+      sl.querySelectorAll('.flip-card').forEach(card=>{
+        const ap=parseInt(card.getAttribute('data-appear'),10);
+        const fl=parseInt(card.getAttribute('data-flipat'),10);
+        const inner=card.querySelector('.inner');
+        card.style.transition = back ? 'none' : '';
+        if(inner) inner.style.transition = back ? 'none' : 'transform 0.65s var(--ease)';
+        card.classList.toggle('shown', this.step>=ap);
+        card.classList.toggle('flipped', this.step>=fl);
+      });
+    } else {
+      const g=this.groups(i);
+      g.forEach((el,idx)=>{ el.style.transition = back ? 'none' : ''; el.classList.toggle('shown', idx<this.step); }); // forward: rely on '.anim .step-group{transition}' (gated to the forward reveal window); do NOT leave a persistent inline transition that a later backward toggle can tween.
+    }
+    if(this.isLoop(i)) this.applyLoop(i);
+    this.renderDots(i);
+  }
+  applyLoop(i){
+    const sl=this.slides[i];
+    const PHASE=[null,'think','act','observe','think','act','observe','think','act','observe','done'];
+    const ph=PHASE[this.step]||null;
+    sl.querySelectorAll('.loopnode').forEach(n=>{
+      const p=n.getAttribute('data-phase');
+      const rect=n.querySelector('rect');
+      const on=(ph==='done')||(p===ph);
+      rect.setAttribute('stroke','rgba(177,80,42,'+(on?0.95:0.25)+')');
+      rect.setAttribute('stroke-width', on?'2.4':'1.5');
+      rect.setAttribute('fill','rgba(177,80,42,'+(on?0.12:0.03)+')');
+      n.style.opacity = (ph===null)?'0.5':(on?'1':'0.4');
+    });
+    sl.querySelectorAll('.prail .pr').forEach(pr=>{
+      const idx=parseInt(pr.getAttribute('data-rail'),10);
+      pr.classList.toggle('on', this.step>=idx);
+    });
+  }
+  renderDots(i){
+    const total=this.stepCount(i);
+    if(!total){ this.dots.innerHTML=''; return; }
+    let h='';
+    for(let k=0;k<total;k++){ h+='<span class="sd'+(k<this.step?' on':'')+'"></span>'; }
+    this.dots.innerHTML=h;
+  }
+  show(i){
+    this.cur=Math.max(0,Math.min(i,this.slides.length-1));
+    this.slides.forEach((s,idx)=>{
+      const on=idx===this.cur;
+      s.classList.toggle('active',on); s.classList.toggle('visible',on);
+    });
+    this.curNum.textContent=String(this.cur+1).padStart(2,'0');
+    // refresh any timers on the now-visible slide
+    this.slides[this.cur].querySelectorAll('.timer').forEach(tm=>{ if(tm._refresh) tm._refresh(); });
+    return this.cur;
+  }
+  // Jump to slide n. finalState=true reveals every step instantly (used for
+  // End / backward slide entry); otherwise lands at step 0. Always silent.
+  goTo(n, finalState){
+    this.dir='backward'; // jumps (Home/End/init/backward entry) never animate
+    this.silent(()=>{
+      this.show(n);
+      this.step = finalState ? this.stepCount(this.cur) : 0;
+      this.applySteps(this.cur);
+    });
+  }
+  next(){
+    const total=this.stepCount(this.cur);
+    if(this.step<total){
+      // forward reveal of one step — THIS is the only path that animates
+      this.dir='forward';
+      this.animateForward(()=>{
+        this.step++;
+        this.applySteps(this.cur);
+      });
+      return;
+    }
+    if(this.cur<this.slides.length-1){
+      // entering a new slide forward: land at step 0 with no animation
+      this.dir='backward';
+      this.silent(()=>{
+        this.show(this.cur+1);
+        this.step=0;
+        this.applySteps(this.cur);
+      });
+    }
+  }
+  prev(){
+    // Like the original deck's retreat(): LEFT jumps to the previous slide at
+    // its FINAL fully-revealed step — it never reverse-steps through the current
+    // slide's reveals. "Going backward = see the final state only."
+    this.dir='backward';
+    if(this.cur>0){
+      this.silent(()=>{
+        this.show(this.cur-1);
+        this.step=this.stepCount(this.cur);
+        this.applySteps(this.cur);
+      });
+    }
+  }
+  bindKeys(){
+    document.addEventListener('keydown',(e)=>{
+      switch(e.key){
+        case 'ArrowRight': case 'ArrowDown': case 'PageDown': case ' ':
+          e.preventDefault(); this.next(); break;
+        case 'ArrowLeft': case 'ArrowUp': case 'PageUp':
+          e.preventDefault(); this.prev(); break;
+        case 'Home': e.preventDefault(); this.goTo(0,false); break;
+        case 'End': e.preventDefault(); this.goTo(this.slides.length-1,true); break;
+      }
+    });
+  }
+  bindWheel(){
+    let lock=false;
+    window.addEventListener('wheel',(e)=>{
+      if(lock) return;
+      // Normalize across deltaMode (some mice report lines/pages, not pixels)
+      // so a physical scroll wheel drives the slides exactly like the arrows.
+      const dy = e.deltaMode===1 ? e.deltaY*16 : (e.deltaMode===2 ? e.deltaY*400 : e.deltaY);
+      if(Math.abs(dy) < 6) return;
+      lock=true; (dy>0 ? this.next() : this.prev());
+      setTimeout(()=>{lock=false;}, 450);
+    },{passive:true});
+  }
+  bindTouch(){
+    let x0=null,y0=null;
+    window.addEventListener('touchstart',(e)=>{x0=e.touches[0].clientX;y0=e.touches[0].clientY;},{passive:true});
+    window.addEventListener('touchend',(e)=>{
+      if(x0===null) return;
+      const dx=e.changedTouches[0].clientX-x0, dy=e.changedTouches[0].clientY-y0;
+      if(Math.abs(dx)>50 && Math.abs(dx)>Math.abs(dy)){ (dx<0?this.next():this.prev()); }
+      x0=y0=null;
+    },{passive:true});
+  }
+}
+window.deck = new Deck();
+</script>

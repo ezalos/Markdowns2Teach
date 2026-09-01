@@ -1,0 +1,26 @@
+{
+  "_comment": "Claude Code AI-attributed commits on public GitHub, monthly, from botcommits.dev/data.json (retrieved 2026-09-01). The partial August month is excluded. The dashed point is what the March-2026 exponential predicted for July, against the 19.8M actually measured.",
+  "data_csv": "data/station-f-commit-bend.csv",
+  "figsize": [
+    7.6,
+    3.5
+  ],
+  "dpi": 200,
+  "x_from": "2024-12-15",
+  "x_to": "2026-09-15",
+  "month_interval": 3,
+  "y_max": 105,
+  "y_ticks": [
+    0,
+    25,
+    50,
+    75,
+    100
+  ],
+  "y_label": "millions of commits / month",
+  "y_suffix": "M",
+  "source_legend": {
+    "botcommits": "Claude Code \u2014 AI-attributed commits (botcommits.dev)",
+    "March forecast": "what the March-2026 exponential predicted"
+  }
+}

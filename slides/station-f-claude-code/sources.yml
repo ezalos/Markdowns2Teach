@@ -462,3 +462,32 @@ sources:
     title: "Why Do Multi-Agent LLM Systems Fail? (MAST taxonomy)"
     quote: "We introduce MAST-Data, a comprehensive dataset of 1600+ annotated traces collected across 7 popular MAS frameworks."
     slides: [42]
+
+  # --- added 2026-09-01 with the official-figure rebuild ---
+  - id: github-octoverse-2025
+    url: https://github.blog/news-insights/octoverse/what-986-million-code-pushes-say-about-the-developer-workflow-in-2025/
+    authority: GitHub (Octoverse)
+    title: "What 986 million code pushes say about the developer workflow in 2025"
+    quote: "986 million commits"
+    slides: [5]
+
+  - id: anthropic-advanced-tool-use
+    url: https://anthropic.com/engineering/advanced-tool-use
+    authority: Anthropic Engineering
+    title: "Introducing advanced tool use on the Claude Developer Platform"
+    quote: "Tool Search Tool, which allows Claude to use search tools to access thousands of tools without consuming its context window"
+    slides: [12]
+
+  - id: metr-expenditure-horizon
+    url: https://metr.org/blog/2026-07-21-expenditure-horizon/
+    authority: METR
+    title: "Expenditure Horizon: Measuring Optimization Ability, with an Application to NanoGPT"
+    quote: "Expenditure Horizon: Measuring Optimization Ability"
+    slides: [13]
+
+  - id: artificial-analysis-opus-5
+    url: https://artificialanalysis.ai/models/claude-opus-5
+    authority: Artificial Analysis
+    title: "Claude Opus 5 — intelligence, price and speed"
+    quote: "Intelligence Index"
+    slides: [13]

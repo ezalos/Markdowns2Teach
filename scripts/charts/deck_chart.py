@@ -170,7 +170,11 @@ def render(spec, out):
     # axes
     ax.set_ylim(0, spec.get("y_max", 22))
     ax.set_yticks(spec.get("y_ticks", [0, 5, 10, 15, 20]))
-    ax.yaxis.set_major_formatter(lambda v, _: f"{int(v)}%")
+    # The y axis is a SHARE by default (this tool started life on commit-share
+    # charts), but it is also used for absolute series. A "%" glued onto a count
+    # is a wrong axis, so the unit is configurable: "y_suffix" replaces the "%".
+    _suffix = spec.get("y_suffix", "%")
+    ax.yaxis.set_major_formatter(lambda v, _: f"{int(v)}{_suffix}")
     ax.set_xlim(d(spec["x_from"]), d(spec["x_to"]))
     ax.xaxis.set_major_locator(mdates.MonthLocator(interval=spec.get("month_interval", 2)))
     ax.xaxis.set_major_formatter(mdates.DateFormatter("%b\n'%y"))   # two-line: narrower, no run-together

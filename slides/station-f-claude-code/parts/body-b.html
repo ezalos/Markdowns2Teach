@@ -1,0 +1,163 @@
+
+<!-- ============================ PART 2 DIVIDER ============================ -->
+<section class="slide"><div class="slide-content">
+<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Part 2 &middot; What</span><span class="sep"></span><span class="eyb">The vocabulary</span></div>
+<div class="s-body" style="justify-content:center;">
+  <div class="kick" style="text-align:center;">Part two</div>
+  <h1 class="s-title" style="text-align:center;font-size:96px;line-height:1.02;">The vocabulary,<br><span class="hl">fixed</span></h1>
+  <p style="text-align:center;font-size:26px;color:var(--text-secondary);max-width:1180px;margin:22px auto 0;">Four words carry the rest of the talk. This part is calibration, not teaching &mdash; we go fast.</p>
+</div></div></section>
+
+<!-- AGENT IS A LOOP -->
+<section class="slide"><div class="slide-content">
+<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Part 2 &middot; What</span><span class="sep"></span><span class="eyb">Definition</span></div>
+<div class="s-head"><span class="eyebrow">Definition</span><h1 class="s-title">An agent is a <span class="hl">loop</span></h1></div>
+<div class="s-body" style="justify-content:center;gap:24px;">
+  <p style="font-size:32px;line-height:1.35;">A <strong>system</strong> that uses <strong>tools</strong>, <strong>repeatedly</strong>, with its <strong>environment</strong>, to reach a <strong>goal</strong>.</p>
+  <div class="cards" style="grid-template-columns:1fr 1fr 1fr;gap:20px;">
+    <div class="card"><h4>Think</h4><p>What should I do next to get closer to the goal?</p></div>
+    <div class="card"><h4>Act</h4><p>Call a tool. Search, read, write, run a command.</p></div>
+    <div class="card"><h4>Observe</h4><p>Read what came back &mdash; then decide again.</p></div>
+  </div>
+  <p style="font-family:var(--font-display);font-size:32px;color:var(--brand);text-align:center;">Not a chatbot. Not a single prompt. A loop that acts, observes, and acts again.</p>
+</div>
+<div class="sources">Sources : <a href="https://arxiv.org/abs/2210.03629">ReAct (arXiv 2210.03629)</a> &middot; <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">Anthropic &mdash; context engineering</a></div>
+</div></section>
+<!-- NOTES: The five fragments are MY paraphrase — never in quotation marks, never attributed to Anthropic. -->
+
+<!-- LLM + HARNESS -->
+<section class="slide"><div class="slide-content">
+<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Part 2 &middot; What</span><span class="sep"></span><span class="eyb">The anatomy</span></div>
+<div class="s-head"><span class="eyebrow">The anatomy</span><h1 class="s-title small">Agent = LLM + <span class="hl">harness</span></h1></div>
+<div class="s-body" style="justify-content:center;gap:22px;">
+  <p style="font-size:30px;line-height:1.35;">You buy the model. <strong>Everything else is the harness</strong> &mdash; and the harness is the part you control.</p>
+  <div class="cards" style="grid-template-columns:repeat(3,1fr);gap:18px;">
+    <div class="card"><h4>Instructions</h4><p>CLAUDE.md &mdash; standing rules, read at every session start.</p></div>
+    <div class="card"><h4>Memory</h4><p>What it keeps between sessions. Plain files first.</p></div>
+    <div class="card"><h4>Skills</h4><p>One folder, one markdown file. A recipe it can follow.</p></div>
+    <div class="card"><h4>Tools</h4><p>CLI, APIs, MCP &mdash; how it touches the world.</p></div>
+    <div class="card"><h4>Sandbox &amp; rights</h4><p>Where its code runs, and how far it may reach.</p></div>
+    <div class="card"><h4>Orchestration</h4><p>The other agents it can brief &mdash; Part 4.</p></div>
+  </div>
+  <p style="font-size:25px;color:var(--text-secondary);text-align:center;">A model that talks becomes a system that acts. <strong>Every part after this is one of these six boxes.</strong></p>
+</div>
+<div class="sources">Sources : <a href="https://magazine.sebastianraschka.com/p/components-of-a-coding-agent">Sebastian Raschka &mdash; components of a coding agent</a></div>
+</div></section>
+
+<!-- CONTEXT WINDOW DIAGRAM (reused from the Tech Lab deck) -->
+<section class="slide"><div class="slide-content">
+<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Part 2 &middot; What</span><span class="sep"></span><span class="eyb">Context</span></div>
+<div class="s-head"><span class="eyebrow">Context</span><h1 class="s-title small">The context window is <span class="hl">assembled, not dumped</span></h1></div>
+<div class="s-body">
+<p style="font-size:21px;">One text, <strong>rebuilt every turn</strong>, inside a fixed budget. Indexes first, detail on demand.<span class="cite">[1]</span> Accuracy falls as it fills, well before the limit.<span class="cite">[2]</span></p>
+<div class="two-col" style="grid-template-columns:auto 1fr;gap:16px;align-items:stretch;">
+ <div class="ctxaxis"><span class="cap">1M</span><span>750K</span><span>500K</span><span>250K</span><span>0</span></div>
+ <div class="ctxpanel" style="margin:0;flex:1;">
+  <div class="ctxhead"><span class="t">The context window</span><span class="b">rebuilt every turn</span></div>
+  <div class="ctxblock sys"><span class="blab">System</span><div class="ctxrows">
+    <div class="ctxrow"><span>CLAUDE.md</span><span class="rd">project rules &amp; conventions</span></div>
+    <div class="ctxrow"><span>Environment</span><span class="rd">cwd, OS, git state, date</span></div>
+    <div class="ctxrow"><span>Skills index</span><span class="rd">name + description only</span></div>
+    <div class="ctxmini"><span class="yk">name</span>: grill-me &nbsp;&middot;&nbsp; <span class="yk">description</span>: Interview me until we share a design</div>
+    <div class="ctxrow"><span>Memory index</span><span class="rd">one sentence + a file pointer</span></div>
+    <div class="ctxmini">make-build-quirks.md &rarr; Two Makefile pitfalls that cost debug cycles</div>
+  </div></div>
+  <div class="ctxblock tools"><span class="blab">Tools</span><div class="ctxrows">
+    <div class="ctxrow"><span>search_web(q)</span><span class="rd">&rarr; results</span></div>
+    <div class="ctxrow"><span>read_file(path)</span><span class="rd">&rarr; text</span></div>
+    <div class="ctxrow"><span>edit &middot; bash &middot; &hellip;</span><span class="rd">~18 typed tools</span></div>
+  </div></div>
+  <div class="ctxblock conv"><span class="blab">Conversation</span><div class="ctxrows">
+    <div class="ctxrow"><span>User</span><span class="rd">your message</span></div>
+    <div class="ctxrow"><span>Thinking</span><span class="rd">private reasoning</span></div>
+    <div class="ctxrow"><span>Tool use</span><span class="rd">structured call</span></div>
+    <div class="ctxrow"><span>Tool result</span><span class="rd">observation fed back</span></div>
+    <div class="ctxrow"><span>Agent</span><span class="rd">the answer &mdash; then repeat</span></div>
+  </div></div>
+  <div class="ctx-empty">Empty context &mdash; free space you manage, up to the budget</div>
+ </div>
+</div>
+</div>
+<div class="sources">Sources : [1] <a href="https://anthropic.com/engineering/advanced-tool-use">Anthropic &mdash; advanced tool use</a> &middot; [2] <a href="https://www.trychroma.com/research/context-rot">Chroma &mdash; context rot, 18 models</a></div>
+</div></section>
+<!-- NOTES: THE mental model of the talk. Everything called "context engineering" is deciding what earns its place in this text. -->
+
+<!-- COST vs INTELLIGENCE, BY EFFORT -->
+<section class="slide"><div class="slide-content">
+<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Part 2 &middot; What</span><span class="sep"></span><span class="eyb">Choosing a model</span></div>
+<div class="s-head"><span class="eyebrow">Choosing a model</span><h1 class="s-title small">Cost against capability, <span class="hl">and how hard it thinks</span></h1></div>
+<div class="s-body">
+ <div class="two-col wide-left" style="gap:26px;align-items:start;">
+  <div class="figframe" data-diagram="expenditure-horizon"><div class="figtitle">What more spending actually buys, per model</div><div class="figimg"><img src="assets/figures/metr-expenditure-horizon.png" alt="METR expenditure-horizon figure: six model panels plotting achieved speedup against dollars spent, with the human cost line"></div><div class="figcap">Source: METR &mdash; expenditure horizon on the NanoGPT speedrun (CC-BY)<span class="cite">[1]</span></div></div>
+  <div style="display:flex;flex-direction:column;gap:16px;min-height:0;">
+   <ul class="clean" style="font-size:22px;">
+     <li>Each panel is one model. <strong>Spend more, get further</strong> &mdash; until the curve flattens and the next dollar buys almost nothing.<span class="cite">[1]</span></li>
+     <li>METR puts the human cost at about <strong>$2,500 per 1% speedup</strong>. The best agent reaches an expenditure horizon near <strong>$3,300</strong> before flattening.<span class="cite">[1]</span></li>
+     <li>Build on the ceiling while designing; move down in production once your tests prove a cheaper setting is enough. And <strong>say the version and the operator</strong> &mdash; three different &ldquo;Terminal-Bench&rdquo; numbers circulate.<span class="cite">[2][3]</span></li>
+   </ul>
+   <p style="font-family:var(--font-display);font-size:27px;color:var(--brand);line-height:1.3;">The model is the smallest decision you make &mdash; and the one that changes fastest.</p>
+  </div>
+ </div>
+</div>
+<div class="sources">Sources : [1] <a href="https://metr.org/blog/2026-07-21-expenditure-horizon/">METR &mdash; expenditure horizon</a> &middot; [2] <a href="https://www.tbench.ai/leaderboard">Terminal-Bench leaderboard</a> &middot; [3] <a href="https://artificialanalysis.ai/models/claude-opus-5">Artificial Analysis &mdash; model pages</a></div>
+</div></section>
+<!-- NOTES: In June I told a room that Fable 5 led FrontierCode Diamond. That subset was deprecated in July and Grok 4.6 now leads. Never hard-code a ranking into your thinking. -->
+
+<!-- ============================ PART 3 DIVIDER ============================ -->
+<section class="slide"><div class="slide-content">
+<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Part 3 &middot; Your codebase</span><span class="sep"></span><span class="eyb">Fundamentals</span></div>
+<div class="s-body" style="justify-content:center;">
+  <div class="kick" style="text-align:center;">Part three</div>
+  <h1 class="s-title" style="text-align:center;font-size:92px;line-height:1.02;">Your codebase decides<br>whether AI <span class="hl">compounds</span></h1>
+  <p style="text-align:center;font-size:26px;color:var(--text-secondary);max-width:1180px;margin:22px auto 0;">You blame the model for bad output. It is usually the repo.</p>
+</div></div></section>
+<!-- NOTES: START THE GRILL ME DEMO NOW — it takes ~4 minutes to produce its first round. Type it, say you'll come back to it, then present the next two slides. -->
+
+<section class="slide"><div class="slide-content">
+<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Part 3 &middot; Your codebase</span><span class="sep"></span><span class="eyb">The cost that moved</span></div>
+<div class="s-head"><span class="eyebrow">The cost that moved</span><h1 class="s-title small">Bad code is the most expensive<br>it has <span class="hl">ever</span> been</h1></div>
+<div class="s-body" style="justify-content:center;gap:22px;">
+  <ul class="clean" style="font-size:26px;">
+    <li>&ldquo;Edit the spec, re-run the compiler, never look at the code&rdquo; is <strong>vibe coding with better branding</strong> &mdash; each regeneration degrades the codebase.</li>
+    <li>AI <strong>compounds in good codebases</strong> and <strong>drowns in bad ones</strong>.</li>
+    <li>So the cost of mess is no longer paid once, by you. <strong>It is paid again by every future agent run.</strong></li>
+  </ul>
+  <p style="font-family:var(--font-display);font-size:36px;color:var(--brand);text-align:center;">The fundamentals did not stop mattering. They started compounding.</p>
+</div>
+<div class="sources">Sources : <a href="https://www.youtube.com/watch?v=v4F1gFy-hqg">Matt Pocock &mdash; Software Fundamentals Matter More Than Ever (AI Engineer)</a></div>
+</div></section>
+
+<section class="slide"><div class="slide-content">
+<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Part 3 &middot; Your codebase</span><span class="sep"></span><span class="eyb">Live &middot; the pattern</span></div>
+<div class="s-head"><span class="eyebrow">Live &middot; the pattern</span><h1 class="s-title small">Reach shared understanding <span class="hl">before</span> you build</h1></div>
+<div class="s-body" style="gap:20px;">
+  <div class="appwin" style="flex:1;min-height:0;">
+    <div class="aw-head"><span class="dot"></span><span>grill-me &mdash; a two-line skill</span></div>
+    <div class="aw-body" style="font-family:var(--font-mono);font-size:20px;line-height:1.55;">
+<div><span style="color:var(--brand);">&gt;</span> Use the grilling skill. Build the agent in README.md.</div>
+<div style="margin-top:12px;color:var(--text-dim);">Facts first, then questions.</div>
+<div style="margin-top:10px;"><strong>&#10067; Q1 &mdash; What is actually being delivered here?</strong></div>
+<div style="color:var(--text-secondary);">&#10142; (c), weighted toward (a). Build something genuinely runnable, but treat the interview itself as the artifact&hellip;</div>
+<div style="margin-top:10px;"><strong>&#10067; Q2 &mdash; Is &ldquo;we&rdquo; real?</strong></div>
+<div style="color:var(--text-secondary);">&#10142; Invented, but honor it as if real. If it <em>is</em> real, say so now &mdash; it moves the PII question from a nice touch to a hard gate.</div>
+    </div>
+  </div>
+  <p style="font-size:24px;line-height:1.35;">It interviews you until you share a design &mdash; and it <strong>refuses to ask anything it could look up itself</strong>. That is why it takes four minutes before the first question. Plan mode is &ldquo;extremely eager to create an asset&rdquo; instead of reaching understanding.</p>
+</div>
+<div class="sources">Sources : <a href="https://www.youtube.com/watch?v=v4F1gFy-hqg">Matt Pocock &mdash; AI Engineer</a> &middot; <a href="https://github.com/mattpocock/skills">mattpocock/skills</a></div>
+</div></section>
+<!-- NOTES: SWITCH TO THE TERMINAL — the questions started four minutes ago and are waiting. Read two aloud, answer one live. The wait IS the lesson. Fallback transcript in demo/grill-transcript.md. -->
+
+<section class="slide"><div class="slide-content">
+<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Part 3 &middot; Your codebase</span><span class="sep"></span><span class="eyb">Wrap</span></div>
+<div class="s-head"><span class="eyebrow">Part 3 &middot; wrap</span><h1 class="s-title small">Three things that pay <span class="hl">twice</span> now</h1></div>
+<div class="s-body" style="justify-content:center;gap:20px;">
+  <div class="cards" style="grid-template-columns:repeat(3,1fr);gap:20px;">
+    <div class="card"><h4>A glossary file</h4><p>Your domain's terms, generated from your own codebase. Less verbose reasoning, implementations that match the plan. <strong>This is context engineering.</strong></p></div>
+    <div class="card"><h4>Feedback rate</h4><p>Tests, types and browser access are the agent's <strong>sensory organs</strong>, not hygiene. Your feedback rate is your speed limit.</p></div>
+    <div class="card"><h4>Deep modules</h4><p>Design the interface, delegate the implementation. Agents produce shallow sprawl they then cannot navigate.</p></div>
+  </div>
+  <div class="note" style="font-size:25px;"><strong>Intuition to keep:</strong> an agent should not be able to do damage your code would not let a human do &mdash; types at the door, constraints at the ledger.<span class="cite">[1]</span><br><strong>Steal:</strong> write the glossary file this week, and add one grill-me skill.</div>
+</div>
+<div class="sources">Sources : [1] <a href="https://www.youtube.com/watch?v=Sir59K8ZDPU">Frank Coyle &mdash; Why Agentic Systems Need Ontologies (AI Engineer)</a></div>
+</div></section>

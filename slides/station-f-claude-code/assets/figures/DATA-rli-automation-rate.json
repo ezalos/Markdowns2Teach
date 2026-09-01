@@ -1,0 +1,49 @@
+{
+ "source_page": "https://safe.ai/blog/significant-increase-in-digital-labor-automation",
+ "chart": "Full-automation rate on the Remote Labor Index",
+ "caption": "Full-automation rate on the Remote Labor Index: the share of projects where each model's deliverable was judged at least as good as the professional's. The three newly evaluated models (Fable 5, Opus 4.8, GPT-5.5) score above every previously evaluated model.",
+ "note": "Values read verbatim from the published HTML/CSS bar chart on the source page (no static image is published).",
+ "retrieved": "2026-09-01",
+ "data": [
+  {
+   "model": "Gemini 3 Pro",
+   "vendor": "Gemini",
+   "full_automation_rate_pct": 1.25
+  },
+  {
+   "model": "Grok 4",
+   "vendor": "Grok",
+   "full_automation_rate_pct": 2.08
+  },
+  {
+   "model": "GPT-5.2",
+   "vendor": "OpenAI",
+   "full_automation_rate_pct": 2.5
+  },
+  {
+   "model": "Manus 1.6 Max",
+   "vendor": "Manus",
+   "full_automation_rate_pct": 2.92
+  },
+  {
+   "model": "Opus 4.6",
+   "vendor": "Claude",
+   "full_automation_rate_pct": 4.17
+  },
+  {
+   "model": "GPT-5.5",
+   "vendor": "OpenAI",
+   "full_automation_rate_pct": 6.3
+  },
+  {
+   "model": "Opus 4.8",
+   "vendor": "Claude",
+   "full_automation_rate_pct": 8.3
+  },
+  {
+   "model": "Fable 5",
+   "vendor": "Claude",
+   "full_automation_rate_pct": 15.8
+  }
+ ]
+}
