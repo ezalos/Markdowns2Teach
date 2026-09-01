@@ -1,0 +1,42 @@
+{
+  "status": "partial",
+  "sources_total": 32,
+  "sources_verified": 24,
+  "unanswered": [
+    "Lab-run internal AI R&D evaluations published with numbers: I could not obtain Anthropic's or OpenAI's own published figures for their internal automated AI R&D evaluations. Prime Intellect's blog [1] describes them second-hand ('Anthropic's internal automated AI R&D evaluation optimizes a model on a CPU node, while OpenAI reports using nanoGPT Track 1 with a single H100 for less than a day in the GPT-5.6 Sol system card'), but I did not fetch either system card, so no lab-internal number appears behind an [n] marker. The rest of the 'current state of agents doing machine-learning research' question is answered from METR RE-Bench, METR Expenditure Horizon, METR Time Horizon 1.1, OpenAI MLE-bench, the MLE-bench 2026 leaderboard snapshot, Intology NanoGPT-Bench and the Prime Intellect study."
+  ],
+  "unverified": [
+    {
+      "url": "https://x.com/karpathy/status/2031135152349524125",
+      "reason": "HTTP 402 Payment Required from x.com; the post could not be fetched or quoted. No claim depends on it: the same facts (autoresearch on a d12 model, 2.02h -> 1.80h time-to-GPT-2, round 2 reaching 1.65h) are cited from Karpathy's own nanochat dev/LEADERBOARD.md [3], which links to this tweet."
+    },
+    {
+      "url": "https://x.com/karpathy/status/2029701092347630069",
+      "reason": "HTTP 402 from x.com (announcement tweet linked from the autoresearch README). Not fetched, not quoted, backs no marker."
+    },
+    {
+      "url": "https://openreview.net/forum?id=ikrQWGgxYg",
+      "reason": "HTTP 403 ChallengeRequiredError (browser challenge) on both the forum page and the api2.openreview.net notes endpoint and the PDF endpoint. This is the 'Reward Hacking in Self-Improving Code Agents' paper (ICLR 2026 workshop) reporting 73.8% of KernelBench and 46.8% of ALE-Bench optimizations showing proxy gains without real gains. Because it could not be fetched and quoted, those figures are NOT cited anywhere in the report; the reward-hacking mechanism is instead evidenced by SpecBench [19], Tao [16], Prime Intellect [1] and the sandbox-escape write-up [20]."
+    },
+    {
+      "url": "https://www.cell.com/cell/fulltext/S0092-8674(25)00973-0",
+      "reason": "HTTP 403 Forbidden. This is the peer-reviewed Cell paper behind the Google AI co-scientist bacteriophage story. The claim in the report is cited to Imperial College London's own page [22] instead; no figure from the Cell paper is used."
+    },
+    {
+      "url": "https://pubs.acs.org/doi/10.1021/acs.chemmater.4c00643",
+      "reason": "HTTP 403 Forbidden (ACS paywall/bot block). Canonical DOI page for Cheetham & Seshadri's Chemistry of Materials critique of GNoME. Bibliographic record verified via OSTI [24]; the verbatim sentence from the paper is quoted from The Register's reproduction [23], labelled as secondary."
+    },
+    {
+      "url": "https://escholarship.org/uc/item/9qx9t3kz",
+      "reason": "HTTP 403 from CloudFront (request blocked). Open-access mirror of the same Chemistry of Materials perspective; could not be fetched or quoted."
+    },
+    {
+      "url": "https://www.intology.ai/blog/nanogpt-bench",
+      "reason": "HTTP 403 via WebFetch, and the curl-fetched page is a JavaScript-only shell with no extractable text. The NanoGPT-Bench numbers (9.3% / 8.6% / 8.2%, ~77% of human records algorithmic) are instead cited from the project's own GitHub README [10], which was fetched raw and quoted verbatim."
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38681084/",
+      "reason": "Returned only a cookie-consent interstitial; no abstract text retrievable. Not cited."
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "status": "partial",
+  "sources_total": 35,
+  "sources_verified": 33,
+  "unanswered": [
+    "Per-system primaries — the 'named production users' sub-requirement. Verifiable named production users could not be obtained from primary sources for mem0, Letta, Zep or Cloudflare Agent Memory. mem0's own announcement says only 'Thousands of teams, from startups to Fortune 500 companies, now use Mem0 in production' without naming any; Letta's and Cloudflare's primaries name none; Zep's site claims enterprise customers but names none on a fetchable page. The only named production users verified in this run are Interloom's (Zurich Insurance, Fiege). Repository stars (measured, dated) and funding (primary announcements, dated) were obtained for all systems except Zep's funding.",
+    "Per-system primaries — Zep's funding amount and date. No primary company announcement or reputable financial-press article was found; only aggregator profiles (Crunchbase, Tracxn, PitchBook) which were not fetched or quoted. No funding figure for Zep appears in the report."
+  ],
+  "unverified": [
+    {
+      "url": "https://www.crunchbase.com/organization/zep-ai",
+      "reason": "Surfaced in search results as the source of a claimed $500K seed (March 2024) for Zep AI. Not fetched (aggregator behind login/paywall) and therefore not quoted. No [n] marker in the report relies on it and no Zep funding number is stated anywhere in the report."
+    },
+    {
+      "url": "https://supermemory.ai/blog/supermemory-raises-3-million-and-building-the-best-memory-engine-for-llms",
+      "reason": "Supermemory funding figures conflicted across search snippets ($2.6M seed Oct 2025 vs $3M pre-seed vs $29.0M total over 2 rounds per trackers). The primary page was not fetched and no figure was reconciled, so Supermemory is omitted from the market-signal table entirely rather than cited with a disputed number."
+    }
+  ]
+}
