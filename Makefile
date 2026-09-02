@@ -49,7 +49,7 @@ $(foreach d,$(TOP_DIRS),$(eval $(call topdir_rules,$(d))))
 GUIDE_DIR := $(DIST_DIR)/guide
 PANDOC := $(shell command -v pandoc 2>/dev/null || echo "$(HOME)/.local/bin/pandoc")
 
-.PHONY: all preview build pptx html html-inline index check check-citations check-citation-links verify-sources verify-sources-live lint-authority-map dedup clean sync serve deploy test-decks guide pdf-full help html-% pptx-% pdf-full-% build-% export-pdf-% assets
+.PHONY: all preview build pptx html html-inline index check check-citations check-citation-links verify-sources verify-sources-live lint-authority-map dedup clean sync serve deploy test-decks guide pdf-full help html-% pptx-% pdf-full-% build-% export-pdf-% export-pdf-text-% assets
 
 # All prebuilt HTML decks (frontend-slides) — the ones whose citations must deep-link
 PREBUILT_HTML := $(shell find $(SLIDES_DIR) -maxdepth 2 -name '*.html' -type f)
@@ -176,6 +176,15 @@ export-pdf-%: ## Export slides/<NAME>/ deck to a verified PDF (LIVE source check
 	 NODE_PATH=$$(npm root -g) node scripts/export-deck-pdf.js "$$deck" dist/pdf-export/$* && \
 	 uv run --quiet --with pillow --with reportlab --with pyyaml \
 	   python3 scripts/export-deck-pdf.py dist/pdf-export/$* "$$(dirname $$deck)/sources.yml" dist/pdf-export/$*.pdf
+
+export-pdf-text-%: ## Same deck, but with a SELECTABLE TEXT LAYER (Chrome print-to-PDF; screenshot export stays the default)
+	@deck=$$(find $(SLIDES_DIR)/$* -maxdepth 1 -name '*.html' -type f | head -1); \
+	 [ -n "$$deck" ] || { echo "no HTML deck under slides/$*"; exit 2; }; \
+	 [ -f dist/pdf-export/$*.pdf ] || { echo "run 'make export-pdf-$*' first — the References pages come from it"; exit 2; }; \
+	 n=$$(grep -o '<section [^>]*class="slide' "$$deck" | wc -l); \
+	 NODE_PATH=$(PWD)/node_modules node scripts/export-deck-pdf-textlayer.js "$$deck" dist/pdf-export/$*-slides-text.pdf && \
+	 uv run --quiet --with pypdf \
+	   python3 scripts/merge-deck-pdf-references.py dist/pdf-export/$*-slides-text.pdf dist/pdf-export/$*.pdf $$n dist/pdf-export/$*-text.pdf
 
 check-citations: ## Warn about data slides missing source citations
 	@bash scripts/check-citations.sh $(SLIDES_DIR)
