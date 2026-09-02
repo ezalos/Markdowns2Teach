@@ -83,6 +83,15 @@ def main():
     for old, new in GLYPH_FIXES:
         body = body.replace(old, new)
     body = de_dash_display(body)
+    # Section labels: the numbered "Part N" mastheads outlived the dividers they belonged to.
+    for old, new in (("Part 4 &middot; One or many", "How to work"),
+                     ("Part 5 &middot; Loops", "Loops"),
+                     ("Part 6 &middot; The method", "Loops"),
+                     ("Part 7 &middot; Leverage", "Close"),
+                     ("Part 3 &middot; Your codebase", "How to work"),
+                     ("Part 2 &middot; What", "What an agent is"),
+                     ("Part 1 &middot; Why", "Why now")):
+        body = body.replace(f"<span>{old}</span>", f"<span>{new}</span>")
 
     html = head.replace("\n</style>", OVERRIDES + "\n</style>", 1) + body + tail + "\n</body>\n</html>\n"
 

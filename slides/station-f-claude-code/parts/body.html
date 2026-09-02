@@ -20,7 +20,7 @@
       <li><strong>Founding ML Research Engineer</strong>, Silicon Valley</li>
       <li>Created the AI curriculum for the <strong>42 Network</strong>, 25,000+ students worldwide</li>
       <li>Teaches the <strong>M2 ML &amp; DeepTech</strong> track at the Sorbonne</li>
-      <li>was <strong>AI Lead at Station F</strong>, world&rsquo;s largest incubator</li>
+      <li>was <strong>Club AI Lead at Station F</strong>, world&rsquo;s largest incubator</li>
     </ul>
   </div>
  </div>
@@ -34,38 +34,6 @@
  </div>
  <div class="callout tip" style="margin-top:6px;"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><div><p>Raw intelligence only talks. <strong>An agent is what puts it to work,</strong> acting on the world to deliver value with it. That is what this talk is about.</p></div></div>
 </div></div></section>
-<section class="slide"><div class="slide-content">
-<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Part 1 &middot; Why</span><span class="sep"></span><span class="eyb">Bend 1 &middot; adoption</span></div>
-<div class="s-head"><span class="eyebrow">Bend 1 &middot; adoption</span><h1 class="s-title small">The agent-commit curve is a <span class="hl">sigmoid</span></h1></div>
-<div class="s-body">
- <div class="two-col wide-left" style="gap:26px;align-items:start;">
-  <div class="figframe" data-diagram="commit-bend"><div class="figtitle">What the March forecast said, against what happened</div><div class="figimg" style="flex-direction:column;gap:14px;padding:26px 24px;align-items:stretch;justify-content:center;">
-    <div style="font-family:var(--font-mono);font-size:19px;color:var(--text-dim);">July 2026, Claude Code commits on public GitHub</div>
-    <div style="display:flex;align-items:baseline;gap:14px;"><span style="font-family:var(--font-display);font-size:52px;color:var(--text-dim);">98.5M</span><span style="font-size:19px;color:var(--text-dim);">predicted by the March exponential</span></div>
-    <div style="display:flex;align-items:baseline;gap:14px;"><span style="font-family:var(--font-display);font-size:76px;color:var(--brand);">19.8M</span><span style="font-size:20px;color:var(--text-primary);"><strong>actually measured</strong></span></div>
-    <div style="font-size:19px;color:var(--text-secondary);line-height:1.35;border-top:1px solid var(--panel-border);padding-top:12px;">The forecast overshot by <strong>5&times;</strong>. Sigmoid fits now beat the exponential.</div>
-  </div><div class="figcap">Figures: botcommits.dev &mdash; the tracker that first reported the exponential. It renders its charts client-side, so there is no published static figure to show.<span class="cite">[1]</span></div></div>
-  <div style="display:flex;flex-direction:column;gap:14px;min-height:0;">
-    <div class="stat" style="padding:18px 20px;gap:5px;"><div class="big" style="font-size:46px;">+14%<span style="font-size:24px;color:var(--text-dim);"> / month</span></div><div class="stat-lbl" style="font-size:18px;line-height:1.3;">down from <strong>+89%</strong> in March. Doubling time <strong>2.62 months</strong>, against 1.22.<span class="cite">[1]</span></div></div>
-    <div class="stat" style="padding:18px 20px;gap:5px;"><div class="big" style="font-size:46px;">April 2026</div><div class="stat-lbl" style="font-size:18px;line-height:1.3;">the inflection every fit agrees on. Estimated ceiling <strong>22&ndash;30M</strong> commits a month.<span class="cite">[1]</span></div></div>
-    <div class="stat" style="padding:18px 20px;gap:5px;"><div class="big" style="font-size:46px;">6&ndash;18%</div><div class="stat-lbl" style="font-size:18px;line-height:1.3;">of public commits, <strong>a range not a point</strong> &mdash; nobody has the commit denominator.<span class="cite">[1][2]</span></div></div>
-  </div>
- </div>
-</div>
-<div class="sources">Sources : [1] <a href="https://botcommits.dev/">botcommits.dev</a> &middot; [2] <a href="https://github.blog/news-insights/octoverse/what-986-million-code-pushes-say-about-the-developer-workflow-in-2025/">GitHub Octoverse</a></div>
-</div></section>
-<section class="slide"><div class="slide-content">
-<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Why now</span><span class="sep"></span><span class="eyb">What to follow instead</span></div>
-<div class="s-head"><span class="eyebrow">What to follow instead</span><h1 class="s-title small">Two benchmarks that <span class="hl">have not</span> run out of range</h1></div>
-<div class="s-body" style="gap:14px;">
- <div class="two-col" style="grid-template-columns:1fr 1fr;gap:22px;align-items:start;">
-  <div class="figframe"><div class="figtitle">Epoch Capabilities Index &mdash; every model, by release date</div><div class="figimg"><img src="assets/figures/epoch-eci-live.png" alt="Epoch Capabilities Index: score against release date for 236 models"></div><div class="figcap">A composite over 50+ benchmarks that <strong>re-anchors as individual ones saturate</strong>. Source: Epoch AI, CC-BY<span class="cite">[1]</span></div></div>
-  <div class="figframe"><div class="figtitle">Remote Labor Index &mdash; real paid freelance projects</div><div class="figimg"><img src="assets/figures/rli-leaderboard.png" alt="Remote Labor Index leaderboard: automation rate by model"></div><div class="figcap">Human-graded deliverables a client would accept. Best model <strong>15.80%</strong>. Source: Scale / CAIS<span class="cite">[2]</span></div></div>
- </div>
- <div class="note" style="font-size:24px;">One gives you the <strong>trajectory</strong> on a scale that keeps re-anchoring; the other gives you the <strong>ceiling</strong>, in work someone actually paid for. <strong>The trend line is not the asset &mdash; what you build around the model is.</strong></div>
-</div>
-<div class="sources">Sources : [1] <a href="https://epoch.ai/eci">Epoch Capabilities Index</a> &middot; [2] <a href="https://labs.scale.com/leaderboard/rli">Remote Labor Index leaderboard</a></div>
-</div></section>
 <section class="slide"><div class="slide-content">
 <div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Part 1 &middot; Why</span><span class="sep"></span><span class="eyb">Bend 2 &middot; capability</span></div>
 <div class="s-head"><span class="eyebrow">Bend 2 &middot; capability</span><h1 class="s-title small">The benchmark was <span class="hl">outgrown</span>, not gamed</h1></div>
@@ -85,6 +53,18 @@
 <div class="sources">Sources : [1] <a href="https://metr.org/time-horizons/">METR &mdash; time horizons</a> &middot; [2] <a href="https://metr.org/blog/2026-06-26-gpt-5-6-sol/">METR &mdash; GPT-5.6 Sol evaluation</a></div>
 </div></section>
 <section class="slide"><div class="slide-content">
+<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Why now</span><span class="sep"></span><span class="eyb">What to follow instead</span></div>
+<div class="s-head"><span class="eyebrow">What to follow instead</span><h1 class="s-title small">Two benchmarks that <span class="hl">have not</span> run out of range</h1></div>
+<div class="s-body" style="gap:14px;">
+ <div class="two-col" style="grid-template-columns:1fr 1fr;gap:22px;align-items:start;">
+  <div class="figframe"><div class="figtitle">Epoch Capabilities Index &mdash; every model, by release date</div><div class="figimg"><img src="assets/figures/epoch-eci-live.png" alt="Epoch Capabilities Index: score against release date for 236 models"></div><div class="figcap">A composite over 50+ benchmarks that <strong>re-anchors as individual ones saturate</strong>. Source: Epoch AI, CC-BY<span class="cite">[1]</span></div></div>
+  <div class="figframe"><div class="figtitle">Remote Labor Index &mdash; real paid freelance projects</div><div class="figimg"><img src="assets/figures/rli-leaderboard.png" alt="Remote Labor Index leaderboard: automation rate by model"></div><div class="figcap">Human-graded deliverables a client would accept. Best model <strong>15.80%</strong>. Source: Scale / CAIS<span class="cite">[2]</span></div></div>
+ </div>
+ <div class="note" style="font-size:24px;">One gives you the <strong>trajectory</strong> on a scale that keeps re-anchoring; the other gives you the <strong>ceiling</strong>, in work someone actually paid for. <strong>The trend line is not the asset &mdash; what you build around the model is.</strong></div>
+</div>
+<div class="sources">Sources : [1] <a href="https://epoch.ai/eci">Epoch Capabilities Index</a> &middot; [2] <a href="https://labs.scale.com/leaderboard/rli">Remote Labor Index leaderboard</a></div>
+</div></section>
+<section class="slide"><div class="slide-content">
 <div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Why now</span><span class="sep"></span><span class="eyb">Agents are already doing the work</span></div>
 <div class="s-head"><span class="eyebrow">Agents are already doing the work</span><h1 class="s-title small">And the curve is <span class="hl">bending</span></h1></div>
 <div class="s-body" style="gap:14px;">
@@ -99,14 +79,37 @@
 <section class="slide"><div class="slide-content">
 <div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Why now</span><span class="sep"></span><span class="eyb">The money</span></div>
 <div class="s-head"><span class="eyebrow">The money</span><h1 class="s-title small">Demand is <span class="hl">real, big and fast</span></h1></div>
-<div class="s-body" style="gap:14px;">
- <div class="two-col" style="grid-template-columns:1fr 1fr;gap:20px;align-items:start;">
-  <div class="figframe"><div class="figtitle">$110bn trailing 12-month revenue, at a $175bn pace</div><div class="figimg"><img src="assets/figures/ev-revenue.jpeg" alt="Generative AI economy revenue, deduplicated: trailing twelve month revenue against annualised run rate"></div><div class="figcap">The <strong>1.6&times; gap</strong> between the two lines is the growth rate itself. Source: Exponential View<span class="cite">[1]</span></div></div>
-  <div class="figframe"><div class="figtitle">AI is scaling three times faster than any IT wave</div><div class="figimg"><img src="assets/figures/ev-3x-faster.jpeg" alt="Realized revenue trajectory time-aligned to year zero: internet, mobile apps, cloud and GenAI"></div><div class="figcap">Revenue trajectories aligned to year zero: internet 1995, mobile 2007, cloud 2010, GenAI 2023. Source: Exponential View<span class="cite">[1]</span></div></div>
- </div>
- <div class="note" style="font-size:23px;">This is the market you are building into. The same report is blunt about the other side: roughly <strong>$2T of committed CapEx</strong>, with revenue covering ongoing depreciation by a thin margin. <strong>Nobody should plan on the subsidy lasting.</strong></div>
+<div class="s-body" style="gap:16px;">
+ <div class="figframe" style="max-height:640px;"><div class="figtitle">$110bn trailing 12-month revenue, now at a $175bn pace</div><div class="figimg"><img src="assets/figures/ev-revenue.jpeg" alt="Generative AI economy revenue, deduplicated: trailing twelve-month revenue against annualised run rate, Jan 2023 to Jun 2026"></div><div class="figcap">Source: Exponential View, State of the AI Economy 2026<span class="cite">[1]</span></div></div>
+ <div class="note" style="font-size:24px;">The <strong>1.6&times; gap</strong> between the two lines <em>is</em> the growth rate. This is the market you are building into &mdash; and it is banked revenue, not projections.</div>
 </div>
 <div class="sources">Sources : [1] <a href="https://intelligence.exponentialview.co/assets/ev-state-of-ai-economy-2026.pdf">Exponential View &mdash; State of the AI Economy 2026</a></div>
+</div></section>
+<section class="slide"><div class="slide-content">
+<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Why now</span><span class="sep"></span><span class="eyb">How fast</span></div>
+<div class="s-head"><span class="eyebrow">How fast</span><h1 class="s-title small">Three times faster than <span class="hl">any IT wave</span> before it</h1></div>
+<div class="s-body" style="gap:16px;">
+ <div class="figframe" style="max-height:640px;"><div class="figtitle">Realized revenue, time-aligned to year zero</div><div class="figimg"><img src="assets/figures/ev-3x-faster.jpeg" alt="Realized revenue trajectory aligned to year zero for internet 1995, mobile apps 2007, cloud 2010 and GenAI 2023"></div><div class="figcap">Internet 1995 &middot; mobile 2007 &middot; cloud 2010 &middot; GenAI 2023. Source: Exponential View<span class="cite">[1]</span></div></div>
+ <div class="note" style="font-size:24px;">The other side of the same report: roughly <strong>$2T of committed CapEx</strong>, with revenue covering ongoing depreciation by a thin margin. <strong>Nobody should plan on the subsidy lasting.</strong></div>
+</div>
+<div class="sources">Sources : [1] <a href="https://intelligence.exponentialview.co/assets/ev-state-of-ai-economy-2026.pdf">Exponential View &mdash; State of the AI Economy 2026</a></div>
+</div></section>
+<section class="slide"><div class="slide-content">
+<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Part 2 &middot; What</span><span class="sep"></span><span class="eyb">The anatomy</span></div>
+<div class="s-head"><span class="eyebrow">The anatomy</span><h1 class="s-title small">Agent = LLM + <span class="hl">harness</span></h1></div>
+<div class="s-body" style="justify-content:center;gap:22px;">
+  <p style="font-size:30px;line-height:1.35;">You buy the model. <strong>Everything else is the harness</strong> &mdash; and the harness is the part you control.</p>
+  <div class="cards" style="grid-template-columns:repeat(3,1fr);gap:18px;">
+    <div class="card"><h4>Instructions</h4><p>CLAUDE.md &mdash; standing rules, read at every session start.</p></div>
+    <div class="card"><h4>Memory</h4><p>What it keeps between sessions. Plain files first.</p></div>
+    <div class="card"><h4>Skills</h4><p>One folder, one markdown file. A recipe it can follow.</p></div>
+    <div class="card"><h4>Tools</h4><p>CLI, APIs, MCP &mdash; how it touches the world.</p></div>
+    <div class="card"><h4>Sandbox &amp; rights</h4><p>Where its code runs, and how far it may reach.</p></div>
+    <div class="card"><h4>Orchestration</h4><p>The other agents it can brief &mdash; Part 4.</p></div>
+  </div>
+  <p style="font-size:25px;color:var(--text-secondary);text-align:center;">A model that talks becomes a system that acts. <strong>Every part after this is one of these six boxes.</strong></p>
+</div>
+<div class="sources">Sources : <a href="https://magazine.sebastianraschka.com/p/components-of-a-coding-agent">Sebastian Raschka &mdash; components of a coding agent</a></div>
 </div></section>
 <section class="slide loop-slide" data-steps="10"><div class="slide-content"><div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>What an agent is</span><span class="sep"></span><span class="eyb">What an agent is &middot; the loop</span></div>
 <div class="s-head"><span class="step-tag">an agent is a loop: gather context → take action → verify → repeat</span><h1 class="s-title small">One goal, many small steps <span class="cite">[1][2]</span></h1></div>
@@ -132,23 +135,6 @@
 </div>
 <div class="sources">Sources : [1] <a href="https://claude.com/blog/getting-started-with-loops">claude.com</a> (the agentic loop) &middot; [2] <a href="https://arxiv.org/abs/2210.03629">arxiv.org</a> (ReAct)</div>
 </div></div></section>
-<section class="slide"><div class="slide-content">
-<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Part 2 &middot; What</span><span class="sep"></span><span class="eyb">The anatomy</span></div>
-<div class="s-head"><span class="eyebrow">The anatomy</span><h1 class="s-title small">Agent = LLM + <span class="hl">harness</span></h1></div>
-<div class="s-body" style="justify-content:center;gap:22px;">
-  <p style="font-size:30px;line-height:1.35;">You buy the model. <strong>Everything else is the harness</strong> &mdash; and the harness is the part you control.</p>
-  <div class="cards" style="grid-template-columns:repeat(3,1fr);gap:18px;">
-    <div class="card"><h4>Instructions</h4><p>CLAUDE.md &mdash; standing rules, read at every session start.</p></div>
-    <div class="card"><h4>Memory</h4><p>What it keeps between sessions. Plain files first.</p></div>
-    <div class="card"><h4>Skills</h4><p>One folder, one markdown file. A recipe it can follow.</p></div>
-    <div class="card"><h4>Tools</h4><p>CLI, APIs, MCP &mdash; how it touches the world.</p></div>
-    <div class="card"><h4>Sandbox &amp; rights</h4><p>Where its code runs, and how far it may reach.</p></div>
-    <div class="card"><h4>Orchestration</h4><p>The other agents it can brief &mdash; Part 4.</p></div>
-  </div>
-  <p style="font-size:25px;color:var(--text-secondary);text-align:center;">A model that talks becomes a system that acts. <strong>Every part after this is one of these six boxes.</strong></p>
-</div>
-<div class="sources">Sources : <a href="https://magazine.sebastianraschka.com/p/components-of-a-coding-agent">Sebastian Raschka &mdash; components of a coding agent</a></div>
-</div></section>
 <section class="slide"><div class="slide-content">
 <div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Part 2 &middot; What</span><span class="sep"></span><span class="eyb">Context</span></div>
 <div class="s-head"><span class="eyebrow">Context</span><h1 class="s-title small">The context window is <span class="hl">assembled, not dumped</span></h1></div>
@@ -184,29 +170,51 @@
 <div class="sources">Sources : [1] <a href="https://anthropic.com/engineering/advanced-tool-use">Anthropic &mdash; advanced tool use</a> &middot; [2] <a href="https://www.trychroma.com/research/context-rot">Chroma &mdash; context rot, 18 models</a></div>
 </div></section>
 <section class="slide"><div class="slide-content">
-<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Part 7 &middot; Leverage</span><span class="sep"></span><span class="eyb">And it holds up measured</span></div>
-<div class="s-head"><span class="eyebrow">And it holds up when measured</span><h1 class="s-title small">The <span class="hl">threshold</span>, not the winner</h1></div>
-<div class="s-body" style="justify-content:center;gap:20px;">
-  <ul class="clean" style="font-size:24px;">
-    <li>An agent that writes the conversation to a file and <strong>greps it</strong> scores <strong>74.0%</strong> on the standard memory benchmark &mdash; <strong>in the same range as the specialised products</strong>, and above the full-context baseline.<span class="cite">[1]</span></li>
-    <li>The honest threshold: at <strong>~26,000 tokens</strong> plain full context wins outright; at <strong>~115,000</strong> memory systems win by 11&ndash;24 points. <strong>Scale when you cross it, not before.</strong><span class="cite">[2]</span></li>
-    <li>Treat the vendor tables carefully &mdash; an audit of that benchmark found <strong>6.4% of the answer key wrong</strong> and the judge accepting <strong>62.81%</strong> of deliberately wrong answers.<span class="cite">[3]</span></li>
-  </ul>
-  <div class="note" style="font-size:25px;">The category is also <strong>not</strong> six months old, whatever the marketing says. Its founding paper is from <strong>October 2023</strong>.<span class="cite">[4]</span></div>
-</div>
-<div class="sources">Sources : [1] <a href="https://www.letta.com/blog/benchmarking-ai-agent-memory/">Letta</a> &middot; [2] <a href="https://arxiv.org/html/2504.19413v1">mem0 paper</a> &middot; [3] <a href="https://penfieldlabs.substack.com/p/we-audited-locomo-64-of-the-answer">Penfield Labs &mdash; LoCoMo audit</a> &middot; [4] <a href="https://arxiv.org/abs/2310.08560">MemGPT</a></div>
-</div></section>
+<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Part 7 &middot; Leverage</span><span class="sep"></span><span class="eyb">Live &middot; what my agent remembers</span></div>
+<div class="s-head"><span class="eyebrow">Live &middot; what my agent remembers</span><h1 class="s-title small">A folder you can read, or <span class="hl">a database</span>?</h1></div>
+<div class="s-body" style="gap:18px;">
+ <div class="two-col" style="gap:20px;align-items:stretch;">
+  <div class="appwin"><div class="aw-head"><span class="dot"></span><span>Claude Code &mdash; memory/</span></div>
+   <div class="aw-body" style="font-family:var(--font-mono);font-size:17px;line-height:1.5;">
+<div style="color:var(--text-dim);">$ cat &hellip;/memory/make-build-quirks.md</div>
+<div>---</div>
+<div><span style="color:var(--brand);">name</span>: make-build-quirks</div>
+<div><span style="color:var(--brand);">type</span>: project</div>
+<div>---</div>
+<div style="margin-top:6px;"><strong># Makefile pitfalls</strong></div>
+<div style="color:var(--text-secondary);"><strong>Why:</strong> % in $(filter) is substituted before filter runs&hellip;</div>
+<div style="color:var(--text-secondary);"><strong>How to apply:</strong> precompute per-key lists with foreach/eval</div>
+   </div></div>
+  <div class="appwin"><div class="aw-head"><span class="dot"></span><span>Codex &mdash; memories_1.sqlite</span></div>
+   <div class="aw-body" style="font-family:var(--font-mono);font-size:17px;line-height:1.5;">
+<div style="color:var(--text-dim);">$ sqlite3 &hellip;/memories_1.sqlite ".schema"</div>
+<div>CREATE TABLE stage1_outputs (</div>
+<div>&nbsp;&nbsp;thread_id TEXT PRIMARY KEY,</div>
+<div>&nbsp;&nbsp;<span style="color:var(--brand);">raw_memory</span> TEXT NOT NULL,</div>
+<div>&nbsp;&nbsp;rollout_summary TEXT NOT NULL,</div>
+<div>&nbsp;&nbsp;<span style="color:var(--brand);">usage_count</span> INTEGER,</div>
+<div>&nbsp;&nbsp;<span style="color:var(--brand);">selected_for_phase2</span> INTEGER );</div>
+   </div></div>
+ </div>
+ <p style="font-size:23px;line-height:1.35;">A lesson the agent hit, <strong>wrote down</strong>, and now re-reads &mdash; against a <strong>two-stage curation pipeline with usage tracking</strong>. Neither is wrong. But one of them you can review, diff, and hand to a new teammate on day one. <strong>The deck you are watching was built by the agent whose memory that is.</strong></p>
+</div></div></section>
 <section class="slide"><div class="slide-content">
 <div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>What an agent is</span><span class="sep"></span><span class="eyb">Choosing a model</span></div>
-<div class="s-head"><span class="eyebrow">Choosing a model</span><h1 class="s-title small">Cost against intelligence, and what <span class="hl">thinking effort</span> buys</h1></div>
-<div class="s-body" style="gap:12px;">
- <div class="two-col" style="grid-template-columns:1fr 1fr;gap:18px;align-items:start;">
-  <div class="figframe"><div class="figtitle">Every model: intelligence against cost per task</div><div class="figimg"><img src="assets/figures/aa-intelligence-cost.png" alt="Artificial Analysis: Intelligence Index against cost per Intelligence Index task, log scale, with a Pareto line"></div><div class="figcap">The <strong>Pareto line</strong> is the only part that matters. Source: Artificial Analysis, 2 Sep 2026<span class="cite">[1]</span></div></div>
-  <div class="figframe"><div class="figtitle">One model, five effort settings</div><div class="figimg"><img src="assets/figures/aa-effort-ladder.png" alt="Intelligence against cost per task with reasoning-effort ladders for GPT-5.6 Sol, Terra, Luna and GPT-5.5, labelled with response time"></div><div class="figcap">low &rarr; max on the same model, with <strong>end-to-end response time</strong> on each rung. Community chart on Artificial Analysis data<span class="cite">[2]</span></div></div>
- </div>
- <div class="note" style="font-size:23px;"><strong>Effort is a dial, not a model choice.</strong> Sol from low to max moves the index from 51 to 61 &mdash; and the response time from 11 seconds to <strong>149</strong>. Design on the ceiling; move down the curve in production once your tests can prove a cheaper setting is enough.</div>
+<div class="s-head"><span class="eyebrow">Choosing a model</span><h1 class="s-title small">Intelligence against <span class="hl">cost</span>, for every model</h1></div>
+<div class="s-body" style="gap:16px;">
+ <div class="figframe" style="max-height:640px;"><div class="figtitle">Intelligence Index against cost per task, log scale</div><div class="figimg"><img src="assets/figures/aa-intelligence-cost.png" alt="Artificial Analysis: Intelligence Index against cost per Intelligence Index task with a Pareto line"></div><div class="figcap">Source: Artificial Analysis, read 2 September 2026<span class="cite">[1]</span></div></div>
+ <div class="note" style="font-size:24px;">Only the <strong>Pareto line</strong> matters &mdash; everything under it is dominated. Note the spread: the same index score costs <strong>$0.05 or $3</strong> depending on which point you pick.</div>
 </div>
-<div class="sources">Sources : [1] <a href="https://artificialanalysis.ai/models#intelligence-comparison-tabs">Artificial Analysis &mdash; intelligence vs cost</a> &middot; [2] <a href="https://www.reddit.com/r/codex/comments/1vpmge5/new_updated_linear_pricing_vs_intelligence_vs/">r/codex &mdash; effort ladder chart</a></div>
+<div class="sources">Sources : [1] <a href="https://artificialanalysis.ai/models#intelligence-comparison-tabs">Artificial Analysis &mdash; model comparison</a></div>
+</div></section>
+<section class="slide"><div class="slide-content">
+<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>What an agent is</span><span class="sep"></span><span class="eyb">Thinking effort</span></div>
+<div class="s-head"><span class="eyebrow">Thinking effort</span><h1 class="s-title small">One model, five settings &mdash; what effort <span class="hl">buys</span></h1></div>
+<div class="s-body" style="gap:16px;">
+ <div class="figframe" style="max-height:600px;"><div class="figtitle">The same model at low, medium, high, xhigh and max</div><div class="figimg"><img src="assets/figures/aa-effort-ladder.png" alt="Intelligence against cost per task with reasoning-effort ladders per model, each rung labelled with end-to-end response time"></div><div class="figcap">Community chart built on Artificial Analysis data, accessed 16 Aug 2026<span class="cite">[1]</span></div></div>
+ <div class="note" style="font-size:23px;"><strong>Effort is a dial, not a model choice.</strong> Sol from low to max moves the index 51 &rarr; 61, the cost 4&times;, and the response time from <strong>11 seconds to 149</strong>. Design on the ceiling; move down the curve in production once your tests prove a cheaper setting is enough.</div>
+</div>
+<div class="sources">Sources : [1] <a href="https://www.reddit.com/r/codex/comments/1vpmge5/new_updated_linear_pricing_vs_intelligence_vs/">r/codex &mdash; effort ladder chart on Artificial Analysis data</a></div>
 </div></section>
 <section class="slide"><div class="slide-content">
 <div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Part 3 &middot; Your codebase</span><span class="sep"></span><span class="eyb">The cost that moved</span></div>
@@ -221,7 +229,53 @@
 </div>
 <div class="sources">Sources : <a href="https://www.youtube.com/watch?v=v4F1gFy-hqg">Matt Pocock &mdash; Software Fundamentals Matter More Than Ever (AI Engineer)</a></div>
 </div></section>
-<section class="slide"><div class="slide-content"><div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>How to work</span><span class="sep"></span><span class="eyb">The build method</span></div><div class="s-head"><span class="eyebrow">Two ways to work with agents</span><h1 class="s-title">Two <span class="hl">patterns</span> to build with</h1></div><div class="s-body" style="gap:18px;"><div class="two-col" style="grid-template-columns:1fr 1fr;gap:26px;align-items:start;"><div class="col"><div class="col-label">Pattern 1 &middot; Feature work</div><p style="font-size:20px;">A pipeline of skills to build a feature well:</p><ul class="clean" style="font-size:20px;"><li><a href="https://github.com/obra/superpowers"><code style="font-family:var(--font-mono)">/brainstorming</code></a> &mdash; shape the idea (obra &middot; superpowers)</li><li><a href="https://github.com/mattpocock/skills"><code style="font-family:var(--font-mono)">/grill-with-docs</code></a> &mdash; pressure-test against the docs (Matt Pocock)</li><li><a href="https://x.com/trq212/status/2061545633560010826"><code style="font-family:var(--font-mono)">/make-me-understand</code></a> &mdash; make sure you actually get it</li></ul></div><div class="col"><div class="col-label">Pattern 2 &middot; Autonomous experiment</div><p style="font-size:20px;">Research first, then a self-driving loop:</p><ul class="clean" style="font-size:20px;"><li>Define the <strong>20/80</strong> &rarr; deep research &rarr; a <strong>phased plan</strong>, one axis at a time, a hard &ldquo;definition of done&rdquo; per phase</li><li>Loop: <strong>define experiment &rarr; execute &rarr; monitor &rarr; conclude &rarr; relaunch</strong></li></ul><div class="loop-source" style="margin-top:6px;">From the <a href="https://slides.develle.fr/rlaif-vlm/rlaif-vlm.html">RLAIF hackathon deck</a> &mdash; the phased plan.</div></div></div></div></div></section>
+<section class="slide"><div class="slide-content">
+<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>How to work</span><span class="sep"></span><span class="eyb">The shape of a good delegation</span></div>
+<div class="s-head"><span class="eyebrow">The shape of a good delegation</span><h1 class="s-title small">Spend your thinking <span class="hl">before</span> and <span class="hl">after</span>, not during</h1></div>
+<div class="s-body" style="justify-content:center;gap:20px;">
+ <div class="cards" style="grid-template-columns:1fr auto 1fr auto 1fr;gap:14px;align-items:stretch;">
+  <div class="card step-group" style="padding:20px 22px;">
+    <h4 style="font-size:26px;">1 &middot; Plan</h4>
+    <p style="font-size:19px;">Where <strong>your</strong> effort goes. Two skills, in a row, until the ask is specified well enough to hand over:</p>
+    <ul class="clean" style="font-size:18px;margin-top:10px;">
+      <li><a href="https://github.com/obra/superpowers"><code style="font-family:var(--font-mono)">/brainstorming</code></a> &mdash; shape the idea</li>
+      <li><a href="https://github.com/mattpocock/skills"><code style="font-family:var(--font-mono)">/grill-me</code></a> &mdash; it interviews you until you share a design</li>
+    </ul>
+  </div>
+  <div style="display:flex;align-items:center;font-size:40px;color:var(--brand);">&rarr;</div>
+  <div class="card accent step-group" style="padding:20px 22px;">
+    <h4 style="font-size:26px;">2 &middot; Execute</h4>
+    <p style="font-size:19px;">Where <strong>the agent's</strong> effort goes. A well-specified ask runs a long way on its own &mdash; that autonomy is what you bought by planning properly.</p>
+    <p style="font-size:19px;margin-top:10px;">You are not in the loop here. If you have to be, the plan was not finished.</p>
+  </div>
+  <div style="display:flex;align-items:center;font-size:40px;color:var(--brand);">&rarr;</div>
+  <div class="card step-group" style="padding:20px 22px;">
+    <h4 style="font-size:26px;">3 &middot; Understand</h4>
+    <p style="font-size:19px;">Where <strong>your</strong> effort returns. Digest the work and make it yours again, so you can keep thinking about the system:</p>
+    <ul class="clean" style="font-size:18px;margin-top:10px;">
+      <li><a href="https://x.com/trq212/status/2061545633560010826"><code style="font-family:var(--font-mono)">/make-me-understand</code></a> &mdash; it teaches it back and quizzes you</li>
+    </ul>
+  </div>
+ </div>
+ <div class="note" style="font-size:24px;">A system you cannot explain is one you cannot fix, extend or defend. <strong>The agent did the typing; make sure you still own the thinking.</strong></div>
+</div>
+</div></section>
+<section class="slide"><div class="slide-content">
+<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>How to work</span><span class="sep"></span><span class="eyb">Workflow patterns</span></div>
+<div class="s-head"><span class="eyebrow">Workflow patterns</span><h1 class="s-title small">Five shapes, in increasing <span class="hl">autonomy</span></h1></div>
+<div class="s-body" style="gap:12px;">
+ <div class="cards" style="grid-template-columns:repeat(3,1fr);gap:12px;">
+  <div class="card step-group" style="padding:11px 13px;"><h4 style="font-size:21px;">Prompt chaining</h4><img src="assets/figures/orch-prompt-chaining.png" alt="Anthropic diagram: prompt chaining" style="width:100%;max-height:118px;object-fit:contain;display:block;margin:6px 0 4px;"><p style="font-size:16px;">Sequential calls, a gate between each.</p></div>
+  <div class="card step-group" style="padding:11px 13px;"><h4 style="font-size:21px;">Routing</h4><img src="assets/figures/orch-routing.png" alt="Anthropic diagram: routing" style="width:100%;max-height:118px;object-fit:contain;display:block;margin:6px 0 4px;"><p style="font-size:16px;">Classify first, then a specialist.</p></div>
+  <div class="card step-group" style="padding:11px 13px;"><h4 style="font-size:21px;">Parallelization</h4><img src="assets/figures/orch-parallelization.png" alt="Anthropic diagram: parallelization" style="width:100%;max-height:118px;object-fit:contain;display:block;margin:6px 0 4px;"><p style="font-size:16px;">Split the task, or vote across runs.</p></div>
+  <div class="card step-group" style="padding:11px 13px;"><h4 style="font-size:21px;">Orchestrator and workers</h4><img src="assets/figures/orch-orchestrator-workers.png" alt="Anthropic diagram: orchestrator-workers" style="width:100%;max-height:118px;object-fit:contain;display:block;margin:6px 0 4px;"><p style="font-size:16px;">Decomposes at runtime. <strong>Central control.</strong></p></div>
+  <div class="card step-group accent" style="padding:11px 13px;"><h4 style="font-size:21px;">Evaluator and optimizer</h4><img src="assets/figures/orch-evaluator-optimizer.png" alt="Anthropic diagram: evaluator-optimizer loop" style="width:100%;max-height:118px;object-fit:contain;display:block;margin:6px 0 4px;"><p style="font-size:16px;">One generates, one grades, loop. <strong>The only one that runs unattended.</strong></p></div>
+  <div class="card step-group" style="padding:11px 13px;background:transparent;border-style:dashed;"><h4 style="font-size:21px;">Which one?</h4><p style="font-size:16px;margin-top:6px;">All five are doable with <strong>skills alone</strong> &mdash; no framework. Climb this ladder only when the simpler shape stops being enough.</p></div>
+ </div>
+ <div class="note" style="font-size:21px;">&ldquo;we recommend finding the simplest solution possible, and only increasing complexity when needed. <strong>This might mean not building agentic systems at all.</strong>&rdquo;<span class="cite">[1]</span></div>
+</div>
+<div class="sources">Sources : [1] <a href="https://www.anthropic.com/engineering/building-effective-agents">Anthropic &mdash; Building Effective Agents</a></div>
+</div></section>
 <section class="slide"><div class="slide-content">
 <div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Part 4 &middot; One or many</span><span class="sep"></span><span class="eyb">The disagreement, resolved</span></div>
 <div class="s-head"><span class="eyebrow">The disagreement, resolved</span><h1 class="s-title small">Parallelise reads. <span class="hl">Serialise writes.</span></h1></div>
@@ -236,85 +290,38 @@
 <div class="sources">Sources : [1] <a href="https://cognition.com/blog/dont-build-multi-agents">Cognition</a> &middot; [2] <a href="https://www.anthropic.com/engineering/multi-agent-research-system">Anthropic</a> &middot; [3] <a href="https://www.langchain.com/blog/how-and-when-to-build-multi-agent-systems">LangChain</a></div>
 </div></section>
 <section class="slide"><div class="slide-content">
-<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Part 4 &middot; One or many</span><span class="sep"></span><span class="eyb">The five patterns</span></div>
-<div class="s-head"><span class="eyebrow">The five patterns</span><h1 class="s-title small">Five shapes, in increasing <span class="hl">autonomy</span></h1></div>
-<div class="s-body" style="gap:12px;">
- <div class="cards" style="grid-template-columns:1fr 1fr;gap:16px;">
-  <div class="card" style="padding:12px 13px;"><h4>Prompt chaining</h4><img src="assets/figures/orch-prompt-chaining.png" alt="Anthropic diagram: prompt chaining" style="width:100%;max-height:180px;object-fit:contain;display:block;margin:8px 0 6px;"><p style="font-size:16px;">Sequential calls, a gate between each.</p></div>
-  <div class="card" style="padding:12px 13px;"><h4>Routing</h4><img src="assets/figures/orch-routing.png" alt="Anthropic diagram: routing" style="width:100%;max-height:180px;object-fit:contain;display:block;margin:8px 0 6px;"><p style="font-size:16px;">Classify first, then a specialist.</p></div>
-  <div class="card" style="padding:12px 13px;"><h4>Parallelization</h4><img src="assets/figures/orch-parallelization.png" alt="Anthropic diagram: parallelization" style="width:100%;max-height:180px;object-fit:contain;display:block;margin:8px 0 6px;"><p style="font-size:16px;">Split the task, or vote across runs.</p></div>
-  <div class="card" style="padding:12px 13px;"><h4>Orchestrator and workers</h4><img src="assets/figures/orch-orchestrator-workers.png" alt="Anthropic diagram: orchestrator-workers" style="width:100%;max-height:180px;object-fit:contain;display:block;margin:8px 0 6px;"><p style="font-size:16px;">Decomposes at runtime. <strong>Central control.</strong></p></div>
+<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Loops</span><span class="sep"></span><span class="eyb">Why now</span></div>
+<div class="s-head"><span class="eyebrow">Why now</span><h1 class="s-title small">Stop prompting. <span class="hl">Build loops.</span></h1></div>
+<div class="s-body" style="justify-content:center;gap:18px;">
+ <p style="font-size:28px;line-height:1.35;">From <em>&ldquo;write this for me&rdquo;</em> &mdash; one prompt, one task &mdash; to <strong>&ldquo;keep working toward this&rdquo;</strong>: a loop that re-prompts itself until the goal is met. Three things changed this year, and all three are measurable.</p>
+ <div class="cards" style="grid-template-columns:repeat(3,1fr);gap:18px;">
+  <div class="card step-group"><h4>The models can hold a long task</h4><p>On an 8-day autonomous run, the best model closed <strong>81.7%</strong> of the gap to a human record &mdash; 811 experiments, unattended.<span class="cite">[1]</span> Two years ago a run like that collapsed in an afternoon.</p></div>
+  <div class="card step-group"><h4>The loop is now shipped, not hand-rolled</h4><p><code style="font-family:var(--font-mono)">/loop</code>, routines and scheduled runs are product features. You no longer write the driver, the retry logic or the state file yourself.<span class="cite">[2]</span></p></div>
+  <div class="card accent step-group"><h4>And the cost of being wrong collapsed</h4><p>Same capability, <strong>9&times; to 900&times; cheaper per year</strong>.<span class="cite">[3]</span> A loop that burns tokens overnight to find one real improvement is now an obviously good trade.</p></div>
  </div>
- <div class="note" style="font-size:22px;">The fifth is <strong>evaluator and optimizer</strong>: one generates, one scores, loop. All five are doable with skills, no framework. <strong>&ldquo;we recommend finding the simplest solution possible, and only increasing complexity when needed. This might mean not building agentic systems at all.&rdquo;</strong><span class="cite">[1]</span></div>
+ <div class="note" style="font-size:24px;">The ingredient people skip is the one that makes it work unattended: <strong>the agent has to be able to check itself.</strong> A loop without a verifier is just a more expensive way to be wrong.</div>
 </div>
-<div class="sources">Sources : [1] <a href="https://www.anthropic.com/engineering/building-effective-agents">Anthropic &mdash; Building Effective Agents</a></div>
+<div class="sources">Sources : [1] <a href="https://www.primeintellect.ai/blog/measuring-autonomous-research">Prime Intellect</a> &middot; [2] <a href="https://claude.com/blog/introducing-routines-in-claude-code">Claude Code &mdash; routines</a> &middot; [3] <a href="https://epoch.ai/data-insights/llm-inference-price-trends">Epoch AI &mdash; inference price trends</a></div>
 </div></section>
-<section class="slide"><div class="slide-content">
-<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>How to work</span><span class="sep"></span><span class="eyb">The fifth pattern</span></div>
-<div class="s-head"><span class="eyebrow">The fifth pattern</span><h1 class="s-title small">Evaluator and optimizer &mdash; <span class="hl">the one that matters</span></h1></div>
-<div class="s-body" style="justify-content:center;gap:20px;">
- <div class="figframe" style="max-height:420px;"><div class="figtitle">Evaluator&ndash;optimizer</div><div class="figimg"><img src="assets/figures/orch-evaluator-optimizer.png" alt="Anthropic diagram: evaluator-optimizer loop, one call generates and another evaluates in a loop"></div><div class="figcap">Source: Anthropic &mdash; Building Effective Agents<span class="cite">[1]</span></div></div>
- <div class="note" style="font-size:25px;">One call generates, another grades, and the loop turns until the grade is good enough. <strong>This is the only pattern that can run unattended</strong>, because the verification is inside the loop instead of inside your head. <strong>We come back to it in depth in a moment.</strong></div>
-</div>
-<div class="sources">Sources : [1] <a href="https://www.anthropic.com/engineering/building-effective-agents">Anthropic &mdash; Building Effective Agents</a></div>
-</div></section>
-<section class="slide "><div class="slide-content"><div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Loops</span><span class="sep"></span><span class="eyb">Loops &middot; why now</span></div>
-<div class="s-head" style="margin-top:54px;"><span class="eyebrow">Loops &middot; why now</span><h1 class="s-title">Why now &mdash; <span class="hl">real capability gains</span></h1></div>
-<div class="s-body" style="justify-content:center;">
- <p style="font-size:26px;margin-bottom:8px;">The harness is assembled &mdash; but you don&rsquo;t drive it by hand. You build <strong>loops</strong>. And they work <strong>now</strong>, on real capability gains, not hype:</p>
- <ul class="cap-list" data-diagram="why-now-capabilities">
-  <li><strong>Models are better at long tasks</strong> &mdash; METR: Opus 4.6 completes 50% of <strong>12-hour</strong> tasks, ~6&times; Opus 4. The autonomy window is what loops cash in.</li>
-  <li><strong>Huge tasks already shipped</strong> &mdash; a <strong>Stripe codebase migration in a day</strong> (vs ~2 months by hand); Lovable one-shots apps.</li>
-  <li><strong>Loops are built in</strong> &mdash; Claude Code <span style="font-family:var(--font-mono);font-size:0.9em;">/loop</span>, automations, the <strong>Ralph plugin</strong>. You no longer hand-roll the loop.</li>
-  <li><strong>Subagents separate the loop from the work</strong> &mdash; the loop driver stays small while subagents do the heavy lifting: saves tokens, prevents context degradation.</li>
-  <li><strong>Harnesses are maturing</strong> &mdash; compaction, skills + MCP, cloud execution. The infrastructure caught up to the idea.</li>
- </ul>
- <div class="loop-source">Source: <b>PostHog</b> — <a href="https://newsletter.posthog.com/p/why-were-bullish-on-loops">"Why we're bullish on loops"</a>, Ian Vanagas</div>
-</div></div></section>
-<section class="slide "><div class="slide-content"><div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Loops</span><span class="sep"></span><span class="eyb">Loops &middot; the thesis</span></div>
-<div class="s-head" style="margin-top:54px;"><span class="eyebrow">Loops &middot; the thesis</span><h1 class="s-title small">Don't prompt agents to write code &mdash; <span class="hl">build loops</span></h1></div>
-<div class="s-body">
- <div class="callout tip"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg></span><div><p><strong>The thesis:</strong> Don't prompt agents to write code one task at a time. <strong>Build LOOPS that prompt themselves</strong> &mdash; so agents do long-running tasks, and so you can run many of them in parallel.</p></div></div>
- <p style="margin-top:10px;">Two builders converging on the same idea, independently:</p>
- <div class="cards" style="grid-template-columns:1fr 1fr;">
-  <div class="card"><h4>Peter Steinberger &middot; OpenClaw</h4><p>Loops as the way to keep an agent productive over long horizons.</p></div>
-  <div class="card"><h4>Boris Cherny &middot; Claude Code</h4><p>Loops built into the harness itself.</p></div>
- </div>
- <p>The shift: from "write this for me" (one prompt, one task) to <strong>"keep working toward this"</strong> (a loop that re-prompts itself until the goal is met). Anthropic&rsquo;s Claude Code team defines it exactly so: <strong>&ldquo;loops = agents repeating cycles of work until a stop condition is met.&rdquo;</strong></p>
- <div class="loop-source">Source: <b>Anthropic</b> &mdash; <a href="https://claude.com/blog/getting-started-with-loops">&ldquo;Getting started with loops&rdquo;</a> (Claude Code team) &middot; <b>PostHog</b> &mdash; Ian Vanagas.</div>
-</div></div></section>
 <section class="slide" data-steps="4"><div class="slide-content"><div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Loops</span><span class="sep"></span><span class="eyb">Loops &middot; in the wild</span></div><div class="s-head"><span class="step-tag">Loops &middot; in the wild &middot; stepped</span><h1 class="s-title small">Loops in the wild &mdash; <span class="hl">what people run</span></h1></div><div class="s-body" style="gap:14px;"><p style="font-size:21px;">Whatever the kind, a loop needs a <strong>goal</strong> and a way to <strong>verify</strong> &mdash; <em>&ldquo;a loop without a goal is a slop cannon.&rdquo;</em></p><div class="cards" style="grid-template-columns:1fr 1fr;gap:18px;"><div class="card step-group" data-order="1" style="padding:16px 20px;"><h4 style="font-size:23px;">PR babysitter</h4><p style="font-size:19px;">Watches a pull request and shepherds it to green.</p><div class="prompt-cb"><span class="cmd">/loop</span> &quot;watch PR #2034 &mdash; fix failures until CI is green&quot;</div></div><div class="card step-group" data-order="2" style="padding:16px 20px;"><h4 style="font-size:23px;">Bug fixer</h4><p style="font-size:19px;">Reproduces, isolates, fixes, verifies &mdash; on its own.</p><div class="prompt-cb"><span class="cmd">/goal</span> &quot;reproduce &amp; fix issue #881, add a regression test&quot;</div></div><div class="card step-group" data-order="3" style="padding:16px 20px;"><h4 style="font-size:23px;">Flaky-test hunter</h4><p style="font-size:19px;">Finds and stabilises non-deterministic tests.</p><div class="prompt-cb"><span class="cmd">/loop</span> &quot;find a flaky test, stabilise it &mdash; one per run&quot;</div></div><div class="card accent step-group" data-order="4" style="padding:16px 20px;"><h4 style="font-size:23px;">Perf autoresearcher</h4><p style="font-size:19px;">Karpathy&rsquo;s fixed a 3-year-old bug, +11% perf.</p><div class="prompt-cb"><span class="cmd">/goal</span> &quot;profile the hot path, propose &amp; benchmark a fix&quot;</div></div></div><div class="loop-source">Types: <b>Anthropic</b> &mdash; <a href="https://claude.com/blog/getting-started-with-loops">&ldquo;Getting started with loops&rdquo;</a>. &ldquo;Slop cannon&rdquo;: <b>PostHog</b> &mdash; Ian Vanagas.</div></div></div></section>
 <section class="slide"><div class="slide-content">
-<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Loops</span><span class="sep"></span><span class="eyb">What they actually achieved</span></div>
-<div class="s-head"><span class="eyebrow">What they actually achieved</span><h1 class="s-title small">Good at <span class="hl">hill-climbing</span>. Bad at inventing the hill.</h1></div>
+<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Loops</span><span class="sep"></span><span class="eyb">What actually separates them</span></div>
+<div class="s-head"><span class="eyebrow">What actually separates them</span><h1 class="s-title small">Everyone finds the same ideas. <span class="hl">The experiment discipline decides.</span></h1></div>
 <div class="s-body" style="gap:14px;">
  <div class="two-col wide-left" style="gap:22px;align-items:start;">
-  <div class="figframe"><div class="figtitle">Share of the human record gap closed, by agent time</div><div class="figimg"><img src="assets/figures/nanogpt-frontier.png" alt="NanoGPT Speedrun Frontier: share of the human record gap closed against agent time, one line per model"></div><div class="figcap">153 autonomous runs, 18 frontier models, up to 9 days each. Source: Prime Intellect<span class="cite">[1]</span></div></div>
-  <div style="display:flex;flex-direction:column;gap:14px;min-height:0;">
-   <div class="stat step-group" style="padding:18px 20px;gap:5px;"><div class="big" style="font-size:48px;">81.7%</div><div class="stat-lbl" style="font-size:18px;line-height:1.3;">of the gap to the human record closed by the best model &mdash; overnight, unattended.<span class="cite">[1]</span></div></div>
-   <div class="stat step-group" style="padding:18px 20px;gap:5px;"><div class="big" style="font-size:48px;">8&ndash;9%</div><div class="stat-lbl" style="font-size:18px;line-height:1.3;">of human world-record <em>progress</em> recovered over five months &mdash; while <strong>~77% of those records were algorithmic changes</strong>.<span class="cite">[2]</span></div></div>
-   <p style="font-family:var(--font-display);font-size:26px;color:var(--brand);line-height:1.25;">&ldquo;None of the runs produced a fundamentally new method.&rdquo;<span class="cite">[1]</span></p>
+  <div class="figframe"><div class="figtitle">Share of the human record gap closed, by agent time</div><div class="figimg"><img src="assets/figures/nanogpt-frontier.png" alt="NanoGPT Speedrun Frontier: share of the human record gap closed against agent time, one line per model"></div><div class="figcap">153 runs, 18 models, up to 9 days each. Source: Prime Intellect<span class="cite">[1]</span></div></div>
+  <div style="display:flex;flex-direction:column;gap:13px;min-height:0;">
+   <p style="font-size:20px;color:var(--text-secondary);line-height:1.35;">&ldquo;The models all find similar ideas. <strong>What separates them is how they run experiments.</strong>&rdquo;<span class="cite">[1]</span></p>
+   <div class="card step-group" style="padding:14px 17px;"><h4 style="font-size:21px;">1 &middot; They measure their own noise</h4><p style="font-size:18px;">62 of ~100 runs re-measured the benchmark's noise instead of trusting the number given to them &mdash; and those runs cluster at the <strong>top</strong> of the table.<span class="cite">[1]</span></p></div>
+   <div class="card step-group" style="padding:14px 17px;"><h4 style="font-size:21px;">2 &middot; They don't kill an idea on one seed</h4><p style="font-size:18px;">Weak runs bin a whole family after one bad seed, or treat their own crash as proof. Strong ones re-test borderline results on three seeds, and pay for eight only when the noise model says it is worth it.<span class="cite">[1]</span></p></div>
+   <div class="card accent step-group" style="padding:14px 17px;"><h4 style="font-size:21px;">3 &middot; They go back and re-test</h4><p style="font-size:18px;">After every merge they re-ablate and drop what stopped helping, and they <strong>revisit old negatives</strong> when the recipe changes. One late re-probe by Fable 5 was worth 31 steps.<span class="cite">[1]</span></p></div>
   </div>
  </div>
- <div class="note" style="font-size:23px;">If you can already <strong>compute the metric</strong>, a loop will climb it. <strong>Choosing the hill is still yours.</strong></div>
+ <div class="note" style="font-size:23px;"><strong>The honest ceiling:</strong> not one of the 153 runs invented a genuinely new method &mdash; every winning ingredient already existed in the literature.<span class="cite">[1]</span> Loops climb a hill you can already measure. <strong>Choosing the hill is still yours.</strong></div>
 </div>
-<div class="sources">Sources : [1] <a href="https://www.primeintellect.ai/blog/measuring-autonomous-research">Prime Intellect &mdash; measuring autonomous research</a> &middot; [2] <a href="https://github.com/IntologyAI/NanoGPT-Bench">NanoGPT-Bench</a></div>
+<div class="sources">Sources : [1] <a href="https://www.primeintellect.ai/blog/measuring-autonomous-research">Prime Intellect &mdash; measuring autonomous research</a></div>
 </div></section>
-<section class="slide" data-steps="4"><div class="slide-content"><div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Loops</span><span class="sep"></span><span class="eyb">Loops &middot; the SOTA loop</span></div><div class="s-head"><span class="step-tag">Loops &middot; the SOTA loop &middot; stepped</span><h1 class="s-title small">Planner &middot; Generator &middot; Evaluator &mdash; <span class="hl">the loop Anthropic runs</span></h1></div><div class="s-body" style="gap:16px;"><div class="pge-role step-group" data-order="1"><div class="rh"><span class="rn">PM</span> Planner <span class="cw">own context window</span></div><p>One-line spec &rarr; a deliberately <strong>high-level</strong> series of sprints. Vague on purpose &mdash; granular plans make errors <strong>cascade</strong> over a multi-hour run.</p><div style="font-family:var(--font-mono);font-size:15px;background:#fbf8f0;border:1px solid var(--panel-border);border-radius:8px;padding:10px 14px;color:var(--text-secondary);margin-top:10px;line-height:1.5;"><span style="color:var(--brand-3);">/goal</span> &quot;Kanban board: drag cards between columns, persist to localStorage&quot; &nbsp;&rarr;&nbsp; 5 high-level sprints</div></div><div style="text-align:center;font-size:30px;color:var(--brand);line-height:0.6;margin:2px 0;">&darr;</div><div class="two-col" style="grid-template-columns:1fr 1fr;gap:24px;align-items:start;"><div class="pge-role step-group" data-order="2"><div class="rh"><span class="rn">IC</span> Generator <span class="cw">own context window</span></div><p>Builds against the contract &mdash; its own context, prompt and job. Proposes the contract, then writes code to satisfy it.</p></div><div class="pge-role accent step-group" data-order="3"><div class="rh"><span class="rn">QA</span> Evaluator <span class="cw">own context window</span></div><p>Grades by <strong>using the app</strong> &mdash; Playwright clicks, screenshots, scores &mdash; <strong>not by reading diffs</strong>. Can throw it all out and restart.</p><div class="sota-contract" style="margin-top:12px;"><div class="sc-head">contract.md &mdash; what Ralph never had</div><p>Before a line of code, generator &amp; evaluator <strong>negotiate &ldquo;done&rdquo; into a file</strong> (scope, tests, edge cases &mdash; e.g. <strong>27 criteria</strong>). The evaluator grades against <em>that</em>.</p></div></div></div><div style="text-align:center;font-family:var(--font-mono);font-size:16px;color:var(--text-dim);margin:2px 0;">Generator&nbsp; build &rarr; &nbsp;Evaluator &nbsp;&#8635;&nbsp; &larr; critique &middot; loop until it passes</div><div class="pge-quote step-group" data-order="4"><p>&ldquo;Tuning a standalone critic to be harsh is tractable; tuning a builder to be self-critical is not. <strong>Self-review is a trap.</strong>&rdquo;</p><span class="qa">Ash Prabaker &mdash; exploit the gap between an LLM as critic vs. generator.</span></div><div class="loop-source">Source: <b>Anthropic</b> &mdash; <a href="https://www.youtube.com/watch?v=mR-WAvEPRwE">&ldquo;Build Agents That Run for Hours&rdquo;</a> (Prabaker &amp; Wilson) &middot; now <a href="https://claude.com/blog/getting-started-with-loops">official</a>: a fresh-context reviewer beats self-review.</div></div></div></section>
-<section class="slide"><div class="slide-content">
-<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Evals</span><span class="sep"></span><span class="eyb">How evals mature</span></div>
-<div class="s-head"><span class="eyebrow">Evals</span><h1 class="s-title small">How it <span class="hl">matures</span> &mdash; rigor grows with complexity</h1></div>
-<div class="s-body" style="gap:16px;">
-<p style="font-size:22px;">Capability vs behavior &mdash; measure both. You do not start at phase 4, and you do not stay at phase 1.</p>
-<div class="stair" style="gap:12px;">
- <div class="stair-step step-group" style="padding:14px 20px;"><span class="ph">Phase 1</span><h4 style="font-size:22px;">Documented vibe-checks</h4><p style="font-size:18px;">~10 inputs; human thumbs <strong>plus a written justification</strong> &mdash; the asset you scale later.</p></div>
- <div class="stair-step step-group" style="padding:14px 20px;"><span class="ph">Phase 2</span><h4 style="font-size:22px;">Measure to manage</h4><p style="font-size:18px;">LLM-judge for the subjective, deterministic code scorers for the objective.</p></div>
- <div class="stair-step step-group" style="padding:14px 20px;"><span class="ph">Phase 3</span><h4 style="font-size:22px;">Whole-trace &amp; tool calls</h4><p style="font-size:18px;">Score the full trace; target tool and MCP calls; mock externals, snapshot state.</p></div>
- <div class="stair-step step-group" style="padding:14px 20px;"><span class="ph">Phase 4</span><h4 style="font-size:22px;">Auto-discover</h4><p style="font-size:18px;">Topic-model production to surface failure modes &mdash; no longer hand-named.</p></div>
-</div>
-</div>
-<div class="sources">Sources : <a href="https://www.youtube.com/watch?v=FB-MLPhL9Ms">Phil Hetzel &mdash; Braintrust, maturity phases</a> &middot; <a href="https://www.youtube.com/watch?v=vljxQZfJ9wY">Nishant Gupta &mdash; Meta MSL, production evals</a></div>
-</div></section>
+<section class="slide" data-steps="4"><div class="slide-content"><div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Loops</span><span class="sep"></span><span class="eyb">Loops &middot; the SOTA loop</span></div><div class="s-head"><span class="step-tag">Loops &middot; the SOTA loop &middot; stepped</span><h1 class="s-title small">Planner &middot; Generator &middot; Evaluator &mdash; <span class="hl">the loop Anthropic runs</span></h1></div><div style="margin:6px 0 2px;"><img src="assets/figures/orch-evaluator-optimizer.png" alt="Anthropic diagram: evaluator-optimizer loop" style="width:100%;max-height:96px;object-fit:contain;display:block;"></div><div class="s-body" style="gap:16px;"><div class="pge-role step-group" data-order="1"><div class="rh"><span class="rn">PM</span> Planner <span class="cw">own context window</span></div><p>One-line spec &rarr; a deliberately <strong>high-level</strong> series of sprints. Vague on purpose &mdash; granular plans make errors <strong>cascade</strong> over a multi-hour run.</p><div style="font-family:var(--font-mono);font-size:15px;background:#fbf8f0;border:1px solid var(--panel-border);border-radius:8px;padding:10px 14px;color:var(--text-secondary);margin-top:10px;line-height:1.5;"><span style="color:var(--brand-3);">/goal</span> &quot;Kanban board: drag cards between columns, persist to localStorage&quot; &nbsp;&rarr;&nbsp; 5 high-level sprints</div></div><div style="text-align:center;font-size:30px;color:var(--brand);line-height:0.6;margin:2px 0;">&darr;</div><div class="two-col" style="grid-template-columns:1fr 1fr;gap:24px;align-items:start;"><div class="pge-role step-group" data-order="2"><div class="rh"><span class="rn">IC</span> Generator <span class="cw">own context window</span></div><p>Builds against the contract &mdash; its own context, prompt and job. Proposes the contract, then writes code to satisfy it.</p></div><div class="pge-role accent step-group" data-order="3"><div class="rh"><span class="rn">QA</span> Evaluator <span class="cw">own context window</span></div><p>Grades by <strong>using the app</strong> &mdash; Playwright clicks, screenshots, scores &mdash; <strong>not by reading diffs</strong>. Can throw it all out and restart.</p><div class="sota-contract" style="margin-top:12px;"><div class="sc-head">contract.md &mdash; what Ralph never had</div><p>Before a line of code, generator &amp; evaluator <strong>negotiate &ldquo;done&rdquo; into a file</strong> (scope, tests, edge cases &mdash; e.g. <strong>27 criteria</strong>). The evaluator grades against <em>that</em>.</p></div></div></div><div style="text-align:center;font-family:var(--font-mono);font-size:16px;color:var(--text-dim);margin:2px 0;">Generator&nbsp; build &rarr; &nbsp;Evaluator &nbsp;&#8635;&nbsp; &larr; critique &middot; loop until it passes</div><div class="pge-quote step-group" data-order="4"><p>&ldquo;Tuning a standalone critic to be harsh is tractable; tuning a builder to be self-critical is not. <strong>Self-review is a trap.</strong>&rdquo;</p><span class="qa">Ash Prabaker &mdash; exploit the gap between an LLM as critic vs. generator.</span></div><div class="loop-source">Source: <b>Anthropic</b> &mdash; <a href="https://www.youtube.com/watch?v=mR-WAvEPRwE">&ldquo;Build Agents That Run for Hours&rdquo;</a> (Prabaker &amp; Wilson) &middot; now <a href="https://claude.com/blog/getting-started-with-loops">official</a>: a fresh-context reviewer beats self-review.</div></div></div></section>
 <section class="slide"><div class="slide-content">
 <div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Evals</span><span class="sep"></span><span class="eyb">Where the signal lives</span></div>
 <div class="s-head"><span class="eyebrow">Evals</span><h1 class="s-title small">Where the <span class="hl">signal</span> lives &mdash; the value inverts</h1></div>
@@ -328,22 +335,6 @@
 <div class="pge-quote" style="padding:14px 22px;"><p style="font-size:23px;">&ldquo;Evaluation is becoming the infrastructure &mdash; <strong>not testing, not QA.</strong>&rdquo; Agent traces are the distributed tracing of autonomous work.</p></div>
 </div>
 <div class="sources">Sources : <a href="https://www.youtube.com/watch?v=FB-MLPhL9Ms">Phil Hetzel &mdash; Braintrust</a> &middot; <a href="https://www.youtube.com/watch?v=vljxQZfJ9wY">Nishant Gupta &mdash; Meta MSL</a></div>
-</div></section>
-<section class="slide"><div class="slide-content">
-<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Part 6 &middot; The method</span><span class="sep"></span><span class="eyb">The spine</span></div>
-<div class="s-head"><span class="eyebrow">The spine</span><h1 class="s-title small">Clarify, draft, then <span class="hl">evaluate, observe, improve</span></h1></div>
-<div class="s-body" style="justify-content:center;gap:20px;">
-  <div class="cards" style="grid-template-columns:repeat(3,1fr);gap:18px;">
-    <div class="card"><h4>1 &middot; Clarify</h4><p>Deep-research what separates a great output from an average one. Take the 20% that carries 80%. <strong>Turn it into binary checks that sum to a score.</strong></p></div>
-    <div class="card"><h4>2 &middot; Draft</h4><p>The smallest thing that runs A to Z. Wire tools and data now; build the checks in <strong>from the first run</strong>.</p></div>
-    <div class="card"><h4>3 &middot; Evaluate</h4><p>Three fresh examples, clean context. Otherwise the <strong>conversation</strong> does the work and it breaks &ldquo;mysteriously&rdquo; tomorrow.</p></div>
-    <div class="card"><h4>4 &middot; Observe</h4><p>Criteria down, examples across. A red <strong>row</strong> is a systematic gap; a red <strong>column</strong> is a broken example.</p></div>
-    <div class="card"><h4>5 &middot; Improve</h4><p>Exactly one bottleneck, the most pressing, then stop. A change that does not move the tests <strong>does not stay</strong>.</p></div>
-    <div class="card"><h4>6 &middot; Understand</h4><p>Have it teach you and quiz you. <strong>A system you cannot explain is one you cannot fix or defend.</strong></p></div>
-  </div>
-  <div class="note" style="font-size:25px;"><strong>Intuition to keep:</strong> the agent did the typing &mdash; make sure you still own the thinking.<br><strong>Steal:</strong> three test cases, in a folder, replayed after every change, forever.</div>
-</div>
-<div class="sources">Sources : <a href="https://hamel.dev/blog/posts/evals/">Hamel Husain &mdash; your AI product needs evals</a> &middot; <a href="https://www.youtube.com/watch?v=FB-MLPhL9Ms">Braintrust &mdash; the maturity phases of running evals</a></div>
 </div></section>
 <section class="slide"><div class="slide-content">
 <div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Close</span><span class="sep"></span><span class="eyb">Where the leverage is</span></div>
@@ -366,5 +357,5 @@
 </div>
 
 <div class="stepdots" id="stepDots"></div>
-<div class="pagination"><b id="curNum">01</b> / <span id="totNum">28</span></div>
+<div class="pagination"><b id="curNum">01</b> / <span id="totNum">25</span></div>
 <div class="hint">← → · Space · Home/End</div>
