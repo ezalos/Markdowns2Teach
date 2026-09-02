@@ -16,7 +16,7 @@ PARTS = os.path.join(HERE, "parts")
 REF = os.path.join(HERE, "..", "heuritech-agents", "heuritech-agents.html")
 
 # Reference-deck slides, by their number in that deck (rsNN in Louis's review).
-REF_PART = {2: "Why now", 4: "Why now", 10: "What an agent is", 13: "Loops",
+REF_PART = {2: "Why now", 4: "Why now", 6: "Why now", 10: "What an agent is", 13: "Loops",
             14: "Loops", 15: "Loops", 16: "Loops", 17: "How to work",
             19: "Evals", 22: "Close"}
 
@@ -38,6 +38,9 @@ def rs(n, secs):
     if n == 2:
         # Louis's correction: the Station F role is the AI club, not the incubator.
         s = re.sub(r'AI Lead at Station F[^<]*', 'Club AI Lead at Station F', s)
+    if n == 10:
+        # The one slide where clicking is the teaching: one Think/Act/Observe beat at a time.
+        s = s.replace('<section class="slide', '<section data-keepsteps="1" class="slide', 1)
     if n == 16:
         # The SOTA loop IS evaluator-optimizer at scale — show the canonical diagram with it.
         s = s.replace('<div class="s-body"', EVAL_FIG + '<div class="s-body"', 1)
@@ -67,6 +70,7 @@ def main():
         rs(4, secs),                                 # intelligence is now a commodity
         nth("body-a.html", 6),                       # METR — outgrown, not gamed
         local("new-figures.html", "BENCHMARKS"),     # what to follow instead: ECI + RLI
+        rs(6, secs),                                 # inference cost: 9x to 900x cheaper a year
         local("new-figures.html", "COMMITS"),        # botcommits' own two views
         local("reworked.html", "ECONOMY1"),          # revenue, one chart per slide
         local("reworked.html", "ECONOMY2"),          # 3x faster than any IT wave

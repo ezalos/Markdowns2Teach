@@ -80,13 +80,17 @@ def main():
     body = body.replace('<div class="card">', '<div class="card step-group">')
     body = re.sub(r"<li>(?!\s*<)", '<li class="step-group">', body)
 
-    # A slide marked data-nosteps reveals in one go: some slides are a single
-    # argument and clicking through them just slows the speaker down.
-    def strip_steps(m):
-        # two spellings: class="card step-group" and class="step-group"
-        s = m.group(0).replace(' step-group', '')
-        return s.replace('class="step-group"', 'class=""')
-    body = re.sub(r'<section class="slide"[^>]*data-nosteps.*?</section>', strip_steps, body, flags=re.S)
+    # Slides reveal WHOLE by default: clicking through a slide that is one argument
+    # just slows the speaker down. Only a slide marked data-keepsteps keeps its
+    # progressive reveal — currently the Think/Act/Observe example, where the
+    # stepping IS the teaching.
+    def maybe_strip(m):
+        s = m.group(0)
+        if 'data-keepsteps' in s.split('>', 1)[0]:
+            return s
+        return s.replace(' step-group', '').replace('class="step-group"', 'class=""')
+    body = re.sub(r'<section [^>]*class="slide.*?</section>', maybe_strip, body, flags=re.S)
+    body = re.sub(r'<section class="slide.*?</section>', maybe_strip, body, flags=re.S)
 
     for old, new in GLYPH_FIXES:
         body = body.replace(old, new)
@@ -117,7 +121,8 @@ def main():
         sys.exit("MISSING IMAGES (deck would ship broken):\n  " + "\n  ".join(missing))
 
     open(OUT, "w").write(html)
-    print(f"built {OUT}  ({html.count('<section class=\"slide')} slides, {len(html)//1024} KB)")
+    n = len(re.findall(r'<section [^>]*class="slide', html))
+    print(f"built {OUT}  ({n} slides, {len(html)//1024} KB)")
 
 if __name__ == "__main__":
     main()

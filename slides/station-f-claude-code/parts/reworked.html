@@ -123,8 +123,7 @@
   <div class="card step-group" style="padding:11px 13px;"><h4 style="font-size:21px;">Parallelization</h4><img src="assets/figures/orch-parallelization.png" alt="Anthropic diagram: parallelization" style="width:100%;max-height:118px;object-fit:contain;display:block;margin:6px 0 4px;"><p style="font-size:16px;">Split the task, or vote across runs.</p></div>
   <div class="card step-group" style="padding:11px 13px;"><h4 style="font-size:21px;">Orchestrator and workers</h4><img src="assets/figures/orch-orchestrator-workers.png" alt="Anthropic diagram: orchestrator-workers" style="width:100%;max-height:118px;object-fit:contain;display:block;margin:6px 0 4px;"><p style="font-size:16px;">Decomposes at runtime. <strong>Central control.</strong></p></div>
   <div class="card step-group accent" style="padding:11px 13px;"><h4 style="font-size:21px;">Evaluator and optimizer</h4><img src="assets/figures/orch-evaluator-optimizer.png" alt="Anthropic diagram: evaluator-optimizer loop" style="width:100%;max-height:118px;object-fit:contain;display:block;margin:6px 0 4px;"><p style="font-size:16px;">One generates, one grades, loop. <strong>The only one that runs unattended.</strong></p></div>
-  <div class="card step-group" style="padding:11px 13px;background:transparent;border-style:dashed;"><h4 style="font-size:21px;">Which one?</h4><p style="font-size:16px;margin-top:6px;">All five are doable with <strong>skills alone</strong> &mdash; no framework. Climb this ladder only when the simpler shape stops being enough.</p></div>
- </div>
+  </div>
  <div class="note" style="font-size:21px;">&ldquo;we recommend finding the simplest solution possible, and only increasing complexity when needed. <strong>This might mean not building agentic systems at all.</strong>&rdquo;<span class="cite">[1]</span></div>
 </div>
 <div class="sources">Sources : [1] <a href="https://www.anthropic.com/engineering/building-effective-agents">Anthropic &mdash; Building Effective Agents</a></div>
@@ -140,10 +139,11 @@
    <div class="figtitle">Claude Code &middot; plain markdown</div>
    <div class="figimg" style="display:block;padding:0;background:#fbf8f0;">
     <div style="font-family:var(--font-mono);font-size:16px;line-height:1.62;padding:18px 20px;color:var(--text-secondary);">
-<div style="color:var(--text-dim);">$ ls ~/.claude/projects/<span style="color:var(--brand);">-home-ezalos-42-Markdowns2Teach</span>/memory/</div>
+<div style="color:var(--text-dim);">$ PROJECT=<span style="color:var(--brand);">-home-ezalos-42-Markdowns2Teach</span></div>
+<div style="color:var(--text-dim);">$ ls ~/.claude/projects/$PROJECT/memory/</div>
 <div style="color:var(--text-primary);">MEMORY.md&nbsp; make-build-quirks.md&nbsp; paperbanana.md</div>
 <div style="color:var(--text-primary);">overlap-detector.md&nbsp; env-shell-and-deck-render.md</div>
-<div style="margin-top:12px;color:var(--text-dim);">$ cat &hellip;/memory/make-build-quirks.md</div>
+<div style="margin-top:12px;color:var(--text-dim);">$ cat ~/.claude/projects/$PROJECT/memory/make-build-quirks.md</div>
 <div style="color:var(--text-dim);">---</div>
 <div><span style="color:var(--brand);">name</span>: make-build-quirks</div>
 <div><span style="color:var(--brand);">type</span>: project</div>
