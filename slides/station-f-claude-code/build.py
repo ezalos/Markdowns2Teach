@@ -54,6 +54,8 @@ def de_dash_display(html):
         return m.group(0).replace(" &mdash; ", ", ")
     html = re.sub(r"<h1[^>]*>.*?</h1>", fix, html, flags=re.S)
     html = re.sub(r'<p style="[^"]*font-display[^"]*">.*?</p>', fix, html, flags=re.S)
+    # .figtitle is display-face too, so a figure caption's em-dash disappears the same way.
+    html = re.sub(r'<div class="figtitle">.*?</div>', fix, html, flags=re.S)
     return html
 
 def sniff(raw, path):
@@ -71,7 +73,7 @@ def sniff(raw, path):
 def main():
     head = open(os.path.join(PARTS, "head.html")).read()
     tail = open(os.path.join(PARTS, "tail.html")).read()
-    body = "".join(open(os.path.join(PARTS, f"body-{p}.html")).read() for p in "abc")
+    body = open(os.path.join(PARTS, "body.html")).read()
 
     # progressive disclosure on the teaching elements
     body = body.replace('<div class="stat" style=', '<div class="stat step-group" style=')

@@ -1,0 +1,35 @@
+<!-- ===== rs19 from the reference deck, split into two slides as Louis asked ===== -->
+<!-- Content is the reference deck's verbatim; only the split, the mastheads and the two
+     titles are new, so each half can breathe at its own pace. -->
+
+<!-- MARK:EVALS1  how evals mature — the four phases -->
+<section class="slide"><div class="slide-content">
+<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Evals</span><span class="sep"></span><span class="eyb">How evals mature</span></div>
+<div class="s-head"><span class="eyebrow">Evals</span><h1 class="s-title small">How it <span class="hl">matures</span> &mdash; rigor grows with complexity</h1></div>
+<div class="s-body" style="gap:16px;">
+<p style="font-size:22px;">Capability vs behavior &mdash; measure both. You do not start at phase 4, and you do not stay at phase 1.</p>
+<div class="stair" style="gap:12px;">
+ <div class="stair-step step-group" style="padding:14px 20px;"><span class="ph">Phase 1</span><h4 style="font-size:22px;">Documented vibe-checks</h4><p style="font-size:18px;">~10 inputs; human thumbs <strong>plus a written justification</strong> &mdash; the asset you scale later.</p></div>
+ <div class="stair-step step-group" style="padding:14px 20px;"><span class="ph">Phase 2</span><h4 style="font-size:22px;">Measure to manage</h4><p style="font-size:18px;">LLM-judge for the subjective, deterministic code scorers for the objective.</p></div>
+ <div class="stair-step step-group" style="padding:14px 20px;"><span class="ph">Phase 3</span><h4 style="font-size:22px;">Whole-trace &amp; tool calls</h4><p style="font-size:18px;">Score the full trace; target tool and MCP calls; mock externals, snapshot state.</p></div>
+ <div class="stair-step step-group" style="padding:14px 20px;"><span class="ph">Phase 4</span><h4 style="font-size:22px;">Auto-discover</h4><p style="font-size:18px;">Topic-model production to surface failure modes &mdash; no longer hand-named.</p></div>
+</div>
+</div>
+<div class="sources">Sources : <a href="https://www.youtube.com/watch?v=FB-MLPhL9Ms">Phil Hetzel &mdash; Braintrust, maturity phases</a> &middot; <a href="https://www.youtube.com/watch?v=vljxQZfJ9wY">Nishant Gupta &mdash; Meta MSL, production evals</a></div>
+</div></section>
+
+<!-- MARK:EVALS2  where the signal lives — the value inverts -->
+<section class="slide"><div class="slide-content">
+<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Evals</span><span class="sep"></span><span class="eyb">Where the signal lives</span></div>
+<div class="s-head"><span class="eyebrow">Evals</span><h1 class="s-title small">Where the <span class="hl">signal</span> lives &mdash; the value inverts</h1></div>
+<div class="s-body" style="justify-content:center;gap:20px;">
+<div class="stair" style="grid-template-columns:repeat(3,1fr);align-items:end;flex:none;gap:18px;">
+ <div class="stair-step step-group" style="height:150px;padding:14px 18px;"><span class="ph">bottom</span><h4 style="font-size:22px;">Benchmarks</h4><p style="font-size:17px;">capability &mdash; limited operational value.</p></div>
+ <div class="stair-step step-group" style="height:220px;padding:14px 18px;"><span class="ph">middle</span><h4 style="font-size:22px;">Scenario evals</h4><p style="font-size:17px;">realistic workflows, sandboxed.</p></div>
+ <div class="stair-step step-group" style="height:290px;padding:14px 18px;"><span class="ph">top</span><h4 style="font-size:22px;">Production telemetry</h4><p style="font-size:17px;">real users and real systems &mdash; the highest value signal you have.</p></div>
+</div>
+<div class="callout tip" style="padding:16px 20px;"><span class="ci">&#9733;</span><div><p style="font-size:21px;">North Star = <strong>reliability</strong> (latency, cost, recovery). <em>Accuracy is an input, not the goal.</em> Failure modes stack: coordination &rarr; tools &rarr; memory and safety.</p></div></div>
+<div class="pge-quote" style="padding:14px 22px;"><p style="font-size:23px;">&ldquo;Evaluation is becoming the infrastructure &mdash; <strong>not testing, not QA.</strong>&rdquo; Agent traces are the distributed tracing of autonomous work.</p></div>
+</div>
+<div class="sources">Sources : <a href="https://www.youtube.com/watch?v=FB-MLPhL9Ms">Phil Hetzel &mdash; Braintrust</a> &middot; <a href="https://www.youtube.com/watch?v=vljxQZfJ9wY">Nishant Gupta &mdash; Meta MSL</a></div>
+</div></section>

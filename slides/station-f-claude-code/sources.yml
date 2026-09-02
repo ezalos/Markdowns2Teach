@@ -500,3 +500,68 @@ sources:
     # this quotes the prompt-chaining definition, which is what the slide actually shows.
     quote: "Prompt chaining decomposes a task into a sequence of steps"
     slides: [23]
+
+  # --- carried from the reference deck's registry, for the slides spliced from it ---
+  - id: claude-getting-started-with-loops
+    url: https://claude.com/blog/getting-started-with-loops
+    authority: Anthropic (Claude Code team)
+    title: "Getting started with loops"
+    quote: "progressing from turn-based to goal-based, time-based, and proactive loops"
+    slides: [10, 14, 15, 16]
+  - id: anthropic-agents-run-for-hours
+    url: https://www.youtube.com/watch?v=mR-WAvEPRwE
+    authority: Anthropic (Prabaker & Wilson)
+    title: "Build Agents That Run for Hours"
+    quote: "Why self-evaluation is a trap and adversarial evaluator agents work better"
+    slides: [16]
+  - id: obra-superpowers
+    url: https://github.com/obra/superpowers
+    authority: GitHub (obra)
+    title: "superpowers"
+    quote: "An agentic skills framework & software development methodology that works."
+    slides: [17]
+  - id: trq-make-me-understand
+    url: https://x.com/trq212/status/2061545633560010826
+    authority: X (Thariq, Anthropic)
+    title: "make-me-understand skill post"
+    quote: "been asking others at Anthropic how they stay in the loop with Claude and fully understand the work being done"
+    slides: [17]
+  - id: rlaif-vlm-deck
+    url: https://slides.develle.fr/rlaif-vlm/rlaif-vlm.html
+    authority: Louis Develle
+    title: "RLAIF-VLM hackathon deck"
+    verify: link-only
+    reason: "own deployment behind Google auth — returns 401 to robots when healthy; viewers of this deck are already authed"
+    slides: [17]
+  - id: meta-production-evals
+    url: https://www.youtube.com/watch?v=vljxQZfJ9wY
+    authority: Meta Superintelligence Labs (Nishant Gupta)
+    title: "Production Evals For Agentic AI Systems"
+    quote: "Production Evals For Agentic AI Systems - Nishant Gupta, Meta Superintelligence Labs"
+    slides: [19]
+
+  # --- new with the official-figure rebuild, 2026-09-02 ---
+  - id: epoch-eci-live
+    url: https://epoch.ai/eci
+    authority: Epoch AI
+    title: "Epoch Capabilities Index"
+    quote: "Epoch Capabilities Index"
+
+  - id: aa-model-comparison
+    url: https://artificialanalysis.ai/models#intelligence-comparison-tabs
+    authority: Artificial Analysis
+    title: "Comparison of AI Models across Intelligence, Performance, and Price"
+    quote: "Comparison of AI Models across Intelligence, Performance, and Price"
+
+  - id: epoch-codex-engineer-effort
+    url: https://epoch.ai/data-insights/codex-engineer-effort
+    authority: Epoch AI
+    title: "Contributions to OpenAI's Codex codebase show signs of AI uplift"
+    quote: "Codex codebase show signs of AI uplift"
+
+  - id: reddit-codex-effort-ladder
+    url: https://www.reddit.com/r/codex/comments/1vpmge5/new_updated_linear_pricing_vs_intelligence_vs/
+    authority: r/codex (community chart on Artificial Analysis data)
+    title: "Linear pricing vs intelligence vs response time"
+    verify: link-only
+    reason: "reddit.com returns a 'Blocked' interstitial to automated clients, so no quote can be grepped. The chart itself is a COMMUNITY rebuild of Artificial Analysis data accessed 2026-08-16 — it is cited as such on the slide, not as an AA publication."
