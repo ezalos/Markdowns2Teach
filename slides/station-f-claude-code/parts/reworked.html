@@ -129,3 +129,69 @@
 </div>
 <div class="sources">Sources : [1] <a href="https://www.anthropic.com/engineering/building-effective-agents">Anthropic &mdash; Building Effective Agents</a></div>
 </div></section>
+
+<!-- MARK:MEMORY  what the agent keeps between sessions — a folder, or a database -->
+<section class="slide"><div class="slide-content">
+<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>What an agent is</span><span class="sep"></span><span class="eyb">Memory</span></div>
+<div class="s-head"><span class="eyebrow">Live &middot; what my agent remembers</span><h1 class="s-title small">A folder you can <span class="hl">read</span>, or a database?</h1></div>
+<div class="s-body" style="gap:16px;">
+ <div class="two-col" style="grid-template-columns:1fr 1fr;gap:22px;align-items:stretch;">
+  <div class="figframe" style="max-height:none;">
+   <div class="figtitle">Claude Code &middot; plain markdown</div>
+   <div class="figimg" style="display:block;padding:0;background:#fbf8f0;">
+    <div style="font-family:var(--font-mono);font-size:16px;line-height:1.62;padding:18px 20px;color:var(--text-secondary);">
+<div style="color:var(--text-dim);">$ ls ~/.claude/projects/<span style="color:var(--brand);">-home-ezalos-42-Markdowns2Teach</span>/memory/</div>
+<div style="color:var(--text-primary);">MEMORY.md&nbsp; make-build-quirks.md&nbsp; paperbanana.md</div>
+<div style="color:var(--text-primary);">overlap-detector.md&nbsp; env-shell-and-deck-render.md</div>
+<div style="margin-top:12px;color:var(--text-dim);">$ cat &hellip;/memory/make-build-quirks.md</div>
+<div style="color:var(--text-dim);">---</div>
+<div><span style="color:var(--brand);">name</span>: make-build-quirks</div>
+<div><span style="color:var(--brand);">type</span>: project</div>
+<div style="color:var(--text-dim);">---</div>
+<div style="margin-top:6px;color:var(--text-primary);font-weight:700;"># Makefile pitfalls</div>
+<div><strong style="color:var(--text-primary);">Why:</strong> % in $(filter) is substituted before</div>
+<div>filter runs, so the list comes back empty&hellip;</div>
+<div><strong style="color:var(--text-primary);">How to apply:</strong> precompute per-key lists</div>
+<div>with foreach/eval at definition time.</div>
+    </div>
+   </div>
+   <div class="figcap">One file per fact, an index on top. <strong>Readable, greppable, diffable, reviewable in a pull request.</strong></div>
+  </div>
+  <div class="figframe" style="max-height:none;">
+   <div class="figtitle">Codex &middot; a SQLite pipeline</div>
+   <div class="figimg" style="display:block;padding:0;background:#fbf8f0;">
+    <div style="font-family:var(--font-mono);font-size:16px;line-height:1.62;padding:18px 20px;color:var(--text-secondary);">
+<div style="color:var(--text-dim);">$ ls ~/.codex/</div>
+<div style="color:var(--text-primary);">memories_1.sqlite&nbsp; goals_1.sqlite&nbsp; logs_2.sqlite</div>
+<div style="margin-top:12px;color:var(--text-dim);">$ sqlite3 ~/.codex/memories_1.sqlite ".schema"</div>
+<div>CREATE TABLE <span style="color:var(--brand);">stage1_outputs</span> (</div>
+<div>&nbsp;&nbsp;thread_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TEXT PRIMARY KEY,</div>
+<div>&nbsp;&nbsp;<span style="color:var(--brand);">raw_memory</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TEXT NOT NULL,</div>
+<div>&nbsp;&nbsp;rollout_summary&nbsp;&nbsp;&nbsp;TEXT NOT NULL,</div>
+<div>&nbsp;&nbsp;<span style="color:var(--brand);">usage_count</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INTEGER,</div>
+<div>&nbsp;&nbsp;<span style="color:var(--brand);">selected_for_phase2</span> INTEGER );</div>
+<div style="margin-top:6px;color:var(--text-dim);">-- 0 rows. I don't use it daily.</div>
+    </div>
+   </div>
+   <div class="figcap">A <strong>two-stage curation pipeline with usage tracking</strong> &mdash; not a folder you can open.</div>
+  </div>
+ </div>
+ <div class="note" style="font-size:23px;">Same idea, opposite ergonomics. Instructions are files in <em>both</em> (CLAUDE.md, AGENTS.md) &mdash; the split is in what the agent <strong>learns</strong>. <strong>The deck you are watching was built by the agent whose memory that is.</strong></div>
+</div>
+</div></section>
+<!-- NOTES: LIVE and instant. Say the Codex table is empty because you don't use it daily. MEMORY.md line 4 names credential variables: start at line 5 if projecting. -->
+
+<!-- MARK:CLOSE  the conclusion — this talk is not really about loops -->
+<section class="slide"><div class="slide-content">
+<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Close</span><span class="sep"></span><span class="eyb">The whole arc</span></div>
+<div class="s-head"><span class="eyebrow">The whole arc</span><h1 class="s-title small">The model is the part you <span class="hl">rent</span></h1></div>
+<div class="s-body" style="justify-content:center;gap:20px;">
+ <p style="font-size:28px;line-height:1.35;max-width:1560px;">Everyone in this room has the same model. It gets cheaper every year, it changes ranking every few weeks, and the curves people quote about it keep bending. <strong>None of that is your edge.</strong></p>
+ <div class="cards" style="grid-template-columns:repeat(3,1fr);gap:20px;">
+  <div class="card step-group"><h4>What you wrote down</h4><p>CLAUDE.md, the memory files, the skills. A 9B model with a wiki beats a 27B without one. <strong>The written artefact carries the gain, not the parameters.</strong></p></div>
+  <div class="card step-group"><h4>How well you specified</h4><p>Plan hard, hand over a real brief, then digest what came back. <strong>The autonomy you get is bought before the agent starts.</strong></p></div>
+  <div class="card accent step-group"><h4>Whether it can check itself</h4><p>Evaluation is what turns a prompt into something that runs unattended &mdash; and in production the signal that counts comes from real users.</p></div>
+ </div>
+ <p style="font-family:var(--font-display);font-size:38px;color:var(--brand);line-height:1.22;text-align:center;">You are not managing an AI.<br>You are engineering the conditions in which it works without you.</p>
+</div>
+</div></section>

@@ -80,6 +80,14 @@ def main():
     body = body.replace('<div class="card">', '<div class="card step-group">')
     body = re.sub(r"<li>(?!\s*<)", '<li class="step-group">', body)
 
+    # A slide marked data-nosteps reveals in one go: some slides are a single
+    # argument and clicking through them just slows the speaker down.
+    def strip_steps(m):
+        # two spellings: class="card step-group" and class="step-group"
+        s = m.group(0).replace(' step-group', '')
+        return s.replace('class="step-group"', 'class=""')
+    body = re.sub(r'<section class="slide"[^>]*data-nosteps.*?</section>', strip_steps, body, flags=re.S)
+
     for old, new in GLYPH_FIXES:
         body = body.replace(old, new)
     body = de_dash_display(body)

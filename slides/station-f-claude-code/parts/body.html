@@ -34,7 +34,7 @@
  </div>
  <div class="callout tip" style="margin-top:6px;"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><div><p>Raw intelligence only talks. <strong>An agent is what puts it to work,</strong> acting on the world to deliver value with it. That is what this talk is about.</p></div></div>
 </div></div></section>
-<section class="slide"><div class="slide-content">
+<section class="slide" data-nosteps="1"><div class="slide-content">
 <div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Part 1 &middot; Why</span><span class="sep"></span><span class="eyb">Bend 2 &middot; capability</span></div>
 <div class="s-head"><span class="eyebrow">Bend 2 &middot; capability</span><h1 class="s-title small">The benchmark was <span class="hl">outgrown</span>, not gamed</h1></div>
 <div class="s-body">
@@ -58,7 +58,7 @@
 <div class="s-body" style="gap:14px;">
  <div class="two-col" style="grid-template-columns:1fr 1fr;gap:22px;align-items:start;">
   <div class="figframe"><div class="figtitle">Epoch Capabilities Index &mdash; every model, by release date</div><div class="figimg"><img src="assets/figures/epoch-eci-live.png" alt="Epoch Capabilities Index: score against release date for 236 models"></div><div class="figcap">A composite over 50+ benchmarks that <strong>re-anchors as individual ones saturate</strong>. Source: Epoch AI, CC-BY<span class="cite">[1]</span></div></div>
-  <div class="figframe"><div class="figtitle">Remote Labor Index &mdash; real paid freelance projects</div><div class="figimg"><img src="assets/figures/rli-leaderboard.png" alt="Remote Labor Index leaderboard: automation rate by model"></div><div class="figcap">Human-graded deliverables a client would accept. Best model <strong>15.80%</strong>. Source: Scale / CAIS<span class="cite">[2]</span></div></div>
+  <div class="figframe"><div class="figtitle">Remote Labor Index &mdash; real paid freelance projects</div><div class="figimg"><img src="assets/figures/rli-leaderboard-top.png" alt="Remote Labor Index leaderboard, top five: Fable-5 at 15.80, Opus 4.8 at 8.33, Codex GPT 5.5 at 6.25"></div><div class="figcap">Human-graded deliverables a client would accept &mdash; top five of fifteen. The best model automates <strong>15.80%</strong>, nearly double the runner-up. Source: Scale / CAIS<span class="cite">[2]</span></div></div>
  </div>
  <div class="note" style="font-size:24px;">One gives you the <strong>trajectory</strong> on a scale that keeps re-anchoring; the other gives you the <strong>ceiling</strong>, in work someone actually paid for. <strong>The trend line is not the asset &mdash; what you build around the model is.</strong></div>
 </div>
@@ -170,34 +170,53 @@
 <div class="sources">Sources : [1] <a href="https://anthropic.com/engineering/advanced-tool-use">Anthropic &mdash; advanced tool use</a> &middot; [2] <a href="https://www.trychroma.com/research/context-rot">Chroma &mdash; context rot, 18 models</a></div>
 </div></section>
 <section class="slide"><div class="slide-content">
-<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Part 7 &middot; Leverage</span><span class="sep"></span><span class="eyb">Live &middot; what my agent remembers</span></div>
-<div class="s-head"><span class="eyebrow">Live &middot; what my agent remembers</span><h1 class="s-title small">A folder you can read, or <span class="hl">a database</span>?</h1></div>
-<div class="s-body" style="gap:18px;">
- <div class="two-col" style="gap:20px;align-items:stretch;">
-  <div class="appwin"><div class="aw-head"><span class="dot"></span><span>Claude Code &mdash; memory/</span></div>
-   <div class="aw-body" style="font-family:var(--font-mono);font-size:17px;line-height:1.5;">
-<div style="color:var(--text-dim);">$ cat &hellip;/memory/make-build-quirks.md</div>
-<div>---</div>
+<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>What an agent is</span><span class="sep"></span><span class="eyb">Memory</span></div>
+<div class="s-head"><span class="eyebrow">Live &middot; what my agent remembers</span><h1 class="s-title small">A folder you can <span class="hl">read</span>, or a database?</h1></div>
+<div class="s-body" style="gap:16px;">
+ <div class="two-col" style="grid-template-columns:1fr 1fr;gap:22px;align-items:stretch;">
+  <div class="figframe" style="max-height:none;">
+   <div class="figtitle">Claude Code &middot; plain markdown</div>
+   <div class="figimg" style="display:block;padding:0;background:#fbf8f0;">
+    <div style="font-family:var(--font-mono);font-size:16px;line-height:1.62;padding:18px 20px;color:var(--text-secondary);">
+<div style="color:var(--text-dim);">$ ls ~/.claude/projects/<span style="color:var(--brand);">-home-ezalos-42-Markdowns2Teach</span>/memory/</div>
+<div style="color:var(--text-primary);">MEMORY.md&nbsp; make-build-quirks.md&nbsp; paperbanana.md</div>
+<div style="color:var(--text-primary);">overlap-detector.md&nbsp; env-shell-and-deck-render.md</div>
+<div style="margin-top:12px;color:var(--text-dim);">$ cat &hellip;/memory/make-build-quirks.md</div>
+<div style="color:var(--text-dim);">---</div>
 <div><span style="color:var(--brand);">name</span>: make-build-quirks</div>
 <div><span style="color:var(--brand);">type</span>: project</div>
-<div>---</div>
-<div style="margin-top:6px;"><strong># Makefile pitfalls</strong></div>
-<div style="color:var(--text-secondary);"><strong>Why:</strong> % in $(filter) is substituted before filter runs&hellip;</div>
-<div style="color:var(--text-secondary);"><strong>How to apply:</strong> precompute per-key lists with foreach/eval</div>
-   </div></div>
-  <div class="appwin"><div class="aw-head"><span class="dot"></span><span>Codex &mdash; memories_1.sqlite</span></div>
-   <div class="aw-body" style="font-family:var(--font-mono);font-size:17px;line-height:1.5;">
-<div style="color:var(--text-dim);">$ sqlite3 &hellip;/memories_1.sqlite ".schema"</div>
-<div>CREATE TABLE stage1_outputs (</div>
-<div>&nbsp;&nbsp;thread_id TEXT PRIMARY KEY,</div>
-<div>&nbsp;&nbsp;<span style="color:var(--brand);">raw_memory</span> TEXT NOT NULL,</div>
-<div>&nbsp;&nbsp;rollout_summary TEXT NOT NULL,</div>
-<div>&nbsp;&nbsp;<span style="color:var(--brand);">usage_count</span> INTEGER,</div>
+<div style="color:var(--text-dim);">---</div>
+<div style="margin-top:6px;color:var(--text-primary);font-weight:700;"># Makefile pitfalls</div>
+<div><strong style="color:var(--text-primary);">Why:</strong> % in $(filter) is substituted before</div>
+<div>filter runs, so the list comes back empty&hellip;</div>
+<div><strong style="color:var(--text-primary);">How to apply:</strong> precompute per-key lists</div>
+<div>with foreach/eval at definition time.</div>
+    </div>
+   </div>
+   <div class="figcap">One file per fact, an index on top. <strong>Readable, greppable, diffable, reviewable in a pull request.</strong></div>
+  </div>
+  <div class="figframe" style="max-height:none;">
+   <div class="figtitle">Codex &middot; a SQLite pipeline</div>
+   <div class="figimg" style="display:block;padding:0;background:#fbf8f0;">
+    <div style="font-family:var(--font-mono);font-size:16px;line-height:1.62;padding:18px 20px;color:var(--text-secondary);">
+<div style="color:var(--text-dim);">$ ls ~/.codex/</div>
+<div style="color:var(--text-primary);">memories_1.sqlite&nbsp; goals_1.sqlite&nbsp; logs_2.sqlite</div>
+<div style="margin-top:12px;color:var(--text-dim);">$ sqlite3 ~/.codex/memories_1.sqlite ".schema"</div>
+<div>CREATE TABLE <span style="color:var(--brand);">stage1_outputs</span> (</div>
+<div>&nbsp;&nbsp;thread_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TEXT PRIMARY KEY,</div>
+<div>&nbsp;&nbsp;<span style="color:var(--brand);">raw_memory</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TEXT NOT NULL,</div>
+<div>&nbsp;&nbsp;rollout_summary&nbsp;&nbsp;&nbsp;TEXT NOT NULL,</div>
+<div>&nbsp;&nbsp;<span style="color:var(--brand);">usage_count</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INTEGER,</div>
 <div>&nbsp;&nbsp;<span style="color:var(--brand);">selected_for_phase2</span> INTEGER );</div>
-   </div></div>
+<div style="margin-top:6px;color:var(--text-dim);">-- 0 rows. I don't use it daily.</div>
+    </div>
+   </div>
+   <div class="figcap">A <strong>two-stage curation pipeline with usage tracking</strong> &mdash; not a folder you can open.</div>
+  </div>
  </div>
- <p style="font-size:23px;line-height:1.35;">A lesson the agent hit, <strong>wrote down</strong>, and now re-reads &mdash; against a <strong>two-stage curation pipeline with usage tracking</strong>. Neither is wrong. But one of them you can review, diff, and hand to a new teammate on day one. <strong>The deck you are watching was built by the agent whose memory that is.</strong></p>
-</div></div></section>
+ <div class="note" style="font-size:23px;">Same idea, opposite ergonomics. Instructions are files in <em>both</em> (CLAUDE.md, AGENTS.md) &mdash; the split is in what the agent <strong>learns</strong>. <strong>The deck you are watching was built by the agent whose memory that is.</strong></div>
+</div>
+</div></section>
 <section class="slide"><div class="slide-content">
 <div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>What an agent is</span><span class="sep"></span><span class="eyb">Choosing a model</span></div>
 <div class="s-head"><span class="eyebrow">Choosing a model</span><h1 class="s-title small">Intelligence against <span class="hl">cost</span>, for every model</h1></div>
@@ -215,6 +234,35 @@
  <div class="note" style="font-size:23px;"><strong>Effort is a dial, not a model choice.</strong> Sol from low to max moves the index 51 &rarr; 61, the cost 4&times;, and the response time from <strong>11 seconds to 149</strong>. Design on the ceiling; move down the curve in production once your tests prove a cheaper setting is enough.</div>
 </div>
 <div class="sources">Sources : [1] <a href="https://www.reddit.com/r/codex/comments/1vpmge5/new_updated_linear_pricing_vs_intelligence_vs/">r/codex &mdash; effort ladder chart on Artificial Analysis data</a></div>
+</div></section>
+<section class="slide"><div class="slide-content">
+<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>How to work</span><span class="sep"></span><span class="eyb">Workflow patterns</span></div>
+<div class="s-head"><span class="eyebrow">Workflow patterns</span><h1 class="s-title small">Five shapes, in increasing <span class="hl">autonomy</span></h1></div>
+<div class="s-body" style="gap:12px;">
+ <div class="cards" style="grid-template-columns:repeat(3,1fr);gap:12px;">
+  <div class="card step-group" style="padding:11px 13px;"><h4 style="font-size:21px;">Prompt chaining</h4><img src="assets/figures/orch-prompt-chaining.png" alt="Anthropic diagram: prompt chaining" style="width:100%;max-height:118px;object-fit:contain;display:block;margin:6px 0 4px;"><p style="font-size:16px;">Sequential calls, a gate between each.</p></div>
+  <div class="card step-group" style="padding:11px 13px;"><h4 style="font-size:21px;">Routing</h4><img src="assets/figures/orch-routing.png" alt="Anthropic diagram: routing" style="width:100%;max-height:118px;object-fit:contain;display:block;margin:6px 0 4px;"><p style="font-size:16px;">Classify first, then a specialist.</p></div>
+  <div class="card step-group" style="padding:11px 13px;"><h4 style="font-size:21px;">Parallelization</h4><img src="assets/figures/orch-parallelization.png" alt="Anthropic diagram: parallelization" style="width:100%;max-height:118px;object-fit:contain;display:block;margin:6px 0 4px;"><p style="font-size:16px;">Split the task, or vote across runs.</p></div>
+  <div class="card step-group" style="padding:11px 13px;"><h4 style="font-size:21px;">Orchestrator and workers</h4><img src="assets/figures/orch-orchestrator-workers.png" alt="Anthropic diagram: orchestrator-workers" style="width:100%;max-height:118px;object-fit:contain;display:block;margin:6px 0 4px;"><p style="font-size:16px;">Decomposes at runtime. <strong>Central control.</strong></p></div>
+  <div class="card step-group accent" style="padding:11px 13px;"><h4 style="font-size:21px;">Evaluator and optimizer</h4><img src="assets/figures/orch-evaluator-optimizer.png" alt="Anthropic diagram: evaluator-optimizer loop" style="width:100%;max-height:118px;object-fit:contain;display:block;margin:6px 0 4px;"><p style="font-size:16px;">One generates, one grades, loop. <strong>The only one that runs unattended.</strong></p></div>
+  <div class="card step-group" style="padding:11px 13px;background:transparent;border-style:dashed;"><h4 style="font-size:21px;">Which one?</h4><p style="font-size:16px;margin-top:6px;">All five are doable with <strong>skills alone</strong> &mdash; no framework. Climb this ladder only when the simpler shape stops being enough.</p></div>
+ </div>
+ <div class="note" style="font-size:21px;">&ldquo;we recommend finding the simplest solution possible, and only increasing complexity when needed. <strong>This might mean not building agentic systems at all.</strong>&rdquo;<span class="cite">[1]</span></div>
+</div>
+<div class="sources">Sources : [1] <a href="https://www.anthropic.com/engineering/building-effective-agents">Anthropic &mdash; Building Effective Agents</a></div>
+</div></section>
+<section class="slide"><div class="slide-content">
+<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Part 4 &middot; One or many</span><span class="sep"></span><span class="eyb">The disagreement, resolved</span></div>
+<div class="s-head"><span class="eyebrow">The disagreement, resolved</span><h1 class="s-title small">Parallelise reads. <span class="hl">Serialise writes.</span></h1></div>
+<div class="s-body" style="justify-content:center;gap:22px;">
+ <div class="two-col" style="gap:24px;">
+  <div class="card"><h4>Cognition &mdash; &ldquo;don't build multi-agents&rdquo;</h4><p><strong>Right about writes.</strong> &ldquo;Actions carry implicit decisions, and conflicting decisions carry bad results.&rdquo; Two subagents build two mismatched halves; a third inherits the mess.<span class="cite">[1]</span></p></div>
+  <div class="card"><h4>Anthropic &mdash; multi-agent research</h4><p><strong>Right about reads.</strong> +90.2% over a single agent on their internal research eval &mdash; a <em>reading</em> task. They also state the cost: ~15&times; the tokens of chat.<span class="cite">[2]</span></p></div>
+ </div>
+ <p style="font-family:var(--font-display);font-size:34px;color:var(--brand);text-align:center;line-height:1.25;">Nobody was wrong. Both stated a scoped claim as a universal.</p>
+ <p style="font-size:24px;text-align:center;">&ldquo;Read actions are inherently more parallelizable than write actions.&rdquo;<span class="cite">[3]</span></p>
+</div>
+<div class="sources">Sources : [1] <a href="https://cognition.com/blog/dont-build-multi-agents">Cognition</a> &middot; [2] <a href="https://www.anthropic.com/engineering/multi-agent-research-system">Anthropic</a> &middot; [3] <a href="https://www.langchain.com/blog/how-and-when-to-build-multi-agent-systems">LangChain</a></div>
 </div></section>
 <section class="slide"><div class="slide-content">
 <div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Part 3 &middot; Your codebase</span><span class="sep"></span><span class="eyb">The cost that moved</span></div>
@@ -259,35 +307,6 @@
  </div>
  <div class="note" style="font-size:24px;">A system you cannot explain is one you cannot fix, extend or defend. <strong>The agent did the typing; make sure you still own the thinking.</strong></div>
 </div>
-</div></section>
-<section class="slide"><div class="slide-content">
-<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>How to work</span><span class="sep"></span><span class="eyb">Workflow patterns</span></div>
-<div class="s-head"><span class="eyebrow">Workflow patterns</span><h1 class="s-title small">Five shapes, in increasing <span class="hl">autonomy</span></h1></div>
-<div class="s-body" style="gap:12px;">
- <div class="cards" style="grid-template-columns:repeat(3,1fr);gap:12px;">
-  <div class="card step-group" style="padding:11px 13px;"><h4 style="font-size:21px;">Prompt chaining</h4><img src="assets/figures/orch-prompt-chaining.png" alt="Anthropic diagram: prompt chaining" style="width:100%;max-height:118px;object-fit:contain;display:block;margin:6px 0 4px;"><p style="font-size:16px;">Sequential calls, a gate between each.</p></div>
-  <div class="card step-group" style="padding:11px 13px;"><h4 style="font-size:21px;">Routing</h4><img src="assets/figures/orch-routing.png" alt="Anthropic diagram: routing" style="width:100%;max-height:118px;object-fit:contain;display:block;margin:6px 0 4px;"><p style="font-size:16px;">Classify first, then a specialist.</p></div>
-  <div class="card step-group" style="padding:11px 13px;"><h4 style="font-size:21px;">Parallelization</h4><img src="assets/figures/orch-parallelization.png" alt="Anthropic diagram: parallelization" style="width:100%;max-height:118px;object-fit:contain;display:block;margin:6px 0 4px;"><p style="font-size:16px;">Split the task, or vote across runs.</p></div>
-  <div class="card step-group" style="padding:11px 13px;"><h4 style="font-size:21px;">Orchestrator and workers</h4><img src="assets/figures/orch-orchestrator-workers.png" alt="Anthropic diagram: orchestrator-workers" style="width:100%;max-height:118px;object-fit:contain;display:block;margin:6px 0 4px;"><p style="font-size:16px;">Decomposes at runtime. <strong>Central control.</strong></p></div>
-  <div class="card step-group accent" style="padding:11px 13px;"><h4 style="font-size:21px;">Evaluator and optimizer</h4><img src="assets/figures/orch-evaluator-optimizer.png" alt="Anthropic diagram: evaluator-optimizer loop" style="width:100%;max-height:118px;object-fit:contain;display:block;margin:6px 0 4px;"><p style="font-size:16px;">One generates, one grades, loop. <strong>The only one that runs unattended.</strong></p></div>
-  <div class="card step-group" style="padding:11px 13px;background:transparent;border-style:dashed;"><h4 style="font-size:21px;">Which one?</h4><p style="font-size:16px;margin-top:6px;">All five are doable with <strong>skills alone</strong> &mdash; no framework. Climb this ladder only when the simpler shape stops being enough.</p></div>
- </div>
- <div class="note" style="font-size:21px;">&ldquo;we recommend finding the simplest solution possible, and only increasing complexity when needed. <strong>This might mean not building agentic systems at all.</strong>&rdquo;<span class="cite">[1]</span></div>
-</div>
-<div class="sources">Sources : [1] <a href="https://www.anthropic.com/engineering/building-effective-agents">Anthropic &mdash; Building Effective Agents</a></div>
-</div></section>
-<section class="slide"><div class="slide-content">
-<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Part 4 &middot; One or many</span><span class="sep"></span><span class="eyb">The disagreement, resolved</span></div>
-<div class="s-head"><span class="eyebrow">The disagreement, resolved</span><h1 class="s-title small">Parallelise reads. <span class="hl">Serialise writes.</span></h1></div>
-<div class="s-body" style="justify-content:center;gap:22px;">
- <div class="two-col" style="gap:24px;">
-  <div class="card"><h4>Cognition &mdash; &ldquo;don't build multi-agents&rdquo;</h4><p><strong>Right about writes.</strong> &ldquo;Actions carry implicit decisions, and conflicting decisions carry bad results.&rdquo; Two subagents build two mismatched halves; a third inherits the mess.<span class="cite">[1]</span></p></div>
-  <div class="card"><h4>Anthropic &mdash; multi-agent research</h4><p><strong>Right about reads.</strong> +90.2% over a single agent on their internal research eval &mdash; a <em>reading</em> task. They also state the cost: ~15&times; the tokens of chat.<span class="cite">[2]</span></p></div>
- </div>
- <p style="font-family:var(--font-display);font-size:34px;color:var(--brand);text-align:center;line-height:1.25;">Nobody was wrong. Both stated a scoped claim as a universal.</p>
- <p style="font-size:24px;text-align:center;">&ldquo;Read actions are inherently more parallelizable than write actions.&rdquo;<span class="cite">[3]</span></p>
-</div>
-<div class="sources">Sources : [1] <a href="https://cognition.com/blog/dont-build-multi-agents">Cognition</a> &middot; [2] <a href="https://www.anthropic.com/engineering/multi-agent-research-system">Anthropic</a> &middot; [3] <a href="https://www.langchain.com/blog/how-and-when-to-build-multi-agent-systems">LangChain</a></div>
 </div></section>
 <section class="slide"><div class="slide-content">
 <div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Loops</span><span class="sep"></span><span class="eyb">Why now</span></div>
@@ -351,7 +370,19 @@
 </div>
 <div class="sources">Sources : [1] <a href="https://epoch.ai/data-insights/codex-engineer-effort">Epoch AI &mdash; Codex engineer effort</a> &middot; [2] <a href="https://arxiv.org/html/2608.27454">WikiSkill</a> &middot; [3] <a href="https://www.letta.com/blog/benchmarking-ai-agent-memory/">Letta &mdash; benchmarking agent memory</a></div>
 </div></section>
-<section class="slide"><div class="slide-content"><div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Close</span><span class="sep"></span><span class="eyb">The whole arc</span></div><div class="s-head" style="margin-top:40px;"><span class="eyebrow">What to take away</span><h1 class="s-title">From <span class="hl">a loop</span>, to a harness, to <span class="hl">loops</span></h1></div><div class="s-body" style="justify-content:center;gap:22px;"><ul class="clean" style="font-size:26px;"><li>An agent is a <strong>loop</strong>: gather context &rarr; act &rarr; verify, until the goal is met. The model is a commodity &mdash; <strong>the harness is the engineering</strong>.</li><li>Stop hand-writing steps. <strong>Build loops that prompt themselves</strong> &mdash; and a loop is only as good as its <strong>verifier</strong>.</li><li>Two ways to work: <strong>skills-piped feature work</strong>, and <strong>autonomous experiment loops</strong> &mdash; both start from a sharp definition of done.</li></ul><p style="font-family:var(--font-display);font-size:36px;color:var(--brand);text-align:center;margin-top:6px;">The bottleneck was never code. It&rsquo;s knowing what &ldquo;done&rdquo; means.</p></div></div></section>
+<section class="slide"><div class="slide-content">
+<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Close</span><span class="sep"></span><span class="eyb">The whole arc</span></div>
+<div class="s-head"><span class="eyebrow">The whole arc</span><h1 class="s-title small">The model is the part you <span class="hl">rent</span></h1></div>
+<div class="s-body" style="justify-content:center;gap:20px;">
+ <p style="font-size:28px;line-height:1.35;max-width:1560px;">Everyone in this room has the same model. It gets cheaper every year, it changes ranking every few weeks, and the curves people quote about it keep bending. <strong>None of that is your edge.</strong></p>
+ <div class="cards" style="grid-template-columns:repeat(3,1fr);gap:20px;">
+  <div class="card step-group"><h4>What you wrote down</h4><p>CLAUDE.md, the memory files, the skills. A 9B model with a wiki beats a 27B without one. <strong>The written artefact carries the gain, not the parameters.</strong></p></div>
+  <div class="card step-group"><h4>How well you specified</h4><p>Plan hard, hand over a real brief, then digest what came back. <strong>The autonomy you get is bought before the agent starts.</strong></p></div>
+  <div class="card accent step-group"><h4>Whether it can check itself</h4><p>Evaluation is what turns a prompt into something that runs unattended &mdash; and in production the signal that counts comes from real users.</p></div>
+ </div>
+ <p style="font-family:var(--font-display);font-size:38px;color:var(--brand);line-height:1.22;text-align:center;">You are not managing an AI.<br>You are engineering the conditions in which it works without you.</p>
+</div>
+</div></section>
 </main>
 </div>
 </div>

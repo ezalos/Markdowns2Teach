@@ -74,14 +74,14 @@ def main():
         nth("body-b.html", 3),                       # agent = LLM + harness (before the loop)
         rs(10, secs),                                # one goal, many small steps
         nth("body-b.html", 4),                       # the context window
-        nth("body-c.html", 14),                      # memory: a folder, or a database?
+        local("reworked.html", "MEMORY"),            # memory: a folder, or a database?
         local("reworked.html", "MODELCHOICE1"),      # intelligence vs cost, whole field
         local("reworked.html", "MODELCHOICE2"),      # what thinking effort buys
         # --- How to work -------------------------------------------------------
-        nth("body-b.html", 7),                       # bad code is the most expensive
-        local("reworked.html", "HOWTOWORK"),         # plan -> execute -> understand
         local("reworked.html", "PATTERNS"),          # the five patterns, fifth included
         nth("body-c.html", 3),                       # parallelise reads, serialise writes
+        nth("body-b.html", 7),                       # bad code is the most expensive
+        local("reworked.html", "HOWTOWORK"),         # plan -> execute -> understand
         # --- Loops ---------------------------------------------------------------
         local("reworked.html", "WHYLOOPSNOW"),       # why loops, why this month
         rs(15, secs),                                # loops in the wild
@@ -90,7 +90,7 @@ def main():
         # --- Evals, leverage, close ----------------------------------------------
         local("evals.html", "EVALS2"),               # where the signal lives
         local("new-figures.html", "LEVERAGE"),       # written knowledge compounds
-        rs(22, secs),                                # close
+        local("reworked.html", "CLOSE"),             # close: the model is what you rent
     ]
     # The slides are bare <section>s, so the stage wrappers and the presentation
     # chrome have to be emitted here — extracting sections drops whatever markup
