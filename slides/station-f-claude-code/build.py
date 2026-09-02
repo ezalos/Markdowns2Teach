@@ -88,7 +88,15 @@ def main():
         s = m.group(0)
         if 'data-keepsteps' in s.split('>', 1)[0]:
             return s
-        return s.replace(' step-group', '').replace('class="step-group"', 'class=""')
+        s = s.replace(' step-group', '').replace('class="step-group"', 'class=""')
+        # The controller trusts a declared data-steps over counting elements, so a
+        # leftover attribute leaves phantom dots and clicks that do nothing.
+        s = re.sub(r'\s+data-steps="\d+"', '', s)
+        # "... · stepped" labels are wrong once the slide reveals whole; the tag is
+        # also the slide's eyebrow, so convert rather than delete it.
+        s = s.replace('class="step-tag"', 'class="eyebrow"')
+        s = s.replace(' &middot; stepped<', '<')
+        return s
     body = re.sub(r'<section [^>]*class="slide.*?</section>', maybe_strip, body, flags=re.S)
     body = re.sub(r'<section class="slide.*?</section>', maybe_strip, body, flags=re.S)
 
