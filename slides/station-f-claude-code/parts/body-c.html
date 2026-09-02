@@ -65,6 +65,22 @@
 <div class="sources">Sources : [1] <a href="https://code.claude.com/docs/en/workflows">Claude Code &mdash; workflows</a> &middot; [2] <a href="https://code.claude.com/docs/en/agent-teams">Claude Code &mdash; agent teams</a></div>
 </div></section>
 
+
+<section class="slide"><div class="slide-content">
+<div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Part 4 &middot; One or many</span><span class="sep"></span><span class="eyb">The five patterns</span></div>
+<div class="s-head"><span class="eyebrow">The five patterns</span><h1 class="s-title small">Five shapes, in increasing <span class="hl">autonomy</span></h1></div>
+<div class="s-body" style="gap:12px;">
+ <div class="cards" style="grid-template-columns:1fr 1fr;gap:16px;">
+  <div class="card" style="padding:12px 13px;"><h4>Prompt chaining</h4><img src="assets/figures/orch-prompt-chaining.png" alt="Anthropic diagram: prompt chaining" style="width:100%;max-height:180px;object-fit:contain;display:block;margin:8px 0 6px;"><p style="font-size:16px;">Sequential calls, a gate between each.</p></div>
+  <div class="card" style="padding:12px 13px;"><h4>Routing</h4><img src="assets/figures/orch-routing.png" alt="Anthropic diagram: routing" style="width:100%;max-height:180px;object-fit:contain;display:block;margin:8px 0 6px;"><p style="font-size:16px;">Classify first, then a specialist.</p></div>
+  <div class="card" style="padding:12px 13px;"><h4>Parallelization</h4><img src="assets/figures/orch-parallelization.png" alt="Anthropic diagram: parallelization" style="width:100%;max-height:180px;object-fit:contain;display:block;margin:8px 0 6px;"><p style="font-size:16px;">Split the task, or vote across runs.</p></div>
+  <div class="card" style="padding:12px 13px;"><h4>Orchestrator and workers</h4><img src="assets/figures/orch-orchestrator-workers.png" alt="Anthropic diagram: orchestrator-workers" style="width:100%;max-height:180px;object-fit:contain;display:block;margin:8px 0 6px;"><p style="font-size:16px;">Decomposes at runtime. <strong>Central control.</strong></p></div>
+ </div>
+ <div class="note" style="font-size:22px;">The fifth is <strong>evaluator and optimizer</strong>: one generates, one scores, loop. All five are doable with skills, no framework. <strong>&ldquo;we recommend finding the simplest solution possible, and only increasing complexity when needed. This might mean not building agentic systems at all.&rdquo;</strong><span class="cite">[1]</span></div>
+</div>
+<div class="sources">Sources : [1] <a href="https://www.anthropic.com/engineering/building-effective-agents">Anthropic &mdash; Building Effective Agents</a></div>
+</div></section>
+
 <!-- ============================ PART 5 DIVIDER ============================ -->
 <section class="slide"><div class="slide-content">
 <div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Part 5 &middot; Loops</span><span class="sep"></span><span class="eyb">Automating R&amp;D</span></div>
@@ -106,14 +122,18 @@
 <section class="slide"><div class="slide-content">
 <div class="masthead"><span class="logo">SF</span><span class="sep"></span><span>Part 5 &middot; Loops</span><span class="sep"></span><span class="eyb">Wrap</span></div>
 <div class="s-head"><span class="eyebrow">Part 5 &middot; wrap</span><h1 class="s-title small">Time is the <span class="hl">axis</span></h1></div>
-<div class="s-body" style="justify-content:center;gap:22px;">
-  <ul class="clean" style="font-size:26px;">
+<div class="s-body" style="gap:18px;">
+ <div class="two-col wide-left" style="gap:24px;align-items:start;">
+  <div class="figframe" data-diagram="rli-duration"><div class="figtitle">Share of real freelance projects passed, by how long they take a human</div><div class="figimg"><img src="assets/figures/rli-passrate-by-human-duration.png" alt="Remote Labor Index pass rate against human completion time, three models"></div><div class="figcap">Source: Center for AI Safety &mdash; Remote Labor Index<span class="cite">[2]</span></div></div>
+  <ul class="clean" style="font-size:23px;">
     <li>Agents beat human experts <strong>4&times;</strong> at a two-hour budget. Humans win at eight hours, and score <strong>2&times;</strong> at thirty-two.<span class="cite">[1]</span></li>
+    <li>But on real paid work the lines <strong>do not fall away</strong> with task length the way you would expect. Duration alone is not what makes work hard for an agent.<span class="cite">[2]</span></li>
     <li><strong>Reward hacking is the failure you will actually hit.</strong> A loop optimises the metric, not the goal &mdash; the same mechanism as the incident in Part 4, at your scale.</li>
   </ul>
+ </div>
   <div class="note" style="font-size:27px;"><strong>Intuition to keep:</strong> loops buy you cheap hill-climbing at short horizons. Choosing the hill is still yours.<br><strong>Steal:</strong> point a loop at a metric you already compute &mdash; never at a problem you have not defined.</div>
 </div>
-<div class="sources">Sources : [1] <a href="https://arxiv.org/abs/2411.15114">METR RE-Bench</a></div>
+<div class="sources">Sources : [1] <a href="https://arxiv.org/abs/2411.15114">METR RE-Bench</a> &middot; [2] <a href="https://safe.ai/blog/significant-increase-in-digital-labor-automation">CAIS &mdash; Remote Labor Index</a></div>
 </div></section>
 
 <!-- ============================ PART 6 DIVIDER ============================ -->

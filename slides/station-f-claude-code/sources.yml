@@ -491,3 +491,12 @@ sources:
     title: "Claude Opus 5 — intelligence, price and speed"
     quote: "Intelligence Index"
     slides: [13]
+
+  - id: anthropic-building-effective-agents
+    url: https://www.anthropic.com/engineering/building-effective-agents
+    authority: Anthropic Engineering
+    title: "Building Effective Agents"
+    # The five patterns are five separate headings; no sentence names them together, so
+    # this quotes the prompt-chaining definition, which is what the slide actually shows.
+    quote: "Prompt chaining decomposes a task into a sequence of steps"
+    slides: [23]
